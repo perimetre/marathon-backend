@@ -1,0 +1,5 @@
+src/generated
+.gitignore
+dist
+node_modules
+.circleci
