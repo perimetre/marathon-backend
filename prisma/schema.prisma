@@ -9,3 +9,59 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+enum DrawerType {
+  shallow
+  deep
+}
+
+enum MeasureSystem {
+  metric
+  imperial
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  email    String    @unique @db.VarChar(255)
+  projects Project[]
+}
+
+model Slide {
+  id        Int       @id @default(autoincrement())
+  model     String    @db.VarChar(255)
+  depthInCM Float
+  depthInIN String    @db.VarChar(255)
+  projects  Project[]
+}
+
+model Project {
+  id                Int           @id @default(autoincrement())
+  title             String        @db.VarChar(255)
+  group             String
+  type              DrawerType
+  mainMeasureSystem MeasureSystem
+  widthInCM         Float
+  gableInCM         Float
+  widthInIN         String        @db.VarChar(255)
+  gableInIN         String        @db.VarChar(255)
+  collectionId      Int
+  collection        Collection    @relation(fields: [collectionId], references: [id])
+  finishId          Int
+  finish            Finish        @relation(fields: [finishId], references: [id])
+  userId            Int
+  user              User          @relation(fields: [userId], references: [id])
+  slideId           Int
+  slide             Slide         @relation(fields: [slideId], references: [id])
+}
+
+model Collection {
+  id       Int       @id @default(autoincrement())
+  name     String    @db.VarChar(255)
+  projects Project[]
+}
+
+model Finish {
+  id       Int       @id @default(autoincrement())
+  name     String    @db.VarChar(255)
+  projects Project[]
+}
