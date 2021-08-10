@@ -30,10 +30,28 @@ const main = async () => {
       // playground: env.NODE_ENV === 'development',
       // tracing: env.NODE_ENV === 'development',
       context: async (prevContext) => {
-        const context: Context = {
+        let context: Context = {
           ...prevContext,
           prisma
         };
+
+        try {
+          const auth = context.req.get('Authorization');
+          // Validate the auth string
+          if (auth && auth.includes('Bearer')) {
+            // If has the Bearer word, split by spaces
+            const splitAuth = auth.split(' ');
+
+            // Must be exactly 2, the bearer word and the token
+            if (splitAuth && splitAuth.length === 2) {
+              // Get the second one(the token)
+              const bearer = splitAuth[1];
+              context = { ...context, bearer };
+            }
+          }
+        } catch (error) {
+          // Do nothing, because it wasn't authorized(the token is expired or wrong)
+        }
 
         return context;
       }

@@ -7,6 +7,12 @@ type Collection {
   projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
 }
 
+input CollectionCreateNestedOneWithoutProjectsInput {
+  connect: CollectionWhereUniqueInput
+  connectOrCreate: CollectionCreateOrConnectWithoutProjectsInput
+  create: CollectionCreateWithoutProjectsInput
+}
+
 input CollectionCreateOrConnectWithoutProjectsInput {
   create: CollectionCreateWithoutProjectsInput!
   where: CollectionWhereUniqueInput!
@@ -33,6 +39,15 @@ input CollectionUpsertWithoutProjectsInput {
   update: CollectionUpdateWithoutProjectsInput!
 }
 
+input CollectionWhereInput {
+  AND: [CollectionWhereInput!]
+  NOT: [CollectionWhereInput!]
+  OR: [CollectionWhereInput!]
+  id: IntFilter
+  name: StringFilter
+  projects: ProjectListRelationFilter
+}
+
 input CollectionWhereUniqueInput {
   id: Int
 }
@@ -46,14 +61,45 @@ input EnumDrawerTypeFieldUpdateOperationsInput {
   set: DrawerType
 }
 
+input EnumDrawerTypeFilter {
+  equals: DrawerType
+  in: [DrawerType!]
+  not: NestedEnumDrawerTypeFilter
+  notIn: [DrawerType!]
+}
+
 input EnumMeasureSystemFieldUpdateOperationsInput {
   set: MeasureSystem
+}
+
+input EnumMeasureSystemFilter {
+  equals: MeasureSystem
+  in: [MeasureSystem!]
+  not: NestedEnumMeasureSystemFilter
+  notIn: [MeasureSystem!]
+}
+
+input EnumUserProjectGroupRelationshipTypeFieldUpdateOperationsInput {
+  set: UserProjectGroupRelationshipType
+}
+
+input EnumUserProjectGroupRelationshipTypeFilter {
+  equals: UserProjectGroupRelationshipType
+  in: [UserProjectGroupRelationshipType!]
+  not: NestedEnumUserProjectGroupRelationshipTypeFilter
+  notIn: [UserProjectGroupRelationshipType!]
 }
 
 type Finish {
   id: Int!
   name: String!
   projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+}
+
+input FinishCreateNestedOneWithoutProjectsInput {
+  connect: FinishWhereUniqueInput
+  connectOrCreate: FinishCreateOrConnectWithoutProjectsInput
+  create: FinishCreateWithoutProjectsInput
 }
 
 input FinishCreateOrConnectWithoutProjectsInput {
@@ -82,6 +128,15 @@ input FinishUpsertWithoutProjectsInput {
   update: FinishUpdateWithoutProjectsInput!
 }
 
+input FinishWhereInput {
+  AND: [FinishWhereInput!]
+  NOT: [FinishWhereInput!]
+  OR: [FinishWhereInput!]
+  id: IntFilter
+  name: StringFilter
+  projects: ProjectListRelationFilter
+}
+
 input FinishWhereUniqueInput {
   id: Int
 }
@@ -94,13 +149,167 @@ input FloatFieldUpdateOperationsInput {
   set: Float
 }
 
+input FloatFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatFilter
+  notIn: [Float!]
+}
+
+input IntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
+input IntNullableFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntNullableFilter
+  notIn: [Int!]
+}
+
 enum MeasureSystem {
   imperial
   metric
 }
 
+type Module {
+  id: Int!
+  partNumber: String!
+  projectsThisBelongsTo(cursor: ProjectModuleWhereUniqueInput, skip: Int, take: Int): [ProjectModule!]!
+}
+
+input ModuleCreateNestedOneWithoutProjectsThisBelongsToInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutProjectsThisBelongsToInput
+  create: ModuleCreateWithoutProjectsThisBelongsToInput
+}
+
+input ModuleCreateOrConnectWithoutProjectsThisBelongsToInput {
+  create: ModuleCreateWithoutProjectsThisBelongsToInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateWithoutProjectsThisBelongsToInput {
+  partNumber: String!
+}
+
+input ModuleUpdateOneRequiredWithoutProjectsThisBelongsToInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutProjectsThisBelongsToInput
+  create: ModuleCreateWithoutProjectsThisBelongsToInput
+  update: ModuleUpdateWithoutProjectsThisBelongsToInput
+  upsert: ModuleUpsertWithoutProjectsThisBelongsToInput
+}
+
+input ModuleUpdateWithoutProjectsThisBelongsToInput {
+  partNumber: StringFieldUpdateOperationsInput
+}
+
+input ModuleUpsertWithoutProjectsThisBelongsToInput {
+  create: ModuleCreateWithoutProjectsThisBelongsToInput!
+  update: ModuleUpdateWithoutProjectsThisBelongsToInput!
+}
+
+input ModuleWhereInput {
+  AND: [ModuleWhereInput!]
+  NOT: [ModuleWhereInput!]
+  OR: [ModuleWhereInput!]
+  id: IntFilter
+  partNumber: StringFilter
+  projectsThisBelongsTo: ProjectModuleListRelationFilter
+}
+
+input ModuleWhereUniqueInput {
+  id: Int
+  partNumber: String
+}
+
 type Mutation {
+  createOneProject(data: ProjectCreateInput!): Project!
   updateOneProject(data: ProjectUpdateInput!, where: ProjectWhereUniqueInput!): Project
+}
+
+input NestedEnumDrawerTypeFilter {
+  equals: DrawerType
+  in: [DrawerType!]
+  not: NestedEnumDrawerTypeFilter
+  notIn: [DrawerType!]
+}
+
+input NestedEnumMeasureSystemFilter {
+  equals: MeasureSystem
+  in: [MeasureSystem!]
+  not: NestedEnumMeasureSystemFilter
+  notIn: [MeasureSystem!]
+}
+
+input NestedEnumUserProjectGroupRelationshipTypeFilter {
+  equals: UserProjectGroupRelationshipType
+  in: [UserProjectGroupRelationshipType!]
+  not: NestedEnumUserProjectGroupRelationshipTypeFilter
+  notIn: [UserProjectGroupRelationshipType!]
+}
+
+input NestedFloatFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatFilter
+  notIn: [Float!]
+}
+
+input NestedIntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
+input NestedIntNullableFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntNullableFilter
+  notIn: [Int!]
+}
+
+input NestedStringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
 }
 
 type Project {
@@ -110,17 +319,426 @@ type Project {
   finishId: Int!
   gableInCM: Float!
   gableInIN: String!
-  group: String!
+  group: ProjectGroup!
+  groupId: Int!
   id: Int!
   mainMeasureSystem: MeasureSystem!
+  modules(cursor: ProjectModuleWhereUniqueInput, skip: Int, take: Int): [ProjectModule!]!
   slide: Slide!
   slideId: Int!
   title: String!
   type: DrawerType!
-  user: User!
-  userId: Int!
   widthInCM: Float!
   widthInIN: String!
+}
+
+input ProjectCreateInput {
+  collection: CollectionCreateNestedOneWithoutProjectsInput!
+  finish: FinishCreateNestedOneWithoutProjectsInput!
+  gableInCM: Float!
+  gableInIN: String!
+  group: ProjectGroupCreateNestedOneWithoutProjectsInput!
+  mainMeasureSystem: MeasureSystem!
+  modules: ProjectModuleCreateNestedManyWithoutProjectInput
+  slide: SlideCreateNestedOneWithoutProjectsInput!
+  title: String!
+  type: DrawerType!
+  widthInCM: Float!
+  widthInIN: String!
+}
+
+input ProjectCreateNestedOneWithoutModulesInput {
+  connect: ProjectWhereUniqueInput
+  connectOrCreate: ProjectCreateOrConnectWithoutModulesInput
+  create: ProjectCreateWithoutModulesInput
+}
+
+input ProjectCreateOrConnectWithoutModulesInput {
+  create: ProjectCreateWithoutModulesInput!
+  where: ProjectWhereUniqueInput!
+}
+
+input ProjectCreateWithoutModulesInput {
+  collection: CollectionCreateNestedOneWithoutProjectsInput!
+  finish: FinishCreateNestedOneWithoutProjectsInput!
+  gableInCM: Float!
+  gableInIN: String!
+  group: ProjectGroupCreateNestedOneWithoutProjectsInput!
+  mainMeasureSystem: MeasureSystem!
+  slide: SlideCreateNestedOneWithoutProjectsInput!
+  title: String!
+  type: DrawerType!
+  widthInCM: Float!
+  widthInIN: String!
+}
+
+type ProjectGroup {
+  id: Int!
+  name: String!
+  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+  users(cursor: UserProjectGroupWhereUniqueInput, skip: Int, take: Int): [UserProjectGroup!]!
+}
+
+input ProjectGroupCreateNestedOneWithoutProjectsInput {
+  connect: ProjectGroupWhereUniqueInput
+  connectOrCreate: ProjectGroupCreateOrConnectWithoutProjectsInput
+  create: ProjectGroupCreateWithoutProjectsInput
+}
+
+input ProjectGroupCreateOrConnectWithoutProjectsInput {
+  create: ProjectGroupCreateWithoutProjectsInput!
+  where: ProjectGroupWhereUniqueInput!
+}
+
+input ProjectGroupCreateWithoutProjectsInput {
+  name: String!
+  users: UserProjectGroupCreateNestedManyWithoutGroupInput
+}
+
+input ProjectGroupOrderByInput {
+  id: SortOrder
+  name: SortOrder
+}
+
+input ProjectGroupUpdateOneRequiredWithoutProjectsInput {
+  connect: ProjectGroupWhereUniqueInput
+  connectOrCreate: ProjectGroupCreateOrConnectWithoutProjectsInput
+  create: ProjectGroupCreateWithoutProjectsInput
+  update: ProjectGroupUpdateWithoutProjectsInput
+  upsert: ProjectGroupUpsertWithoutProjectsInput
+}
+
+input ProjectGroupUpdateWithoutProjectsInput {
+  name: StringFieldUpdateOperationsInput
+  users: UserProjectGroupUpdateManyWithoutGroupInput
+}
+
+input ProjectGroupUpsertWithoutProjectsInput {
+  create: ProjectGroupCreateWithoutProjectsInput!
+  update: ProjectGroupUpdateWithoutProjectsInput!
+}
+
+input ProjectGroupWhereInput {
+  AND: [ProjectGroupWhereInput!]
+  NOT: [ProjectGroupWhereInput!]
+  OR: [ProjectGroupWhereInput!]
+  id: IntFilter
+  name: StringFilter
+  projects: ProjectListRelationFilter
+  users: UserProjectGroupListRelationFilter
+}
+
+input ProjectGroupWhereUniqueInput {
+  id: Int
+}
+
+input ProjectListRelationFilter {
+  every: ProjectWhereInput
+  none: ProjectWhereInput
+  some: ProjectWhereInput
+}
+
+type ProjectModule {
+  Project: Project
+  children(cursor: ProjectModuleWhereUniqueInput, skip: Int, take: Int): [ProjectModule!]!
+  id: Int!
+  module: Module!
+  moduleId: Int!
+  parent: ProjectModule
+  parentId: Int
+  posX: Float!
+  posY: Float!
+  posZ: Float!
+  projectId: Int
+  rotX: Float!
+  rotY: Float!
+  rotZ: Float!
+}
+
+input ProjectModuleCreateManyParentInput {
+  id: Int
+  moduleId: Int!
+  posX: Float!
+  posY: Float!
+  posZ: Float!
+  projectId: Int
+  rotX: Float!
+  rotY: Float!
+  rotZ: Float!
+}
+
+input ProjectModuleCreateManyParentInputEnvelope {
+  data: [ProjectModuleCreateManyParentInput!]
+  skipDuplicates: Boolean
+}
+
+input ProjectModuleCreateManyProjectInput {
+  id: Int
+  moduleId: Int!
+  parentId: Int
+  posX: Float!
+  posY: Float!
+  posZ: Float!
+  rotX: Float!
+  rotY: Float!
+  rotZ: Float!
+}
+
+input ProjectModuleCreateManyProjectInputEnvelope {
+  data: [ProjectModuleCreateManyProjectInput!]
+  skipDuplicates: Boolean
+}
+
+input ProjectModuleCreateNestedManyWithoutParentInput {
+  connect: [ProjectModuleWhereUniqueInput!]
+  connectOrCreate: [ProjectModuleCreateOrConnectWithoutParentInput!]
+  create: [ProjectModuleCreateWithoutParentInput!]
+  createMany: ProjectModuleCreateManyParentInputEnvelope
+}
+
+input ProjectModuleCreateNestedManyWithoutProjectInput {
+  connect: [ProjectModuleWhereUniqueInput!]
+  connectOrCreate: [ProjectModuleCreateOrConnectWithoutProjectInput!]
+  create: [ProjectModuleCreateWithoutProjectInput!]
+  createMany: ProjectModuleCreateManyProjectInputEnvelope
+}
+
+input ProjectModuleCreateNestedOneWithoutChildrenInput {
+  connect: ProjectModuleWhereUniqueInput
+  connectOrCreate: ProjectModuleCreateOrConnectWithoutChildrenInput
+  create: ProjectModuleCreateWithoutChildrenInput
+}
+
+input ProjectModuleCreateOrConnectWithoutChildrenInput {
+  create: ProjectModuleCreateWithoutChildrenInput!
+  where: ProjectModuleWhereUniqueInput!
+}
+
+input ProjectModuleCreateOrConnectWithoutParentInput {
+  create: ProjectModuleCreateWithoutParentInput!
+  where: ProjectModuleWhereUniqueInput!
+}
+
+input ProjectModuleCreateOrConnectWithoutProjectInput {
+  create: ProjectModuleCreateWithoutProjectInput!
+  where: ProjectModuleWhereUniqueInput!
+}
+
+input ProjectModuleCreateWithoutChildrenInput {
+  Project: ProjectCreateNestedOneWithoutModulesInput
+  module: ModuleCreateNestedOneWithoutProjectsThisBelongsToInput!
+  parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  posX: Float!
+  posY: Float!
+  posZ: Float!
+  rotX: Float!
+  rotY: Float!
+  rotZ: Float!
+}
+
+input ProjectModuleCreateWithoutParentInput {
+  Project: ProjectCreateNestedOneWithoutModulesInput
+  children: ProjectModuleCreateNestedManyWithoutParentInput
+  module: ModuleCreateNestedOneWithoutProjectsThisBelongsToInput!
+  posX: Float!
+  posY: Float!
+  posZ: Float!
+  rotX: Float!
+  rotY: Float!
+  rotZ: Float!
+}
+
+input ProjectModuleCreateWithoutProjectInput {
+  children: ProjectModuleCreateNestedManyWithoutParentInput
+  module: ModuleCreateNestedOneWithoutProjectsThisBelongsToInput!
+  parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  posX: Float!
+  posY: Float!
+  posZ: Float!
+  rotX: Float!
+  rotY: Float!
+  rotZ: Float!
+}
+
+input ProjectModuleListRelationFilter {
+  every: ProjectModuleWhereInput
+  none: ProjectModuleWhereInput
+  some: ProjectModuleWhereInput
+}
+
+input ProjectModuleScalarWhereInput {
+  AND: [ProjectModuleScalarWhereInput!]
+  NOT: [ProjectModuleScalarWhereInput!]
+  OR: [ProjectModuleScalarWhereInput!]
+  id: IntFilter
+  moduleId: IntFilter
+  parentId: IntNullableFilter
+  posX: FloatFilter
+  posY: FloatFilter
+  posZ: FloatFilter
+  projectId: IntNullableFilter
+  rotX: FloatFilter
+  rotY: FloatFilter
+  rotZ: FloatFilter
+}
+
+input ProjectModuleUpdateManyMutationInput {
+  posX: FloatFieldUpdateOperationsInput
+  posY: FloatFieldUpdateOperationsInput
+  posZ: FloatFieldUpdateOperationsInput
+  rotX: FloatFieldUpdateOperationsInput
+  rotY: FloatFieldUpdateOperationsInput
+  rotZ: FloatFieldUpdateOperationsInput
+}
+
+input ProjectModuleUpdateManyWithWhereWithoutParentInput {
+  data: ProjectModuleUpdateManyMutationInput!
+  where: ProjectModuleScalarWhereInput!
+}
+
+input ProjectModuleUpdateManyWithWhereWithoutProjectInput {
+  data: ProjectModuleUpdateManyMutationInput!
+  where: ProjectModuleScalarWhereInput!
+}
+
+input ProjectModuleUpdateManyWithoutParentInput {
+  connect: [ProjectModuleWhereUniqueInput!]
+  connectOrCreate: [ProjectModuleCreateOrConnectWithoutParentInput!]
+  create: [ProjectModuleCreateWithoutParentInput!]
+  createMany: ProjectModuleCreateManyParentInputEnvelope
+  delete: [ProjectModuleWhereUniqueInput!]
+  deleteMany: [ProjectModuleScalarWhereInput!]
+  disconnect: [ProjectModuleWhereUniqueInput!]
+  set: [ProjectModuleWhereUniqueInput!]
+  update: [ProjectModuleUpdateWithWhereUniqueWithoutParentInput!]
+  updateMany: [ProjectModuleUpdateManyWithWhereWithoutParentInput!]
+  upsert: [ProjectModuleUpsertWithWhereUniqueWithoutParentInput!]
+}
+
+input ProjectModuleUpdateManyWithoutProjectInput {
+  connect: [ProjectModuleWhereUniqueInput!]
+  connectOrCreate: [ProjectModuleCreateOrConnectWithoutProjectInput!]
+  create: [ProjectModuleCreateWithoutProjectInput!]
+  createMany: ProjectModuleCreateManyProjectInputEnvelope
+  delete: [ProjectModuleWhereUniqueInput!]
+  deleteMany: [ProjectModuleScalarWhereInput!]
+  disconnect: [ProjectModuleWhereUniqueInput!]
+  set: [ProjectModuleWhereUniqueInput!]
+  update: [ProjectModuleUpdateWithWhereUniqueWithoutProjectInput!]
+  updateMany: [ProjectModuleUpdateManyWithWhereWithoutProjectInput!]
+  upsert: [ProjectModuleUpsertWithWhereUniqueWithoutProjectInput!]
+}
+
+input ProjectModuleUpdateOneWithoutChildrenInput {
+  connect: ProjectModuleWhereUniqueInput
+  connectOrCreate: ProjectModuleCreateOrConnectWithoutChildrenInput
+  create: ProjectModuleCreateWithoutChildrenInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ProjectModuleUpdateWithoutChildrenInput
+  upsert: ProjectModuleUpsertWithoutChildrenInput
+}
+
+input ProjectModuleUpdateWithWhereUniqueWithoutParentInput {
+  data: ProjectModuleUpdateWithoutParentInput!
+  where: ProjectModuleWhereUniqueInput!
+}
+
+input ProjectModuleUpdateWithWhereUniqueWithoutProjectInput {
+  data: ProjectModuleUpdateWithoutProjectInput!
+  where: ProjectModuleWhereUniqueInput!
+}
+
+input ProjectModuleUpdateWithoutChildrenInput {
+  Project: ProjectUpdateOneWithoutModulesInput
+  module: ModuleUpdateOneRequiredWithoutProjectsThisBelongsToInput
+  parent: ProjectModuleUpdateOneWithoutChildrenInput
+  posX: FloatFieldUpdateOperationsInput
+  posY: FloatFieldUpdateOperationsInput
+  posZ: FloatFieldUpdateOperationsInput
+  rotX: FloatFieldUpdateOperationsInput
+  rotY: FloatFieldUpdateOperationsInput
+  rotZ: FloatFieldUpdateOperationsInput
+}
+
+input ProjectModuleUpdateWithoutParentInput {
+  Project: ProjectUpdateOneWithoutModulesInput
+  children: ProjectModuleUpdateManyWithoutParentInput
+  module: ModuleUpdateOneRequiredWithoutProjectsThisBelongsToInput
+  posX: FloatFieldUpdateOperationsInput
+  posY: FloatFieldUpdateOperationsInput
+  posZ: FloatFieldUpdateOperationsInput
+  rotX: FloatFieldUpdateOperationsInput
+  rotY: FloatFieldUpdateOperationsInput
+  rotZ: FloatFieldUpdateOperationsInput
+}
+
+input ProjectModuleUpdateWithoutProjectInput {
+  children: ProjectModuleUpdateManyWithoutParentInput
+  module: ModuleUpdateOneRequiredWithoutProjectsThisBelongsToInput
+  parent: ProjectModuleUpdateOneWithoutChildrenInput
+  posX: FloatFieldUpdateOperationsInput
+  posY: FloatFieldUpdateOperationsInput
+  posZ: FloatFieldUpdateOperationsInput
+  rotX: FloatFieldUpdateOperationsInput
+  rotY: FloatFieldUpdateOperationsInput
+  rotZ: FloatFieldUpdateOperationsInput
+}
+
+input ProjectModuleUpsertWithWhereUniqueWithoutParentInput {
+  create: ProjectModuleCreateWithoutParentInput!
+  update: ProjectModuleUpdateWithoutParentInput!
+  where: ProjectModuleWhereUniqueInput!
+}
+
+input ProjectModuleUpsertWithWhereUniqueWithoutProjectInput {
+  create: ProjectModuleCreateWithoutProjectInput!
+  update: ProjectModuleUpdateWithoutProjectInput!
+  where: ProjectModuleWhereUniqueInput!
+}
+
+input ProjectModuleUpsertWithoutChildrenInput {
+  create: ProjectModuleCreateWithoutChildrenInput!
+  update: ProjectModuleUpdateWithoutChildrenInput!
+}
+
+input ProjectModuleWhereInput {
+  AND: [ProjectModuleWhereInput!]
+  NOT: [ProjectModuleWhereInput!]
+  OR: [ProjectModuleWhereInput!]
+  Project: ProjectWhereInput
+  children: ProjectModuleListRelationFilter
+  id: IntFilter
+  module: ModuleWhereInput
+  moduleId: IntFilter
+  parent: ProjectModuleWhereInput
+  parentId: IntNullableFilter
+  posX: FloatFilter
+  posY: FloatFilter
+  posZ: FloatFilter
+  projectId: IntNullableFilter
+  rotX: FloatFilter
+  rotY: FloatFilter
+  rotZ: FloatFilter
+}
+
+input ProjectModuleWhereUniqueInput {
+  id: Int
+}
+
+input ProjectOrderByInput {
+  collectionId: SortOrder
+  finishId: SortOrder
+  gableInCM: SortOrder
+  gableInIN: SortOrder
+  groupId: SortOrder
+  id: SortOrder
+  mainMeasureSystem: SortOrder
+  slideId: SortOrder
+  title: SortOrder
+  type: SortOrder
+  widthInCM: SortOrder
+  widthInIN: SortOrder
 }
 
 input ProjectUpdateInput {
@@ -128,14 +746,66 @@ input ProjectUpdateInput {
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gableInCM: FloatFieldUpdateOperationsInput
   gableInIN: StringFieldUpdateOperationsInput
-  group: StringFieldUpdateOperationsInput
+  group: ProjectGroupUpdateOneRequiredWithoutProjectsInput
+  mainMeasureSystem: EnumMeasureSystemFieldUpdateOperationsInput
+  modules: ProjectModuleUpdateManyWithoutProjectInput
+  slide: SlideUpdateOneRequiredWithoutProjectsInput
+  title: StringFieldUpdateOperationsInput
+  type: EnumDrawerTypeFieldUpdateOperationsInput
+  widthInCM: FloatFieldUpdateOperationsInput
+  widthInIN: StringFieldUpdateOperationsInput
+}
+
+input ProjectUpdateOneWithoutModulesInput {
+  connect: ProjectWhereUniqueInput
+  connectOrCreate: ProjectCreateOrConnectWithoutModulesInput
+  create: ProjectCreateWithoutModulesInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ProjectUpdateWithoutModulesInput
+  upsert: ProjectUpsertWithoutModulesInput
+}
+
+input ProjectUpdateWithoutModulesInput {
+  collection: CollectionUpdateOneRequiredWithoutProjectsInput
+  finish: FinishUpdateOneRequiredWithoutProjectsInput
+  gableInCM: FloatFieldUpdateOperationsInput
+  gableInIN: StringFieldUpdateOperationsInput
+  group: ProjectGroupUpdateOneRequiredWithoutProjectsInput
   mainMeasureSystem: EnumMeasureSystemFieldUpdateOperationsInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   title: StringFieldUpdateOperationsInput
   type: EnumDrawerTypeFieldUpdateOperationsInput
-  user: UserUpdateOneRequiredWithoutProjectsInput
   widthInCM: FloatFieldUpdateOperationsInput
   widthInIN: StringFieldUpdateOperationsInput
+}
+
+input ProjectUpsertWithoutModulesInput {
+  create: ProjectCreateWithoutModulesInput!
+  update: ProjectUpdateWithoutModulesInput!
+}
+
+input ProjectWhereInput {
+  AND: [ProjectWhereInput!]
+  NOT: [ProjectWhereInput!]
+  OR: [ProjectWhereInput!]
+  collection: CollectionWhereInput
+  collectionId: IntFilter
+  finish: FinishWhereInput
+  finishId: IntFilter
+  gableInCM: FloatFilter
+  gableInIN: StringFilter
+  group: ProjectGroupWhereInput
+  groupId: IntFilter
+  id: IntFilter
+  mainMeasureSystem: EnumMeasureSystemFilter
+  modules: ProjectModuleListRelationFilter
+  slide: SlideWhereInput
+  slideId: IntFilter
+  title: StringFilter
+  type: EnumDrawerTypeFilter
+  widthInCM: FloatFilter
+  widthInIN: StringFilter
 }
 
 input ProjectWhereUniqueInput {
@@ -144,14 +814,36 @@ input ProjectWhereUniqueInput {
 
 type Query {
   project(where: ProjectWhereUniqueInput!): Project
+  projectGroup(where: ProjectGroupWhereUniqueInput!): ProjectGroup
+  projectGroups(
+    cursor: ProjectGroupWhereUniqueInput
+    orderBy: [ProjectGroupOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectGroupWhereInput
+  ): [ProjectGroup!]!
+  projects(
+    cursor: ProjectWhereUniqueInput
+    orderBy: [ProjectOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectWhereInput
+  ): [Project!]!
 }
 
 type Slide {
+  brand: String!
   depthInCM: Float!
   depthInIN: String!
   id: Int!
   model: String!
   projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+}
+
+input SlideCreateNestedOneWithoutProjectsInput {
+  connect: SlideWhereUniqueInput
+  connectOrCreate: SlideCreateOrConnectWithoutProjectsInput
+  create: SlideCreateWithoutProjectsInput
 }
 
 input SlideCreateOrConnectWithoutProjectsInput {
@@ -160,6 +852,7 @@ input SlideCreateOrConnectWithoutProjectsInput {
 }
 
 input SlideCreateWithoutProjectsInput {
+  brand: String!
   depthInCM: Float!
   depthInIN: String!
   model: String!
@@ -174,6 +867,7 @@ input SlideUpdateOneRequiredWithoutProjectsInput {
 }
 
 input SlideUpdateWithoutProjectsInput {
+  brand: StringFieldUpdateOperationsInput
   depthInCM: FloatFieldUpdateOperationsInput
   depthInIN: StringFieldUpdateOperationsInput
   model: StringFieldUpdateOperationsInput
@@ -184,44 +878,203 @@ input SlideUpsertWithoutProjectsInput {
   update: SlideUpdateWithoutProjectsInput!
 }
 
+input SlideWhereInput {
+  AND: [SlideWhereInput!]
+  NOT: [SlideWhereInput!]
+  OR: [SlideWhereInput!]
+  brand: StringFilter
+  depthInCM: FloatFilter
+  depthInIN: StringFilter
+  id: IntFilter
+  model: StringFilter
+  projects: ProjectListRelationFilter
+}
+
 input SlideWhereUniqueInput {
   id: Int
+}
+
+enum SortOrder {
+  asc
+  desc
 }
 
 input StringFieldUpdateOperationsInput {
   set: String
 }
 
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
 type User {
   email: String!
   id: Int!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+  projectGroups(cursor: UserProjectGroupWhereUniqueInput, skip: Int, take: Int): [UserProjectGroup!]!
 }
 
-input UserCreateOrConnectWithoutProjectsInput {
-  create: UserCreateWithoutProjectsInput!
+input UserCreateNestedOneWithoutProjectGroupsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutProjectGroupsInput
+  create: UserCreateWithoutProjectGroupsInput
+}
+
+input UserCreateOrConnectWithoutProjectGroupsInput {
+  create: UserCreateWithoutProjectGroupsInput!
   where: UserWhereUniqueInput!
 }
 
-input UserCreateWithoutProjectsInput {
+input UserCreateWithoutProjectGroupsInput {
   email: String!
 }
 
-input UserUpdateOneRequiredWithoutProjectsInput {
-  connect: UserWhereUniqueInput
-  connectOrCreate: UserCreateOrConnectWithoutProjectsInput
-  create: UserCreateWithoutProjectsInput
-  update: UserUpdateWithoutProjectsInput
-  upsert: UserUpsertWithoutProjectsInput
+type UserProjectGroup {
+  group: ProjectGroup!
+  groupId: Int!
+  id: Int!
+  relationshipType: UserProjectGroupRelationshipType!
+  user: User!
+  userId: Int!
 }
 
-input UserUpdateWithoutProjectsInput {
+input UserProjectGroupCreateManyGroupInput {
+  id: Int
+  relationshipType: UserProjectGroupRelationshipType!
+  userId: Int!
+}
+
+input UserProjectGroupCreateManyGroupInputEnvelope {
+  data: [UserProjectGroupCreateManyGroupInput!]
+  skipDuplicates: Boolean
+}
+
+input UserProjectGroupCreateNestedManyWithoutGroupInput {
+  connect: [UserProjectGroupWhereUniqueInput!]
+  connectOrCreate: [UserProjectGroupCreateOrConnectWithoutGroupInput!]
+  create: [UserProjectGroupCreateWithoutGroupInput!]
+  createMany: UserProjectGroupCreateManyGroupInputEnvelope
+}
+
+input UserProjectGroupCreateOrConnectWithoutGroupInput {
+  create: UserProjectGroupCreateWithoutGroupInput!
+  where: UserProjectGroupWhereUniqueInput!
+}
+
+input UserProjectGroupCreateWithoutGroupInput {
+  relationshipType: UserProjectGroupRelationshipType!
+  user: UserCreateNestedOneWithoutProjectGroupsInput!
+}
+
+input UserProjectGroupListRelationFilter {
+  every: UserProjectGroupWhereInput
+  none: UserProjectGroupWhereInput
+  some: UserProjectGroupWhereInput
+}
+
+enum UserProjectGroupRelationshipType {
+  default
+  owner
+}
+
+input UserProjectGroupScalarWhereInput {
+  AND: [UserProjectGroupScalarWhereInput!]
+  NOT: [UserProjectGroupScalarWhereInput!]
+  OR: [UserProjectGroupScalarWhereInput!]
+  groupId: IntFilter
+  id: IntFilter
+  relationshipType: EnumUserProjectGroupRelationshipTypeFilter
+  userId: IntFilter
+}
+
+input UserProjectGroupUpdateManyMutationInput {
+  relationshipType: EnumUserProjectGroupRelationshipTypeFieldUpdateOperationsInput
+}
+
+input UserProjectGroupUpdateManyWithWhereWithoutGroupInput {
+  data: UserProjectGroupUpdateManyMutationInput!
+  where: UserProjectGroupScalarWhereInput!
+}
+
+input UserProjectGroupUpdateManyWithoutGroupInput {
+  connect: [UserProjectGroupWhereUniqueInput!]
+  connectOrCreate: [UserProjectGroupCreateOrConnectWithoutGroupInput!]
+  create: [UserProjectGroupCreateWithoutGroupInput!]
+  createMany: UserProjectGroupCreateManyGroupInputEnvelope
+  delete: [UserProjectGroupWhereUniqueInput!]
+  deleteMany: [UserProjectGroupScalarWhereInput!]
+  disconnect: [UserProjectGroupWhereUniqueInput!]
+  set: [UserProjectGroupWhereUniqueInput!]
+  update: [UserProjectGroupUpdateWithWhereUniqueWithoutGroupInput!]
+  updateMany: [UserProjectGroupUpdateManyWithWhereWithoutGroupInput!]
+  upsert: [UserProjectGroupUpsertWithWhereUniqueWithoutGroupInput!]
+}
+
+input UserProjectGroupUpdateWithWhereUniqueWithoutGroupInput {
+  data: UserProjectGroupUpdateWithoutGroupInput!
+  where: UserProjectGroupWhereUniqueInput!
+}
+
+input UserProjectGroupUpdateWithoutGroupInput {
+  relationshipType: EnumUserProjectGroupRelationshipTypeFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutProjectGroupsInput
+}
+
+input UserProjectGroupUpsertWithWhereUniqueWithoutGroupInput {
+  create: UserProjectGroupCreateWithoutGroupInput!
+  update: UserProjectGroupUpdateWithoutGroupInput!
+  where: UserProjectGroupWhereUniqueInput!
+}
+
+input UserProjectGroupWhereInput {
+  AND: [UserProjectGroupWhereInput!]
+  NOT: [UserProjectGroupWhereInput!]
+  OR: [UserProjectGroupWhereInput!]
+  group: ProjectGroupWhereInput
+  groupId: IntFilter
+  id: IntFilter
+  relationshipType: EnumUserProjectGroupRelationshipTypeFilter
+  user: UserWhereInput
+  userId: IntFilter
+}
+
+input UserProjectGroupWhereUniqueInput {
+  id: Int
+}
+
+input UserUpdateOneRequiredWithoutProjectGroupsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutProjectGroupsInput
+  create: UserCreateWithoutProjectGroupsInput
+  update: UserUpdateWithoutProjectGroupsInput
+  upsert: UserUpsertWithoutProjectGroupsInput
+}
+
+input UserUpdateWithoutProjectGroupsInput {
   email: StringFieldUpdateOperationsInput
 }
 
-input UserUpsertWithoutProjectsInput {
-  create: UserCreateWithoutProjectsInput!
-  update: UserUpdateWithoutProjectsInput!
+input UserUpsertWithoutProjectGroupsInput {
+  create: UserCreateWithoutProjectGroupsInput!
+  update: UserUpdateWithoutProjectGroupsInput!
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  email: StringFilter
+  id: IntFilter
+  projectGroups: UserProjectGroupListRelationFilter
 }
 
 input UserWhereUniqueInput {

@@ -13,28 +13,20 @@ type CustomScalars = 'No custom scalars are used in your Prisma Schema.'
 
 // Prisma model type definitions
 interface PrismaModels {
-  User: Prisma.User
-  Slide: Prisma.Slide
-  Project: Prisma.Project
   Collection: Prisma.Collection
   Finish: Prisma.Finish
+  Module: Prisma.Module
+  Project: Prisma.Project
+  ProjectGroup: Prisma.ProjectGroup
+  ProjectModule: Prisma.ProjectModule
+  Slide: Prisma.Slide
+  User: Prisma.User
+  UserProjectGroup: Prisma.UserProjectGroup
 }
 
 // Prisma input types metadata
 interface NexusPrismaInputs {
   Query: {
-    users: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'email' | 'projects'
-      ordering: 'id' | 'email'
-    }
-    slides: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'model' | 'depthInCM' | 'depthInIN' | 'projects'
-      ordering: 'id' | 'model' | 'depthInCM' | 'depthInIN'
-    }
-    projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'group' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'userId' | 'user' | 'slideId' | 'slide'
-      ordering: 'id' | 'title' | 'group' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'userId' | 'slideId'
-    }
     collections: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'projects'
       ordering: 'id' | 'name'
@@ -43,69 +35,115 @@ interface NexusPrismaInputs {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'projects'
       ordering: 'id' | 'name'
     }
+    modules: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'projectsThisBelongsTo'
+      ordering: 'id' | 'partNumber'
+    }
+    projects: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'groupId' | 'group' | 'slideId' | 'slide' | 'modules'
+      ordering: 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'groupId' | 'slideId'
+    }
+    projectGroups: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'projects' | 'users'
+      ordering: 'id' | 'name'
+    }
+    projectModules: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'module' | 'parentId' | 'parent' | 'children' | 'Project' | 'projectId'
+      ordering: 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'parentId' | 'projectId'
+    }
+    slides: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'brand' | 'model' | 'depthInCM' | 'depthInIN' | 'projects'
+      ordering: 'id' | 'brand' | 'model' | 'depthInCM' | 'depthInIN'
+    }
+    users: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'email' | 'projectGroups'
+      ordering: 'id' | 'email'
+    }
+    userProjectGroups: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'groupId' | 'group' | 'userId' | 'user' | 'relationshipType'
+      ordering: 'id' | 'groupId' | 'userId' | 'relationshipType'
+    }
   },
-  User: {
-    projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'group' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'userId' | 'user' | 'slideId' | 'slide'
-      ordering: 'id' | 'title' | 'group' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'userId' | 'slideId'
-    }
-  }
-  Slide: {
-    projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'group' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'userId' | 'user' | 'slideId' | 'slide'
-      ordering: 'id' | 'title' | 'group' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'userId' | 'slideId'
-    }
-  }
-  Project: {
-
-  }
   Collection: {
     projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'group' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'userId' | 'user' | 'slideId' | 'slide'
-      ordering: 'id' | 'title' | 'group' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'userId' | 'slideId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'groupId' | 'group' | 'slideId' | 'slide' | 'modules'
+      ordering: 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'groupId' | 'slideId'
     }
   }
   Finish: {
     projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'group' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'userId' | 'user' | 'slideId' | 'slide'
-      ordering: 'id' | 'title' | 'group' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'userId' | 'slideId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'groupId' | 'group' | 'slideId' | 'slide' | 'modules'
+      ordering: 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'groupId' | 'slideId'
     }
+  }
+  Module: {
+    projectsThisBelongsTo: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'module' | 'parentId' | 'parent' | 'children' | 'Project' | 'projectId'
+      ordering: 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'parentId' | 'projectId'
+    }
+  }
+  Project: {
+    modules: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'module' | 'parentId' | 'parent' | 'children' | 'Project' | 'projectId'
+      ordering: 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'parentId' | 'projectId'
+    }
+  }
+  ProjectGroup: {
+    projects: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'groupId' | 'group' | 'slideId' | 'slide' | 'modules'
+      ordering: 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'groupId' | 'slideId'
+    }
+    users: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'groupId' | 'group' | 'userId' | 'user' | 'relationshipType'
+      ordering: 'id' | 'groupId' | 'userId' | 'relationshipType'
+    }
+  }
+  ProjectModule: {
+    children: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'module' | 'parentId' | 'parent' | 'children' | 'Project' | 'projectId'
+      ordering: 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'parentId' | 'projectId'
+    }
+  }
+  Slide: {
+    projects: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'groupId' | 'group' | 'slideId' | 'slide' | 'modules'
+      ordering: 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'groupId' | 'slideId'
+    }
+  }
+  User: {
+    projectGroups: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'groupId' | 'group' | 'userId' | 'user' | 'relationshipType'
+      ordering: 'id' | 'groupId' | 'userId' | 'relationshipType'
+    }
+  }
+  UserProjectGroup: {
+
   }
 }
 
 // Prisma output types metadata
 interface NexusPrismaOutputs {
   Query: {
-    user: 'User'
-    users: 'User'
-    slide: 'Slide'
-    slides: 'Slide'
-    project: 'Project'
-    projects: 'Project'
     collection: 'Collection'
     collections: 'Collection'
     finish: 'Finish'
     finishes: 'Finish'
+    module: 'Module'
+    modules: 'Module'
+    project: 'Project'
+    projects: 'Project'
+    projectGroup: 'ProjectGroup'
+    projectGroups: 'ProjectGroup'
+    projectModule: 'ProjectModule'
+    projectModules: 'ProjectModule'
+    slide: 'Slide'
+    slides: 'Slide'
+    user: 'User'
+    users: 'User'
+    userProjectGroup: 'UserProjectGroup'
+    userProjectGroups: 'UserProjectGroup'
   },
   Mutation: {
-    createOneUser: 'User'
-    updateOneUser: 'User'
-    updateManyUser: 'AffectedRowsOutput'
-    deleteOneUser: 'User'
-    deleteManyUser: 'AffectedRowsOutput'
-    upsertOneUser: 'User'
-    createOneSlide: 'Slide'
-    updateOneSlide: 'Slide'
-    updateManySlide: 'AffectedRowsOutput'
-    deleteOneSlide: 'Slide'
-    deleteManySlide: 'AffectedRowsOutput'
-    upsertOneSlide: 'Slide'
-    createOneProject: 'Project'
-    updateOneProject: 'Project'
-    updateManyProject: 'AffectedRowsOutput'
-    deleteOneProject: 'Project'
-    deleteManyProject: 'AffectedRowsOutput'
-    upsertOneProject: 'Project'
     createOneCollection: 'Collection'
     updateOneCollection: 'Collection'
     updateManyCollection: 'AffectedRowsOutput'
@@ -118,38 +156,49 @@ interface NexusPrismaOutputs {
     deleteOneFinish: 'Finish'
     deleteManyFinish: 'AffectedRowsOutput'
     upsertOneFinish: 'Finish'
+    createOneModule: 'Module'
+    updateOneModule: 'Module'
+    updateManyModule: 'AffectedRowsOutput'
+    deleteOneModule: 'Module'
+    deleteManyModule: 'AffectedRowsOutput'
+    upsertOneModule: 'Module'
+    createOneProject: 'Project'
+    updateOneProject: 'Project'
+    updateManyProject: 'AffectedRowsOutput'
+    deleteOneProject: 'Project'
+    deleteManyProject: 'AffectedRowsOutput'
+    upsertOneProject: 'Project'
+    createOneProjectGroup: 'ProjectGroup'
+    updateOneProjectGroup: 'ProjectGroup'
+    updateManyProjectGroup: 'AffectedRowsOutput'
+    deleteOneProjectGroup: 'ProjectGroup'
+    deleteManyProjectGroup: 'AffectedRowsOutput'
+    upsertOneProjectGroup: 'ProjectGroup'
+    createOneProjectModule: 'ProjectModule'
+    updateOneProjectModule: 'ProjectModule'
+    updateManyProjectModule: 'AffectedRowsOutput'
+    deleteOneProjectModule: 'ProjectModule'
+    deleteManyProjectModule: 'AffectedRowsOutput'
+    upsertOneProjectModule: 'ProjectModule'
+    createOneSlide: 'Slide'
+    updateOneSlide: 'Slide'
+    updateManySlide: 'AffectedRowsOutput'
+    deleteOneSlide: 'Slide'
+    deleteManySlide: 'AffectedRowsOutput'
+    upsertOneSlide: 'Slide'
+    createOneUser: 'User'
+    updateOneUser: 'User'
+    updateManyUser: 'AffectedRowsOutput'
+    deleteOneUser: 'User'
+    deleteManyUser: 'AffectedRowsOutput'
+    upsertOneUser: 'User'
+    createOneUserProjectGroup: 'UserProjectGroup'
+    updateOneUserProjectGroup: 'UserProjectGroup'
+    updateManyUserProjectGroup: 'AffectedRowsOutput'
+    deleteOneUserProjectGroup: 'UserProjectGroup'
+    deleteManyUserProjectGroup: 'AffectedRowsOutput'
+    upsertOneUserProjectGroup: 'UserProjectGroup'
   },
-  User: {
-    id: 'Int'
-    email: 'String'
-    projects: 'Project'
-  }
-  Slide: {
-    id: 'Int'
-    model: 'String'
-    depthInCM: 'Float'
-    depthInIN: 'String'
-    projects: 'Project'
-  }
-  Project: {
-    id: 'Int'
-    title: 'String'
-    group: 'String'
-    type: 'DrawerType'
-    mainMeasureSystem: 'MeasureSystem'
-    widthInCM: 'Float'
-    gableInCM: 'Float'
-    widthInIN: 'String'
-    gableInIN: 'String'
-    collectionId: 'Int'
-    collection: 'Collection'
-    finishId: 'Int'
-    finish: 'Finish'
-    userId: 'Int'
-    user: 'User'
-    slideId: 'Int'
-    slide: 'Slide'
-  }
   Collection: {
     id: 'Int'
     name: 'String'
@@ -160,15 +209,86 @@ interface NexusPrismaOutputs {
     name: 'String'
     projects: 'Project'
   }
+  Module: {
+    id: 'Int'
+    partNumber: 'String'
+    projectsThisBelongsTo: 'ProjectModule'
+  }
+  Project: {
+    id: 'Int'
+    title: 'String'
+    type: 'DrawerType'
+    mainMeasureSystem: 'MeasureSystem'
+    widthInCM: 'Float'
+    gableInCM: 'Float'
+    widthInIN: 'String'
+    gableInIN: 'String'
+    collectionId: 'Int'
+    collection: 'Collection'
+    finishId: 'Int'
+    finish: 'Finish'
+    groupId: 'Int'
+    group: 'ProjectGroup'
+    slideId: 'Int'
+    slide: 'Slide'
+    modules: 'ProjectModule'
+  }
+  ProjectGroup: {
+    id: 'Int'
+    name: 'String'
+    projects: 'Project'
+    users: 'UserProjectGroup'
+  }
+  ProjectModule: {
+    id: 'Int'
+    posX: 'Float'
+    posY: 'Float'
+    posZ: 'Float'
+    rotX: 'Float'
+    rotY: 'Float'
+    rotZ: 'Float'
+    moduleId: 'Int'
+    module: 'Module'
+    parentId: 'Int'
+    parent: 'ProjectModule'
+    children: 'ProjectModule'
+    Project: 'Project'
+    projectId: 'Int'
+  }
+  Slide: {
+    id: 'Int'
+    brand: 'String'
+    model: 'String'
+    depthInCM: 'Float'
+    depthInIN: 'String'
+    projects: 'Project'
+  }
+  User: {
+    id: 'Int'
+    email: 'String'
+    projectGroups: 'UserProjectGroup'
+  }
+  UserProjectGroup: {
+    id: 'Int'
+    groupId: 'Int'
+    group: 'ProjectGroup'
+    userId: 'Int'
+    user: 'User'
+    relationshipType: 'UserProjectGroupRelationshipType'
+  }
 }
 
 // Helper to gather all methods relative to a model
 interface NexusPrismaMethods {
-  User: Typegen.NexusPrismaFields<'User'>
-  Slide: Typegen.NexusPrismaFields<'Slide'>
-  Project: Typegen.NexusPrismaFields<'Project'>
   Collection: Typegen.NexusPrismaFields<'Collection'>
   Finish: Typegen.NexusPrismaFields<'Finish'>
+  Module: Typegen.NexusPrismaFields<'Module'>
+  Project: Typegen.NexusPrismaFields<'Project'>
+  ProjectGroup: Typegen.NexusPrismaFields<'ProjectGroup'>
+  ProjectModule: Typegen.NexusPrismaFields<'ProjectModule'>
+  Slide: Typegen.NexusPrismaFields<'Slide'>
+  User: Typegen.NexusPrismaFields<'User'>
+  UserProjectGroup: Typegen.NexusPrismaFields<'UserProjectGroup'>
   Query: Typegen.NexusPrismaFields<'Query'>
   Mutation: Typegen.NexusPrismaFields<'Mutation'>
 }

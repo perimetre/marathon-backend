@@ -7,5 +7,7 @@ export const env = {
   BASEPATH: __dirname,
   NODE_ENV: process.env.NODE_ENV,
   PORT: process.env.PORT || '3000',
-  PRISMA_LOG_QUERY: process.env.NODE_ENV
+  ALLOWED_ORIGINS: process.env.ALLOWED_ORIGINS,
+  PRISMA_LOG_QUERY: process.env.NODE_ENV,
+  BEARER: process.env.BEARER
 };
