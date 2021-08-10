@@ -3,7 +3,7 @@
  * Do not make changes to this file directly
  */
 
-import type { Context } from '../typings/context';
+import type { Context } from './../typings/context';
 
 declare global {
   interface NexusGenCustomOutputProperties<TypeName extends string> {

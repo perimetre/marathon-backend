@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  be:
+    image: 'ghcr.io/perimetre/marathon-backend:${DOCKER_IMAGE_TAG}'
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - '${PORT}:${PORT}'
