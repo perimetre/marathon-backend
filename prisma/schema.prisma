@@ -10,52 +10,91 @@ generator client {
   provider = "prisma-client-js"
 }
 
+enum Locale {
+  en
+  fr
+}
+
+model CollectionTranslations {
+  id           Int        @id
+  locale       Locale
+  name         String
+  description  String
+  collectionId Int
+  collection   Collection @relation(fields: [collectionId], references: [id])
+}
+
 model Collection {
-  id       Int       @id @default(autoincrement())
-  name     String    @db.VarChar(255)
-  projects Project[]
+  id           Int                      @id @default(autoincrement())
+  thumbnailUrl String                   @db.VarChar(255)
+  translations CollectionTranslations[]
+  projects     Project[]
+  Module       Module[]
+}
+
+model FinishTranslations {
+  id          Int    @id
+  locale      Locale
+  name        String
+  description String
+  finishId    Int
+  finish      Finish @relation(fields: [finishId], references: [id])
 }
 
 model Finish {
-  id       Int       @id @default(autoincrement())
-  name     String    @db.VarChar(255)
-  projects Project[]
+  id           Int                  @id @default(autoincrement())
+  thumbnailUrl String               @db.VarChar(255)
+  translations FinishTranslations[]
+  projects     Project[]
+  Module       Module[]
+}
+
+model TypeTranslations {
+  id          Int    @id
+  locale      Locale
+  name        String
+  description String
+  typeId      Int
+  type        Type   @relation(fields: [typeId], references: [id])
+}
+
+model Type {
+  id           Int                @id @default(autoincrement())
+  thumbnailUrl String             @db.VarChar(255)
+  translations TypeTranslations[]
+  projects     Project[]
 }
 
 model Module {
-  id                    Int             @id @default(autoincrement())
-  partNumber            String          @unique
-  projectsThisBelongsTo ProjectModule[]
-}
-
-enum DrawerType {
-  shallow
-  deep
-}
-
-enum MeasureSystem {
-  metric
-  imperial
+  id             Int             @id @default(autoincrement())
+  partNumber     String          @unique
+  thumbnailUrl   String          @db.VarChar(255)
+  finishId       Int
+  finish         Finish          @relation(fields: [finishId], references: [id])
+  collectionId   Int
+  collection     Collection      @relation(fields: [collectionId], references: [id])
+  rules          Json
+  projectModules ProjectModule[]
 }
 
 model Project {
-  id                Int             @id @default(autoincrement())
-  title             String          @db.VarChar(255)
-  type              DrawerType
-  mainMeasureSystem MeasureSystem
-  widthInCM         Float
-  gableInCM         Float
-  widthInIN         String          @db.VarChar(255)
-  gableInIN         String          @db.VarChar(255)
-  collectionId      Int
-  collection        Collection      @relation(fields: [collectionId], references: [id])
-  finishId          Int
-  finish            Finish          @relation(fields: [finishId], references: [id])
-  groupId           Int
-  group             ProjectGroup    @relation(fields: [groupId], references: [id])
-  slideId           Int
-  slide             Slide           @relation(fields: [slideId], references: [id])
-  modules           ProjectModule[]
+  id             Int             @id @default(autoincrement())
+  title          String          @db.VarChar(255)
+  width          Float
+  gable          Float
+  typeId         Int
+  type           Type            @relation(fields: [typeId], references: [id])
+  collectionId   Int
+  collection     Collection      @relation(fields: [collectionId], references: [id])
+  finishId       Int
+  finish         Finish          @relation(fields: [finishId], references: [id])
+  groupId        Int
+  group          ProjectGroup    @relation(fields: [groupId], references: [id])
+  slideId        Int
+  slide          Slide           @relation(fields: [slideId], references: [id])
+  slideDepthId   Int
+  slideDepth     SlideDepth      @relation(fields: [slideDepthId], references: [id])
+  projectModules ProjectModule[]
 }
 
 model ProjectGroup {
@@ -68,38 +107,52 @@ model ProjectGroup {
 model ProjectModule {
   id        Int             @id @default(autoincrement())
   posX      Float
-  posY      Float
   posZ      Float
-  rotX      Float
-  rotY      Float
   rotZ      Float
   moduleId  Int
   module    Module          @relation(fields: [moduleId], references: [id])
   parentId  Int?
   parent    ProjectModule?  @relation(fields: [parentId], references: [id])
   children  ProjectModule[] @relation("ProjectModuleToProjectModule")
-  Project   Project?        @relation(fields: [projectId], references: [id])
   projectId Int?
+  project   Project?        @relation(fields: [projectId], references: [id])
+}
+
+model SlideDepth {
+  id       Int       @id @default(autoincrement())
+  display  String    @db.VarChar(255)
+  depth    Float
+  slideId  Int
+  slide    Slide     @relation(fields: [slideId], references: [id])
+  projects Project[]
+}
+
+model SlideSupplier {
+  id           Int     @id @default(autoincrement())
+  thumbnailUrl String  @db.VarChar(255)
+  name         String  @db.VarChar(255)
+  slides       Slide[]
 }
 
 model Slide {
-  id        Int       @id @default(autoincrement())
-  brand     String    @db.VarChar(255)
-  model     String    @db.VarChar(255)
-  depthInCM Float
-  depthInIN String    @db.VarChar(255)
-  projects  Project[]
+  id         Int           @id @default(autoincrement())
+  model      String        @db.VarChar(255)
+  formula    String        @db.VarChar(255)
+  supplierId Int
+  supplier   SlideSupplier @relation(fields: [supplierId], references: [id])
+  depths     SlideDepth[]
+  projects   Project[]
 }
 
 model User {
-  id            Int                @id @default(autoincrement())
-  email         String             @unique @db.VarChar(255)
-  projectGroups UserProjectGroup[]
+  id                Int                @id @default(autoincrement())
+  email             String             @unique @db.VarChar(255)
+  userProjectGroups UserProjectGroup[]
 }
 
 enum UserProjectGroupRelationshipType {
   owner
-  default
+  member
 }
 
 model UserProjectGroup {
