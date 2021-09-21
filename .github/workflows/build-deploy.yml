@@ -1,0 +1,335 @@
+name: Marathon Backend - Build & Deploy
+
+on:
+  push:
+    # Publish `master` as Docker `latest` image.
+    branches:
+      - dev
+      # - staging
+      # - master
+
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+
+  # Run tests for any PRs.
+  pull_request:
+
+env:
+  # TODO: Change variable to your image's name.
+  IMAGE_NAME: marathon-backend
+  # DOCKER_BUILD_ARGS:
+  # SSH_HOST:
+  # SSH_PORT:
+  DEPLOY_USERNAME: ${{ secrets.DEPLOY_USERNAME }}
+  DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+  # APP_PATH:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+  SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+  SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+  SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+  # SENTRY_ENVIRONMENT:
+
+jobs:
+  # Notify Slack Starting
+  notify_slack_starting:
+    name: Notify Slack Starting
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    # Only notify Start/Success on Push
+    if: "github.event_name == 'push' && !contains(github.ref, 'refs/tags') && !contains(github.event.head_commit.message, '#skip-ci')"
+
+    steps:
+      - name: Notify Slack Starting
+        id: slack
+        continue-on-error: true
+        uses: voxmedia/github-action-slack-notify-build@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
+        with:
+          channel: ${{ env.SLACK_CHANNEL }}
+          status: STARTING
+          color: warning
+
+  # Run tests.
+  # See also https://docs.docker.com/docker-hub/builds/automated-testing/
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+#       - uses: actions/checkout@v2
+#       - name: Run tests
+#         run: |
+#           if [ -f docker-compose.test.yml ]; then
+#             docker-compose --file docker-compose.test.yml build
+#             docker-compose --file docker-compose.test.yml run sut
+#           else
+#             docker build . --file Dockerfile
+#           fi
+
+      - name: Run tests
+        id: test
+        run: |
+          echo 'testing'
+
+      - name: Notify slack fail
+        continue-on-error: true
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: ${{ env.SLACK_CHANNEL }}
+          status: FAILED
+          color: danger
+
+  # Push image to GitHub Packages.
+  # See also https://docs.docker.com/docker-hub/builds/
+  push:
+    # Ensure test job passes before pushing image.
+    needs: test
+
+    name: Build & Push Docker Image
+    runs-on: ubuntu-latest
+
+    # Release/tag use last commit message
+    # So trigger on a tag even if commit message includes #skip-ci
+    if: "(github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip-ci') || contains(github.ref, 'refs/tags'))"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Extract branch name
+        id: extract_branch
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')"
+
+      - name: Extract branch version
+        id: extract_version
+        run: |
+          BRANCH=${{steps.extract_branch.outputs.branch}}
+
+          # IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+
+          # Change all uppercase to lowercase
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+
+          VERSION=$BRANCH
+
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "master" ] && VERSION=latest
+
+          echo ::set-output name=IMAGE_ID::$IMAGE_ID
+          echo ::set-output name=VERSION::$VERSION
+
+      - name: Set Variables
+        id: set_vars
+        shell: bash
+        run: |
+          BRANCH=${{steps.extract_branch.outputs.branch}}
+          IMAGE_ID=${{steps.extract_version.outputs.IMAGE_ID}}
+          VERSION=${{steps.extract_version.outputs.VERSION}}
+          TAGS=$IMAGE_ID:$VERSION
+
+          if [[ $BRANCH == 'dev' ]]; then
+            # quotes are SUPER IMPORTANT to handle multiline vars
+            DOCKER_BUILD_ARGS="${{ secrets.DEV_DOCKER_BUILD_ARGS }}"
+          elif [[ $BRANCH == 'demo' ]]; then
+            # quotes are SUPER IMPORTANT to handle multiline vars
+            DOCKER_BUILD_ARGS="${{ secrets.DEMO_DOCKER_BUILD_ARGS }}"
+          elif [[ $BRANCH == 'staging' ]]; then
+            # quotes are SUPER IMPORTANT to handle multiline vars
+            DOCKER_BUILD_ARGS="${{ secrets.STAGING_DOCKER_BUILD_ARGS }}"
+          elif [[ $BRANCH == 'master' ]]; then
+            # quotes are SUPER IMPORTANT to handle multiline vars
+            DOCKER_BUILD_ARGS="${{ secrets.PROD_DOCKER_BUILD_ARGS }}"
+          fi
+
+          # set-output breaks multiline values
+          # so we escape them before passing them on
+          DOCKER_BUILD_ARGS="${DOCKER_BUILD_ARGS//'%'/'%25'}"
+          DOCKER_BUILD_ARGS="${DOCKER_BUILD_ARGS//$'\n'/'%0A'}"
+          DOCKER_BUILD_ARGS="${DOCKER_BUILD_ARGS//$'\r'/'%0D'}"
+
+          echo ::set-output name=DOCKER_BUILD_ARGS::$DOCKER_BUILD_ARGS
+          echo ::set-output name=TAGS::$TAGS
+          echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          # registry: docker.pkg.github.com
+          # username: ${{ github.actor }}
+          # password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
+      - name: Build and Push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.set_vars.outputs.TAGS }}
+          build-args: ${{ steps.set_vars.outputs.DOCKER_BUILD_ARGS }}
+          labels: |
+            org.opencontainers.image.source=${{ github.event.repository.clone_url }}
+            org.opencontainers.image.created=${{ steps.set_vars.outputs.created }}
+            org.opencontainers.image.revision=${{ github.sha }}
+
+      - name: Notify slack fail
+        continue-on-error: true
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: ${{ env.SLACK_CHANNEL }}
+          status: FAILED
+          color: danger
+
+  deploy:
+    needs: push
+
+    name: Deploy to Server
+    runs-on: ubuntu-latest
+
+    # only deploy on push branches, not on releases/tags
+    if: "github.event_name == 'push' && !contains(github.ref, 'refs/tags') && !contains(github.event.head_commit.message, '#skip-ci') && !contains(github.event.head_commit.message, '#skip-deploy')"
+
+    steps:
+      - name: Extract branch name
+        id: extract_branch
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')"
+
+      - name: Set Variables
+        id: set_vars
+        shell: bash
+        run: |
+          BRANCH=${{steps.extract_branch.outputs.branch}}
+          if [[ $BRANCH == 'dev' ]]; then
+            SSH_HOST=${{ secrets.DEV_SSH_HOST }}
+            SSH_PORT=${{ secrets.DEV_SSH_PORT }}
+            APP_PATH=${{ secrets.DEV_PATH }}
+          elif [[ $BRANCH == 'demo' ]]; then
+            SSH_HOST=${{ secrets.DEMO_SSH_HOST }}
+            SSH_PORT=${{ secrets.DEMO_SSH_PORT }}
+            APP_PATH=${{ secrets.DEMO_PATH }}
+          elif [[ $BRANCH == 'staging' ]]; then
+            SSH_HOST=${{ secrets.STAGING_SSH_HOST }}
+            SSH_PORT=${{ secrets.STAGING_SSH_PORT }}
+            APP_PATH=${{ secrets.STAGING_PATH }}
+          elif [[ $BRANCH == 'master' ]]; then
+            SSH_HOST=${{ secrets.PROD_SSH_HOST }}
+            SSH_PORT=${{ secrets.PROD_SSH_PORT }}
+            APP_PATH=${{ secrets.PROD_PATH }}
+          fi
+          echo ::set-output name=SSH_HOST::$SSH_HOST
+          echo ::set-output name=SSH_PORT::$SSH_PORT
+          echo ::set-output name=APP_PATH::$APP_PATH
+
+      - name: Deploy to Server
+        id: deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ steps.set_vars.outputs.SSH_HOST }}
+          port: ${{ steps.set_vars.outputs.SSH_PORT }}
+          username: ${{ env.DEPLOY_USERNAME }}
+          key: ${{ env.DEPLOY_SSH_KEY }}
+          script: |
+            cd ${{ steps.set_vars.outputs.APP_PATH }}
+            docker-compose down
+            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io --username ${{ github.repository_owner }} --password-stdin
+            docker-compose pull
+            docker-compose up -d
+            docker image prune -f
+
+      - name: Notify slack fail
+        continue-on-error: true
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: ${{ env.SLACK_CHANNEL }}
+          status: FAILED
+          color: danger
+
+  # Notify Slack of Success
+  notify_slack_success:
+    needs: deploy
+
+    name: Notify Slack of Success
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    # Only notify Start/Success on Push
+    if: "github.event_name == 'push' && !contains(github.ref, 'refs/tags') && !contains(github.event.head_commit.message, '#skip-ci')"
+
+    steps:
+      - name: Notify Slack of Success
+        id: slack
+        continue-on-error: true
+        uses: voxmedia/github-action-slack-notify-build@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
+        with:
+          channel: ${{ env.SLACK_CHANNEL }}
+          status: SUCCESS
+          color: good
+
+  notify_sentry_release:
+    needs: deploy
+
+    name: Notify Sentry of Release
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    if: "github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip-ci') && !contains(github.event.head_commit.message, '#skip-deploy')"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Extract branch name
+        id: extract_branch
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')"
+
+      - name: Set Variables
+        id: set_vars
+        shell: bash
+        run: |
+          BRANCH=${{steps.extract_branch.outputs.branch}}
+
+          if [[ $BRANCH == 'dev' ]]; then
+            SENTRY_ENVIRONMENT='dev'
+          elif [[ $BRANCH == 'demo' ]]; then
+            SENTRY_ENVIRONMENT='demo'
+          elif [[ $BRANCH == 'staging' ]]; then
+            SENTRY_ENVIRONMENT='staging'
+          elif [[ $BRANCH == 'master' ]]; then
+            SENTRY_ENVIRONMENT='prod'
+          fi
+
+          echo ::set-output name=SENTRY_ENVIRONMENT::$SENTRY_ENVIRONMENT
+
+      - name: Create Sentry release
+        uses: getsentry/action-release@v1
+        env:
+          SENTRY_AUTH_TOKEN: ${{ env.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ env.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ env.SENTRY_PROJECT }}
+        with:
+          environment: ${{ steps.set_vars.outputs.SENTRY_ENVIRONMENT }}
