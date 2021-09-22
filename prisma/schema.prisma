@@ -15,70 +15,72 @@ enum Locale {
   fr
 }
 
+model Collection {
+  id                 Int                      @id @default(autoincrement())
+  slug               String                   @unique
+  thumbnailUrl       String                   @db.VarChar(255)
+  translations       CollectionTranslations[]
+  projects           Project[]
+  modules            Module[]
+  collectionFinishes CollectionFinishes[]
+  slides             Slide[]
+}
+
+model CollectionFinishes {
+  id           Int        @id @default(autoincrement())
+  collectionId Int
+  collection   Collection @relation(fields: [collectionId], references: [id])
+  finishId     Int
+  finish       Finish     @relation(fields: [finishId], references: [id])
+}
+
 model CollectionTranslations {
-  id           Int        @id
+  id           Int        @id @default(autoincrement())
   locale       Locale
   name         String
-  description  String
+  subtitle     String?
+  description  String?
+  footer       String?
   collectionId Int
   collection   Collection @relation(fields: [collectionId], references: [id])
 }
 
-model Collection {
-  id           Int                      @id @default(autoincrement())
-  thumbnailUrl String                   @db.VarChar(255)
-  translations CollectionTranslations[]
-  projects     Project[]
-  Module       Module[]
+model Finish {
+  id                 Int                  @id @default(autoincrement())
+  slug               String               @unique
+  thumbnailUrl       String               @db.VarChar(255)
+  translations       FinishTranslations[]
+  projects           Project[]
+  modules            Module[]
+  collectionFinishes CollectionFinishes[]
 }
 
 model FinishTranslations {
-  id          Int    @id
+  id          Int     @id @default(autoincrement())
   locale      Locale
   name        String
-  description String
+  description String?
   finishId    Int
-  finish      Finish @relation(fields: [finishId], references: [id])
-}
-
-model Finish {
-  id           Int                  @id @default(autoincrement())
-  thumbnailUrl String               @db.VarChar(255)
-  translations FinishTranslations[]
-  projects     Project[]
-  Module       Module[]
-}
-
-model TypeTranslations {
-  id          Int    @id
-  locale      Locale
-  name        String
-  description String
-  typeId      Int
-  type        Type   @relation(fields: [typeId], references: [id])
-}
-
-model Type {
-  id           Int                @id @default(autoincrement())
-  thumbnailUrl String             @db.VarChar(255)
-  translations TypeTranslations[]
-  projects     Project[]
+  finish      Finish  @relation(fields: [finishId], references: [id])
 }
 
 model Module {
   id             Int             @id @default(autoincrement())
   partNumber     String          @unique
   thumbnailUrl   String          @db.VarChar(255)
+  isSubmodule    Boolean
+  hasPegs        Boolean
   finishId       Int
   finish         Finish          @relation(fields: [finishId], references: [id])
   collectionId   Int
   collection     Collection      @relation(fields: [collectionId], references: [id])
-  rules          Json
+  rules          Json?
   projectModules ProjectModule[]
 }
 
 model Project {
   id             Int             @id @default(autoincrement())
+  slug           String          @unique
   title          String          @db.VarChar(255)
   width          Float
   gable          Float
@@ -100,6 +102,7 @@ model Project {
 model ProjectGroup {
   id       Int                @id @default(autoincrement())
   name     String             @db.VarChar(255)
+  slug     String             @unique
   projects Project[]
   users    UserProjectGroup[]
 }
@@ -118,6 +121,19 @@ model ProjectModule {
   project   Project?        @relation(fields: [projectId], references: [id])
 }
 
+model Slide {
+  id           Int           @id @default(autoincrement())
+  product      String        @db.VarChar(255)
+  slug         String        @unique
+  formula      String        @db.VarChar(255)
+  supplierId   Int
+  supplier     SlideSupplier @relation(fields: [supplierId], references: [id])
+  collectionId Int
+  collection   Collection    @relation(fields: [collectionId], references: [id])
+  depths       SlideDepth[]
+  projects     Project[]
+}
+
 model SlideDepth {
   id       Int       @id @default(autoincrement())
   display  String    @db.VarChar(255)
@@ -131,17 +147,25 @@ model SlideSupplier {
   id           Int     @id @default(autoincrement())
   thumbnailUrl String  @db.VarChar(255)
   name         String  @db.VarChar(255)
+  slug         String  @unique
   slides       Slide[]
 }
 
-model Slide {
-  id         Int           @id @default(autoincrement())
-  model      String        @db.VarChar(255)
-  formula    String        @db.VarChar(255)
-  supplierId Int
-  supplier   SlideSupplier @relation(fields: [supplierId], references: [id])
-  depths     SlideDepth[]
-  projects   Project[]
+model Type {
+  id           Int                @id @default(autoincrement())
+  slug         String             @unique
+  thumbnailUrl String             @db.VarChar(255)
+  translations TypeTranslations[]
+  projects     Project[]
+}
+
+model TypeTranslations {
+  id          Int     @id @default(autoincrement())
+  locale      Locale
+  name        String
+  description String?
+  typeId      Int
+  type        Type    @relation(fields: [typeId], references: [id])
 }
 
 model User {
