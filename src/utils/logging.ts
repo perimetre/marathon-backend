@@ -1,6 +1,6 @@
 // import { captureMessage, captureException } from '../lib/sentry';
 
-const error = (error: Error, message?: string, extra: Record<string, unknown> | string = {}) => {
+const error = (error: any, message?: string, extra: Record<string, unknown> | string = {}) => {
   if (message) {
     console.error(message, error, extra);
   } else {
@@ -13,7 +13,7 @@ const error = (error: Error, message?: string, extra: Record<string, unknown> | 
   // });
 };
 
-const fatal = (error: Error, message?: string, extra: Record<string, unknown> | string = {}) => {
+const fatal = (error: any, message?: string, extra: Record<string, unknown> | string = {}) => {
   if (message) {
     console.error(message, error, extra);
   } else {

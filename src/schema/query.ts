@@ -6,5 +6,8 @@ export const Query = queryType({
     t.crud.project();
     t.crud.projectGroups({ filtering: true, ordering: true, pagination: true });
     t.crud.projectGroup();
+    t.crud.collections();
+    t.crud.finishes();
+    t.crud.modules();
   }
 });

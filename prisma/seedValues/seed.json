@@ -1,0 +1,5152 @@
+{
+  "collections": [
+    {
+      "slug": "area",
+      "thumbnailUrl": "",
+      "translations": [
+        {
+          "locale": "en",
+          "name": "Thermoplastic",
+          "description": "Drop-in thermoplastic mold.",
+          "subtitle": "Area collection",
+          "footer": "Starting at 40$"
+        }
+      ]
+    },
+    {
+      "slug": "imprint",
+      "thumbnailUrl": "",
+      "translations": [
+        {
+          "locale": "en",
+          "name": "Wood Finish",
+          "description": "Drop-in wooden compartments.",
+          "subtitle": "Imprint collection",
+          "footer": "Starting at 60$"
+        }
+      ]
+    },
+    {
+      "slug": "autograph",
+      "thumbnailUrl": "",
+      "translations": [
+        {
+          "locale": "en",
+          "name": "Wood & Aluminum",
+          "description": "Fully customizable storing units.",
+          "subtitle": "Autograph collection",
+          "footer": "Starting at 80$"
+        }
+      ]
+    }
+  ],
+  "finishes": [
+    {
+      "name": "Walnut",
+      "thumbnailUrl": ""
+    },
+    {
+      "name": "Birch",
+      "thumbnailUrl": ""
+    },
+    {
+      "name": "Silk White",
+      "thumbnailUrl": ""
+    },
+    {
+      "name": "Matte Black",
+      "thumbnailUrl": ""
+    },
+    {
+      "name": "Stardust",
+      "thumbnailUrl": ""
+    },
+    {
+      "name": "Silver Anodized",
+      "thumbnailUrl": ""
+    },
+    {
+      "name": "Gold",
+      "thumbnailUrl": ""
+    },
+    {
+      "name": "Matte Grey",
+      "thumbnailUrl": ""
+    },
+    {
+      "name": "Matte Grey Textured",
+      "thumbnailUrl": ""
+    }
+  ],
+  "collectionFinishes": [
+    {
+      "collection": "autograph",
+      "finish": "Walnut"
+    },
+    {
+      "collection": "autograph",
+      "finish": "Birch"
+    },
+    {
+      "collection": "area",
+      "finish": "Matte Grey"
+    },
+    {
+      "collection": "area",
+      "finish": "Matte Grey Textured"
+    },
+    {
+      "collection": "area",
+      "finish": "Silk White"
+    },
+    {
+      "collection": "imprint",
+      "finish": "Walnut"
+    },
+    {
+      "collection": "imprint",
+      "finish": "Birch"
+    }
+  ],
+  "types": [
+    {
+      "thumbnailUrl": "",
+      "slug": "shallow",
+      "translations": [
+        {
+          "locale": "en",
+          "name": "Top / Shallow Drawer",
+          "description": "For cutlery, spices or organizing random stuff."
+        }
+      ]
+    },
+    {
+      "thumbnailUrl": "",
+      "slug": "deep",
+      "translations": [
+        {
+          "locale": "en",
+          "name": "Bottom / Deep Drawer",
+          "description": "For pots and pans, or small appliances."
+        }
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "450": 0,
+      "500": 484,
+      "550": 534,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "DTC",
+      "product": "Metal box",
+      "formula": "Cabinet Width - 2 x gables - 2(15.5mm)",
+      "slug": "AREA-DTC-Metal-box"
+    },
+    {
+      "450": 0,
+      "500": 474,
+      "550": 524,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "DTC",
+      "product": "Infinity",
+      "formula": "Cabinet - 2 x gables - 97+ projection interior 2*18mm",
+      "slug": "AREA-DTC-Infinity"
+    },
+    {
+      "450": 0,
+      "500": 469,
+      "550": 519,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "DTC",
+      "product": "Legacy Prima",
+      "formula": "Cabinet - 2 x gables - 40",
+      "slug": "AREA-DTC-Legacy-Prima"
+    },
+    {
+      "450": 0,
+      "500": 469,
+      "550": 519,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "DTC",
+      "product": "Legacy Endura",
+      "formula": "Cabinet - 2 x gables - 40",
+      "slug": "AREA-DTC-Legacy-Endura"
+    },
+    {
+      "450": 0,
+      "500": 478,
+      "550": 528,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "King Slide",
+      "product": "Simlead DW",
+      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "slug": "AREA-King-Slide-Simlead-DW"
+    },
+    {
+      "450": 0,
+      "500": 474,
+      "550": 524,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "Blum",
+      "product": "Legrabox",
+      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "slug": "AREA-Blum-Legrabox"
+    },
+    {
+      "450": 0,
+      "500": 476,
+      "550": 526,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "Blum",
+      "product": "Tandembox",
+      "formula": "Cabinet - 2 x gables - 48mm",
+      "slug": "AREA-Blum-Tandembox"
+    },
+    {
+      "450": 0,
+      "500": 472,
+      "550": 522,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "Taiming",
+      "product": "Optimiz-R",
+      "formula": "Cabinet - 2 x gables - 42",
+      "slug": "AREA-Taiming-Optimiz-R"
+    },
+    {
+      "450": 0,
+      "500": 476,
+      "550": 526,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "Taiming",
+      "product": "908",
+      "formula": "Cabinet - 2 x gables - 80mm + projection interior 2*18mm",
+      "slug": "AREA-Taiming-908"
+    },
+    {
+      "450": 0,
+      "500": 474,
+      "550": 524,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "DTC",
+      "product": "DS10/TS10",
+      "formula": "Cabinet - 2 x gables - 2(21mm)",
+      "slug": "AREA-DTC-DS10TS10"
+    },
+    {
+      "450": 0,
+      "500": 474,
+      "550": 524,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "King Slide",
+      "product": "Simlead undermount",
+      "formula": "Cabinet - 2 x gables - 42.75",
+      "slug": "AREA-King-Slide-Simlead-undermount"
+    },
+    {
+      "450": 0,
+      "500": 468,
+      "550": 518,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "STANDARD",
+      "product": "Ballbearing 1/2, box 5/8",
+      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (5/8)",
+      "slug": "AREA-STANDARD-Ballbearing-12-box-58"
+    },
+    {
+      "450": 0,
+      "500": 475,
+      "550": 525,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AREA",
+      "supplier": "STANDARD",
+      "product": "Ballbearing 1/2, box 1/2",
+      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (1/2)",
+      "slug": "AREA-STANDARD-Ballbearing-12-box-12"
+    },
+    {
+      "450": 434,
+      "500": 484,
+      "550": 534,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "DTC",
+      "product": "Metal box",
+      "formula": "Cabinet - 2 x gables - 2(15.5mm)",
+      "slug": "AUTOGRAPH-DTC-Metal-box"
+    },
+    {
+      "450": 424,
+      "500": 474,
+      "550": 524,
+      "600": 574,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "DTC",
+      "product": "Infinity",
+      "formula": "Cabinet - 2 x gables - 97",
+      "slug": "AUTOGRAPH-DTC-Infinity"
+    },
+    {
+      "450": 419,
+      "500": 469,
+      "550": 519,
+      "600": 569,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "DTC",
+      "product": "Legacy Prima",
+      "formula": "Cabinet - 2 x gables - 40",
+      "slug": "AUTOGRAPH-DTC-Legacy-Prima"
+    },
+    {
+      "450": 419,
+      "500": 469,
+      "550": 519,
+      "600": 569,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "DTC",
+      "product": "Legacy Endura",
+      "formula": "Cabinet - 2 x gables - 40",
+      "slug": "AUTOGRAPH-DTC-Legacy-Endura"
+    },
+    {
+      "450": 428,
+      "500": 478,
+      "550": 528,
+      "600": 578,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "King Slide",
+      "product": "Simlead DW",
+      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "slug": "AUTOGRAPH-King-Slide-Simlead-DW"
+    },
+    {
+      "450": 424,
+      "500": 474,
+      "550": 524,
+      "600": 574,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "Blum",
+      "product": "Legrabox",
+      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "slug": "AUTOGRAPH-Blum-Legrabox"
+    },
+    {
+      "450": 426,
+      "500": 476,
+      "550": 526,
+      "600": 576,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "Blum",
+      "product": "Tandembox",
+      "formula": "Cabinet - 2 x gables - 80mm",
+      "slug": "AUTOGRAPH-Blum-Tandembox"
+    },
+    {
+      "450": 422,
+      "500": 472,
+      "550": 522,
+      "600": 572,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "Taiming",
+      "product": "Optimiz-R",
+      "formula": "Cabinet - 2 x gables - 42",
+      "slug": "AUTOGRAPH-Taiming-Optimiz-R"
+    },
+    {
+      "450": 426,
+      "500": 476,
+      "550": 526,
+      "600": 576,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "Taiming",
+      "product": "908",
+      "formula": "Cabinet - 2 x gables - 80mm",
+      "slug": "AUTOGRAPH-Taiming-908"
+    },
+    {
+      "450": 424,
+      "500": 474,
+      "550": 524,
+      "600": 574,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "DTC",
+      "product": "DS10/TS10",
+      "formula": "Cabinet - 2 x gables - 2(21mm)",
+      "slug": "AUTOGRAPH-DTC-DS10TS10"
+    },
+    {
+      "450": 424,
+      "500": 474,
+      "550": 524,
+      "600": 574,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "King Slide",
+      "product": "Simlead undermount",
+      "formula": "Cabinet - 2 x gables - 42.75",
+      "slug": "AUTOGRAPH-King-Slide-Simlead-undermount"
+    },
+    {
+      "450": 418,
+      "500": 468,
+      "550": 518,
+      "600": 568,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "STANDARD",
+      "product": "Ballbearing 1/2, box 5/8",
+      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (5/8)",
+      "slug": "AUTOGRAPH-STANDARD-Ballbearing-12-box-58"
+    },
+    {
+      "450": 425,
+      "500": 475,
+      "550": 525,
+      "600": 575,
+      "supplierImgURL": "",
+      "collection": "AUTOGRAPH",
+      "supplier": "STANDARD",
+      "product": "Ballbearing 1/2, box 1/2",
+      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (1/2)",
+      "slug": "AUTOGRAPH-STANDARD-Ballbearing-12-box-12"
+    },
+    {
+      "450": 434,
+      "500": 484,
+      "550": 534,
+      "600": 0,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "DTC",
+      "product": "Metal box",
+      "formula": "Cabinet - 2 x gables - 2(15.5mm)",
+      "slug": "IMPRINT-DTC-Metal-box"
+    },
+    {
+      "450": 424,
+      "500": 474,
+      "550": 524,
+      "600": 574,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "DTC",
+      "product": "Infinity",
+      "formula": "Cabinet - 2 x gables - 97+ projection interior 2*10mm",
+      "slug": "IMPRINT-DTC-Infinity"
+    },
+    {
+      "450": 419,
+      "500": 469,
+      "550": 519,
+      "600": 569,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "DTC",
+      "product": "Legacy Prima",
+      "formula": "Cabinet - 2 x gables - 40",
+      "slug": "IMPRINT-DTC-Legacy-Prima"
+    },
+    {
+      "450": 419,
+      "500": 469,
+      "550": 519,
+      "600": 569,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "DTC",
+      "product": "Legacy Endura",
+      "formula": "Cabinet - 2 x gables - 40",
+      "slug": "IMPRINT-DTC-Legacy-Endura"
+    },
+    {
+      "450": 428,
+      "500": 478,
+      "550": 528,
+      "600": 578,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "King Slide",
+      "product": "Simlead DW",
+      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "slug": "IMPRINT-King-Slide-Simlead-DW"
+    },
+    {
+      "450": 424,
+      "500": 474,
+      "550": 524,
+      "600": 574,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "Blum",
+      "product": "Legrabox",
+      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "slug": "IMPRINT-Blum-Legrabox"
+    },
+    {
+      "450": 426,
+      "500": 476,
+      "550": 526,
+      "600": 576,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "Blum",
+      "product": "Tandembox",
+      "formula": "Cabinet - 2 x gables - 80mm+ projection interior 2*10mm",
+      "slug": "IMPRINT-Blum-Tandembox"
+    },
+    {
+      "450": 422,
+      "500": 472,
+      "550": 522,
+      "600": 572,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "Taiming",
+      "product": "Optimiz-R",
+      "formula": "Cabinet - 2 x gables - 42",
+      "slug": "IMPRINT-Taiming-Optimiz-R"
+    },
+    {
+      "450": 426,
+      "500": 476,
+      "550": 526,
+      "600": 576,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "Taiming",
+      "product": "908",
+      "formula": "Cabinet - 2 x gables - 80mm + projection interior 2*10mm",
+      "slug": "IMPRINT-Taiming-908"
+    },
+    {
+      "450": 424,
+      "500": 474,
+      "550": 524,
+      "600": 574,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "DTC",
+      "product": "DS10/TS10",
+      "formula": "Cabinet - 2 x gables - 2(21mm)",
+      "slug": "IMPRINT-DTC-DS10TS10"
+    },
+    {
+      "450": 424,
+      "500": 474,
+      "550": 524,
+      "600": 574,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "King Slide",
+      "product": "Simlead undermount",
+      "formula": "Cabinet - 2 x gables - 42.75",
+      "slug": "IMPRINT-King-Slide-Simlead-undermount"
+    },
+    {
+      "450": 418,
+      "500": 468,
+      "550": 518,
+      "600": 568,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "STANDARD",
+      "product": "Ballbearing 1/2, box 5/8",
+      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (5/8)",
+      "slug": "IMPRINT-STANDARD-Ballbearing-12-box-58"
+    },
+    {
+      "450": 425,
+      "500": 475,
+      "550": 525,
+      "600": 575,
+      "supplierImgURL": "",
+      "collection": "IMPRINT",
+      "supplier": "STANDARD",
+      "product": "Ballbearing 1/2, box 1/2",
+      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (1/2)",
+      "slug": "IMPRINT-STANDARD-Ballbearing-12-box-12"
+    }
+  ],
+  "modules": [
+    {
+      "partNumber": "04-AREA-CT-GM-D",
+      "finish": "Matte Grey",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-E",
+      "finish": "Matte Grey",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-F",
+      "finish": "Matte Grey Textured",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-D",
+      "finish": "Matte Grey Textured",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-E",
+      "finish": "Matte Grey Textured",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-F",
+      "finish": "Silk White",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-D",
+      "finish": "Silk White",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-E",
+      "finish": "Silk White",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-UT-GM-D",
+      "finish": "Matte Grey",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-UT-GM-E",
+      "finish": "Matte Grey",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-UT-GMT-D",
+      "finish": "Matte Grey Textured",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-UT-SW-D",
+      "finish": "Silk White",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AREA-UT-GMT-E",
+      "finish": "Matte Grey Textured",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Area"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AN-69",
+      "finish": "Silver Anodized",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-AN-69",
+        "finishes": ["04-AU-ACCENT-AU79-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SD-69", "04-AU-ACCENT-SW-69"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AN-89",
+      "finish": "Silver Anodized",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-AN-89",
+        "finishes": ["04-AU-ACCENT-AU79-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SD-89", "04-AU-ACCENT-SW-89"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AN-95",
+      "finish": "Silver Anodized",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-AN-95",
+        "finishes": ["04-AU-ACCENT-AU79-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SD-95", "04-AU-ACCENT-SW-95"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AN-141",
+      "finish": "Silver Anodized",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-AN-141",
+        "finishes": ["04-AU-ACCENT-AU79-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SD-141", "04-AU-ACCENT-SW-141"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AN-189",
+      "finish": "Silver Anodized",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-AN-189",
+        "finishes": ["04-AU-ACCENT-AU79-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SD-189", "04-AU-ACCENT-SW-189"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AU79-69",
+      "finish": "Gold",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-AU79-69",
+        "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SD-69", "04-AU-ACCENT-SW-69"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AU79-89",
+      "finish": "Gold",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-AU79-89",
+        "finishes": ["04-AU-ACCENT-AN-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SD-89", "04-AU-ACCENT-SW-89"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AU79-95",
+      "finish": "Gold",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-AU79-95",
+        "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SD-95", "04-AU-ACCENT-SW-95"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AU79-141",
+      "finish": "Gold",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-AU79-141",
+        "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SD-141", "04-AU-ACCENT-SW-141"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AU79-189",
+      "finish": "Gold",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-AU79-189",
+        "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SD-189", "04-AU-ACCENT-SW-189"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-MB-69",
+      "finish": "Matte Black",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-MB-69",
+        "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-AU79-69", "04-AU-ACCENT-SD-69", "04-AU-ACCENT-SW-69"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-MB-89",
+      "finish": "Matte Black",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-AU79-89",
+        "finishes": ["04-AU-ACCENT-AN-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SD-89", "04-AU-ACCENT-SW-89"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-MB-95",
+      "finish": "Matte Black",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-MB-95",
+        "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-AU79-95", "04-AU-ACCENT-SD-95", "04-AU-ACCENT-SW-95"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-MB-141",
+      "finish": "Matte Black",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-MB-141",
+        "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-AU79-141", "04-AU-ACCENT-SD-141", "04-AU-ACCENT-SW-141"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-MB-189",
+      "finish": "Matte Black",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-MB-189",
+        "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-AU79-189", "04-AU-ACCENT-SD-189", "04-AU-ACCENT-SW-189"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SD-69",
+      "finish": "Silver Anodized",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-SD-69",
+        "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-AU79-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SW-69"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SD-89",
+      "finish": "Stardust",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-SD-89",
+        "finishes": ["04-AU-ACCENT-AN-89", "04-AU-ACCENT-AU79-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SW-89"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SD-95",
+      "finish": "Stardust",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-SD-95",
+        "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-AU79-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SW-95"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SD-141",
+      "finish": "Stardust",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-SD-141",
+        "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-AU79-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SW-141"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SD-189",
+      "finish": "Stardust",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-SD-189",
+        "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-AU79-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SW-189"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SW-69",
+      "finish": "Silk White",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-SW-69",
+        "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-AU79-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SD-69"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SW-89",
+      "finish": "Silk White",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-SW-89",
+        "finishes": ["04-AU-ACCENT-AN-89", "04-AU-ACCENT-AU79-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SD-89"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SW-95",
+      "finish": "Silk White",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-SW-95",
+        "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-AU79-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SD-95"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SW-141",
+      "finish": "Silk White",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-SW-141",
+        "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-AU79-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SD-141"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SW-189",
+      "finish": "Silk White",
+      "metadata": {
+        "partNumber": "04-AU-ACCENT-SW-189",
+        "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-AU79-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SD-189"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-CD-B",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-CD-B",
+        "finishes": ["04-AU-WAL-CD-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 47,
+            "inches": "1.85039"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 366,
+              "inches": "14.4094"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["bottom", "top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-CT4-D",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-CT4-D",
+        "finishes": ["04-AU-WAL-CT4-D"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 304.79998779296875,
+              "inches": "12\""
+            },
+            "min": {
+              "millimeters": 304.79998779296875,
+              "inches": "12\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 366,
+              "inches": "14.4094"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [
+            "04-AU-ACCENT-SW-95",
+            "04-AU-ACCENT-MB-95",
+            "04-AU-ACCENT-SD-95",
+            "04-AU-ACCENT-AN-95",
+            "04-AU-ACCENT-AU79-95"
+          ],
+          "trimmable": ["bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-CT5-D",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-CT5-D",
+        "finishes": ["04-AU-WAL-CT5-D"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 304.79998779296875,
+              "inches": "12\""
+            },
+            "min": {
+              "millimeters": 304.79998779296875,
+              "inches": "12\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 366,
+              "inches": "14.4094"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [
+            "04-AU-ACCENT-SW-69",
+            "04-AU-ACCENT-MB-69",
+            "04-AU-ACCENT-SD-69",
+            "04-AU-ACCENT-AN-69",
+            "04-AU-ACCENT-AU79-69",
+            "04-AU-ACCENT-SW-95",
+            "04-AU-ACCENT-MB-95",
+            "04-AU-ACCENT-SD-95",
+            "04-AU-ACCENT-AN-95",
+            "04-AU-ACCENT-AU79-95"
+          ],
+          "trimmable": ["bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-DIVIDER-H55",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-DIVIDER-H55",
+        "finishes": ["04-AU-WAL-DIVIDER-H55"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["bottom", "top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-KH-B",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-PARTN240-H125",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-PARTN448-H125",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-SLOTTED-B",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-T9494H36",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-T94266H36",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-T100305H55",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-T200305H55",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-T210406H110",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-BIR-T210506H110",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-AN",
+      "finish": "Silver Anodized",
+      "metadata": {
+        "partNumber": "04-AU-DIVIDER-AN",
+        "finishes": ["04-AU-DIVIDER-AU79", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SD", "04-AU-DIVIDER-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-AU79",
+      "finish": "Gold",
+      "metadata": {
+        "partNumber": "04-AU-DIVIDER-AU79",
+        "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SD", "04-AU-DIVIDER-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-MB",
+      "finish": "Matte Black",
+      "metadata": {
+        "partNumber": "04-AU-DIVIDER-MB",
+        "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-AU79", "04-AU-DIVIDER-SD", "04-AU-DIVIDER-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-SD",
+      "finish": "Stardust",
+      "metadata": {
+        "partNumber": "04-AU-DIVIDER-SD",
+        "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-AU79", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-SW",
+      "finish": "Silk White",
+      "metadata": {
+        "partNumber": "04-AU-DIVIDER-SW",
+        "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-AU79", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SD"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": []
+        },
+        "extensions": []
+      },
+      "isSubmodule": true,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-AN",
+      "finish": "Silver Anodized",
+      "metadata": {
+        "partNumber": "04-AU-LSHAPE600-AN",
+        "finishes": ["04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SD", "04-AU-LSHAPE600-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 100,
+              "inches": "3.93700"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 600,
+              "inches": "23.622"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["left", "right", "bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-AU79",
+      "finish": "Gold",
+      "metadata": {
+        "partNumber": "04-AU-LSHAPE600-AU79",
+        "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SD", "04-AU-LSHAPE600-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 100,
+              "inches": "3.93700"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 600,
+              "inches": "23.622"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["left", "right", "bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-MB",
+      "finish": "Matte Black",
+      "metadata": {
+        "partNumber": "04-AU-LSHAPE600-MB",
+        "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-SD", "04-AU-LSHAPE600-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 100,
+              "inches": "3.93700"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 600,
+              "inches": "23.622"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["left", "right", "bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-SD",
+      "finish": "Stardust",
+      "metadata": {
+        "partNumber": "04-AU-LSHAPE600-SD",
+        "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 100,
+              "inches": "3.93700"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 600,
+              "inches": "23.622"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["left", "right", "bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-SW",
+      "finish": "Silk White",
+      "metadata": {
+        "partNumber": "04-AU-LSHAPE600-SW",
+        "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SD"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 100,
+              "inches": "3.93700"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 600,
+              "inches": "23.622"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["left", "right", "bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-AN",
+      "finish": "Silver Anodized",
+      "metadata": {
+        "partNumber": "04-AU-LSHAPE1200-AN",
+        "finishes": ["04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SD", "04-AU-LSHAPE1200-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 100,
+              "inches": "3.93700"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 1200,
+              "inches": "47.24409"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["left", "right", "bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-AU79",
+      "finish": "Gold",
+      "metadata": {
+        "partNumber": "04-AU-LSHAPE1200-AU79",
+        "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SD", "04-AU-LSHAPE1200-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 100,
+              "inches": "3.93700"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 1200,
+              "inches": "47.24409"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["left", "right", "bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-MB",
+      "finish": "Matte Black",
+      "metadata": {
+        "partNumber": "04-AU-LSHAPE1200-MB",
+        "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-SD", "04-AU-LSHAPE1200-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 100,
+              "inches": "3.93700"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 1200,
+              "inches": "47.24409"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["left", "right", "bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-SD",
+      "finish": "Stardust",
+      "metadata": {
+        "partNumber": "04-AU-LSHAPE1200-SD",
+        "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SW"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 100,
+              "inches": "3.93700"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 1200,
+              "inches": "47.24409"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["left", "right", "bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-SW",
+      "finish": "Silk White",
+      "metadata": {
+        "partNumber": "04-AU-LSHAPE1200-SW",
+        "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SD"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 100,
+              "inches": "3.93700"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 1200,
+              "inches": "47.24409"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 90,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["left", "right", "bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-USHAPE-BIR-B",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-USHAPE-BIR-B",
+        "finishes": ["04-AU-USHAPE-WAL-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 366,
+              "inches": "14.4094"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [
+            "04-AU-ACCENT-AN-141",
+            "04-AU-ACCENT-AU79-141",
+            "04-AU-ACCENT-MB-141",
+            "04-AU-ACCENT-SD-141",
+            "04-AU-ACCENT-SW-141"
+          ],
+          "trimmable": ["bottom", "top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-USHAPE-WAL-B",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-USHAPE-WAL-B",
+        "finishes": ["04-AU-USHAPE-BIR-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 366,
+              "inches": "14.4094"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [
+            "04-AU-ACCENT-AN-141",
+            "04-AU-ACCENT-AU79-141",
+            "04-AU-ACCENT-MB-141",
+            "04-AU-ACCENT-SD-141",
+            "04-AU-ACCENT-SW-141"
+          ],
+          "trimmable": ["bottom", "top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-CD-B",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-WAL-CD-B",
+        "finishes": ["04-AU-BIR-CD-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 47,
+            "inches": "1.85039"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 366,
+              "inches": "14.4094"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["bottom", "top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-CT4-D",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-WAL-CT4-D",
+        "finishes": ["04-AU-BIR-CT4-D"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 304.79998779296875,
+              "inches": "12\""
+            },
+            "min": {
+              "millimeters": 304.79998779296875,
+              "inches": "12\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 366,
+              "inches": "14.4094"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [
+            "04-AU-ACCENT-SW-95",
+            "04-AU-ACCENT-MB-95",
+            "04-AU-ACCENT-SD-95",
+            "04-AU-ACCENT-AN-95",
+            "04-AU-ACCENT-AU79-95"
+          ],
+          "trimmable": ["bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-CT5-D",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-WAL-CT5-D",
+        "finishes": ["04-AU-BIR-CT5-D"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 55,
+            "inches": "2.16535"
+          },
+          "width": {
+            "max": {
+              "millimeters": 304.79998779296875,
+              "inches": "12\""
+            },
+            "min": {
+              "millimeters": 304.79998779296875,
+              "inches": "12\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 366,
+              "inches": "14.4094"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [
+            "04-AU-ACCENT-SW-69",
+            "04-AU-ACCENT-MB-69",
+            "04-AU-ACCENT-SD-69",
+            "04-AU-ACCENT-AN-69",
+            "04-AU-ACCENT-AU79-69",
+            "04-AU-ACCENT-SW-95",
+            "04-AU-ACCENT-MB-95",
+            "04-AU-ACCENT-SD-95",
+            "04-AU-ACCENT-AN-95",
+            "04-AU-ACCENT-AU79-95"
+          ],
+          "trimmable": ["bottom"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-DIVIDER-H55",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-WAL-DIVIDER-H55",
+        "finishes": ["04-AU-BIR-DIVIDER-H55"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 0,
+            "inches": ""
+          },
+          "width": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["bottom", "top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-KH-B",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-PARTN240-H125",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-PARTN448-H125",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-SLOTTED-B",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-T9494H368",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-T94266H36",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-T100305H55",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-T200305H55",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-T210406H110",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "04-AU-WAL-T210506H110",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "BIR-spice rack 35mm spacer Size A",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "BIR-spice rack 53mm spacer Size A",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "BIR-Spice rack Size A",
+      "finish": "Birch",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "WAL-spice rack 35mm spacer Size A",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "WAL-spice rack 53mm spacer Size A",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": false,
+      "collection": "Autograph"
+    },
+    {
+      "partNumber": "WAL-Spice rack Size A",
+      "finish": "Walnut",
+      "metadata": {
+        "partNumber": "04-AU-BIR-KH-B",
+        "finishes": ["04-AU-WAL-KH-B"],
+        "trims": [],
+        "dimensions": {
+          "height": {
+            "millimeters": 39,
+            "inches": "1.53543"
+          },
+          "width": {
+            "max": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            },
+            "min": {
+              "millimeters": 152.39999389648438,
+              "inches": "6\""
+            }
+          },
+          "depth": {
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
+            },
+            "min": {
+              "millimeters": 405,
+              "inches": "15.9449"
+            }
+          }
+        },
+        "rules": {
+          "requiredNetInterior": {
+            "max": {
+              "millimeters": 0,
+              "inches": ""
+            },
+            "min": {
+              "millimeters": 0,
+              "inches": ""
+            }
+          },
+          "rotation": 0,
+          "alignment": {
+            "whitelist": [],
+            "blacklist": []
+          },
+          "options": [],
+          "trimmable": ["top"]
+        },
+        "extensions": []
+      },
+      "isSubmodule": false,
+      "hasPegs": true,
+      "collection": "Autograph"
+    }
+  ]
+}
