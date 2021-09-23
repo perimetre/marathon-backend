@@ -2,7 +2,7 @@
   "collections": [
     {
       "slug": "area",
-      "thumbnailUrl": "",
+      "thumbnailUrl": "images/collection/area.png",
       "translations": [
         {
           "locale": "en",
@@ -15,7 +15,7 @@
     },
     {
       "slug": "imprint",
-      "thumbnailUrl": "",
+      "thumbnailUrl": "images/collection/imprint.png",
       "translations": [
         {
           "locale": "en",
@@ -28,7 +28,7 @@
     },
     {
       "slug": "autograph",
-      "thumbnailUrl": "",
+      "thumbnailUrl": "images/collection/autograph.png",
       "translations": [
         {
           "locale": "en",
@@ -43,39 +43,32 @@
   "finishes": [
     {
       "name": "Walnut",
-      "thumbnailUrl": ""
+      "thumbnailUrl": "images/finish/walnut.png"
     },
     {
       "name": "Birch",
-      "thumbnailUrl": ""
+      "thumbnailUrl": "images/finish/birch.png"
     },
     {
-      "name": "Silk White",
-      "thumbnailUrl": ""
+      "name": "Silk White"
     },
     {
-      "name": "Matte Black",
-      "thumbnailUrl": ""
+      "name": "Matte Black"
     },
     {
-      "name": "Stardust",
-      "thumbnailUrl": ""
+      "name": "Stardust"
     },
     {
-      "name": "Silver Anodized",
-      "thumbnailUrl": ""
+      "name": "Silver Anodized"
     },
     {
-      "name": "Gold",
-      "thumbnailUrl": ""
+      "name": "Gold"
     },
     {
-      "name": "Matte Grey",
-      "thumbnailUrl": ""
+      "name": "Matte Grey"
     },
     {
-      "name": "Matte Grey Textured",
-      "thumbnailUrl": ""
+      "name": "Matte Grey Textured"
     }
   ],
   "collectionFinishes": [
@@ -110,7 +103,7 @@
   ],
   "types": [
     {
-      "thumbnailUrl": "",
+      "thumbnailUrl": "images/type/shallow.jpg",
       "slug": "shallow",
       "translations": [
         {
@@ -121,7 +114,7 @@
       ]
     },
     {
-      "thumbnailUrl": "",
+      "thumbnailUrl": "images/type/deep.jpg",
       "slug": "deep",
       "translations": [
         {
@@ -138,7 +131,7 @@
       "500": 484,
       "550": 534,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "AREA",
       "supplier": "DTC",
       "product": "Metal box",
@@ -150,7 +143,7 @@
       "500": 474,
       "550": 524,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "AREA",
       "supplier": "DTC",
       "product": "Infinity",
@@ -162,7 +155,7 @@
       "500": 469,
       "550": 519,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "AREA",
       "supplier": "DTC",
       "product": "Legacy Prima",
@@ -174,7 +167,7 @@
       "500": 469,
       "550": 519,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "AREA",
       "supplier": "DTC",
       "product": "Legacy Endura",
@@ -186,7 +179,7 @@
       "500": 478,
       "550": 528,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/king-slide.png",
       "collection": "AREA",
       "supplier": "King Slide",
       "product": "Simlead DW",
@@ -198,7 +191,7 @@
       "500": 474,
       "550": 524,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/blum.png",
       "collection": "AREA",
       "supplier": "Blum",
       "product": "Legrabox",
@@ -210,7 +203,7 @@
       "500": 476,
       "550": 526,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/blum.png",
       "collection": "AREA",
       "supplier": "Blum",
       "product": "Tandembox",
@@ -222,7 +215,7 @@
       "500": 472,
       "550": 522,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/taiming.png",
       "collection": "AREA",
       "supplier": "Taiming",
       "product": "Optimiz-R",
@@ -234,7 +227,7 @@
       "500": 476,
       "550": 526,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/taiming.png",
       "collection": "AREA",
       "supplier": "Taiming",
       "product": "908",
@@ -246,7 +239,7 @@
       "500": 474,
       "550": 524,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "AREA",
       "supplier": "DTC",
       "product": "DS10/TS10",
@@ -258,7 +251,7 @@
       "500": 474,
       "550": 524,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/king-slide.png",
       "collection": "AREA",
       "supplier": "King Slide",
       "product": "Simlead undermount",
@@ -270,7 +263,6 @@
       "500": 468,
       "550": 518,
       "600": 0,
-      "supplierImgURL": "",
       "collection": "AREA",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 5/8",
@@ -282,7 +274,6 @@
       "500": 475,
       "550": 525,
       "600": 0,
-      "supplierImgURL": "",
       "collection": "AREA",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 1/2",
@@ -294,7 +285,7 @@
       "500": 484,
       "550": 534,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "AUTOGRAPH",
       "supplier": "DTC",
       "product": "Metal box",
@@ -306,7 +297,7 @@
       "500": 474,
       "550": 524,
       "600": 574,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "AUTOGRAPH",
       "supplier": "DTC",
       "product": "Infinity",
@@ -318,7 +309,7 @@
       "500": 469,
       "550": 519,
       "600": 569,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "AUTOGRAPH",
       "supplier": "DTC",
       "product": "Legacy Prima",
@@ -330,7 +321,7 @@
       "500": 469,
       "550": 519,
       "600": 569,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "AUTOGRAPH",
       "supplier": "DTC",
       "product": "Legacy Endura",
@@ -342,7 +333,7 @@
       "500": 478,
       "550": 528,
       "600": 578,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/king-slide.png",
       "collection": "AUTOGRAPH",
       "supplier": "King Slide",
       "product": "Simlead DW",
@@ -354,7 +345,7 @@
       "500": 474,
       "550": 524,
       "600": 574,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/blum.png",
       "collection": "AUTOGRAPH",
       "supplier": "Blum",
       "product": "Legrabox",
@@ -366,7 +357,7 @@
       "500": 476,
       "550": 526,
       "600": 576,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/blum.png",
       "collection": "AUTOGRAPH",
       "supplier": "Blum",
       "product": "Tandembox",
@@ -378,7 +369,7 @@
       "500": 472,
       "550": 522,
       "600": 572,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/taiming.png",
       "collection": "AUTOGRAPH",
       "supplier": "Taiming",
       "product": "Optimiz-R",
@@ -390,7 +381,7 @@
       "500": 476,
       "550": 526,
       "600": 576,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/taiming.png",
       "collection": "AUTOGRAPH",
       "supplier": "Taiming",
       "product": "908",
@@ -402,7 +393,7 @@
       "500": 474,
       "550": 524,
       "600": 574,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "AUTOGRAPH",
       "supplier": "DTC",
       "product": "DS10/TS10",
@@ -414,7 +405,7 @@
       "500": 474,
       "550": 524,
       "600": 574,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/king-slide.png",
       "collection": "AUTOGRAPH",
       "supplier": "King Slide",
       "product": "Simlead undermount",
@@ -426,7 +417,6 @@
       "500": 468,
       "550": 518,
       "600": 568,
-      "supplierImgURL": "",
       "collection": "AUTOGRAPH",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 5/8",
@@ -438,7 +428,6 @@
       "500": 475,
       "550": 525,
       "600": 575,
-      "supplierImgURL": "",
       "collection": "AUTOGRAPH",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 1/2",
@@ -450,7 +439,7 @@
       "500": 484,
       "550": 534,
       "600": 0,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "IMPRINT",
       "supplier": "DTC",
       "product": "Metal box",
@@ -462,7 +451,7 @@
       "500": 474,
       "550": 524,
       "600": 574,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "IMPRINT",
       "supplier": "DTC",
       "product": "Infinity",
@@ -474,7 +463,7 @@
       "500": 469,
       "550": 519,
       "600": 569,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "IMPRINT",
       "supplier": "DTC",
       "product": "Legacy Prima",
@@ -486,7 +475,7 @@
       "500": 469,
       "550": 519,
       "600": 569,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "IMPRINT",
       "supplier": "DTC",
       "product": "Legacy Endura",
@@ -498,7 +487,7 @@
       "500": 478,
       "550": 528,
       "600": 578,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/king-slide.png",
       "collection": "IMPRINT",
       "supplier": "King Slide",
       "product": "Simlead DW",
@@ -510,7 +499,7 @@
       "500": 474,
       "550": 524,
       "600": 574,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/blum.png",
       "collection": "IMPRINT",
       "supplier": "Blum",
       "product": "Legrabox",
@@ -522,7 +511,7 @@
       "500": 476,
       "550": 526,
       "600": 576,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/blum.png",
       "collection": "IMPRINT",
       "supplier": "Blum",
       "product": "Tandembox",
@@ -534,7 +523,7 @@
       "500": 472,
       "550": 522,
       "600": 572,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/taiming.png",
       "collection": "IMPRINT",
       "supplier": "Taiming",
       "product": "Optimiz-R",
@@ -546,7 +535,7 @@
       "500": 476,
       "550": 526,
       "600": 576,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/taiming.png",
       "collection": "IMPRINT",
       "supplier": "Taiming",
       "product": "908",
@@ -558,7 +547,7 @@
       "500": 474,
       "550": 524,
       "600": 574,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/dtc.png",
       "collection": "IMPRINT",
       "supplier": "DTC",
       "product": "DS10/TS10",
@@ -570,7 +559,7 @@
       "500": 474,
       "550": 524,
       "600": 574,
-      "supplierImgURL": "",
+      "supplierImgURL": "images/slide/king-slide.png",
       "collection": "IMPRINT",
       "supplier": "King Slide",
       "product": "Simlead undermount",
@@ -582,7 +571,6 @@
       "500": 468,
       "550": 518,
       "600": 568,
-      "supplierImgURL": "",
       "collection": "IMPRINT",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 5/8",
@@ -594,7 +582,6 @@
       "500": 475,
       "550": 525,
       "600": 575,
-      "supplierImgURL": "",
       "collection": "IMPRINT",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 1/2",
@@ -750,7 +737,8 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-AN-69/04-AU-ACCENT-AN-69.jpg"
     },
     {
       "partNumber": "04-AU-ACCENT-AN-89",
@@ -1040,7 +1028,8 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-AU79-69/04-AU-ACCENT-AU79-69.jpg"
     },
     {
       "partNumber": "04-AU-ACCENT-AU79-89",
@@ -1330,7 +1319,8 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-MB-69/04-AU-ACCENT-MB-69.jpg"
     },
     {
       "partNumber": "04-AU-ACCENT-MB-89",
@@ -1620,7 +1610,8 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-SD-69/04-AU-ACCENT-SD-69.jpg"
     },
     {
       "partNumber": "04-AU-ACCENT-SD-89",
@@ -1910,7 +1901,8 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-SW-69/04-AU-ACCENT-SW-69.jpg"
     },
     {
       "partNumber": "04-AU-ACCENT-SW-89",
@@ -2200,7 +2192,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CD-B/04-AU-BIR-CD-B/04-AU-BIR-CD-B.jpg"
     },
     {
       "partNumber": "04-AU-BIR-CT4-D",
@@ -2264,7 +2257,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT4-D/04-AU-BIR-CT4-D/04-AU-BIR-CT4-D.jpg"
     },
     {
       "partNumber": "04-AU-BIR-CT5-D",
@@ -2333,7 +2327,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT5-D/04-AU-BIR-CT5-D/04-AU-BIR-CT5-D.jpg"
     },
     {
       "partNumber": "04-AU-BIR-DIVIDER-H55",
@@ -2391,7 +2386,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-DIVIDER-H55/04-AU-BIR-DIVIDER-H55/04-AU-BIR-DIVIDER-H55.png"
     },
     {
       "partNumber": "04-AU-BIR-KH-B",
@@ -2449,7 +2445,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-KH-B/04-AU-BIR-KH-B/04-AU-BIR-KH-B.jpg"
     },
     {
       "partNumber": "04-AU-BIR-PARTN240-H125",
@@ -2507,7 +2504,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN240-H125/04-AU-BIR-PARTN240-H125/04-AU-BIR-PARTN240-H125.jpg"
     },
     {
       "partNumber": "04-AU-BIR-PARTN448-H125",
@@ -2565,7 +2563,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN448-H125/04-AU-BIR-PARTN448-H125/04-AU-BIR-PARTN448-H125.jpg"
     },
     {
       "partNumber": "04-AU-BIR-SLOTTED-B",
@@ -2623,7 +2622,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B/04-AU-BIR-SLOTTED-B/04-AU-BIR-SLOTTED-B.jpg"
     },
     {
       "partNumber": "04-AU-BIR-T9494H36",
@@ -2681,7 +2681,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T9494H36/04-AU-BIR-T9494H36/04-AU-BIR-T9494H36.jpg"
     },
     {
       "partNumber": "04-AU-BIR-T94266H36",
@@ -2739,7 +2740,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T94266H36/04-AU-BIR-T94266H36/04-AU-BIR-T94266H36.png"
     },
     {
       "partNumber": "04-AU-BIR-T100305H55",
@@ -2797,7 +2799,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T100305H55/04-AU-BIR-T100305H55/04-AU-BIR-T100305H55.jpg"
     },
     {
       "partNumber": "04-AU-BIR-T200305H55",
@@ -2913,7 +2916,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210406H110/04-AU-BIR-T210406H110/04-AU-BIR-T210406H110.jpg"
     },
     {
       "partNumber": "04-AU-BIR-T210506H110",
@@ -2971,7 +2975,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210506H110/04-AU-BIR-T210506H110/04-AU-BIR-T210506H110.jpg"
     },
     {
       "partNumber": "04-AU-DIVIDER-AN",
@@ -3905,7 +3910,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-BIR-B/04-AU-USHAPE-BIR-B.jpg"
     },
     {
       "partNumber": "04-AU-USHAPE-WAL-B",
@@ -3969,7 +3975,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-WAL-B/04-AU-USHAPE-WAL-B.jpg"
     },
     {
       "partNumber": "04-AU-WAL-CD-B",
@@ -4027,7 +4034,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CD-B/04-AU-WAL-CD-B/04-AU-WAL-CD-B.jpg"
     },
     {
       "partNumber": "04-AU-WAL-CT4-D",
@@ -4091,7 +4099,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT4-D/04-AU-WAL-CT4-D/04-AU-WAL-CT4-D.jpg"
     },
     {
       "partNumber": "04-AU-WAL-CT5-D",
@@ -4160,7 +4169,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT5-D/04-AU-WAL-CT5-D/04-AU-WAL-CT5-D.jpg"
     },
     {
       "partNumber": "04-AU-WAL-DIVIDER-H55",
@@ -4218,7 +4228,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-DIVIDER-H55/04-AU-WAL-DIVIDER-H55/04-AU-WAL-DIVIDER-H55.png"
     },
     {
       "partNumber": "04-AU-WAL-KH-B",
@@ -4276,7 +4287,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-KH-B/04-AU-WAL-KH-B/04-AU-WAL-KH-B.jpg"
     },
     {
       "partNumber": "04-AU-WAL-PARTN240-H125",
@@ -4334,7 +4346,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN240-H125/04-AU-WAL-PARTN240-H125/04-AU-WAL-PARTN240-H125.jpg"
     },
     {
       "partNumber": "04-AU-WAL-PARTN448-H125",
@@ -4392,7 +4405,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN448-H125/04-AU-WAL-PARTN448-H125/04-AU-WAL-PARTN448-H125.jpg"
     },
     {
       "partNumber": "04-AU-WAL-SLOTTED-B",
@@ -4450,7 +4464,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B/04-AU-WAL-SLOTTED-B/04-AU-WAL-SLOTTED-B.jpg"
     },
     {
       "partNumber": "04-AU-WAL-T9494H368",
@@ -4508,7 +4523,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T9494H36/04-AU-WAL-T9494H368/04-AU-WAL-T9494H368.jpg"
     },
     {
       "partNumber": "04-AU-WAL-T94266H36",
@@ -4566,7 +4582,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T94266H36/04-AU-WAL-T94266H36/04-AU-WAL-T94266H36.png"
     },
     {
       "partNumber": "04-AU-WAL-T100305H55",
@@ -4624,7 +4641,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T100305H55/04-AU-WAL-T100305H55/04-AU-WAL-T100305H55.jpg"
     },
     {
       "partNumber": "04-AU-WAL-T200305H55",
@@ -4740,7 +4758,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210406H110/04-AU-WAL-T210406H110/04-AU-WAL-T210406H110.jpg"
     },
     {
       "partNumber": "04-AU-WAL-T210506H110",
@@ -4798,7 +4817,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210506H110/04-AU-WAL-T210506H110/04-AU-WAL-T210506H110.jpg"
     },
     {
       "partNumber": "BIR-spice rack 35mm spacer Size A",
@@ -4856,7 +4876,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/spice%20rack%2035mm%20spacer%20Size%20A/BIR-spice%20rack%2035mm%20spacer%20Size%20A/BIR-spice%20rack%2035mm%20spacer%20Size%20A.jpg"
     },
     {
       "partNumber": "BIR-spice rack 53mm spacer Size A",
@@ -4972,7 +4993,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/Spice%20rack%20Size%20A/BIR-Spice%20rack%20Size%20A/BIR-Spice%20rack%20Size%20A.jpg"
     },
     {
       "partNumber": "WAL-spice rack 35mm spacer Size A",
@@ -5030,7 +5052,8 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/spice%20rack%2035mm%20spacer%20Size%20A/WAL-spice%20rack%2035mm%20spacer%20Size%20A/WAL-spice%20rack%2035mm%20spacer%20Size%20A.jpg"
     },
     {
       "partNumber": "WAL-spice rack 53mm spacer Size A",
@@ -5146,7 +5169,8 @@
       },
       "isSubmodule": false,
       "hasPegs": true,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/Spice%20rack%20Size%20A/WAL-Spice%20rack%20Size%20A/WAL-Spice%20rack%20Size%20A.jpg"
     }
   ]
 }

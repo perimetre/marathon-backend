@@ -5,5 +5,6 @@ import { ExpressContext } from 'apollo-server-express';
 // If changing anything here, don't forget to generate types again with "npm run graphql:codegen"!
 export type Context = {
   prisma: PrismaClient;
+  locale: string;
   bearer?: string;
 } & ExpressContext;
