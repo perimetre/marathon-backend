@@ -135,7 +135,7 @@
       "collection": "AREA",
       "supplier": "DTC",
       "product": "Metal box",
-      "formula": "Cabinet Width - 2 x gables - 2(15.5mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 15.5",
       "slug": "AREA-DTC-Metal-box"
     },
     {
@@ -147,7 +147,7 @@
       "collection": "AREA",
       "supplier": "DTC",
       "product": "Infinity",
-      "formula": "Cabinet - 2 x gables - 97+ projection interior 2*18mm",
+      "formula": "[width] - 2 * [gable] - 97 + 2 * 18",
       "slug": "AREA-DTC-Infinity"
     },
     {
@@ -159,7 +159,7 @@
       "collection": "AREA",
       "supplier": "DTC",
       "product": "Legacy Prima",
-      "formula": "Cabinet - 2 x gables - 40",
+      "formula": "[width] - 2 * [gable] - 40",
       "slug": "AREA-DTC-Legacy-Prima"
     },
     {
@@ -171,7 +171,7 @@
       "collection": "AREA",
       "supplier": "DTC",
       "product": "Legacy Endura",
-      "formula": "Cabinet - 2 x gables - 40",
+      "formula": "[width] - 2 * [gable] - 40",
       "slug": "AREA-DTC-Legacy-Endura"
     },
     {
@@ -183,7 +183,7 @@
       "collection": "AREA",
       "supplier": "King Slide",
       "product": "Simlead DW",
-      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 20.5",
       "slug": "AREA-King-Slide-Simlead-DW"
     },
     {
@@ -195,7 +195,7 @@
       "collection": "AREA",
       "supplier": "Blum",
       "product": "Legrabox",
-      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 20.5",
       "slug": "AREA-Blum-Legrabox"
     },
     {
@@ -207,7 +207,7 @@
       "collection": "AREA",
       "supplier": "Blum",
       "product": "Tandembox",
-      "formula": "Cabinet - 2 x gables - 48mm",
+      "formula": "[width] - 2 * [gable] - 48",
       "slug": "AREA-Blum-Tandembox"
     },
     {
@@ -219,7 +219,7 @@
       "collection": "AREA",
       "supplier": "Taiming",
       "product": "Optimiz-R",
-      "formula": "Cabinet - 2 x gables - 42",
+      "formula": "[width] - 2 * [gable] - 42",
       "slug": "AREA-Taiming-Optimiz-R"
     },
     {
@@ -231,7 +231,7 @@
       "collection": "AREA",
       "supplier": "Taiming",
       "product": "908",
-      "formula": "Cabinet - 2 x gables - 80mm + projection interior 2*18mm",
+      "formula": "[width] - 2 * [gable] - 80 + 2 * 18",
       "slug": "AREA-Taiming-908"
     },
     {
@@ -243,7 +243,7 @@
       "collection": "AREA",
       "supplier": "DTC",
       "product": "DS10/TS10",
-      "formula": "Cabinet - 2 x gables - 2(21mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 21",
       "slug": "AREA-DTC-DS10TS10"
     },
     {
@@ -255,7 +255,7 @@
       "collection": "AREA",
       "supplier": "King Slide",
       "product": "Simlead undermount",
-      "formula": "Cabinet - 2 x gables - 42.75",
+      "formula": "[width] - 2 * [gable] - 42.75",
       "slug": "AREA-King-Slide-Simlead-undermount"
     },
     {
@@ -266,7 +266,7 @@
       "collection": "AREA",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 5/8",
-      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (5/8)",
+      "formula": "[width] - 2 * [gable] - 2 * 13 - 2 * 15.875",
       "slug": "AREA-STANDARD-Ballbearing-12-box-58"
     },
     {
@@ -277,7 +277,7 @@
       "collection": "AREA",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 1/2",
-      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (1/2)",
+      "formula": "[width] - 2 * [gable] - 2 * 13 - 2 * 12.7",
       "slug": "AREA-STANDARD-Ballbearing-12-box-12"
     },
     {
@@ -289,7 +289,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "DTC",
       "product": "Metal box",
-      "formula": "Cabinet - 2 x gables - 2(15.5mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 15.5",
       "slug": "AUTOGRAPH-DTC-Metal-box"
     },
     {
@@ -301,7 +301,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "DTC",
       "product": "Infinity",
-      "formula": "Cabinet - 2 x gables - 97",
+      "formula": "[width] - 2 * [gable] - 97",
       "slug": "AUTOGRAPH-DTC-Infinity"
     },
     {
@@ -313,7 +313,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "DTC",
       "product": "Legacy Prima",
-      "formula": "Cabinet - 2 x gables - 40",
+      "formula": "[width] - 2 * [gable] - 40",
       "slug": "AUTOGRAPH-DTC-Legacy-Prima"
     },
     {
@@ -325,7 +325,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "DTC",
       "product": "Legacy Endura",
-      "formula": "Cabinet - 2 x gables - 40",
+      "formula": "[width] - 2 * [gable] - 40",
       "slug": "AUTOGRAPH-DTC-Legacy-Endura"
     },
     {
@@ -337,7 +337,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "King Slide",
       "product": "Simlead DW",
-      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 20.5",
       "slug": "AUTOGRAPH-King-Slide-Simlead-DW"
     },
     {
@@ -349,7 +349,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "Blum",
       "product": "Legrabox",
-      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 20.5",
       "slug": "AUTOGRAPH-Blum-Legrabox"
     },
     {
@@ -361,7 +361,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "Blum",
       "product": "Tandembox",
-      "formula": "Cabinet - 2 x gables - 80mm",
+      "formula": "[width] - 2 * [gable] - 80",
       "slug": "AUTOGRAPH-Blum-Tandembox"
     },
     {
@@ -373,7 +373,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "Taiming",
       "product": "Optimiz-R",
-      "formula": "Cabinet - 2 x gables - 42",
+      "formula": "[width] - 2 * [gable] - 42",
       "slug": "AUTOGRAPH-Taiming-Optimiz-R"
     },
     {
@@ -385,7 +385,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "Taiming",
       "product": "908",
-      "formula": "Cabinet - 2 x gables - 80mm",
+      "formula": "[width] - 2 * [gable] - 80",
       "slug": "AUTOGRAPH-Taiming-908"
     },
     {
@@ -397,7 +397,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "DTC",
       "product": "DS10/TS10",
-      "formula": "Cabinet - 2 x gables - 2(21mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 21",
       "slug": "AUTOGRAPH-DTC-DS10TS10"
     },
     {
@@ -409,7 +409,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "King Slide",
       "product": "Simlead undermount",
-      "formula": "Cabinet - 2 x gables - 42.75",
+      "formula": "[width] - 2 * [gable] - 42.75",
       "slug": "AUTOGRAPH-King-Slide-Simlead-undermount"
     },
     {
@@ -420,7 +420,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 5/8",
-      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (5/8)",
+      "formula": "[width] - 2 * [gable] - 2 * 13 - 2 * 15.875",
       "slug": "AUTOGRAPH-STANDARD-Ballbearing-12-box-58"
     },
     {
@@ -431,7 +431,7 @@
       "collection": "AUTOGRAPH",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 1/2",
-      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (1/2)",
+      "formula": "[width] - 2 * [gable] - 2 * 13 - 2 * 12.7",
       "slug": "AUTOGRAPH-STANDARD-Ballbearing-12-box-12"
     },
     {
@@ -443,7 +443,7 @@
       "collection": "IMPRINT",
       "supplier": "DTC",
       "product": "Metal box",
-      "formula": "Cabinet - 2 x gables - 2(15.5mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 15.5",
       "slug": "IMPRINT-DTC-Metal-box"
     },
     {
@@ -455,7 +455,7 @@
       "collection": "IMPRINT",
       "supplier": "DTC",
       "product": "Infinity",
-      "formula": "Cabinet - 2 x gables - 97+ projection interior 2*10mm",
+      "formula": "[width] - 2 * [gable] - 97 + 2 * 10",
       "slug": "IMPRINT-DTC-Infinity"
     },
     {
@@ -467,7 +467,7 @@
       "collection": "IMPRINT",
       "supplier": "DTC",
       "product": "Legacy Prima",
-      "formula": "Cabinet - 2 x gables - 40",
+      "formula": "[width] - 2 * [gable] - 40",
       "slug": "IMPRINT-DTC-Legacy-Prima"
     },
     {
@@ -479,7 +479,7 @@
       "collection": "IMPRINT",
       "supplier": "DTC",
       "product": "Legacy Endura",
-      "formula": "Cabinet - 2 x gables - 40",
+      "formula": "[width] - 2 * [gable] - 40",
       "slug": "IMPRINT-DTC-Legacy-Endura"
     },
     {
@@ -491,7 +491,7 @@
       "collection": "IMPRINT",
       "supplier": "King Slide",
       "product": "Simlead DW",
-      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 20.5",
       "slug": "IMPRINT-King-Slide-Simlead-DW"
     },
     {
@@ -503,7 +503,7 @@
       "collection": "IMPRINT",
       "supplier": "Blum",
       "product": "Legrabox",
-      "formula": "Cabinet - 2 x gables - 2(20.5mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 20.5",
       "slug": "IMPRINT-Blum-Legrabox"
     },
     {
@@ -515,7 +515,7 @@
       "collection": "IMPRINT",
       "supplier": "Blum",
       "product": "Tandembox",
-      "formula": "Cabinet - 2 x gables - 80mm+ projection interior 2*10mm",
+      "formula": "[width] - 2 * [gable] - 80 + 2 * 10",
       "slug": "IMPRINT-Blum-Tandembox"
     },
     {
@@ -527,7 +527,7 @@
       "collection": "IMPRINT",
       "supplier": "Taiming",
       "product": "Optimiz-R",
-      "formula": "Cabinet - 2 x gables - 42",
+      "formula": "[width] - 2 * [gable] - 42",
       "slug": "IMPRINT-Taiming-Optimiz-R"
     },
     {
@@ -539,7 +539,7 @@
       "collection": "IMPRINT",
       "supplier": "Taiming",
       "product": "908",
-      "formula": "Cabinet - 2 x gables - 80mm + projection interior 2*10mm",
+      "formula": "[width] - 2 * [gable] - 80 + 2 * 10",
       "slug": "IMPRINT-Taiming-908"
     },
     {
@@ -551,7 +551,7 @@
       "collection": "IMPRINT",
       "supplier": "DTC",
       "product": "DS10/TS10",
-      "formula": "Cabinet - 2 x gables - 2(21mm)",
+      "formula": "[width] - 2 * [gable] - 2 * 21",
       "slug": "IMPRINT-DTC-DS10TS10"
     },
     {
@@ -563,7 +563,7 @@
       "collection": "IMPRINT",
       "supplier": "King Slide",
       "product": "Simlead undermount",
-      "formula": "Cabinet - 2 x gables - 42.75",
+      "formula": "[width] - 2 * [gable] - 42.75",
       "slug": "IMPRINT-King-Slide-Simlead-undermount"
     },
     {
@@ -574,7 +574,7 @@
       "collection": "IMPRINT",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 5/8",
-      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (5/8)",
+      "formula": "[width] - 2 * [gable] - 2 * 13 -2 * 15.875",
       "slug": "IMPRINT-STANDARD-Ballbearing-12-box-58"
     },
     {
@@ -585,7 +585,7 @@
       "collection": "IMPRINT",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 1/2",
-      "formula": "Cabinet - 2 x gables - 2(13mm) -2(drawer sides) (1/2)",
+      "formula": "[width] - 2 * [gable] - 2 * 13 -2 * 12.7",
       "slug": "IMPRINT-STANDARD-Ballbearing-12-box-12"
     }
   ],
@@ -687,53 +687,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-AN-69",
         "finishes": ["04-AU-ACCENT-AU79-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SD-69", "04-AU-ACCENT-SW-69"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -746,53 +702,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-AN-89",
         "finishes": ["04-AU-ACCENT-AU79-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SD-89", "04-AU-ACCENT-SW-89"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -804,53 +716,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-AN-95",
         "finishes": ["04-AU-ACCENT-AU79-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SD-95", "04-AU-ACCENT-SW-95"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -862,53 +730,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-AN-141",
         "finishes": ["04-AU-ACCENT-AU79-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SD-141", "04-AU-ACCENT-SW-141"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -920,53 +744,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-AN-189",
         "finishes": ["04-AU-ACCENT-AU79-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SD-189", "04-AU-ACCENT-SW-189"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -978,53 +758,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-AU79-69",
         "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SD-69", "04-AU-ACCENT-SW-69"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1037,53 +773,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-AU79-89",
         "finishes": ["04-AU-ACCENT-AN-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SD-89", "04-AU-ACCENT-SW-89"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1095,53 +787,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-AU79-95",
         "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SD-95", "04-AU-ACCENT-SW-95"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1153,53 +801,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-AU79-141",
         "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SD-141", "04-AU-ACCENT-SW-141"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1211,53 +815,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-AU79-189",
         "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SD-189", "04-AU-ACCENT-SW-189"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1269,53 +829,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-MB-69",
         "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-AU79-69", "04-AU-ACCENT-SD-69", "04-AU-ACCENT-SW-69"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1325,57 +841,6 @@
     {
       "partNumber": "04-AU-ACCENT-MB-89",
       "finish": "Matte Black",
-      "metadata": {
-        "partNumber": "04-AU-ACCENT-AU79-89",
-        "finishes": ["04-AU-ACCENT-AN-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SD-89", "04-AU-ACCENT-SW-89"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
-      },
       "isSubmodule": true,
       "hasPegs": false,
       "collection": "Autograph"
@@ -1386,53 +851,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-MB-95",
         "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-AU79-95", "04-AU-ACCENT-SD-95", "04-AU-ACCENT-SW-95"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1444,53 +865,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-MB-141",
         "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-AU79-141", "04-AU-ACCENT-SD-141", "04-AU-ACCENT-SW-141"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1502,53 +879,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-MB-189",
         "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-AU79-189", "04-AU-ACCENT-SD-189", "04-AU-ACCENT-SW-189"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1560,53 +893,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-SD-69",
         "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-AU79-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SW-69"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1619,53 +908,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-SD-89",
         "finishes": ["04-AU-ACCENT-AN-89", "04-AU-ACCENT-AU79-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SW-89"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1677,53 +922,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-SD-95",
         "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-AU79-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SW-95"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1735,53 +936,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-SD-141",
         "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-AU79-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SW-141"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1793,53 +950,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-SD-189",
         "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-AU79-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SW-189"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1851,53 +964,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-SW-69",
         "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-AU79-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SD-69"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1910,53 +979,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-SW-89",
         "finishes": ["04-AU-ACCENT-AN-89", "04-AU-ACCENT-AU79-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SD-89"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -1968,53 +993,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-SW-95",
         "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-AU79-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SD-95"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -2026,53 +1007,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-SW-141",
         "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-AU79-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SD-141"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -2084,53 +1021,9 @@
       "metadata": {
         "partNumber": "04-AU-ACCENT-SW-189",
         "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-AU79-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SD-189"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -2142,53 +1035,36 @@
       "metadata": {
         "partNumber": "04-AU-BIR-CD-B",
         "finishes": ["04-AU-WAL-CD-B"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 47,
             "inches": "1.85039"
           },
           "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
+            "min": {
+              "millimeters": 152.4,
               "inches": "6\""
             },
-            "min": {
-              "millimeters": 152.39999389648438,
+            "max": {
+              "millimeters": 152.4,
               "inches": "6\""
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
             "min": {
               "millimeters": 366,
               "inches": "14.4094"
+            },
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["bottom", "top"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": true,
@@ -2201,49 +1077,34 @@
       "metadata": {
         "partNumber": "04-AU-BIR-CT4-D",
         "finishes": ["04-AU-WAL-CT4-D"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
-            "max": {
-              "millimeters": 304.79998779296875,
+            "min": {
+              "millimeters": 304.8,
               "inches": "12\""
             },
-            "min": {
-              "millimeters": 304.79998779296875,
+            "max": {
+              "millimeters": 304.8,
               "inches": "12\""
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
             "min": {
               "millimeters": 366,
               "inches": "14.4094"
+            },
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
           "options": [
             "04-AU-ACCENT-SW-95",
             "04-AU-ACCENT-MB-95",
@@ -2252,8 +1113,7 @@
             "04-AU-ACCENT-AU79-95"
           ],
           "trimmable": ["bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -2266,49 +1126,34 @@
       "metadata": {
         "partNumber": "04-AU-BIR-CT5-D",
         "finishes": ["04-AU-WAL-CT5-D"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
-            "max": {
-              "millimeters": 304.79998779296875,
+            "min": {
+              "millimeters": 304.8,
               "inches": "12\""
             },
-            "min": {
-              "millimeters": 304.79998779296875,
+            "max": {
+              "millimeters": 304.8,
               "inches": "12\""
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
             "min": {
               "millimeters": 366,
               "inches": "14.4094"
+            },
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
           "options": [
             "04-AU-ACCENT-SW-69",
             "04-AU-ACCENT-MB-69",
@@ -2322,8 +1167,7 @@
             "04-AU-ACCENT-AU79-95"
           ],
           "trimmable": ["bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -2336,53 +1180,18 @@
       "metadata": {
         "partNumber": "04-AU-BIR-DIVIDER-H55",
         "finishes": ["04-AU-WAL-DIVIDER-H55"],
-        "trims": [],
         "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "depth": {
             "max": {
               "millimeters": 589,
               "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["bottom", "top"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -2395,53 +1204,36 @@
       "metadata": {
         "partNumber": "04-AU-BIR-KH-B",
         "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 39,
             "inches": "1.53543"
           },
           "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
+            "min": {
+              "millimeters": 152.4,
               "inches": "6\""
             },
-            "min": {
-              "millimeters": 152.39999389648438,
+            "max": {
+              "millimeters": 152.4,
               "inches": "6\""
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
             "min": {
               "millimeters": 405,
               "inches": "15.9449"
+            },
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["top"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": true,
@@ -2451,57 +1243,6 @@
     {
       "partNumber": "04-AU-BIR-PARTN240-H125",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
@@ -2510,57 +1251,6 @@
     {
       "partNumber": "04-AU-BIR-PARTN448-H125",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
@@ -2569,57 +1259,6 @@
     {
       "partNumber": "04-AU-BIR-SLOTTED-B",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
@@ -2628,57 +1267,6 @@
     {
       "partNumber": "04-AU-BIR-T9494H36",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -2687,57 +1275,6 @@
     {
       "partNumber": "04-AU-BIR-T94266H36",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -2746,57 +1283,6 @@
     {
       "partNumber": "04-AU-BIR-T100305H55",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -2805,57 +1291,6 @@
     {
       "partNumber": "04-AU-BIR-T200305H55",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph"
@@ -2863,57 +1298,6 @@
     {
       "partNumber": "04-AU-BIR-T210406H110",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -2922,57 +1306,6 @@
     {
       "partNumber": "04-AU-BIR-T210506H110",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -2984,53 +1317,9 @@
       "metadata": {
         "partNumber": "04-AU-DIVIDER-AN",
         "finishes": ["04-AU-DIVIDER-AU79", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SD", "04-AU-DIVIDER-SW"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -3042,53 +1331,9 @@
       "metadata": {
         "partNumber": "04-AU-DIVIDER-AU79",
         "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SD", "04-AU-DIVIDER-SW"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -3100,53 +1345,9 @@
       "metadata": {
         "partNumber": "04-AU-DIVIDER-MB",
         "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-AU79", "04-AU-DIVIDER-SD", "04-AU-DIVIDER-SW"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -3158,53 +1359,9 @@
       "metadata": {
         "partNumber": "04-AU-DIVIDER-SD",
         "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-AU79", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SW"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -3216,53 +1373,9 @@
       "metadata": {
         "partNumber": "04-AU-DIVIDER-SW",
         "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-AU79", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SD"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          }
-        },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": []
-        },
-        "extensions": []
+          "rotation": 90
+        }
       },
       "isSubmodule": true,
       "hasPegs": false,
@@ -3274,53 +1387,36 @@
       "metadata": {
         "partNumber": "04-AU-LSHAPE600-AN",
         "finishes": ["04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SD", "04-AU-LSHAPE600-SW"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            },
             "max": {
               "millimeters": 100,
               "inches": "3.93700"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": "0"
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 600,
-              "inches": "23.622"
-            },
             "min": {
               "millimeters": 0,
               "inches": "0"
+            },
+            "max": {
+              "millimeters": 600,
+              "inches": "23.622"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["left", "right", "bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3332,53 +1428,36 @@
       "metadata": {
         "partNumber": "04-AU-LSHAPE600-AU79",
         "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SD", "04-AU-LSHAPE600-SW"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            },
             "max": {
               "millimeters": 100,
               "inches": "3.93700"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": "0"
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 600,
-              "inches": "23.622"
-            },
             "min": {
               "millimeters": 0,
               "inches": "0"
+            },
+            "max": {
+              "millimeters": 600,
+              "inches": "23.622"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["left", "right", "bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3390,53 +1469,36 @@
       "metadata": {
         "partNumber": "04-AU-LSHAPE600-MB",
         "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-SD", "04-AU-LSHAPE600-SW"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            },
             "max": {
               "millimeters": 100,
               "inches": "3.93700"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": "0"
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 600,
-              "inches": "23.622"
-            },
             "min": {
               "millimeters": 0,
               "inches": "0"
+            },
+            "max": {
+              "millimeters": 600,
+              "inches": "23.622"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["left", "right", "bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3448,53 +1510,36 @@
       "metadata": {
         "partNumber": "04-AU-LSHAPE600-SD",
         "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SW"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            },
             "max": {
               "millimeters": 100,
               "inches": "3.93700"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": "0"
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 600,
-              "inches": "23.622"
-            },
             "min": {
               "millimeters": 0,
               "inches": "0"
+            },
+            "max": {
+              "millimeters": 600,
+              "inches": "23.622"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["left", "right", "bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3506,53 +1551,36 @@
       "metadata": {
         "partNumber": "04-AU-LSHAPE600-SW",
         "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SD"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            },
             "max": {
               "millimeters": 100,
               "inches": "3.93700"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": "0"
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 600,
-              "inches": "23.622"
-            },
             "min": {
               "millimeters": 0,
               "inches": "0"
+            },
+            "max": {
+              "millimeters": 600,
+              "inches": "23.622"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["left", "right", "bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3564,53 +1592,36 @@
       "metadata": {
         "partNumber": "04-AU-LSHAPE1200-AN",
         "finishes": ["04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SD", "04-AU-LSHAPE1200-SW"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            },
             "max": {
               "millimeters": 100,
               "inches": "3.93700"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": "0"
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 1200,
-              "inches": "47.24409"
-            },
             "min": {
               "millimeters": 0,
               "inches": "0"
+            },
+            "max": {
+              "millimeters": 1200,
+              "inches": "47.24409"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["left", "right", "bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3622,53 +1633,36 @@
       "metadata": {
         "partNumber": "04-AU-LSHAPE1200-AU79",
         "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SD", "04-AU-LSHAPE1200-SW"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            },
             "max": {
               "millimeters": 100,
               "inches": "3.93700"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": "0"
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 1200,
-              "inches": "47.24409"
-            },
             "min": {
               "millimeters": 0,
               "inches": "0"
+            },
+            "max": {
+              "millimeters": 1200,
+              "inches": "47.24409"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["left", "right", "bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3680,53 +1674,36 @@
       "metadata": {
         "partNumber": "04-AU-LSHAPE1200-MB",
         "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-SD", "04-AU-LSHAPE1200-SW"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            },
             "max": {
               "millimeters": 100,
               "inches": "3.93700"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": "0"
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 1200,
-              "inches": "47.24409"
-            },
             "min": {
               "millimeters": 0,
               "inches": "0"
+            },
+            "max": {
+              "millimeters": 1200,
+              "inches": "47.24409"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["left", "right", "bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3738,53 +1715,36 @@
       "metadata": {
         "partNumber": "04-AU-LSHAPE1200-SD",
         "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SW"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            },
             "max": {
               "millimeters": 100,
               "inches": "3.93700"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": "0"
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 1200,
-              "inches": "47.24409"
-            },
             "min": {
               "millimeters": 0,
               "inches": "0"
+            },
+            "max": {
+              "millimeters": 1200,
+              "inches": "47.24409"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["left", "right", "bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3796,53 +1756,36 @@
       "metadata": {
         "partNumber": "04-AU-LSHAPE1200-SW",
         "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SD"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
+            "min": {
+              "millimeters": 0,
+              "inches": "0"
+            },
             "max": {
               "millimeters": 100,
               "inches": "3.93700"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": "0"
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 1200,
-              "inches": "47.24409"
-            },
             "min": {
               "millimeters": 0,
               "inches": "0"
+            },
+            "max": {
+              "millimeters": 1200,
+              "inches": "47.24409"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 90,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["left", "right", "bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3854,49 +1797,34 @@
       "metadata": {
         "partNumber": "04-AU-USHAPE-BIR-B",
         "finishes": ["04-AU-USHAPE-WAL-B"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
+            "min": {
+              "millimeters": 152.4,
               "inches": "6\""
             },
-            "min": {
-              "millimeters": 152.39999389648438,
+            "max": {
+              "millimeters": 152.4,
               "inches": "6\""
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
             "min": {
               "millimeters": 366,
               "inches": "14.4094"
+            },
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
           "options": [
             "04-AU-ACCENT-AN-141",
             "04-AU-ACCENT-AU79-141",
@@ -3905,8 +1833,7 @@
             "04-AU-ACCENT-SW-141"
           ],
           "trimmable": ["bottom", "top"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3919,49 +1846,34 @@
       "metadata": {
         "partNumber": "04-AU-USHAPE-WAL-B",
         "finishes": ["04-AU-USHAPE-BIR-B"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
+            "min": {
+              "millimeters": 152.4,
               "inches": "6\""
             },
-            "min": {
-              "millimeters": 152.39999389648438,
+            "max": {
+              "millimeters": 152.4,
               "inches": "6\""
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
             "min": {
               "millimeters": 366,
               "inches": "14.4094"
+            },
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
           "options": [
             "04-AU-ACCENT-AN-141",
             "04-AU-ACCENT-AU79-141",
@@ -3970,8 +1882,7 @@
             "04-AU-ACCENT-SW-141"
           ],
           "trimmable": ["bottom", "top"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -3984,53 +1895,36 @@
       "metadata": {
         "partNumber": "04-AU-WAL-CD-B",
         "finishes": ["04-AU-BIR-CD-B"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 47,
             "inches": "1.85039"
           },
           "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
+            "min": {
+              "millimeters": 152.4,
               "inches": "6\""
             },
-            "min": {
-              "millimeters": 152.39999389648438,
+            "max": {
+              "millimeters": 152.4,
               "inches": "6\""
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
             "min": {
               "millimeters": 366,
               "inches": "14.4094"
+            },
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["bottom", "top"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": true,
@@ -4043,49 +1937,34 @@
       "metadata": {
         "partNumber": "04-AU-WAL-CT4-D",
         "finishes": ["04-AU-BIR-CT4-D"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
-            "max": {
-              "millimeters": 304.79998779296875,
+            "min": {
+              "millimeters": 304.8,
               "inches": "12\""
             },
-            "min": {
-              "millimeters": 304.79998779296875,
+            "max": {
+              "millimeters": 304.8,
               "inches": "12\""
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
             "min": {
               "millimeters": 366,
               "inches": "14.4094"
+            },
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
           "options": [
             "04-AU-ACCENT-SW-95",
             "04-AU-ACCENT-MB-95",
@@ -4094,8 +1973,7 @@
             "04-AU-ACCENT-AU79-95"
           ],
           "trimmable": ["bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -4108,49 +1986,34 @@
       "metadata": {
         "partNumber": "04-AU-WAL-CT5-D",
         "finishes": ["04-AU-BIR-CT5-D"],
-        "trims": [],
         "dimensions": {
           "height": {
             "millimeters": 55,
             "inches": "2.16535"
           },
           "width": {
-            "max": {
-              "millimeters": 304.79998779296875,
+            "min": {
+              "millimeters": 304.8,
               "inches": "12\""
             },
-            "min": {
-              "millimeters": 304.79998779296875,
+            "max": {
+              "millimeters": 304.8,
               "inches": "12\""
             }
           },
           "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
             "min": {
               "millimeters": 366,
               "inches": "14.4094"
+            },
+            "max": {
+              "millimeters": 589,
+              "inches": "23.189"
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
           "options": [
             "04-AU-ACCENT-SW-69",
             "04-AU-ACCENT-MB-69",
@@ -4164,8 +2027,7 @@
             "04-AU-ACCENT-AU79-95"
           ],
           "trimmable": ["bottom"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -4178,53 +2040,18 @@
       "metadata": {
         "partNumber": "04-AU-WAL-DIVIDER-H55",
         "finishes": ["04-AU-BIR-DIVIDER-H55"],
-        "trims": [],
         "dimensions": {
-          "height": {
-            "millimeters": 0,
-            "inches": ""
-          },
-          "width": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "depth": {
             "max": {
               "millimeters": 589,
               "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
             }
           }
         },
         "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
           "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
           "trimmable": ["bottom", "top"]
-        },
-        "extensions": []
+        }
       },
       "isSubmodule": false,
       "hasPegs": false,
@@ -4234,57 +2061,6 @@
     {
       "partNumber": "04-AU-WAL-KH-B",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
@@ -4293,57 +2069,6 @@
     {
       "partNumber": "04-AU-WAL-PARTN240-H125",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
@@ -4352,57 +2077,6 @@
     {
       "partNumber": "04-AU-WAL-PARTN448-H125",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
@@ -4411,57 +2085,6 @@
     {
       "partNumber": "04-AU-WAL-SLOTTED-B",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
@@ -4470,57 +2093,6 @@
     {
       "partNumber": "04-AU-WAL-T9494H368",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -4529,57 +2101,6 @@
     {
       "partNumber": "04-AU-WAL-T94266H36",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -4588,57 +2109,6 @@
     {
       "partNumber": "04-AU-WAL-T100305H55",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -4647,57 +2117,6 @@
     {
       "partNumber": "04-AU-WAL-T200305H55",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph"
@@ -4705,57 +2124,6 @@
     {
       "partNumber": "04-AU-WAL-T210406H110",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -4764,57 +2132,6 @@
     {
       "partNumber": "04-AU-WAL-T210506H110",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -4823,57 +2140,6 @@
     {
       "partNumber": "BIR-spice rack 35mm spacer Size A",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -4882,57 +2148,6 @@
     {
       "partNumber": "BIR-spice rack 53mm spacer Size A",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph"
@@ -4940,57 +2155,6 @@
     {
       "partNumber": "BIR-Spice rack Size A",
       "finish": "Birch",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
@@ -4999,57 +2163,6 @@
     {
       "partNumber": "WAL-spice rack 35mm spacer Size A",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
@@ -5058,57 +2171,6 @@
     {
       "partNumber": "WAL-spice rack 53mm spacer Size A",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph"
@@ -5116,57 +2178,6 @@
     {
       "partNumber": "WAL-Spice rack Size A",
       "finish": "Walnut",
-      "metadata": {
-        "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
-        "trims": [],
-        "dimensions": {
-          "height": {
-            "millimeters": 39,
-            "inches": "1.53543"
-          },
-          "width": {
-            "max": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            },
-            "min": {
-              "millimeters": 152.39999389648438,
-              "inches": "6\""
-            }
-          },
-          "depth": {
-            "max": {
-              "millimeters": 589,
-              "inches": "23.189"
-            },
-            "min": {
-              "millimeters": 405,
-              "inches": "15.9449"
-            }
-          }
-        },
-        "rules": {
-          "requiredNetInterior": {
-            "max": {
-              "millimeters": 0,
-              "inches": ""
-            },
-            "min": {
-              "millimeters": 0,
-              "inches": ""
-            }
-          },
-          "rotation": 0,
-          "alignment": {
-            "whitelist": [],
-            "blacklist": []
-          },
-          "options": [],
-          "trimmable": ["top"]
-        },
-        "extensions": []
-      },
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
