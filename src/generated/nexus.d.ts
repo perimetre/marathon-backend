@@ -2947,7 +2947,7 @@ export interface NexusGenFieldTypes {
     footer: string | null; // String
     id: number; // Int!
     modules: NexusGenRootTypes['Module'][]; // [Module!]!
-    name: string | null; // String
+    name: string; // String!
     projects: NexusGenRootTypes['Project'][]; // [Project!]!
     slides: NexusGenRootTypes['Slide'][]; // [Slide!]!
     slug: string; // String!
@@ -2979,7 +2979,7 @@ export interface NexusGenFieldTypes {
     description: string | null; // String
     id: number; // Int!
     modules: NexusGenRootTypes['Module'][]; // [Module!]!
-    name: string | null; // String
+    name: string; // String!
     projects: NexusGenRootTypes['Project'][]; // [Project!]!
     slug: string; // String!
     thumbnailUrl: string | null; // String
@@ -3113,7 +3113,7 @@ export interface NexusGenFieldTypes {
     // field return type
     description: string | null; // String
     id: number; // Int!
-    name: string | null; // String
+    name: string; // String!
     projects: NexusGenRootTypes['Project'][]; // [Project!]!
     slug: string; // String!
     thumbnailUrl: string | null; // String

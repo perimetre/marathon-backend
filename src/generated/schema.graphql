@@ -16,7 +16,7 @@ type Collection {
   footer: String
   id: Int!
   modules(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
-  name: String
+  name: String!
   projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
   slides(cursor: SlideWhereUniqueInput, skip: Int, take: Int): [Slide!]!
   slug: String!
@@ -540,7 +540,7 @@ type Finish {
   description: String
   id: Int!
   modules(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
-  name: String
+  name: String!
   projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
   slug: String!
   thumbnailUrl: String
@@ -2714,7 +2714,7 @@ input StringNullableFilter {
 type Type {
   description: String
   id: Int!
-  name: String
+  name: String!
   projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
   slug: String!
   thumbnailUrl: String

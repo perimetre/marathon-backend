@@ -1,8 +1,7 @@
-import { Locale, Prisma, PrismaClient } from '@prisma/client';
+import { Locale, Prisma } from '@prisma/client';
 import { MaybePromise, ObjectDefinitionBlock } from 'nexus/dist/core';
 import { URL } from 'url';
 import { env } from '../env';
-import { TlsContext } from 'aws-sdk/clients/iot';
 import { Context } from '../typings/context';
 
 type TypeNames = keyof typeof Prisma.ModelName;
@@ -51,9 +50,61 @@ export const resolvePublicMediaUrlToField = async <T extends string | null, TRoo
   return path;
 };
 
+const resolveTranslatedField = async <T extends { id: number }>(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  table: (ctx: Context) => any,
+  ctx: Context,
+  root: T,
+  key: string
+) => {
+  const defaultLocale = env.DEFAULT_LOCALE;
+  const translations = await table(ctx)
+    .findUnique({ where: { id: root.id } })
+    .translations({
+      where: {
+        locale: { in: (ctx.locale !== defaultLocale ? [ctx.locale, defaultLocale] : [defaultLocale]) as Locale[] }
+      }
+    });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const localeTranslation = translations.find((x: any) => x.locale === ctx.locale);
+  if (localeTranslation) {
+    return localeTranslation[key];
+  } else {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const defaultTranslation = translations.find((x: any) => x.locale === defaultLocale);
+    if (defaultTranslation) {
+      return defaultTranslation[key];
+    }
+  }
+};
+
+export const registerNonNullTranslatedFields = <TypeName extends TypeNames>(
+  t: ObjectDefinitionBlock<TypeName>,
+  keys: string[],
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  table: (ctx: Context) => any
+) => {
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+
+    t.nonNull.string(key, {
+      resolve: async (root, _args, ctx) => {
+        const translatedField = await resolveTranslatedField(table, ctx, root, key);
+        if (!translatedField) {
+          throw new Error(`Not null field ${key} expected value but is null`);
+        } else {
+          return translatedField;
+        }
+      }
+    });
+  }
+};
+
 export const registerTranslatedFields = <TypeName extends TypeNames>(
   t: ObjectDefinitionBlock<TypeName>,
   keys: string[],
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   table: (ctx: Context) => any
 ) => {
   for (let i = 0; i < keys.length; i++) {
@@ -61,26 +112,7 @@ export const registerTranslatedFields = <TypeName extends TypeNames>(
 
     t.string(key, {
       resolve: async (root, _args, ctx) => {
-        const defaultLocale = env.DEFAULT_LOCALE;
-        const translations = await table(ctx)
-          .findUnique({ where: { id: root.id } })
-          .translations({
-            where: {
-              locale: { in: (ctx.locale !== defaultLocale ? [ctx.locale, defaultLocale] : [defaultLocale]) as Locale[] }
-            }
-          });
-
-        const localeTranslation = translations.find((x: any) => x.locale === ctx.locale);
-        if (localeTranslation) {
-          return localeTranslation[key];
-        } else {
-          const defaultTranslation = translations.find((x: any) => x.locale === defaultLocale);
-          if (defaultTranslation) {
-            return defaultTranslation[key];
-          }
-        }
-
-        return null;
+        return (await resolveTranslatedField(table, ctx, root, key)) || null;
       }
     });
   }

@@ -1,5 +1,5 @@
 import { Locale, PrismaClient } from '@prisma/client';
-import { helpers, seed } from 'faker';
+import { helpers } from 'faker';
 import { uniqBy } from 'lodash';
 import seedValues from './seedValues/seed.json';
 
@@ -107,7 +107,7 @@ const main = async () => {
   const slides = await db.slide.findMany({ select: { id: true, slug: true } });
 
   await db.slideDepth.createMany({
-    data: seedValues.slides.flatMap((slide, i) =>
+    data: seedValues.slides.flatMap((slide) =>
       ['450', '500', '550', '600']
         .filter((x) => seedValues.slides[x] !== 0)
         .map((depthValue) => ({

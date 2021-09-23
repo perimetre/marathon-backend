@@ -1,6 +1,7 @@
 import { objectType } from 'nexus';
 import {
   registerModelsWithPrismaBinding,
+  registerNonNullTranslatedFields,
   registerTranslatedFields,
   resolvePublicMediaUrlToField
 } from '../utils/nexus';
@@ -12,6 +13,7 @@ export const Collection = objectType({
     t.model.thumbnailUrl({
       resolve: resolvePublicMediaUrlToField
     });
-    registerTranslatedFields(t, ['name', 'subtitle', 'description', 'footer'], (ctx) => ctx.prisma.collection);
+    registerNonNullTranslatedFields(t, ['name'], (ctx) => ctx.prisma.collection);
+    registerTranslatedFields(t, ['subtitle', 'description', 'footer'], (ctx) => ctx.prisma.collection);
   }
 });
