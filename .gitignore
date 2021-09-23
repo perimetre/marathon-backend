@@ -50,3 +50,5 @@ docker-compose.yml
 
 # testing
 /coverage
+
+/images

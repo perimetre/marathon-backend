@@ -12,13 +12,16 @@ input BoolFilter {
 
 type Collection {
   collectionFinishes(cursor: CollectionFinishesWhereUniqueInput, skip: Int, take: Int): [CollectionFinishes!]!
+  description: String
+  footer: String
   id: Int!
   modules(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
+  name: String
   projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
   slides(cursor: SlideWhereUniqueInput, skip: Int, take: Int): [Slide!]!
   slug: String!
-  thumbnailUrl: String!
-  translations(cursor: CollectionTranslationsWhereUniqueInput, skip: Int, take: Int): [CollectionTranslations!]!
+  subtitle: String
+  thumbnailUrl: String
 }
 
 input CollectionCreateNestedOneWithoutCollectionFinishesInput {
@@ -70,7 +73,7 @@ input CollectionCreateWithoutCollectionFinishesInput {
   projects: ProjectCreateNestedManyWithoutCollectionInput
   slides: SlideCreateNestedManyWithoutCollectionInput
   slug: String!
-  thumbnailUrl: String!
+  thumbnailUrl: String
   translations: CollectionTranslationsCreateNestedManyWithoutCollectionInput
 }
 
@@ -79,7 +82,7 @@ input CollectionCreateWithoutModulesInput {
   projects: ProjectCreateNestedManyWithoutCollectionInput
   slides: SlideCreateNestedManyWithoutCollectionInput
   slug: String!
-  thumbnailUrl: String!
+  thumbnailUrl: String
   translations: CollectionTranslationsCreateNestedManyWithoutCollectionInput
 }
 
@@ -88,7 +91,7 @@ input CollectionCreateWithoutProjectsInput {
   modules: ModuleCreateNestedManyWithoutCollectionInput
   slides: SlideCreateNestedManyWithoutCollectionInput
   slug: String!
-  thumbnailUrl: String!
+  thumbnailUrl: String
   translations: CollectionTranslationsCreateNestedManyWithoutCollectionInput
 }
 
@@ -97,7 +100,7 @@ input CollectionCreateWithoutSlidesInput {
   modules: ModuleCreateNestedManyWithoutCollectionInput
   projects: ProjectCreateNestedManyWithoutCollectionInput
   slug: String!
-  thumbnailUrl: String!
+  thumbnailUrl: String
   translations: CollectionTranslationsCreateNestedManyWithoutCollectionInput
 }
 
@@ -165,6 +168,12 @@ input CollectionFinishesListRelationFilter {
   every: CollectionFinishesWhereInput
   none: CollectionFinishesWhereInput
   some: CollectionFinishesWhereInput
+}
+
+input CollectionFinishesOrderByInput {
+  collectionId: SortOrder
+  finishId: SortOrder
+  id: SortOrder
 }
 
 input CollectionFinishesScalarWhereInput {
@@ -261,6 +270,12 @@ input CollectionFinishesWhereInput {
 
 input CollectionFinishesWhereUniqueInput {
   id: Int
+}
+
+input CollectionOrderByInput {
+  id: SortOrder
+  slug: SortOrder
+  thumbnailUrl: SortOrder
 }
 
 type CollectionTranslations {
@@ -428,7 +443,7 @@ input CollectionUpdateWithoutCollectionFinishesInput {
   projects: ProjectUpdateManyWithoutCollectionInput
   slides: SlideUpdateManyWithoutCollectionInput
   slug: StringFieldUpdateOperationsInput
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
   translations: CollectionTranslationsUpdateManyWithoutCollectionInput
 }
 
@@ -437,7 +452,7 @@ input CollectionUpdateWithoutModulesInput {
   projects: ProjectUpdateManyWithoutCollectionInput
   slides: SlideUpdateManyWithoutCollectionInput
   slug: StringFieldUpdateOperationsInput
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
   translations: CollectionTranslationsUpdateManyWithoutCollectionInput
 }
 
@@ -446,7 +461,7 @@ input CollectionUpdateWithoutProjectsInput {
   modules: ModuleUpdateManyWithoutCollectionInput
   slides: SlideUpdateManyWithoutCollectionInput
   slug: StringFieldUpdateOperationsInput
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
   translations: CollectionTranslationsUpdateManyWithoutCollectionInput
 }
 
@@ -455,7 +470,7 @@ input CollectionUpdateWithoutSlidesInput {
   modules: ModuleUpdateManyWithoutCollectionInput
   projects: ProjectUpdateManyWithoutCollectionInput
   slug: StringFieldUpdateOperationsInput
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
   translations: CollectionTranslationsUpdateManyWithoutCollectionInput
 }
 
@@ -489,7 +504,7 @@ input CollectionWhereInput {
   projects: ProjectListRelationFilter
   slides: SlideListRelationFilter
   slug: StringFilter
-  thumbnailUrl: StringFilter
+  thumbnailUrl: StringNullableFilter
   translations: CollectionTranslationsListRelationFilter
 }
 
@@ -522,12 +537,13 @@ input EnumUserProjectGroupRelationshipTypeFilter {
 
 type Finish {
   collectionFinishes(cursor: CollectionFinishesWhereUniqueInput, skip: Int, take: Int): [CollectionFinishes!]!
+  description: String
   id: Int!
   modules(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
+  name: String
   projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
   slug: String!
-  thumbnailUrl: String!
-  translations(cursor: FinishTranslationsWhereUniqueInput, skip: Int, take: Int): [FinishTranslations!]!
+  thumbnailUrl: String
 }
 
 input FinishCreateNestedOneWithoutCollectionFinishesInput {
@@ -567,7 +583,7 @@ input FinishCreateWithoutCollectionFinishesInput {
   modules: ModuleCreateNestedManyWithoutFinishInput
   projects: ProjectCreateNestedManyWithoutFinishInput
   slug: String!
-  thumbnailUrl: String!
+  thumbnailUrl: String
   translations: FinishTranslationsCreateNestedManyWithoutFinishInput
 }
 
@@ -575,7 +591,7 @@ input FinishCreateWithoutModulesInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutFinishInput
   projects: ProjectCreateNestedManyWithoutFinishInput
   slug: String!
-  thumbnailUrl: String!
+  thumbnailUrl: String
   translations: FinishTranslationsCreateNestedManyWithoutFinishInput
 }
 
@@ -583,8 +599,14 @@ input FinishCreateWithoutProjectsInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutFinishInput
   modules: ModuleCreateNestedManyWithoutFinishInput
   slug: String!
-  thumbnailUrl: String!
+  thumbnailUrl: String
   translations: FinishTranslationsCreateNestedManyWithoutFinishInput
+}
+
+input FinishOrderByInput {
+  id: SortOrder
+  slug: SortOrder
+  thumbnailUrl: SortOrder
 }
 
 type FinishTranslations {
@@ -729,7 +751,7 @@ input FinishUpdateWithoutCollectionFinishesInput {
   modules: ModuleUpdateManyWithoutFinishInput
   projects: ProjectUpdateManyWithoutFinishInput
   slug: StringFieldUpdateOperationsInput
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
   translations: FinishTranslationsUpdateManyWithoutFinishInput
 }
 
@@ -737,7 +759,7 @@ input FinishUpdateWithoutModulesInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutFinishInput
   projects: ProjectUpdateManyWithoutFinishInput
   slug: StringFieldUpdateOperationsInput
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
   translations: FinishTranslationsUpdateManyWithoutFinishInput
 }
 
@@ -745,7 +767,7 @@ input FinishUpdateWithoutProjectsInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutFinishInput
   modules: ModuleUpdateManyWithoutFinishInput
   slug: StringFieldUpdateOperationsInput
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
   translations: FinishTranslationsUpdateManyWithoutFinishInput
 }
 
@@ -773,7 +795,7 @@ input FinishWhereInput {
   modules: ModuleListRelationFilter
   projects: ProjectListRelationFilter
   slug: StringFilter
-  thumbnailUrl: StringFilter
+  thumbnailUrl: StringNullableFilter
   translations: FinishTranslationsListRelationFilter
 }
 
@@ -846,7 +868,7 @@ type Module {
   partNumber: String!
   projectModules(cursor: ProjectModuleWhereUniqueInput, skip: Int, take: Int): [ProjectModule!]!
   rules: Json
-  thumbnailUrl: String!
+  thumbnailUrl: String
 }
 
 input ModuleCreateManyCollectionInput {
@@ -856,7 +878,7 @@ input ModuleCreateManyCollectionInput {
   isSubmodule: Boolean!
   partNumber: String!
   rules: Json
-  thumbnailUrl: String!
+  thumbnailUrl: String
 }
 
 input ModuleCreateManyCollectionInputEnvelope {
@@ -871,7 +893,7 @@ input ModuleCreateManyFinishInput {
   isSubmodule: Boolean!
   partNumber: String!
   rules: Json
-  thumbnailUrl: String!
+  thumbnailUrl: String
 }
 
 input ModuleCreateManyFinishInputEnvelope {
@@ -921,7 +943,7 @@ input ModuleCreateWithoutCollectionInput {
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
-  thumbnailUrl: String!
+  thumbnailUrl: String
 }
 
 input ModuleCreateWithoutFinishInput {
@@ -931,7 +953,7 @@ input ModuleCreateWithoutFinishInput {
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
-  thumbnailUrl: String!
+  thumbnailUrl: String
 }
 
 input ModuleCreateWithoutProjectModulesInput {
@@ -941,13 +963,24 @@ input ModuleCreateWithoutProjectModulesInput {
   isSubmodule: Boolean!
   partNumber: String!
   rules: Json
-  thumbnailUrl: String!
+  thumbnailUrl: String
 }
 
 input ModuleListRelationFilter {
   every: ModuleWhereInput
   none: ModuleWhereInput
   some: ModuleWhereInput
+}
+
+input ModuleOrderByInput {
+  collectionId: SortOrder
+  finishId: SortOrder
+  hasPegs: SortOrder
+  id: SortOrder
+  isSubmodule: SortOrder
+  partNumber: SortOrder
+  rules: SortOrder
+  thumbnailUrl: SortOrder
 }
 
 input ModuleScalarWhereInput {
@@ -961,7 +994,7 @@ input ModuleScalarWhereInput {
   isSubmodule: BoolFilter
   partNumber: StringFilter
   rules: JsonNullableFilter
-  thumbnailUrl: StringFilter
+  thumbnailUrl: StringNullableFilter
 }
 
 input ModuleUpdateManyMutationInput {
@@ -969,7 +1002,7 @@ input ModuleUpdateManyMutationInput {
   isSubmodule: BoolFieldUpdateOperationsInput
   partNumber: StringFieldUpdateOperationsInput
   rules: Json
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
 }
 
 input ModuleUpdateManyWithWhereWithoutCollectionInput {
@@ -1035,7 +1068,7 @@ input ModuleUpdateWithoutCollectionInput {
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
 }
 
 input ModuleUpdateWithoutFinishInput {
@@ -1045,7 +1078,7 @@ input ModuleUpdateWithoutFinishInput {
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
 }
 
 input ModuleUpdateWithoutProjectModulesInput {
@@ -1055,7 +1088,7 @@ input ModuleUpdateWithoutProjectModulesInput {
   isSubmodule: BoolFieldUpdateOperationsInput
   partNumber: StringFieldUpdateOperationsInput
   rules: Json
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
 }
 
 input ModuleUpsertWithWhereUniqueWithoutCollectionInput {
@@ -1089,7 +1122,7 @@ input ModuleWhereInput {
   partNumber: StringFilter
   projectModules: ProjectModuleListRelationFilter
   rules: JsonNullableFilter
-  thumbnailUrl: StringFilter
+  thumbnailUrl: StringNullableFilter
 }
 
 input ModuleWhereUniqueInput {
@@ -1634,6 +1667,16 @@ input ProjectModuleListRelationFilter {
   some: ProjectModuleWhereInput
 }
 
+input ProjectModuleOrderByInput {
+  id: SortOrder
+  moduleId: SortOrder
+  parentId: SortOrder
+  posX: SortOrder
+  posZ: SortOrder
+  projectId: SortOrder
+  rotZ: SortOrder
+}
+
 input ProjectModuleScalarWhereInput {
   AND: [ProjectModuleScalarWhereInput!]
   NOT: [ProjectModuleScalarWhereInput!]
@@ -2097,9 +2140,37 @@ input ProjectWhereUniqueInput {
 }
 
 type Query {
-  collections(cursor: CollectionWhereUniqueInput, skip: Int, take: Int): [Collection!]!
-  finishes(cursor: FinishWhereUniqueInput, skip: Int, take: Int): [Finish!]!
-  modules(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
+  collection(where: CollectionWhereUniqueInput!): Collection
+  collectionFinishes(
+    cursor: CollectionFinishesWhereUniqueInput
+    orderBy: [CollectionFinishesOrderByInput!]
+    skip: Int
+    take: Int
+    where: CollectionFinishesWhereInput
+  ): [CollectionFinishes!]!
+  collections(
+    cursor: CollectionWhereUniqueInput
+    orderBy: [CollectionOrderByInput!]
+    skip: Int
+    take: Int
+    where: CollectionWhereInput
+  ): [Collection!]!
+  finish(where: FinishWhereUniqueInput!): Finish
+  finishes(
+    cursor: FinishWhereUniqueInput
+    orderBy: [FinishOrderByInput!]
+    skip: Int
+    take: Int
+    where: FinishWhereInput
+  ): [Finish!]!
+  module(where: ModuleWhereUniqueInput!): Module
+  modules(
+    cursor: ModuleWhereUniqueInput
+    orderBy: [ModuleOrderByInput!]
+    skip: Int
+    take: Int
+    where: ModuleWhereInput
+  ): [Module!]!
   project(where: ProjectWhereUniqueInput!): Project
   projectGroup(where: ProjectGroupWhereUniqueInput!): ProjectGroup
   projectGroups(
@@ -2109,6 +2180,14 @@ type Query {
     take: Int
     where: ProjectGroupWhereInput
   ): [ProjectGroup!]!
+  projectModule(where: ProjectModuleWhereUniqueInput!): ProjectModule
+  projectModules(
+    cursor: ProjectModuleWhereUniqueInput
+    orderBy: [ProjectModuleOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectModuleWhereInput
+  ): [ProjectModule!]!
   projects(
     cursor: ProjectWhereUniqueInput
     orderBy: [ProjectOrderByInput!]
@@ -2116,6 +2195,38 @@ type Query {
     take: Int
     where: ProjectWhereInput
   ): [Project!]!
+  slide(where: SlideWhereUniqueInput!): Slide
+  slideDepth(where: SlideDepthWhereUniqueInput!): SlideDepth
+  slideDepths(
+    cursor: SlideDepthWhereUniqueInput
+    orderBy: [SlideDepthOrderByInput!]
+    skip: Int
+    take: Int
+    where: SlideDepthWhereInput
+  ): [SlideDepth!]!
+  slideSupplier(where: SlideSupplierWhereUniqueInput!): SlideSupplier
+  slideSuppliers(
+    cursor: SlideSupplierWhereUniqueInput
+    orderBy: [SlideSupplierOrderByInput!]
+    skip: Int
+    take: Int
+    where: SlideSupplierWhereInput
+  ): [SlideSupplier!]!
+  slides(
+    cursor: SlideWhereUniqueInput
+    orderBy: [SlideOrderByInput!]
+    skip: Int
+    take: Int
+    where: SlideWhereInput
+  ): [Slide!]!
+  type(where: TypeWhereUniqueInput!): Type
+  types(
+    cursor: TypeWhereUniqueInput
+    orderBy: [TypeOrderByInput!]
+    skip: Int
+    take: Int
+    where: TypeWhereInput
+  ): [Type!]!
 }
 
 type Slide {
@@ -2266,6 +2377,13 @@ input SlideDepthListRelationFilter {
   some: SlideDepthWhereInput
 }
 
+input SlideDepthOrderByInput {
+  depth: SortOrder
+  display: SortOrder
+  id: SortOrder
+  slideId: SortOrder
+}
+
 input SlideDepthScalarWhereInput {
   AND: [SlideDepthScalarWhereInput!]
   NOT: [SlideDepthScalarWhereInput!]
@@ -2358,6 +2476,15 @@ input SlideListRelationFilter {
   some: SlideWhereInput
 }
 
+input SlideOrderByInput {
+  collectionId: SortOrder
+  formula: SortOrder
+  id: SortOrder
+  product: SortOrder
+  slug: SortOrder
+  supplierId: SortOrder
+}
+
 input SlideScalarWhereInput {
   AND: [SlideScalarWhereInput!]
   NOT: [SlideScalarWhereInput!]
@@ -2375,7 +2502,7 @@ type SlideSupplier {
   name: String!
   slides(cursor: SlideWhereUniqueInput, skip: Int, take: Int): [Slide!]!
   slug: String!
-  thumbnailUrl: String!
+  thumbnailUrl: String
 }
 
 input SlideSupplierCreateNestedOneWithoutSlidesInput {
@@ -2392,7 +2519,14 @@ input SlideSupplierCreateOrConnectWithoutSlidesInput {
 input SlideSupplierCreateWithoutSlidesInput {
   name: String!
   slug: String!
-  thumbnailUrl: String!
+  thumbnailUrl: String
+}
+
+input SlideSupplierOrderByInput {
+  id: SortOrder
+  name: SortOrder
+  slug: SortOrder
+  thumbnailUrl: SortOrder
 }
 
 input SlideSupplierUpdateOneRequiredWithoutSlidesInput {
@@ -2406,7 +2540,7 @@ input SlideSupplierUpdateOneRequiredWithoutSlidesInput {
 input SlideSupplierUpdateWithoutSlidesInput {
   name: StringFieldUpdateOperationsInput
   slug: StringFieldUpdateOperationsInput
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
 }
 
 input SlideSupplierUpsertWithoutSlidesInput {
@@ -2422,7 +2556,7 @@ input SlideSupplierWhereInput {
   name: StringFilter
   slides: SlideListRelationFilter
   slug: StringFilter
-  thumbnailUrl: StringFilter
+  thumbnailUrl: StringNullableFilter
 }
 
 input SlideSupplierWhereUniqueInput {
@@ -2578,11 +2712,12 @@ input StringNullableFilter {
 }
 
 type Type {
+  description: String
   id: Int!
+  name: String
   projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
   slug: String!
-  thumbnailUrl: String!
-  translations(cursor: TypeTranslationsWhereUniqueInput, skip: Int, take: Int): [TypeTranslations!]!
+  thumbnailUrl: String
 }
 
 input TypeCreateNestedOneWithoutProjectsInput {
@@ -2598,8 +2733,14 @@ input TypeCreateOrConnectWithoutProjectsInput {
 
 input TypeCreateWithoutProjectsInput {
   slug: String!
-  thumbnailUrl: String!
+  thumbnailUrl: String
   translations: TypeTranslationsCreateNestedManyWithoutTypeInput
+}
+
+input TypeOrderByInput {
+  id: SortOrder
+  slug: SortOrder
+  thumbnailUrl: SortOrder
 }
 
 type TypeTranslations {
@@ -2726,7 +2867,7 @@ input TypeUpdateOneRequiredWithoutProjectsInput {
 
 input TypeUpdateWithoutProjectsInput {
   slug: StringFieldUpdateOperationsInput
-  thumbnailUrl: StringFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
   translations: TypeTranslationsUpdateManyWithoutTypeInput
 }
 
@@ -2742,7 +2883,7 @@ input TypeWhereInput {
   id: IntFilter
   projects: ProjectListRelationFilter
   slug: StringFilter
-  thumbnailUrl: StringFilter
+  thumbnailUrl: StringNullableFilter
   translations: TypeTranslationsListRelationFilter
 }
 

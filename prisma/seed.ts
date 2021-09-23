@@ -1,5 +1,5 @@
 import { Locale, PrismaClient } from '@prisma/client';
-import { helpers } from 'faker';
+import { helpers, seed } from 'faker';
 import { uniqBy } from 'lodash';
 import seedValues from './seedValues/seed.json';
 
@@ -121,15 +121,17 @@ const main = async () => {
   // -- Modules
 
   await db.module.createMany({
-    data: seedValues.modules.map(({ partNumber, metadata: rules, finish, collection, isSubmodule, hasPegs }) => ({
-      thumbnailUrl: '',
-      partNumber,
-      isSubmodule,
-      hasPegs,
-      rules,
-      collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
-      finishId: finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1
-    }))
+    data: seedValues.modules.map(
+      ({ partNumber, metadata: rules, finish, collection, isSubmodule, hasPegs, thumbnailUrl }) => ({
+        thumbnailUrl,
+        partNumber,
+        isSubmodule,
+        hasPegs,
+        rules,
+        collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
+        finishId: finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1
+      })
+    )
   });
 };
 

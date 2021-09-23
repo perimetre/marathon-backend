@@ -32,7 +32,8 @@ const main = async () => {
       context: async (prevContext) => {
         let context: Context = {
           ...prevContext,
-          prisma
+          prisma,
+          locale: env.DEFAULT_LOCALE
         };
 
         try {
@@ -51,6 +52,12 @@ const main = async () => {
           }
         } catch (error) {
           // Do nothing, because it wasn't authorized(the token is expired or wrong)
+        }
+
+        const locale = context.req.get('Locale');
+
+        if (locale) {
+          context = { ...context, locale };
         }
 
         return context;

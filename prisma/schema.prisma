@@ -18,7 +18,7 @@ enum Locale {
 model Collection {
   id                 Int                      @id @default(autoincrement())
   slug               String                   @unique
-  thumbnailUrl       String                   @db.VarChar(255)
+  thumbnailUrl       String?                  @db.VarChar(255)
   translations       CollectionTranslations[]
   projects           Project[]
   modules            Module[]
@@ -48,7 +48,7 @@ model CollectionTranslations {
 model Finish {
   id                 Int                  @id @default(autoincrement())
   slug               String               @unique
-  thumbnailUrl       String               @db.VarChar(255)
+  thumbnailUrl       String?              @db.VarChar(255)
   translations       FinishTranslations[]
   projects           Project[]
   modules            Module[]
@@ -67,7 +67,7 @@ model FinishTranslations {
 model Module {
   id             Int             @id @default(autoincrement())
   partNumber     String          @unique
-  thumbnailUrl   String          @db.VarChar(255)
+  thumbnailUrl   String?         @db.VarChar(255)
   isSubmodule    Boolean
   hasPegs        Boolean
   finishId       Int
@@ -145,7 +145,7 @@ model SlideDepth {
 
 model SlideSupplier {
   id           Int     @id @default(autoincrement())
-  thumbnailUrl String  @db.VarChar(255)
+  thumbnailUrl String? @db.VarChar(255)
   name         String  @db.VarChar(255)
   slug         String  @unique
   slides       Slide[]
@@ -154,7 +154,7 @@ model SlideSupplier {
 model Type {
   id           Int                @id @default(autoincrement())
   slug         String             @unique
-  thumbnailUrl String             @db.VarChar(255)
+  thumbnailUrl String?            @db.VarChar(255)
   translations TypeTranslations[]
   projects     Project[]
 }
