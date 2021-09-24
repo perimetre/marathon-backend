@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // import { captureMessage, captureException } from '../lib/sentry';
 
 const error = (error: any, message?: string, extra: Record<string, unknown> | string = {}) => {
