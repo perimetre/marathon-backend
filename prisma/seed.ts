@@ -109,7 +109,7 @@ const main = async () => {
   await db.slideDepth.createMany({
     data: seedValues.slides.flatMap((slide) =>
       ['450', '500', '550', '600']
-        .filter((x) => seedValues.slides[x] !== 0)
+        .filter((x) => seedValues.slides[x] && seedValues.slides[x] !== 0)
         .map((depthValue) => ({
           display: `${parseInt(depthValue) / 10}cm`,
           depth: slide[depthValue],

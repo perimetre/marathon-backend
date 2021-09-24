@@ -127,10 +127,8 @@
   ],
   "slides": [
     {
-      "450": 0,
       "500": 484,
       "550": 534,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/dtc.png",
       "collection": "AREA",
       "supplier": "DTC",
@@ -139,10 +137,8 @@
       "slug": "AREA-DTC-Metal-box"
     },
     {
-      "450": 0,
       "500": 474,
       "550": 524,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/dtc.png",
       "collection": "AREA",
       "supplier": "DTC",
@@ -151,10 +147,8 @@
       "slug": "AREA-DTC-Infinity"
     },
     {
-      "450": 0,
       "500": 469,
       "550": 519,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/dtc.png",
       "collection": "AREA",
       "supplier": "DTC",
@@ -163,10 +157,8 @@
       "slug": "AREA-DTC-Legacy-Prima"
     },
     {
-      "450": 0,
       "500": 469,
       "550": 519,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/dtc.png",
       "collection": "AREA",
       "supplier": "DTC",
@@ -175,10 +167,8 @@
       "slug": "AREA-DTC-Legacy-Endura"
     },
     {
-      "450": 0,
       "500": 478,
       "550": 528,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/king-slide.png",
       "collection": "AREA",
       "supplier": "King Slide",
@@ -187,10 +177,8 @@
       "slug": "AREA-King-Slide-Simlead-DW"
     },
     {
-      "450": 0,
       "500": 474,
       "550": 524,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/blum.png",
       "collection": "AREA",
       "supplier": "Blum",
@@ -199,10 +187,8 @@
       "slug": "AREA-Blum-Legrabox"
     },
     {
-      "450": 0,
       "500": 476,
       "550": 526,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/blum.png",
       "collection": "AREA",
       "supplier": "Blum",
@@ -211,10 +197,8 @@
       "slug": "AREA-Blum-Tandembox"
     },
     {
-      "450": 0,
       "500": 472,
       "550": 522,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/taiming.png",
       "collection": "AREA",
       "supplier": "Taiming",
@@ -223,10 +207,8 @@
       "slug": "AREA-Taiming-Optimiz-R"
     },
     {
-      "450": 0,
       "500": 476,
       "550": 526,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/taiming.png",
       "collection": "AREA",
       "supplier": "Taiming",
@@ -235,10 +217,8 @@
       "slug": "AREA-Taiming-908"
     },
     {
-      "450": 0,
       "500": 474,
       "550": 524,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/dtc.png",
       "collection": "AREA",
       "supplier": "DTC",
@@ -247,10 +227,8 @@
       "slug": "AREA-DTC-DS10TS10"
     },
     {
-      "450": 0,
       "500": 474,
       "550": 524,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/king-slide.png",
       "collection": "AREA",
       "supplier": "King Slide",
@@ -259,10 +237,8 @@
       "slug": "AREA-King-Slide-Simlead-undermount"
     },
     {
-      "450": 0,
       "500": 468,
       "550": 518,
-      "600": 0,
       "collection": "AREA",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 5/8",
@@ -270,10 +246,8 @@
       "slug": "AREA-STANDARD-Ballbearing-12-box-58"
     },
     {
-      "450": 0,
       "500": 475,
       "550": 525,
-      "600": 0,
       "collection": "AREA",
       "supplier": "STANDARD",
       "product": "Ballbearing 1/2, box 1/2",
@@ -284,7 +258,6 @@
       "450": 434,
       "500": 484,
       "550": 534,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/dtc.png",
       "collection": "AUTOGRAPH",
       "supplier": "DTC",
@@ -438,7 +411,6 @@
       "450": 434,
       "500": 484,
       "550": 534,
-      "600": 0,
       "supplierImgURL": "images/slide/brand/dtc.png",
       "collection": "IMPRINT",
       "supplier": "DTC",
@@ -686,7 +658,12 @@
       "finish": "Silver Anodized",
       "metadata": {
         "partNumber": "04-AU-ACCENT-AN-69",
-        "finishes": ["04-AU-ACCENT-AU79-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SD-69", "04-AU-ACCENT-SW-69"],
+        "finishes": [
+          "04-AU-ACCENT-AU79-69",
+          "04-AU-ACCENT-MB-69",
+          "04-AU-ACCENT-SD-69",
+          "04-AU-ACCENT-SW-69"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -701,7 +678,12 @@
       "finish": "Silver Anodized",
       "metadata": {
         "partNumber": "04-AU-ACCENT-AN-89",
-        "finishes": ["04-AU-ACCENT-AU79-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SD-89", "04-AU-ACCENT-SW-89"],
+        "finishes": [
+          "04-AU-ACCENT-AU79-89",
+          "04-AU-ACCENT-MB-89",
+          "04-AU-ACCENT-SD-89",
+          "04-AU-ACCENT-SW-89"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -715,7 +697,12 @@
       "finish": "Silver Anodized",
       "metadata": {
         "partNumber": "04-AU-ACCENT-AN-95",
-        "finishes": ["04-AU-ACCENT-AU79-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SD-95", "04-AU-ACCENT-SW-95"],
+        "finishes": [
+          "04-AU-ACCENT-AU79-95",
+          "04-AU-ACCENT-MB-95",
+          "04-AU-ACCENT-SD-95",
+          "04-AU-ACCENT-SW-95"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -729,7 +716,12 @@
       "finish": "Silver Anodized",
       "metadata": {
         "partNumber": "04-AU-ACCENT-AN-141",
-        "finishes": ["04-AU-ACCENT-AU79-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SD-141", "04-AU-ACCENT-SW-141"],
+        "finishes": [
+          "04-AU-ACCENT-AU79-141",
+          "04-AU-ACCENT-MB-141",
+          "04-AU-ACCENT-SD-141",
+          "04-AU-ACCENT-SW-141"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -743,7 +735,12 @@
       "finish": "Silver Anodized",
       "metadata": {
         "partNumber": "04-AU-ACCENT-AN-189",
-        "finishes": ["04-AU-ACCENT-AU79-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SD-189", "04-AU-ACCENT-SW-189"],
+        "finishes": [
+          "04-AU-ACCENT-AU79-189",
+          "04-AU-ACCENT-MB-189",
+          "04-AU-ACCENT-SD-189",
+          "04-AU-ACCENT-SW-189"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -757,7 +754,12 @@
       "finish": "Gold",
       "metadata": {
         "partNumber": "04-AU-ACCENT-AU79-69",
-        "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SD-69", "04-AU-ACCENT-SW-69"],
+        "finishes": [
+          "04-AU-ACCENT-AN-69",
+          "04-AU-ACCENT-MB-69",
+          "04-AU-ACCENT-SD-69",
+          "04-AU-ACCENT-SW-69"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -772,7 +774,12 @@
       "finish": "Gold",
       "metadata": {
         "partNumber": "04-AU-ACCENT-AU79-89",
-        "finishes": ["04-AU-ACCENT-AN-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SD-89", "04-AU-ACCENT-SW-89"],
+        "finishes": [
+          "04-AU-ACCENT-AN-89",
+          "04-AU-ACCENT-MB-89",
+          "04-AU-ACCENT-SD-89",
+          "04-AU-ACCENT-SW-89"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -786,7 +793,12 @@
       "finish": "Gold",
       "metadata": {
         "partNumber": "04-AU-ACCENT-AU79-95",
-        "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SD-95", "04-AU-ACCENT-SW-95"],
+        "finishes": [
+          "04-AU-ACCENT-AN-95",
+          "04-AU-ACCENT-MB-95",
+          "04-AU-ACCENT-SD-95",
+          "04-AU-ACCENT-SW-95"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -800,7 +812,12 @@
       "finish": "Gold",
       "metadata": {
         "partNumber": "04-AU-ACCENT-AU79-141",
-        "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SD-141", "04-AU-ACCENT-SW-141"],
+        "finishes": [
+          "04-AU-ACCENT-AN-141",
+          "04-AU-ACCENT-MB-141",
+          "04-AU-ACCENT-SD-141",
+          "04-AU-ACCENT-SW-141"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -814,7 +831,12 @@
       "finish": "Gold",
       "metadata": {
         "partNumber": "04-AU-ACCENT-AU79-189",
-        "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SD-189", "04-AU-ACCENT-SW-189"],
+        "finishes": [
+          "04-AU-ACCENT-AN-189",
+          "04-AU-ACCENT-MB-189",
+          "04-AU-ACCENT-SD-189",
+          "04-AU-ACCENT-SW-189"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -828,7 +850,12 @@
       "finish": "Matte Black",
       "metadata": {
         "partNumber": "04-AU-ACCENT-MB-69",
-        "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-AU79-69", "04-AU-ACCENT-SD-69", "04-AU-ACCENT-SW-69"],
+        "finishes": [
+          "04-AU-ACCENT-AN-69",
+          "04-AU-ACCENT-AU79-69",
+          "04-AU-ACCENT-SD-69",
+          "04-AU-ACCENT-SW-69"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -850,7 +877,12 @@
       "finish": "Matte Black",
       "metadata": {
         "partNumber": "04-AU-ACCENT-MB-95",
-        "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-AU79-95", "04-AU-ACCENT-SD-95", "04-AU-ACCENT-SW-95"],
+        "finishes": [
+          "04-AU-ACCENT-AN-95",
+          "04-AU-ACCENT-AU79-95",
+          "04-AU-ACCENT-SD-95",
+          "04-AU-ACCENT-SW-95"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -864,7 +896,12 @@
       "finish": "Matte Black",
       "metadata": {
         "partNumber": "04-AU-ACCENT-MB-141",
-        "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-AU79-141", "04-AU-ACCENT-SD-141", "04-AU-ACCENT-SW-141"],
+        "finishes": [
+          "04-AU-ACCENT-AN-141",
+          "04-AU-ACCENT-AU79-141",
+          "04-AU-ACCENT-SD-141",
+          "04-AU-ACCENT-SW-141"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -878,7 +915,12 @@
       "finish": "Matte Black",
       "metadata": {
         "partNumber": "04-AU-ACCENT-MB-189",
-        "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-AU79-189", "04-AU-ACCENT-SD-189", "04-AU-ACCENT-SW-189"],
+        "finishes": [
+          "04-AU-ACCENT-AN-189",
+          "04-AU-ACCENT-AU79-189",
+          "04-AU-ACCENT-SD-189",
+          "04-AU-ACCENT-SW-189"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -892,7 +934,12 @@
       "finish": "Silver Anodized",
       "metadata": {
         "partNumber": "04-AU-ACCENT-SD-69",
-        "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-AU79-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SW-69"],
+        "finishes": [
+          "04-AU-ACCENT-AN-69",
+          "04-AU-ACCENT-AU79-69",
+          "04-AU-ACCENT-MB-69",
+          "04-AU-ACCENT-SW-69"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -907,7 +954,12 @@
       "finish": "Stardust",
       "metadata": {
         "partNumber": "04-AU-ACCENT-SD-89",
-        "finishes": ["04-AU-ACCENT-AN-89", "04-AU-ACCENT-AU79-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SW-89"],
+        "finishes": [
+          "04-AU-ACCENT-AN-89",
+          "04-AU-ACCENT-AU79-89",
+          "04-AU-ACCENT-MB-89",
+          "04-AU-ACCENT-SW-89"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -921,7 +973,12 @@
       "finish": "Stardust",
       "metadata": {
         "partNumber": "04-AU-ACCENT-SD-95",
-        "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-AU79-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SW-95"],
+        "finishes": [
+          "04-AU-ACCENT-AN-95",
+          "04-AU-ACCENT-AU79-95",
+          "04-AU-ACCENT-MB-95",
+          "04-AU-ACCENT-SW-95"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -935,7 +992,12 @@
       "finish": "Stardust",
       "metadata": {
         "partNumber": "04-AU-ACCENT-SD-141",
-        "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-AU79-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SW-141"],
+        "finishes": [
+          "04-AU-ACCENT-AN-141",
+          "04-AU-ACCENT-AU79-141",
+          "04-AU-ACCENT-MB-141",
+          "04-AU-ACCENT-SW-141"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -949,7 +1011,12 @@
       "finish": "Stardust",
       "metadata": {
         "partNumber": "04-AU-ACCENT-SD-189",
-        "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-AU79-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SW-189"],
+        "finishes": [
+          "04-AU-ACCENT-AN-189",
+          "04-AU-ACCENT-AU79-189",
+          "04-AU-ACCENT-MB-189",
+          "04-AU-ACCENT-SW-189"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -963,7 +1030,12 @@
       "finish": "Silk White",
       "metadata": {
         "partNumber": "04-AU-ACCENT-SW-69",
-        "finishes": ["04-AU-ACCENT-AN-69", "04-AU-ACCENT-AU79-69", "04-AU-ACCENT-MB-69", "04-AU-ACCENT-SD-69"],
+        "finishes": [
+          "04-AU-ACCENT-AN-69",
+          "04-AU-ACCENT-AU79-69",
+          "04-AU-ACCENT-MB-69",
+          "04-AU-ACCENT-SD-69"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -978,7 +1050,12 @@
       "finish": "Silk White",
       "metadata": {
         "partNumber": "04-AU-ACCENT-SW-89",
-        "finishes": ["04-AU-ACCENT-AN-89", "04-AU-ACCENT-AU79-89", "04-AU-ACCENT-MB-89", "04-AU-ACCENT-SD-89"],
+        "finishes": [
+          "04-AU-ACCENT-AN-89",
+          "04-AU-ACCENT-AU79-89",
+          "04-AU-ACCENT-MB-89",
+          "04-AU-ACCENT-SD-89"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -992,7 +1069,12 @@
       "finish": "Silk White",
       "metadata": {
         "partNumber": "04-AU-ACCENT-SW-95",
-        "finishes": ["04-AU-ACCENT-AN-95", "04-AU-ACCENT-AU79-95", "04-AU-ACCENT-MB-95", "04-AU-ACCENT-SD-95"],
+        "finishes": [
+          "04-AU-ACCENT-AN-95",
+          "04-AU-ACCENT-AU79-95",
+          "04-AU-ACCENT-MB-95",
+          "04-AU-ACCENT-SD-95"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -1006,7 +1088,12 @@
       "finish": "Silk White",
       "metadata": {
         "partNumber": "04-AU-ACCENT-SW-141",
-        "finishes": ["04-AU-ACCENT-AN-141", "04-AU-ACCENT-AU79-141", "04-AU-ACCENT-MB-141", "04-AU-ACCENT-SD-141"],
+        "finishes": [
+          "04-AU-ACCENT-AN-141",
+          "04-AU-ACCENT-AU79-141",
+          "04-AU-ACCENT-MB-141",
+          "04-AU-ACCENT-SD-141"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -1020,7 +1107,12 @@
       "finish": "Silk White",
       "metadata": {
         "partNumber": "04-AU-ACCENT-SW-189",
-        "finishes": ["04-AU-ACCENT-AN-189", "04-AU-ACCENT-AU79-189", "04-AU-ACCENT-MB-189", "04-AU-ACCENT-SD-189"],
+        "finishes": [
+          "04-AU-ACCENT-AN-189",
+          "04-AU-ACCENT-AU79-189",
+          "04-AU-ACCENT-MB-189",
+          "04-AU-ACCENT-SD-189"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -1034,7 +1126,9 @@
       "finish": "Birch",
       "metadata": {
         "partNumber": "04-AU-BIR-CD-B",
-        "finishes": ["04-AU-WAL-CD-B"],
+        "finishes": [
+          "04-AU-WAL-CD-B"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 47,
@@ -1063,7 +1157,10 @@
         },
         "rules": {
           "rotation": 0,
-          "trimmable": ["bottom", "top"]
+          "trimmable": [
+            "bottom",
+            "top"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1076,7 +1173,9 @@
       "finish": "Birch",
       "metadata": {
         "partNumber": "04-AU-BIR-CT4-D",
-        "finishes": ["04-AU-WAL-CT4-D"],
+        "finishes": [
+          "04-AU-WAL-CT4-D"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1112,7 +1211,9 @@
             "04-AU-ACCENT-AN-95",
             "04-AU-ACCENT-AU79-95"
           ],
-          "trimmable": ["bottom"]
+          "trimmable": [
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1125,7 +1226,9 @@
       "finish": "Birch",
       "metadata": {
         "partNumber": "04-AU-BIR-CT5-D",
-        "finishes": ["04-AU-WAL-CT5-D"],
+        "finishes": [
+          "04-AU-WAL-CT5-D"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1166,7 +1269,9 @@
             "04-AU-ACCENT-AN-95",
             "04-AU-ACCENT-AU79-95"
           ],
-          "trimmable": ["bottom"]
+          "trimmable": [
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1179,7 +1284,9 @@
       "finish": "Birch",
       "metadata": {
         "partNumber": "04-AU-BIR-DIVIDER-H55",
-        "finishes": ["04-AU-WAL-DIVIDER-H55"],
+        "finishes": [
+          "04-AU-WAL-DIVIDER-H55"
+        ],
         "dimensions": {
           "depth": {
             "max": {
@@ -1190,7 +1297,10 @@
         },
         "rules": {
           "rotation": 0,
-          "trimmable": ["bottom", "top"]
+          "trimmable": [
+            "bottom",
+            "top"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1203,7 +1313,9 @@
       "finish": "Birch",
       "metadata": {
         "partNumber": "04-AU-BIR-KH-B",
-        "finishes": ["04-AU-WAL-KH-B"],
+        "finishes": [
+          "04-AU-WAL-KH-B"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 39,
@@ -1232,7 +1344,9 @@
         },
         "rules": {
           "rotation": 0,
-          "trimmable": ["top"]
+          "trimmable": [
+            "top"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1316,7 +1430,12 @@
       "finish": "Silver Anodized",
       "metadata": {
         "partNumber": "04-AU-DIVIDER-AN",
-        "finishes": ["04-AU-DIVIDER-AU79", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SD", "04-AU-DIVIDER-SW"],
+        "finishes": [
+          "04-AU-DIVIDER-AU79",
+          "04-AU-DIVIDER-MB",
+          "04-AU-DIVIDER-SD",
+          "04-AU-DIVIDER-SW"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -1330,7 +1449,12 @@
       "finish": "Gold",
       "metadata": {
         "partNumber": "04-AU-DIVIDER-AU79",
-        "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SD", "04-AU-DIVIDER-SW"],
+        "finishes": [
+          "04-AU-DIVIDER-AN",
+          "04-AU-DIVIDER-MB",
+          "04-AU-DIVIDER-SD",
+          "04-AU-DIVIDER-SW"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -1344,7 +1468,12 @@
       "finish": "Matte Black",
       "metadata": {
         "partNumber": "04-AU-DIVIDER-MB",
-        "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-AU79", "04-AU-DIVIDER-SD", "04-AU-DIVIDER-SW"],
+        "finishes": [
+          "04-AU-DIVIDER-AN",
+          "04-AU-DIVIDER-AU79",
+          "04-AU-DIVIDER-SD",
+          "04-AU-DIVIDER-SW"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -1358,7 +1487,12 @@
       "finish": "Stardust",
       "metadata": {
         "partNumber": "04-AU-DIVIDER-SD",
-        "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-AU79", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SW"],
+        "finishes": [
+          "04-AU-DIVIDER-AN",
+          "04-AU-DIVIDER-AU79",
+          "04-AU-DIVIDER-MB",
+          "04-AU-DIVIDER-SW"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -1372,7 +1506,12 @@
       "finish": "Silk White",
       "metadata": {
         "partNumber": "04-AU-DIVIDER-SW",
-        "finishes": ["04-AU-DIVIDER-AN", "04-AU-DIVIDER-AU79", "04-AU-DIVIDER-MB", "04-AU-DIVIDER-SD"],
+        "finishes": [
+          "04-AU-DIVIDER-AN",
+          "04-AU-DIVIDER-AU79",
+          "04-AU-DIVIDER-MB",
+          "04-AU-DIVIDER-SD"
+        ],
         "rules": {
           "rotation": 90
         }
@@ -1386,7 +1525,12 @@
       "finish": "Silver Anodized",
       "metadata": {
         "partNumber": "04-AU-LSHAPE600-AN",
-        "finishes": ["04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SD", "04-AU-LSHAPE600-SW"],
+        "finishes": [
+          "04-AU-LSHAPE600-AU79",
+          "04-AU-LSHAPE600-MB",
+          "04-AU-LSHAPE600-SD",
+          "04-AU-LSHAPE600-SW"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1415,7 +1559,11 @@
         },
         "rules": {
           "rotation": 90,
-          "trimmable": ["left", "right", "bottom"]
+          "trimmable": [
+            "left",
+            "right",
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1427,7 +1575,12 @@
       "finish": "Gold",
       "metadata": {
         "partNumber": "04-AU-LSHAPE600-AU79",
-        "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SD", "04-AU-LSHAPE600-SW"],
+        "finishes": [
+          "04-AU-LSHAPE600-AN",
+          "04-AU-LSHAPE600-MB",
+          "04-AU-LSHAPE600-SD",
+          "04-AU-LSHAPE600-SW"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1456,7 +1609,11 @@
         },
         "rules": {
           "rotation": 90,
-          "trimmable": ["left", "right", "bottom"]
+          "trimmable": [
+            "left",
+            "right",
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1468,7 +1625,12 @@
       "finish": "Matte Black",
       "metadata": {
         "partNumber": "04-AU-LSHAPE600-MB",
-        "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-SD", "04-AU-LSHAPE600-SW"],
+        "finishes": [
+          "04-AU-LSHAPE600-AN",
+          "04-AU-LSHAPE600-AU79",
+          "04-AU-LSHAPE600-SD",
+          "04-AU-LSHAPE600-SW"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1497,7 +1659,11 @@
         },
         "rules": {
           "rotation": 90,
-          "trimmable": ["left", "right", "bottom"]
+          "trimmable": [
+            "left",
+            "right",
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1509,7 +1675,12 @@
       "finish": "Stardust",
       "metadata": {
         "partNumber": "04-AU-LSHAPE600-SD",
-        "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SW"],
+        "finishes": [
+          "04-AU-LSHAPE600-AN",
+          "04-AU-LSHAPE600-AU79",
+          "04-AU-LSHAPE600-MB",
+          "04-AU-LSHAPE600-SW"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1538,7 +1709,11 @@
         },
         "rules": {
           "rotation": 90,
-          "trimmable": ["left", "right", "bottom"]
+          "trimmable": [
+            "left",
+            "right",
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1550,7 +1725,12 @@
       "finish": "Silk White",
       "metadata": {
         "partNumber": "04-AU-LSHAPE600-SW",
-        "finishes": ["04-AU-LSHAPE600-AN", "04-AU-LSHAPE600-AU79", "04-AU-LSHAPE600-MB", "04-AU-LSHAPE600-SD"],
+        "finishes": [
+          "04-AU-LSHAPE600-AN",
+          "04-AU-LSHAPE600-AU79",
+          "04-AU-LSHAPE600-MB",
+          "04-AU-LSHAPE600-SD"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1579,7 +1759,11 @@
         },
         "rules": {
           "rotation": 90,
-          "trimmable": ["left", "right", "bottom"]
+          "trimmable": [
+            "left",
+            "right",
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1591,7 +1775,12 @@
       "finish": "Silver Anodized",
       "metadata": {
         "partNumber": "04-AU-LSHAPE1200-AN",
-        "finishes": ["04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SD", "04-AU-LSHAPE1200-SW"],
+        "finishes": [
+          "04-AU-LSHAPE1200-AU79",
+          "04-AU-LSHAPE1200-MB",
+          "04-AU-LSHAPE1200-SD",
+          "04-AU-LSHAPE1200-SW"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1620,7 +1809,11 @@
         },
         "rules": {
           "rotation": 90,
-          "trimmable": ["left", "right", "bottom"]
+          "trimmable": [
+            "left",
+            "right",
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1632,7 +1825,12 @@
       "finish": "Gold",
       "metadata": {
         "partNumber": "04-AU-LSHAPE1200-AU79",
-        "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SD", "04-AU-LSHAPE1200-SW"],
+        "finishes": [
+          "04-AU-LSHAPE1200-AN",
+          "04-AU-LSHAPE1200-MB",
+          "04-AU-LSHAPE1200-SD",
+          "04-AU-LSHAPE1200-SW"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1661,7 +1859,11 @@
         },
         "rules": {
           "rotation": 90,
-          "trimmable": ["left", "right", "bottom"]
+          "trimmable": [
+            "left",
+            "right",
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1673,7 +1875,12 @@
       "finish": "Matte Black",
       "metadata": {
         "partNumber": "04-AU-LSHAPE1200-MB",
-        "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-SD", "04-AU-LSHAPE1200-SW"],
+        "finishes": [
+          "04-AU-LSHAPE1200-AN",
+          "04-AU-LSHAPE1200-AU79",
+          "04-AU-LSHAPE1200-SD",
+          "04-AU-LSHAPE1200-SW"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1702,7 +1909,11 @@
         },
         "rules": {
           "rotation": 90,
-          "trimmable": ["left", "right", "bottom"]
+          "trimmable": [
+            "left",
+            "right",
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1714,7 +1925,12 @@
       "finish": "Stardust",
       "metadata": {
         "partNumber": "04-AU-LSHAPE1200-SD",
-        "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SW"],
+        "finishes": [
+          "04-AU-LSHAPE1200-AN",
+          "04-AU-LSHAPE1200-AU79",
+          "04-AU-LSHAPE1200-MB",
+          "04-AU-LSHAPE1200-SW"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1743,7 +1959,11 @@
         },
         "rules": {
           "rotation": 90,
-          "trimmable": ["left", "right", "bottom"]
+          "trimmable": [
+            "left",
+            "right",
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1755,7 +1975,12 @@
       "finish": "Silk White",
       "metadata": {
         "partNumber": "04-AU-LSHAPE1200-SW",
-        "finishes": ["04-AU-LSHAPE1200-AN", "04-AU-LSHAPE1200-AU79", "04-AU-LSHAPE1200-MB", "04-AU-LSHAPE1200-SD"],
+        "finishes": [
+          "04-AU-LSHAPE1200-AN",
+          "04-AU-LSHAPE1200-AU79",
+          "04-AU-LSHAPE1200-MB",
+          "04-AU-LSHAPE1200-SD"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1784,7 +2009,11 @@
         },
         "rules": {
           "rotation": 90,
-          "trimmable": ["left", "right", "bottom"]
+          "trimmable": [
+            "left",
+            "right",
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1796,7 +2025,9 @@
       "finish": "Birch",
       "metadata": {
         "partNumber": "04-AU-USHAPE-BIR-B",
-        "finishes": ["04-AU-USHAPE-WAL-B"],
+        "finishes": [
+          "04-AU-USHAPE-WAL-B"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1832,7 +2063,10 @@
             "04-AU-ACCENT-SD-141",
             "04-AU-ACCENT-SW-141"
           ],
-          "trimmable": ["bottom", "top"]
+          "trimmable": [
+            "bottom",
+            "top"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1845,7 +2079,9 @@
       "finish": "Walnut",
       "metadata": {
         "partNumber": "04-AU-USHAPE-WAL-B",
-        "finishes": ["04-AU-USHAPE-BIR-B"],
+        "finishes": [
+          "04-AU-USHAPE-BIR-B"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1881,7 +2117,10 @@
             "04-AU-ACCENT-SD-141",
             "04-AU-ACCENT-SW-141"
           ],
-          "trimmable": ["bottom", "top"]
+          "trimmable": [
+            "bottom",
+            "top"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1894,7 +2133,9 @@
       "finish": "Walnut",
       "metadata": {
         "partNumber": "04-AU-WAL-CD-B",
-        "finishes": ["04-AU-BIR-CD-B"],
+        "finishes": [
+          "04-AU-BIR-CD-B"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 47,
@@ -1923,7 +2164,10 @@
         },
         "rules": {
           "rotation": 0,
-          "trimmable": ["bottom", "top"]
+          "trimmable": [
+            "bottom",
+            "top"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1936,7 +2180,9 @@
       "finish": "Walnut",
       "metadata": {
         "partNumber": "04-AU-WAL-CT4-D",
-        "finishes": ["04-AU-BIR-CT4-D"],
+        "finishes": [
+          "04-AU-BIR-CT4-D"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -1972,7 +2218,9 @@
             "04-AU-ACCENT-AN-95",
             "04-AU-ACCENT-AU79-95"
           ],
-          "trimmable": ["bottom"]
+          "trimmable": [
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -1985,7 +2233,9 @@
       "finish": "Walnut",
       "metadata": {
         "partNumber": "04-AU-WAL-CT5-D",
-        "finishes": ["04-AU-BIR-CT5-D"],
+        "finishes": [
+          "04-AU-BIR-CT5-D"
+        ],
         "dimensions": {
           "height": {
             "millimeters": 55,
@@ -2026,7 +2276,9 @@
             "04-AU-ACCENT-AN-95",
             "04-AU-ACCENT-AU79-95"
           ],
-          "trimmable": ["bottom"]
+          "trimmable": [
+            "bottom"
+          ]
         }
       },
       "isSubmodule": false,
@@ -2039,7 +2291,9 @@
       "finish": "Walnut",
       "metadata": {
         "partNumber": "04-AU-WAL-DIVIDER-H55",
-        "finishes": ["04-AU-BIR-DIVIDER-H55"],
+        "finishes": [
+          "04-AU-BIR-DIVIDER-H55"
+        ],
         "dimensions": {
           "depth": {
             "max": {
@@ -2050,7 +2304,10 @@
         },
         "rules": {
           "rotation": 0,
-          "trimmable": ["bottom", "top"]
+          "trimmable": [
+            "bottom",
+            "top"
+          ]
         }
       },
       "isSubmodule": false,
