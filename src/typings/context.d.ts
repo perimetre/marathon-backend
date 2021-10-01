@@ -6,5 +6,6 @@ import { ExpressContext } from 'apollo-server-express';
 export type Context = {
   prisma: PrismaClient;
   locale: string;
+  platform: string;
   bearer?: string;
 } & ExpressContext;

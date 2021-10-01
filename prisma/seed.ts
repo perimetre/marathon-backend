@@ -122,9 +122,10 @@ const main = async () => {
 
   await db.module.createMany({
     data: seedValues.modules.map(
-      ({ partNumber, metadata: rules, finish, collection, isSubmodule, hasPegs, thumbnailUrl }) => ({
+      ({ partNumber, metadata: rules, finish, collection, isSubmodule, hasPegs, thumbnailUrl, bundleUrls }) => ({
         thumbnailUrl,
         partNumber,
+        bundleUrl: bundleUrls?.webgl.split('/').slice(2).join('/') || undefined,
         isSubmodule,
         hasPegs,
         rules,

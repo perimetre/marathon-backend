@@ -17,5 +17,7 @@ export const env = {
   AWS_STORAGE_BUCKET_NAME: process.env.AWS_STORAGE_BUCKET_NAME,
   AWS_DEFAULT_ACL: process.env.AWS_DEFAULT_ACL,
   PUBLIC_MEDIA_URI: process.env.PUBLIC_MEDIA_URI,
-  DEFAULT_LOCALE: process.env.DEFAULT_LOCALE || 'en'
+  DEFAULT_LOCALE: process.env.DEFAULT_LOCALE || 'en',
+  ASSET_BUNDLE_FOLDER: process.env.ASSET_BUNDLE_FOLDER,
+  DEFAULT_PLATFORM: process.env.DEFAULT_PLATFORM || 'webgl'
 };
