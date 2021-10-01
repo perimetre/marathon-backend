@@ -33,7 +33,8 @@ const main = async () => {
         let context: Context = {
           ...prevContext,
           prisma,
-          locale: env.DEFAULT_LOCALE
+          locale: env.DEFAULT_LOCALE,
+          platform: env.DEFAULT_PLATFORM
         };
 
         try {
@@ -60,6 +61,12 @@ const main = async () => {
           context = { ...context, locale };
         }
 
+        const platform = context.req.get('Platform');
+
+        if (platform) {
+          context = { ...context, platform };
+        }
+
         return context;
       }
     });
@@ -74,7 +81,7 @@ const main = async () => {
       cors: {
         origin:
           /*env.NODE_ENV === 'development' ? */ /.*/ /* : getAllowedOrigins().map((url) => `${url.protocol}//${url.host}`)*/,
-        allowedHeaders: ['Authorization', 'X-Requested-With', 'Content-Type', 'ignoreas'],
+        allowedHeaders: ['Authorization', 'X-Requested-With', 'Content-Type', 'Platform', 'Locale'],
         maxAge: 86400, // 1 day
         credentials: true
       }
@@ -84,7 +91,7 @@ const main = async () => {
       cors({
         origin:
           /*env.NODE_ENV === 'development' ? */ /.*/ /* : getAllowedOrigins().map((url) => `${url.protocol}//${url.host}`) */,
-        allowedHeaders: ['Authorization', 'X-Requested-With', 'Content-Type', 'ignoreas'],
+        allowedHeaders: ['Authorization', 'X-Requested-With', 'Content-Type', 'Platform', 'Locale'],
         maxAge: 86400, // 1 day
         credentials: true
       })
@@ -99,7 +106,7 @@ const main = async () => {
     const port = normalizePort(env.PORT);
 
     await new Promise<void>((resolve) => app.listen({ port }, resolve));
-    console.log(`🚀 Server ready at http://localhost:${port}`);
+    console.log(`🚀 Server ready at http://localhost:${port}/graphql`);
   } catch (error) {
     logging.error(error);
     process.exit(1);

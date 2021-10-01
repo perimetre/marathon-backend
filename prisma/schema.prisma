@@ -68,6 +68,7 @@ model Module {
   id             Int             @id @default(autoincrement())
   partNumber     String          @unique
   thumbnailUrl   String?         @db.VarChar(255)
+  bundleUrl      String?         @db.VarChar(255)
   isSubmodule    Boolean
   hasPegs        Boolean
   finishId       Int

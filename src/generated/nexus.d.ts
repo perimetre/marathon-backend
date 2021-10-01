@@ -815,6 +815,7 @@ export interface NexusGenInputs {
   };
   ModuleCreateManyCollectionInput: {
     // input type
+    bundleUrl?: string | null; // String
     finishId: number; // Int!
     hasPegs: boolean; // Boolean!
     id?: number | null; // Int
@@ -830,6 +831,7 @@ export interface NexusGenInputs {
   };
   ModuleCreateManyFinishInput: {
     // input type
+    bundleUrl?: string | null; // String
     collectionId: number; // Int!
     hasPegs: boolean; // Boolean!
     id?: number | null; // Int
@@ -880,6 +882,7 @@ export interface NexusGenInputs {
   };
   ModuleCreateWithoutCollectionInput: {
     // input type
+    bundleUrl?: string | null; // String
     finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
     hasPegs: boolean; // Boolean!
     isSubmodule: boolean; // Boolean!
@@ -890,6 +893,7 @@ export interface NexusGenInputs {
   };
   ModuleCreateWithoutFinishInput: {
     // input type
+    bundleUrl?: string | null; // String
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
     hasPegs: boolean; // Boolean!
     isSubmodule: boolean; // Boolean!
@@ -900,6 +904,7 @@ export interface NexusGenInputs {
   };
   ModuleCreateWithoutProjectModulesInput: {
     // input type
+    bundleUrl?: string | null; // String
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
     finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
     hasPegs: boolean; // Boolean!
@@ -916,6 +921,7 @@ export interface NexusGenInputs {
   };
   ModuleOrderByInput: {
     // input type
+    bundleUrl?: NexusGenEnums['SortOrder'] | null; // SortOrder
     collectionId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     finishId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     hasPegs?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -930,6 +936,7 @@ export interface NexusGenInputs {
     AND?: NexusGenInputs['ModuleScalarWhereInput'][] | null; // [ModuleScalarWhereInput!]
     NOT?: NexusGenInputs['ModuleScalarWhereInput'][] | null; // [ModuleScalarWhereInput!]
     OR?: NexusGenInputs['ModuleScalarWhereInput'][] | null; // [ModuleScalarWhereInput!]
+    bundleUrl?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     collectionId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     finishId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     hasPegs?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
@@ -941,6 +948,7 @@ export interface NexusGenInputs {
   };
   ModuleUpdateManyMutationInput: {
     // input type
+    bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -1005,6 +1013,7 @@ export interface NexusGenInputs {
   };
   ModuleUpdateWithoutCollectionInput: {
     // input type
+    bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
@@ -1015,6 +1024,7 @@ export interface NexusGenInputs {
   };
   ModuleUpdateWithoutFinishInput: {
     // input type
+    bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
@@ -1025,6 +1035,7 @@ export interface NexusGenInputs {
   };
   ModuleUpdateWithoutProjectModulesInput: {
     // input type
+    bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
@@ -1055,6 +1066,7 @@ export interface NexusGenInputs {
     AND?: NexusGenInputs['ModuleWhereInput'][] | null; // [ModuleWhereInput!]
     NOT?: NexusGenInputs['ModuleWhereInput'][] | null; // [ModuleWhereInput!]
     OR?: NexusGenInputs['ModuleWhereInput'][] | null; // [ModuleWhereInput!]
+    bundleUrl?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     collection?: NexusGenInputs['CollectionWhereInput'] | null; // CollectionWhereInput
     collectionId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     finish?: NexusGenInputs['FinishWhereInput'] | null; // FinishWhereInput
@@ -2995,6 +3007,7 @@ export interface NexusGenFieldTypes {
   };
   Module: {
     // field return type
+    bundleUrl: string | null; // String
     collection: NexusGenRootTypes['Collection']; // Collection!
     collectionId: number; // Int!
     finish: NexusGenRootTypes['Finish']; // Finish!
@@ -3200,6 +3213,7 @@ export interface NexusGenFieldTypeNames {
   };
   Module: {
     // field return type name
+    bundleUrl: 'String';
     collection: 'Collection';
     collectionId: 'Int';
     finish: 'Finish';

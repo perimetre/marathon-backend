@@ -666,7 +666,10 @@
       "isSubmodule": true,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-AN-69/04-AU-ACCENT-AN-69.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-AN-69/04-AU-ACCENT-AN-69.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-67/04-au-accent-an-69/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-AN-89",
@@ -680,7 +683,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-87/04-AU-ACCENT-AN-89/04-AU-ACCENT-AN-89.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-87/04-au-accent-an-89/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-AN-95",
@@ -694,7 +701,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-93/04-AU-ACCENT-AN-95/04-AU-ACCENT-AN-95.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-93/04-au-accent-an-95/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-AN-141",
@@ -708,7 +719,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-139/04-AU-ACCENT-AN-141/04-AU-ACCENT-AN-141.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-139/04-au-accent-an-141/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-AN-189",
@@ -722,7 +737,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-187/04-AU-ACCENT-AN-189/04-AU-ACCENT-AN-189.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-187/04-au-accent-an-189/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-AU79-69",
@@ -737,7 +756,10 @@
       "isSubmodule": true,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-AU79-69/04-AU-ACCENT-AU79-69.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-AU79-69/04-AU-ACCENT-AU79-69.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-67/04-au-accent-au79-69/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-AU79-89",
@@ -751,7 +773,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-87/04-AU-ACCENT-AU79-89/04-AU-ACCENT-AU79-89.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-87/04-au-accent-au79-89/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-AU79-95",
@@ -765,7 +791,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-93/04-AU-ACCENT-AU79-95/04-AU-ACCENT-AU79-95.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-93/04-au-accent-au79-95/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-AU79-141",
@@ -779,7 +809,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-139/04-AU-ACCENT-AU79-141/04-AU-ACCENT-AU79-141.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-139/04-au-accent-au79-141/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-AU79-189",
@@ -793,7 +827,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-187/04-AU-ACCENT-AU79-189/04-AU-ACCENT-AU79-189.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-187/04-au-accent-au79-189/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-MB-69",
@@ -808,14 +846,21 @@
       "isSubmodule": true,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-MB-69/04-AU-ACCENT-MB-69.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-MB-69/04-AU-ACCENT-MB-69.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-67/04-au-accent-mb-69/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-MB-89",
       "finish": "Matte Black",
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-87/04-AU-ACCENT-MB-89/04-AU-ACCENT-MB-89.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-87/04-au-accent-mb-89/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-MB-95",
@@ -829,7 +874,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-93/04-AU-ACCENT-MB-95/04-AU-ACCENT-MB-95.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-93/04-au-accent-mb-95/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-MB-141",
@@ -843,7 +892,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-139/04-AU-ACCENT-MB-141/04-AU-ACCENT-MB-141.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-139/04-au-accent-mb-141/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-MB-189",
@@ -857,7 +910,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-187/04-AU-ACCENT-MB-189/04-AU-ACCENT-MB-189.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-187/04-au-accent-mb-189/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-SD-69",
@@ -872,7 +929,10 @@
       "isSubmodule": true,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-SD-69/04-AU-ACCENT-SD-69.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-SD-69/04-AU-ACCENT-SD-69.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-67/04-au-accent-sd-69/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-SD-89",
@@ -886,7 +946,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-87/04-AU-ACCENT-SD-89/04-AU-ACCENT-SD-89.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-87/04-au-accent-sd-89/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-SD-95",
@@ -900,7 +964,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-93/04-AU-ACCENT-SD-95/04-AU-ACCENT-SD-95.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-93/04-au-accent-sd-95/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-SD-141",
@@ -914,7 +982,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-139/04-AU-ACCENT-SD-141/04-AU-ACCENT-SD-141.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-139/04-au-accent-sd-141/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-SD-189",
@@ -928,7 +1000,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-187/04-AU-ACCENT-SD-189/04-AU-ACCENT-SD-189.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-187/04-au-accent-sd-189/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-SW-69",
@@ -943,7 +1019,10 @@
       "isSubmodule": true,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-SW-69/04-AU-ACCENT-SW-69.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-67/04-AU-ACCENT-SW-69/04-AU-ACCENT-SW-69.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-67/04-au-accent-sw-69/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-SW-89",
@@ -957,7 +1036,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-87/04-AU-ACCENT-SW-89/04-AU-ACCENT-SW-89.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-87/04-au-accent-sw-89/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-SW-95",
@@ -971,7 +1054,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-93/04-AU-ACCENT-SW-95/04-AU-ACCENT-SW-95.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-93/04-au-accent-sw-95/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-SW-141",
@@ -985,7 +1072,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-139/04-AU-ACCENT-SW-141/04-AU-ACCENT-SW-141.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-139/04-au-accent-sw-141/module"
+      }
     },
     {
       "partNumber": "04-AU-ACCENT-SW-189",
@@ -999,7 +1090,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-ACCENT-xx-187/04-AU-ACCENT-SW-189/04-AU-ACCENT-SW-189.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-accent-xx-187/04-au-accent-sw-189/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-CD-B",
@@ -1041,7 +1136,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CD-B/04-AU-BIR-CD-B/04-AU-BIR-CD-B.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CD-B/04-AU-BIR-CD-B/04-AU-BIR-CD-B.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-cd-b/04-au-bir-cd-b/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-CT4-D",
@@ -1090,7 +1188,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT4-D/04-AU-BIR-CT4-D/04-AU-BIR-CT4-D.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT4-D/04-AU-BIR-CT4-D/04-AU-BIR-CT4-D.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-ct4-d/04-au-bir-ct4-d/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-CT5-D",
@@ -1144,7 +1245,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT5-D/04-AU-BIR-CT5-D/04-AU-BIR-CT5-D.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT5-D/04-AU-BIR-CT5-D/04-AU-BIR-CT5-D.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-ct5-d/04-au-bir-ct5-d/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-DIVIDER-H55",
@@ -1168,7 +1272,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-DIVIDER-H55/04-AU-BIR-DIVIDER-H55/04-AU-BIR-DIVIDER-H55.png"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-DIVIDER-H55/04-AU-BIR-DIVIDER-H55/04-AU-BIR-DIVIDER-H55.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-divider-h55/04-au-bir-divider-h55/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-KH-B",
@@ -1210,7 +1317,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-KH-B/04-AU-BIR-KH-B/04-AU-BIR-KH-B.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-KH-B/04-AU-BIR-KH-B/04-AU-BIR-KH-B.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-kh-b/04-au-bir-kh-b/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-PARTN240-H125",
@@ -1218,7 +1328,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN240-H125/04-AU-BIR-PARTN240-H125/04-AU-BIR-PARTN240-H125.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN240-H125/04-AU-BIR-PARTN240-H125/04-AU-BIR-PARTN240-H125.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-partn240-h125/04-au-bir-partn240-h125/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-PARTN448-H125",
@@ -1226,7 +1339,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN448-H125/04-AU-BIR-PARTN448-H125/04-AU-BIR-PARTN448-H125.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN448-H125/04-AU-BIR-PARTN448-H125/04-AU-BIR-PARTN448-H125.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-partn448-h125/04-au-bir-partn448-h125/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-SLOTTED-B",
@@ -1234,7 +1350,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B/04-AU-BIR-SLOTTED-B/04-AU-BIR-SLOTTED-B.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B/04-AU-BIR-SLOTTED-B/04-AU-BIR-SLOTTED-B.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-slotted-b/04-au-bir-slotted-b/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-T9494H36",
@@ -1242,7 +1361,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T9494H36/04-AU-BIR-T9494H36/04-AU-BIR-T9494H36.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T9494H36/04-AU-BIR-T9494H36/04-AU-BIR-T9494H36.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t9494h36/04-au-bir-t9494h36/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-T94266H36",
@@ -1250,7 +1372,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T94266H36/04-AU-BIR-T94266H36/04-AU-BIR-T94266H36.png"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T94266H36/04-AU-BIR-T94266H36/04-AU-BIR-T94266H36.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t94266h36/04-au-bir-t94266h36/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-T100305H55",
@@ -1258,14 +1383,21 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T100305H55/04-AU-BIR-T100305H55/04-AU-BIR-T100305H55.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T100305H55/04-AU-BIR-T100305H55/04-AU-BIR-T100305H55.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t100305h55/04-au-bir-t100305h55/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-T200305H55",
       "finish": "Birch",
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T200305H55/04-AU-BIR-T200305H55/04-AU-BIR-T200305H55.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t200305h55/04-au-bir-t200305h55/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-T210406H110",
@@ -1273,7 +1405,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210406H110/04-AU-BIR-T210406H110/04-AU-BIR-T210406H110.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210406H110/04-AU-BIR-T210406H110/04-AU-BIR-T210406H110.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t210406h110/04-au-bir-t210406h110/module"
+      }
     },
     {
       "partNumber": "04-AU-BIR-T210506H110",
@@ -1281,7 +1416,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210506H110/04-AU-BIR-T210506H110/04-AU-BIR-T210506H110.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210506H110/04-AU-BIR-T210506H110/04-AU-BIR-T210506H110.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t210506h110/04-au-bir-t210506h110/module"
+      }
     },
     {
       "partNumber": "04-AU-DIVIDER-AN",
@@ -1295,7 +1433,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-AN/04-AU-DIVIDER-AN.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-divider-xx/04-au-divider-an/module"
+      }
     },
     {
       "partNumber": "04-AU-DIVIDER-AU79",
@@ -1309,7 +1451,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-AU79/04-AU-DIVIDER-AU79.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-divider-xx/04-au-divider-au79/module"
+      }
     },
     {
       "partNumber": "04-AU-DIVIDER-MB",
@@ -1323,7 +1469,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-MB/04-AU-DIVIDER-MB.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-divider-xx/04-au-divider-mb/module"
+      }
     },
     {
       "partNumber": "04-AU-DIVIDER-SD",
@@ -1337,7 +1487,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-SD/04-AU-DIVIDER-SD.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-divider-xx/04-au-divider-sd/module"
+      }
     },
     {
       "partNumber": "04-AU-DIVIDER-SW",
@@ -1351,7 +1505,11 @@
       },
       "isSubmodule": true,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-SW/04-AU-DIVIDER-SW.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-divider-xx/04-au-divider-sw/module"
+      }
     },
     {
       "partNumber": "04-AU-LSHAPE600-AN",
@@ -1392,7 +1550,11 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-AN/04-AU-LSHAPE600-AN.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-lshape600-xx/04-au-lshape600-an/module"
+      }
     },
     {
       "partNumber": "04-AU-LSHAPE600-AU79",
@@ -1433,7 +1595,11 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-AU79/04-AU-LSHAPE600-AU79.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-lshape600-xx/04-au-lshape600-au79/module"
+      }
     },
     {
       "partNumber": "04-AU-LSHAPE600-MB",
@@ -1474,7 +1640,11 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-MB/04-AU-LSHAPE600-MB.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-lshape600-xx/04-au-lshape600-mb/module"
+      }
     },
     {
       "partNumber": "04-AU-LSHAPE600-SD",
@@ -1515,7 +1685,11 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-SD/04-AU-LSHAPE600-SD.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-lshape600-xx/04-au-lshape600-sd/module"
+      }
     },
     {
       "partNumber": "04-AU-LSHAPE600-SW",
@@ -1556,7 +1730,11 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-SW/04-AU-LSHAPE600-SW.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-lshape600-xx/04-au-lshape600-sw/module"
+      }
     },
     {
       "partNumber": "04-AU-LSHAPE1200-AN",
@@ -1597,7 +1775,11 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-AN/04-AU-LSHAPE1200-AN.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-lshape1200-xx/04-au-lshape1200-an/module"
+      }
     },
     {
       "partNumber": "04-AU-LSHAPE1200-AU79",
@@ -1638,7 +1820,11 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-AU79/04-AU-LSHAPE1200-AU79.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-lshape1200-xx/04-au-lshape1200-au79/module"
+      }
     },
     {
       "partNumber": "04-AU-LSHAPE1200-MB",
@@ -1679,7 +1865,11 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-MB/04-AU-LSHAPE1200-MB.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-lshape1200-xx/04-au-lshape1200-mb/module"
+      }
     },
     {
       "partNumber": "04-AU-LSHAPE1200-SD",
@@ -1720,7 +1910,11 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-SD/04-AU-LSHAPE1200-SD.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-lshape1200-xx/04-au-lshape1200-sd/module"
+      }
     },
     {
       "partNumber": "04-AU-LSHAPE1200-SW",
@@ -1761,7 +1955,11 @@
       },
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-SW/04-AU-LSHAPE1200-SW.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-lshape1200-xx/04-au-lshape1200-sw/module"
+      }
     },
     {
       "partNumber": "04-AU-USHAPE-BIR-B",
@@ -1810,7 +2008,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-BIR-B/04-AU-USHAPE-BIR-B.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-BIR-B/04-AU-USHAPE-BIR-B.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-ushape-xxx-b/04-au-ushape-bir-b/module"
+      }
     },
     {
       "partNumber": "04-AU-USHAPE-WAL-B",
@@ -1859,7 +2060,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-WAL-B/04-AU-USHAPE-WAL-B.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-WAL-B/04-AU-USHAPE-WAL-B.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-ushape-xxx-b/04-au-ushape-wal-b/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-CD-B",
@@ -1901,7 +2105,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CD-B/04-AU-WAL-CD-B/04-AU-WAL-CD-B.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CD-B/04-AU-WAL-CD-B/04-AU-WAL-CD-B.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-cd-b/04-au-wal-cd-b/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-CT4-D",
@@ -1950,7 +2157,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT4-D/04-AU-WAL-CT4-D/04-AU-WAL-CT4-D.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT4-D/04-AU-WAL-CT4-D/04-AU-WAL-CT4-D.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-ct4-d/04-au-wal-ct4-d/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-CT5-D",
@@ -2004,7 +2214,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT5-D/04-AU-WAL-CT5-D/04-AU-WAL-CT5-D.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-CT5-D/04-AU-WAL-CT5-D/04-AU-WAL-CT5-D.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-ct5-d/04-au-wal-ct5-d/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-DIVIDER-H55",
@@ -2028,7 +2241,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-DIVIDER-H55/04-AU-WAL-DIVIDER-H55/04-AU-WAL-DIVIDER-H55.png"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-DIVIDER-H55/04-AU-WAL-DIVIDER-H55/04-AU-WAL-DIVIDER-H55.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-divider-h55/04-au-wal-divider-h55/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-KH-B",
@@ -2036,7 +2252,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-KH-B/04-AU-WAL-KH-B/04-AU-WAL-KH-B.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-KH-B/04-AU-WAL-KH-B/04-AU-WAL-KH-B.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-kh-b/04-au-wal-kh-b/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-PARTN240-H125",
@@ -2044,7 +2263,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN240-H125/04-AU-WAL-PARTN240-H125/04-AU-WAL-PARTN240-H125.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN240-H125/04-AU-WAL-PARTN240-H125/04-AU-WAL-PARTN240-H125.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-partn240-h125/04-au-wal-partn240-h125/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-PARTN448-H125",
@@ -2052,7 +2274,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN448-H125/04-AU-WAL-PARTN448-H125/04-AU-WAL-PARTN448-H125.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-PARTN448-H125/04-AU-WAL-PARTN448-H125/04-AU-WAL-PARTN448-H125.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-partn448-h125/04-au-wal-partn448-h125/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-SLOTTED-B",
@@ -2060,7 +2285,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B/04-AU-WAL-SLOTTED-B/04-AU-WAL-SLOTTED-B.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B/04-AU-WAL-SLOTTED-B/04-AU-WAL-SLOTTED-B.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-slotted-b/04-au-wal-slotted-b/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-T9494H368",
@@ -2068,7 +2296,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T9494H36/04-AU-WAL-T9494H368/04-AU-WAL-T9494H368.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T9494H36/04-AU-WAL-T9494H368/04-AU-WAL-T9494H368.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t9494h36/04-au-wal-t9494h368/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-T94266H36",
@@ -2076,7 +2307,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T94266H36/04-AU-WAL-T94266H36/04-AU-WAL-T94266H36.png"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T94266H36/04-AU-WAL-T94266H36/04-AU-WAL-T94266H36.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t94266h36/04-au-wal-t94266h36/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-T100305H55",
@@ -2084,14 +2318,21 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T100305H55/04-AU-WAL-T100305H55/04-AU-WAL-T100305H55.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T100305H55/04-AU-WAL-T100305H55/04-AU-WAL-T100305H55.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t100305h55/04-au-wal-t100305h55/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-T200305H55",
       "finish": "Walnut",
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T200305H55/04-AU-WAL-T200305H55/04-AU-WAL-T200305H55.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t200305h55/04-au-wal-t200305h55/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-T210406H110",
@@ -2099,7 +2340,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210406H110/04-AU-WAL-T210406H110/04-AU-WAL-T210406H110.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210406H110/04-AU-WAL-T210406H110/04-AU-WAL-T210406H110.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t210406h110/04-au-wal-t210406h110/module"
+      }
     },
     {
       "partNumber": "04-AU-WAL-T210506H110",
@@ -2107,7 +2351,10 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210506H110/04-AU-WAL-T210506H110/04-AU-WAL-T210506H110.jpg"
+      "thumbnailUrl": "images/module/autograph/04-AU-xxx-T210506H110/04-AU-WAL-T210506H110/04-AU-WAL-T210506H110.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/04-au-xxx-t210506h110/04-au-wal-t210506h110/module"
+      }
     },
     {
       "partNumber": "BIR-spice rack 35mm spacer Size A",
@@ -2115,14 +2362,21 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/spice%20rack%2035mm%20spacer%20Size%20A/BIR-spice%20rack%2035mm%20spacer%20Size%20A/BIR-spice%20rack%2035mm%20spacer%20Size%20A.jpg"
+      "thumbnailUrl": "images/module/autograph/spice%20rack%2035mm%20spacer%20Size%20A/BIR-spice%20rack%2035mm%20spacer%20Size%20A/BIR-spice%20rack%2035mm%20spacer%20Size%20A.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/spice%20rack%2035mm%20spacer%20size%20a/bir-spice%20rack%2035mm%20spacer%20size%20a/module"
+      }
     },
     {
       "partNumber": "BIR-spice rack 53mm spacer Size A",
       "finish": "Birch",
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/spice%20rack%2053mm%20spacer%20Size%20A/BIR-spice%20rack%2053mm%20spacer%20Size%20A/BIR-spice%20rack%2053mm%20spacer%20Size%20A.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/spice%20rack%2053mm%20spacer%20size%20a/bir-spice%20rack%2053mm%20spacer%20size%20a/module"
+      }
     },
     {
       "partNumber": "BIR-Spice rack Size A",
@@ -2130,7 +2384,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/Spice%20rack%20Size%20A/BIR-Spice%20rack%20Size%20A/BIR-Spice%20rack%20Size%20A.jpg"
+      "thumbnailUrl": "images/module/autograph/Spice%20rack%20Size%20A/BIR-Spice%20rack%20Size%20A/BIR-Spice%20rack%20Size%20A.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/spice%20rack%20size%20a/bir-spice%20rack%20size%20a/module"
+      }
     },
     {
       "partNumber": "WAL-spice rack 35mm spacer Size A",
@@ -2138,14 +2395,21 @@
       "isSubmodule": false,
       "hasPegs": false,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/spice%20rack%2035mm%20spacer%20Size%20A/WAL-spice%20rack%2035mm%20spacer%20Size%20A/WAL-spice%20rack%2035mm%20spacer%20Size%20A.jpg"
+      "thumbnailUrl": "images/module/autograph/spice%20rack%2035mm%20spacer%20Size%20A/WAL-spice%20rack%2035mm%20spacer%20Size%20A/WAL-spice%20rack%2035mm%20spacer%20Size%20A.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/spice%20rack%2035mm%20spacer%20size%20a/wal-spice%20rack%2035mm%20spacer%20size%20a/module"
+      }
     },
     {
       "partNumber": "WAL-spice rack 53mm spacer Size A",
       "finish": "Walnut",
       "isSubmodule": false,
       "hasPegs": false,
-      "collection": "Autograph"
+      "collection": "Autograph",
+      "thumbnailUrl": "images/module/autograph/spice%20rack%2053mm%20spacer%20Size%20A/WAL-spice%20rack%2053mm%20spacer%20Size%20A/WAL-spice%20rack%2053mm%20spacer%20Size%20A.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/spice%20rack%2053mm%20spacer%20size%20a/wal-spice%20rack%2053mm%20spacer%20size%20a/module"
+      }
     },
     {
       "partNumber": "WAL-Spice rack Size A",
@@ -2153,7 +2417,10 @@
       "isSubmodule": false,
       "hasPegs": true,
       "collection": "Autograph",
-      "thumbnailUrl": "images/module/autograph/Spice%20rack%20Size%20A/WAL-Spice%20rack%20Size%20A/WAL-Spice%20rack%20Size%20A.jpg"
+      "thumbnailUrl": "images/module/autograph/Spice%20rack%20Size%20A/WAL-Spice%20rack%20Size%20A/WAL-Spice%20rack%20Size%20A.jpg",
+      "bundleUrls": {
+        "webgl": "asset-bundles/webgl/modules/autograph/spice%20rack%20size%20a/wal-spice%20rack%20size%20a/module"
+      }
     }
   ]
 }

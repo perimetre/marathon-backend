@@ -3,6 +3,7 @@ import { MaybePromise, ObjectDefinitionBlock } from 'nexus/dist/core';
 import { URL } from 'url';
 import { env } from '../env';
 import { Context } from '../typings/context';
+import { joinUrls } from './url';
 
 type TypeNames = keyof typeof Prisma.ModelName;
 
@@ -39,15 +40,26 @@ export const resolvePublicMediaUrlToField = async <T extends string | null, TRoo
   originalResolve: (root: TRoot, args: TArgs, context: TContext, info: TInfo) => MaybePromise<T>
 ): Promise<T> => {
   const path = await originalResolve(root, args, context, info);
-  if (path) {
-    try {
-      return new URL(path, env.PUBLIC_MEDIA_URI).toString() as T;
-    } catch {
-      return path;
-    }
-  }
+  return joinUrls([env.PUBLIC_MEDIA_URI, path].filter((x) => !!x) as string[]) as T;
+};
 
-  return path;
+export const resolveAssetBundleUrlToField = async <
+  T extends string | null,
+  TRoot,
+  TArgs,
+  TContext extends Context,
+  TInfo
+>(
+  root: TRoot,
+  args: TArgs,
+  context: TContext,
+  info: TInfo,
+  originalResolve: (root: TRoot, args: TArgs, context: TContext, info: TInfo) => MaybePromise<T>
+): Promise<T> => {
+  const path = await originalResolve(root, args, context, info);
+  return joinUrls(
+    [env.PUBLIC_MEDIA_URI, env.ASSET_BUNDLE_FOLDER, context.platform, path].filter((x) => !!x) as string[]
+  ) as T;
 };
 
 const resolveTranslatedField = async <T extends { id: number }>(

@@ -1,12 +1,20 @@
 import { objectType } from 'nexus';
-import { registerModelsWithPrismaBinding, resolvePublicMediaUrlToField } from '../utils/nexus';
+import {
+  registerModelsWithPrismaBinding,
+  resolveAssetBundleUrlToField,
+  resolvePublicMediaUrlToField
+} from '../utils/nexus';
 
 export const Module = objectType({
   name: 'Module',
   definition(t) {
-    registerModelsWithPrismaBinding(t, undefined, ['thumbnailUrl']);
+    registerModelsWithPrismaBinding(t, undefined, ['thumbnailUrl, bundleUrl']);
     t.model.thumbnailUrl({
       resolve: resolvePublicMediaUrlToField
+    });
+
+    t.model.bundleUrl({
+      resolve: resolveAssetBundleUrlToField
     });
   }
 });
