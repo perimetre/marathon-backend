@@ -1,6 +1,6 @@
 import { Locale, PrismaClient } from '@prisma/client';
 import { helpers } from 'faker';
-import { uniqBy } from 'lodash';
+import { toNumber, uniqBy, uniq } from 'lodash';
 import seedValues from './seedValues/seed.json';
 
 const db = new PrismaClient();
@@ -87,52 +87,82 @@ const main = async () => {
   await db.slideSupplier.createMany({
     data: uniqBy(seedValues.slides, 'supplier').map((x) => ({
       slug: helpers.slugify(x.supplier).toLowerCase(),
-      thumbnailUrl: x.supplierImgURL,
+      thumbnailUrl: seedValues.supplierLogos.find((y) => y.supplier === helpers.slugify(x.supplier).toLowerCase())
+        ?.supplierImgURL,
       name: x.supplier
     }))
   });
 
   const slideSuppliers = await db.slideSupplier.findMany({ select: { id: true, slug: true } });
 
+  const depths: ({ slug: string } & typeof seedValues['slides'][number]['depth'][number])[] = [];
+
   await db.slide.createMany({
-    data: seedValues.slides.map(({ slug, formula, product, collection, supplier }) => ({
-      slug: slug.toLowerCase(),
-      formula,
-      product,
-      collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
-      supplierId: slideSuppliers.find((x) => x.slug === helpers.slugify(supplier).toLowerCase())?.id || -1
-    }))
+    data: seedValues.slides.map(({ formula, product, collection, supplier, depth }) => {
+      const slug = helpers.slugify(`${supplier}-${product}-${collection}`).toLowerCase();
+      depth.forEach((y) => depths.push({ slug, ...y }));
+      return {
+        slug,
+        formula,
+        product,
+        collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
+        supplierId: slideSuppliers.find((x) => x.slug === helpers.slugify(supplier).toLowerCase())?.id || -1
+      };
+    })
   });
 
   const slides = await db.slide.findMany({ select: { id: true, slug: true } });
 
   await db.slideDepth.createMany({
-    data: seedValues.slides.flatMap((slide) =>
-      ['450', '500', '550', '600']
-        .filter((x) => seedValues.slides[x] && seedValues.slides[x] !== 0)
-        .map((depthValue) => ({
-          display: `${parseInt(depthValue) / 10}cm`,
-          depth: slide[depthValue],
-          slideId: slides.find((y) => y.slug === slide.slug.toLowerCase())?.id || -1
-        }))
-    )
+    data: depths.map(({ slug, roundedValue, value }) => ({
+      display: `${roundedValue}mm`,
+      depth: toNumber(value),
+      slideId: slides.find((x) => x.slug === slug)?.id || -1
+    }))
   });
 
   // -- Modules
-
   await db.module.createMany({
-    data: seedValues.modules.map(
-      ({ partNumber, metadata: rules, finish, collection, isSubmodule, hasPegs, thumbnailUrl, bundleUrls }) => ({
-        thumbnailUrl,
-        partNumber,
-        bundleUrl: bundleUrls?.webgl.split('/').slice(2).join('/') || undefined,
-        isSubmodule,
-        hasPegs,
-        rules,
-        collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
-        finishId: finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1
-      })
-    )
+    data: seedValues.modules
+      .filter((x) => !!x.collection && !!x.finish)
+      .map(
+        ({
+          partNumber,
+          rules,
+          finish,
+          collection,
+          isSubmodule,
+          hasPegs,
+          bundlePath,
+          imageUrl,
+          isMat,
+          isImprintExtension
+        }) => {
+          const collectionId = collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1;
+          const finishId = finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1;
+
+          if (collectionId === -1) {
+            console.log('-----', collection, helpers.slugify(collection).toLowerCase(), partNumber, collection);
+          }
+
+          if (finishId === -1) {
+            console.log('-----', finish, helpers.slugify(finish).toLowerCase(), partNumber, collection);
+          }
+
+          return {
+            thumbnailUrl: imageUrl,
+            partNumber,
+            bundleUrl: bundlePath,
+            isSubmodule,
+            hasPegs,
+            isMat,
+            isImprintExtension,
+            rules: JSON.parse(rules),
+            collectionId,
+            finishId
+          };
+        }
+      )
   });
 };
 

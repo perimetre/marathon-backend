@@ -817,9 +817,11 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: string | null; // String
     finishId: number; // Int!
-    hasPegs: boolean; // Boolean!
+    hasPegs?: boolean | null; // Boolean
     id?: number | null; // Int
-    isSubmodule: boolean; // Boolean!
+    isImprintExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
     partNumber: string; // String!
     rules?: NexusGenScalars['Json'] | null; // Json
     thumbnailUrl?: string | null; // String
@@ -833,9 +835,11 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: string | null; // String
     collectionId: number; // Int!
-    hasPegs: boolean; // Boolean!
+    hasPegs?: boolean | null; // Boolean
     id?: number | null; // Int
-    isSubmodule: boolean; // Boolean!
+    isImprintExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
     partNumber: string; // String!
     rules?: NexusGenScalars['Json'] | null; // Json
     thumbnailUrl?: string | null; // String
@@ -884,8 +888,10 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: string | null; // String
     finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
-    hasPegs: boolean; // Boolean!
-    isSubmodule: boolean; // Boolean!
+    hasPegs?: boolean | null; // Boolean
+    isImprintExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -895,8 +901,10 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: string | null; // String
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
-    hasPegs: boolean; // Boolean!
-    isSubmodule: boolean; // Boolean!
+    hasPegs?: boolean | null; // Boolean
+    isImprintExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -907,8 +915,10 @@ export interface NexusGenInputs {
     bundleUrl?: string | null; // String
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
     finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
-    hasPegs: boolean; // Boolean!
-    isSubmodule: boolean; // Boolean!
+    hasPegs?: boolean | null; // Boolean
+    isImprintExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
     partNumber: string; // String!
     rules?: NexusGenScalars['Json'] | null; // Json
     thumbnailUrl?: string | null; // String
@@ -926,6 +936,8 @@ export interface NexusGenInputs {
     finishId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     hasPegs?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isImprintExtension?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isMat?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isSubmodule?: NexusGenEnums['SortOrder'] | null; // SortOrder
     partNumber?: NexusGenEnums['SortOrder'] | null; // SortOrder
     rules?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -941,6 +953,8 @@ export interface NexusGenInputs {
     finishId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     hasPegs?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    isImprintExtension?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    isMat?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     isSubmodule?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     partNumber?: NexusGenInputs['StringFilter'] | null; // StringFilter
     rules?: NexusGenInputs['JsonNullableFilter'] | null; // JsonNullableFilter
@@ -950,6 +964,8 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1016,6 +1032,8 @@ export interface NexusGenInputs {
     bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
@@ -1027,6 +1045,8 @@ export interface NexusGenInputs {
     bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
@@ -1039,6 +1059,8 @@ export interface NexusGenInputs {
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1073,6 +1095,8 @@ export interface NexusGenInputs {
     finishId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     hasPegs?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    isImprintExtension?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    isMat?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     isSubmodule?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     partNumber?: NexusGenInputs['StringFilter'] | null; // StringFilter
     projectModules?: NexusGenInputs['ProjectModuleListRelationFilter'] | null; // ProjectModuleListRelationFilter
@@ -2858,6 +2882,8 @@ export interface NexusGenObjects {
     finishId: number; // Int!
     hasPegs: boolean; // Boolean!
     id: number; // Int!
+    isImprintExtension: boolean; // Boolean!
+    isMat: boolean; // Boolean!
     isSubmodule: boolean; // Boolean!
     partNumber: string; // String!
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -3014,6 +3040,8 @@ export interface NexusGenFieldTypes {
     finishId: number; // Int!
     hasPegs: boolean; // Boolean!
     id: number; // Int!
+    isImprintExtension: boolean; // Boolean!
+    isMat: boolean; // Boolean!
     isSubmodule: boolean; // Boolean!
     partNumber: string; // String!
     projectModules: NexusGenRootTypes['ProjectModule'][]; // [ProjectModule!]!
@@ -3220,6 +3248,8 @@ export interface NexusGenFieldTypeNames {
     finishId: 'Int';
     hasPegs: 'Boolean';
     id: 'Int';
+    isImprintExtension: 'Boolean';
+    isMat: 'Boolean';
     isSubmodule: 'Boolean';
     partNumber: 'String';
     projectModules: 'ProjectModule';

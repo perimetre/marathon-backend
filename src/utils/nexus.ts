@@ -38,9 +38,9 @@ export const resolvePublicMediaUrlToField = async <T extends string | null, TRoo
   context: TContext,
   info: TInfo,
   originalResolve: (root: TRoot, args: TArgs, context: TContext, info: TInfo) => MaybePromise<T>
-): Promise<T> => {
+): Promise<T | null> => {
   const path = await originalResolve(root, args, context, info);
-  return joinUrls([env.PUBLIC_MEDIA_URI, path].filter((x) => !!x) as string[]) as T;
+  return path ? (joinUrls([env.PUBLIC_MEDIA_URI, path].filter((x) => !!x) as string[]) as T) : null;
 };
 
 export const resolveAssetBundleUrlToField = async <
@@ -55,11 +55,13 @@ export const resolveAssetBundleUrlToField = async <
   context: TContext,
   info: TInfo,
   originalResolve: (root: TRoot, args: TArgs, context: TContext, info: TInfo) => MaybePromise<T>
-): Promise<T> => {
+): Promise<T | null> => {
   const path = await originalResolve(root, args, context, info);
-  return joinUrls(
-    [env.PUBLIC_MEDIA_URI, env.ASSET_BUNDLE_FOLDER, context.platform, path].filter((x) => !!x) as string[]
-  ) as T;
+  return path
+    ? (joinUrls(
+        [env.PUBLIC_MEDIA_URI, env.ASSET_BUNDLE_FOLDER, context.platform, path].filter((x) => !!x) as string[]
+      ) as T)
+    : null;
 };
 
 const resolveTranslatedField = async <T extends { id: number }>(
