@@ -3113,54 +3113,70 @@ export interface NexusGenArgTypes {
     collectionFinishes: {
       // args
       cursor?: NexusGenInputs['CollectionFinishesWhereUniqueInput'] | null; // CollectionFinishesWhereUniqueInput
+      orderBy?: NexusGenInputs['CollectionFinishesOrderByInput'][] | null; // [CollectionFinishesOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['CollectionFinishesWhereInput'] | null; // CollectionFinishesWhereInput
     };
     modules: {
       // args
       cursor?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
+      orderBy?: NexusGenInputs['ModuleOrderByInput'][] | null; // [ModuleOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['ModuleWhereInput'] | null; // ModuleWhereInput
     };
     projects: {
       // args
       cursor?: NexusGenInputs['ProjectWhereUniqueInput'] | null; // ProjectWhereUniqueInput
+      orderBy?: NexusGenInputs['ProjectOrderByInput'][] | null; // [ProjectOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['ProjectWhereInput'] | null; // ProjectWhereInput
     };
     slides: {
       // args
       cursor?: NexusGenInputs['SlideWhereUniqueInput'] | null; // SlideWhereUniqueInput
+      orderBy?: NexusGenInputs['SlideOrderByInput'][] | null; // [SlideOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['SlideWhereInput'] | null; // SlideWhereInput
     };
   };
   Finish: {
     collectionFinishes: {
       // args
       cursor?: NexusGenInputs['CollectionFinishesWhereUniqueInput'] | null; // CollectionFinishesWhereUniqueInput
+      orderBy?: NexusGenInputs['CollectionFinishesOrderByInput'][] | null; // [CollectionFinishesOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['CollectionFinishesWhereInput'] | null; // CollectionFinishesWhereInput
     };
     modules: {
       // args
       cursor?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
+      orderBy?: NexusGenInputs['ModuleOrderByInput'][] | null; // [ModuleOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['ModuleWhereInput'] | null; // ModuleWhereInput
     };
     projects: {
       // args
       cursor?: NexusGenInputs['ProjectWhereUniqueInput'] | null; // ProjectWhereUniqueInput
+      orderBy?: NexusGenInputs['ProjectOrderByInput'][] | null; // [ProjectOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['ProjectWhereInput'] | null; // ProjectWhereInput
     };
   };
   Module: {
     projectModules: {
       // args
       cursor?: NexusGenInputs['ProjectModuleWhereUniqueInput'] | null; // ProjectModuleWhereUniqueInput
+      orderBy?: NexusGenInputs['ProjectModuleOrderByInput'][] | null; // [ProjectModuleOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['ProjectModuleWhereInput'] | null; // ProjectModuleWhereInput
     };
   };
   Mutation: {
@@ -3312,38 +3328,48 @@ export interface NexusGenArgTypes {
     depths: {
       // args
       cursor?: NexusGenInputs['SlideDepthWhereUniqueInput'] | null; // SlideDepthWhereUniqueInput
+      orderBy?: NexusGenInputs['SlideDepthOrderByInput'][] | null; // [SlideDepthOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['SlideDepthWhereInput'] | null; // SlideDepthWhereInput
     };
     projects: {
       // args
       cursor?: NexusGenInputs['ProjectWhereUniqueInput'] | null; // ProjectWhereUniqueInput
+      orderBy?: NexusGenInputs['ProjectOrderByInput'][] | null; // [ProjectOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['ProjectWhereInput'] | null; // ProjectWhereInput
     };
   };
   SlideDepth: {
     projects: {
       // args
       cursor?: NexusGenInputs['ProjectWhereUniqueInput'] | null; // ProjectWhereUniqueInput
+      orderBy?: NexusGenInputs['ProjectOrderByInput'][] | null; // [ProjectOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['ProjectWhereInput'] | null; // ProjectWhereInput
     };
   };
   SlideSupplier: {
     slides: {
       // args
       cursor?: NexusGenInputs['SlideWhereUniqueInput'] | null; // SlideWhereUniqueInput
+      orderBy?: NexusGenInputs['SlideOrderByInput'][] | null; // [SlideOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['SlideWhereInput'] | null; // SlideWhereInput
     };
   };
   Type: {
     projects: {
       // args
       cursor?: NexusGenInputs['ProjectWhereUniqueInput'] | null; // ProjectWhereUniqueInput
+      orderBy?: NexusGenInputs['ProjectOrderByInput'][] | null; // [ProjectOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['ProjectWhereInput'] | null; // ProjectWhereInput
     };
   };
 }

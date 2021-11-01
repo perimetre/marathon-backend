@@ -4,7 +4,7 @@ import { registerModelsWithPrismaBinding, resolvePublicMediaUrlToField } from '.
 export const SlideSupplier = objectType({
   name: 'SlideSupplier',
   definition(t) {
-    registerModelsWithPrismaBinding(t, undefined, ['thumbnailUrl']);
+    registerModelsWithPrismaBinding(t, ['slides'], ['thumbnailUrl']);
     t.model.thumbnailUrl({
       resolve: resolvePublicMediaUrlToField
     });

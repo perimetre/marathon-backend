@@ -8,7 +8,7 @@ import {
 export const Module = objectType({
   name: 'Module',
   definition(t) {
-    registerModelsWithPrismaBinding(t, undefined, ['thumbnailUrl, bundleUrl']);
+    registerModelsWithPrismaBinding(t, ['projectModules'], ['thumbnailUrl, bundleUrl']);
     t.model.thumbnailUrl({
       resolve: resolvePublicMediaUrlToField
     });

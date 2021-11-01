@@ -4,6 +4,6 @@ import { registerModelsWithPrismaBinding } from '../utils/nexus';
 export const SlideDepth = objectType({
   name: 'SlideDepth',
   definition(t) {
-    registerModelsWithPrismaBinding(t);
+    registerModelsWithPrismaBinding(t, ['projects']);
   }
 });

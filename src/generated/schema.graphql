@@ -11,14 +11,38 @@ input BoolFilter {
 }
 
 type Collection {
-  collectionFinishes(cursor: CollectionFinishesWhereUniqueInput, skip: Int, take: Int): [CollectionFinishes!]!
+  collectionFinishes(
+    cursor: CollectionFinishesWhereUniqueInput
+    orderBy: [CollectionFinishesOrderByInput!]
+    skip: Int
+    take: Int
+    where: CollectionFinishesWhereInput
+  ): [CollectionFinishes!]!
   description: String
   footer: String
   id: Int!
-  modules(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
+  modules(
+    cursor: ModuleWhereUniqueInput
+    orderBy: [ModuleOrderByInput!]
+    skip: Int
+    take: Int
+    where: ModuleWhereInput
+  ): [Module!]!
   name: String!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
-  slides(cursor: SlideWhereUniqueInput, skip: Int, take: Int): [Slide!]!
+  projects(
+    cursor: ProjectWhereUniqueInput
+    orderBy: [ProjectOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectWhereInput
+  ): [Project!]!
+  slides(
+    cursor: SlideWhereUniqueInput
+    orderBy: [SlideOrderByInput!]
+    skip: Int
+    take: Int
+    where: SlideWhereInput
+  ): [Slide!]!
   slug: String!
   subtitle: String
   thumbnailUrl: String
@@ -525,12 +549,30 @@ input EnumLocaleFilter {
 }
 
 type Finish {
-  collectionFinishes(cursor: CollectionFinishesWhereUniqueInput, skip: Int, take: Int): [CollectionFinishes!]!
+  collectionFinishes(
+    cursor: CollectionFinishesWhereUniqueInput
+    orderBy: [CollectionFinishesOrderByInput!]
+    skip: Int
+    take: Int
+    where: CollectionFinishesWhereInput
+  ): [CollectionFinishes!]!
   description: String
   id: Int!
-  modules(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
+  modules(
+    cursor: ModuleWhereUniqueInput
+    orderBy: [ModuleOrderByInput!]
+    skip: Int
+    take: Int
+    where: ModuleWhereInput
+  ): [Module!]!
   name: String!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+  projects(
+    cursor: ProjectWhereUniqueInput
+    orderBy: [ProjectOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectWhereInput
+  ): [Project!]!
   slug: String!
   thumbnailUrl: String
 }
@@ -859,7 +901,13 @@ type Module {
   isMat: Boolean!
   isSubmodule: Boolean!
   partNumber: String!
-  projectModules(cursor: ProjectModuleWhereUniqueInput, skip: Int, take: Int): [ProjectModule!]!
+  projectModules(
+    cursor: ProjectModuleWhereUniqueInput
+    orderBy: [ProjectModuleOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectModuleWhereInput
+  ): [ProjectModule!]!
   rules: Json
   thumbnailUrl: String
 }
@@ -2170,11 +2218,23 @@ type Query {
 type Slide {
   collection: Collection!
   collectionId: Int!
-  depths(cursor: SlideDepthWhereUniqueInput, skip: Int, take: Int): [SlideDepth!]!
+  depths(
+    cursor: SlideDepthWhereUniqueInput
+    orderBy: [SlideDepthOrderByInput!]
+    skip: Int
+    take: Int
+    where: SlideDepthWhereInput
+  ): [SlideDepth!]!
   formula: String!
   id: Int!
   product: String!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+  projects(
+    cursor: ProjectWhereUniqueInput
+    orderBy: [ProjectOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectWhereInput
+  ): [Project!]!
   slug: String!
   supplier: SlideSupplier!
   supplierId: Int!
@@ -2258,7 +2318,13 @@ type SlideDepth {
   depth: Float!
   display: String!
   id: Int!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+  projects(
+    cursor: ProjectWhereUniqueInput
+    orderBy: [ProjectOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectWhereInput
+  ): [Project!]!
   slide: Slide!
   slideId: Int!
 }
@@ -2438,7 +2504,13 @@ input SlideScalarWhereInput {
 type SlideSupplier {
   id: Int!
   name: String!
-  slides(cursor: SlideWhereUniqueInput, skip: Int, take: Int): [Slide!]!
+  slides(
+    cursor: SlideWhereUniqueInput
+    orderBy: [SlideOrderByInput!]
+    skip: Int
+    take: Int
+    where: SlideWhereInput
+  ): [Slide!]!
   slug: String!
   thumbnailUrl: String
 }
@@ -2653,7 +2725,13 @@ type Type {
   description: String
   id: Int!
   name: String!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+  projects(
+    cursor: ProjectWhereUniqueInput
+    orderBy: [ProjectOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectWhereInput
+  ): [Project!]!
   slug: String!
   thumbnailUrl: String
 }
