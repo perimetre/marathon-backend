@@ -989,6 +989,12 @@
       "supplierImgURL": "images/slide/brand/taiminig.png"
     }
   ],
+  "categories": [
+    {
+      "slug": "all",
+      "name": "All"
+    }
+  ],
   "modules": [
     {
       "partNumber": "04-IM-BIR-CT-EXTENSION",

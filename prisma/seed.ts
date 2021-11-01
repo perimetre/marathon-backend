@@ -121,6 +121,16 @@ const main = async () => {
     }))
   });
 
+  // -- Categories
+  await db.category.createMany({
+    data: seedValues.categories.map(({ slug, name }) => ({
+      name,
+      slug
+    }))
+  });
+
+  const categories = await db.category.findMany({ select: { id: true, slug: true } });
+
   // -- Modules
   await db.module.createMany({
     data: seedValues.modules
@@ -137,18 +147,8 @@ const main = async () => {
           imageUrl,
           isMat,
           isImprintExtension
+          // category
         }) => {
-          const collectionId = collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1;
-          const finishId = finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1;
-
-          if (collectionId === -1) {
-            console.log('-----', collection, helpers.slugify(collection).toLowerCase(), partNumber, collection);
-          }
-
-          if (finishId === -1) {
-            console.log('-----', finish, helpers.slugify(finish).toLowerCase(), partNumber, collection);
-          }
-
           return {
             thumbnailUrl: imageUrl,
             partNumber,
@@ -158,8 +158,9 @@ const main = async () => {
             isMat,
             isImprintExtension,
             rules: JSON.parse(rules),
-            collectionId,
-            finishId
+            collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
+            finishId: finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1,
+            categoryId: categories.find((x) => x.slug === /* category || */ categories[0]?.slug)?.id || undefined
           };
         }
       )
