@@ -67,6 +67,7 @@ model FinishTranslations {
 model Module {
   id                 Int             @id @default(autoincrement())
   partNumber         String          @unique
+  description        String?
   thumbnailUrl       String?         @db.VarChar(255)
   bundleUrl          String?         @db.VarChar(255)
   isSubmodule        Boolean         @default(false)
