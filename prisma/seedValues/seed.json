@@ -2,7 +2,7 @@
   "collections": [
     {
       "slug": "area",
-      "thumbnailUrl": "images/collection/area.png",
+      "thumbnailUrl": "images/collection/area.jpg",
       "translations": [
         {
           "locale": "en",
@@ -28,7 +28,7 @@
     },
     {
       "slug": "autograph",
-      "thumbnailUrl": "images/collection/autograph.png",
+      "thumbnailUrl": "images/collection/autograph.jpg",
       "translations": [
         {
           "locale": "en",
@@ -44,12 +44,12 @@
     {
       "name": "Walnut",
       "slug": "walnut",
-      "thumbnailUrl": "images/finish/walnut.png"
+      "thumbnailUrl": "images/finish/walnut.jpg"
     },
     {
       "name": "Birch",
       "slug": "birch",
-      "thumbnailUrl": "images/finish/birch.png"
+      "thumbnailUrl": "images/finish/birch.jpg"
     },
     {
       "name": "Silk White",
@@ -119,7 +119,7 @@
   ],
   "types": [
     {
-      "thumbnailUrl": "images/type/shallow.jpg",
+      "thumbnailUrl": "images/type/shallow.png",
       "slug": "shallow",
       "translations": [
         {
