@@ -67,6 +67,7 @@ model FinishTranslations {
 model Module {
   id                 Int             @id @default(autoincrement())
   partNumber         String          @unique
+  description        String?
   thumbnailUrl       String?         @db.VarChar(255)
   bundleUrl          String?         @db.VarChar(255)
   isSubmodule        Boolean         @default(false)
@@ -93,21 +94,11 @@ model Project {
   collection     Collection      @relation(fields: [collectionId], references: [id])
   finishId       Int
   finish         Finish          @relation(fields: [finishId], references: [id])
-  groupId        Int
-  group          ProjectGroup    @relation(fields: [groupId], references: [id])
   slideId        Int
   slide          Slide           @relation(fields: [slideId], references: [id])
   slideDepthId   Int
   slideDepth     SlideDepth      @relation(fields: [slideDepthId], references: [id])
   projectModules ProjectModule[]
-}
-
-model ProjectGroup {
-  id       Int                @id @default(autoincrement())
-  name     String             @db.VarChar(255)
-  slug     String             @unique
-  projects Project[]
-  users    UserProjectGroup[]
 }
 
 model ProjectModule {
@@ -172,21 +163,6 @@ model TypeTranslations {
 }
 
 model User {
-  id                Int                @id @default(autoincrement())
-  email             String             @unique @db.VarChar(255)
-  userProjectGroups UserProjectGroup[]
-}
-
-enum UserProjectGroupRelationshipType {
-  owner
-  member
-}
-
-model UserProjectGroup {
-  id               Int                              @id @default(autoincrement())
-  groupId          Int
-  group            ProjectGroup                     @relation(fields: [groupId], references: [id])
-  userId           Int
-  user             User                             @relation(fields: [userId], references: [id])
-  relationshipType UserProjectGroupRelationshipType
+  id    Int    @id @default(autoincrement())
+  email String @unique @db.VarChar(255)
 }

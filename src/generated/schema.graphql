@@ -11,14 +11,38 @@ input BoolFilter {
 }
 
 type Collection {
-  collectionFinishes(cursor: CollectionFinishesWhereUniqueInput, skip: Int, take: Int): [CollectionFinishes!]!
+  collectionFinishes(
+    cursor: CollectionFinishesWhereUniqueInput
+    orderBy: [CollectionFinishesOrderByInput!]
+    skip: Int
+    take: Int
+    where: CollectionFinishesWhereInput
+  ): [CollectionFinishes!]!
   description: String
   footer: String
   id: Int!
-  modules(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
+  modules(
+    cursor: ModuleWhereUniqueInput
+    orderBy: [ModuleOrderByInput!]
+    skip: Int
+    take: Int
+    where: ModuleWhereInput
+  ): [Module!]!
   name: String!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
-  slides(cursor: SlideWhereUniqueInput, skip: Int, take: Int): [Slide!]!
+  projects(
+    cursor: ProjectWhereUniqueInput
+    orderBy: [ProjectOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectWhereInput
+  ): [Project!]!
+  slides(
+    cursor: SlideWhereUniqueInput
+    orderBy: [SlideOrderByInput!]
+    skip: Int
+    take: Int
+    where: SlideWhereInput
+  ): [Slide!]!
   slug: String!
   subtitle: String
   thumbnailUrl: String
@@ -524,24 +548,31 @@ input EnumLocaleFilter {
   notIn: [Locale!]
 }
 
-input EnumUserProjectGroupRelationshipTypeFieldUpdateOperationsInput {
-  set: UserProjectGroupRelationshipType
-}
-
-input EnumUserProjectGroupRelationshipTypeFilter {
-  equals: UserProjectGroupRelationshipType
-  in: [UserProjectGroupRelationshipType!]
-  not: NestedEnumUserProjectGroupRelationshipTypeFilter
-  notIn: [UserProjectGroupRelationshipType!]
-}
-
 type Finish {
-  collectionFinishes(cursor: CollectionFinishesWhereUniqueInput, skip: Int, take: Int): [CollectionFinishes!]!
+  collectionFinishes(
+    cursor: CollectionFinishesWhereUniqueInput
+    orderBy: [CollectionFinishesOrderByInput!]
+    skip: Int
+    take: Int
+    where: CollectionFinishesWhereInput
+  ): [CollectionFinishes!]!
   description: String
   id: Int!
-  modules(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
+  modules(
+    cursor: ModuleWhereUniqueInput
+    orderBy: [ModuleOrderByInput!]
+    skip: Int
+    take: Int
+    where: ModuleWhereInput
+  ): [Module!]!
   name: String!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+  projects(
+    cursor: ProjectWhereUniqueInput
+    orderBy: [ProjectOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectWhereInput
+  ): [Project!]!
   slug: String!
   thumbnailUrl: String
 }
@@ -861,6 +892,7 @@ type Module {
   bundleUrl: String
   collection: Collection!
   collectionId: Int!
+  description: String
   finish: Finish!
   finishId: Int!
   hasPegs: Boolean!
@@ -869,13 +901,20 @@ type Module {
   isMat: Boolean!
   isSubmodule: Boolean!
   partNumber: String!
-  projectModules(cursor: ProjectModuleWhereUniqueInput, skip: Int, take: Int): [ProjectModule!]!
+  projectModules(
+    cursor: ProjectModuleWhereUniqueInput
+    orderBy: [ProjectModuleOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectModuleWhereInput
+  ): [ProjectModule!]!
   rules: Json
   thumbnailUrl: String
 }
 
 input ModuleCreateManyCollectionInput {
   bundleUrl: String
+  description: String
   finishId: Int!
   hasPegs: Boolean
   id: Int
@@ -895,6 +934,7 @@ input ModuleCreateManyCollectionInputEnvelope {
 input ModuleCreateManyFinishInput {
   bundleUrl: String
   collectionId: Int!
+  description: String
   hasPegs: Boolean
   id: Int
   isImprintExtension: Boolean
@@ -947,6 +987,7 @@ input ModuleCreateOrConnectWithoutProjectModulesInput {
 
 input ModuleCreateWithoutCollectionInput {
   bundleUrl: String
+  description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isImprintExtension: Boolean
@@ -961,6 +1002,7 @@ input ModuleCreateWithoutCollectionInput {
 input ModuleCreateWithoutFinishInput {
   bundleUrl: String
   collection: CollectionCreateNestedOneWithoutModulesInput!
+  description: String
   hasPegs: Boolean
   isImprintExtension: Boolean
   isMat: Boolean
@@ -974,6 +1016,7 @@ input ModuleCreateWithoutFinishInput {
 input ModuleCreateWithoutProjectModulesInput {
   bundleUrl: String
   collection: CollectionCreateNestedOneWithoutModulesInput!
+  description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isImprintExtension: Boolean
@@ -993,6 +1036,7 @@ input ModuleListRelationFilter {
 input ModuleOrderByInput {
   bundleUrl: SortOrder
   collectionId: SortOrder
+  description: SortOrder
   finishId: SortOrder
   hasPegs: SortOrder
   id: SortOrder
@@ -1010,6 +1054,7 @@ input ModuleScalarWhereInput {
   OR: [ModuleScalarWhereInput!]
   bundleUrl: StringNullableFilter
   collectionId: IntFilter
+  description: StringNullableFilter
   finishId: IntFilter
   hasPegs: BoolFilter
   id: IntFilter
@@ -1023,6 +1068,7 @@ input ModuleScalarWhereInput {
 
 input ModuleUpdateManyMutationInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   isImprintExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
@@ -1090,6 +1136,7 @@ input ModuleUpdateWithWhereUniqueWithoutFinishInput {
 
 input ModuleUpdateWithoutCollectionInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isImprintExtension: BoolFieldUpdateOperationsInput
@@ -1104,6 +1151,7 @@ input ModuleUpdateWithoutCollectionInput {
 input ModuleUpdateWithoutFinishInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
+  description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   isImprintExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
@@ -1117,6 +1165,7 @@ input ModuleUpdateWithoutFinishInput {
 input ModuleUpdateWithoutProjectModulesInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
+  description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isImprintExtension: BoolFieldUpdateOperationsInput
@@ -1151,6 +1200,7 @@ input ModuleWhereInput {
   bundleUrl: StringNullableFilter
   collection: CollectionWhereInput
   collectionId: IntFilter
+  description: StringNullableFilter
   finish: FinishWhereInput
   finishId: IntFilter
   hasPegs: BoolFilter
@@ -1184,13 +1234,6 @@ input NestedEnumLocaleFilter {
   in: [Locale!]
   not: NestedEnumLocaleFilter
   notIn: [Locale!]
-}
-
-input NestedEnumUserProjectGroupRelationshipTypeFilter {
-  equals: UserProjectGroupRelationshipType
-  in: [UserProjectGroupRelationshipType!]
-  not: NestedEnumUserProjectGroupRelationshipTypeFilter
-  notIn: [UserProjectGroupRelationshipType!]
 }
 
 input NestedFloatFilter {
@@ -1264,9 +1307,8 @@ type Project {
   finish: Finish!
   finishId: Int!
   gable: Float!
-  group: ProjectGroup!
-  groupId: Int!
   id: Int!
+  modules: [Module!]!
   projectModules(cursor: ProjectModuleWhereUniqueInput, skip: Int, take: Int): [ProjectModule!]!
   slide: Slide!
   slideDepth: SlideDepth!
@@ -1283,7 +1325,6 @@ input ProjectCreateInput {
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
-  group: ProjectGroupCreateNestedOneWithoutProjectsInput!
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -1296,7 +1337,6 @@ input ProjectCreateInput {
 input ProjectCreateManyCollectionInput {
   finishId: Int!
   gable: Float!
-  groupId: Int!
   id: Int
   slideDepthId: Int!
   slideId: Int!
@@ -1314,7 +1354,6 @@ input ProjectCreateManyCollectionInputEnvelope {
 input ProjectCreateManyFinishInput {
   collectionId: Int!
   gable: Float!
-  groupId: Int!
   id: Int
   slideDepthId: Int!
   slideId: Int!
@@ -1333,7 +1372,6 @@ input ProjectCreateManySlideDepthInput {
   collectionId: Int!
   finishId: Int!
   gable: Float!
-  groupId: Int!
   id: Int
   slideId: Int!
   slug: String!
@@ -1351,7 +1389,6 @@ input ProjectCreateManySlideInput {
   collectionId: Int!
   finishId: Int!
   gable: Float!
-  groupId: Int!
   id: Int
   slideDepthId: Int!
   slug: String!
@@ -1427,7 +1464,6 @@ input ProjectCreateOrConnectWithoutSlideInput {
 input ProjectCreateWithoutCollectionInput {
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
-  group: ProjectGroupCreateNestedOneWithoutProjectsInput!
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -1440,7 +1476,6 @@ input ProjectCreateWithoutCollectionInput {
 input ProjectCreateWithoutFinishInput {
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   gable: Float!
-  group: ProjectGroupCreateNestedOneWithoutProjectsInput!
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -1454,7 +1489,6 @@ input ProjectCreateWithoutProjectModulesInput {
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
-  group: ProjectGroupCreateNestedOneWithoutProjectsInput!
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
   slug: String!
@@ -1467,7 +1501,6 @@ input ProjectCreateWithoutSlideDepthInput {
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
-  group: ProjectGroupCreateNestedOneWithoutProjectsInput!
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slug: String!
@@ -1480,79 +1513,12 @@ input ProjectCreateWithoutSlideInput {
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
-  group: ProjectGroupCreateNestedOneWithoutProjectsInput!
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
   slug: String!
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
   width: Float!
-}
-
-type ProjectGroup {
-  id: Int!
-  name: String!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
-  slug: String!
-  users(cursor: UserProjectGroupWhereUniqueInput, skip: Int, take: Int): [UserProjectGroup!]!
-}
-
-input ProjectGroupCreateNestedOneWithoutProjectsInput {
-  connect: ProjectGroupWhereUniqueInput
-  connectOrCreate: ProjectGroupCreateOrConnectWithoutProjectsInput
-  create: ProjectGroupCreateWithoutProjectsInput
-}
-
-input ProjectGroupCreateOrConnectWithoutProjectsInput {
-  create: ProjectGroupCreateWithoutProjectsInput!
-  where: ProjectGroupWhereUniqueInput!
-}
-
-input ProjectGroupCreateWithoutProjectsInput {
-  name: String!
-  slug: String!
-  users: UserProjectGroupCreateNestedManyWithoutGroupInput
-}
-
-input ProjectGroupOrderByInput {
-  id: SortOrder
-  name: SortOrder
-  slug: SortOrder
-}
-
-input ProjectGroupUpdateOneRequiredWithoutProjectsInput {
-  connect: ProjectGroupWhereUniqueInput
-  connectOrCreate: ProjectGroupCreateOrConnectWithoutProjectsInput
-  create: ProjectGroupCreateWithoutProjectsInput
-  update: ProjectGroupUpdateWithoutProjectsInput
-  upsert: ProjectGroupUpsertWithoutProjectsInput
-}
-
-input ProjectGroupUpdateWithoutProjectsInput {
-  name: StringFieldUpdateOperationsInput
-  slug: StringFieldUpdateOperationsInput
-  users: UserProjectGroupUpdateManyWithoutGroupInput
-}
-
-input ProjectGroupUpsertWithoutProjectsInput {
-  create: ProjectGroupCreateWithoutProjectsInput!
-  update: ProjectGroupUpdateWithoutProjectsInput!
-}
-
-input ProjectGroupWhereInput {
-  AND: [ProjectGroupWhereInput!]
-  NOT: [ProjectGroupWhereInput!]
-  OR: [ProjectGroupWhereInput!]
-  id: IntFilter
-  name: StringFilter
-  projects: ProjectListRelationFilter
-  slug: StringFilter
-  users: UserProjectGroupListRelationFilter
-}
-
-input ProjectGroupWhereUniqueInput {
-  id: Int
-  slug: String
 }
 
 input ProjectListRelationFilter {
@@ -1901,7 +1867,6 @@ input ProjectOrderByInput {
   collectionId: SortOrder
   finishId: SortOrder
   gable: SortOrder
-  groupId: SortOrder
   id: SortOrder
   slideDepthId: SortOrder
   slideId: SortOrder
@@ -1918,7 +1883,6 @@ input ProjectScalarWhereInput {
   collectionId: IntFilter
   finishId: IntFilter
   gable: FloatFilter
-  groupId: IntFilter
   id: IntFilter
   slideDepthId: IntFilter
   slideId: IntFilter
@@ -1932,7 +1896,6 @@ input ProjectUpdateInput {
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
-  group: ProjectGroupUpdateOneRequiredWithoutProjectsInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -2058,7 +2021,6 @@ input ProjectUpdateWithWhereUniqueWithoutSlideInput {
 input ProjectUpdateWithoutCollectionInput {
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
-  group: ProjectGroupUpdateOneRequiredWithoutProjectsInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -2071,7 +2033,6 @@ input ProjectUpdateWithoutCollectionInput {
 input ProjectUpdateWithoutFinishInput {
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
-  group: ProjectGroupUpdateOneRequiredWithoutProjectsInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -2085,7 +2046,6 @@ input ProjectUpdateWithoutProjectModulesInput {
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
-  group: ProjectGroupUpdateOneRequiredWithoutProjectsInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
   slug: StringFieldUpdateOperationsInput
@@ -2098,7 +2058,6 @@ input ProjectUpdateWithoutSlideDepthInput {
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
-  group: ProjectGroupUpdateOneRequiredWithoutProjectsInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slug: StringFieldUpdateOperationsInput
@@ -2111,7 +2070,6 @@ input ProjectUpdateWithoutSlideInput {
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
-  group: ProjectGroupUpdateOneRequiredWithoutProjectsInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
   slug: StringFieldUpdateOperationsInput
@@ -2158,8 +2116,6 @@ input ProjectWhereInput {
   finish: FinishWhereInput
   finishId: IntFilter
   gable: FloatFilter
-  group: ProjectGroupWhereInput
-  groupId: IntFilter
   id: IntFilter
   projectModules: ProjectModuleListRelationFilter
   slide: SlideWhereInput
@@ -2211,14 +2167,6 @@ type Query {
     where: ModuleWhereInput
   ): [Module!]!
   project(where: ProjectWhereUniqueInput!): Project
-  projectGroup(where: ProjectGroupWhereUniqueInput!): ProjectGroup
-  projectGroups(
-    cursor: ProjectGroupWhereUniqueInput
-    orderBy: [ProjectGroupOrderByInput!]
-    skip: Int
-    take: Int
-    where: ProjectGroupWhereInput
-  ): [ProjectGroup!]!
   projectModule(where: ProjectModuleWhereUniqueInput!): ProjectModule
   projectModules(
     cursor: ProjectModuleWhereUniqueInput
@@ -2271,11 +2219,23 @@ type Query {
 type Slide {
   collection: Collection!
   collectionId: Int!
-  depths(cursor: SlideDepthWhereUniqueInput, skip: Int, take: Int): [SlideDepth!]!
+  depths(
+    cursor: SlideDepthWhereUniqueInput
+    orderBy: [SlideDepthOrderByInput!]
+    skip: Int
+    take: Int
+    where: SlideDepthWhereInput
+  ): [SlideDepth!]!
   formula: String!
   id: Int!
   product: String!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+  projects(
+    cursor: ProjectWhereUniqueInput
+    orderBy: [ProjectOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectWhereInput
+  ): [Project!]!
   slug: String!
   supplier: SlideSupplier!
   supplierId: Int!
@@ -2359,7 +2319,13 @@ type SlideDepth {
   depth: Float!
   display: String!
   id: Int!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+  projects(
+    cursor: ProjectWhereUniqueInput
+    orderBy: [ProjectOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectWhereInput
+  ): [Project!]!
   slide: Slide!
   slideId: Int!
 }
@@ -2539,7 +2505,13 @@ input SlideScalarWhereInput {
 type SlideSupplier {
   id: Int!
   name: String!
-  slides(cursor: SlideWhereUniqueInput, skip: Int, take: Int): [Slide!]!
+  slides(
+    cursor: SlideWhereUniqueInput
+    orderBy: [SlideOrderByInput!]
+    skip: Int
+    take: Int
+    where: SlideWhereInput
+  ): [Slide!]!
   slug: String!
   thumbnailUrl: String
 }
@@ -2754,7 +2726,13 @@ type Type {
   description: String
   id: Int!
   name: String!
-  projects(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+  projects(
+    cursor: ProjectWhereUniqueInput
+    orderBy: [ProjectOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectWhereInput
+  ): [Project!]!
   slug: String!
   thumbnailUrl: String
 }
@@ -2934,164 +2912,4 @@ input TypeWhereUniqueInput {
 type User {
   email: String!
   id: Int!
-  userProjectGroups(cursor: UserProjectGroupWhereUniqueInput, skip: Int, take: Int): [UserProjectGroup!]!
-}
-
-input UserCreateNestedOneWithoutUserProjectGroupsInput {
-  connect: UserWhereUniqueInput
-  connectOrCreate: UserCreateOrConnectWithoutUserProjectGroupsInput
-  create: UserCreateWithoutUserProjectGroupsInput
-}
-
-input UserCreateOrConnectWithoutUserProjectGroupsInput {
-  create: UserCreateWithoutUserProjectGroupsInput!
-  where: UserWhereUniqueInput!
-}
-
-input UserCreateWithoutUserProjectGroupsInput {
-  email: String!
-}
-
-type UserProjectGroup {
-  group: ProjectGroup!
-  groupId: Int!
-  id: Int!
-  relationshipType: UserProjectGroupRelationshipType!
-  user: User!
-  userId: Int!
-}
-
-input UserProjectGroupCreateManyGroupInput {
-  id: Int
-  relationshipType: UserProjectGroupRelationshipType!
-  userId: Int!
-}
-
-input UserProjectGroupCreateManyGroupInputEnvelope {
-  data: [UserProjectGroupCreateManyGroupInput!]
-  skipDuplicates: Boolean
-}
-
-input UserProjectGroupCreateNestedManyWithoutGroupInput {
-  connect: [UserProjectGroupWhereUniqueInput!]
-  connectOrCreate: [UserProjectGroupCreateOrConnectWithoutGroupInput!]
-  create: [UserProjectGroupCreateWithoutGroupInput!]
-  createMany: UserProjectGroupCreateManyGroupInputEnvelope
-}
-
-input UserProjectGroupCreateOrConnectWithoutGroupInput {
-  create: UserProjectGroupCreateWithoutGroupInput!
-  where: UserProjectGroupWhereUniqueInput!
-}
-
-input UserProjectGroupCreateWithoutGroupInput {
-  relationshipType: UserProjectGroupRelationshipType!
-  user: UserCreateNestedOneWithoutUserProjectGroupsInput!
-}
-
-input UserProjectGroupListRelationFilter {
-  every: UserProjectGroupWhereInput
-  none: UserProjectGroupWhereInput
-  some: UserProjectGroupWhereInput
-}
-
-enum UserProjectGroupRelationshipType {
-  member
-  owner
-}
-
-input UserProjectGroupScalarWhereInput {
-  AND: [UserProjectGroupScalarWhereInput!]
-  NOT: [UserProjectGroupScalarWhereInput!]
-  OR: [UserProjectGroupScalarWhereInput!]
-  groupId: IntFilter
-  id: IntFilter
-  relationshipType: EnumUserProjectGroupRelationshipTypeFilter
-  userId: IntFilter
-}
-
-input UserProjectGroupUpdateManyMutationInput {
-  relationshipType: EnumUserProjectGroupRelationshipTypeFieldUpdateOperationsInput
-}
-
-input UserProjectGroupUpdateManyWithWhereWithoutGroupInput {
-  data: UserProjectGroupUpdateManyMutationInput!
-  where: UserProjectGroupScalarWhereInput!
-}
-
-input UserProjectGroupUpdateManyWithoutGroupInput {
-  connect: [UserProjectGroupWhereUniqueInput!]
-  connectOrCreate: [UserProjectGroupCreateOrConnectWithoutGroupInput!]
-  create: [UserProjectGroupCreateWithoutGroupInput!]
-  createMany: UserProjectGroupCreateManyGroupInputEnvelope
-  delete: [UserProjectGroupWhereUniqueInput!]
-  deleteMany: [UserProjectGroupScalarWhereInput!]
-  disconnect: [UserProjectGroupWhereUniqueInput!]
-  set: [UserProjectGroupWhereUniqueInput!]
-  update: [UserProjectGroupUpdateWithWhereUniqueWithoutGroupInput!]
-  updateMany: [UserProjectGroupUpdateManyWithWhereWithoutGroupInput!]
-  upsert: [UserProjectGroupUpsertWithWhereUniqueWithoutGroupInput!]
-}
-
-input UserProjectGroupUpdateWithWhereUniqueWithoutGroupInput {
-  data: UserProjectGroupUpdateWithoutGroupInput!
-  where: UserProjectGroupWhereUniqueInput!
-}
-
-input UserProjectGroupUpdateWithoutGroupInput {
-  relationshipType: EnumUserProjectGroupRelationshipTypeFieldUpdateOperationsInput
-  user: UserUpdateOneRequiredWithoutUserProjectGroupsInput
-}
-
-input UserProjectGroupUpsertWithWhereUniqueWithoutGroupInput {
-  create: UserProjectGroupCreateWithoutGroupInput!
-  update: UserProjectGroupUpdateWithoutGroupInput!
-  where: UserProjectGroupWhereUniqueInput!
-}
-
-input UserProjectGroupWhereInput {
-  AND: [UserProjectGroupWhereInput!]
-  NOT: [UserProjectGroupWhereInput!]
-  OR: [UserProjectGroupWhereInput!]
-  group: ProjectGroupWhereInput
-  groupId: IntFilter
-  id: IntFilter
-  relationshipType: EnumUserProjectGroupRelationshipTypeFilter
-  user: UserWhereInput
-  userId: IntFilter
-}
-
-input UserProjectGroupWhereUniqueInput {
-  id: Int
-}
-
-input UserUpdateOneRequiredWithoutUserProjectGroupsInput {
-  connect: UserWhereUniqueInput
-  connectOrCreate: UserCreateOrConnectWithoutUserProjectGroupsInput
-  create: UserCreateWithoutUserProjectGroupsInput
-  update: UserUpdateWithoutUserProjectGroupsInput
-  upsert: UserUpsertWithoutUserProjectGroupsInput
-}
-
-input UserUpdateWithoutUserProjectGroupsInput {
-  email: StringFieldUpdateOperationsInput
-}
-
-input UserUpsertWithoutUserProjectGroupsInput {
-  create: UserCreateWithoutUserProjectGroupsInput!
-  update: UserUpdateWithoutUserProjectGroupsInput!
-}
-
-input UserWhereInput {
-  AND: [UserWhereInput!]
-  NOT: [UserWhereInput!]
-  OR: [UserWhereInput!]
-  email: StringFilter
-  id: IntFilter
-  userProjectGroups: UserProjectGroupListRelationFilter
-}
-
-input UserWhereUniqueInput {
-  email: String
-  id: Int
 }

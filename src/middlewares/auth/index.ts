@@ -1,20 +1,22 @@
 import { ForbiddenError } from 'apollo-server';
-import { allow, deny, shield } from 'graphql-shield';
-import * as mutation from './rules/mutation';
-import * as query from './rules/query';
+import { allow, shield } from 'graphql-shield';
+// import * as mutation from './rules/mutation';
+// import * as query from './rules/query';
 import { env } from '../../env';
+import { hasBearer } from './rules/common';
 
 export const authMiddleware = () => {
   // Permissions
   return shield(
     {
       Query: {
-        ...query,
-        '*': allow
+        // ...query,
+        '*': hasBearer
       },
       Mutation: {
-        ...mutation,
-        '*': deny
+        // ...mutation,
+        // '*': deny
+        '*': hasBearer
       }
       // Other type specific rules are left out in favor of the fallbackRule
     },

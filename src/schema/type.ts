@@ -9,7 +9,7 @@ import {
 export const Type = objectType({
   name: 'Type',
   definition(t) {
-    registerModelsWithPrismaBinding(t, undefined, ['thumbnailUrl', 'translations']);
+    registerModelsWithPrismaBinding(t, ['projects'], ['thumbnailUrl', 'translations']);
     t.model.thumbnailUrl({
       resolve: resolvePublicMediaUrlToField
     });

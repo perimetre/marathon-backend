@@ -9,7 +9,11 @@ import {
 export const Collection = objectType({
   name: 'Collection',
   definition(t) {
-    registerModelsWithPrismaBinding(t, undefined, ['thumbnailUrl', 'translations']);
+    registerModelsWithPrismaBinding(
+      t,
+      ['projects', 'modules', 'collectionFinishes', 'slides'],
+      ['thumbnailUrl', 'translations']
+    );
     t.model.thumbnailUrl({
       resolve: resolvePublicMediaUrlToField
     });

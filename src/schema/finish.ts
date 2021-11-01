@@ -9,7 +9,7 @@ import {
 export const Finish = objectType({
   name: 'Finish',
   definition(t) {
-    registerModelsWithPrismaBinding(t, undefined, ['thumbnailUrl', 'translations']);
+    registerModelsWithPrismaBinding(t, ['projects', 'modules', 'collectionFinishes'], ['thumbnailUrl', 'translations']);
     t.model.thumbnailUrl({
       resolve: resolvePublicMediaUrlToField
     });
