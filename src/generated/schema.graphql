@@ -1308,6 +1308,7 @@ type Project {
   finishId: Int!
   gable: Float!
   id: Int!
+  modules: [Module!]!
   projectModules(cursor: ProjectModuleWhereUniqueInput, skip: Int, take: Int): [ProjectModule!]!
   slide: Slide!
   slideDepth: SlideDepth!

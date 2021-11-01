@@ -2819,6 +2819,7 @@ export interface NexusGenFieldTypes {
     finishId: number; // Int!
     gable: number; // Float!
     id: number; // Int!
+    modules: NexusGenRootTypes['Module'][]; // [Module!]!
     projectModules: NexusGenRootTypes['ProjectModule'][]; // [ProjectModule!]!
     slide: NexusGenRootTypes['Slide']; // Slide!
     slideDepth: NexusGenRootTypes['SlideDepth']; // SlideDepth!
@@ -3006,6 +3007,7 @@ export interface NexusGenFieldTypeNames {
     finishId: 'Int';
     gable: 'Float';
     id: 'Int';
+    modules: 'Module';
     projectModules: 'ProjectModule';
     slide: 'Slide';
     slideDepth: 'SlideDepth';
