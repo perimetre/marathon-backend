@@ -10,6 +10,70 @@ input BoolFilter {
   not: NestedBoolFilter
 }
 
+type Category {
+  id: Int!
+  modules(
+    cursor: ModuleWhereUniqueInput
+    orderBy: [ModuleOrderByInput!]
+    skip: Int
+    take: Int
+    where: ModuleWhereInput
+  ): [Module!]!
+  name: String!
+  slug: String!
+}
+
+input CategoryCreateNestedOneWithoutModulesInput {
+  connect: CategoryWhereUniqueInput
+  connectOrCreate: CategoryCreateOrConnectWithoutModulesInput
+  create: CategoryCreateWithoutModulesInput
+}
+
+input CategoryCreateOrConnectWithoutModulesInput {
+  create: CategoryCreateWithoutModulesInput!
+  where: CategoryWhereUniqueInput!
+}
+
+input CategoryCreateWithoutModulesInput {
+  name: String!
+  slug: String!
+}
+
+input CategoryUpdateOneWithoutModulesInput {
+  connect: CategoryWhereUniqueInput
+  connectOrCreate: CategoryCreateOrConnectWithoutModulesInput
+  create: CategoryCreateWithoutModulesInput
+  delete: Boolean
+  disconnect: Boolean
+  update: CategoryUpdateWithoutModulesInput
+  upsert: CategoryUpsertWithoutModulesInput
+}
+
+input CategoryUpdateWithoutModulesInput {
+  name: StringFieldUpdateOperationsInput
+  slug: StringFieldUpdateOperationsInput
+}
+
+input CategoryUpsertWithoutModulesInput {
+  create: CategoryCreateWithoutModulesInput!
+  update: CategoryUpdateWithoutModulesInput!
+}
+
+input CategoryWhereInput {
+  AND: [CategoryWhereInput!]
+  NOT: [CategoryWhereInput!]
+  OR: [CategoryWhereInput!]
+  id: IntFilter
+  modules: ModuleListRelationFilter
+  name: StringFilter
+  slug: StringFilter
+}
+
+input CategoryWhereUniqueInput {
+  id: Int
+  slug: String
+}
+
 type Collection {
   collectionFinishes(
     cursor: CollectionFinishesWhereUniqueInput
@@ -890,6 +954,8 @@ enum Locale {
 
 type Module {
   bundleUrl: String
+  category: Category
+  categoryId: Int
   collection: Collection!
   collectionId: Int!
   description: String
@@ -914,6 +980,7 @@ type Module {
 
 input ModuleCreateManyCollectionInput {
   bundleUrl: String
+  categoryId: Int
   description: String
   finishId: Int!
   hasPegs: Boolean
@@ -933,6 +1000,7 @@ input ModuleCreateManyCollectionInputEnvelope {
 
 input ModuleCreateManyFinishInput {
   bundleUrl: String
+  categoryId: Int
   collectionId: Int!
   description: String
   hasPegs: Boolean
@@ -987,6 +1055,7 @@ input ModuleCreateOrConnectWithoutProjectModulesInput {
 
 input ModuleCreateWithoutCollectionInput {
   bundleUrl: String
+  category: CategoryCreateNestedOneWithoutModulesInput
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
@@ -1001,6 +1070,7 @@ input ModuleCreateWithoutCollectionInput {
 
 input ModuleCreateWithoutFinishInput {
   bundleUrl: String
+  category: CategoryCreateNestedOneWithoutModulesInput
   collection: CollectionCreateNestedOneWithoutModulesInput!
   description: String
   hasPegs: Boolean
@@ -1015,6 +1085,7 @@ input ModuleCreateWithoutFinishInput {
 
 input ModuleCreateWithoutProjectModulesInput {
   bundleUrl: String
+  category: CategoryCreateNestedOneWithoutModulesInput
   collection: CollectionCreateNestedOneWithoutModulesInput!
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
@@ -1035,6 +1106,7 @@ input ModuleListRelationFilter {
 
 input ModuleOrderByInput {
   bundleUrl: SortOrder
+  categoryId: SortOrder
   collectionId: SortOrder
   description: SortOrder
   finishId: SortOrder
@@ -1053,6 +1125,7 @@ input ModuleScalarWhereInput {
   NOT: [ModuleScalarWhereInput!]
   OR: [ModuleScalarWhereInput!]
   bundleUrl: StringNullableFilter
+  categoryId: IntNullableFilter
   collectionId: IntFilter
   description: StringNullableFilter
   finishId: IntFilter
@@ -1136,6 +1209,7 @@ input ModuleUpdateWithWhereUniqueWithoutFinishInput {
 
 input ModuleUpdateWithoutCollectionInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
+  category: CategoryUpdateOneWithoutModulesInput
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
@@ -1150,6 +1224,7 @@ input ModuleUpdateWithoutCollectionInput {
 
 input ModuleUpdateWithoutFinishInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
+  category: CategoryUpdateOneWithoutModulesInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
   description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
@@ -1164,6 +1239,7 @@ input ModuleUpdateWithoutFinishInput {
 
 input ModuleUpdateWithoutProjectModulesInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
+  category: CategoryUpdateOneWithoutModulesInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
@@ -1198,6 +1274,8 @@ input ModuleWhereInput {
   NOT: [ModuleWhereInput!]
   OR: [ModuleWhereInput!]
   bundleUrl: StringNullableFilter
+  category: CategoryWhereInput
+  categoryId: IntNullableFilter
   collection: CollectionWhereInput
   collectionId: IntFilter
   description: StringNullableFilter

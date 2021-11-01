@@ -15,6 +15,13 @@ enum Locale {
   fr
 }
 
+model Category {
+  id      Int      @id @default(autoincrement())
+  slug    String   @unique
+  name    String
+  modules Module[]
+}
+
 model Collection {
   id                 Int                      @id @default(autoincrement())
   slug               String                   @unique
@@ -78,6 +85,8 @@ model Module {
   finish             Finish          @relation(fields: [finishId], references: [id])
   collectionId       Int
   collection         Collection      @relation(fields: [collectionId], references: [id])
+  categoryId         Int?
+  category           Category?       @relation(fields: [categoryId], references: [id])
   rules              Json?
   projectModules     ProjectModule[]
 }
