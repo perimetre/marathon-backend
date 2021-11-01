@@ -507,17 +507,6 @@ export interface NexusGenInputs {
     not?: NexusGenInputs['NestedEnumLocaleFilter'] | null; // NestedEnumLocaleFilter
     notIn?: NexusGenEnums['Locale'][] | null; // [Locale!]
   };
-  EnumUserProjectGroupRelationshipTypeFieldUpdateOperationsInput: {
-    // input type
-    set?: NexusGenEnums['UserProjectGroupRelationshipType'] | null; // UserProjectGroupRelationshipType
-  };
-  EnumUserProjectGroupRelationshipTypeFilter: {
-    // input type
-    equals?: NexusGenEnums['UserProjectGroupRelationshipType'] | null; // UserProjectGroupRelationshipType
-    in?: NexusGenEnums['UserProjectGroupRelationshipType'][] | null; // [UserProjectGroupRelationshipType!]
-    not?: NexusGenInputs['NestedEnumUserProjectGroupRelationshipTypeFilter'] | null; // NestedEnumUserProjectGroupRelationshipTypeFilter
-    notIn?: NexusGenEnums['UserProjectGroupRelationshipType'][] | null; // [UserProjectGroupRelationshipType!]
-  };
   FinishCreateNestedOneWithoutCollectionFinishesInput: {
     // input type
     connect?: NexusGenInputs['FinishWhereUniqueInput'] | null; // FinishWhereUniqueInput
@@ -816,6 +805,7 @@ export interface NexusGenInputs {
   ModuleCreateManyCollectionInput: {
     // input type
     bundleUrl?: string | null; // String
+    description?: string | null; // String
     finishId: number; // Int!
     hasPegs?: boolean | null; // Boolean
     id?: number | null; // Int
@@ -835,6 +825,7 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: string | null; // String
     collectionId: number; // Int!
+    description?: string | null; // String
     hasPegs?: boolean | null; // Boolean
     id?: number | null; // Int
     isImprintExtension?: boolean | null; // Boolean
@@ -887,6 +878,7 @@ export interface NexusGenInputs {
   ModuleCreateWithoutCollectionInput: {
     // input type
     bundleUrl?: string | null; // String
+    description?: string | null; // String
     finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
     hasPegs?: boolean | null; // Boolean
     isImprintExtension?: boolean | null; // Boolean
@@ -901,6 +893,7 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: string | null; // String
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
+    description?: string | null; // String
     hasPegs?: boolean | null; // Boolean
     isImprintExtension?: boolean | null; // Boolean
     isMat?: boolean | null; // Boolean
@@ -914,6 +907,7 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: string | null; // String
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
+    description?: string | null; // String
     finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
     hasPegs?: boolean | null; // Boolean
     isImprintExtension?: boolean | null; // Boolean
@@ -933,6 +927,7 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: NexusGenEnums['SortOrder'] | null; // SortOrder
     collectionId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    description?: NexusGenEnums['SortOrder'] | null; // SortOrder
     finishId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     hasPegs?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -950,6 +945,7 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['ModuleScalarWhereInput'][] | null; // [ModuleScalarWhereInput!]
     bundleUrl?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     collectionId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    description?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     finishId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     hasPegs?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     id?: NexusGenInputs['IntFilter'] | null; // IntFilter
@@ -963,6 +959,7 @@ export interface NexusGenInputs {
   ModuleUpdateManyMutationInput: {
     // input type
     bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
@@ -1030,6 +1027,7 @@ export interface NexusGenInputs {
   ModuleUpdateWithoutCollectionInput: {
     // input type
     bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
@@ -1044,6 +1042,7 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
+    description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
@@ -1057,6 +1056,7 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
+    description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
@@ -1091,6 +1091,7 @@ export interface NexusGenInputs {
     bundleUrl?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     collection?: NexusGenInputs['CollectionWhereInput'] | null; // CollectionWhereInput
     collectionId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    description?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     finish?: NexusGenInputs['FinishWhereInput'] | null; // FinishWhereInput
     finishId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     hasPegs?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
@@ -1119,13 +1120,6 @@ export interface NexusGenInputs {
     in?: NexusGenEnums['Locale'][] | null; // [Locale!]
     not?: NexusGenInputs['NestedEnumLocaleFilter'] | null; // NestedEnumLocaleFilter
     notIn?: NexusGenEnums['Locale'][] | null; // [Locale!]
-  };
-  NestedEnumUserProjectGroupRelationshipTypeFilter: {
-    // input type
-    equals?: NexusGenEnums['UserProjectGroupRelationshipType'] | null; // UserProjectGroupRelationshipType
-    in?: NexusGenEnums['UserProjectGroupRelationshipType'][] | null; // [UserProjectGroupRelationshipType!]
-    not?: NexusGenInputs['NestedEnumUserProjectGroupRelationshipTypeFilter'] | null; // NestedEnumUserProjectGroupRelationshipTypeFilter
-    notIn?: NexusGenEnums['UserProjectGroupRelationshipType'][] | null; // [UserProjectGroupRelationshipType!]
   };
   NestedFloatFilter: {
     // input type
@@ -1197,7 +1191,6 @@ export interface NexusGenInputs {
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutProjectsInput']; // CollectionCreateNestedOneWithoutProjectsInput!
     finish: NexusGenInputs['FinishCreateNestedOneWithoutProjectsInput']; // FinishCreateNestedOneWithoutProjectsInput!
     gable: number; // Float!
-    group: NexusGenInputs['ProjectGroupCreateNestedOneWithoutProjectsInput']; // ProjectGroupCreateNestedOneWithoutProjectsInput!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutProjectInput'] | null; // ProjectModuleCreateNestedManyWithoutProjectInput
     slide: NexusGenInputs['SlideCreateNestedOneWithoutProjectsInput']; // SlideCreateNestedOneWithoutProjectsInput!
     slideDepth: NexusGenInputs['SlideDepthCreateNestedOneWithoutProjectsInput']; // SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -1210,7 +1203,6 @@ export interface NexusGenInputs {
     // input type
     finishId: number; // Int!
     gable: number; // Float!
-    groupId: number; // Int!
     id?: number | null; // Int
     slideDepthId: number; // Int!
     slideId: number; // Int!
@@ -1228,7 +1220,6 @@ export interface NexusGenInputs {
     // input type
     collectionId: number; // Int!
     gable: number; // Float!
-    groupId: number; // Int!
     id?: number | null; // Int
     slideDepthId: number; // Int!
     slideId: number; // Int!
@@ -1247,7 +1238,6 @@ export interface NexusGenInputs {
     collectionId: number; // Int!
     finishId: number; // Int!
     gable: number; // Float!
-    groupId: number; // Int!
     id?: number | null; // Int
     slideId: number; // Int!
     slug: string; // String!
@@ -1265,7 +1255,6 @@ export interface NexusGenInputs {
     collectionId: number; // Int!
     finishId: number; // Int!
     gable: number; // Float!
-    groupId: number; // Int!
     id?: number | null; // Int
     slideDepthId: number; // Int!
     slug: string; // String!
@@ -1341,7 +1330,6 @@ export interface NexusGenInputs {
     // input type
     finish: NexusGenInputs['FinishCreateNestedOneWithoutProjectsInput']; // FinishCreateNestedOneWithoutProjectsInput!
     gable: number; // Float!
-    group: NexusGenInputs['ProjectGroupCreateNestedOneWithoutProjectsInput']; // ProjectGroupCreateNestedOneWithoutProjectsInput!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutProjectInput'] | null; // ProjectModuleCreateNestedManyWithoutProjectInput
     slide: NexusGenInputs['SlideCreateNestedOneWithoutProjectsInput']; // SlideCreateNestedOneWithoutProjectsInput!
     slideDepth: NexusGenInputs['SlideDepthCreateNestedOneWithoutProjectsInput']; // SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -1354,7 +1342,6 @@ export interface NexusGenInputs {
     // input type
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutProjectsInput']; // CollectionCreateNestedOneWithoutProjectsInput!
     gable: number; // Float!
-    group: NexusGenInputs['ProjectGroupCreateNestedOneWithoutProjectsInput']; // ProjectGroupCreateNestedOneWithoutProjectsInput!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutProjectInput'] | null; // ProjectModuleCreateNestedManyWithoutProjectInput
     slide: NexusGenInputs['SlideCreateNestedOneWithoutProjectsInput']; // SlideCreateNestedOneWithoutProjectsInput!
     slideDepth: NexusGenInputs['SlideDepthCreateNestedOneWithoutProjectsInput']; // SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -1368,7 +1355,6 @@ export interface NexusGenInputs {
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutProjectsInput']; // CollectionCreateNestedOneWithoutProjectsInput!
     finish: NexusGenInputs['FinishCreateNestedOneWithoutProjectsInput']; // FinishCreateNestedOneWithoutProjectsInput!
     gable: number; // Float!
-    group: NexusGenInputs['ProjectGroupCreateNestedOneWithoutProjectsInput']; // ProjectGroupCreateNestedOneWithoutProjectsInput!
     slide: NexusGenInputs['SlideCreateNestedOneWithoutProjectsInput']; // SlideCreateNestedOneWithoutProjectsInput!
     slideDepth: NexusGenInputs['SlideDepthCreateNestedOneWithoutProjectsInput']; // SlideDepthCreateNestedOneWithoutProjectsInput!
     slug: string; // String!
@@ -1381,7 +1367,6 @@ export interface NexusGenInputs {
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutProjectsInput']; // CollectionCreateNestedOneWithoutProjectsInput!
     finish: NexusGenInputs['FinishCreateNestedOneWithoutProjectsInput']; // FinishCreateNestedOneWithoutProjectsInput!
     gable: number; // Float!
-    group: NexusGenInputs['ProjectGroupCreateNestedOneWithoutProjectsInput']; // ProjectGroupCreateNestedOneWithoutProjectsInput!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutProjectInput'] | null; // ProjectModuleCreateNestedManyWithoutProjectInput
     slide: NexusGenInputs['SlideCreateNestedOneWithoutProjectsInput']; // SlideCreateNestedOneWithoutProjectsInput!
     slug: string; // String!
@@ -1394,71 +1379,12 @@ export interface NexusGenInputs {
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutProjectsInput']; // CollectionCreateNestedOneWithoutProjectsInput!
     finish: NexusGenInputs['FinishCreateNestedOneWithoutProjectsInput']; // FinishCreateNestedOneWithoutProjectsInput!
     gable: number; // Float!
-    group: NexusGenInputs['ProjectGroupCreateNestedOneWithoutProjectsInput']; // ProjectGroupCreateNestedOneWithoutProjectsInput!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutProjectInput'] | null; // ProjectModuleCreateNestedManyWithoutProjectInput
     slideDepth: NexusGenInputs['SlideDepthCreateNestedOneWithoutProjectsInput']; // SlideDepthCreateNestedOneWithoutProjectsInput!
     slug: string; // String!
     title: string; // String!
     type: NexusGenInputs['TypeCreateNestedOneWithoutProjectsInput']; // TypeCreateNestedOneWithoutProjectsInput!
     width: number; // Float!
-  };
-  ProjectGroupCreateNestedOneWithoutProjectsInput: {
-    // input type
-    connect?: NexusGenInputs['ProjectGroupWhereUniqueInput'] | null; // ProjectGroupWhereUniqueInput
-    connectOrCreate?: NexusGenInputs['ProjectGroupCreateOrConnectWithoutProjectsInput'] | null; // ProjectGroupCreateOrConnectWithoutProjectsInput
-    create?: NexusGenInputs['ProjectGroupCreateWithoutProjectsInput'] | null; // ProjectGroupCreateWithoutProjectsInput
-  };
-  ProjectGroupCreateOrConnectWithoutProjectsInput: {
-    // input type
-    create: NexusGenInputs['ProjectGroupCreateWithoutProjectsInput']; // ProjectGroupCreateWithoutProjectsInput!
-    where: NexusGenInputs['ProjectGroupWhereUniqueInput']; // ProjectGroupWhereUniqueInput!
-  };
-  ProjectGroupCreateWithoutProjectsInput: {
-    // input type
-    name: string; // String!
-    slug: string; // String!
-    users?: NexusGenInputs['UserProjectGroupCreateNestedManyWithoutGroupInput'] | null; // UserProjectGroupCreateNestedManyWithoutGroupInput
-  };
-  ProjectGroupOrderByInput: {
-    // input type
-    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    name?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    slug?: NexusGenEnums['SortOrder'] | null; // SortOrder
-  };
-  ProjectGroupUpdateOneRequiredWithoutProjectsInput: {
-    // input type
-    connect?: NexusGenInputs['ProjectGroupWhereUniqueInput'] | null; // ProjectGroupWhereUniqueInput
-    connectOrCreate?: NexusGenInputs['ProjectGroupCreateOrConnectWithoutProjectsInput'] | null; // ProjectGroupCreateOrConnectWithoutProjectsInput
-    create?: NexusGenInputs['ProjectGroupCreateWithoutProjectsInput'] | null; // ProjectGroupCreateWithoutProjectsInput
-    update?: NexusGenInputs['ProjectGroupUpdateWithoutProjectsInput'] | null; // ProjectGroupUpdateWithoutProjectsInput
-    upsert?: NexusGenInputs['ProjectGroupUpsertWithoutProjectsInput'] | null; // ProjectGroupUpsertWithoutProjectsInput
-  };
-  ProjectGroupUpdateWithoutProjectsInput: {
-    // input type
-    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    users?: NexusGenInputs['UserProjectGroupUpdateManyWithoutGroupInput'] | null; // UserProjectGroupUpdateManyWithoutGroupInput
-  };
-  ProjectGroupUpsertWithoutProjectsInput: {
-    // input type
-    create: NexusGenInputs['ProjectGroupCreateWithoutProjectsInput']; // ProjectGroupCreateWithoutProjectsInput!
-    update: NexusGenInputs['ProjectGroupUpdateWithoutProjectsInput']; // ProjectGroupUpdateWithoutProjectsInput!
-  };
-  ProjectGroupWhereInput: {
-    // input type
-    AND?: NexusGenInputs['ProjectGroupWhereInput'][] | null; // [ProjectGroupWhereInput!]
-    NOT?: NexusGenInputs['ProjectGroupWhereInput'][] | null; // [ProjectGroupWhereInput!]
-    OR?: NexusGenInputs['ProjectGroupWhereInput'][] | null; // [ProjectGroupWhereInput!]
-    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
-    name?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    projects?: NexusGenInputs['ProjectListRelationFilter'] | null; // ProjectListRelationFilter
-    slug?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    users?: NexusGenInputs['UserProjectGroupListRelationFilter'] | null; // UserProjectGroupListRelationFilter
-  };
-  ProjectGroupWhereUniqueInput: {
-    // input type
-    id?: number | null; // Int
-    slug?: string | null; // String
   };
   ProjectListRelationFilter: {
     // input type
@@ -1793,7 +1719,6 @@ export interface NexusGenInputs {
     collectionId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     finishId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     gable?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    groupId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     slideDepthId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     slideId?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -1810,7 +1735,6 @@ export interface NexusGenInputs {
     collectionId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     finishId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     gable?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
-    groupId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     id?: NexusGenInputs['IntFilter'] | null; // IntFilter
     slideDepthId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     slideId?: NexusGenInputs['IntFilter'] | null; // IntFilter
@@ -1824,7 +1748,6 @@ export interface NexusGenInputs {
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutProjectsInput'] | null; // CollectionUpdateOneRequiredWithoutProjectsInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutProjectsInput'] | null; // FinishUpdateOneRequiredWithoutProjectsInput
     gable?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
-    group?: NexusGenInputs['ProjectGroupUpdateOneRequiredWithoutProjectsInput'] | null; // ProjectGroupUpdateOneRequiredWithoutProjectsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutProjectInput'] | null; // ProjectModuleUpdateManyWithoutProjectInput
     slide?: NexusGenInputs['SlideUpdateOneRequiredWithoutProjectsInput'] | null; // SlideUpdateOneRequiredWithoutProjectsInput
     slideDepth?: NexusGenInputs['SlideDepthUpdateOneRequiredWithoutProjectsInput'] | null; // SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -1950,7 +1873,6 @@ export interface NexusGenInputs {
     // input type
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutProjectsInput'] | null; // FinishUpdateOneRequiredWithoutProjectsInput
     gable?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
-    group?: NexusGenInputs['ProjectGroupUpdateOneRequiredWithoutProjectsInput'] | null; // ProjectGroupUpdateOneRequiredWithoutProjectsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutProjectInput'] | null; // ProjectModuleUpdateManyWithoutProjectInput
     slide?: NexusGenInputs['SlideUpdateOneRequiredWithoutProjectsInput'] | null; // SlideUpdateOneRequiredWithoutProjectsInput
     slideDepth?: NexusGenInputs['SlideDepthUpdateOneRequiredWithoutProjectsInput'] | null; // SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -1963,7 +1885,6 @@ export interface NexusGenInputs {
     // input type
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutProjectsInput'] | null; // CollectionUpdateOneRequiredWithoutProjectsInput
     gable?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
-    group?: NexusGenInputs['ProjectGroupUpdateOneRequiredWithoutProjectsInput'] | null; // ProjectGroupUpdateOneRequiredWithoutProjectsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutProjectInput'] | null; // ProjectModuleUpdateManyWithoutProjectInput
     slide?: NexusGenInputs['SlideUpdateOneRequiredWithoutProjectsInput'] | null; // SlideUpdateOneRequiredWithoutProjectsInput
     slideDepth?: NexusGenInputs['SlideDepthUpdateOneRequiredWithoutProjectsInput'] | null; // SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -1977,7 +1898,6 @@ export interface NexusGenInputs {
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutProjectsInput'] | null; // CollectionUpdateOneRequiredWithoutProjectsInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutProjectsInput'] | null; // FinishUpdateOneRequiredWithoutProjectsInput
     gable?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
-    group?: NexusGenInputs['ProjectGroupUpdateOneRequiredWithoutProjectsInput'] | null; // ProjectGroupUpdateOneRequiredWithoutProjectsInput
     slide?: NexusGenInputs['SlideUpdateOneRequiredWithoutProjectsInput'] | null; // SlideUpdateOneRequiredWithoutProjectsInput
     slideDepth?: NexusGenInputs['SlideDepthUpdateOneRequiredWithoutProjectsInput'] | null; // SlideDepthUpdateOneRequiredWithoutProjectsInput
     slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -1990,7 +1910,6 @@ export interface NexusGenInputs {
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutProjectsInput'] | null; // CollectionUpdateOneRequiredWithoutProjectsInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutProjectsInput'] | null; // FinishUpdateOneRequiredWithoutProjectsInput
     gable?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
-    group?: NexusGenInputs['ProjectGroupUpdateOneRequiredWithoutProjectsInput'] | null; // ProjectGroupUpdateOneRequiredWithoutProjectsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutProjectInput'] | null; // ProjectModuleUpdateManyWithoutProjectInput
     slide?: NexusGenInputs['SlideUpdateOneRequiredWithoutProjectsInput'] | null; // SlideUpdateOneRequiredWithoutProjectsInput
     slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -2003,7 +1922,6 @@ export interface NexusGenInputs {
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutProjectsInput'] | null; // CollectionUpdateOneRequiredWithoutProjectsInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutProjectsInput'] | null; // FinishUpdateOneRequiredWithoutProjectsInput
     gable?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
-    group?: NexusGenInputs['ProjectGroupUpdateOneRequiredWithoutProjectsInput'] | null; // ProjectGroupUpdateOneRequiredWithoutProjectsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutProjectInput'] | null; // ProjectModuleUpdateManyWithoutProjectInput
     slideDepth?: NexusGenInputs['SlideDepthUpdateOneRequiredWithoutProjectsInput'] | null; // SlideDepthUpdateOneRequiredWithoutProjectsInput
     slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -2050,8 +1968,6 @@ export interface NexusGenInputs {
     finish?: NexusGenInputs['FinishWhereInput'] | null; // FinishWhereInput
     finishId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     gable?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
-    group?: NexusGenInputs['ProjectGroupWhereInput'] | null; // ProjectGroupWhereInput
-    groupId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     id?: NexusGenInputs['IntFilter'] | null; // IntFilter
     projectModules?: NexusGenInputs['ProjectModuleListRelationFilter'] | null; // ProjectModuleListRelationFilter
     slide?: NexusGenInputs['SlideWhereInput'] | null; // SlideWhereInput
@@ -2679,157 +2595,11 @@ export interface NexusGenInputs {
     id?: number | null; // Int
     slug?: string | null; // String
   };
-  UserCreateNestedOneWithoutUserProjectGroupsInput: {
-    // input type
-    connect?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
-    connectOrCreate?: NexusGenInputs['UserCreateOrConnectWithoutUserProjectGroupsInput'] | null; // UserCreateOrConnectWithoutUserProjectGroupsInput
-    create?: NexusGenInputs['UserCreateWithoutUserProjectGroupsInput'] | null; // UserCreateWithoutUserProjectGroupsInput
-  };
-  UserCreateOrConnectWithoutUserProjectGroupsInput: {
-    // input type
-    create: NexusGenInputs['UserCreateWithoutUserProjectGroupsInput']; // UserCreateWithoutUserProjectGroupsInput!
-    where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
-  };
-  UserCreateWithoutUserProjectGroupsInput: {
-    // input type
-    email: string; // String!
-  };
-  UserProjectGroupCreateManyGroupInput: {
-    // input type
-    id?: number | null; // Int
-    relationshipType: NexusGenEnums['UserProjectGroupRelationshipType']; // UserProjectGroupRelationshipType!
-    userId: number; // Int!
-  };
-  UserProjectGroupCreateManyGroupInputEnvelope: {
-    // input type
-    data?: NexusGenInputs['UserProjectGroupCreateManyGroupInput'][] | null; // [UserProjectGroupCreateManyGroupInput!]
-    skipDuplicates?: boolean | null; // Boolean
-  };
-  UserProjectGroupCreateNestedManyWithoutGroupInput: {
-    // input type
-    connect?: NexusGenInputs['UserProjectGroupWhereUniqueInput'][] | null; // [UserProjectGroupWhereUniqueInput!]
-    connectOrCreate?: NexusGenInputs['UserProjectGroupCreateOrConnectWithoutGroupInput'][] | null; // [UserProjectGroupCreateOrConnectWithoutGroupInput!]
-    create?: NexusGenInputs['UserProjectGroupCreateWithoutGroupInput'][] | null; // [UserProjectGroupCreateWithoutGroupInput!]
-    createMany?: NexusGenInputs['UserProjectGroupCreateManyGroupInputEnvelope'] | null; // UserProjectGroupCreateManyGroupInputEnvelope
-  };
-  UserProjectGroupCreateOrConnectWithoutGroupInput: {
-    // input type
-    create: NexusGenInputs['UserProjectGroupCreateWithoutGroupInput']; // UserProjectGroupCreateWithoutGroupInput!
-    where: NexusGenInputs['UserProjectGroupWhereUniqueInput']; // UserProjectGroupWhereUniqueInput!
-  };
-  UserProjectGroupCreateWithoutGroupInput: {
-    // input type
-    relationshipType: NexusGenEnums['UserProjectGroupRelationshipType']; // UserProjectGroupRelationshipType!
-    user: NexusGenInputs['UserCreateNestedOneWithoutUserProjectGroupsInput']; // UserCreateNestedOneWithoutUserProjectGroupsInput!
-  };
-  UserProjectGroupListRelationFilter: {
-    // input type
-    every?: NexusGenInputs['UserProjectGroupWhereInput'] | null; // UserProjectGroupWhereInput
-    none?: NexusGenInputs['UserProjectGroupWhereInput'] | null; // UserProjectGroupWhereInput
-    some?: NexusGenInputs['UserProjectGroupWhereInput'] | null; // UserProjectGroupWhereInput
-  };
-  UserProjectGroupScalarWhereInput: {
-    // input type
-    AND?: NexusGenInputs['UserProjectGroupScalarWhereInput'][] | null; // [UserProjectGroupScalarWhereInput!]
-    NOT?: NexusGenInputs['UserProjectGroupScalarWhereInput'][] | null; // [UserProjectGroupScalarWhereInput!]
-    OR?: NexusGenInputs['UserProjectGroupScalarWhereInput'][] | null; // [UserProjectGroupScalarWhereInput!]
-    groupId?: NexusGenInputs['IntFilter'] | null; // IntFilter
-    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
-    relationshipType?: NexusGenInputs['EnumUserProjectGroupRelationshipTypeFilter'] | null; // EnumUserProjectGroupRelationshipTypeFilter
-    userId?: NexusGenInputs['IntFilter'] | null; // IntFilter
-  };
-  UserProjectGroupUpdateManyMutationInput: {
-    // input type
-    relationshipType?: NexusGenInputs['EnumUserProjectGroupRelationshipTypeFieldUpdateOperationsInput'] | null; // EnumUserProjectGroupRelationshipTypeFieldUpdateOperationsInput
-  };
-  UserProjectGroupUpdateManyWithWhereWithoutGroupInput: {
-    // input type
-    data: NexusGenInputs['UserProjectGroupUpdateManyMutationInput']; // UserProjectGroupUpdateManyMutationInput!
-    where: NexusGenInputs['UserProjectGroupScalarWhereInput']; // UserProjectGroupScalarWhereInput!
-  };
-  UserProjectGroupUpdateManyWithoutGroupInput: {
-    // input type
-    connect?: NexusGenInputs['UserProjectGroupWhereUniqueInput'][] | null; // [UserProjectGroupWhereUniqueInput!]
-    connectOrCreate?: NexusGenInputs['UserProjectGroupCreateOrConnectWithoutGroupInput'][] | null; // [UserProjectGroupCreateOrConnectWithoutGroupInput!]
-    create?: NexusGenInputs['UserProjectGroupCreateWithoutGroupInput'][] | null; // [UserProjectGroupCreateWithoutGroupInput!]
-    createMany?: NexusGenInputs['UserProjectGroupCreateManyGroupInputEnvelope'] | null; // UserProjectGroupCreateManyGroupInputEnvelope
-    delete?: NexusGenInputs['UserProjectGroupWhereUniqueInput'][] | null; // [UserProjectGroupWhereUniqueInput!]
-    deleteMany?: NexusGenInputs['UserProjectGroupScalarWhereInput'][] | null; // [UserProjectGroupScalarWhereInput!]
-    disconnect?: NexusGenInputs['UserProjectGroupWhereUniqueInput'][] | null; // [UserProjectGroupWhereUniqueInput!]
-    set?: NexusGenInputs['UserProjectGroupWhereUniqueInput'][] | null; // [UserProjectGroupWhereUniqueInput!]
-    update?: NexusGenInputs['UserProjectGroupUpdateWithWhereUniqueWithoutGroupInput'][] | null; // [UserProjectGroupUpdateWithWhereUniqueWithoutGroupInput!]
-    updateMany?: NexusGenInputs['UserProjectGroupUpdateManyWithWhereWithoutGroupInput'][] | null; // [UserProjectGroupUpdateManyWithWhereWithoutGroupInput!]
-    upsert?: NexusGenInputs['UserProjectGroupUpsertWithWhereUniqueWithoutGroupInput'][] | null; // [UserProjectGroupUpsertWithWhereUniqueWithoutGroupInput!]
-  };
-  UserProjectGroupUpdateWithWhereUniqueWithoutGroupInput: {
-    // input type
-    data: NexusGenInputs['UserProjectGroupUpdateWithoutGroupInput']; // UserProjectGroupUpdateWithoutGroupInput!
-    where: NexusGenInputs['UserProjectGroupWhereUniqueInput']; // UserProjectGroupWhereUniqueInput!
-  };
-  UserProjectGroupUpdateWithoutGroupInput: {
-    // input type
-    relationshipType?: NexusGenInputs['EnumUserProjectGroupRelationshipTypeFieldUpdateOperationsInput'] | null; // EnumUserProjectGroupRelationshipTypeFieldUpdateOperationsInput
-    user?: NexusGenInputs['UserUpdateOneRequiredWithoutUserProjectGroupsInput'] | null; // UserUpdateOneRequiredWithoutUserProjectGroupsInput
-  };
-  UserProjectGroupUpsertWithWhereUniqueWithoutGroupInput: {
-    // input type
-    create: NexusGenInputs['UserProjectGroupCreateWithoutGroupInput']; // UserProjectGroupCreateWithoutGroupInput!
-    update: NexusGenInputs['UserProjectGroupUpdateWithoutGroupInput']; // UserProjectGroupUpdateWithoutGroupInput!
-    where: NexusGenInputs['UserProjectGroupWhereUniqueInput']; // UserProjectGroupWhereUniqueInput!
-  };
-  UserProjectGroupWhereInput: {
-    // input type
-    AND?: NexusGenInputs['UserProjectGroupWhereInput'][] | null; // [UserProjectGroupWhereInput!]
-    NOT?: NexusGenInputs['UserProjectGroupWhereInput'][] | null; // [UserProjectGroupWhereInput!]
-    OR?: NexusGenInputs['UserProjectGroupWhereInput'][] | null; // [UserProjectGroupWhereInput!]
-    group?: NexusGenInputs['ProjectGroupWhereInput'] | null; // ProjectGroupWhereInput
-    groupId?: NexusGenInputs['IntFilter'] | null; // IntFilter
-    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
-    relationshipType?: NexusGenInputs['EnumUserProjectGroupRelationshipTypeFilter'] | null; // EnumUserProjectGroupRelationshipTypeFilter
-    user?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
-    userId?: NexusGenInputs['IntFilter'] | null; // IntFilter
-  };
-  UserProjectGroupWhereUniqueInput: {
-    // input type
-    id?: number | null; // Int
-  };
-  UserUpdateOneRequiredWithoutUserProjectGroupsInput: {
-    // input type
-    connect?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
-    connectOrCreate?: NexusGenInputs['UserCreateOrConnectWithoutUserProjectGroupsInput'] | null; // UserCreateOrConnectWithoutUserProjectGroupsInput
-    create?: NexusGenInputs['UserCreateWithoutUserProjectGroupsInput'] | null; // UserCreateWithoutUserProjectGroupsInput
-    update?: NexusGenInputs['UserUpdateWithoutUserProjectGroupsInput'] | null; // UserUpdateWithoutUserProjectGroupsInput
-    upsert?: NexusGenInputs['UserUpsertWithoutUserProjectGroupsInput'] | null; // UserUpsertWithoutUserProjectGroupsInput
-  };
-  UserUpdateWithoutUserProjectGroupsInput: {
-    // input type
-    email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-  };
-  UserUpsertWithoutUserProjectGroupsInput: {
-    // input type
-    create: NexusGenInputs['UserCreateWithoutUserProjectGroupsInput']; // UserCreateWithoutUserProjectGroupsInput!
-    update: NexusGenInputs['UserUpdateWithoutUserProjectGroupsInput']; // UserUpdateWithoutUserProjectGroupsInput!
-  };
-  UserWhereInput: {
-    // input type
-    AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
-    NOT?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
-    OR?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
-    email?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
-    userProjectGroups?: NexusGenInputs['UserProjectGroupListRelationFilter'] | null; // UserProjectGroupListRelationFilter
-  };
-  UserWhereUniqueInput: {
-    // input type
-    email?: string | null; // String
-    id?: number | null; // Int
-  };
 }
 
 export interface NexusGenEnums {
   Locale: 'en' | 'fr';
   SortOrder: 'asc' | 'desc';
-  UserProjectGroupRelationshipType: 'member' | 'owner';
 }
 
 export interface NexusGenScalars {
@@ -2879,6 +2649,7 @@ export interface NexusGenObjects {
   Module: {
     // root type
     collectionId: number; // Int!
+    description?: string | null; // String
     finishId: number; // Int!
     hasPegs: boolean; // Boolean!
     id: number; // Int!
@@ -2894,7 +2665,6 @@ export interface NexusGenObjects {
     collectionId: number; // Int!
     finishId: number; // Int!
     gable: number; // Float!
-    groupId: number; // Int!
     id: number; // Int!
     slideDepthId: number; // Int!
     slideId: number; // Int!
@@ -2902,12 +2672,6 @@ export interface NexusGenObjects {
     title: string; // String!
     typeId: number; // Int!
     width: number; // Float!
-  };
-  ProjectGroup: {
-    // root type
-    id: number; // Int!
-    name: string; // String!
-    slug: string; // String!
   };
   ProjectModule: {
     // root type
@@ -2959,13 +2723,6 @@ export interface NexusGenObjects {
     // root type
     email: string; // String!
     id: number; // Int!
-  };
-  UserProjectGroup: {
-    // root type
-    groupId: number; // Int!
-    id: number; // Int!
-    relationshipType: NexusGenEnums['UserProjectGroupRelationshipType']; // UserProjectGroupRelationshipType!
-    userId: number; // Int!
   };
 }
 
@@ -3036,6 +2793,7 @@ export interface NexusGenFieldTypes {
     bundleUrl: string | null; // String
     collection: NexusGenRootTypes['Collection']; // Collection!
     collectionId: number; // Int!
+    description: string | null; // String
     finish: NexusGenRootTypes['Finish']; // Finish!
     finishId: number; // Int!
     hasPegs: boolean; // Boolean!
@@ -3060,8 +2818,6 @@ export interface NexusGenFieldTypes {
     finish: NexusGenRootTypes['Finish']; // Finish!
     finishId: number; // Int!
     gable: number; // Float!
-    group: NexusGenRootTypes['ProjectGroup']; // ProjectGroup!
-    groupId: number; // Int!
     id: number; // Int!
     projectModules: NexusGenRootTypes['ProjectModule'][]; // [ProjectModule!]!
     slide: NexusGenRootTypes['Slide']; // Slide!
@@ -3073,14 +2829,6 @@ export interface NexusGenFieldTypes {
     type: NexusGenRootTypes['Type']; // Type!
     typeId: number; // Int!
     width: number; // Float!
-  };
-  ProjectGroup: {
-    // field return type
-    id: number; // Int!
-    name: string; // String!
-    projects: NexusGenRootTypes['Project'][]; // [Project!]!
-    slug: string; // String!
-    users: NexusGenRootTypes['UserProjectGroup'][]; // [UserProjectGroup!]!
   };
   ProjectModule: {
     // field return type
@@ -3106,8 +2854,6 @@ export interface NexusGenFieldTypes {
     module: NexusGenRootTypes['Module'] | null; // Module
     modules: NexusGenRootTypes['Module'][]; // [Module!]!
     project: NexusGenRootTypes['Project'] | null; // Project
-    projectGroup: NexusGenRootTypes['ProjectGroup'] | null; // ProjectGroup
-    projectGroups: NexusGenRootTypes['ProjectGroup'][]; // [ProjectGroup!]!
     projectModule: NexusGenRootTypes['ProjectModule'] | null; // ProjectModule
     projectModules: NexusGenRootTypes['ProjectModule'][]; // [ProjectModule!]!
     projects: NexusGenRootTypes['Project'][]; // [Project!]!
@@ -3172,16 +2918,6 @@ export interface NexusGenFieldTypes {
     // field return type
     email: string; // String!
     id: number; // Int!
-    userProjectGroups: NexusGenRootTypes['UserProjectGroup'][]; // [UserProjectGroup!]!
-  };
-  UserProjectGroup: {
-    // field return type
-    group: NexusGenRootTypes['ProjectGroup']; // ProjectGroup!
-    groupId: number; // Int!
-    id: number; // Int!
-    relationshipType: NexusGenEnums['UserProjectGroupRelationshipType']; // UserProjectGroupRelationshipType!
-    user: NexusGenRootTypes['User']; // User!
-    userId: number; // Int!
   };
 }
 
@@ -3244,6 +2980,7 @@ export interface NexusGenFieldTypeNames {
     bundleUrl: 'String';
     collection: 'Collection';
     collectionId: 'Int';
+    description: 'String';
     finish: 'Finish';
     finishId: 'Int';
     hasPegs: 'Boolean';
@@ -3268,8 +3005,6 @@ export interface NexusGenFieldTypeNames {
     finish: 'Finish';
     finishId: 'Int';
     gable: 'Float';
-    group: 'ProjectGroup';
-    groupId: 'Int';
     id: 'Int';
     projectModules: 'ProjectModule';
     slide: 'Slide';
@@ -3281,14 +3016,6 @@ export interface NexusGenFieldTypeNames {
     type: 'Type';
     typeId: 'Int';
     width: 'Float';
-  };
-  ProjectGroup: {
-    // field return type name
-    id: 'Int';
-    name: 'String';
-    projects: 'Project';
-    slug: 'String';
-    users: 'UserProjectGroup';
   };
   ProjectModule: {
     // field return type name
@@ -3314,8 +3041,6 @@ export interface NexusGenFieldTypeNames {
     module: 'Module';
     modules: 'Module';
     project: 'Project';
-    projectGroup: 'ProjectGroup';
-    projectGroups: 'ProjectGroup';
     projectModule: 'ProjectModule';
     projectModules: 'ProjectModule';
     projects: 'Project';
@@ -3380,16 +3105,6 @@ export interface NexusGenFieldTypeNames {
     // field return type name
     email: 'String';
     id: 'Int';
-    userProjectGroups: 'UserProjectGroup';
-  };
-  UserProjectGroup: {
-    // field return type name
-    group: 'ProjectGroup';
-    groupId: 'Int';
-    id: 'Int';
-    relationshipType: 'UserProjectGroupRelationshipType';
-    user: 'User';
-    userId: 'Int';
   };
 }
 
@@ -3467,20 +3182,6 @@ export interface NexusGenArgTypes {
       take?: number | null; // Int
     };
   };
-  ProjectGroup: {
-    projects: {
-      // args
-      cursor?: NexusGenInputs['ProjectWhereUniqueInput'] | null; // ProjectWhereUniqueInput
-      skip?: number | null; // Int
-      take?: number | null; // Int
-    };
-    users: {
-      // args
-      cursor?: NexusGenInputs['UserProjectGroupWhereUniqueInput'] | null; // UserProjectGroupWhereUniqueInput
-      skip?: number | null; // Int
-      take?: number | null; // Int
-    };
-  };
   ProjectModule: {
     children: {
       // args
@@ -3537,18 +3238,6 @@ export interface NexusGenArgTypes {
     project: {
       // args
       where: NexusGenInputs['ProjectWhereUniqueInput']; // ProjectWhereUniqueInput!
-    };
-    projectGroup: {
-      // args
-      where: NexusGenInputs['ProjectGroupWhereUniqueInput']; // ProjectGroupWhereUniqueInput!
-    };
-    projectGroups: {
-      // args
-      cursor?: NexusGenInputs['ProjectGroupWhereUniqueInput'] | null; // ProjectGroupWhereUniqueInput
-      orderBy?: NexusGenInputs['ProjectGroupOrderByInput'][] | null; // [ProjectGroupOrderByInput!]
-      skip?: number | null; // Int
-      take?: number | null; // Int
-      where?: NexusGenInputs['ProjectGroupWhereInput'] | null; // ProjectGroupWhereInput
     };
     projectModule: {
       // args
@@ -3653,14 +3342,6 @@ export interface NexusGenArgTypes {
     projects: {
       // args
       cursor?: NexusGenInputs['ProjectWhereUniqueInput'] | null; // ProjectWhereUniqueInput
-      skip?: number | null; // Int
-      take?: number | null; // Int
-    };
-  };
-  User: {
-    userProjectGroups: {
-      // args
-      cursor?: NexusGenInputs['UserProjectGroupWhereUniqueInput'] | null; // UserProjectGroupWhereUniqueInput
       skip?: number | null; // Int
       take?: number | null; // Int
     };

@@ -16,9 +16,6 @@ export const Query = queryType({
     t.crud.projects({ filtering: true, ordering: true, pagination: true });
     t.crud.project();
 
-    t.crud.projectGroups({ filtering: true, ordering: true, pagination: true });
-    t.crud.projectGroup();
-
     t.crud.projectModules({ filtering: true, ordering: true, pagination: true });
     t.crud.projectModule();
 
