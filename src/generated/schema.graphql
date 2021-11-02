@@ -12,51 +12,55 @@ input BoolFilter {
 
 type Category {
   id: Int!
-  modules(
-    cursor: ModuleWhereUniqueInput
-    orderBy: [ModuleOrderByInput!]
+  moduleCategories(
+    cursor: ModuleCategoryWhereUniqueInput
+    orderBy: [ModuleCategoryOrderByInput!]
     skip: Int
     take: Int
-    where: ModuleWhereInput
-  ): [Module!]!
+    where: ModuleCategoryWhereInput
+  ): [ModuleCategory!]!
   name: String!
   slug: String!
 }
 
-input CategoryCreateNestedOneWithoutModulesInput {
+input CategoryCreateNestedOneWithoutModuleCategoriesInput {
   connect: CategoryWhereUniqueInput
-  connectOrCreate: CategoryCreateOrConnectWithoutModulesInput
-  create: CategoryCreateWithoutModulesInput
+  connectOrCreate: CategoryCreateOrConnectWithoutModuleCategoriesInput
+  create: CategoryCreateWithoutModuleCategoriesInput
 }
 
-input CategoryCreateOrConnectWithoutModulesInput {
-  create: CategoryCreateWithoutModulesInput!
+input CategoryCreateOrConnectWithoutModuleCategoriesInput {
+  create: CategoryCreateWithoutModuleCategoriesInput!
   where: CategoryWhereUniqueInput!
 }
 
-input CategoryCreateWithoutModulesInput {
+input CategoryCreateWithoutModuleCategoriesInput {
   name: String!
   slug: String!
 }
 
-input CategoryUpdateOneWithoutModulesInput {
-  connect: CategoryWhereUniqueInput
-  connectOrCreate: CategoryCreateOrConnectWithoutModulesInput
-  create: CategoryCreateWithoutModulesInput
-  delete: Boolean
-  disconnect: Boolean
-  update: CategoryUpdateWithoutModulesInput
-  upsert: CategoryUpsertWithoutModulesInput
+input CategoryOrderByInput {
+  id: SortOrder
+  name: SortOrder
+  slug: SortOrder
 }
 
-input CategoryUpdateWithoutModulesInput {
+input CategoryUpdateOneRequiredWithoutModuleCategoriesInput {
+  connect: CategoryWhereUniqueInput
+  connectOrCreate: CategoryCreateOrConnectWithoutModuleCategoriesInput
+  create: CategoryCreateWithoutModuleCategoriesInput
+  update: CategoryUpdateWithoutModuleCategoriesInput
+  upsert: CategoryUpsertWithoutModuleCategoriesInput
+}
+
+input CategoryUpdateWithoutModuleCategoriesInput {
   name: StringFieldUpdateOperationsInput
   slug: StringFieldUpdateOperationsInput
 }
 
-input CategoryUpsertWithoutModulesInput {
-  create: CategoryCreateWithoutModulesInput!
-  update: CategoryUpdateWithoutModulesInput!
+input CategoryUpsertWithoutModuleCategoriesInput {
+  create: CategoryCreateWithoutModuleCategoriesInput!
+  update: CategoryUpdateWithoutModuleCategoriesInput!
 }
 
 input CategoryWhereInput {
@@ -64,7 +68,7 @@ input CategoryWhereInput {
   NOT: [CategoryWhereInput!]
   OR: [CategoryWhereInput!]
   id: IntFilter
-  modules: ModuleListRelationFilter
+  moduleCategories: ModuleCategoryListRelationFilter
   name: StringFilter
   slug: StringFilter
 }
@@ -954,8 +958,13 @@ enum Locale {
 
 type Module {
   bundleUrl: String
-  category: Category
-  categoryId: Int
+  categories(
+    cursor: ModuleCategoryWhereUniqueInput
+    orderBy: [ModuleCategoryOrderByInput!]
+    skip: Int
+    take: Int
+    where: ModuleCategoryWhereInput
+  ): [ModuleCategory!]!
   collection: Collection!
   collectionId: Int!
   description: String
@@ -978,9 +987,116 @@ type Module {
   thumbnailUrl: String
 }
 
+type ModuleCategory {
+  category: Category!
+  categoryId: Int!
+  id: Int!
+  module: Module!
+  moduleId: Int!
+}
+
+input ModuleCategoryCreateManyModuleInput {
+  categoryId: Int!
+  id: Int
+}
+
+input ModuleCategoryCreateManyModuleInputEnvelope {
+  data: [ModuleCategoryCreateManyModuleInput!]
+  skipDuplicates: Boolean
+}
+
+input ModuleCategoryCreateNestedManyWithoutModuleInput {
+  connect: [ModuleCategoryWhereUniqueInput!]
+  connectOrCreate: [ModuleCategoryCreateOrConnectWithoutModuleInput!]
+  create: [ModuleCategoryCreateWithoutModuleInput!]
+  createMany: ModuleCategoryCreateManyModuleInputEnvelope
+}
+
+input ModuleCategoryCreateOrConnectWithoutModuleInput {
+  create: ModuleCategoryCreateWithoutModuleInput!
+  where: ModuleCategoryWhereUniqueInput!
+}
+
+input ModuleCategoryCreateWithoutModuleInput {
+  category: CategoryCreateNestedOneWithoutModuleCategoriesInput!
+}
+
+input ModuleCategoryListRelationFilter {
+  every: ModuleCategoryWhereInput
+  none: ModuleCategoryWhereInput
+  some: ModuleCategoryWhereInput
+}
+
+input ModuleCategoryOrderByInput {
+  categoryId: SortOrder
+  id: SortOrder
+  moduleId: SortOrder
+}
+
+input ModuleCategoryScalarWhereInput {
+  AND: [ModuleCategoryScalarWhereInput!]
+  NOT: [ModuleCategoryScalarWhereInput!]
+  OR: [ModuleCategoryScalarWhereInput!]
+  categoryId: IntFilter
+  id: IntFilter
+  moduleId: IntFilter
+}
+
+input ModuleCategoryUpdateManyMutationInput {
+  _: Int
+}
+
+input ModuleCategoryUpdateManyWithWhereWithoutModuleInput {
+  data: ModuleCategoryUpdateManyMutationInput!
+  where: ModuleCategoryScalarWhereInput!
+}
+
+input ModuleCategoryUpdateManyWithoutModuleInput {
+  connect: [ModuleCategoryWhereUniqueInput!]
+  connectOrCreate: [ModuleCategoryCreateOrConnectWithoutModuleInput!]
+  create: [ModuleCategoryCreateWithoutModuleInput!]
+  createMany: ModuleCategoryCreateManyModuleInputEnvelope
+  delete: [ModuleCategoryWhereUniqueInput!]
+  deleteMany: [ModuleCategoryScalarWhereInput!]
+  disconnect: [ModuleCategoryWhereUniqueInput!]
+  set: [ModuleCategoryWhereUniqueInput!]
+  update: [ModuleCategoryUpdateWithWhereUniqueWithoutModuleInput!]
+  updateMany: [ModuleCategoryUpdateManyWithWhereWithoutModuleInput!]
+  upsert: [ModuleCategoryUpsertWithWhereUniqueWithoutModuleInput!]
+}
+
+input ModuleCategoryUpdateWithWhereUniqueWithoutModuleInput {
+  data: ModuleCategoryUpdateWithoutModuleInput!
+  where: ModuleCategoryWhereUniqueInput!
+}
+
+input ModuleCategoryUpdateWithoutModuleInput {
+  category: CategoryUpdateOneRequiredWithoutModuleCategoriesInput
+}
+
+input ModuleCategoryUpsertWithWhereUniqueWithoutModuleInput {
+  create: ModuleCategoryCreateWithoutModuleInput!
+  update: ModuleCategoryUpdateWithoutModuleInput!
+  where: ModuleCategoryWhereUniqueInput!
+}
+
+input ModuleCategoryWhereInput {
+  AND: [ModuleCategoryWhereInput!]
+  NOT: [ModuleCategoryWhereInput!]
+  OR: [ModuleCategoryWhereInput!]
+  category: CategoryWhereInput
+  categoryId: IntFilter
+  id: IntFilter
+  module: ModuleWhereInput
+  moduleId: IntFilter
+}
+
+input ModuleCategoryWhereUniqueInput {
+  id: Int
+}
+
 input ModuleCreateManyCollectionInput {
   bundleUrl: String
-  categoryId: Int
   description: String
   finishId: Int!
   hasPegs: Boolean
@@ -1000,7 +1116,6 @@ input ModuleCreateManyCollectionInputEnvelope {
 
 input ModuleCreateManyFinishInput {
   bundleUrl: String
-  categoryId: Int
   collectionId: Int!
   description: String
   hasPegs: Boolean
@@ -1055,7 +1170,7 @@ input ModuleCreateOrConnectWithoutProjectModulesInput {
 
 input ModuleCreateWithoutCollectionInput {
   bundleUrl: String
-  category: CategoryCreateNestedOneWithoutModulesInput
+  categories: ModuleCategoryCreateNestedManyWithoutModuleInput
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
@@ -1070,7 +1185,7 @@ input ModuleCreateWithoutCollectionInput {
 
 input ModuleCreateWithoutFinishInput {
   bundleUrl: String
-  category: CategoryCreateNestedOneWithoutModulesInput
+  categories: ModuleCategoryCreateNestedManyWithoutModuleInput
   collection: CollectionCreateNestedOneWithoutModulesInput!
   description: String
   hasPegs: Boolean
@@ -1085,7 +1200,7 @@ input ModuleCreateWithoutFinishInput {
 
 input ModuleCreateWithoutProjectModulesInput {
   bundleUrl: String
-  category: CategoryCreateNestedOneWithoutModulesInput
+  categories: ModuleCategoryCreateNestedManyWithoutModuleInput
   collection: CollectionCreateNestedOneWithoutModulesInput!
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
@@ -1106,7 +1221,6 @@ input ModuleListRelationFilter {
 
 input ModuleOrderByInput {
   bundleUrl: SortOrder
-  categoryId: SortOrder
   collectionId: SortOrder
   description: SortOrder
   finishId: SortOrder
@@ -1125,7 +1239,6 @@ input ModuleScalarWhereInput {
   NOT: [ModuleScalarWhereInput!]
   OR: [ModuleScalarWhereInput!]
   bundleUrl: StringNullableFilter
-  categoryId: IntNullableFilter
   collectionId: IntFilter
   description: StringNullableFilter
   finishId: IntFilter
@@ -1209,7 +1322,7 @@ input ModuleUpdateWithWhereUniqueWithoutFinishInput {
 
 input ModuleUpdateWithoutCollectionInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
-  category: CategoryUpdateOneWithoutModulesInput
+  categories: ModuleCategoryUpdateManyWithoutModuleInput
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
@@ -1224,7 +1337,7 @@ input ModuleUpdateWithoutCollectionInput {
 
 input ModuleUpdateWithoutFinishInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
-  category: CategoryUpdateOneWithoutModulesInput
+  categories: ModuleCategoryUpdateManyWithoutModuleInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
   description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
@@ -1239,7 +1352,7 @@ input ModuleUpdateWithoutFinishInput {
 
 input ModuleUpdateWithoutProjectModulesInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
-  category: CategoryUpdateOneWithoutModulesInput
+  categories: ModuleCategoryUpdateManyWithoutModuleInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
@@ -1274,8 +1387,7 @@ input ModuleWhereInput {
   NOT: [ModuleWhereInput!]
   OR: [ModuleWhereInput!]
   bundleUrl: StringNullableFilter
-  category: CategoryWhereInput
-  categoryId: IntNullableFilter
+  categories: ModuleCategoryListRelationFilter
   collection: CollectionWhereInput
   collectionId: IntFilter
   description: StringNullableFilter
@@ -2213,6 +2325,14 @@ input ProjectWhereUniqueInput {
 }
 
 type Query {
+  categories(
+    cursor: CategoryWhereUniqueInput
+    orderBy: [CategoryOrderByInput!]
+    skip: Int
+    take: Int
+    where: CategoryWhereInput
+  ): [Category!]!
+  category(where: CategoryWhereUniqueInput!): Category
   collection(where: CollectionWhereUniqueInput!): Collection
   collectionFinishes(
     cursor: CollectionFinishesWhereUniqueInput
@@ -2237,6 +2357,14 @@ type Query {
     where: FinishWhereInput
   ): [Finish!]!
   module(where: ModuleWhereUniqueInput!): Module
+  moduleCategories(
+    cursor: ModuleCategoryWhereUniqueInput
+    orderBy: [ModuleCategoryOrderByInput!]
+    skip: Int
+    take: Int
+    where: ModuleCategoryWhereInput
+  ): [ModuleCategory!]!
+  moduleCategory(where: ModuleCategoryWhereUniqueInput!): ModuleCategory
   modules(
     cursor: ModuleWhereUniqueInput
     orderBy: [ModuleOrderByInput!]

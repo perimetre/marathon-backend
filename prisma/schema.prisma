@@ -16,10 +16,18 @@ enum Locale {
 }
 
 model Category {
-  id      Int      @id @default(autoincrement())
-  slug    String   @unique
-  name    String
-  modules Module[]
+  id               Int              @id @default(autoincrement())
+  slug             String           @unique
+  name             String
+  moduleCategories ModuleCategory[]
+}
+
+model ModuleCategory {
+  id         Int      @id @default(autoincrement())
+  moduleId   Int
+  module     Module   @relation(fields: [moduleId], references: [id])
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
 }
 
 model Collection {
@@ -72,23 +80,22 @@ model FinishTranslations {
 }
 
 model Module {
-  id                 Int             @id @default(autoincrement())
-  partNumber         String          @unique
+  id                 Int              @id @default(autoincrement())
+  partNumber         String           @unique
   description        String?
-  thumbnailUrl       String?         @db.VarChar(255)
-  bundleUrl          String?         @db.VarChar(255)
-  isSubmodule        Boolean         @default(false)
-  hasPegs            Boolean         @default(false)
-  isMat              Boolean         @default(false)
-  isImprintExtension Boolean         @default(false)
+  thumbnailUrl       String?          @db.VarChar(255)
+  bundleUrl          String?          @db.VarChar(255)
+  isSubmodule        Boolean          @default(false)
+  hasPegs            Boolean          @default(false)
+  isMat              Boolean          @default(false)
+  isImprintExtension Boolean          @default(false)
   finishId           Int
-  finish             Finish          @relation(fields: [finishId], references: [id])
+  finish             Finish           @relation(fields: [finishId], references: [id])
   collectionId       Int
-  collection         Collection      @relation(fields: [collectionId], references: [id])
-  categoryId         Int?
-  category           Category?       @relation(fields: [categoryId], references: [id])
+  collection         Collection       @relation(fields: [collectionId], references: [id])
   rules              Json?
   projectModules     ProjectModule[]
+  categories         ModuleCategory[]
 }
 
 model Project {

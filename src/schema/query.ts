@@ -30,5 +30,11 @@ export const Query = queryType({
 
     t.crud.slideSuppliers({ filtering: true, ordering: true, pagination: true });
     t.crud.slideSupplier();
+
+    t.crud.categories({ filtering: true, ordering: true, pagination: true });
+    t.crud.category();
+
+    t.crud.moduleCategories({ filtering: true, ordering: true, pagination: true });
+    t.crud.moduleCategory();
   }
 });
