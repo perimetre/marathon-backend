@@ -1,4 +1,4 @@
-import { objectType } from 'nexus';
+import { list, nonNull, objectType } from 'nexus';
 import {
   registerModelsWithPrismaBinding,
   resolveAssetBundleUrlToField,
@@ -8,13 +8,28 @@ import {
 export const Module = objectType({
   name: 'Module',
   definition(t) {
-    registerModelsWithPrismaBinding(t, ['projectModules', 'categories'], ['thumbnailUrl, bundleUrl']);
+    registerModelsWithPrismaBinding(t, ['projectModules'], ['thumbnailUrl, bundleUrl', 'moduleCategories']);
     t.model.thumbnailUrl({
       resolve: resolvePublicMediaUrlToField
     });
 
     t.model.bundleUrl({
       resolve: resolveAssetBundleUrlToField
+    });
+
+    t.field('categories', {
+      type: nonNull(list(nonNull('Category'))),
+      args: {
+        where: 'CategoryWhereInput'
+      },
+      resolve: async (root, args, ctx) => {
+        const moduleCategories = await ctx.prisma.module
+          .findUnique({ where: { id: root.id } })
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          .moduleCategories({ where: { category: (args.where as any) || undefined }, select: { category: true } });
+
+        return moduleCategories.map((moduleCategory) => moduleCategory.category) || [];
+      }
     });
   }
 });
