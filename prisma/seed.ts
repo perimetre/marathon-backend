@@ -147,7 +147,6 @@ const main = async () => {
           imageUrl,
           isMat,
           isImprintExtension
-          // category
         }) => {
           return {
             thumbnailUrl: imageUrl,
@@ -159,11 +158,20 @@ const main = async () => {
             isImprintExtension,
             rules: JSON.parse(rules),
             collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
-            finishId: finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1,
-            categoryId: categories.find((x) => x.slug === /* category || */ categories[0]?.slug)?.id || undefined
+            finishId: finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1
           };
         }
       )
+  });
+
+  const modules = await db.module.findMany({ select: { id: true } });
+
+  // Automatically puts modules in "all" category
+  await db.moduleCategory.createMany({
+    data: modules.map(({ id }) => ({
+      moduleId: id,
+      categoryId: categories[0]?.id || undefined
+    }))
   });
 };
 

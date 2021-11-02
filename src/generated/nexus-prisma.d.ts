@@ -14,6 +14,7 @@ type CustomScalars = 'Json'
 // Prisma model type definitions
 interface PrismaModels {
   Category: Prisma.Category
+  ModuleCategory: Prisma.ModuleCategory
   Collection: Prisma.Collection
   CollectionFinishes: Prisma.CollectionFinishes
   CollectionTranslations: Prisma.CollectionTranslations
@@ -34,8 +35,12 @@ interface PrismaModels {
 interface NexusPrismaInputs {
   Query: {
     categories: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'name' | 'modules'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'name' | 'moduleCategories'
       ordering: 'id' | 'slug' | 'name'
+    }
+    moduleCategories: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'moduleId' | 'module' | 'categoryId' | 'category'
+      ordering: 'id' | 'moduleId' | 'categoryId'
     }
     collections: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'thumbnailUrl' | 'translations' | 'projects' | 'modules' | 'collectionFinishes' | 'slides'
@@ -58,8 +63,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'locale' | 'name' | 'description' | 'finishId'
     }
     modules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'categoryId' | 'category' | 'rules' | 'projectModules'
-      ordering: 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'collectionId' | 'categoryId' | 'rules'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'projectModules' | 'categories'
+      ordering: 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'collectionId' | 'rules'
     }
     projects: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
@@ -95,10 +100,13 @@ interface NexusPrismaInputs {
     }
   },
   Category: {
-    modules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'categoryId' | 'category' | 'rules' | 'projectModules'
-      ordering: 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'collectionId' | 'categoryId' | 'rules'
+    moduleCategories: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'moduleId' | 'module' | 'categoryId' | 'category'
+      ordering: 'id' | 'moduleId' | 'categoryId'
     }
+  }
+  ModuleCategory: {
+
   }
   Collection: {
     translations: {
@@ -110,8 +118,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
     }
     modules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'categoryId' | 'category' | 'rules' | 'projectModules'
-      ordering: 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'collectionId' | 'categoryId' | 'rules'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'projectModules' | 'categories'
+      ordering: 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'collectionId' | 'rules'
     }
     collectionFinishes: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'collectionId' | 'collection' | 'finishId' | 'finish'
@@ -138,8 +146,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
     }
     modules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'categoryId' | 'category' | 'rules' | 'projectModules'
-      ordering: 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'collectionId' | 'categoryId' | 'rules'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'projectModules' | 'categories'
+      ordering: 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'collectionId' | 'rules'
     }
     collectionFinishes: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'collectionId' | 'collection' | 'finishId' | 'finish'
@@ -153,6 +161,10 @@ interface NexusPrismaInputs {
     projectModules: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'posX' | 'posZ' | 'rotZ' | 'moduleId' | 'module' | 'parentId' | 'parent' | 'children' | 'projectId' | 'project'
       ordering: 'id' | 'posX' | 'posZ' | 'rotZ' | 'moduleId' | 'parentId' | 'projectId'
+    }
+    categories: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'moduleId' | 'module' | 'categoryId' | 'category'
+      ordering: 'id' | 'moduleId' | 'categoryId'
     }
   }
   Project: {
@@ -212,6 +224,8 @@ interface NexusPrismaOutputs {
   Query: {
     category: 'Category'
     categories: 'Category'
+    moduleCategory: 'ModuleCategory'
+    moduleCategories: 'ModuleCategory'
     collection: 'Collection'
     collections: 'Collection'
     collectionFinishes: 'CollectionFinishes'
@@ -248,6 +262,12 @@ interface NexusPrismaOutputs {
     deleteOneCategory: 'Category'
     deleteManyCategory: 'AffectedRowsOutput'
     upsertOneCategory: 'Category'
+    createOneModuleCategory: 'ModuleCategory'
+    updateOneModuleCategory: 'ModuleCategory'
+    updateManyModuleCategory: 'AffectedRowsOutput'
+    deleteOneModuleCategory: 'ModuleCategory'
+    deleteManyModuleCategory: 'AffectedRowsOutput'
+    upsertOneModuleCategory: 'ModuleCategory'
     createOneCollection: 'Collection'
     updateOneCollection: 'Collection'
     updateManyCollection: 'AffectedRowsOutput'
@@ -337,7 +357,14 @@ interface NexusPrismaOutputs {
     id: 'Int'
     slug: 'String'
     name: 'String'
-    modules: 'Module'
+    moduleCategories: 'ModuleCategory'
+  }
+  ModuleCategory: {
+    id: 'Int'
+    moduleId: 'Int'
+    module: 'Module'
+    categoryId: 'Int'
+    category: 'Category'
   }
   Collection: {
     id: 'Int'
@@ -397,10 +424,9 @@ interface NexusPrismaOutputs {
     finish: 'Finish'
     collectionId: 'Int'
     collection: 'Collection'
-    categoryId: 'Int'
-    category: 'Category'
     rules: 'Json'
     projectModules: 'ProjectModule'
+    categories: 'ModuleCategory'
   }
   Project: {
     id: 'Int'
@@ -484,6 +510,7 @@ interface NexusPrismaOutputs {
 // Helper to gather all methods relative to a model
 interface NexusPrismaMethods {
   Category: Typegen.NexusPrismaFields<'Category'>
+  ModuleCategory: Typegen.NexusPrismaFields<'ModuleCategory'>
   Collection: Typegen.NexusPrismaFields<'Collection'>
   CollectionFinishes: Typegen.NexusPrismaFields<'CollectionFinishes'>
   CollectionTranslations: Typegen.NexusPrismaFields<'CollectionTranslations'>
