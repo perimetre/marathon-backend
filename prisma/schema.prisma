@@ -95,7 +95,7 @@ model Module {
   collection         Collection       @relation(fields: [collectionId], references: [id])
   rules              Json?
   projectModules     ProjectModule[]
-  categories         ModuleCategory[]
+  moduleCategories   ModuleCategory[]
 }
 
 model Project {

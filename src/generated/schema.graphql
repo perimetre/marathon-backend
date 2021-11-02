@@ -12,13 +12,7 @@ input BoolFilter {
 
 type Category {
   id: Int!
-  moduleCategories(
-    cursor: ModuleCategoryWhereUniqueInput
-    orderBy: [ModuleCategoryOrderByInput!]
-    skip: Int
-    take: Int
-    where: ModuleCategoryWhereInput
-  ): [ModuleCategory!]!
+  modules(where: ModuleWhereInput): [Module!]!
   name: String!
   slug: String!
 }
@@ -958,13 +952,7 @@ enum Locale {
 
 type Module {
   bundleUrl: String
-  categories(
-    cursor: ModuleCategoryWhereUniqueInput
-    orderBy: [ModuleCategoryOrderByInput!]
-    skip: Int
-    take: Int
-    where: ModuleCategoryWhereInput
-  ): [ModuleCategory!]!
+  categories(where: CategoryWhereInput): [Category!]!
   collection: Collection!
   collectionId: Int!
   description: String
@@ -1170,13 +1158,13 @@ input ModuleCreateOrConnectWithoutProjectModulesInput {
 
 input ModuleCreateWithoutCollectionInput {
   bundleUrl: String
-  categories: ModuleCategoryCreateNestedManyWithoutModuleInput
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isImprintExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1185,13 +1173,13 @@ input ModuleCreateWithoutCollectionInput {
 
 input ModuleCreateWithoutFinishInput {
   bundleUrl: String
-  categories: ModuleCategoryCreateNestedManyWithoutModuleInput
   collection: CollectionCreateNestedOneWithoutModulesInput!
   description: String
   hasPegs: Boolean
   isImprintExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1200,7 +1188,6 @@ input ModuleCreateWithoutFinishInput {
 
 input ModuleCreateWithoutProjectModulesInput {
   bundleUrl: String
-  categories: ModuleCategoryCreateNestedManyWithoutModuleInput
   collection: CollectionCreateNestedOneWithoutModulesInput!
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
@@ -1208,6 +1195,7 @@ input ModuleCreateWithoutProjectModulesInput {
   isImprintExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   partNumber: String!
   rules: Json
   thumbnailUrl: String
@@ -1322,13 +1310,13 @@ input ModuleUpdateWithWhereUniqueWithoutFinishInput {
 
 input ModuleUpdateWithoutCollectionInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
-  categories: ModuleCategoryUpdateManyWithoutModuleInput
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isImprintExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -1337,13 +1325,13 @@ input ModuleUpdateWithoutCollectionInput {
 
 input ModuleUpdateWithoutFinishInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
-  categories: ModuleCategoryUpdateManyWithoutModuleInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
   description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   isImprintExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -1352,7 +1340,6 @@ input ModuleUpdateWithoutFinishInput {
 
 input ModuleUpdateWithoutProjectModulesInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
-  categories: ModuleCategoryUpdateManyWithoutModuleInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
@@ -1360,6 +1347,7 @@ input ModuleUpdateWithoutProjectModulesInput {
   isImprintExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   partNumber: StringFieldUpdateOperationsInput
   rules: Json
   thumbnailUrl: NullableStringFieldUpdateOperationsInput
@@ -1387,7 +1375,6 @@ input ModuleWhereInput {
   NOT: [ModuleWhereInput!]
   OR: [ModuleWhereInput!]
   bundleUrl: StringNullableFilter
-  categories: ModuleCategoryListRelationFilter
   collection: CollectionWhereInput
   collectionId: IntFilter
   description: StringNullableFilter
@@ -1398,6 +1385,7 @@ input ModuleWhereInput {
   isImprintExtension: BoolFilter
   isMat: BoolFilter
   isSubmodule: BoolFilter
+  moduleCategories: ModuleCategoryListRelationFilter
   partNumber: StringFilter
   projectModules: ProjectModuleListRelationFilter
   rules: JsonNullableFilter
