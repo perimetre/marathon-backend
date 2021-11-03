@@ -1554,6 +1554,16 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['ProjectWhereInput'] | null; // ProjectWhereInput
     some?: NexusGenInputs['ProjectWhereInput'] | null; // ProjectWhereInput
   };
+  ProjectModuleCreateInput: {
+    // input type
+    children?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutParentInput'] | null; // ProjectModuleCreateNestedManyWithoutParentInput
+    module: NexusGenInputs['ModuleCreateNestedOneWithoutProjectModulesInput']; // ModuleCreateNestedOneWithoutProjectModulesInput!
+    parent?: NexusGenInputs['ProjectModuleCreateNestedOneWithoutChildrenInput'] | null; // ProjectModuleCreateNestedOneWithoutChildrenInput
+    posX: number; // Float!
+    posZ: number; // Float!
+    project?: NexusGenInputs['ProjectCreateNestedOneWithoutProjectModulesInput'] | null; // ProjectCreateNestedOneWithoutProjectModulesInput
+    rotZ: number; // Float!
+  };
   ProjectModuleCreateManyModuleInput: {
     // input type
     id?: number | null; // Int
@@ -1707,6 +1717,16 @@ export interface NexusGenInputs {
     posZ?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
     projectId?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     rotZ?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
+  };
+  ProjectModuleUpdateInput: {
+    // input type
+    children?: NexusGenInputs['ProjectModuleUpdateManyWithoutParentInput'] | null; // ProjectModuleUpdateManyWithoutParentInput
+    module?: NexusGenInputs['ModuleUpdateOneRequiredWithoutProjectModulesInput'] | null; // ModuleUpdateOneRequiredWithoutProjectModulesInput
+    parent?: NexusGenInputs['ProjectModuleUpdateOneWithoutChildrenInput'] | null; // ProjectModuleUpdateOneWithoutChildrenInput
+    posX?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    posZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    project?: NexusGenInputs['ProjectUpdateOneWithoutProjectModulesInput'] | null; // ProjectUpdateOneWithoutProjectModulesInput
+    rotZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectModuleUpdateManyMutationInput: {
     // input type
@@ -2999,7 +3019,11 @@ export interface NexusGenFieldTypes {
   Mutation: {
     // field return type
     createOneProject: NexusGenRootTypes['Project']; // Project!
+    createOneProjectModule: NexusGenRootTypes['ProjectModule']; // ProjectModule!
+    deleteOneProject: NexusGenRootTypes['Project'] | null; // Project
+    deleteOneProjectModule: NexusGenRootTypes['ProjectModule'] | null; // ProjectModule
     updateOneProject: NexusGenRootTypes['Project'] | null; // Project
+    updateOneProjectModule: NexusGenRootTypes['ProjectModule'] | null; // ProjectModule
   };
   Project: {
     // field return type
@@ -3207,7 +3231,11 @@ export interface NexusGenFieldTypeNames {
   Mutation: {
     // field return type name
     createOneProject: 'Project';
+    createOneProjectModule: 'ProjectModule';
+    deleteOneProject: 'Project';
+    deleteOneProjectModule: 'ProjectModule';
     updateOneProject: 'Project';
+    updateOneProjectModule: 'ProjectModule';
   };
   Project: {
     // field return type name
@@ -3410,10 +3438,27 @@ export interface NexusGenArgTypes {
       // args
       data: NexusGenInputs['ProjectCreateInput']; // ProjectCreateInput!
     };
+    createOneProjectModule: {
+      // args
+      data: NexusGenInputs['ProjectModuleCreateInput']; // ProjectModuleCreateInput!
+    };
+    deleteOneProject: {
+      // args
+      where: NexusGenInputs['ProjectWhereUniqueInput']; // ProjectWhereUniqueInput!
+    };
+    deleteOneProjectModule: {
+      // args
+      where: NexusGenInputs['ProjectModuleWhereUniqueInput']; // ProjectModuleWhereUniqueInput!
+    };
     updateOneProject: {
       // args
       data: NexusGenInputs['ProjectUpdateInput']; // ProjectUpdateInput!
       where: NexusGenInputs['ProjectWhereUniqueInput']; // ProjectWhereUniqueInput!
+    };
+    updateOneProjectModule: {
+      // args
+      data: NexusGenInputs['ProjectModuleUpdateInput']; // ProjectModuleUpdateInput!
+      where: NexusGenInputs['ProjectModuleWhereUniqueInput']; // ProjectModuleWhereUniqueInput!
     };
   };
   Project: {

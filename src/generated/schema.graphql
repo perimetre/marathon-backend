@@ -1399,7 +1399,11 @@ input ModuleWhereUniqueInput {
 
 type Mutation {
   createOneProject(data: ProjectCreateInput!): Project!
+  createOneProjectModule(data: ProjectModuleCreateInput!): ProjectModule!
+  deleteOneProject(where: ProjectWhereUniqueInput!): Project
+  deleteOneProjectModule(where: ProjectModuleWhereUniqueInput!): ProjectModule
   updateOneProject(data: ProjectUpdateInput!, where: ProjectWhereUniqueInput!): Project
+  updateOneProjectModule(data: ProjectModuleUpdateInput!, where: ProjectModuleWhereUniqueInput!): ProjectModule
 }
 
 input NestedBoolFilter {
@@ -1719,6 +1723,16 @@ type ProjectModule {
   rotZ: Float!
 }
 
+input ProjectModuleCreateInput {
+  children: ProjectModuleCreateNestedManyWithoutParentInput
+  module: ModuleCreateNestedOneWithoutProjectModulesInput!
+  parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  posX: Float!
+  posZ: Float!
+  project: ProjectCreateNestedOneWithoutProjectModulesInput
+  rotZ: Float!
+}
+
 input ProjectModuleCreateManyModuleInput {
   id: Int
   parentId: Int
@@ -1871,6 +1885,16 @@ input ProjectModuleScalarWhereInput {
   posZ: FloatFilter
   projectId: IntNullableFilter
   rotZ: FloatFilter
+}
+
+input ProjectModuleUpdateInput {
+  children: ProjectModuleUpdateManyWithoutParentInput
+  module: ModuleUpdateOneRequiredWithoutProjectModulesInput
+  parent: ProjectModuleUpdateOneWithoutChildrenInput
+  posX: FloatFieldUpdateOperationsInput
+  posZ: FloatFieldUpdateOperationsInput
+  project: ProjectUpdateOneWithoutProjectModulesInput
+  rotZ: FloatFieldUpdateOperationsInput
 }
 
 input ProjectModuleUpdateManyMutationInput {

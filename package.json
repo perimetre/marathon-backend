@@ -73,7 +73,7 @@
     "graphql-shield": "^7.5.0",
     "lodash": "^4.17.21",
     "multer": "^1.4.3",
-    "multer-s3": "^2.9.0",
+    "multer-s3": "^2.10.0",
     "nexus": "^1.1.0",
     "nexus-plugin-prisma": "^0.35.0",
     "prettier": "^2.3.2",
