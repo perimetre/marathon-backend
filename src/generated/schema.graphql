@@ -971,7 +971,7 @@ type Module {
     take: Int
     where: ProjectModuleWhereInput
   ): [ProjectModule!]!
-  rules: Json
+  rules: ModuleRules
   thumbnailUrl: String
 }
 
@@ -1201,10 +1201,27 @@ input ModuleCreateWithoutProjectModulesInput {
   thumbnailUrl: String
 }
 
+type ModuleDimension {
+  depth: ModuleMinMax
+  height: ModuleUnit
+  width: ModuleMinMax
+}
+
+type ModuleExtensionsMetadata {
+  left: String
+  options: [String!]
+  right: String
+}
+
 input ModuleListRelationFilter {
   every: ModuleWhereInput
   none: ModuleWhereInput
   some: ModuleWhereInput
+}
+
+type ModuleMinMax {
+  max: ModuleUnit
+  min: ModuleUnit
 }
 
 input ModuleOrderByInput {
@@ -1220,6 +1237,58 @@ input ModuleOrderByInput {
   partNumber: SortOrder
   rules: SortOrder
   thumbnailUrl: SortOrder
+}
+
+type ModuleRules {
+  dimensions: ModuleDimension
+
+  """
+  Extensions are sub pieces that MUST BE CONNECTED to the main product or other extension.
+  """
+  extensions: ModuleExtensionsMetadata
+
+  """
+  Modules that are basically this module but in a different finish(color), to allow the ui to easily switch between them
+  """
+  finishes: [String!]
+
+  """
+  The module part number, probably equivalent to the module id
+  """
+  partNumber: String!
+  rules: ModuleRulesMetadata
+
+  """
+  Different types of edges a module might have
+  """
+  trims: [String!]
+}
+
+type ModuleRulesMetadata {
+  """
+  Whether or not this module is only valid if it's taking the drawer full depth
+  """
+  fullDepth: Boolean
+
+  """
+  Options are which other modules can be put IN modules
+  """
+  options: [String!]
+
+  """
+  The product can only be put inside the drawer, if the current net interior of the drawer belongs to the range of the piece
+  """
+  requiredNetInterior: ModuleMinMax
+
+  """
+  The amount (in degrees) that the product can be rotated
+  """
+  rotation: Float
+
+  """
+  Where a module can be cut if there's excess beyond the drawer
+  """
+  trimmable: [String!]
 }
 
 input ModuleScalarWhereInput {
@@ -1238,6 +1307,11 @@ input ModuleScalarWhereInput {
   partNumber: StringFilter
   rules: JsonNullableFilter
   thumbnailUrl: StringNullableFilter
+}
+
+type ModuleUnit {
+  inches: String
+  millimeters: Float!
 }
 
 input ModuleUpdateManyMutationInput {
@@ -1399,7 +1473,11 @@ input ModuleWhereUniqueInput {
 
 type Mutation {
   createOneProject(data: ProjectCreateInput!): Project!
+  createOneProjectModule(data: ProjectModuleCreateInput!): ProjectModule!
+  deleteOneProject(where: ProjectWhereUniqueInput!): Project
+  deleteOneProjectModule(where: ProjectModuleWhereUniqueInput!): ProjectModule
   updateOneProject(data: ProjectUpdateInput!, where: ProjectWhereUniqueInput!): Project
+  updateOneProjectModule(data: ProjectModuleUpdateInput!, where: ProjectModuleWhereUniqueInput!): ProjectModule
 }
 
 input NestedBoolFilter {
@@ -1719,6 +1797,16 @@ type ProjectModule {
   rotZ: Float!
 }
 
+input ProjectModuleCreateInput {
+  children: ProjectModuleCreateNestedManyWithoutParentInput
+  module: ModuleCreateNestedOneWithoutProjectModulesInput!
+  parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  posX: Float!
+  posZ: Float!
+  project: ProjectCreateNestedOneWithoutProjectModulesInput
+  rotZ: Float!
+}
+
 input ProjectModuleCreateManyModuleInput {
   id: Int
   parentId: Int
@@ -1871,6 +1959,16 @@ input ProjectModuleScalarWhereInput {
   posZ: FloatFilter
   projectId: IntNullableFilter
   rotZ: FloatFilter
+}
+
+input ProjectModuleUpdateInput {
+  children: ProjectModuleUpdateManyWithoutParentInput
+  module: ModuleUpdateOneRequiredWithoutProjectModulesInput
+  parent: ProjectModuleUpdateOneWithoutChildrenInput
+  posX: FloatFieldUpdateOperationsInput
+  posZ: FloatFieldUpdateOperationsInput
+  project: ProjectUpdateOneWithoutProjectModulesInput
+  rotZ: FloatFieldUpdateOperationsInput
 }
 
 input ProjectModuleUpdateManyMutationInput {
