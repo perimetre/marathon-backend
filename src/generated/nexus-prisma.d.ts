@@ -67,8 +67,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'collectionId' | 'rules'
     }
     projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
-      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
+      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
     }
     projectModules: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'posX' | 'posZ' | 'rotZ' | 'moduleId' | 'module' | 'parentId' | 'parent' | 'children' | 'projectId' | 'project'
@@ -114,8 +114,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'locale' | 'name' | 'subtitle' | 'description' | 'footer' | 'collectionId'
     }
     projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
-      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
+      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
     }
     modules: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'projectModules' | 'moduleCategories'
@@ -142,8 +142,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'locale' | 'name' | 'description' | 'finishId'
     }
     projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
-      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
+      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
     }
     modules: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isImprintExtension' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'projectModules' | 'moduleCategories'
@@ -185,14 +185,14 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'display' | 'depth' | 'slideId'
     }
     projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
-      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
+      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
     }
   }
   SlideDepth: {
     projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
-      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
+      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
     }
   }
   SlideSupplier: {
@@ -207,8 +207,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'locale' | 'name' | 'description' | 'typeId'
     }
     projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
-      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'projectModules'
+      ordering: 'id' | 'slug' | 'title' | 'width' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId'
     }
   }
   TypeTranslations: {
@@ -436,6 +436,7 @@ interface NexusPrismaOutputs {
     width: 'Float'
     gable: 'Float'
     typeId: 'Int'
+    hasPegs: 'Boolean'
     type: 'Type'
     collectionId: 'Int'
     collection: 'Collection'
