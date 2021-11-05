@@ -34,6 +34,7 @@ model Collection {
   id                 Int                      @id @default(autoincrement())
   slug               String                   @unique
   thumbnailUrl       String?                  @db.VarChar(255)
+  hasPegs            Boolean                  @default(false)
   translations       CollectionTranslations[]
   projects           Project[]
   modules            Module[]
@@ -165,6 +166,7 @@ model Type {
   id           Int                @id @default(autoincrement())
   slug         String             @unique
   thumbnailUrl String?            @db.VarChar(255)
+  hasPegs      Boolean            @default(false)
   translations TypeTranslations[]
   projects     Project[]
 }

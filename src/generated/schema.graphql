@@ -82,6 +82,7 @@ type Collection {
   ): [CollectionFinishes!]!
   description: String
   footer: String
+  hasPegs: Boolean!
   id: Int!
   modules(
     cursor: ModuleWhereUniqueInput
@@ -155,6 +156,7 @@ input CollectionCreateOrConnectWithoutSlidesInput {
 }
 
 input CollectionCreateWithoutCollectionFinishesInput {
+  hasPegs: Boolean
   modules: ModuleCreateNestedManyWithoutCollectionInput
   projects: ProjectCreateNestedManyWithoutCollectionInput
   slides: SlideCreateNestedManyWithoutCollectionInput
@@ -165,6 +167,7 @@ input CollectionCreateWithoutCollectionFinishesInput {
 
 input CollectionCreateWithoutModulesInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutCollectionInput
+  hasPegs: Boolean
   projects: ProjectCreateNestedManyWithoutCollectionInput
   slides: SlideCreateNestedManyWithoutCollectionInput
   slug: String!
@@ -174,6 +177,7 @@ input CollectionCreateWithoutModulesInput {
 
 input CollectionCreateWithoutProjectsInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutCollectionInput
+  hasPegs: Boolean
   modules: ModuleCreateNestedManyWithoutCollectionInput
   slides: SlideCreateNestedManyWithoutCollectionInput
   slug: String!
@@ -183,6 +187,7 @@ input CollectionCreateWithoutProjectsInput {
 
 input CollectionCreateWithoutSlidesInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutCollectionInput
+  hasPegs: Boolean
   modules: ModuleCreateNestedManyWithoutCollectionInput
   projects: ProjectCreateNestedManyWithoutCollectionInput
   slug: String!
@@ -359,6 +364,7 @@ input CollectionFinishesWhereUniqueInput {
 }
 
 input CollectionOrderByInput {
+  hasPegs: SortOrder
   id: SortOrder
   slug: SortOrder
   thumbnailUrl: SortOrder
@@ -525,6 +531,7 @@ input CollectionUpdateOneRequiredWithoutSlidesInput {
 }
 
 input CollectionUpdateWithoutCollectionFinishesInput {
+  hasPegs: BoolFieldUpdateOperationsInput
   modules: ModuleUpdateManyWithoutCollectionInput
   projects: ProjectUpdateManyWithoutCollectionInput
   slides: SlideUpdateManyWithoutCollectionInput
@@ -535,6 +542,7 @@ input CollectionUpdateWithoutCollectionFinishesInput {
 
 input CollectionUpdateWithoutModulesInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutCollectionInput
+  hasPegs: BoolFieldUpdateOperationsInput
   projects: ProjectUpdateManyWithoutCollectionInput
   slides: SlideUpdateManyWithoutCollectionInput
   slug: StringFieldUpdateOperationsInput
@@ -544,6 +552,7 @@ input CollectionUpdateWithoutModulesInput {
 
 input CollectionUpdateWithoutProjectsInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutCollectionInput
+  hasPegs: BoolFieldUpdateOperationsInput
   modules: ModuleUpdateManyWithoutCollectionInput
   slides: SlideUpdateManyWithoutCollectionInput
   slug: StringFieldUpdateOperationsInput
@@ -553,6 +562,7 @@ input CollectionUpdateWithoutProjectsInput {
 
 input CollectionUpdateWithoutSlidesInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutCollectionInput
+  hasPegs: BoolFieldUpdateOperationsInput
   modules: ModuleUpdateManyWithoutCollectionInput
   projects: ProjectUpdateManyWithoutCollectionInput
   slug: StringFieldUpdateOperationsInput
@@ -585,6 +595,7 @@ input CollectionWhereInput {
   NOT: [CollectionWhereInput!]
   OR: [CollectionWhereInput!]
   collectionFinishes: CollectionFinishesListRelationFilter
+  hasPegs: BoolFilter
   id: IntFilter
   modules: ModuleListRelationFilter
   projects: ProjectListRelationFilter
@@ -3016,6 +3027,7 @@ input StringNullableFilter {
 
 type Type {
   description: String
+  hasPegs: Boolean!
   id: Int!
   name: String!
   projects(
@@ -3041,12 +3053,14 @@ input TypeCreateOrConnectWithoutProjectsInput {
 }
 
 input TypeCreateWithoutProjectsInput {
+  hasPegs: Boolean
   slug: String!
   thumbnailUrl: String
   translations: TypeTranslationsCreateNestedManyWithoutTypeInput
 }
 
 input TypeOrderByInput {
+  hasPegs: SortOrder
   id: SortOrder
   slug: SortOrder
   thumbnailUrl: SortOrder
@@ -3175,6 +3189,7 @@ input TypeUpdateOneRequiredWithoutProjectsInput {
 }
 
 input TypeUpdateWithoutProjectsInput {
+  hasPegs: BoolFieldUpdateOperationsInput
   slug: StringFieldUpdateOperationsInput
   thumbnailUrl: NullableStringFieldUpdateOperationsInput
   translations: TypeTranslationsUpdateManyWithoutTypeInput
@@ -3189,6 +3204,7 @@ input TypeWhereInput {
   AND: [TypeWhereInput!]
   NOT: [TypeWhereInput!]
   OR: [TypeWhereInput!]
+  hasPegs: BoolFilter
   id: IntFilter
   projects: ProjectListRelationFilter
   slug: StringFilter

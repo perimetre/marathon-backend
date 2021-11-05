@@ -1,6 +1,5 @@
 import { Locale, Prisma } from '@prisma/client';
 import { MaybePromise, ObjectDefinitionBlock } from 'nexus/dist/core';
-import { URL } from 'url';
 import { env } from '../env';
 import { Context } from '../typings/context';
 import { joinUrls } from './url';
