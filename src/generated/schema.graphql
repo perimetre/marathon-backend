@@ -1574,6 +1574,7 @@ type Project {
   finish: Finish!
   finishId: Int!
   gable: Float!
+  hasPegs: Boolean!
   id: Int!
   modules: [Module!]!
   projectModules(cursor: ProjectModuleWhereUniqueInput, skip: Int, take: Int): [ProjectModule!]!
@@ -1592,6 +1593,7 @@ input ProjectCreateInput {
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
+  hasPegs: Boolean
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -1604,6 +1606,7 @@ input ProjectCreateInput {
 input ProjectCreateManyCollectionInput {
   finishId: Int!
   gable: Float!
+  hasPegs: Boolean
   id: Int
   slideDepthId: Int!
   slideId: Int!
@@ -1621,6 +1624,7 @@ input ProjectCreateManyCollectionInputEnvelope {
 input ProjectCreateManyFinishInput {
   collectionId: Int!
   gable: Float!
+  hasPegs: Boolean
   id: Int
   slideDepthId: Int!
   slideId: Int!
@@ -1639,6 +1643,7 @@ input ProjectCreateManySlideDepthInput {
   collectionId: Int!
   finishId: Int!
   gable: Float!
+  hasPegs: Boolean
   id: Int
   slideId: Int!
   slug: String!
@@ -1656,6 +1661,7 @@ input ProjectCreateManySlideInput {
   collectionId: Int!
   finishId: Int!
   gable: Float!
+  hasPegs: Boolean
   id: Int
   slideDepthId: Int!
   slug: String!
@@ -1731,6 +1737,7 @@ input ProjectCreateOrConnectWithoutSlideInput {
 input ProjectCreateWithoutCollectionInput {
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
+  hasPegs: Boolean
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -1743,6 +1750,7 @@ input ProjectCreateWithoutCollectionInput {
 input ProjectCreateWithoutFinishInput {
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   gable: Float!
+  hasPegs: Boolean
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -1756,6 +1764,7 @@ input ProjectCreateWithoutProjectModulesInput {
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
+  hasPegs: Boolean
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
   slug: String!
@@ -1768,6 +1777,7 @@ input ProjectCreateWithoutSlideDepthInput {
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
+  hasPegs: Boolean
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slug: String!
@@ -1780,6 +1790,7 @@ input ProjectCreateWithoutSlideInput {
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
+  hasPegs: Boolean
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
   slug: String!
@@ -2154,6 +2165,7 @@ input ProjectOrderByInput {
   collectionId: SortOrder
   finishId: SortOrder
   gable: SortOrder
+  hasPegs: SortOrder
   id: SortOrder
   slideDepthId: SortOrder
   slideId: SortOrder
@@ -2170,6 +2182,7 @@ input ProjectScalarWhereInput {
   collectionId: IntFilter
   finishId: IntFilter
   gable: FloatFilter
+  hasPegs: BoolFilter
   id: IntFilter
   slideDepthId: IntFilter
   slideId: IntFilter
@@ -2183,6 +2196,7 @@ input ProjectUpdateInput {
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
+  hasPegs: BoolFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -2194,6 +2208,7 @@ input ProjectUpdateInput {
 
 input ProjectUpdateManyMutationInput {
   gable: FloatFieldUpdateOperationsInput
+  hasPegs: BoolFieldUpdateOperationsInput
   slug: StringFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   width: FloatFieldUpdateOperationsInput
@@ -2308,6 +2323,7 @@ input ProjectUpdateWithWhereUniqueWithoutSlideInput {
 input ProjectUpdateWithoutCollectionInput {
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
+  hasPegs: BoolFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -2320,6 +2336,7 @@ input ProjectUpdateWithoutCollectionInput {
 input ProjectUpdateWithoutFinishInput {
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
+  hasPegs: BoolFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -2333,6 +2350,7 @@ input ProjectUpdateWithoutProjectModulesInput {
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
+  hasPegs: BoolFieldUpdateOperationsInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
   slug: StringFieldUpdateOperationsInput
@@ -2345,6 +2363,7 @@ input ProjectUpdateWithoutSlideDepthInput {
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
+  hasPegs: BoolFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slug: StringFieldUpdateOperationsInput
@@ -2357,6 +2376,7 @@ input ProjectUpdateWithoutSlideInput {
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
+  hasPegs: BoolFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
   slug: StringFieldUpdateOperationsInput
@@ -2403,6 +2423,7 @@ input ProjectWhereInput {
   finish: FinishWhereInput
   finishId: IntFilter
   gable: FloatFilter
+  hasPegs: BoolFilter
   id: IntFilter
   projectModules: ProjectModuleListRelationFilter
   slide: SlideWhereInput

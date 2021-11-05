@@ -106,6 +106,7 @@ model Project {
   width          Float
   gable          Float
   typeId         Int
+  hasPegs        Boolean         @default(false)
   type           Type            @relation(fields: [typeId], references: [id])
   collectionId   Int
   collection     Collection      @relation(fields: [collectionId], references: [id])
