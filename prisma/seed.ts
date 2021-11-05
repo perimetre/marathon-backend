@@ -1,6 +1,6 @@
 import { Locale, PrismaClient } from '@prisma/client';
 import { helpers } from 'faker';
-import { toNumber, uniqBy, uniq } from 'lodash';
+import { toNumber, uniqBy } from 'lodash';
 import seedValues from './seedValues/seed.json';
 
 const db = new PrismaClient();
@@ -8,9 +8,10 @@ const db = new PrismaClient();
 const main = async () => {
   // -- Collections
   await db.collection.createMany({
-    data: seedValues.collections.map(({ slug, thumbnailUrl }) => ({
+    data: seedValues.collections.map(({ slug, thumbnailUrl, hasPegs }) => ({
       slug: slug.toLowerCase(),
-      thumbnailUrl
+      thumbnailUrl,
+      hasPegs: hasPegs || false
     }))
   });
 
@@ -59,9 +60,10 @@ const main = async () => {
 
   // -- Types
   await db.type.createMany({
-    data: seedValues.types.map(({ slug, thumbnailUrl }) => ({
+    data: seedValues.types.map(({ slug, thumbnailUrl, hasPegs }) => ({
       slug: slug.toLowerCase(),
-      thumbnailUrl
+      thumbnailUrl,
+      hasPegs: hasPegs || false
     }))
   });
 
@@ -170,7 +172,7 @@ const main = async () => {
   await db.moduleCategory.createMany({
     data: modules.map(({ id }) => ({
       moduleId: id,
-      categoryId: categories[0]?.id || undefined
+      categoryId: categories[0]?.id || -1
     }))
   });
 };

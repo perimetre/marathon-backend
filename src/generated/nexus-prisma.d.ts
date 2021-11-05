@@ -43,8 +43,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'moduleId' | 'categoryId'
     }
     collections: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'thumbnailUrl' | 'translations' | 'projects' | 'modules' | 'collectionFinishes' | 'slides'
-      ordering: 'id' | 'slug' | 'thumbnailUrl'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'thumbnailUrl' | 'hasPegs' | 'translations' | 'projects' | 'modules' | 'collectionFinishes' | 'slides'
+      ordering: 'id' | 'slug' | 'thumbnailUrl' | 'hasPegs'
     }
     collectionFinishes: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'collectionId' | 'collection' | 'finishId' | 'finish'
@@ -87,8 +87,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'thumbnailUrl' | 'name' | 'slug'
     }
     types: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'thumbnailUrl' | 'translations' | 'projects'
-      ordering: 'id' | 'slug' | 'thumbnailUrl'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'thumbnailUrl' | 'hasPegs' | 'translations' | 'projects'
+      ordering: 'id' | 'slug' | 'thumbnailUrl' | 'hasPegs'
     }
     typeTranslations: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'locale' | 'name' | 'description' | 'typeId' | 'type'
@@ -370,6 +370,7 @@ interface NexusPrismaOutputs {
     id: 'Int'
     slug: 'String'
     thumbnailUrl: 'String'
+    hasPegs: 'Boolean'
     translations: 'CollectionTranslations'
     projects: 'Project'
     modules: 'Module'
@@ -490,6 +491,7 @@ interface NexusPrismaOutputs {
     id: 'Int'
     slug: 'String'
     thumbnailUrl: 'String'
+    hasPegs: 'Boolean'
     translations: 'TypeTranslations'
     projects: 'Project'
   }

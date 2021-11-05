@@ -8,34 +8,33 @@
           "locale": "en",
           "name": "Thermoplastic",
           "description": "Drop-in thermoplastic mold.",
-          "subtitle": "Area collection",
-          "footer": "Starting at 40$"
+          "subtitle": "Area collection"
         }
       ]
     },
     {
       "slug": "imprint",
+      "hasPegs": true,
       "thumbnailUrl": "images/collection/imprint.png",
       "translations": [
         {
           "locale": "en",
           "name": "Wood Finish",
           "description": "Drop-in wooden compartments.",
-          "subtitle": "Imprint collection",
-          "footer": "Starting at 60$"
+          "subtitle": "Imprint collection"
         }
       ]
     },
     {
       "slug": "autograph",
+      "hasPegs": true,
       "thumbnailUrl": "images/collection/autograph.jpg",
       "translations": [
         {
           "locale": "en",
           "name": "Wood & Aluminum",
           "description": "Fully customizable storing units.",
-          "subtitle": "Autograph collection",
-          "footer": "Starting at 80$"
+          "subtitle": "Autograph collection"
         }
       ]
     }
@@ -132,6 +131,7 @@
     {
       "thumbnailUrl": "images/type/deep.jpg",
       "slug": "deep",
+      "hasPegs": true,
       "translations": [
         {
           "locale": "en",
