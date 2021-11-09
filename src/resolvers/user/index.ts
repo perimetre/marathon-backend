@@ -1,5 +1,6 @@
 import { mutationField, nonNull, nullable, arg, inputObjectType } from 'nexus';
 import axios, { AxiosResponse } from 'axios';
+import { env } from '../../env';
 
 export const UserSingIn = inputObjectType({
   name: 'UserSingIn',
@@ -17,7 +18,7 @@ export const UserMutations = [
       const { user } = args;
       const request = (await axios({
         method: 'POST',
-        url: 'http://new-web.marathonhardware.com/api/login',
+        url: env.MARATHON_API_LOGIN,
         headers: {
           Authorization: `Basic ${Buffer.from(`${user.email}:${user.password}`).toString('base64')}`
         }

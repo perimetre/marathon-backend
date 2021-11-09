@@ -19,5 +19,6 @@ export const env = {
   PUBLIC_MEDIA_URI: process.env.PUBLIC_MEDIA_URI,
   DEFAULT_LOCALE: process.env.DEFAULT_LOCALE || 'en',
   ASSET_BUNDLE_FOLDER: process.env.ASSET_BUNDLE_FOLDER,
-  DEFAULT_PLATFORM: process.env.DEFAULT_PLATFORM || 'webgl'
+  DEFAULT_PLATFORM: process.env.DEFAULT_PLATFORM || 'webgl',
+  MARATHON_API_LOGIN: process.env.MARATHON_API_LOGIN
 };
