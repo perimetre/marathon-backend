@@ -116,6 +116,8 @@ model Project {
   slide          Slide           @relation(fields: [slideId], references: [id])
   slideDepthId   Int
   slideDepth     SlideDepth      @relation(fields: [slideDepthId], references: [id])
+  userId         Int?
+  user           User?           @relation(fields: [userId], references: [id])
   projectModules ProjectModule[]
 }
 
@@ -182,6 +184,18 @@ model TypeTranslations {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  email String @unique @db.VarChar(255)
+  id             Int    @id @default(autoincrement())
+  email          String @unique @db.VarChar(255)
+  marathonUserId Int
+
+  project Project[]
+  session Session[]
+}
+
+model Session {
+  id     Int    @id @default(autoincrement())
+  userId Int
+  token  String
+
+  user User @relation(fields: [userId], references: [id])
 }

@@ -840,6 +840,14 @@ export interface NexusGenInputs {
     not?: NexusGenInputs['NestedFloatFilter'] | null; // NestedFloatFilter
     notIn?: number[] | null; // [Float!]
   };
+  IntFieldUpdateOperationsInput: {
+    // input type
+    decrement?: number | null; // Int
+    divide?: number | null; // Int
+    increment?: number | null; // Int
+    multiply?: number | null; // Int
+    set?: number | null; // Int
+  };
   IntFilter: {
     // input type
     equals?: number | null; // Int
@@ -1370,6 +1378,7 @@ export interface NexusGenInputs {
     slug: string; // String!
     title: string; // String!
     type: NexusGenInputs['TypeCreateNestedOneWithoutProjectsInput']; // TypeCreateNestedOneWithoutProjectsInput!
+    user?: NexusGenInputs['UserCreateNestedOneWithoutProjectInput'] | null; // UserCreateNestedOneWithoutProjectInput
     width: number; // Float!
   };
   ProjectCreateManyCollectionInput: {
@@ -1383,6 +1392,7 @@ export interface NexusGenInputs {
     slug: string; // String!
     title: string; // String!
     typeId: number; // Int!
+    userId?: number | null; // Int
     width: number; // Float!
   };
   ProjectCreateManyCollectionInputEnvelope: {
@@ -1401,6 +1411,7 @@ export interface NexusGenInputs {
     slug: string; // String!
     title: string; // String!
     typeId: number; // Int!
+    userId?: number | null; // Int
     width: number; // Float!
   };
   ProjectCreateManyFinishInputEnvelope: {
@@ -1419,6 +1430,7 @@ export interface NexusGenInputs {
     slug: string; // String!
     title: string; // String!
     typeId: number; // Int!
+    userId?: number | null; // Int
     width: number; // Float!
   };
   ProjectCreateManySlideDepthInputEnvelope: {
@@ -1437,6 +1449,7 @@ export interface NexusGenInputs {
     slug: string; // String!
     title: string; // String!
     typeId: number; // Int!
+    userId?: number | null; // Int
     width: number; // Float!
   };
   ProjectCreateManySlideInputEnvelope: {
@@ -1514,6 +1527,7 @@ export interface NexusGenInputs {
     slug: string; // String!
     title: string; // String!
     type: NexusGenInputs['TypeCreateNestedOneWithoutProjectsInput']; // TypeCreateNestedOneWithoutProjectsInput!
+    user?: NexusGenInputs['UserCreateNestedOneWithoutProjectInput'] | null; // UserCreateNestedOneWithoutProjectInput
     width: number; // Float!
   };
   ProjectCreateWithoutFinishInput: {
@@ -1527,6 +1541,7 @@ export interface NexusGenInputs {
     slug: string; // String!
     title: string; // String!
     type: NexusGenInputs['TypeCreateNestedOneWithoutProjectsInput']; // TypeCreateNestedOneWithoutProjectsInput!
+    user?: NexusGenInputs['UserCreateNestedOneWithoutProjectInput'] | null; // UserCreateNestedOneWithoutProjectInput
     width: number; // Float!
   };
   ProjectCreateWithoutProjectModulesInput: {
@@ -1540,6 +1555,7 @@ export interface NexusGenInputs {
     slug: string; // String!
     title: string; // String!
     type: NexusGenInputs['TypeCreateNestedOneWithoutProjectsInput']; // TypeCreateNestedOneWithoutProjectsInput!
+    user?: NexusGenInputs['UserCreateNestedOneWithoutProjectInput'] | null; // UserCreateNestedOneWithoutProjectInput
     width: number; // Float!
   };
   ProjectCreateWithoutSlideDepthInput: {
@@ -1553,6 +1569,7 @@ export interface NexusGenInputs {
     slug: string; // String!
     title: string; // String!
     type: NexusGenInputs['TypeCreateNestedOneWithoutProjectsInput']; // TypeCreateNestedOneWithoutProjectsInput!
+    user?: NexusGenInputs['UserCreateNestedOneWithoutProjectInput'] | null; // UserCreateNestedOneWithoutProjectInput
     width: number; // Float!
   };
   ProjectCreateWithoutSlideInput: {
@@ -1566,6 +1583,7 @@ export interface NexusGenInputs {
     slug: string; // String!
     title: string; // String!
     type: NexusGenInputs['TypeCreateNestedOneWithoutProjectsInput']; // TypeCreateNestedOneWithoutProjectsInput!
+    user?: NexusGenInputs['UserCreateNestedOneWithoutProjectInput'] | null; // UserCreateNestedOneWithoutProjectInput
     width: number; // Float!
   };
   ProjectListRelationFilter: {
@@ -1928,6 +1946,7 @@ export interface NexusGenInputs {
     slug?: NexusGenEnums['SortOrder'] | null; // SortOrder
     title?: NexusGenEnums['SortOrder'] | null; // SortOrder
     typeId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    userId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     width?: NexusGenEnums['SortOrder'] | null; // SortOrder
   };
   ProjectScalarWhereInput: {
@@ -1945,6 +1964,7 @@ export interface NexusGenInputs {
     slug?: NexusGenInputs['StringFilter'] | null; // StringFilter
     title?: NexusGenInputs['StringFilter'] | null; // StringFilter
     typeId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    userId?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     width?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
   };
   ProjectUpdateInput: {
@@ -1959,6 +1979,7 @@ export interface NexusGenInputs {
     slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     type?: NexusGenInputs['TypeUpdateOneRequiredWithoutProjectsInput'] | null; // TypeUpdateOneRequiredWithoutProjectsInput
+    user?: NexusGenInputs['UserUpdateOneWithoutProjectInput'] | null; // UserUpdateOneWithoutProjectInput
     width?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectUpdateManyMutationInput: {
@@ -2086,6 +2107,7 @@ export interface NexusGenInputs {
     slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     type?: NexusGenInputs['TypeUpdateOneRequiredWithoutProjectsInput'] | null; // TypeUpdateOneRequiredWithoutProjectsInput
+    user?: NexusGenInputs['UserUpdateOneWithoutProjectInput'] | null; // UserUpdateOneWithoutProjectInput
     width?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectUpdateWithoutFinishInput: {
@@ -2099,6 +2121,7 @@ export interface NexusGenInputs {
     slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     type?: NexusGenInputs['TypeUpdateOneRequiredWithoutProjectsInput'] | null; // TypeUpdateOneRequiredWithoutProjectsInput
+    user?: NexusGenInputs['UserUpdateOneWithoutProjectInput'] | null; // UserUpdateOneWithoutProjectInput
     width?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectUpdateWithoutProjectModulesInput: {
@@ -2112,6 +2135,7 @@ export interface NexusGenInputs {
     slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     type?: NexusGenInputs['TypeUpdateOneRequiredWithoutProjectsInput'] | null; // TypeUpdateOneRequiredWithoutProjectsInput
+    user?: NexusGenInputs['UserUpdateOneWithoutProjectInput'] | null; // UserUpdateOneWithoutProjectInput
     width?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectUpdateWithoutSlideDepthInput: {
@@ -2125,6 +2149,7 @@ export interface NexusGenInputs {
     slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     type?: NexusGenInputs['TypeUpdateOneRequiredWithoutProjectsInput'] | null; // TypeUpdateOneRequiredWithoutProjectsInput
+    user?: NexusGenInputs['UserUpdateOneWithoutProjectInput'] | null; // UserUpdateOneWithoutProjectInput
     width?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectUpdateWithoutSlideInput: {
@@ -2138,6 +2163,7 @@ export interface NexusGenInputs {
     slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     type?: NexusGenInputs['TypeUpdateOneRequiredWithoutProjectsInput'] | null; // TypeUpdateOneRequiredWithoutProjectsInput
+    user?: NexusGenInputs['UserUpdateOneWithoutProjectInput'] | null; // UserUpdateOneWithoutProjectInput
     width?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectUpsertWithWhereUniqueWithoutCollectionInput: {
@@ -2190,12 +2216,107 @@ export interface NexusGenInputs {
     title?: NexusGenInputs['StringFilter'] | null; // StringFilter
     type?: NexusGenInputs['TypeWhereInput'] | null; // TypeWhereInput
     typeId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    user?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    userId?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     width?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
   };
   ProjectWhereUniqueInput: {
     // input type
     id?: number | null; // Int
     slug?: string | null; // String
+  };
+  SessionCreateManyUserInput: {
+    // input type
+    id?: number | null; // Int
+    token: string; // String!
+  };
+  SessionCreateManyUserInputEnvelope: {
+    // input type
+    data?: NexusGenInputs['SessionCreateManyUserInput'][] | null; // [SessionCreateManyUserInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  };
+  SessionCreateNestedManyWithoutUserInput: {
+    // input type
+    connect?: NexusGenInputs['SessionWhereUniqueInput'][] | null; // [SessionWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['SessionCreateOrConnectWithoutUserInput'][] | null; // [SessionCreateOrConnectWithoutUserInput!]
+    create?: NexusGenInputs['SessionCreateWithoutUserInput'][] | null; // [SessionCreateWithoutUserInput!]
+    createMany?: NexusGenInputs['SessionCreateManyUserInputEnvelope'] | null; // SessionCreateManyUserInputEnvelope
+  };
+  SessionCreateOrConnectWithoutUserInput: {
+    // input type
+    create: NexusGenInputs['SessionCreateWithoutUserInput']; // SessionCreateWithoutUserInput!
+    where: NexusGenInputs['SessionWhereUniqueInput']; // SessionWhereUniqueInput!
+  };
+  SessionCreateWithoutUserInput: {
+    // input type
+    token: string; // String!
+  };
+  SessionListRelationFilter: {
+    // input type
+    every?: NexusGenInputs['SessionWhereInput'] | null; // SessionWhereInput
+    none?: NexusGenInputs['SessionWhereInput'] | null; // SessionWhereInput
+    some?: NexusGenInputs['SessionWhereInput'] | null; // SessionWhereInput
+  };
+  SessionScalarWhereInput: {
+    // input type
+    AND?: NexusGenInputs['SessionScalarWhereInput'][] | null; // [SessionScalarWhereInput!]
+    NOT?: NexusGenInputs['SessionScalarWhereInput'][] | null; // [SessionScalarWhereInput!]
+    OR?: NexusGenInputs['SessionScalarWhereInput'][] | null; // [SessionScalarWhereInput!]
+    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    token?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    userId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+  };
+  SessionUpdateManyMutationInput: {
+    // input type
+    token?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+  };
+  SessionUpdateManyWithWhereWithoutUserInput: {
+    // input type
+    data: NexusGenInputs['SessionUpdateManyMutationInput']; // SessionUpdateManyMutationInput!
+    where: NexusGenInputs['SessionScalarWhereInput']; // SessionScalarWhereInput!
+  };
+  SessionUpdateManyWithoutUserInput: {
+    // input type
+    connect?: NexusGenInputs['SessionWhereUniqueInput'][] | null; // [SessionWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['SessionCreateOrConnectWithoutUserInput'][] | null; // [SessionCreateOrConnectWithoutUserInput!]
+    create?: NexusGenInputs['SessionCreateWithoutUserInput'][] | null; // [SessionCreateWithoutUserInput!]
+    createMany?: NexusGenInputs['SessionCreateManyUserInputEnvelope'] | null; // SessionCreateManyUserInputEnvelope
+    delete?: NexusGenInputs['SessionWhereUniqueInput'][] | null; // [SessionWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['SessionScalarWhereInput'][] | null; // [SessionScalarWhereInput!]
+    disconnect?: NexusGenInputs['SessionWhereUniqueInput'][] | null; // [SessionWhereUniqueInput!]
+    set?: NexusGenInputs['SessionWhereUniqueInput'][] | null; // [SessionWhereUniqueInput!]
+    update?: NexusGenInputs['SessionUpdateWithWhereUniqueWithoutUserInput'][] | null; // [SessionUpdateWithWhereUniqueWithoutUserInput!]
+    updateMany?: NexusGenInputs['SessionUpdateManyWithWhereWithoutUserInput'][] | null; // [SessionUpdateManyWithWhereWithoutUserInput!]
+    upsert?: NexusGenInputs['SessionUpsertWithWhereUniqueWithoutUserInput'][] | null; // [SessionUpsertWithWhereUniqueWithoutUserInput!]
+  };
+  SessionUpdateWithWhereUniqueWithoutUserInput: {
+    // input type
+    data: NexusGenInputs['SessionUpdateWithoutUserInput']; // SessionUpdateWithoutUserInput!
+    where: NexusGenInputs['SessionWhereUniqueInput']; // SessionWhereUniqueInput!
+  };
+  SessionUpdateWithoutUserInput: {
+    // input type
+    token?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+  };
+  SessionUpsertWithWhereUniqueWithoutUserInput: {
+    // input type
+    create: NexusGenInputs['SessionCreateWithoutUserInput']; // SessionCreateWithoutUserInput!
+    update: NexusGenInputs['SessionUpdateWithoutUserInput']; // SessionUpdateWithoutUserInput!
+    where: NexusGenInputs['SessionWhereUniqueInput']; // SessionWhereUniqueInput!
+  };
+  SessionWhereInput: {
+    // input type
+    AND?: NexusGenInputs['SessionWhereInput'][] | null; // [SessionWhereInput!]
+    NOT?: NexusGenInputs['SessionWhereInput'][] | null; // [SessionWhereInput!]
+    OR?: NexusGenInputs['SessionWhereInput'][] | null; // [SessionWhereInput!]
+    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    token?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    user?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    userId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+  };
+  SessionWhereUniqueInput: {
+    // input type
+    id?: number | null; // Int
   };
   SlideCreateManyCollectionInput: {
     // input type
@@ -2811,6 +2932,65 @@ export interface NexusGenInputs {
     id?: number | null; // Int
     slug?: string | null; // String
   };
+  UserCreateNestedOneWithoutProjectInput: {
+    // input type
+    connect?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['UserCreateOrConnectWithoutProjectInput'] | null; // UserCreateOrConnectWithoutProjectInput
+    create?: NexusGenInputs['UserCreateWithoutProjectInput'] | null; // UserCreateWithoutProjectInput
+  };
+  UserCreateOrConnectWithoutProjectInput: {
+    // input type
+    create: NexusGenInputs['UserCreateWithoutProjectInput']; // UserCreateWithoutProjectInput!
+    where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
+  };
+  UserCreateWithoutProjectInput: {
+    // input type
+    email: string; // String!
+    marathonUserId: number; // Int!
+    session?: NexusGenInputs['SessionCreateNestedManyWithoutUserInput'] | null; // SessionCreateNestedManyWithoutUserInput
+  };
+  UserSingIn: {
+    // input type
+    email?: string | null; // String
+    password?: string | null; // String
+  };
+  UserUpdateOneWithoutProjectInput: {
+    // input type
+    connect?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['UserCreateOrConnectWithoutProjectInput'] | null; // UserCreateOrConnectWithoutProjectInput
+    create?: NexusGenInputs['UserCreateWithoutProjectInput'] | null; // UserCreateWithoutProjectInput
+    delete?: boolean | null; // Boolean
+    disconnect?: boolean | null; // Boolean
+    update?: NexusGenInputs['UserUpdateWithoutProjectInput'] | null; // UserUpdateWithoutProjectInput
+    upsert?: NexusGenInputs['UserUpsertWithoutProjectInput'] | null; // UserUpsertWithoutProjectInput
+  };
+  UserUpdateWithoutProjectInput: {
+    // input type
+    email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    marathonUserId?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
+    session?: NexusGenInputs['SessionUpdateManyWithoutUserInput'] | null; // SessionUpdateManyWithoutUserInput
+  };
+  UserUpsertWithoutProjectInput: {
+    // input type
+    create: NexusGenInputs['UserCreateWithoutProjectInput']; // UserCreateWithoutProjectInput!
+    update: NexusGenInputs['UserUpdateWithoutProjectInput']; // UserUpdateWithoutProjectInput!
+  };
+  UserWhereInput: {
+    // input type
+    AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
+    NOT?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
+    OR?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
+    email?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    marathonUserId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    project?: NexusGenInputs['ProjectListRelationFilter'] | null; // ProjectListRelationFilter
+    session?: NexusGenInputs['SessionListRelationFilter'] | null; // SessionListRelationFilter
+  };
+  UserWhereUniqueInput: {
+    // input type
+    email?: string | null; // String
+    id?: number | null; // Int
+  };
 }
 
 export interface NexusGenEnums {
@@ -2939,6 +3119,7 @@ export interface NexusGenObjects {
     slug: string; // String!
     title: string; // String!
     typeId: number; // Int!
+    userId?: number | null; // Int
     width: number; // Float!
   };
   ProjectModule: {
@@ -2952,6 +3133,12 @@ export interface NexusGenObjects {
     rotZ: number; // Float!
   };
   Query: {};
+  Session: {
+    // root type
+    id: number; // Int!
+    token: string; // String!
+    userId: number; // Int!
+  };
   Slide: {
     // root type
     collectionId: number; // Int!
@@ -2992,6 +3179,7 @@ export interface NexusGenObjects {
     // root type
     email: string; // String!
     id: number; // Int!
+    marathonUserId: number; // Int!
   };
 }
 
@@ -3137,6 +3325,7 @@ export interface NexusGenFieldTypes {
     createOneProjectModule: NexusGenRootTypes['ProjectModule']; // ProjectModule!
     deleteOneProject: NexusGenRootTypes['Project'] | null; // Project
     deleteOneProjectModule: NexusGenRootTypes['ProjectModule'] | null; // ProjectModule
+    login: NexusGenRootTypes['Session'] | null; // Session
     updateOneProject: NexusGenRootTypes['Project'] | null; // Project
     updateOneProjectModule: NexusGenRootTypes['ProjectModule'] | null; // ProjectModule
   };
@@ -3159,6 +3348,8 @@ export interface NexusGenFieldTypes {
     title: string; // String!
     type: NexusGenRootTypes['Type']; // Type!
     typeId: number; // Int!
+    user: NexusGenRootTypes['User'] | null; // User
+    userId: number | null; // Int
     width: number; // Float!
   };
   ProjectModule: {
@@ -3200,6 +3391,13 @@ export interface NexusGenFieldTypes {
     slides: NexusGenRootTypes['Slide'][]; // [Slide!]!
     type: NexusGenRootTypes['Type'] | null; // Type
     types: NexusGenRootTypes['Type'][]; // [Type!]!
+  };
+  Session: {
+    // field return type
+    id: number; // Int!
+    token: string; // String!
+    user: NexusGenRootTypes['User']; // User!
+    userId: number; // Int!
   };
   Slide: {
     // field return type
@@ -3254,6 +3452,9 @@ export interface NexusGenFieldTypes {
     // field return type
     email: string; // String!
     id: number; // Int!
+    marathonUserId: number; // Int!
+    project: NexusGenRootTypes['Project'][]; // [Project!]!
+    session: NexusGenRootTypes['Session'][]; // [Session!]!
   };
 }
 
@@ -3391,6 +3592,7 @@ export interface NexusGenFieldTypeNames {
     createOneProjectModule: 'ProjectModule';
     deleteOneProject: 'Project';
     deleteOneProjectModule: 'ProjectModule';
+    login: 'Session';
     updateOneProject: 'Project';
     updateOneProjectModule: 'ProjectModule';
   };
@@ -3413,6 +3615,8 @@ export interface NexusGenFieldTypeNames {
     title: 'String';
     type: 'Type';
     typeId: 'Int';
+    user: 'User';
+    userId: 'Int';
     width: 'Float';
   };
   ProjectModule: {
@@ -3454,6 +3658,13 @@ export interface NexusGenFieldTypeNames {
     slides: 'Slide';
     type: 'Type';
     types: 'Type';
+  };
+  Session: {
+    // field return type name
+    id: 'Int';
+    token: 'String';
+    user: 'User';
+    userId: 'Int';
   };
   Slide: {
     // field return type name
@@ -3508,6 +3719,9 @@ export interface NexusGenFieldTypeNames {
     // field return type name
     email: 'String';
     id: 'Int';
+    marathonUserId: 'Int';
+    project: 'Project';
+    session: 'Session';
   };
 }
 
@@ -3608,6 +3822,10 @@ export interface NexusGenArgTypes {
     deleteOneProjectModule: {
       // args
       where: NexusGenInputs['ProjectModuleWhereUniqueInput']; // ProjectModuleWhereUniqueInput!
+    };
+    login: {
+      // args
+      user: NexusGenInputs['UserSingIn']; // UserSingIn!
     };
     updateOneProject: {
       // args
@@ -3824,6 +4042,20 @@ export interface NexusGenArgTypes {
       skip?: number | null; // Int
       take?: number | null; // Int
       where?: NexusGenInputs['ProjectWhereInput'] | null; // ProjectWhereInput
+    };
+  };
+  User: {
+    project: {
+      // args
+      cursor?: NexusGenInputs['ProjectWhereUniqueInput'] | null; // ProjectWhereUniqueInput
+      skip?: number | null; // Int
+      take?: number | null; // Int
+    };
+    session: {
+      // args
+      cursor?: NexusGenInputs['SessionWhereUniqueInput'] | null; // SessionWhereUniqueInput
+      skip?: number | null; // Int
+      take?: number | null; // Int
     };
   };
 }

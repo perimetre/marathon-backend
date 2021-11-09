@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, User } from '@prisma/client';
 import { ExpressContext } from 'apollo-server-express';
 
 // This is the type that will be used for the "context" variable for all resolvers.
@@ -7,5 +7,5 @@ export type Context = {
   prisma: PrismaClient;
   locale: string;
   platform: string;
-  bearer?: string;
+  user?: User;
 } & ExpressContext;
