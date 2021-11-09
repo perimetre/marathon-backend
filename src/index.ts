@@ -38,17 +38,20 @@ const main = async () => {
         };
 
         try {
-          const auth = context.req.get('Authorization');
+          const auth = context.req.get('x-auth-token');
           // Validate the auth string
-          if (auth && auth.includes('Bearer')) {
-            // If has the Bearer word, split by spaces
-            const splitAuth = auth.split(' ');
-
-            // Must be exactly 2, the bearer word and the token
-            if (splitAuth && splitAuth.length === 2) {
-              // Get the second one(the token)
-              const bearer = splitAuth[1];
-              context = { ...context, bearer };
+          if (auth) {
+            const user = await context.prisma.user.findFirst({
+              where: {
+                session: {
+                  some: {
+                    token: auth
+                  }
+                }
+              }
+            });
+            if (user) {
+              context.user = user;
             }
           }
         } catch (error) {
@@ -81,7 +84,7 @@ const main = async () => {
       cors: {
         origin:
           /*env.NODE_ENV === 'development' ? */ /.*/ /* : getAllowedOrigins().map((url) => `${url.protocol}//${url.host}`)*/,
-        allowedHeaders: ['Authorization', 'X-Requested-With', 'Content-Type', 'Platform', 'Locale'],
+        allowedHeaders: ['Authorization', 'x-auth-token', 'X-Requested-With', 'Content-Type', 'Platform', 'Locale'],
         maxAge: 86400, // 1 day
         credentials: true
       }
@@ -91,7 +94,7 @@ const main = async () => {
       cors({
         origin:
           /*env.NODE_ENV === 'development' ? */ /.*/ /* : getAllowedOrigins().map((url) => `${url.protocol}//${url.host}`) */,
-        allowedHeaders: ['Authorization', 'X-Requested-With', 'Content-Type', 'Platform', 'Locale'],
+        allowedHeaders: ['Authorization', 'x-auth-token', 'X-Requested-With', 'Content-Type', 'Platform', 'Locale'],
         maxAge: 86400, // 1 day
         credentials: true
       })

@@ -4,6 +4,7 @@ import path from 'path';
 import requireAll from 'require-all';
 import getMiddlewares from '../middlewares';
 import { applyMiddleware } from 'graphql-middleware';
+import * as Resolvers from '../resolvers';
 
 // Require all schema files
 const schemas = Object.entries(
@@ -25,7 +26,7 @@ const schemas = Object.entries(
 export default applyMiddleware(
   makeSchema({
     // The imported schemas
-    types: [...schemas /*, Object.entries(Resolvers).map((entry) => entry[1])*/],
+    types: [...schemas, Object.entries(Resolvers).map((entry) => entry[1])],
     plugins: [
       nexusPrisma({
         paginationStrategy: 'prisma',

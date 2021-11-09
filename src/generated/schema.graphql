@@ -927,6 +927,14 @@ input FloatFilter {
   notIn: [Float!]
 }
 
+input IntFieldUpdateOperationsInput {
+  decrement: Int
+  divide: Int
+  increment: Int
+  multiply: Int
+  set: Int
+}
+
 input IntFilter {
   equals: Int
   gt: Int
@@ -1487,6 +1495,7 @@ type Mutation {
   createOneProjectModule(data: ProjectModuleCreateInput!): ProjectModule!
   deleteOneProject(where: ProjectWhereUniqueInput!): Project
   deleteOneProjectModule(where: ProjectModuleWhereUniqueInput!): ProjectModule
+  login(user: UserSingIn!): Session
   updateOneProject(data: ProjectUpdateInput!, where: ProjectWhereUniqueInput!): Project
   updateOneProjectModule(data: ProjectModuleUpdateInput!, where: ProjectModuleWhereUniqueInput!): ProjectModule
 }
@@ -1586,6 +1595,8 @@ type Project {
   title: String!
   type: Type!
   typeId: Int!
+  user: User
+  userId: Int
   width: Float!
 }
 
@@ -1600,6 +1611,7 @@ input ProjectCreateInput {
   slug: String!
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
+  user: UserCreateNestedOneWithoutProjectInput
   width: Float!
 }
 
@@ -1613,6 +1625,7 @@ input ProjectCreateManyCollectionInput {
   slug: String!
   title: String!
   typeId: Int!
+  userId: Int
   width: Float!
 }
 
@@ -1631,6 +1644,7 @@ input ProjectCreateManyFinishInput {
   slug: String!
   title: String!
   typeId: Int!
+  userId: Int
   width: Float!
 }
 
@@ -1649,6 +1663,7 @@ input ProjectCreateManySlideDepthInput {
   slug: String!
   title: String!
   typeId: Int!
+  userId: Int
   width: Float!
 }
 
@@ -1667,6 +1682,7 @@ input ProjectCreateManySlideInput {
   slug: String!
   title: String!
   typeId: Int!
+  userId: Int
   width: Float!
 }
 
@@ -1744,6 +1760,7 @@ input ProjectCreateWithoutCollectionInput {
   slug: String!
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
+  user: UserCreateNestedOneWithoutProjectInput
   width: Float!
 }
 
@@ -1757,6 +1774,7 @@ input ProjectCreateWithoutFinishInput {
   slug: String!
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
+  user: UserCreateNestedOneWithoutProjectInput
   width: Float!
 }
 
@@ -1770,6 +1788,7 @@ input ProjectCreateWithoutProjectModulesInput {
   slug: String!
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
+  user: UserCreateNestedOneWithoutProjectInput
   width: Float!
 }
 
@@ -1783,6 +1802,7 @@ input ProjectCreateWithoutSlideDepthInput {
   slug: String!
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
+  user: UserCreateNestedOneWithoutProjectInput
   width: Float!
 }
 
@@ -1796,6 +1816,7 @@ input ProjectCreateWithoutSlideInput {
   slug: String!
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
+  user: UserCreateNestedOneWithoutProjectInput
   width: Float!
 }
 
@@ -2172,6 +2193,7 @@ input ProjectOrderByInput {
   slug: SortOrder
   title: SortOrder
   typeId: SortOrder
+  userId: SortOrder
   width: SortOrder
 }
 
@@ -2189,6 +2211,7 @@ input ProjectScalarWhereInput {
   slug: StringFilter
   title: StringFilter
   typeId: IntFilter
+  userId: IntNullableFilter
   width: FloatFilter
 }
 
@@ -2203,6 +2226,7 @@ input ProjectUpdateInput {
   slug: StringFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
+  user: UserUpdateOneWithoutProjectInput
   width: FloatFieldUpdateOperationsInput
 }
 
@@ -2330,6 +2354,7 @@ input ProjectUpdateWithoutCollectionInput {
   slug: StringFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
+  user: UserUpdateOneWithoutProjectInput
   width: FloatFieldUpdateOperationsInput
 }
 
@@ -2343,6 +2368,7 @@ input ProjectUpdateWithoutFinishInput {
   slug: StringFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
+  user: UserUpdateOneWithoutProjectInput
   width: FloatFieldUpdateOperationsInput
 }
 
@@ -2356,6 +2382,7 @@ input ProjectUpdateWithoutProjectModulesInput {
   slug: StringFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
+  user: UserUpdateOneWithoutProjectInput
   width: FloatFieldUpdateOperationsInput
 }
 
@@ -2369,6 +2396,7 @@ input ProjectUpdateWithoutSlideDepthInput {
   slug: StringFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
+  user: UserUpdateOneWithoutProjectInput
   width: FloatFieldUpdateOperationsInput
 }
 
@@ -2382,6 +2410,7 @@ input ProjectUpdateWithoutSlideInput {
   slug: StringFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
+  user: UserUpdateOneWithoutProjectInput
   width: FloatFieldUpdateOperationsInput
 }
 
@@ -2434,6 +2463,8 @@ input ProjectWhereInput {
   title: StringFilter
   type: TypeWhereInput
   typeId: IntFilter
+  user: UserWhereInput
+  userId: IntNullableFilter
   width: FloatFilter
 }
 
@@ -2538,6 +2569,106 @@ type Query {
     take: Int
     where: TypeWhereInput
   ): [Type!]!
+}
+
+type Session {
+  id: Int!
+  token: String!
+  user: User!
+  userId: Int!
+}
+
+input SessionCreateManyUserInput {
+  id: Int
+  token: String!
+}
+
+input SessionCreateManyUserInputEnvelope {
+  data: [SessionCreateManyUserInput!]
+  skipDuplicates: Boolean
+}
+
+input SessionCreateNestedManyWithoutUserInput {
+  connect: [SessionWhereUniqueInput!]
+  connectOrCreate: [SessionCreateOrConnectWithoutUserInput!]
+  create: [SessionCreateWithoutUserInput!]
+  createMany: SessionCreateManyUserInputEnvelope
+}
+
+input SessionCreateOrConnectWithoutUserInput {
+  create: SessionCreateWithoutUserInput!
+  where: SessionWhereUniqueInput!
+}
+
+input SessionCreateWithoutUserInput {
+  token: String!
+}
+
+input SessionListRelationFilter {
+  every: SessionWhereInput
+  none: SessionWhereInput
+  some: SessionWhereInput
+}
+
+input SessionScalarWhereInput {
+  AND: [SessionScalarWhereInput!]
+  NOT: [SessionScalarWhereInput!]
+  OR: [SessionScalarWhereInput!]
+  id: IntFilter
+  token: StringFilter
+  userId: IntFilter
+}
+
+input SessionUpdateManyMutationInput {
+  token: StringFieldUpdateOperationsInput
+}
+
+input SessionUpdateManyWithWhereWithoutUserInput {
+  data: SessionUpdateManyMutationInput!
+  where: SessionScalarWhereInput!
+}
+
+input SessionUpdateManyWithoutUserInput {
+  connect: [SessionWhereUniqueInput!]
+  connectOrCreate: [SessionCreateOrConnectWithoutUserInput!]
+  create: [SessionCreateWithoutUserInput!]
+  createMany: SessionCreateManyUserInputEnvelope
+  delete: [SessionWhereUniqueInput!]
+  deleteMany: [SessionScalarWhereInput!]
+  disconnect: [SessionWhereUniqueInput!]
+  set: [SessionWhereUniqueInput!]
+  update: [SessionUpdateWithWhereUniqueWithoutUserInput!]
+  updateMany: [SessionUpdateManyWithWhereWithoutUserInput!]
+  upsert: [SessionUpsertWithWhereUniqueWithoutUserInput!]
+}
+
+input SessionUpdateWithWhereUniqueWithoutUserInput {
+  data: SessionUpdateWithoutUserInput!
+  where: SessionWhereUniqueInput!
+}
+
+input SessionUpdateWithoutUserInput {
+  token: StringFieldUpdateOperationsInput
+}
+
+input SessionUpsertWithWhereUniqueWithoutUserInput {
+  create: SessionCreateWithoutUserInput!
+  update: SessionUpdateWithoutUserInput!
+  where: SessionWhereUniqueInput!
+}
+
+input SessionWhereInput {
+  AND: [SessionWhereInput!]
+  NOT: [SessionWhereInput!]
+  OR: [SessionWhereInput!]
+  id: IntFilter
+  token: StringFilter
+  user: UserWhereInput
+  userId: IntFilter
+}
+
+input SessionWhereUniqueInput {
+  id: Int
 }
 
 type Slide {
@@ -3241,4 +3372,66 @@ input TypeWhereUniqueInput {
 type User {
   email: String!
   id: Int!
+  marathonUserId: Int!
+  project(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
+  session(cursor: SessionWhereUniqueInput, skip: Int, take: Int): [Session!]!
+}
+
+input UserCreateNestedOneWithoutProjectInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutProjectInput
+  create: UserCreateWithoutProjectInput
+}
+
+input UserCreateOrConnectWithoutProjectInput {
+  create: UserCreateWithoutProjectInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateWithoutProjectInput {
+  email: String!
+  marathonUserId: Int!
+  session: SessionCreateNestedManyWithoutUserInput
+}
+
+input UserSingIn {
+  email: String
+  password: String
+}
+
+input UserUpdateOneWithoutProjectInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutProjectInput
+  create: UserCreateWithoutProjectInput
+  delete: Boolean
+  disconnect: Boolean
+  update: UserUpdateWithoutProjectInput
+  upsert: UserUpsertWithoutProjectInput
+}
+
+input UserUpdateWithoutProjectInput {
+  email: StringFieldUpdateOperationsInput
+  marathonUserId: IntFieldUpdateOperationsInput
+  session: SessionUpdateManyWithoutUserInput
+}
+
+input UserUpsertWithoutProjectInput {
+  create: UserCreateWithoutProjectInput!
+  update: UserUpdateWithoutProjectInput!
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  email: StringFilter
+  id: IntFilter
+  marathonUserId: IntFilter
+  project: ProjectListRelationFilter
+  session: SessionListRelationFilter
+}
+
+input UserWhereUniqueInput {
+  email: String
+  id: Int
 }
