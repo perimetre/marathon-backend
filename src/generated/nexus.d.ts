@@ -3025,6 +3025,10 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenObjects {
+  AffectedRowsOutput: {
+    // root type
+    count: number; // Int!
+  };
   Category: {
     // root type
     id: number; // Int!
@@ -3210,6 +3214,10 @@ export type NexusGenRootTypes = NexusGenObjects;
 export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars & NexusGenEnums;
 
 export interface NexusGenFieldTypes {
+  AffectedRowsOutput: {
+    // field return type
+    count: number; // Int!
+  };
   Category: {
     // field return type
     id: number; // Int!
@@ -3341,9 +3349,11 @@ export interface NexusGenFieldTypes {
     // field return type
     createOneProject: NexusGenRootTypes['Project']; // Project!
     createOneProjectModule: NexusGenRootTypes['ProjectModule']; // ProjectModule!
+    deleteManyProjectModule: NexusGenRootTypes['AffectedRowsOutput']; // AffectedRowsOutput!
     deleteOneProject: NexusGenRootTypes['Project'] | null; // Project
     deleteOneProjectModule: NexusGenRootTypes['ProjectModule'] | null; // ProjectModule
     login: NexusGenRootTypes['Session'] | null; // Session
+    updateManyProjectModule: NexusGenRootTypes['AffectedRowsOutput']; // AffectedRowsOutput!
     updateOneProject: NexusGenRootTypes['Project'] | null; // Project
     updateOneProjectModule: NexusGenRootTypes['ProjectModule'] | null; // ProjectModule
   };
@@ -3478,6 +3488,10 @@ export interface NexusGenFieldTypes {
 }
 
 export interface NexusGenFieldTypeNames {
+  AffectedRowsOutput: {
+    // field return type name
+    count: 'Int';
+  };
   Category: {
     // field return type name
     id: 'Int';
@@ -3609,9 +3623,11 @@ export interface NexusGenFieldTypeNames {
     // field return type name
     createOneProject: 'Project';
     createOneProjectModule: 'ProjectModule';
+    deleteManyProjectModule: 'AffectedRowsOutput';
     deleteOneProject: 'Project';
     deleteOneProjectModule: 'ProjectModule';
     login: 'Session';
+    updateManyProjectModule: 'AffectedRowsOutput';
     updateOneProject: 'Project';
     updateOneProjectModule: 'ProjectModule';
   };
@@ -3835,6 +3851,10 @@ export interface NexusGenArgTypes {
       // args
       data: NexusGenInputs['ProjectModuleCreateInput']; // ProjectModuleCreateInput!
     };
+    deleteManyProjectModule: {
+      // args
+      where?: NexusGenInputs['ProjectModuleWhereInput'] | null; // ProjectModuleWhereInput
+    };
     deleteOneProject: {
       // args
       where: NexusGenInputs['ProjectWhereUniqueInput']; // ProjectWhereUniqueInput!
@@ -3846,6 +3866,11 @@ export interface NexusGenArgTypes {
     login: {
       // args
       user: NexusGenInputs['UserSingIn']; // UserSingIn!
+    };
+    updateManyProjectModule: {
+      // args
+      data: NexusGenInputs['ProjectModuleUpdateManyMutationInput']; // ProjectModuleUpdateManyMutationInput!
+      where?: NexusGenInputs['ProjectModuleWhereInput'] | null; // ProjectModuleWhereInput
     };
     updateOneProject: {
       // args

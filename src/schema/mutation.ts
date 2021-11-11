@@ -9,5 +9,8 @@ export const Mutation = mutationType({
     t.crud.createOneProjectModule();
     t.crud.updateOneProjectModule();
     t.crud.deleteOneProjectModule();
+
+    t.crud.updateManyProjectModule();
+    t.crud.deleteManyProjectModule();
   }
 });
