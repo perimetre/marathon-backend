@@ -33,6 +33,10 @@ export const Module = objectType({
       }
     });
 
+    t.model.rules({
+      alias: 'rulesJson'
+    });
+
     t.field('rules', {
       type: 'ModuleRules',
       resolve: async (root, _args, ctx) => {

@@ -100,25 +100,26 @@ model Module {
 }
 
 model Project {
-  id             Int             @id @default(autoincrement())
-  slug           String          @unique
-  title          String          @db.VarChar(255)
-  width          Float
-  gable          Float
-  typeId         Int
-  hasPegs        Boolean         @default(false)
-  type           Type            @relation(fields: [typeId], references: [id])
-  collectionId   Int
-  collection     Collection      @relation(fields: [collectionId], references: [id])
-  finishId       Int
-  finish         Finish          @relation(fields: [finishId], references: [id])
-  slideId        Int
-  slide          Slide           @relation(fields: [slideId], references: [id])
-  slideDepthId   Int
-  slideDepth     SlideDepth      @relation(fields: [slideDepthId], references: [id])
-  userId         Int?
-  user           User?           @relation(fields: [userId], references: [id])
-  projectModules ProjectModule[]
+  id              Int             @id @default(autoincrement())
+  slug            String          @unique
+  title           String          @db.VarChar(255)
+  cabinetWidth    Float?
+  calculatedWidth Float?
+  gable           Float
+  typeId          Int
+  hasPegs         Boolean         @default(false)
+  type            Type            @relation(fields: [typeId], references: [id])
+  collectionId    Int
+  collection      Collection      @relation(fields: [collectionId], references: [id])
+  finishId        Int
+  finish          Finish          @relation(fields: [finishId], references: [id])
+  slideId         Int
+  slide           Slide           @relation(fields: [slideId], references: [id])
+  slideDepthId    Int
+  slideDepth      SlideDepth      @relation(fields: [slideDepthId], references: [id])
+  userId          Int?
+  user            User?           @relation(fields: [userId], references: [id])
+  projectModules  ProjectModule[]
 }
 
 model ProjectModule {

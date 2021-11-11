@@ -931,6 +931,17 @@ input FloatFilter {
   notIn: [Float!]
 }
 
+input FloatNullableFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatNullableFilter
+  notIn: [Float!]
+}
+
 input IntFieldUpdateOperationsInput {
   decrement: Int
   divide: Int
@@ -995,6 +1006,7 @@ type Module {
     where: ProjectModuleWhereInput
   ): [ProjectModule!]!
   rules: ModuleRules
+  rulesJson: Json
   thumbnailUrl: String
 }
 
@@ -1532,6 +1544,17 @@ input NestedFloatFilter {
   notIn: [Float!]
 }
 
+input NestedFloatNullableFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatNullableFilter
+  notIn: [Float!]
+}
+
 input NestedIntFilter {
   equals: Int
   gt: Int
@@ -1582,11 +1605,21 @@ input NestedStringNullableFilter {
   startsWith: String
 }
 
+input NullableFloatFieldUpdateOperationsInput {
+  decrement: Float
+  divide: Float
+  increment: Float
+  multiply: Float
+  set: Float
+}
+
 input NullableStringFieldUpdateOperationsInput {
   set: String
 }
 
 type Project {
+  cabinetWidth: Float
+  calculatedWidth: Float
   collection: Collection!
   collectionId: Int!
   finish: Finish!
@@ -1606,10 +1639,11 @@ type Project {
   typeId: Int!
   user: User
   userId: Int
-  width: Float!
 }
 
 input ProjectCreateInput {
+  cabinetWidth: Float
+  calculatedWidth: Float
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
@@ -1621,10 +1655,11 @@ input ProjectCreateInput {
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
   user: UserCreateNestedOneWithoutProjectInput
-  width: Float!
 }
 
 input ProjectCreateManyCollectionInput {
+  cabinetWidth: Float
+  calculatedWidth: Float
   finishId: Int!
   gable: Float!
   hasPegs: Boolean
@@ -1635,7 +1670,6 @@ input ProjectCreateManyCollectionInput {
   title: String!
   typeId: Int!
   userId: Int
-  width: Float!
 }
 
 input ProjectCreateManyCollectionInputEnvelope {
@@ -1644,6 +1678,8 @@ input ProjectCreateManyCollectionInputEnvelope {
 }
 
 input ProjectCreateManyFinishInput {
+  cabinetWidth: Float
+  calculatedWidth: Float
   collectionId: Int!
   gable: Float!
   hasPegs: Boolean
@@ -1654,7 +1690,6 @@ input ProjectCreateManyFinishInput {
   title: String!
   typeId: Int!
   userId: Int
-  width: Float!
 }
 
 input ProjectCreateManyFinishInputEnvelope {
@@ -1663,6 +1698,8 @@ input ProjectCreateManyFinishInputEnvelope {
 }
 
 input ProjectCreateManySlideDepthInput {
+  cabinetWidth: Float
+  calculatedWidth: Float
   collectionId: Int!
   finishId: Int!
   gable: Float!
@@ -1673,7 +1710,6 @@ input ProjectCreateManySlideDepthInput {
   title: String!
   typeId: Int!
   userId: Int
-  width: Float!
 }
 
 input ProjectCreateManySlideDepthInputEnvelope {
@@ -1682,6 +1718,8 @@ input ProjectCreateManySlideDepthInputEnvelope {
 }
 
 input ProjectCreateManySlideInput {
+  cabinetWidth: Float
+  calculatedWidth: Float
   collectionId: Int!
   finishId: Int!
   gable: Float!
@@ -1692,7 +1730,6 @@ input ProjectCreateManySlideInput {
   title: String!
   typeId: Int!
   userId: Int
-  width: Float!
 }
 
 input ProjectCreateManySlideInputEnvelope {
@@ -1760,6 +1797,8 @@ input ProjectCreateOrConnectWithoutSlideInput {
 }
 
 input ProjectCreateWithoutCollectionInput {
+  cabinetWidth: Float
+  calculatedWidth: Float
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
   hasPegs: Boolean
@@ -1770,10 +1809,11 @@ input ProjectCreateWithoutCollectionInput {
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
   user: UserCreateNestedOneWithoutProjectInput
-  width: Float!
 }
 
 input ProjectCreateWithoutFinishInput {
+  cabinetWidth: Float
+  calculatedWidth: Float
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   gable: Float!
   hasPegs: Boolean
@@ -1784,10 +1824,11 @@ input ProjectCreateWithoutFinishInput {
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
   user: UserCreateNestedOneWithoutProjectInput
-  width: Float!
 }
 
 input ProjectCreateWithoutProjectModulesInput {
+  cabinetWidth: Float
+  calculatedWidth: Float
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
@@ -1798,10 +1839,11 @@ input ProjectCreateWithoutProjectModulesInput {
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
   user: UserCreateNestedOneWithoutProjectInput
-  width: Float!
 }
 
 input ProjectCreateWithoutSlideDepthInput {
+  cabinetWidth: Float
+  calculatedWidth: Float
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
@@ -1812,10 +1854,11 @@ input ProjectCreateWithoutSlideDepthInput {
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
   user: UserCreateNestedOneWithoutProjectInput
-  width: Float!
 }
 
 input ProjectCreateWithoutSlideInput {
+  cabinetWidth: Float
+  calculatedWidth: Float
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
@@ -1826,7 +1869,6 @@ input ProjectCreateWithoutSlideInput {
   title: String!
   type: TypeCreateNestedOneWithoutProjectsInput!
   user: UserCreateNestedOneWithoutProjectInput
-  width: Float!
 }
 
 input ProjectListRelationFilter {
@@ -2210,6 +2252,8 @@ input ProjectModuleWhereUniqueInput {
 }
 
 input ProjectOrderByInput {
+  cabinetWidth: SortOrder
+  calculatedWidth: SortOrder
   collectionId: SortOrder
   finishId: SortOrder
   gable: SortOrder
@@ -2221,13 +2265,14 @@ input ProjectOrderByInput {
   title: SortOrder
   typeId: SortOrder
   userId: SortOrder
-  width: SortOrder
 }
 
 input ProjectScalarWhereInput {
   AND: [ProjectScalarWhereInput!]
   NOT: [ProjectScalarWhereInput!]
   OR: [ProjectScalarWhereInput!]
+  cabinetWidth: FloatNullableFilter
+  calculatedWidth: FloatNullableFilter
   collectionId: IntFilter
   finishId: IntFilter
   gable: FloatFilter
@@ -2239,10 +2284,11 @@ input ProjectScalarWhereInput {
   title: StringFilter
   typeId: IntFilter
   userId: IntNullableFilter
-  width: FloatFilter
 }
 
 input ProjectUpdateInput {
+  cabinetWidth: NullableFloatFieldUpdateOperationsInput
+  calculatedWidth: NullableFloatFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
@@ -2254,15 +2300,15 @@ input ProjectUpdateInput {
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
   user: UserUpdateOneWithoutProjectInput
-  width: FloatFieldUpdateOperationsInput
 }
 
 input ProjectUpdateManyMutationInput {
+  cabinetWidth: NullableFloatFieldUpdateOperationsInput
+  calculatedWidth: NullableFloatFieldUpdateOperationsInput
   gable: FloatFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   slug: StringFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
-  width: FloatFieldUpdateOperationsInput
 }
 
 input ProjectUpdateManyWithWhereWithoutCollectionInput {
@@ -2372,6 +2418,8 @@ input ProjectUpdateWithWhereUniqueWithoutSlideInput {
 }
 
 input ProjectUpdateWithoutCollectionInput {
+  cabinetWidth: NullableFloatFieldUpdateOperationsInput
+  calculatedWidth: NullableFloatFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
@@ -2382,10 +2430,11 @@ input ProjectUpdateWithoutCollectionInput {
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
   user: UserUpdateOneWithoutProjectInput
-  width: FloatFieldUpdateOperationsInput
 }
 
 input ProjectUpdateWithoutFinishInput {
+  cabinetWidth: NullableFloatFieldUpdateOperationsInput
+  calculatedWidth: NullableFloatFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
@@ -2396,10 +2445,11 @@ input ProjectUpdateWithoutFinishInput {
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
   user: UserUpdateOneWithoutProjectInput
-  width: FloatFieldUpdateOperationsInput
 }
 
 input ProjectUpdateWithoutProjectModulesInput {
+  cabinetWidth: NullableFloatFieldUpdateOperationsInput
+  calculatedWidth: NullableFloatFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
@@ -2410,10 +2460,11 @@ input ProjectUpdateWithoutProjectModulesInput {
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
   user: UserUpdateOneWithoutProjectInput
-  width: FloatFieldUpdateOperationsInput
 }
 
 input ProjectUpdateWithoutSlideDepthInput {
+  cabinetWidth: NullableFloatFieldUpdateOperationsInput
+  calculatedWidth: NullableFloatFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
@@ -2424,10 +2475,11 @@ input ProjectUpdateWithoutSlideDepthInput {
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
   user: UserUpdateOneWithoutProjectInput
-  width: FloatFieldUpdateOperationsInput
 }
 
 input ProjectUpdateWithoutSlideInput {
+  cabinetWidth: NullableFloatFieldUpdateOperationsInput
+  calculatedWidth: NullableFloatFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
@@ -2438,7 +2490,6 @@ input ProjectUpdateWithoutSlideInput {
   title: StringFieldUpdateOperationsInput
   type: TypeUpdateOneRequiredWithoutProjectsInput
   user: UserUpdateOneWithoutProjectInput
-  width: FloatFieldUpdateOperationsInput
 }
 
 input ProjectUpsertWithWhereUniqueWithoutCollectionInput {
@@ -2474,6 +2525,8 @@ input ProjectWhereInput {
   AND: [ProjectWhereInput!]
   NOT: [ProjectWhereInput!]
   OR: [ProjectWhereInput!]
+  cabinetWidth: FloatNullableFilter
+  calculatedWidth: FloatNullableFilter
   collection: CollectionWhereInput
   collectionId: IntFilter
   finish: FinishWhereInput
@@ -2492,7 +2545,6 @@ input ProjectWhereInput {
   typeId: IntFilter
   user: UserWhereInput
   userId: IntNullableFilter
-  width: FloatFilter
 }
 
 input ProjectWhereUniqueInput {
