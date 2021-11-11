@@ -21,6 +21,7 @@ export const project = and(
   })
 );
 
+export const module = isAuthenticated;
 export const modules = isAuthenticated;
 
 export const finishes = isAuthenticated;
