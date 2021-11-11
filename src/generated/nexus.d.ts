@@ -3181,7 +3181,6 @@ export interface NexusGenObjects {
   Project: {
     // root type
     cabinetWidth?: number | null; // Float
-    calculatedWidth?: number | null; // Float
     collectionId: number; // Int!
     finishId: number; // Int!
     gable: number; // Float!
