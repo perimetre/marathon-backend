@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `ProjectModule` MODIFY `rotY` DOUBLE NOT NULL DEFAULT 0;
