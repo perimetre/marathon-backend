@@ -123,9 +123,10 @@ model Project {
 
 model ProjectModule {
   id        Int             @id @default(autoincrement())
-  posX      Float
-  posZ      Float
-  rotZ      Float
+  posX      Float           @default(0)
+  posY      Float           @default(0)
+  posZ      Float           @default(0)
+  rotY      Float           @default(0)
   moduleId  Int
   module    Module          @relation(fields: [moduleId], references: [id])
   parentId  Int?

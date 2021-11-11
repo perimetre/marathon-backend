@@ -1597,19 +1597,21 @@ export interface NexusGenInputs {
     children?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutParentInput'] | null; // ProjectModuleCreateNestedManyWithoutParentInput
     module: NexusGenInputs['ModuleCreateNestedOneWithoutProjectModulesInput']; // ModuleCreateNestedOneWithoutProjectModulesInput!
     parent?: NexusGenInputs['ProjectModuleCreateNestedOneWithoutChildrenInput'] | null; // ProjectModuleCreateNestedOneWithoutChildrenInput
-    posX: number; // Float!
-    posZ: number; // Float!
+    posX?: number | null; // Float
+    posY?: number | null; // Float
+    posZ?: number | null; // Float
     project?: NexusGenInputs['ProjectCreateNestedOneWithoutProjectModulesInput'] | null; // ProjectCreateNestedOneWithoutProjectModulesInput
-    rotZ: number; // Float!
+    rotY?: number | null; // Float
   };
   ProjectModuleCreateManyModuleInput: {
     // input type
     id?: number | null; // Int
     parentId?: number | null; // Int
-    posX: number; // Float!
-    posZ: number; // Float!
+    posX?: number | null; // Float
+    posY?: number | null; // Float
+    posZ?: number | null; // Float
     projectId?: number | null; // Int
-    rotZ: number; // Float!
+    rotY?: number | null; // Float
   };
   ProjectModuleCreateManyModuleInputEnvelope: {
     // input type
@@ -1620,10 +1622,11 @@ export interface NexusGenInputs {
     // input type
     id?: number | null; // Int
     moduleId: number; // Int!
-    posX: number; // Float!
-    posZ: number; // Float!
+    posX?: number | null; // Float
+    posY?: number | null; // Float
+    posZ?: number | null; // Float
     projectId?: number | null; // Int
-    rotZ: number; // Float!
+    rotY?: number | null; // Float
   };
   ProjectModuleCreateManyParentInputEnvelope: {
     // input type
@@ -1635,9 +1638,10 @@ export interface NexusGenInputs {
     id?: number | null; // Int
     moduleId: number; // Int!
     parentId?: number | null; // Int
-    posX: number; // Float!
-    posZ: number; // Float!
-    rotZ: number; // Float!
+    posX?: number | null; // Float
+    posY?: number | null; // Float
+    posZ?: number | null; // Float
+    rotY?: number | null; // Float
   };
   ProjectModuleCreateManyProjectInputEnvelope: {
     // input type
@@ -1695,37 +1699,41 @@ export interface NexusGenInputs {
     // input type
     module: NexusGenInputs['ModuleCreateNestedOneWithoutProjectModulesInput']; // ModuleCreateNestedOneWithoutProjectModulesInput!
     parent?: NexusGenInputs['ProjectModuleCreateNestedOneWithoutChildrenInput'] | null; // ProjectModuleCreateNestedOneWithoutChildrenInput
-    posX: number; // Float!
-    posZ: number; // Float!
+    posX?: number | null; // Float
+    posY?: number | null; // Float
+    posZ?: number | null; // Float
     project?: NexusGenInputs['ProjectCreateNestedOneWithoutProjectModulesInput'] | null; // ProjectCreateNestedOneWithoutProjectModulesInput
-    rotZ: number; // Float!
+    rotY?: number | null; // Float
   };
   ProjectModuleCreateWithoutModuleInput: {
     // input type
     children?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutParentInput'] | null; // ProjectModuleCreateNestedManyWithoutParentInput
     parent?: NexusGenInputs['ProjectModuleCreateNestedOneWithoutChildrenInput'] | null; // ProjectModuleCreateNestedOneWithoutChildrenInput
-    posX: number; // Float!
-    posZ: number; // Float!
+    posX?: number | null; // Float
+    posY?: number | null; // Float
+    posZ?: number | null; // Float
     project?: NexusGenInputs['ProjectCreateNestedOneWithoutProjectModulesInput'] | null; // ProjectCreateNestedOneWithoutProjectModulesInput
-    rotZ: number; // Float!
+    rotY?: number | null; // Float
   };
   ProjectModuleCreateWithoutParentInput: {
     // input type
     children?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutParentInput'] | null; // ProjectModuleCreateNestedManyWithoutParentInput
     module: NexusGenInputs['ModuleCreateNestedOneWithoutProjectModulesInput']; // ModuleCreateNestedOneWithoutProjectModulesInput!
-    posX: number; // Float!
-    posZ: number; // Float!
+    posX?: number | null; // Float
+    posY?: number | null; // Float
+    posZ?: number | null; // Float
     project?: NexusGenInputs['ProjectCreateNestedOneWithoutProjectModulesInput'] | null; // ProjectCreateNestedOneWithoutProjectModulesInput
-    rotZ: number; // Float!
+    rotY?: number | null; // Float
   };
   ProjectModuleCreateWithoutProjectInput: {
     // input type
     children?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutParentInput'] | null; // ProjectModuleCreateNestedManyWithoutParentInput
     module: NexusGenInputs['ModuleCreateNestedOneWithoutProjectModulesInput']; // ModuleCreateNestedOneWithoutProjectModulesInput!
     parent?: NexusGenInputs['ProjectModuleCreateNestedOneWithoutChildrenInput'] | null; // ProjectModuleCreateNestedOneWithoutChildrenInput
-    posX: number; // Float!
-    posZ: number; // Float!
-    rotZ: number; // Float!
+    posX?: number | null; // Float
+    posY?: number | null; // Float
+    posZ?: number | null; // Float
+    rotY?: number | null; // Float
   };
   ProjectModuleListRelationFilter: {
     // input type
@@ -1739,9 +1747,10 @@ export interface NexusGenInputs {
     moduleId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     parentId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     posX?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    posY?: NexusGenEnums['SortOrder'] | null; // SortOrder
     posZ?: NexusGenEnums['SortOrder'] | null; // SortOrder
     projectId?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    rotZ?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    rotY?: NexusGenEnums['SortOrder'] | null; // SortOrder
   };
   ProjectModuleScalarWhereInput: {
     // input type
@@ -1752,9 +1761,10 @@ export interface NexusGenInputs {
     moduleId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     parentId?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     posX?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
+    posY?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
     posZ?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
     projectId?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
-    rotZ?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
+    rotY?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
   };
   ProjectModuleUpdateInput: {
     // input type
@@ -1762,15 +1772,17 @@ export interface NexusGenInputs {
     module?: NexusGenInputs['ModuleUpdateOneRequiredWithoutProjectModulesInput'] | null; // ModuleUpdateOneRequiredWithoutProjectModulesInput
     parent?: NexusGenInputs['ProjectModuleUpdateOneWithoutChildrenInput'] | null; // ProjectModuleUpdateOneWithoutChildrenInput
     posX?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    posY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     posZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     project?: NexusGenInputs['ProjectUpdateOneWithoutProjectModulesInput'] | null; // ProjectUpdateOneWithoutProjectModulesInput
-    rotZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    rotY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectModuleUpdateManyMutationInput: {
     // input type
     posX?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    posY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     posZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
-    rotZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    rotY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectModuleUpdateManyWithWhereWithoutModuleInput: {
     // input type
@@ -1859,27 +1871,30 @@ export interface NexusGenInputs {
     module?: NexusGenInputs['ModuleUpdateOneRequiredWithoutProjectModulesInput'] | null; // ModuleUpdateOneRequiredWithoutProjectModulesInput
     parent?: NexusGenInputs['ProjectModuleUpdateOneWithoutChildrenInput'] | null; // ProjectModuleUpdateOneWithoutChildrenInput
     posX?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    posY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     posZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     project?: NexusGenInputs['ProjectUpdateOneWithoutProjectModulesInput'] | null; // ProjectUpdateOneWithoutProjectModulesInput
-    rotZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    rotY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectModuleUpdateWithoutModuleInput: {
     // input type
     children?: NexusGenInputs['ProjectModuleUpdateManyWithoutParentInput'] | null; // ProjectModuleUpdateManyWithoutParentInput
     parent?: NexusGenInputs['ProjectModuleUpdateOneWithoutChildrenInput'] | null; // ProjectModuleUpdateOneWithoutChildrenInput
     posX?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    posY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     posZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     project?: NexusGenInputs['ProjectUpdateOneWithoutProjectModulesInput'] | null; // ProjectUpdateOneWithoutProjectModulesInput
-    rotZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    rotY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectModuleUpdateWithoutParentInput: {
     // input type
     children?: NexusGenInputs['ProjectModuleUpdateManyWithoutParentInput'] | null; // ProjectModuleUpdateManyWithoutParentInput
     module?: NexusGenInputs['ModuleUpdateOneRequiredWithoutProjectModulesInput'] | null; // ModuleUpdateOneRequiredWithoutProjectModulesInput
     posX?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    posY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     posZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     project?: NexusGenInputs['ProjectUpdateOneWithoutProjectModulesInput'] | null; // ProjectUpdateOneWithoutProjectModulesInput
-    rotZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    rotY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectModuleUpdateWithoutProjectInput: {
     // input type
@@ -1887,8 +1902,9 @@ export interface NexusGenInputs {
     module?: NexusGenInputs['ModuleUpdateOneRequiredWithoutProjectModulesInput'] | null; // ModuleUpdateOneRequiredWithoutProjectModulesInput
     parent?: NexusGenInputs['ProjectModuleUpdateOneWithoutChildrenInput'] | null; // ProjectModuleUpdateOneWithoutChildrenInput
     posX?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    posY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     posZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
-    rotZ?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    rotY?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
   };
   ProjectModuleUpsertWithWhereUniqueWithoutModuleInput: {
     // input type
@@ -1925,10 +1941,11 @@ export interface NexusGenInputs {
     parent?: NexusGenInputs['ProjectModuleWhereInput'] | null; // ProjectModuleWhereInput
     parentId?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     posX?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
+    posY?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
     posZ?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
     project?: NexusGenInputs['ProjectWhereInput'] | null; // ProjectWhereInput
     projectId?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
-    rotZ?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
+    rotY?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
   };
   ProjectModuleWhereUniqueInput: {
     // input type
@@ -3128,9 +3145,10 @@ export interface NexusGenObjects {
     moduleId: number; // Int!
     parentId?: number | null; // Int
     posX: number; // Float!
+    posY: number; // Float!
     posZ: number; // Float!
     projectId?: number | null; // Int
-    rotZ: number; // Float!
+    rotY: number; // Float!
   };
   Query: {};
   Session: {
@@ -3361,10 +3379,11 @@ export interface NexusGenFieldTypes {
     parent: NexusGenRootTypes['ProjectModule'] | null; // ProjectModule
     parentId: number | null; // Int
     posX: number; // Float!
+    posY: number; // Float!
     posZ: number; // Float!
     project: NexusGenRootTypes['Project'] | null; // Project
     projectId: number | null; // Int
-    rotZ: number; // Float!
+    rotY: number; // Float!
   };
   Query: {
     // field return type
@@ -3628,10 +3647,11 @@ export interface NexusGenFieldTypeNames {
     parent: 'ProjectModule';
     parentId: 'Int';
     posX: 'Float';
+    posY: 'Float';
     posZ: 'Float';
     project: 'Project';
     projectId: 'Int';
-    rotZ: 'Float';
+    rotY: 'Float';
   };
   Query: {
     // field return type name

@@ -1834,29 +1834,32 @@ type ProjectModule {
   parent: ProjectModule
   parentId: Int
   posX: Float!
+  posY: Float!
   posZ: Float!
   project: Project
   projectId: Int
-  rotZ: Float!
+  rotY: Float!
 }
 
 input ProjectModuleCreateInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
-  posX: Float!
-  posZ: Float!
+  posX: Float
+  posY: Float
+  posZ: Float
   project: ProjectCreateNestedOneWithoutProjectModulesInput
-  rotZ: Float!
+  rotY: Float
 }
 
 input ProjectModuleCreateManyModuleInput {
   id: Int
   parentId: Int
-  posX: Float!
-  posZ: Float!
+  posX: Float
+  posY: Float
+  posZ: Float
   projectId: Int
-  rotZ: Float!
+  rotY: Float
 }
 
 input ProjectModuleCreateManyModuleInputEnvelope {
@@ -1867,10 +1870,11 @@ input ProjectModuleCreateManyModuleInputEnvelope {
 input ProjectModuleCreateManyParentInput {
   id: Int
   moduleId: Int!
-  posX: Float!
-  posZ: Float!
+  posX: Float
+  posY: Float
+  posZ: Float
   projectId: Int
-  rotZ: Float!
+  rotY: Float
 }
 
 input ProjectModuleCreateManyParentInputEnvelope {
@@ -1882,9 +1886,10 @@ input ProjectModuleCreateManyProjectInput {
   id: Int
   moduleId: Int!
   parentId: Int
-  posX: Float!
-  posZ: Float!
-  rotZ: Float!
+  posX: Float
+  posY: Float
+  posZ: Float
+  rotY: Float
 }
 
 input ProjectModuleCreateManyProjectInputEnvelope {
@@ -1942,37 +1947,41 @@ input ProjectModuleCreateOrConnectWithoutProjectInput {
 input ProjectModuleCreateWithoutChildrenInput {
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
-  posX: Float!
-  posZ: Float!
+  posX: Float
+  posY: Float
+  posZ: Float
   project: ProjectCreateNestedOneWithoutProjectModulesInput
-  rotZ: Float!
+  rotY: Float
 }
 
 input ProjectModuleCreateWithoutModuleInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
-  posX: Float!
-  posZ: Float!
+  posX: Float
+  posY: Float
+  posZ: Float
   project: ProjectCreateNestedOneWithoutProjectModulesInput
-  rotZ: Float!
+  rotY: Float
 }
 
 input ProjectModuleCreateWithoutParentInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
-  posX: Float!
-  posZ: Float!
+  posX: Float
+  posY: Float
+  posZ: Float
   project: ProjectCreateNestedOneWithoutProjectModulesInput
-  rotZ: Float!
+  rotY: Float
 }
 
 input ProjectModuleCreateWithoutProjectInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
-  posX: Float!
-  posZ: Float!
-  rotZ: Float!
+  posX: Float
+  posY: Float
+  posZ: Float
+  rotY: Float
 }
 
 input ProjectModuleListRelationFilter {
@@ -1986,9 +1995,10 @@ input ProjectModuleOrderByInput {
   moduleId: SortOrder
   parentId: SortOrder
   posX: SortOrder
+  posY: SortOrder
   posZ: SortOrder
   projectId: SortOrder
-  rotZ: SortOrder
+  rotY: SortOrder
 }
 
 input ProjectModuleScalarWhereInput {
@@ -1999,9 +2009,10 @@ input ProjectModuleScalarWhereInput {
   moduleId: IntFilter
   parentId: IntNullableFilter
   posX: FloatFilter
+  posY: FloatFilter
   posZ: FloatFilter
   projectId: IntNullableFilter
-  rotZ: FloatFilter
+  rotY: FloatFilter
 }
 
 input ProjectModuleUpdateInput {
@@ -2009,15 +2020,17 @@ input ProjectModuleUpdateInput {
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
   posX: FloatFieldUpdateOperationsInput
+  posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
   project: ProjectUpdateOneWithoutProjectModulesInput
-  rotZ: FloatFieldUpdateOperationsInput
+  rotY: FloatFieldUpdateOperationsInput
 }
 
 input ProjectModuleUpdateManyMutationInput {
   posX: FloatFieldUpdateOperationsInput
+  posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
-  rotZ: FloatFieldUpdateOperationsInput
+  rotY: FloatFieldUpdateOperationsInput
 }
 
 input ProjectModuleUpdateManyWithWhereWithoutModuleInput {
@@ -2106,27 +2119,30 @@ input ProjectModuleUpdateWithoutChildrenInput {
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
   posX: FloatFieldUpdateOperationsInput
+  posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
   project: ProjectUpdateOneWithoutProjectModulesInput
-  rotZ: FloatFieldUpdateOperationsInput
+  rotY: FloatFieldUpdateOperationsInput
 }
 
 input ProjectModuleUpdateWithoutModuleInput {
   children: ProjectModuleUpdateManyWithoutParentInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
   posX: FloatFieldUpdateOperationsInput
+  posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
   project: ProjectUpdateOneWithoutProjectModulesInput
-  rotZ: FloatFieldUpdateOperationsInput
+  rotY: FloatFieldUpdateOperationsInput
 }
 
 input ProjectModuleUpdateWithoutParentInput {
   children: ProjectModuleUpdateManyWithoutParentInput
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
   posX: FloatFieldUpdateOperationsInput
+  posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
   project: ProjectUpdateOneWithoutProjectModulesInput
-  rotZ: FloatFieldUpdateOperationsInput
+  rotY: FloatFieldUpdateOperationsInput
 }
 
 input ProjectModuleUpdateWithoutProjectInput {
@@ -2134,8 +2150,9 @@ input ProjectModuleUpdateWithoutProjectInput {
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
   posX: FloatFieldUpdateOperationsInput
+  posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
-  rotZ: FloatFieldUpdateOperationsInput
+  rotY: FloatFieldUpdateOperationsInput
 }
 
 input ProjectModuleUpsertWithWhereUniqueWithoutModuleInput {
@@ -2172,10 +2189,11 @@ input ProjectModuleWhereInput {
   parent: ProjectModuleWhereInput
   parentId: IntNullableFilter
   posX: FloatFilter
+  posY: FloatFilter
   posZ: FloatFilter
   project: ProjectWhereInput
   projectId: IntNullableFilter
-  rotZ: FloatFilter
+  rotY: FloatFilter
 }
 
 input ProjectModuleWhereUniqueInput {
