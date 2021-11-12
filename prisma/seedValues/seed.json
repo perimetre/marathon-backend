@@ -240,6 +240,78 @@
     },
     {
       "collection": "imprint",
+      "supplier": "Blum",
+      "product": "Movento",
+      "formula": "{width} - 2 * {gable} - 42",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "424"
+        },
+        {
+          "roundedValue": "500",
+          "value": "474"
+        },
+        {
+          "roundedValue": "550",
+          "value": "524"
+        },
+        {
+          "roundedValue": "600",
+          "value": "574"
+        }
+      ]
+    },
+    {
+      "collection": "imprint",
+      "supplier": "Blum",
+      "product": "Tandem 5/8\" sides",
+      "formula": "{width} - 2 * {gable} - 42 - 2 * 15.875",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "424"
+        },
+        {
+          "roundedValue": "500",
+          "value": "474"
+        },
+        {
+          "roundedValue": "550",
+          "value": "524"
+        },
+        {
+          "roundedValue": "600",
+          "value": "574"
+        }
+      ]
+    },
+    {
+      "collection": "imprint",
+      "supplier": "Blum",
+      "product": "Tandem 1/2\" sides",
+      "formula": "{width} - 2 * {gable} - 42 - 2 * 12.7",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "428"
+        },
+        {
+          "roundedValue": "500",
+          "value": "478"
+        },
+        {
+          "roundedValue": "550",
+          "value": "528"
+        },
+        {
+          "roundedValue": "600",
+          "value": "578"
+        }
+      ]
+    },
+    {
+      "collection": "imprint",
       "supplier": "DTC",
       "product": "DS10/TS10",
       "formula": "{width} - 2 * {gable} - 2 * 21",
@@ -451,6 +523,78 @@
       ]
     },
     {
+      "collection": "imprint",
+      "supplier": "Grass",
+      "product": "Novapro / Novapro Scala",
+      "formula": "{width} - 2 * {gable} - 2 * 29",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "422"
+        },
+        {
+          "roundedValue": "500",
+          "value": "472"
+        },
+        {
+          "roundedValue": "550",
+          "value": "522"
+        },
+        {
+          "roundedValue": "600",
+          "value": "572"
+        }
+      ]
+    },
+    {
+      "collection": "imprint",
+      "supplier": "Grass",
+      "product": "Dynapro",
+      "formula": "{width} - 2 * {gable} - 42",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "424"
+        },
+        {
+          "roundedValue": "500",
+          "value": "474"
+        },
+        {
+          "roundedValue": "550",
+          "value": "524"
+        },
+        {
+          "roundedValue": "600",
+          "value": "574"
+        }
+      ]
+    },
+    {
+      "collection": "imprint",
+      "supplier": "Grass",
+      "product": "Vionaro",
+      "formula": "{width} - 2 * {gable} - 42",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "422"
+        },
+        {
+          "roundedValue": "500",
+          "value": "472"
+        },
+        {
+          "roundedValue": "550",
+          "value": "522"
+        },
+        {
+          "roundedValue": "600",
+          "value": "572"
+        }
+      ]
+    },
+    {
       "collection": "area",
       "supplier": "Ballbearing",
       "product": "1/2, box 1/2",
@@ -511,6 +655,54 @@
         {
           "roundedValue": "550",
           "value": "526"
+        }
+      ]
+    },
+    {
+      "collection": "area",
+      "supplier": "Blum",
+      "product": "Movento",
+      "formula": "{width} - 2 * {gable} - 42",
+      "depth": [
+        {
+          "roundedValue": "500",
+          "value": "474"
+        },
+        {
+          "roundedValue": "550",
+          "value": "524"
+        }
+      ]
+    },
+    {
+      "collection": "area",
+      "supplier": "Blum",
+      "product": "Tandem 5/8\" sides",
+      "formula": "{width} - 2 * {gable} - 42 - 2 * 15.875",
+      "depth": [
+        {
+          "roundedValue": "500",
+          "value": "474"
+        },
+        {
+          "roundedValue": "550",
+          "value": "524"
+        }
+      ]
+    },
+    {
+      "collection": "area",
+      "supplier": "Blum",
+      "product": "Tandem 1/2\" sides",
+      "formula": "{width} - 2 * {gable} - 42 - 2 * 12.7",
+      "depth": [
+        {
+          "roundedValue": "500",
+          "value": "478"
+        },
+        {
+          "roundedValue": "550",
+          "value": "528"
         }
       ]
     },
@@ -659,6 +851,54 @@
       ]
     },
     {
+      "collection": "area",
+      "supplier": "Grass",
+      "product": "Novapro / Novapro Scala",
+      "formula": "{width} - 2 * {gable} - 2 * 29",
+      "depth": [
+        {
+          "roundedValue": "500",
+          "value": "472"
+        },
+        {
+          "roundedValue": "550",
+          "value": "522"
+        }
+      ]
+    },
+    {
+      "collection": "area",
+      "supplier": "Grass",
+      "product": "Dynapro",
+      "formula": "{width} - 2 * {gable} - 42",
+      "depth": [
+        {
+          "roundedValue": "500",
+          "value": "474"
+        },
+        {
+          "roundedValue": "550",
+          "value": "524"
+        }
+      ]
+    },
+    {
+      "collection": "area",
+      "supplier": "Grass",
+      "product": "Vionaro",
+      "formula": "{width} - 2 * {gable} - 42",
+      "depth": [
+        {
+          "roundedValue": "500",
+          "value": "472"
+        },
+        {
+          "roundedValue": "550",
+          "value": "522"
+        }
+      ]
+    },
+    {
       "collection": "autograph",
       "supplier": "Ballbearing",
       "product": "1/2, box 1/2",
@@ -751,6 +991,78 @@
         {
           "roundedValue": "600",
           "value": "576"
+        }
+      ]
+    },
+    {
+      "collection": "autograph",
+      "supplier": "Blum",
+      "product": "Movento",
+      "formula": "{width} - 2 * {gable} - 42",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "424"
+        },
+        {
+          "roundedValue": "500",
+          "value": "474"
+        },
+        {
+          "roundedValue": "550",
+          "value": "524"
+        },
+        {
+          "roundedValue": "600",
+          "value": "574"
+        }
+      ]
+    },
+    {
+      "collection": "autograph",
+      "supplier": "Blum",
+      "product": "Tandem 5/8\" sides",
+      "formula": "{width} - 2 * {gable} - 42 - 2 * 15.875",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "424"
+        },
+        {
+          "roundedValue": "500",
+          "value": "474"
+        },
+        {
+          "roundedValue": "550",
+          "value": "524"
+        },
+        {
+          "roundedValue": "600",
+          "value": "574"
+        }
+      ]
+    },
+    {
+      "collection": "autograph",
+      "supplier": "Blum",
+      "product": "Tandem 1/2\" sides",
+      "formula": "{width} - 2 * {gable} - 42 - 2 * 12.7",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "428"
+        },
+        {
+          "roundedValue": "500",
+          "value": "478"
+        },
+        {
+          "roundedValue": "550",
+          "value": "528"
+        },
+        {
+          "roundedValue": "600",
+          "value": "578"
         }
       ]
     },
@@ -965,6 +1277,78 @@
           "value": "572"
         }
       ]
+    },
+    {
+      "collection": "autograph",
+      "supplier": "Grass",
+      "product": "Novapro / Novapro Scala",
+      "formula": "{width} - 2 * {gable} - 2 * 29",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "422"
+        },
+        {
+          "roundedValue": "500",
+          "value": "472"
+        },
+        {
+          "roundedValue": "550",
+          "value": "522"
+        },
+        {
+          "roundedValue": "600",
+          "value": "572"
+        }
+      ]
+    },
+    {
+      "collection": "autograph",
+      "supplier": "Grass",
+      "product": "Dynapro",
+      "formula": "{width} - 2 * {gable} - 42",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "424"
+        },
+        {
+          "roundedValue": "500",
+          "value": "474"
+        },
+        {
+          "roundedValue": "550",
+          "value": "524"
+        },
+        {
+          "roundedValue": "600",
+          "value": "574"
+        }
+      ]
+    },
+    {
+      "collection": "autograph",
+      "supplier": "Grass",
+      "product": "Vionaro",
+      "formula": "{width} - 2 * {gable} - 42",
+      "depth": [
+        {
+          "roundedValue": "450",
+          "value": "422"
+        },
+        {
+          "roundedValue": "500",
+          "value": "472"
+        },
+        {
+          "roundedValue": "550",
+          "value": "522"
+        },
+        {
+          "roundedValue": "600",
+          "value": "572"
+        }
+      ]
     }
   ],
   "supplierLogos": [
@@ -975,6 +1359,10 @@
     {
       "supplier": "blum",
       "supplierImgURL": "images/slide/brand/blum.png"
+    },
+    {
+      "supplier": "grass",
+      "supplierImgURL": "images/slide/brand/grass.png"
     },
     {
       "supplier": "dtc",
