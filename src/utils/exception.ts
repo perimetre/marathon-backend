@@ -1,5 +1,17 @@
 import { ApolloError } from 'apollo-server';
 
+export class FrontError extends Error {
+  status: number | undefined;
+  succeeded: boolean | undefined;
+  constructor(message?: string, name?: string, status?: number, succeeded?: boolean) {
+    super(message);
+    this.name = name || 'FrontError';
+    this.status = status || 500;
+    this.succeeded = succeeded || false;
+    Object.setPrototypeOf(this, new.target.prototype);
+  }
+}
+
 /**
  * This function creates a formatted Apollo Server error that will only be forwarded to the client.
  * Sentry is NOT notified about these errors (this method should be mostly used for user facing errors)
@@ -13,3 +25,6 @@ import { ApolloError } from 'apollo-server';
  */
 export const makeFrontError = (message: string, code?: string, status?: number) =>
   code ? new ApolloError(message, code, { custom: true, status }) : new ApolloError(message);
+
+export const makeError = (message?: string, name?: string, status?: number, succeeded?: boolean) =>
+  new FrontError(message, name, status, succeeded);
