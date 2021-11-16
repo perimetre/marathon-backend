@@ -1,4 +1,4 @@
-import { nonNull, objectType, list } from 'nexus';
+import { list, nonNull, objectType } from 'nexus';
 import { registerModelsWithPrismaBinding } from '../utils/nexus';
 
 export const Project = objectType({
@@ -35,14 +35,20 @@ export const Project = objectType({
 
     t.field('modules', {
       type: nonNull(list(nonNull('Module'))),
-      resolve: (root, _args, ctx) =>
-        // TODO: Filter modules so only modules that fit are returned
-        ctx.prisma.module.findMany({
+      resolve: async (root, args, ctx) => {
+        const modules = await ctx.prisma.module.findMany({
           where: {
             collectionId: root.collectionId,
-            finishId: root.finishId
+            finishId: root.finishId,
+            hasPegs: root.hasPegs,
+            isSubmodule: false,
+            isImprintExtension: false
           }
-        })
+        });
+
+        // TODO: Filter modules so only modules that fit are returned
+        return modules;
+      }
     });
   }
 });
