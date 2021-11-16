@@ -166,14 +166,20 @@ const main = async () => {
       )
   });
 
-  const modules = await db.module.findMany({ select: { id: true } });
+  const modules = await db.module.findMany({ select: { id: true, partNumber: true } });
 
   // Automatically puts modules in "all" category
+  const toCreate: { categoryId: number; moduleId: number }[] = [];
+  seedValues.modules.forEach((module) => {
+    module.categorySlug.forEach((category) => {
+      toCreate.push({
+        categoryId: categories.find((f) => f.slug === category).id,
+        moduleId: modules.find((f) => f.partNumber === module.partNumber).id
+      });
+    });
+  });
   await db.moduleCategory.createMany({
-    data: modules.map(({ id }) => ({
-      moduleId: id,
-      categoryId: categories[0]?.id || -1
-    }))
+    data: toCreate
   });
 };
 
