@@ -1,0 +1,1036 @@
+{
+  "list": [
+    {
+      "partNumber": "04-IM-BIR-CT-EXTENSION",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ct-extension/04-im-bir-ct-extension/module",
+      "bundleName": "04-IM-BIR-CT-EXTENSION"
+    },
+    {
+      "partNumber": "04-IM-WAL-CT-EXTENSION",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ct-extension/04-im-wal-ct-extension/module",
+      "bundleName": "04-IM-WAL-CT-EXTENSION"
+    },
+    {
+      "partNumber": "04-IM-BIR-CT2",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ct2/04-im-bir-ct2/module",
+      "bundleName": "04-IM-BIR-CT2"
+    },
+    {
+      "partNumber": "04-IM-WAL-CT2",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ct2/04-im-wal-ct2/module",
+      "bundleName": "04-IM-WAL-CT2"
+    },
+    {
+      "partNumber": "04-IM-BIR-CT3",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ct3/04-im-bir-ct3/module",
+      "bundleName": "04-IM-BIR-CT3"
+    },
+    {
+      "partNumber": "04-IM-WAL-CT3",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ct3/04-im-wal-ct3/module",
+      "bundleName": "04-IM-WAL-CT3"
+    },
+    {
+      "partNumber": "04-IM-BIR-CT4",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ct4/04-im-bir-ct4/module",
+      "bundleName": "04-IM-BIR-CT4"
+    },
+    {
+      "partNumber": "04-IM-WAL-CT4",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ct4/04-im-wal-ct4/module",
+      "bundleName": "04-IM-WAL-CT4"
+    },
+    {
+      "partNumber": "04-IM-BIR-CT5",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ct5/04-im-bir-ct5/module",
+      "bundleName": "04-IM-BIR-CT5"
+    },
+    {
+      "partNumber": "04-IM-WAL-CT5",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ct5/04-im-wal-ct5/module",
+      "bundleName": "04-IM-WAL-CT5"
+    },
+    {
+      "partNumber": "04-IM-BIR-DIVIDER-H55",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-divider-h55/04-im-bir-divider-h55/module",
+      "bundleName": "04-IM-BIR-DIVIDER-H55"
+    },
+    {
+      "partNumber": "04-IM-WAL-DIVIDER-H55",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-divider-h55/04-im-wal-divider-h55/module",
+      "bundleName": "04-IM-WAL-DIVIDER-H55"
+    },
+    {
+      "partNumber": "04-IM-BIR-KNIFE-B",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-knife-b/04-im-bir-knife-b/module",
+      "bundleName": "04-IM-BIR-KNIFE-B"
+    },
+    {
+      "partNumber": "04-IM-WAL-KNIFE-B",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-knife-b/04-im-wal-knife-b/module",
+      "bundleName": "04-IM-WAL-KNIFE-B"
+    },
+    {
+      "partNumber": "04-IM-BIR-PARTN240-H125",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-partn240-h125/04-im-bir-partn240-h125/module",
+      "bundleName": "04-IM-BIR-PARTN240-H125"
+    },
+    {
+      "partNumber": "04-IM-WAL-PARTN240-H125",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-partn240-h125/04-im-wal-partn240-h125/module",
+      "bundleName": "04-IM-WAL-PARTN240-H125"
+    },
+    {
+      "partNumber": "04-IM-BIR-PARTN448-H125",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-partn448-h125/04-im-bir-partn448-h125/module",
+      "bundleName": "04-IM-BIR-PARTN448-H125"
+    },
+    {
+      "partNumber": "04-IM-WAL-PARTN448-H125",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-partn448-h125/04-im-wal-partn448-h125/module",
+      "bundleName": "04-IM-WAL-PARTN448-H125"
+    },
+    {
+      "partNumber": "04-IM-BIR-SPICE-H",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-spice-h/04-im-bir-spice-h/module",
+      "bundleName": "04-IM-BIR-SPICE-H"
+    },
+    {
+      "partNumber": "04-IM-WAL-SPICE-H",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-spice-h/04-im-wal-spice-h/module",
+      "bundleName": "04-IM-WAL-SPICE-H"
+    },
+    {
+      "partNumber": "04-IM-BIR-UT-B",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ut-b/04-im-bir-ut-b/module",
+      "bundleName": "04-IM-BIR-UT-B"
+    },
+    {
+      "partNumber": "04-IM-WAL-UT-B",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ut-b/04-im-wal-ut-b/module",
+      "bundleName": "04-IM-WAL-UT-B"
+    },
+    {
+      "partNumber": "04-IM-BIR-UT-D",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ut-d/04-im-bir-ut-d/module",
+      "bundleName": "04-IM-BIR-UT-D"
+    },
+    {
+      "partNumber": "04-IM-WAL-UT-D",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-im-xxx-ut-d/04-im-wal-ut-d/module",
+      "bundleName": "04-IM-WAL-UT-D"
+    },
+    {
+      "partNumber": "04-PEG-BIR-H160",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-peg-xxx-h160/04-peg-bir-h160/module",
+      "bundleName": "04-PEG-BIR-H160"
+    },
+    {
+      "partNumber": "04-PEG-WAL-H160",
+      "collection": "Imprint",
+      "bundlePath": "modules/imprint/04-peg-xxx-h160/04-peg-wal-h160/module",
+      "bundleName": "04-PEG-WAL-H160"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-SPICE",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xx-spice/04-area-ct-gm-spice/module",
+      "bundleName": "04-AREA-CT-GM-SPICE"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-SPICE",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xx-spice/04-area-ct-gmt-spice/module",
+      "bundleName": "04-AREA-CT-GMT-SPICE"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-SPICE",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xx-spice/04-area-ct-sw-spice/module",
+      "bundleName": "04-AREA-CT-SW-SPICE"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-D",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-d/04-area-ct-gm-d/module",
+      "bundleName": "04-AREA-CT-GM-D"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-D",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-d/04-area-ct-gmt-d/module",
+      "bundleName": "04-AREA-CT-GMT-D"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-D",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-d/04-area-ct-sw-d/module",
+      "bundleName": "04-AREA-CT-SW-D"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-E",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-e/04-area-ct-gm-e/module",
+      "bundleName": "04-AREA-CT-GM-E"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-E",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-e/04-area-ct-gmt-e/module",
+      "bundleName": "04-AREA-CT-GMT-E"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-E",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-e/04-area-ct-sw-e/module",
+      "bundleName": "04-AREA-CT-SW-E"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-F",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-f/04-area-ct-gm-f/module",
+      "bundleName": "04-AREA-CT-GM-F"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-F",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-f/04-area-ct-gmt-f/module",
+      "bundleName": "04-AREA-CT-GMT-F"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-F",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-f/04-area-ct-sw-f/module",
+      "bundleName": "04-AREA-CT-SW-F"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-F1",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-f1/04-area-ct-gm-f1/module",
+      "bundleName": "04-AREA-CT-GM-F1"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-F1",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-f1/04-area-ct-gmt-f1/module",
+      "bundleName": "04-AREA-CT-GMT-F1"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-F1",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-f1/04-area-ct-sw-f1/module",
+      "bundleName": "04-AREA-CT-SW-F1"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-G",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-g/04-area-ct-gm-g/module",
+      "bundleName": "04-AREA-CT-GM-G"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-G",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-g/04-area-ct-gmt-g/module",
+      "bundleName": "04-AREA-CT-GMT-G"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-G",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-g/04-area-ct-sw-g/module",
+      "bundleName": "04-AREA-CT-SW-G"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-H",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-h/04-area-ct-gm-h/module",
+      "bundleName": "04-AREA-CT-GM-H"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-H",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-h/04-area-ct-gmt-h/module",
+      "bundleName": "04-AREA-CT-GMT-H"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-H",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-h/04-area-ct-sw-h/module",
+      "bundleName": "04-AREA-CT-SW-H"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-IJ",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-ij/04-area-ct-gm-ij/module",
+      "bundleName": "04-AREA-CT-GM-IJ"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-IJ",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-ij/04-area-ct-gmt-ij/module",
+      "bundleName": "04-AREA-CT-GMT-IJ"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-IJ",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-ij/04-area-ct-sw-ij/module",
+      "bundleName": "04-AREA-CT-SW-IJ"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-K",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-k/04-area-ct-gm-k/module",
+      "bundleName": "04-AREA-CT-GM-K"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-K",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-k/04-area-ct-gmt-k/module",
+      "bundleName": "04-AREA-CT-GMT-K"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-K",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-k/04-area-ct-sw-k/module",
+      "bundleName": "04-AREA-CT-SW-K"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-KNIFE",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-knife/04-area-ct-gm-knife/module",
+      "bundleName": "04-AREA-CT-GM-KNIFE"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-KNIFE",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-knife/04-area-ct-gmt-knife/module",
+      "bundleName": "04-AREA-CT-GMT-KNIFE"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-KNIFE",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-knife/04-area-ct-sw-knife/module",
+      "bundleName": "04-AREA-CT-SW-KNIFE"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-L",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-l/04-area-ct-gm-l/module",
+      "bundleName": "04-AREA-CT-GM-L"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-L",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-l/04-area-ct-gmt-l/module",
+      "bundleName": "04-AREA-CT-GMT-L"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-L",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-l/04-area-ct-sw-l/module",
+      "bundleName": "04-AREA-CT-SW-L"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-N",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-n/04-area-ct-gm-n/module",
+      "bundleName": "04-AREA-CT-GM-N"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-N",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-n/04-area-ct-gmt-n/module",
+      "bundleName": "04-AREA-CT-GMT-N"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-N",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ct-xxx-n/04-area-ct-sw-n/module",
+      "bundleName": "04-AREA-CT-SW-N"
+    },
+    {
+      "partNumber": "04-AREA-SP-CH",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-sp-ch/04-area-sp-ch/module",
+      "bundleName": "04-AREA-SP-CH"
+    },
+    {
+      "partNumber": "04-AREA-ST-GM-G",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-st-xxx-g/04-area-st-gm-g/module",
+      "bundleName": "04-AREA-ST-GM-G"
+    },
+    {
+      "partNumber": "04-AREA-ST-GMT-G",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-st-xxx-g/04-area-st-gmt-g/module",
+      "bundleName": "04-AREA-ST-GMT-G"
+    },
+    {
+      "partNumber": "04-AREA-ST-SW-G",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-st-xxx-g/04-area-st-sw-g/module",
+      "bundleName": "04-AREA-ST-SW-G"
+    },
+    {
+      "partNumber": "04-AREA-ST-GM-H",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-st-xxx-h/04-area-st-gm-h/module",
+      "bundleName": "04-AREA-ST-GM-H"
+    },
+    {
+      "partNumber": "04-AREA-ST-GMT-H",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-st-xxx-h/04-area-st-gmt-h/module",
+      "bundleName": "04-AREA-ST-GMT-H"
+    },
+    {
+      "partNumber": "04-AREA-ST-SW-H",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-st-xxx-h/04-area-st-sw-h/module",
+      "bundleName": "04-AREA-ST-SW-H"
+    },
+    {
+      "partNumber": "04-AREA-UT-GM-D",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-d/04-area-ut-gm-d/module",
+      "bundleName": "04-AREA-UT-GM-D"
+    },
+    {
+      "partNumber": "04-AREA-UT-GMT-D",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-d/04-area-ut-gmt-d/module",
+      "bundleName": "04-AREA-UT-GMT-D"
+    },
+    {
+      "partNumber": "04-AREA-UT-SW-D",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-d/04-area-ut-sw-d/module",
+      "bundleName": "04-AREA-UT-SW-D"
+    },
+    {
+      "partNumber": "04-AREA-UT-GM-E",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-e/04-area-ut-gm-e/module",
+      "bundleName": "04-AREA-UT-GM-E"
+    },
+    {
+      "partNumber": "04-AREA-UT-GMT-E",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-e/04-area-ut-gmt-e/module",
+      "bundleName": "04-AREA-UT-GMT-E"
+    },
+    {
+      "partNumber": "04-AREA-UT-SW-E",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-e/04-area-ut-sw-e/module",
+      "bundleName": "04-AREA-UT-SW-E"
+    },
+    {
+      "partNumber": "04-AREA-UT-GM-F",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-f/04-area-ut-gm-f/module",
+      "bundleName": "04-AREA-UT-GM-F"
+    },
+    {
+      "partNumber": "04-AREA-UT-GMT-F",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-f/04-area-ut-gmt-f/module",
+      "bundleName": "04-AREA-UT-GMT-F"
+    },
+    {
+      "partNumber": "04-AREA-UT-SW-F",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-f/04-area-ut-sw-f/module",
+      "bundleName": "04-AREA-UT-SW-F"
+    },
+    {
+      "partNumber": "04-AREA-UT-GM-G",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-g/04-area-ut-gm-g/module",
+      "bundleName": "04-AREA-UT-GM-G"
+    },
+    {
+      "partNumber": "04-AREA-UT-GMT-G",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-g/04-area-ut-gmt-g/module",
+      "bundleName": "04-AREA-UT-GMT-G"
+    },
+    {
+      "partNumber": "04-AREA-UT-SW-G",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-g/04-area-ut-sw-g/module",
+      "bundleName": "04-AREA-UT-SW-G"
+    },
+    {
+      "partNumber": "04-AREA-UT-GM-H",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-h/04-area-ut-gm-h/module",
+      "bundleName": "04-AREA-UT-GM-H"
+    },
+    {
+      "partNumber": "04-AREA-UT-GMT-H",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-h/04-area-ut-gmt-h/module",
+      "bundleName": "04-AREA-UT-GMT-H"
+    },
+    {
+      "partNumber": "04-AREA-UT-SW-H",
+      "collection": "Area",
+      "bundlePath": "modules/area/04-area-ut-xxx-h/04-area-ut-sw-h/module",
+      "bundleName": "04-AREA-UT-SW-H"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AN-69",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-67/04-au-accent-an-69/module",
+      "bundleName": "04-AU-ACCENT-AN-69"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AU79-69",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-67/04-au-accent-au79-69/module",
+      "bundleName": "04-AU-ACCENT-AU79-69"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-MB-69",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-67/04-au-accent-mb-69/module",
+      "bundleName": "04-AU-ACCENT-MB-69"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SD-69",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-67/04-au-accent-sd-69/module",
+      "bundleName": "04-AU-ACCENT-SD-69"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SW-69",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-67/04-au-accent-sw-69/module",
+      "bundleName": "04-AU-ACCENT-SW-69"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AN-89",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-87/04-au-accent-an-89/module",
+      "bundleName": "04-AU-ACCENT-AN-89"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AU79-89",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-87/04-au-accent-au79-89/module",
+      "bundleName": "04-AU-ACCENT-AU79-89"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-MB-89",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-87/04-au-accent-mb-89/module",
+      "bundleName": "04-AU-ACCENT-MB-89"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SD-89",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-87/04-au-accent-sd-89/module",
+      "bundleName": "04-AU-ACCENT-SD-89"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SW-89",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-87/04-au-accent-sw-89/module",
+      "bundleName": "04-AU-ACCENT-SW-89"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AN-95",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-93/04-au-accent-an-95/module",
+      "bundleName": "04-AU-ACCENT-AN-95"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AU79-95",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-93/04-au-accent-au79-95/module",
+      "bundleName": "04-AU-ACCENT-AU79-95"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-MB-95",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-93/04-au-accent-mb-95/module",
+      "bundleName": "04-AU-ACCENT-MB-95"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SD-95",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-93/04-au-accent-sd-95/module",
+      "bundleName": "04-AU-ACCENT-SD-95"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SW-95",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-93/04-au-accent-sw-95/module",
+      "bundleName": "04-AU-ACCENT-SW-95"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AN-141",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-139/04-au-accent-an-141/module",
+      "bundleName": "04-AU-ACCENT-AN-141"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AU79-141",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-139/04-au-accent-au79-141/module",
+      "bundleName": "04-AU-ACCENT-AU79-141"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-MB-141",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-139/04-au-accent-mb-141/module",
+      "bundleName": "04-AU-ACCENT-MB-141"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SD-141",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-139/04-au-accent-sd-141/module",
+      "bundleName": "04-AU-ACCENT-SD-141"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SW-141",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-139/04-au-accent-sw-141/module",
+      "bundleName": "04-AU-ACCENT-SW-141"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AN-189",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-187/module",
+      "bundleName": "04-AU-ACCENT-AN-189"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-AU79-189",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-187/module",
+      "bundleName": "04-AU-ACCENT-AU79-189"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-MB-189",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-187/module",
+      "bundleName": "04-AU-ACCENT-MB-189"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SD-189",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-187/module",
+      "bundleName": "04-AU-ACCENT-SD-189"
+    },
+    {
+      "partNumber": "04-AU-ACCENT-SW-189",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-accent-xx-187/module",
+      "bundleName": "04-AU-ACCENT-SW-189"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-AN",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-divider-xx/04-au-divider-an/module",
+      "bundleName": "04-AU-DIVIDER-AN"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-AU79",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-divider-xx/04-au-divider-au79/module",
+      "bundleName": "04-AU-DIVIDER-AU79"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-MB",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-divider-xx/04-au-divider-mb/module",
+      "bundleName": "04-AU-DIVIDER-MB"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-SD",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-divider-xx/04-au-divider-sd/module",
+      "bundleName": "04-AU-DIVIDER-SD"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-SW",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-divider-xx/04-au-divider-sw/module",
+      "bundleName": "04-AU-DIVIDER-SW"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-AN",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-lshape600-xx/04-au-lshape600-an/module",
+      "bundleName": "04-AU-LSHAPE600-AN"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-AU79",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-lshape600-xx/04-au-lshape600-au79/module",
+      "bundleName": "04-AU-LSHAPE600-AU79"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-MB",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-lshape600-xx/04-au-lshape600-mb/module",
+      "bundleName": "04-AU-LSHAPE600-MB"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-SD",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-lshape600-xx/04-au-lshape600-sd/module",
+      "bundleName": "04-AU-LSHAPE600-SD"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-SW",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-lshape600-xx/04-au-lshape600-sw/module",
+      "bundleName": "04-AU-LSHAPE600-SW"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-AN",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-lshape1200-xx/04-au-lshape1200-an/module",
+      "bundleName": "04-AU-LSHAPE1200-AN"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-AU79",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-lshape1200-xx/04-au-lshape1200-au79/module",
+      "bundleName": "04-AU-LSHAPE1200-AU79"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-MB",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-lshape1200-xx/04-au-lshape1200-mb/module",
+      "bundleName": "04-AU-LSHAPE1200-MB"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-SD",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-lshape1200-xx/04-au-lshape1200-sd/module",
+      "bundleName": "04-AU-LSHAPE1200-SD"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-SW",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-lshape1200-xx/04-au-lshape1200-sw/module",
+      "bundleName": "04-AU-LSHAPE1200-SW"
+    },
+    {
+      "partNumber": "04-AU-USHAPE-BIR-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-ushape-xxx-b/04-au-ushape-bir-b/module",
+      "bundleName": "04-AU-USHAPE-BIR-B"
+    },
+    {
+      "partNumber": "04-AU-USHAPE-WAL-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-ushape-xxx-b/04-au-ushape-wal-b/module",
+      "bundleName": "04-AU-USHAPE-WAL-B"
+    },
+    {
+      "partNumber": "04-AU-BIR-CD-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-cd-b/04-au-bir-cd-b/module",
+      "bundleName": "04-AU-BIR-CD-B"
+    },
+    {
+      "partNumber": "04-AU-WAL-CD-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-cd-b/04-au-wal-cd-b/module",
+      "bundleName": "04-AU-WAL-CD-B"
+    },
+    {
+      "partNumber": "04-AU-BIR-CD-B.b",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-cd-b.b/04-au-bir-cd-b.b/module",
+      "bundleName": "04-AU-BIR-CD-B.b"
+    },
+    {
+      "partNumber": "04-AU-WAL-CD-B.b",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-cd-b.b/04-au-wal-cd-b.b/module",
+      "bundleName": "04-AU-WAL-CD-B.b"
+    },
+    {
+      "partNumber": "04-AU-BIR-CT4-D",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-ct4-d/04-au-bir-ct4-d/module",
+      "bundleName": "04-AU-BIR-CT4-D"
+    },
+    {
+      "partNumber": "04-AU-WAL-CT4-D",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-ct4-d/04-au-wal-ct4-d/module",
+      "bundleName": "04-AU-WAL-CT4-D"
+    },
+    {
+      "partNumber": "04-AU-BIR-CT5-D",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-ct5-d/04-au-bir-ct5-d/module",
+      "bundleName": "04-AU-BIR-CT5-D"
+    },
+    {
+      "partNumber": "04-AU-WAL-CT5-D",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-ct5-d/04-au-wal-ct5-d/module",
+      "bundleName": "04-AU-WAL-CT5-D"
+    },
+    {
+      "partNumber": "04-AU-BIR-DIVIDER-H55",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-divider-h55/04-au-bir-divider-h55/module",
+      "bundleName": "04-AU-BIR-DIVIDER-H55"
+    },
+    {
+      "partNumber": "04-AU-WAL-DIVIDER-H55",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-divider-h55/04-au-wal-divider-h55/module",
+      "bundleName": "04-AU-WAL-DIVIDER-H55"
+    },
+    {
+      "partNumber": "04-AU-BIR-FLUTTED-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-flutted-b/04-au-bir-flutted-b/module",
+      "bundleName": "04-AU-BIR-FLUTTED-B"
+    },
+    {
+      "partNumber": "04-AU-WAL-FLUTTED-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-flutted-b/04-au-wal-flutted-b/module",
+      "bundleName": "04-AU-WAL-FLUTTED-B"
+    },
+    {
+      "partNumber": "04-AU-BIR-FLUTTED-B.b",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-flutted-b.b/04-au-bir-flutted-b.b/module",
+      "bundleName": "04-AU-BIR-FLUTTED-B.b"
+    },
+    {
+      "partNumber": "04-AU-WAL-FLUTTED-B.b",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-flutted-b.b/04-au-wal-flutted-b.b/module",
+      "bundleName": "04-AU-WAL-FLUTTED-B.b"
+    },
+    {
+      "partNumber": "04-AU-BIR-KH-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-kh-b/04-au-bir-kh-b/module",
+      "bundleName": "04-AU-BIR-KH-B"
+    },
+    {
+      "partNumber": "04-AU-WAL-KH-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-kh-b/04-au-wal-kh-b/module",
+      "bundleName": "04-AU-WAL-KH-B"
+    },
+    {
+      "partNumber": "04-AU-BIR-KH-B.b",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-kh-b.b/04-au-bir-kh-b.b/module",
+      "bundleName": "04-AU-BIR-KH-B.b"
+    },
+    {
+      "partNumber": "04-AU-WAL-KH-B.b",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-kh-b.b/04-au-wal-kh-b.b/module",
+      "bundleName": "04-AU-WAL-KH-B.b"
+    },
+    {
+      "partNumber": "04-AU-BIR-PARTN240-H125",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-partn240-h125/04-au-bir-partn240-h125/module",
+      "bundleName": "04-AU-BIR-PARTN240-H125"
+    },
+    {
+      "partNumber": "04-AU-WAL-PARTN240-H125",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-partn240-h125/04-au-wal-partn240-h125/module",
+      "bundleName": "04-AU-WAL-PARTN240-H125"
+    },
+    {
+      "partNumber": "04-AU-BIR-PARTN448-H125",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-partn448-h125/04-au-bir-partn448-h125/module",
+      "bundleName": "04-AU-BIR-PARTN448-H125"
+    },
+    {
+      "partNumber": "04-AU-WAL-PARTN448-H125",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-partn448-h125/04-au-wal-partn448-h125/module",
+      "bundleName": "04-AU-WAL-PARTN448-H125"
+    },
+    {
+      "partNumber": "04-AU-BIR-SLOTTED-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-slotted-b/04-au-bir-slotted-b/module",
+      "bundleName": "04-AU-BIR-SLOTTED-B"
+    },
+    {
+      "partNumber": "04-AU-WAL-SLOTTED-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-slotted-b/04-au-wal-slotted-b/module",
+      "bundleName": "04-AU-WAL-SLOTTED-B"
+    },
+    {
+      "partNumber": "04-AU-BIR-SLOTTED-B.b",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-slotted-b.b/04-au-bir-slotted-b.b/module",
+      "bundleName": "04-AU-BIR-SLOTTED-B.b"
+    },
+    {
+      "partNumber": "04-AU-WAL-SLOTTED-B.b",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-slotted-b.b/04-au-wal-slotted-b.b/module",
+      "bundleName": "04-AU-WAL-SLOTTED-B.b"
+    },
+    {
+      "partNumber": "04-AU-BIR-SPICERACK-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-spicerack-b/04-au-bir-spicerack-b/module",
+      "bundleName": "04-AU-BIR-SPICERACK-B"
+    },
+    {
+      "partNumber": "04-AU-WAL-SPICERACK-B",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-spicerack-b/04-au-wal-spicerack-b/module",
+      "bundleName": "04-AU-WAL-SPICERACK-B"
+    },
+    {
+      "partNumber": "04-AU-BIR-T9494H36",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t9494h36/04-au-bir-t9494h36/module",
+      "bundleName": "04-AU-BIR-T9494H36"
+    },
+    {
+      "partNumber": "04-AU-WAL-T9494H36",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t9494h36/04-au-wal-t9494h36/module",
+      "bundleName": "04-AU-WAL-T9494H36"
+    },
+    {
+      "partNumber": "04-AU-BIR-T94266H36",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t94266h36/04-au-bir-t94266h36/module",
+      "bundleName": "04-AU-BIR-T94266H36"
+    },
+    {
+      "partNumber": "04-AU-WAL-T94266H36",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t94266h36/04-au-wal-t94266h36/module",
+      "bundleName": "04-AU-WAL-T94266H36"
+    },
+    {
+      "partNumber": "04-AU-BIR-T100305H55",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t100305h55/04-au-bir-t100305h55/module",
+      "bundleName": "04-AU-BIR-T100305H55"
+    },
+    {
+      "partNumber": "04-AU-WAL-T100305H55",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t100305h55/04-au-wal-t100305h55/module",
+      "bundleName": "04-AU-WAL-T100305H55"
+    },
+    {
+      "partNumber": "04-AU-BIR-T200305H55",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t200305h55/04-au-bir-t200305h55/module",
+      "bundleName": "04-AU-BIR-T200305H55"
+    },
+    {
+      "partNumber": "04-AU-WAL-T200305H55",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t200305h55/04-au-wal-t200305h55/module",
+      "bundleName": "04-AU-WAL-T200305H55"
+    },
+    {
+      "partNumber": "04-AU-BIR-T210406H110",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t210406h110/04-au-bir-t210406h110/module",
+      "bundleName": "04-AU-BIR-T210406H110"
+    },
+    {
+      "partNumber": "04-AU-WAL-T210406H110",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t210406h110/04-au-wal-t210406h110/module",
+      "bundleName": "04-AU-WAL-T210406H110"
+    },
+    {
+      "partNumber": "04-AU-BIR-T210506H110",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t210506h110/04-au-bir-t210506h110/module",
+      "bundleName": "04-AU-BIR-T210506H110"
+    },
+    {
+      "partNumber": "04-AU-WAL-T210506H110",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/04-au-xxx-t210506h110/04-au-wal-t210506h110/module",
+      "bundleName": "04-AU-WAL-T210506H110"
+    },
+    {
+      "partNumber": "BIR-spice rack 35mm spacer Size A",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/spice rack 35mm spacer size a/bir-spice rack 35mm spacer size a/module",
+      "bundleName": "BIR-spice rack 35mm spacer Size A"
+    },
+    {
+      "partNumber": "WAL-spice rack 35mm spacer Size A",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/spice rack 35mm spacer size a/wal-spice rack 35mm spacer size a/module",
+      "bundleName": "WAL-spice rack 35mm spacer Size A"
+    },
+    {
+      "partNumber": "BIR-spice rack 53mm spacer Size A",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/spice rack 53mm spacer size a/bir-spice rack 53mm spacer size a/module",
+      "bundleName": "BIR-spice rack 53mm spacer Size A"
+    },
+    {
+      "partNumber": "WAL-spice rack 53mm spacer Size A",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/spice rack 53mm spacer size a/wal-spice rack 53mm spacer size a/module",
+      "bundleName": "WAL-spice rack 53mm spacer Size A"
+    },
+    {
+      "partNumber": "BIR-Spice rack Size A",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/spice rack size a/bir-spice rack size a/module",
+      "bundleName": "BIR-Spice rack Size A"
+    },
+    {
+      "partNumber": "WAL-Spice rack Size A",
+      "collection": "Autograph",
+      "bundlePath": "modules/autograph/spice rack size a/wal-spice rack size a/module",
+      "bundleName": "WAL-Spice rack Size A"
+    }
+  ]
+}
