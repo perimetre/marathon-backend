@@ -171,10 +171,10 @@ const main = async () => {
   // Automatically puts modules in "all" category
   const toCreate: { categoryId: number; moduleId: number }[] = [];
   seedValues.modules.forEach((module) => {
-    module.categorySlug.forEach((category) => {
+    module.categorySlug?.forEach((category) => {
       toCreate.push({
-        categoryId: categories.find((f) => f.slug === category).id,
-        moduleId: modules.find((f) => f.partNumber === module.partNumber).id
+        categoryId: categories.find((f) => f.slug === category)?.id || -1,
+        moduleId: modules.find((f) => f.partNumber === module.partNumber)?.id || -1
       });
     });
   });
