@@ -7,6 +7,7 @@ const main = async () => {
   let ind = 1;
   for (const mod of bundles.list) {
     try {
+      console.log(`Updating ${ind} of ${bundles.list.length}: ${mod.partNumber}`);
       await db.module.update({
         data: {
           bundleUrl: mod.bundlePath
@@ -15,7 +16,6 @@ const main = async () => {
           partNumber: mod.partNumber
         }
       });
-      console.log(`Updating ${ind} of ${bundles.list.length}: ${mod.partNumber}`);
     } catch (err) {
       console.log('-------------');
       console.error(`ERROR ${ind} of ${bundles.list.length}: ${mod.partNumber}`);

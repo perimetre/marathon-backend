@@ -1454,7 +1454,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT2/04-IM-BIR-CT2/04-IM-BIR-CT2.jpg",
       "genericName": "04-IM-xxx-CT2",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-IM-WAL-CT2",
@@ -1468,7 +1471,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT2/04-IM-WAL-CT2/04-IM-WAL-CT2.jpg",
       "genericName": "04-IM-xxx-CT2",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-IM-BIR-CT3",
@@ -1482,7 +1488,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT3/04-IM-BIR-CT3/04-IM-BIR-CT3.jpg",
       "genericName": "04-IM-xxx-CT3",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-IM-WAL-CT3",
@@ -1496,7 +1505,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT3/04-IM-WAL-CT3/04-IM-WAL-CT3.jpg",
       "genericName": "04-IM-xxx-CT3",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-IM-BIR-CT4",
@@ -1510,7 +1522,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT4/04-IM-BIR-CT4/04-IM-BIR-CT4.jpg",
       "genericName": "04-IM-xxx-CT4",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-IM-WAL-CT4",
@@ -1524,7 +1539,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT4/04-IM-WAL-CT4/04-IM-WAL-CT4.jpg",
       "genericName": "04-IM-xxx-CT4",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-IM-BIR-CT5",
@@ -1538,7 +1556,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT5/04-IM-BIR-CT5/04-IM-BIR-CT5.jpg",
       "genericName": "04-IM-xxx-CT5",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-IM-WAL-CT5",
@@ -1552,7 +1573,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT5/04-IM-WAL-CT5/04-IM-WAL-CT5.jpg",
       "genericName": "04-IM-xxx-CT5",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-IM-BIR-DIVIDER-H55",
@@ -1566,7 +1590,11 @@
       "isImprintExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-DIVIDER-H55/04-IM-BIR-DIVIDER-H55/04-IM-BIR-DIVIDER-H55.jpg",
       "genericName": "04-IM-xxx-DIVIDER-H55",
-      "categorySlug": ["all", "tray", "accessories"]
+      "categorySlug": [
+        "all",
+        "tray",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-IM-WAL-DIVIDER-H55",
@@ -1580,7 +1608,11 @@
       "isImprintExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-DIVIDER-H55/04-IM-WAL-DIVIDER-H55/04-IM-WAL-DIVIDER-H55.jpg",
       "genericName": "04-IM-xxx-DIVIDER-H55",
-      "categorySlug": ["all", "tray", "accessories"]
+      "categorySlug": [
+        "all",
+        "tray",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-IM-BIR-KNIFE-B",
@@ -1594,7 +1626,11 @@
       "isImprintExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-KNIFE-B/04-IM-BIR-KNIFE-B/04-IM-BIR-KNIFE-B.jpg",
       "genericName": "04-IM-xxx-KNIFE-B",
-      "categorySlug": ["all", "tray", "accessories"]
+      "categorySlug": [
+        "all",
+        "tray",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-IM-WAL-KNIFE-B",
@@ -1608,7 +1644,11 @@
       "isImprintExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-KNIFE-B/04-IM-WAL-KNIFE-B/04-IM-WAL-KNIFE-B.jpg",
       "genericName": "04-IM-xxx-KNIFE-B",
-      "categorySlug": ["all", "tray", "accessories"]
+      "categorySlug": [
+        "all",
+        "tray",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-IM-BIR-PARTN240-H125",
@@ -1674,7 +1714,12 @@
       "isImprintExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-SPICE-H/04-IM-BIR-SPICE-H/04-IM-BIR-SPICE-H.jpg",
       "genericName": "04-IM-xxx-SPICE-H",
-      "categorySlug": ["all", "tray", "accessories", "spice-tray"]
+      "categorySlug": [
+        "all",
+        "tray",
+        "accessories",
+        "spice-tray"
+      ]
     },
     {
       "partNumber": "04-IM-WAL-SPICE-H",
@@ -1688,7 +1733,12 @@
       "isImprintExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-SPICE-H/04-IM-WAL-SPICE-H/04-IM-WAL-SPICE-H.jpg",
       "genericName": "04-IM-xxx-SPICE-H",
-      "categorySlug": ["all", "tray", "accessories", "spice-tray"]
+      "categorySlug": [
+        "all",
+        "tray",
+        "accessories",
+        "spice-tray"
+      ]
     },
     {
       "partNumber": "04-IM-BIR-UT-B",
@@ -1702,7 +1752,11 @@
       "isImprintExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-UT-B/04-IM-BIR-UT-B/IMG_NoImage.png",
       "genericName": "04-IM-xxx-UT-B",
-      "categorySlug": ["all", "tray", "accessories"]
+      "categorySlug": [
+        "all",
+        "tray",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-IM-WAL-UT-B",
@@ -1716,7 +1770,11 @@
       "isImprintExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-UT-B/04-IM-WAL-UT-B/IMG_NoImage.png",
       "genericName": "04-IM-xxx-UT-B",
-      "categorySlug": ["all", "tray", "accessories"]
+      "categorySlug": [
+        "all",
+        "tray",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-IM-BIR-UT-D",
@@ -1730,7 +1788,11 @@
       "isImprintExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-UT-D/04-IM-BIR-UT-D/04-IM-BIR-UT-D.jpg",
       "genericName": "04-IM-xxx-UT-D",
-      "categorySlug": ["all", "tray", "accessories"]
+      "categorySlug": [
+        "all",
+        "tray",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-IM-WAL-UT-D",
@@ -1744,7 +1806,11 @@
       "isImprintExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-UT-D/04-IM-WAL-UT-D/04-IM-WAL-UT-D.jpg",
       "genericName": "04-IM-xxx-UT-D",
-      "categorySlug": ["all", "tray", "accessories"]
+      "categorySlug": [
+        "all",
+        "tray",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-PEG-BIR-H160",
@@ -1758,7 +1824,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-PEG-xxx-H160/04-PEG-BIR-H160/04-PEG-BIR-H160.jpg",
       "genericName": "04-PEG-xxx-H160",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-PEG-WAL-H160",
@@ -1772,7 +1841,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-PEG-xxx-H160/04-PEG-WAL-H160/04-PEG-WAL-H160.jpg",
       "genericName": "04-PEG-xxx-H160",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-PEGBOARD-BIR-H",
@@ -1786,7 +1858,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-H/04-PEGBOARD-BIR-H/04-PEGBOARD-BIR-H.jpg",
       "genericName": "04-PEGBOARD-xxx-H",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-PEGBOARD-WAL-H",
@@ -1800,7 +1875,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-H/04-PEGBOARD-WAL-H/04-PEGBOARD-WAL-H.jpg",
       "genericName": "04-PEGBOARD-xxx-H",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-PEGBOARD-BIR-J",
@@ -1814,7 +1892,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-J/04-PEGBOARD-BIR-J/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-J",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-PEGBOARD-WAL-J",
@@ -1828,7 +1909,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-J/04-PEGBOARD-WAL-J/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-J",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-PEGBOARD-BIR-L",
@@ -1842,7 +1926,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-L/04-PEGBOARD-BIR-L/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-L",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-PEGBOARD-WAL-L",
@@ -1856,7 +1943,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-L/04-PEGBOARD-WAL-L/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-L",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-PEGBOARD-BIR-N",
@@ -1870,7 +1960,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-N/04-PEGBOARD-BIR-N/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-N",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-PEGBOARD-WAL-N",
@@ -1884,511 +1977,622 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-N/04-PEGBOARD-WAL-N/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-N",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-SPICE",
       "bundlePath": "modules/area/04-area-ct-xx-spice/04-area-ct-gm-spice/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-SPICE\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-SPICE\",\r\n    \"04-AREA-CT-SW-SPICE\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 28,\r\n      \"inches\": \"1\\\" 3/32\"\r\n    }\r\n  },\r\n  \"rules\": {}\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-SPICE\",\"finishes\":[\"04-AREA-CT-GMT-SPICE\",\"04-AREA-CT-SW-SPICE\"],\"dimensions\":{\"height\":{\"millimeters\":28,\"inches\":\"1\\\" 3/32\"}},\"rules\":{}}",
       "isSubmodule": true,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xx-SPICE/04-AREA-CT-GM-SPICE/04-AREA-CT-GM-SPICE.jpg",
       "genericName": "04-AREA-CT-xx-SPICE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-SPICE",
       "bundlePath": "modules/area/04-area-ct-xx-spice/04-area-ct-gmt-spice/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-SPICE\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-SPICE\",\r\n    \"04-AREA-CT-SW-SPICE\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 28,\r\n      \"inches\": \"1\\\" 3/32\"\r\n    }\r\n  },\r\n  \"rules\": {}\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-SPICE\",\"finishes\":[\"04-AREA-CT-GM-SPICE\",\"04-AREA-CT-SW-SPICE\"],\"dimensions\":{\"height\":{\"millimeters\":28,\"inches\":\"1\\\" 3/32\"}},\"rules\":{}}",
       "isSubmodule": true,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xx-SPICE/04-AREA-CT-GMT-SPICE/04-AREA-CT-GMT-SPICE.jpg",
       "genericName": "04-AREA-CT-xx-SPICE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-SPICE",
       "bundlePath": "modules/area/04-area-ct-xx-spice/04-area-ct-sw-spice/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-SPICE\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-SPICE\",\r\n    \"04-AREA-CT-GMT-SPICE\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 28,\r\n      \"inches\": \"1\\\" 3/32\"\r\n    }\r\n  },\r\n  \"rules\": {}\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-SPICE\",\"finishes\":[\"04-AREA-CT-GM-SPICE\",\"04-AREA-CT-GMT-SPICE\"],\"dimensions\":{\"height\":{\"millimeters\":28,\"inches\":\"1\\\" 3/32\"}},\"rules\":{}}",
       "isSubmodule": true,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xx-SPICE/04-AREA-CT-SW-SPICE/04-AREA-CT-SW-SPICE.jpg",
       "genericName": "04-AREA-CT-xx-SPICE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-D",
       "bundlePath": "modules/area/04-area-ct-xxx-d/04-area-ct-gm-d/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-D\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-D\",\r\n    \"04-AREA-CT-SW-D\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 200,\r\n        \"inches\": \"7\\\" 7/8\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-D\",\"finishes\":[\"04-AREA-CT-GMT-D\",\"04-AREA-CT-SW-D\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":200,\"inches\":\"7\\\" 7/8\"},\"max\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-D/04-AREA-CT-GM-D/04-AREA-CT-GM-D.jpg",
       "genericName": "04-AREA-CT-xxx-D",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-D",
       "bundlePath": "modules/area/04-area-ct-xxx-d/04-area-ct-gmt-d/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-D\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-D\",\r\n    \"04-AREA-CT-SW-D\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 200,\r\n        \"inches\": \"7\\\" 7/8\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-D\",\"finishes\":[\"04-AREA-CT-GM-D\",\"04-AREA-CT-SW-D\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":200,\"inches\":\"7\\\" 7/8\"},\"max\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-D/04-AREA-CT-GMT-D/04-AREA-CT-GMT-D.jpg",
       "genericName": "04-AREA-CT-xxx-D",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-D",
       "bundlePath": "modules/area/04-area-ct-xxx-d/04-area-ct-sw-d/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-D\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-D\",\r\n    \"04-AREA-CT-GMT-D\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 200,\r\n        \"inches\": \"7\\\" 7/8\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-D\",\"finishes\":[\"04-AREA-CT-GM-D\",\"04-AREA-CT-GMT-D\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":200,\"inches\":\"7\\\" 7/8\"},\"max\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-D/04-AREA-CT-SW-D/04-AREA-CT-SW-D.jpg",
       "genericName": "04-AREA-CT-xxx-D",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-E",
       "bundlePath": "modules/area/04-area-ct-xxx-e/04-area-ct-gm-e/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-E\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-E\",\r\n    \"04-AREA-CT-SW-E\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-E\",\"finishes\":[\"04-AREA-CT-GMT-E\",\"04-AREA-CT-SW-E\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"},\"max\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-E/04-AREA-CT-GM-E/04-AREA-CT-GM-E.jpg",
       "genericName": "04-AREA-CT-xxx-E",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-E",
       "bundlePath": "modules/area/04-area-ct-xxx-e/04-area-ct-gmt-e/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-E\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-E\",\r\n    \"04-AREA-CT-SW-E\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-E\",\"finishes\":[\"04-AREA-CT-GM-E\",\"04-AREA-CT-SW-E\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"},\"max\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-E/04-AREA-CT-GMT-E/04-AREA-CT-GMT-E.jpg",
       "genericName": "04-AREA-CT-xxx-E",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-E",
       "bundlePath": "modules/area/04-area-ct-xxx-e/04-area-ct-sw-e/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-E\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-E\",\r\n    \"04-AREA-CT-GMT-E\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-E\",\"finishes\":[\"04-AREA-CT-GM-E\",\"04-AREA-CT-GMT-E\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"},\"max\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-E/04-AREA-CT-SW-E/04-AREA-CT-SW-E.jpg",
       "genericName": "04-AREA-CT-xxx-E",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-F",
       "bundlePath": "modules/area/04-area-ct-xxx-f/04-area-ct-gm-f/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-F\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-F\",\r\n    \"04-AREA-CT-SW-F\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 400,\r\n        \"inches\": \"15\\\" 3/4\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-F\",\"finishes\":[\"04-AREA-CT-GMT-F\",\"04-AREA-CT-SW-F\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"},\"max\":{\"millimeters\":400,\"inches\":\"15\\\" 3/4\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F/04-AREA-CT-GM-F/04-AREA-CT-GM-F.jpg",
       "genericName": "04-AREA-CT-xxx-F",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-F",
       "bundlePath": "modules/area/04-area-ct-xxx-f/04-area-ct-gmt-f/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-F\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-F\",\r\n    \"04-AREA-CT-SW-F\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 400,\r\n        \"inches\": \"15\\\" 3/4\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-F\",\"finishes\":[\"04-AREA-CT-GM-F\",\"04-AREA-CT-SW-F\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"},\"max\":{\"millimeters\":400,\"inches\":\"15\\\" 3/4\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F/04-AREA-CT-GMT-F/04-AREA-CT-GMT-F.jpg",
       "genericName": "04-AREA-CT-xxx-F",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-F",
       "bundlePath": "modules/area/04-area-ct-xxx-f/04-area-ct-sw-f/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-F\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-F\",\r\n    \"04-AREA-CT-GMT-F\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 400,\r\n        \"inches\": \"15\\\" 3/4\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-F\",\"finishes\":[\"04-AREA-CT-GM-F\",\"04-AREA-CT-GMT-F\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"},\"max\":{\"millimeters\":400,\"inches\":\"15\\\" 3/4\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F/04-AREA-CT-SW-F/04-AREA-CT-SW-F.jpg",
       "genericName": "04-AREA-CT-xxx-F",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-F1",
       "bundlePath": "modules/area/04-area-ct-xxx-f1/04-area-ct-gm-f1/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-F1\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-F1\",\r\n    \"04-AREA-CT-SW-F1\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 400,\r\n        \"inches\": \"15\\\" 3/4\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 450,\r\n        \"inches\": \"17\\\" 23/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-F1\",\"finishes\":[\"04-AREA-CT-GMT-F1\",\"04-AREA-CT-SW-F1\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":400,\"inches\":\"15\\\" 3/4\"},\"max\":{\"millimeters\":450,\"inches\":\"17\\\" 23/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F1/04-AREA-CT-GM-F1/04-AREA-CT-GM-F1.jpg",
       "genericName": "04-AREA-CT-xxx-F1",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-F1",
       "bundlePath": "modules/area/04-area-ct-xxx-f1/04-area-ct-gmt-f1/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-F1\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-F1\",\r\n    \"04-AREA-CT-SW-F1\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 400,\r\n        \"inches\": \"15\\\" 3/4\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 450,\r\n        \"inches\": \"17\\\" 23/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-F1\",\"finishes\":[\"04-AREA-CT-GM-F1\",\"04-AREA-CT-SW-F1\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":400,\"inches\":\"15\\\" 3/4\"},\"max\":{\"millimeters\":450,\"inches\":\"17\\\" 23/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F1/04-AREA-CT-GMT-F1/04-AREA-CT-GMT-F1.jpg",
       "genericName": "04-AREA-CT-xxx-F1",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-F1",
       "bundlePath": "modules/area/04-area-ct-xxx-f1/04-area-ct-sw-f1/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-F1\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-F1\",\r\n    \"04-AREA-CT-GMT-F1\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 400,\r\n        \"inches\": \"15\\\" 3/4\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 450,\r\n        \"inches\": \"17\\\" 23/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-F1\",\"finishes\":[\"04-AREA-CT-GM-F1\",\"04-AREA-CT-GMT-F1\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":400,\"inches\":\"15\\\" 3/4\"},\"max\":{\"millimeters\":450,\"inches\":\"17\\\" 23/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F1/04-AREA-CT-SW-F1/04-AREA-CT-SW-F1.jpg",
       "genericName": "04-AREA-CT-xxx-F1",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-G",
       "bundlePath": "modules/area/04-area-ct-xxx-g/04-area-ct-gm-g/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-G\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-G\",\r\n    \"04-AREA-CT-SW-G\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 450,\r\n        \"inches\": \"17\\\" 23/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"bottom\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-G\",\"finishes\":[\"04-AREA-CT-GMT-G\",\"04-AREA-CT-SW-G\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":450,\"inches\":\"17\\\" 23/32\"},\"max\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"bottom\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-G/04-AREA-CT-GM-G/04-AREA-CT-GM-G.jpg",
       "genericName": "04-AREA-CT-xxx-G",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-G",
       "bundlePath": "modules/area/04-area-ct-xxx-g/04-area-ct-gmt-g/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-G\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-G\",\r\n    \"04-AREA-CT-SW-G\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 450,\r\n        \"inches\": \"17\\\" 23/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"bottom\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-G\",\"finishes\":[\"04-AREA-CT-GM-G\",\"04-AREA-CT-SW-G\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":450,\"inches\":\"17\\\" 23/32\"},\"max\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"bottom\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-G/04-AREA-CT-GMT-G/04-AREA-CT-GMT-G.jpg",
       "genericName": "04-AREA-CT-xxx-G",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-G",
       "bundlePath": "modules/area/04-area-ct-xxx-g/04-area-ct-sw-g/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-G\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-G\",\r\n    \"04-AREA-CT-GMT-G\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 450,\r\n        \"inches\": \"17\\\" 23/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"bottom\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-G\",\"finishes\":[\"04-AREA-CT-GM-G\",\"04-AREA-CT-GMT-G\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":450,\"inches\":\"17\\\" 23/32\"},\"max\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"bottom\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-G/04-AREA-CT-SW-G/04-AREA-CT-SW-G.jpg",
       "genericName": "04-AREA-CT-xxx-G",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-H",
       "bundlePath": "modules/area/04-area-ct-xxx-h/04-area-ct-gm-h/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-H\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-H\",\r\n    \"04-AREA-CT-SW-H\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-GM-KNIFE\",\r\n      \"04-AREA-CT-GM-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-H\",\"finishes\":[\"04-AREA-CT-GMT-H\",\"04-AREA-CT-SW-H\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"},\"max\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-GM-KNIFE\",\"04-AREA-CT-GM-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-H/04-AREA-CT-GM-H/04-AREA-CT-GM-H.jpg",
       "genericName": "04-AREA-CT-xxx-H",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-H",
       "bundlePath": "modules/area/04-area-ct-xxx-h/04-area-ct-gmt-h/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-H\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-H\",\r\n    \"04-AREA-CT-SW-H\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-GMT-KNIFE\",\r\n      \"04-AREA-CT-GMT-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-H\",\"finishes\":[\"04-AREA-CT-GM-H\",\"04-AREA-CT-SW-H\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"},\"max\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-GMT-KNIFE\",\"04-AREA-CT-GMT-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-H/04-AREA-CT-GMT-H/04-AREA-CT-GMT-H.jpg",
       "genericName": "04-AREA-CT-xxx-H",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-H",
       "bundlePath": "modules/area/04-area-ct-xxx-h/04-area-ct-sw-h/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-H\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-H\",\r\n    \"04-AREA-CT-GMT-H\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-SW-KNIFE\",\r\n      \"04-AREA-CT-SW-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-H\",\"finishes\":[\"04-AREA-CT-GM-H\",\"04-AREA-CT-GMT-H\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"},\"max\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-SW-KNIFE\",\"04-AREA-CT-SW-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-H/04-AREA-CT-SW-H/04-AREA-CT-SW-H.jpg",
       "genericName": "04-AREA-CT-xxx-H",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-IJ",
       "bundlePath": "modules/area/04-area-ct-xxx-ij/04-area-ct-gm-ij/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-IJ\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-IJ\",\r\n    \"04-AREA-CT-SW-IJ\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 700,\r\n        \"inches\": \"27\\\" 9/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-GM-KNIFE\",\r\n      \"04-AREA-CT-GM-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-IJ\",\"finishes\":[\"04-AREA-CT-GMT-IJ\",\"04-AREA-CT-SW-IJ\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"},\"max\":{\"millimeters\":700,\"inches\":\"27\\\" 9/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-GM-KNIFE\",\"04-AREA-CT-GM-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-IJ/04-AREA-CT-GM-IJ/04-AREA-CT-GM-IJ.jpg",
       "genericName": "04-AREA-CT-xxx-IJ",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-IJ",
       "bundlePath": "modules/area/04-area-ct-xxx-ij/04-area-ct-gmt-ij/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-IJ\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-IJ\",\r\n    \"04-AREA-CT-SW-IJ\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 700,\r\n        \"inches\": \"27\\\" 9/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-GMT-KNIFE\",\r\n      \"04-AREA-CT-GMT-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-IJ\",\"finishes\":[\"04-AREA-CT-GM-IJ\",\"04-AREA-CT-SW-IJ\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"},\"max\":{\"millimeters\":700,\"inches\":\"27\\\" 9/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-GMT-KNIFE\",\"04-AREA-CT-GMT-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-IJ/04-AREA-CT-GMT-IJ/04-AREA-CT-GMT-IJ.jpg",
       "genericName": "04-AREA-CT-xxx-IJ",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-IJ",
       "bundlePath": "modules/area/04-area-ct-xxx-ij/04-area-ct-sw-ij/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-IJ\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-IJ\",\r\n    \"04-AREA-CT-GMT-IJ\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 700,\r\n        \"inches\": \"27\\\" 9/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-SW-KNIFE\",\r\n      \"04-AREA-CT-SW-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-IJ\",\"finishes\":[\"04-AREA-CT-GM-IJ\",\"04-AREA-CT-GMT-IJ\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"},\"max\":{\"millimeters\":700,\"inches\":\"27\\\" 9/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-SW-KNIFE\",\"04-AREA-CT-SW-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-IJ/04-AREA-CT-SW-IJ/04-AREA-CT-SW-IJ.jpg",
       "genericName": "04-AREA-CT-xxx-IJ",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-K",
       "bundlePath": "modules/area/04-area-ct-xxx-k/04-area-ct-gm-k/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-K\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-K\",\r\n    \"04-AREA-CT-SW-K\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 700,\r\n        \"inches\": \"27\\\" 9/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 800,\r\n        \"inches\": \"31\\\" 1/2\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-GM-KNIFE\",\r\n      \"04-AREA-CT-GM-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-K\",\"finishes\":[\"04-AREA-CT-GMT-K\",\"04-AREA-CT-SW-K\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":700,\"inches\":\"27\\\" 9/16\"},\"max\":{\"millimeters\":800,\"inches\":\"31\\\" 1/2\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-GM-KNIFE\",\"04-AREA-CT-GM-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-K/04-AREA-CT-GM-K/04-AREA-CT-GM-K.jpg",
       "genericName": "04-AREA-CT-xxx-K",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-K",
       "bundlePath": "modules/area/04-area-ct-xxx-k/04-area-ct-gmt-k/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-K\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-K\",\r\n    \"04-AREA-CT-SW-K\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 700,\r\n        \"inches\": \"27\\\" 9/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 800,\r\n        \"inches\": \"31\\\" 1/2\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-GMT-KNIFE\",\r\n      \"04-AREA-CT-GMT-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-K\",\"finishes\":[\"04-AREA-CT-GM-K\",\"04-AREA-CT-SW-K\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":700,\"inches\":\"27\\\" 9/16\"},\"max\":{\"millimeters\":800,\"inches\":\"31\\\" 1/2\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-GMT-KNIFE\",\"04-AREA-CT-GMT-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-K/04-AREA-CT-GMT-K/04-AREA-CT-GMT-K.jpg",
       "genericName": "04-AREA-CT-xxx-K",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-K",
       "bundlePath": "modules/area/04-area-ct-xxx-k/04-area-ct-sw-k/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-K\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-K\",\r\n    \"04-AREA-CT-GMT-K\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 700,\r\n        \"inches\": \"27\\\" 9/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 800,\r\n        \"inches\": \"31\\\" 1/2\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-SW-KNIFE\",\r\n      \"04-AREA-CT-SW-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-K\",\"finishes\":[\"04-AREA-CT-GM-K\",\"04-AREA-CT-GMT-K\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":700,\"inches\":\"27\\\" 9/16\"},\"max\":{\"millimeters\":800,\"inches\":\"31\\\" 1/2\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-SW-KNIFE\",\"04-AREA-CT-SW-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-K/04-AREA-CT-SW-K/04-AREA-CT-SW-K.jpg",
       "genericName": "04-AREA-CT-xxx-K",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-KNIFE",
       "bundlePath": "modules/area/04-area-ct-xxx-knife/04-area-ct-gm-knife/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-KNIFE\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-KNIFE\",\r\n    \"04-AREA-CT-SW-KNIFE\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 28,\r\n      \"inches\": \"1\\\" 3/32\"\r\n    }\r\n  },\r\n  \"rules\": {}\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-KNIFE\",\"finishes\":[\"04-AREA-CT-GMT-KNIFE\",\"04-AREA-CT-SW-KNIFE\"],\"dimensions\":{\"height\":{\"millimeters\":28,\"inches\":\"1\\\" 3/32\"}},\"rules\":{}}",
       "isSubmodule": true,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-KNIFE/04-AREA-CT-GM-KNIFE/04-AREA-CT-GM-KNIFE.jpg",
       "genericName": "04-AREA-CT-xxx-KNIFE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-KNIFE",
       "bundlePath": "modules/area/04-area-ct-xxx-knife/04-area-ct-gmt-knife/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-KNIFE\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-KNIFE\",\r\n    \"04-AREA-CT-SW-KNIFE\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 28,\r\n      \"inches\": \"1\\\" 3/32\"\r\n    }\r\n  },\r\n  \"rules\": {}\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-KNIFE\",\"finishes\":[\"04-AREA-CT-GM-KNIFE\",\"04-AREA-CT-SW-KNIFE\"],\"dimensions\":{\"height\":{\"millimeters\":28,\"inches\":\"1\\\" 3/32\"}},\"rules\":{}}",
       "isSubmodule": true,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-KNIFE/04-AREA-CT-GMT-KNIFE/04-AREA-CT-GMT-KNIFE.jpg",
       "genericName": "04-AREA-CT-xxx-KNIFE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-KNIFE",
       "bundlePath": "modules/area/04-area-ct-xxx-knife/04-area-ct-sw-knife/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-KNIFE\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-KNIFE\",\r\n    \"04-AREA-CT-GMT-KNIFE\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 28,\r\n      \"inches\": \"1\\\" 3/32\"\r\n    }\r\n  },\r\n  \"rules\": {}\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-KNIFE\",\"finishes\":[\"04-AREA-CT-GM-KNIFE\",\"04-AREA-CT-GMT-KNIFE\"],\"dimensions\":{\"height\":{\"millimeters\":28,\"inches\":\"1\\\" 3/32\"}},\"rules\":{}}",
       "isSubmodule": true,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-KNIFE/04-AREA-CT-SW-KNIFE/04-AREA-CT-SW-KNIFE.jpg",
       "genericName": "04-AREA-CT-xxx-KNIFE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-L",
       "bundlePath": "modules/area/04-area-ct-xxx-l/04-area-ct-gm-l/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-L\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-L\",\r\n    \"04-AREA-CT-SW-L\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 800,\r\n        \"inches\": \"31\\\" 1/2\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 900,\r\n        \"inches\": \"35\\\" 7/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-GM-KNIFE\",\r\n      \"04-AREA-CT-GM-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-L\",\"finishes\":[\"04-AREA-CT-GMT-L\",\"04-AREA-CT-SW-L\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":800,\"inches\":\"31\\\" 1/2\"},\"max\":{\"millimeters\":900,\"inches\":\"35\\\" 7/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-GM-KNIFE\",\"04-AREA-CT-GM-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-L/04-AREA-CT-GM-L/04-AREA-CT-GM-L.jpg",
       "genericName": "04-AREA-CT-xxx-L",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-L",
       "bundlePath": "modules/area/04-area-ct-xxx-l/04-area-ct-gmt-l/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-L\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-L\",\r\n    \"04-AREA-CT-SW-L\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 800,\r\n        \"inches\": \"31\\\" 1/2\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 900,\r\n        \"inches\": \"35\\\" 7/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-GMT-KNIFE\",\r\n      \"04-AREA-CT-GMT-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-L\",\"finishes\":[\"04-AREA-CT-GM-L\",\"04-AREA-CT-SW-L\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":800,\"inches\":\"31\\\" 1/2\"},\"max\":{\"millimeters\":900,\"inches\":\"35\\\" 7/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-GMT-KNIFE\",\"04-AREA-CT-GMT-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-L/04-AREA-CT-GMT-L/04-AREA-CT-GMT-L.jpg",
       "genericName": "04-AREA-CT-xxx-L",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-L",
       "bundlePath": "modules/area/04-area-ct-xxx-l/04-area-ct-sw-l/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-L\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-L\",\r\n    \"04-AREA-CT-GMT-L\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 800,\r\n        \"inches\": \"31\\\" 1/2\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 900,\r\n        \"inches\": \"35\\\" 7/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-SW-KNIFE\",\r\n      \"04-AREA-CT-SW-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-L\",\"finishes\":[\"04-AREA-CT-GM-L\",\"04-AREA-CT-GMT-L\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":800,\"inches\":\"31\\\" 1/2\"},\"max\":{\"millimeters\":900,\"inches\":\"35\\\" 7/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-SW-KNIFE\",\"04-AREA-CT-SW-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-L/04-AREA-CT-SW-L/04-AREA-CT-SW-L.jpg",
       "genericName": "04-AREA-CT-xxx-L",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GM-N",
       "bundlePath": "modules/area/04-area-ct-xxx-n/04-area-ct-gm-n/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GM-N\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GMT-N\",\r\n    \"04-AREA-CT-SW-N\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 900,\r\n        \"inches\": \"35\\\" 7/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 1000,\r\n        \"inches\": \"39\\\" 3/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-GM-KNIFE\",\r\n      \"04-AREA-CT-GM-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GM-N\",\"finishes\":[\"04-AREA-CT-GMT-N\",\"04-AREA-CT-SW-N\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":900,\"inches\":\"35\\\" 7/16\"},\"max\":{\"millimeters\":1000,\"inches\":\"39\\\" 3/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-GM-KNIFE\",\"04-AREA-CT-GM-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-N/04-AREA-CT-GM-N/04-AREA-CT-GM-N.jpg",
       "genericName": "04-AREA-CT-xxx-N",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-GMT-N",
       "bundlePath": "modules/area/04-area-ct-xxx-n/04-area-ct-gmt-n/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-GMT-N\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-N\",\r\n    \"04-AREA-CT-SW-N\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 900,\r\n        \"inches\": \"35\\\" 7/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 1000,\r\n        \"inches\": \"39\\\" 3/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-GMT-KNIFE\",\r\n      \"04-AREA-CT-GMT-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-GMT-N\",\"finishes\":[\"04-AREA-CT-GM-N\",\"04-AREA-CT-SW-N\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":900,\"inches\":\"35\\\" 7/16\"},\"max\":{\"millimeters\":1000,\"inches\":\"39\\\" 3/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-GMT-KNIFE\",\"04-AREA-CT-GMT-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-N/04-AREA-CT-GMT-N/04-AREA-CT-GMT-N.jpg",
       "genericName": "04-AREA-CT-xxx-N",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-CT-SW-N",
       "bundlePath": "modules/area/04-area-ct-xxx-n/04-area-ct-sw-n/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-CT-SW-N\",\r\n  \"finishes\": [\r\n    \"04-AREA-CT-GM-N\",\r\n    \"04-AREA-CT-GMT-N\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 900,\r\n        \"inches\": \"35\\\" 7/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 1000,\r\n        \"inches\": \"39\\\" 3/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\",\r\n      \"04-AREA-CT-SW-KNIFE\",\r\n      \"04-AREA-CT-SW-SPICE\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-CT-SW-N\",\"finishes\":[\"04-AREA-CT-GM-N\",\"04-AREA-CT-GMT-N\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":900,\"inches\":\"35\\\" 7/16\"},\"max\":{\"millimeters\":1000,\"inches\":\"39\\\" 3/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\",\"04-AREA-CT-SW-KNIFE\",\"04-AREA-CT-SW-SPICE\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-N/04-AREA-CT-SW-N/04-AREA-CT-SW-N.jpg",
       "genericName": "04-AREA-CT-xxx-N",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": [
+        "all",
+        "utensil"
+      ]
     },
     {
       "partNumber": "04-AREA-SP-CH",
@@ -2408,7 +2612,7 @@
       "bundlePath": "modules/area/04-area-st-xxx-g/04-area-st-gm-g/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-ST-GM-G\",\r\n  \"finishes\": [\r\n    \"04-AREA-ST-SW-G\",\r\n    \"04-AREA-ST-GMT-G\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 380,\r\n        \"inches\": \"14\\\" 31/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 480,\r\n        \"inches\": \"18\\\" 29/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-ST-GM-G\",\"finishes\":[\"04-AREA-ST-SW-G\",\"04-AREA-ST-GMT-G\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":380,\"inches\":\"14\\\" 31/32\"},\"max\":{\"millimeters\":480,\"inches\":\"18\\\" 29/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2421,7 +2625,7 @@
       "bundlePath": "modules/area/04-area-st-xxx-g/04-area-st-gmt-g/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-ST-GMT-G\",\r\n  \"finishes\": [\r\n    \"04-AREA-ST-SW-G\",\r\n    \"04-AREA-ST-GM-G\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 380,\r\n        \"inches\": \"14\\\" 31/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 480,\r\n        \"inches\": \"18\\\" 29/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-ST-GMT-G\",\"finishes\":[\"04-AREA-ST-SW-G\",\"04-AREA-ST-GM-G\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":380,\"inches\":\"14\\\" 31/32\"},\"max\":{\"millimeters\":480,\"inches\":\"18\\\" 29/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2434,7 +2638,7 @@
       "bundlePath": "modules/area/04-area-st-xxx-g/04-area-st-sw-g/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-ST-SW-G\",\r\n  \"finishes\": [\r\n    \"04-AREA-ST-GM-G\",\r\n    \"04-AREA-ST-GMT-G\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 380,\r\n        \"inches\": \"14\\\" 31/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 480,\r\n        \"inches\": \"18\\\" 29/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-ST-SW-G\",\"finishes\":[\"04-AREA-ST-GM-G\",\"04-AREA-ST-GMT-G\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":380,\"inches\":\"14\\\" 31/32\"},\"max\":{\"millimeters\":480,\"inches\":\"18\\\" 29/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2447,7 +2651,7 @@
       "bundlePath": "modules/area/04-area-st-xxx-h/04-area-st-gm-h/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-ST-GM-H\",\r\n  \"finishes\": [\r\n    \"04-AREA-ST-SW-H\",\r\n    \"04-AREA-ST-GMT-H\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 480,\r\n        \"inches\": \"18\\\" 29/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-ST-GM-H\",\"finishes\":[\"04-AREA-ST-SW-H\",\"04-AREA-ST-GMT-H\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":480,\"inches\":\"18\\\" 29/32\"},\"max\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2460,7 +2664,7 @@
       "bundlePath": "modules/area/04-area-st-xxx-h/04-area-st-gmt-h/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-ST-GMT-H\",\r\n  \"finishes\": [\r\n    \"04-AREA-ST-SW-H\",\r\n    \"04-AREA-ST-GM-H\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 480,\r\n        \"inches\": \"18\\\" 29/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-ST-GMT-H\",\"finishes\":[\"04-AREA-ST-SW-H\",\"04-AREA-ST-GM-H\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":480,\"inches\":\"18\\\" 29/32\"},\"max\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2473,7 +2677,7 @@
       "bundlePath": "modules/area/04-area-st-xxx-h/04-area-st-sw-h/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-ST-SW-H\",\r\n  \"finishes\": [\r\n    \"04-AREA-ST-GM-H\",\r\n    \"04-AREA-ST-GMT-H\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 480,\r\n        \"inches\": \"18\\\" 29/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-ST-SW-H\",\"finishes\":[\"04-AREA-ST-GM-H\",\"04-AREA-ST-GMT-H\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":480,\"inches\":\"18\\\" 29/32\"},\"max\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2486,49 +2690,58 @@
       "bundlePath": "modules/area/04-area-ut-xxx-d/04-area-ut-gm-d/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-GM-D\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GMT-D\",\r\n    \"04-AREA-UT-SW-D\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 200,\r\n        \"inches\": \"7\\\" 7/8\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-GM-D\",\"finishes\":[\"04-AREA-UT-GMT-D\",\"04-AREA-UT-SW-D\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":200,\"inches\":\"7\\\" 7/8\"},\"max\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-D/04-AREA-UT-GM-D/04-AREA-UT-GM-D.jpg",
       "genericName": "04-AREA-UT-xxx-D",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": [
+        "all",
+        "utility"
+      ]
     },
     {
       "partNumber": "04-AREA-UT-GMT-D",
       "bundlePath": "modules/area/04-area-ut-xxx-d/04-area-ut-gmt-d/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-GMT-D\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GM-D\",\r\n    \"04-AREA-UT-SW-D\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 200,\r\n        \"inches\": \"7\\\" 7/8\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-GMT-D\",\"finishes\":[\"04-AREA-UT-GM-D\",\"04-AREA-UT-SW-D\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":200,\"inches\":\"7\\\" 7/8\"},\"max\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-D/04-AREA-UT-GMT-D/04-AREA-UT-GMT-D.jpg",
       "genericName": "04-AREA-UT-xxx-D",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": [
+        "all",
+        "utility"
+      ]
     },
     {
       "partNumber": "04-AREA-UT-SW-D",
       "bundlePath": "modules/area/04-area-ut-xxx-d/04-area-ut-sw-d/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "\r\n{\r\n  \"partNumber\": \"04-AREA-UT-SW-D\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GM-D\",\r\n    \"04-AREA-UT-GMT-D\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 200,\r\n        \"inches\": \"7\\\" 7/8\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-SW-D\",\"finishes\":[\"04-AREA-UT-GM-D\",\"04-AREA-UT-GMT-D\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":200,\"inches\":\"7\\\" 7/8\"},\"max\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-D/04-AREA-UT-SW-D/04-AREA-UT-SW-D.jpg",
       "genericName": "04-AREA-UT-xxx-D",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": [
+        "all",
+        "utility"
+      ]
     },
     {
       "partNumber": "04-AREA-UT-GM-E",
       "bundlePath": "modules/area/04-area-ut-xxx-e/04-area-ut-gm-e/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-GM-E\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GMT-E\",\r\n    \"04-AREA-UT-SW-E\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-GM-E\",\"finishes\":[\"04-AREA-UT-GMT-E\",\"04-AREA-UT-SW-E\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"},\"max\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2541,7 +2754,7 @@
       "bundlePath": "modules/area/04-area-ut-xxx-e/04-area-ut-gmt-e/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-GMT-E\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GM-E\",\r\n    \"04-AREA-UT-SW-E\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-GMT-E\",\"finishes\":[\"04-AREA-UT-GM-E\",\"04-AREA-UT-SW-E\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"},\"max\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2554,7 +2767,7 @@
       "bundlePath": "modules/area/04-area-ut-xxx-e/04-area-ut-sw-e/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-SW-E\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GM-E\",\r\n    \"04-AREA-UT-GMT-E\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 300,\r\n        \"inches\": \"11\\\" 13/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-SW-E\",\"finishes\":[\"04-AREA-UT-GM-E\",\"04-AREA-UT-GMT-E\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":300,\"inches\":\"11\\\" 13/16\"},\"max\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2567,7 +2780,7 @@
       "bundlePath": "modules/area/04-area-ut-xxx-f/04-area-ut-gm-f/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-GM-F\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GMT-F\",\r\n    \"04-AREA-UT-SW-F\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 400,\r\n        \"inches\": \"15\\\" 3/4\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-GM-F\",\"finishes\":[\"04-AREA-UT-GMT-F\",\"04-AREA-UT-SW-F\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"},\"max\":{\"millimeters\":400,\"inches\":\"15\\\" 3/4\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2580,7 +2793,7 @@
       "bundlePath": "modules/area/04-area-ut-xxx-f/04-area-ut-gmt-f/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-GMT-F\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GM-F\",\r\n    \"04-AREA-UT-SW-F\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 400,\r\n        \"inches\": \"15\\\" 3/4\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-GMT-F\",\"finishes\":[\"04-AREA-UT-GM-F\",\"04-AREA-UT-SW-F\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"},\"max\":{\"millimeters\":400,\"inches\":\"15\\\" 3/4\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2593,7 +2806,7 @@
       "bundlePath": "modules/area/04-area-ut-xxx-f/04-area-ut-sw-f/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-SW-F\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GM-F\",\r\n    \"04-AREA-UT-GMT-F\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 350,\r\n        \"inches\": \"13\\\" 25/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 400,\r\n        \"inches\": \"15\\\" 3/4\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-SW-F\",\"finishes\":[\"04-AREA-UT-GM-F\",\"04-AREA-UT-GMT-F\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":350,\"inches\":\"13\\\" 25/32\"},\"max\":{\"millimeters\":400,\"inches\":\"15\\\" 3/4\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
@@ -2606,84 +2819,102 @@
       "bundlePath": "modules/area/04-area-ut-xxx-g/04-area-ut-gm-g/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-GM-G\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GMT-G\",\r\n    \"04-AREA-UT-SW-G\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 450,\r\n        \"inches\": \"17\\\" 23/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-GM-G\",\"finishes\":[\"04-AREA-UT-GMT-G\",\"04-AREA-UT-SW-G\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":450,\"inches\":\"17\\\" 23/32\"},\"max\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-G/04-AREA-UT-GM-G/04-AREA-UT-GM-G.jpg",
       "genericName": "04-AREA-UT-xxx-G",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": [
+        "all",
+        "utility"
+      ]
     },
     {
       "partNumber": "04-AREA-UT-GMT-G",
       "bundlePath": "modules/area/04-area-ut-xxx-g/04-area-ut-gmt-g/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-GMT-G\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GM-G\",\r\n    \"04-AREA-UT-SW-G\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 450,\r\n        \"inches\": \"17\\\" 23/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-GMT-G\",\"finishes\":[\"04-AREA-UT-GM-G\",\"04-AREA-UT-SW-G\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":450,\"inches\":\"17\\\" 23/32\"},\"max\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-G/04-AREA-UT-GMT-G/04-AREA-UT-GMT-G.jpg",
       "genericName": "04-AREA-UT-xxx-G",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": [
+        "all",
+        "utility"
+      ]
     },
     {
       "partNumber": "04-AREA-UT-SW-G",
       "bundlePath": "modules/area/04-area-ut-xxx-g/04-area-ut-sw-g/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-SW-G\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GM-G\",\r\n    \"04-AREA-UT-GMT-G\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 450,\r\n        \"inches\": \"17\\\" 23/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-SW-G\",\"finishes\":[\"04-AREA-UT-GM-G\",\"04-AREA-UT-GMT-G\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":450,\"inches\":\"17\\\" 23/32\"},\"max\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-G/04-AREA-UT-SW-G/04-AREA-UT-SW-G.jpg",
       "genericName": "04-AREA-UT-xxx-G",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": [
+        "all",
+        "utility"
+      ]
     },
     {
       "partNumber": "04-AREA-UT-GM-H",
       "bundlePath": "modules/area/04-area-ut-xxx-h/04-area-ut-gm-h/module",
       "finish": "matte-grey",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-GM-H\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GMT-H\",\r\n    \"04-AREA-UT-SW-H\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-GM-H\",\"finishes\":[\"04-AREA-UT-GMT-H\",\"04-AREA-UT-SW-H\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"},\"max\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-H/04-AREA-UT-GM-H/04-AREA-UT-GM-H.jpg",
       "genericName": "04-AREA-UT-xxx-H",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": [
+        "all",
+        "utility"
+      ]
     },
     {
       "partNumber": "04-AREA-UT-GMT-H",
       "bundlePath": "modules/area/04-area-ut-xxx-h/04-area-ut-gmt-h/module",
       "finish": "matte-grey-textured",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-GMT-H\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GM-H\",\r\n    \"04-AREA-UT-SW-H\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-GMT-H\",\"finishes\":[\"04-AREA-UT-GM-H\",\"04-AREA-UT-SW-H\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"},\"max\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-H/04-AREA-UT-GMT-H/04-AREA-UT-GMT-H.jpg",
       "genericName": "04-AREA-UT-xxx-H",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": [
+        "all",
+        "utility"
+      ]
     },
     {
       "partNumber": "04-AREA-UT-SW-H",
       "bundlePath": "modules/area/04-area-ut-xxx-h/04-area-ut-sw-h/module",
       "finish": "silk-white",
       "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-UT-SW-H\",\r\n  \"finishes\": [\r\n    \"04-AREA-UT-GM-H\",\r\n    \"04-AREA-UT-GMT-H\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 52,\r\n      \"inches\": \"2\\\" 1/16\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 500,\r\n        \"inches\": \"19\\\" 11/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 600,\r\n        \"inches\": \"23\\\" 5/8\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"left\",\r\n      \"right\",\r\n      \"top\"\r\n    ],\r\n    \"options\": [\r\n      \"04-AREA-SP-CH\"\r\n    ]\r\n  }\r\n}",
+      "rules": "{\"partNumber\":\"04-AREA-UT-SW-H\",\"finishes\":[\"04-AREA-UT-GM-H\",\"04-AREA-UT-GMT-H\"],\"dimensions\":{\"height\":{\"millimeters\":52,\"inches\":\"2\\\" 1/16\"},\"width\":{\"min\":{\"millimeters\":500,\"inches\":\"19\\\" 11/16\"},\"max\":{\"millimeters\":600,\"inches\":\"23\\\" 5/8\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"left\",\"right\",\"top\"],\"trimOffset\":{\"bottom\":30},\"options\":[\"04-AREA-SP-CH\"]}}",
       "isSubmodule": false,
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-H/04-AREA-UT-SW-H/04-AREA-UT-SW-H.jpg",
       "genericName": "04-AREA-UT-xxx-H",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": [
+        "all",
+        "utility"
+      ]
     },
     {
       "partNumber": "04-AU-ACCENT-AN-69",
@@ -3022,7 +3253,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-AN/04-AU-DIVIDER-AN.jpg",
       "genericName": "04-AU-DIVIDER-xx",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-DIVIDER-AU79",
@@ -3036,7 +3270,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-AU79/04-AU-DIVIDER-AU79.jpg",
       "genericName": "04-AU-DIVIDER-xx",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-DIVIDER-MB",
@@ -3050,7 +3287,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-MB/04-AU-DIVIDER-MB.jpg",
       "genericName": "04-AU-DIVIDER-xx",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-DIVIDER-SD",
@@ -3064,7 +3304,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-SD/04-AU-DIVIDER-SD.jpg",
       "genericName": "04-AU-DIVIDER-xx",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-DIVIDER-SW",
@@ -3078,7 +3321,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-SW/04-AU-DIVIDER-SW.jpg",
       "genericName": "04-AU-DIVIDER-xx",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-LSHAPE600-AN",
@@ -3092,7 +3338,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-AN/04-AU-LSHAPE600-AN.jpg",
       "genericName": "04-AU-LSHAPE600-xx",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-LSHAPE600-AU79",
@@ -3106,7 +3355,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-AU79/04-AU-LSHAPE600-AU79.jpg",
       "genericName": "04-AU-LSHAPE600-xx",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-LSHAPE600-MB",
@@ -3120,7 +3372,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-MB/04-AU-LSHAPE600-MB.jpg",
       "genericName": "04-AU-LSHAPE600-xx",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-LSHAPE600-SD",
@@ -3134,7 +3389,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-SD/04-AU-LSHAPE600-SD.jpg",
       "genericName": "04-AU-LSHAPE600-xx",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-LSHAPE600-SW",
@@ -3148,7 +3406,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-SW/04-AU-LSHAPE600-SW.jpg",
       "genericName": "04-AU-LSHAPE600-xx",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-LSHAPE1200-AN",
@@ -3162,7 +3423,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-AN/04-AU-LSHAPE1200-AN.jpg",
       "genericName": "04-AU-LSHAPE1200-xx",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-LSHAPE1200-AU79",
@@ -3176,7 +3440,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-AU79/04-AU-LSHAPE1200-AU79.jpg",
       "genericName": "04-AU-LSHAPE1200-xx",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-LSHAPE1200-MB",
@@ -3190,7 +3457,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-MB/04-AU-LSHAPE1200-MB.jpg",
       "genericName": "04-AU-LSHAPE1200-xx",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-LSHAPE1200-SD",
@@ -3204,7 +3474,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-SD/04-AU-LSHAPE1200-SD.jpg",
       "genericName": "04-AU-LSHAPE1200-xx",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-LSHAPE1200-SW",
@@ -3218,7 +3491,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-SW/04-AU-LSHAPE1200-SW.jpg",
       "genericName": "04-AU-LSHAPE1200-xx",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-USHAPE-BIR-B",
@@ -3232,7 +3508,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-BIR-B/04-AU-USHAPE-BIR-B.jpg",
       "genericName": "04-AU-USHAPE-xxx-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-USHAPE-WAL-B",
@@ -3246,7 +3525,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-WAL-B/04-AU-USHAPE-WAL-B.jpg",
       "genericName": "04-AU-USHAPE-xxx-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-CD-B",
@@ -3260,7 +3542,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CD-B/04-AU-BIR-CD-B/04-AU-BIR-CD-B.jpg",
       "genericName": "04-AU-xxx-CD-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-CD-B",
@@ -3274,7 +3559,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CD-B/04-AU-WAL-CD-B/04-AU-WAL-CD-B.jpg",
       "genericName": "04-AU-xxx-CD-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-CD-B.b",
@@ -3314,7 +3602,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CT4-D/04-AU-BIR-CT4-D/04-AU-BIR-CT4-D.jpg",
       "genericName": "04-AU-xxx-CT4-D",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-CT4-D",
@@ -3328,7 +3619,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CT4-D/04-AU-WAL-CT4-D/04-AU-WAL-CT4-D.jpg",
       "genericName": "04-AU-xxx-CT4-D",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-CT5-D",
@@ -3342,7 +3636,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CT5-D/04-AU-BIR-CT5-D/04-AU-BIR-CT5-D.jpg",
       "genericName": "04-AU-xxx-CT5-D",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-CT5-D",
@@ -3356,7 +3653,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CT5-D/04-AU-WAL-CT5-D/04-AU-WAL-CT5-D.jpg",
       "genericName": "04-AU-xxx-CT5-D",
-      "categorySlug": ["all", "tray"]
+      "categorySlug": [
+        "all",
+        "tray"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-DIVIDER-H55",
@@ -3370,7 +3670,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-DIVIDER-H55/04-AU-BIR-DIVIDER-H55/04-AU-BIR-DIVIDER-H55.jpg",
       "genericName": "04-AU-xxx-DIVIDER-H55",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-DIVIDER-H55",
@@ -3384,7 +3687,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-DIVIDER-H55/04-AU-WAL-DIVIDER-H55/04-AU-WAL-DIVIDER-H55.jpg",
       "genericName": "04-AU-xxx-DIVIDER-H55",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-FLUTTED-B",
@@ -3398,7 +3704,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-FLUTTED-B/04-AU-BIR-FLUTTED-B/04-AU-BIR-FLUTTED-B.jpg",
       "genericName": "04-AU-xxx-FLUTTED-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-FLUTTED-B",
@@ -3412,7 +3721,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-FLUTTED-B/04-AU-WAL-FLUTTED-B/04-AU-WAL-FLUTTED-B.jpg",
       "genericName": "04-AU-xxx-FLUTTED-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-FLUTTED-B.b",
@@ -3452,7 +3764,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-KH-B/04-AU-BIR-KH-B/04-AU-BIR-KH-B.jpg",
       "genericName": "04-AU-xxx-KH-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-KH-B",
@@ -3466,7 +3781,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-KH-B/04-AU-WAL-KH-B/04-AU-WAL-KH-B.jpg",
       "genericName": "04-AU-xxx-KH-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-KH-B.b",
@@ -3506,7 +3824,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-PARTN240-H125/04-AU-BIR-PARTN240-H125/04-AU-BIR-PARTN240-H125.jpg",
       "genericName": "04-AU-xxx-PARTN240-H125",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-PARTN240-H125",
@@ -3520,7 +3841,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-PARTN240-H125/04-AU-WAL-PARTN240-H125/04-AU-WAL-PARTN240-H125.jpg",
       "genericName": "04-AU-xxx-PARTN240-H125",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-PARTN448-H125",
@@ -3534,7 +3858,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-PARTN448-H125/04-AU-BIR-PARTN448-H125/04-AU-BIR-PARTN448-H125.jpg",
       "genericName": "04-AU-xxx-PARTN448-H125",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-PARTN448-H125",
@@ -3548,7 +3875,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-PARTN448-H125/04-AU-WAL-PARTN448-H125/04-AU-WAL-PARTN448-H125.jpg",
       "genericName": "04-AU-xxx-PARTN448-H125",
-      "categorySlug": ["all", "peg-board"]
+      "categorySlug": [
+        "all",
+        "peg-board"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-SLOTTED-B",
@@ -3562,7 +3892,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B/04-AU-BIR-SLOTTED-B/04-AU-BIR-SLOTTED-B.jpg",
       "genericName": "04-AU-xxx-SLOTTED-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-SLOTTED-B",
@@ -3576,7 +3909,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B/04-AU-WAL-SLOTTED-B/04-AU-WAL-SLOTTED-B.jpg",
       "genericName": "04-AU-xxx-SLOTTED-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-SLOTTED-B.b",
@@ -3616,7 +3952,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SPICERACK-B/04-AU-BIR-SPICERACK-B/04-AU-BIR-SPICERACK-B.jpg",
       "genericName": "04-AU-xxx-SPICERACK-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-SPICERACK-B",
@@ -3630,7 +3969,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SPICERACK-B/04-AU-WAL-SPICERACK-B/04-AU-WAL-SPICERACK-B.jpg",
       "genericName": "04-AU-xxx-SPICERACK-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": [
+        "all",
+        "accessories"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-T9494H36",
@@ -3644,7 +3986,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T9494H36/04-AU-BIR-T9494H36/04-AU-BIR-T9494H36.jpg",
       "genericName": "04-AU-xxx-T9494H36",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-T9494H36",
@@ -3658,7 +4003,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T9494H36/04-AU-WAL-T9494H36/04-AU-WAL-T9494H36.jpg",
       "genericName": "04-AU-xxx-T9494H36",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-T94266H36",
@@ -3672,7 +4020,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T94266H36/04-AU-BIR-T94266H36/04-AU-BIR-T94266H36.jpg",
       "genericName": "04-AU-xxx-T94266H36",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-T94266H36",
@@ -3686,7 +4037,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T94266H36/04-AU-WAL-T94266H36/04-AU-WAL-T94266H36.jpg",
       "genericName": "04-AU-xxx-T94266H36",
-      "categorySlug": ["all", "l-shape"]
+      "categorySlug": [
+        "all",
+        "l-shape"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-T100305H55",
@@ -3700,7 +4054,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T100305H55/04-AU-BIR-T100305H55/04-AU-BIR-T100305H55.jpg",
       "genericName": "04-AU-xxx-T100305H55",
-      "categorySlug": ["all", "box"]
+      "categorySlug": [
+        "all",
+        "box"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-T100305H55",
@@ -3714,7 +4071,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T100305H55/04-AU-WAL-T100305H55/04-AU-WAL-T100305H55.jpg",
       "genericName": "04-AU-xxx-T100305H55",
-      "categorySlug": ["all", "box"]
+      "categorySlug": [
+        "all",
+        "box"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-T200305H55",
@@ -3728,7 +4088,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T200305H55/04-AU-BIR-T200305H55/04-AU-BIR-T200305H55.jpg",
       "genericName": "04-AU-xxx-T200305H55",
-      "categorySlug": ["all", "box"]
+      "categorySlug": [
+        "all",
+        "box"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-T200305H55",
@@ -3742,7 +4105,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T200305H55/04-AU-WAL-T200305H55/04-AU-WAL-T200305H55.jpg",
       "genericName": "04-AU-xxx-T200305H55",
-      "categorySlug": ["all", "box"]
+      "categorySlug": [
+        "all",
+        "box"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-T210406H110",
@@ -3756,7 +4122,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T210406H110/04-AU-BIR-T210406H110/04-AU-BIR-T210406H110.jpg",
       "genericName": "04-AU-xxx-T210406H110",
-      "categorySlug": ["all", "storage-box"]
+      "categorySlug": [
+        "all",
+        "storage-box"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-T210406H110",
@@ -3770,7 +4139,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T210406H110/04-AU-WAL-T210406H110/04-AU-WAL-T210406H110.jpg",
       "genericName": "04-AU-xxx-T210406H110",
-      "categorySlug": ["all", "storage-box"]
+      "categorySlug": [
+        "all",
+        "storage-box"
+      ]
     },
     {
       "partNumber": "04-AU-BIR-T210506H110",
@@ -3784,7 +4156,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T210506H110/04-AU-BIR-T210506H110/04-AU-BIR-T210506H110.jpg",
       "genericName": "04-AU-xxx-T210506H110",
-      "categorySlug": ["all", "storage-box"]
+      "categorySlug": [
+        "all",
+        "storage-box"
+      ]
     },
     {
       "partNumber": "04-AU-WAL-T210506H110",
@@ -3798,7 +4173,10 @@
       "isImprintExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T210506H110/04-AU-WAL-T210506H110/04-AU-WAL-T210506H110.jpg",
       "genericName": "04-AU-xxx-T210506H110",
-      "categorySlug": ["all", "storage-box"]
+      "categorySlug": [
+        "all",
+        "storage-box"
+      ]
     },
     {
       "partNumber": "BIR-spice rack 35mm spacer Size A",
