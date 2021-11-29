@@ -1319,6 +1319,7 @@ type ModuleRulesMetadata {
   The amount (in degrees) that the product can be rotated
   """
   rotation: Float
+  trimOffset: TrimOffsetMetadata
 
   """
   Where a module can be cut if there's excess beyond the drawer
@@ -3254,6 +3255,13 @@ input StringNullableFilter {
   not: NestedStringNullableFilter
   notIn: [String!]
   startsWith: String
+}
+
+type TrimOffsetMetadata {
+  bottom: Float
+  left: Float
+  right: Float
+  top: Float
 }
 
 type Type {

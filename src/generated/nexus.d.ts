@@ -3170,6 +3170,7 @@ export interface NexusGenObjects {
     options?: string[] | null; // [String!]
     requiredNetInterior?: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
     rotation?: number | null; // Float
+    trimOffset?: NexusGenRootTypes['TrimOffsetMetadata'] | null; // TrimOffsetMetadata
     trimmable?: string[] | null; // [String!]
   };
   ModuleUnit: {
@@ -3232,6 +3233,13 @@ export interface NexusGenObjects {
     id: number; // Int!
     name: string; // String!
     slug: string; // String!
+  };
+  TrimOffsetMetadata: {
+    // root type
+    bottom?: number | null; // Float
+    left?: number | null; // Float
+    right?: number | null; // Float
+    top?: number | null; // Float
   };
   Type: {
     // root type
@@ -3389,6 +3397,7 @@ export interface NexusGenFieldTypes {
     options: string[] | null; // [String!]
     requiredNetInterior: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
     rotation: number | null; // Float
+    trimOffset: NexusGenRootTypes['TrimOffsetMetadata'] | null; // TrimOffsetMetadata
     trimmable: string[] | null; // [String!]
   };
   ModuleUnit: {
@@ -3509,6 +3518,13 @@ export interface NexusGenFieldTypes {
     slides: NexusGenRootTypes['Slide'][]; // [Slide!]!
     slug: string; // String!
     thumbnailUrl: string | null; // String
+  };
+  TrimOffsetMetadata: {
+    // field return type
+    bottom: number | null; // Float
+    left: number | null; // Float
+    right: number | null; // Float
+    top: number | null; // Float
   };
   Type: {
     // field return type
@@ -3665,6 +3681,7 @@ export interface NexusGenFieldTypeNames {
     options: 'String';
     requiredNetInterior: 'ModuleMinMax';
     rotation: 'Float';
+    trimOffset: 'TrimOffsetMetadata';
     trimmable: 'String';
   };
   ModuleUnit: {
@@ -3785,6 +3802,13 @@ export interface NexusGenFieldTypeNames {
     slides: 'Slide';
     slug: 'String';
     thumbnailUrl: 'String';
+  };
+  TrimOffsetMetadata: {
+    // field return type name
+    bottom: 'Float';
+    left: 'Float';
+    right: 'Float';
+    top: 'Float';
   };
   Type: {
     // field return type name
