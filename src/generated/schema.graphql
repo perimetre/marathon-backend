@@ -1007,6 +1007,7 @@ type Module {
   ): [ProjectModule!]!
   rules: ModuleRules
   rulesJson: Json
+  shouldHideBasedOnWidth: Boolean!
   thumbnailUrl: String
 }
 
@@ -1129,6 +1130,7 @@ input ModuleCreateManyCollectionInput {
   isSubmodule: Boolean
   partNumber: String!
   rules: Json
+  shouldHideBasedOnWidth: Boolean
   thumbnailUrl: String
 }
 
@@ -1148,6 +1150,7 @@ input ModuleCreateManyFinishInput {
   isSubmodule: Boolean
   partNumber: String!
   rules: Json
+  shouldHideBasedOnWidth: Boolean
   thumbnailUrl: String
 }
 
@@ -1203,6 +1206,7 @@ input ModuleCreateWithoutCollectionInput {
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
+  shouldHideBasedOnWidth: Boolean
   thumbnailUrl: String
 }
 
@@ -1218,6 +1222,7 @@ input ModuleCreateWithoutFinishInput {
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
+  shouldHideBasedOnWidth: Boolean
   thumbnailUrl: String
 }
 
@@ -1233,6 +1238,7 @@ input ModuleCreateWithoutProjectModulesInput {
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   partNumber: String!
   rules: Json
+  shouldHideBasedOnWidth: Boolean
   thumbnailUrl: String
 }
 
@@ -1271,6 +1277,7 @@ input ModuleOrderByInput {
   isSubmodule: SortOrder
   partNumber: SortOrder
   rules: SortOrder
+  shouldHideBasedOnWidth: SortOrder
   thumbnailUrl: SortOrder
 }
 
@@ -1342,6 +1349,7 @@ input ModuleScalarWhereInput {
   isSubmodule: BoolFilter
   partNumber: StringFilter
   rules: JsonNullableFilter
+  shouldHideBasedOnWidth: BoolFilter
   thumbnailUrl: StringNullableFilter
 }
 
@@ -1359,6 +1367,7 @@ input ModuleUpdateManyMutationInput {
   isSubmodule: BoolFieldUpdateOperationsInput
   partNumber: StringFieldUpdateOperationsInput
   rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
   thumbnailUrl: NullableStringFieldUpdateOperationsInput
 }
 
@@ -1430,6 +1439,7 @@ input ModuleUpdateWithoutCollectionInput {
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
   thumbnailUrl: NullableStringFieldUpdateOperationsInput
 }
 
@@ -1445,6 +1455,7 @@ input ModuleUpdateWithoutFinishInput {
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
   thumbnailUrl: NullableStringFieldUpdateOperationsInput
 }
 
@@ -1460,6 +1471,7 @@ input ModuleUpdateWithoutProjectModulesInput {
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   partNumber: StringFieldUpdateOperationsInput
   rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
   thumbnailUrl: NullableStringFieldUpdateOperationsInput
 }
 
@@ -1499,6 +1511,7 @@ input ModuleWhereInput {
   partNumber: StringFilter
   projectModules: ProjectModuleListRelationFilter
   rules: JsonNullableFilter
+  shouldHideBasedOnWidth: BoolFilter
   thumbnailUrl: StringNullableFilter
 }
 
@@ -1629,7 +1642,13 @@ type Project {
   hasPegs: Boolean!
   id: Int!
   modules: [Module!]!
-  projectModules(cursor: ProjectModuleWhereUniqueInput, skip: Int, take: Int): [ProjectModule!]!
+  projectModules(
+    cursor: ProjectModuleWhereUniqueInput
+    orderBy: [ProjectModuleOrderByInput!]
+    skip: Int
+    take: Int
+    where: ProjectModuleWhereInput
+  ): [ProjectModule!]!
   slide: Slide!
   slideDepth: SlideDepth!
   slideDepthId: Int!

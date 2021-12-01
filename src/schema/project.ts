@@ -1,13 +1,14 @@
-import { list, nonNull, objectType } from 'nexus';
+import { FieldResolver, list, nonNull, objectType } from 'nexus';
 import { registerModelsWithPrismaBinding } from '../utils/nexus';
 import { projectService } from '../services/project';
-import { NexusGenObjects } from '../generated/nexus';
-import logging from '../utils/logging';
+import { moduleService } from '../services/modules';
+import { Context } from '../typings/context';
+import { GraphQLResolveInfo } from 'graphql';
 
 export const Project = objectType({
   name: 'Project',
   definition(t) {
-    registerModelsWithPrismaBinding(t, undefined, ['calculatedWidth']);
+    registerModelsWithPrismaBinding(t, ['projectModules'], ['calculatedWidth']);
 
     t.model.calculatedWidth({
       resolve: async (root, args, ctx, info, originalResolve) => {
@@ -19,7 +20,7 @@ export const Project = objectType({
 
     t.field('modules', {
       type: nonNull(list(nonNull('Module'))),
-      resolve: async (root, args, ctx) => {
+      resolve: async (root, _args, ctx) => {
         const modules = await ctx.prisma.module.findMany({
           where: {
             collectionId: root.collectionId,
@@ -39,25 +40,11 @@ export const Project = objectType({
         );
 
         if (calculatedWidth) {
-          return modules.filter((module) => {
-            if (module.rules) {
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              const rules: NexusGenObjects['ModuleRules'] = module.rules as any;
-
-              if (rules.dimensions?.width?.min?.millimeters && rules.dimensions?.width?.max?.millimeters) {
-                const min = rules.dimensions.width.min.millimeters;
-                const max = rules.dimensions.width.max.millimeters;
-
-                if (min !== max) {
-                  return calculatedWidth >= min && calculatedWidth < max;
-                } else if (min === max || !max) {
-                  return calculatedWidth > min;
-                }
-              }
-            }
-
-            return true;
-          });
+          const filteredModules = await moduleService({ db: ctx.prisma }).filterModuleBasedOnWidth(
+            modules,
+            calculatedWidth
+          );
+          return filteredModules;
         } else {
           return modules;
         }
@@ -65,3 +52,39 @@ export const Project = objectType({
     });
   }
 });
+
+export const createOneProjectCustomResolver = async (
+  root: Record<string, unknown>,
+  args: any,
+  ctx: Context,
+  info: GraphQLResolveInfo,
+  originalResolver: FieldResolver<'Mutation', 'createOneProject'>
+) => {
+  const res = await originalResolver(root, args, ctx, info);
+  const project = await ctx.prisma.project.findUnique({ where: { id: Number(res.id) } });
+  if (project?.hasPegs) {
+    const modules = await ctx.prisma.module.findMany({
+      where: {
+        partNumber: { contains: 'PEGBOARD' },
+        collectionId: Number(project.collectionId),
+        finishId: Number(project.finishId)
+      }
+    });
+    const calculatedWidth = await projectService({ db: ctx.prisma }).calculateCabinetWidth(
+      Number(project?.id),
+      { cabinetWidth: project?.cabinetWidth, gable: project?.gable },
+      project?.calculatedWidth
+    );
+    if (calculatedWidth) {
+      const filteredModules = await moduleService({ db: ctx.prisma }).filterModuleBasedOnWidth(
+        modules,
+        calculatedWidth
+      );
+      await ctx.prisma.projectModule.createMany({
+        data: filteredModules.map((mod) => ({ projectId: Number(project?.id), moduleId: mod.id }))
+      });
+    }
+  }
+
+  return res;
+};
