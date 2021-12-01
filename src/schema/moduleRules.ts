@@ -38,6 +38,16 @@ export const ModuleDimension = objectType({
   }
 });
 
+export const TrimOffsetMetadata = objectType({
+  name: 'TrimOffsetMetadata',
+  definition(t) {
+    t.float('left');
+    t.float('right');
+    t.float('top');
+    t.float('bottom');
+  }
+});
+
 export const ModuleRulesMetadata = objectType({
   name: 'ModuleRulesMetadata',
   definition(t) {
@@ -57,6 +67,10 @@ export const ModuleRulesMetadata = objectType({
 
     t.list.nonNull.string('trimmable', {
       description: "Where a module can be cut if there's excess beyond the drawer"
+    });
+
+    t.field('trimOffset', {
+      type: TrimOffsetMetadata
     });
 
     t.boolean('fullDepth', {

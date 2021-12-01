@@ -998,6 +998,7 @@ export interface NexusGenInputs {
     isSubmodule?: boolean | null; // Boolean
     partNumber: string; // String!
     rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
     thumbnailUrl?: string | null; // String
   };
   ModuleCreateManyCollectionInputEnvelope: {
@@ -1017,6 +1018,7 @@ export interface NexusGenInputs {
     isSubmodule?: boolean | null; // Boolean
     partNumber: string; // String!
     rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
     thumbnailUrl?: string | null; // String
   };
   ModuleCreateManyFinishInputEnvelope: {
@@ -1072,6 +1074,7 @@ export interface NexusGenInputs {
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
     thumbnailUrl?: string | null; // String
   };
   ModuleCreateWithoutFinishInput: {
@@ -1087,6 +1090,7 @@ export interface NexusGenInputs {
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
     thumbnailUrl?: string | null; // String
   };
   ModuleCreateWithoutProjectModulesInput: {
@@ -1102,6 +1106,7 @@ export interface NexusGenInputs {
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
     thumbnailUrl?: string | null; // String
   };
   ModuleListRelationFilter: {
@@ -1123,6 +1128,7 @@ export interface NexusGenInputs {
     isSubmodule?: NexusGenEnums['SortOrder'] | null; // SortOrder
     partNumber?: NexusGenEnums['SortOrder'] | null; // SortOrder
     rules?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    shouldHideBasedOnWidth?: NexusGenEnums['SortOrder'] | null; // SortOrder
     thumbnailUrl?: NexusGenEnums['SortOrder'] | null; // SortOrder
   };
   ModuleScalarWhereInput: {
@@ -1141,6 +1147,7 @@ export interface NexusGenInputs {
     isSubmodule?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     partNumber?: NexusGenInputs['StringFilter'] | null; // StringFilter
     rules?: NexusGenInputs['JsonNullableFilter'] | null; // JsonNullableFilter
+    shouldHideBasedOnWidth?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     thumbnailUrl?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
   };
   ModuleUpdateManyMutationInput: {
@@ -1153,6 +1160,7 @@ export interface NexusGenInputs {
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   };
   ModuleUpdateManyWithWhereWithoutCollectionInput: {
@@ -1224,6 +1232,7 @@ export interface NexusGenInputs {
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   };
   ModuleUpdateWithoutFinishInput: {
@@ -1239,6 +1248,7 @@ export interface NexusGenInputs {
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   };
   ModuleUpdateWithoutProjectModulesInput: {
@@ -1254,6 +1264,7 @@ export interface NexusGenInputs {
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   };
   ModuleUpsertWithWhereUniqueWithoutCollectionInput: {
@@ -1293,6 +1304,7 @@ export interface NexusGenInputs {
     partNumber?: NexusGenInputs['StringFilter'] | null; // StringFilter
     projectModules?: NexusGenInputs['ProjectModuleListRelationFilter'] | null; // ProjectModuleListRelationFilter
     rules?: NexusGenInputs['JsonNullableFilter'] | null; // JsonNullableFilter
+    shouldHideBasedOnWidth?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     thumbnailUrl?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
   };
   ModuleWhereUniqueInput: {
@@ -3131,6 +3143,7 @@ export interface NexusGenObjects {
     isMat: boolean; // Boolean!
     isSubmodule: boolean; // Boolean!
     partNumber: string; // String!
+    shouldHideBasedOnWidth: boolean; // Boolean!
   };
   ModuleCategory: {
     // root type
@@ -3170,6 +3183,7 @@ export interface NexusGenObjects {
     options?: string[] | null; // [String!]
     requiredNetInterior?: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
     rotation?: number | null; // Float
+    trimOffset?: NexusGenRootTypes['TrimOffsetMetadata'] | null; // TrimOffsetMetadata
     trimmable?: string[] | null; // [String!]
   };
   ModuleUnit: {
@@ -3232,6 +3246,13 @@ export interface NexusGenObjects {
     id: number; // Int!
     name: string; // String!
     slug: string; // String!
+  };
+  TrimOffsetMetadata: {
+    // root type
+    bottom?: number | null; // Float
+    left?: number | null; // Float
+    right?: number | null; // Float
+    top?: number | null; // Float
   };
   Type: {
     // root type
@@ -3347,6 +3368,7 @@ export interface NexusGenFieldTypes {
     projectModules: NexusGenRootTypes['ProjectModule'][]; // [ProjectModule!]!
     rules: NexusGenRootTypes['ModuleRules'] | null; // ModuleRules
     rulesJson: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth: boolean; // Boolean!
     thumbnailUrl: string | null; // String
   };
   ModuleCategory: {
@@ -3389,6 +3411,7 @@ export interface NexusGenFieldTypes {
     options: string[] | null; // [String!]
     requiredNetInterior: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
     rotation: number | null; // Float
+    trimOffset: NexusGenRootTypes['TrimOffsetMetadata'] | null; // TrimOffsetMetadata
     trimmable: string[] | null; // [String!]
   };
   ModuleUnit: {
@@ -3510,6 +3533,13 @@ export interface NexusGenFieldTypes {
     slug: string; // String!
     thumbnailUrl: string | null; // String
   };
+  TrimOffsetMetadata: {
+    // field return type
+    bottom: number | null; // Float
+    left: number | null; // Float
+    right: number | null; // Float
+    top: number | null; // Float
+  };
   Type: {
     // field return type
     description: string | null; // String
@@ -3623,6 +3653,7 @@ export interface NexusGenFieldTypeNames {
     projectModules: 'ProjectModule';
     rules: 'ModuleRules';
     rulesJson: 'Json';
+    shouldHideBasedOnWidth: 'Boolean';
     thumbnailUrl: 'String';
   };
   ModuleCategory: {
@@ -3665,6 +3696,7 @@ export interface NexusGenFieldTypeNames {
     options: 'String';
     requiredNetInterior: 'ModuleMinMax';
     rotation: 'Float';
+    trimOffset: 'TrimOffsetMetadata';
     trimmable: 'String';
   };
   ModuleUnit: {
@@ -3785,6 +3817,13 @@ export interface NexusGenFieldTypeNames {
     slides: 'Slide';
     slug: 'String';
     thumbnailUrl: 'String';
+  };
+  TrimOffsetMetadata: {
+    // field return type name
+    bottom: 'Float';
+    left: 'Float';
+    right: 'Float';
+    top: 'Float';
   };
   Type: {
     // field return type name
@@ -3941,8 +3980,10 @@ export interface NexusGenArgTypes {
     projectModules: {
       // args
       cursor?: NexusGenInputs['ProjectModuleWhereUniqueInput'] | null; // ProjectModuleWhereUniqueInput
+      orderBy?: NexusGenInputs['ProjectModuleOrderByInput'][] | null; // [ProjectModuleOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['ProjectModuleWhereInput'] | null; // ProjectModuleWhereInput
     };
   };
   ProjectModule: {
