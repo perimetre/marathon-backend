@@ -148,6 +148,7 @@ const main = async () => {
           bundlePath,
           imageUrl,
           isMat,
+          shouldHideBasedOnWidth,
           isImprintExtension
         }) => {
           return {
@@ -158,6 +159,7 @@ const main = async () => {
             hasPegs,
             isMat,
             isImprintExtension,
+            shouldHideBasedOnWidth,
             rules: JSON.parse(rules),
             collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
             finishId: finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1

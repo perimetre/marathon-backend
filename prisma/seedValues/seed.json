@@ -1452,6 +1452,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT2/04-IM-BIR-CT2/04-IM-BIR-CT2.jpg",
       "genericName": "04-IM-xxx-CT2",
       "categorySlug": ["all", "tray"]
@@ -1466,6 +1467,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT2/04-IM-WAL-CT2/04-IM-WAL-CT2.jpg",
       "genericName": "04-IM-xxx-CT2",
       "categorySlug": ["all", "tray"]
@@ -1480,6 +1482,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT3/04-IM-BIR-CT3/04-IM-BIR-CT3.jpg",
       "genericName": "04-IM-xxx-CT3",
       "categorySlug": ["all", "tray"]
@@ -1494,6 +1497,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT3/04-IM-WAL-CT3/04-IM-WAL-CT3.jpg",
       "genericName": "04-IM-xxx-CT3",
       "categorySlug": ["all", "tray"]
@@ -1508,6 +1512,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT4/04-IM-BIR-CT4/04-IM-BIR-CT4.jpg",
       "genericName": "04-IM-xxx-CT4",
       "categorySlug": ["all", "tray"]
@@ -1522,6 +1527,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT4/04-IM-WAL-CT4/04-IM-WAL-CT4.jpg",
       "genericName": "04-IM-xxx-CT4",
       "categorySlug": ["all", "tray"]
@@ -1536,6 +1542,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT5/04-IM-BIR-CT5/04-IM-BIR-CT5.jpg",
       "genericName": "04-IM-xxx-CT5",
       "categorySlug": ["all", "tray"]
@@ -1550,6 +1557,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT5/04-IM-WAL-CT5/04-IM-WAL-CT5.jpg",
       "genericName": "04-IM-xxx-CT5",
       "categorySlug": ["all", "tray"]
@@ -1784,6 +1792,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-H/04-PEGBOARD-BIR-H/04-PEGBOARD-BIR-H.jpg",
       "genericName": "04-PEGBOARD-xxx-H",
       "categorySlug": ["all", "peg-board"]
@@ -1798,6 +1807,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-H/04-PEGBOARD-WAL-H/04-PEGBOARD-WAL-H.jpg",
       "genericName": "04-PEGBOARD-xxx-H",
       "categorySlug": ["all", "peg-board"]
@@ -1812,6 +1822,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-J/04-PEGBOARD-BIR-J/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-J",
       "categorySlug": ["all", "peg-board"]
@@ -1826,6 +1837,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-J/04-PEGBOARD-WAL-J/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-J",
       "categorySlug": ["all", "peg-board"]
@@ -1840,6 +1852,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-L/04-PEGBOARD-BIR-L/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-L",
       "categorySlug": ["all", "peg-board"]
@@ -1854,6 +1867,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-L/04-PEGBOARD-WAL-L/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-L",
       "categorySlug": ["all", "peg-board"]
@@ -1868,6 +1882,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-N/04-PEGBOARD-BIR-N/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-N",
       "categorySlug": ["all", "peg-board"]
@@ -1882,6 +1897,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-N/04-PEGBOARD-WAL-N/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-N",
       "categorySlug": ["all", "peg-board"]
@@ -1938,6 +1954,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-D/04-AREA-CT-GM-D/04-AREA-CT-GM-D.jpg",
       "genericName": "04-AREA-CT-xxx-D",
       "categorySlug": ["all", "utensil"]
@@ -1952,6 +1969,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-D/04-AREA-CT-GMT-D/04-AREA-CT-GMT-D.jpg",
       "genericName": "04-AREA-CT-xxx-D",
       "categorySlug": ["all", "utensil"]
@@ -1966,6 +1984,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-D/04-AREA-CT-SW-D/04-AREA-CT-SW-D.jpg",
       "genericName": "04-AREA-CT-xxx-D",
       "categorySlug": ["all", "utensil"]
@@ -1980,6 +1999,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-E/04-AREA-CT-GM-E/04-AREA-CT-GM-E.jpg",
       "genericName": "04-AREA-CT-xxx-E",
       "categorySlug": ["all", "utensil"]
@@ -1994,6 +2014,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-E/04-AREA-CT-GMT-E/04-AREA-CT-GMT-E.jpg",
       "genericName": "04-AREA-CT-xxx-E",
       "categorySlug": ["all", "utensil"]
@@ -2008,6 +2029,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-E/04-AREA-CT-SW-E/04-AREA-CT-SW-E.jpg",
       "genericName": "04-AREA-CT-xxx-E",
       "categorySlug": ["all", "utensil"]
@@ -2022,6 +2044,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F/04-AREA-CT-GM-F/04-AREA-CT-GM-F.jpg",
       "genericName": "04-AREA-CT-xxx-F",
       "categorySlug": ["all", "utensil"]
@@ -2036,6 +2059,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F/04-AREA-CT-GMT-F/04-AREA-CT-GMT-F.jpg",
       "genericName": "04-AREA-CT-xxx-F",
       "categorySlug": ["all", "utensil"]
@@ -2050,6 +2074,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F/04-AREA-CT-SW-F/04-AREA-CT-SW-F.jpg",
       "genericName": "04-AREA-CT-xxx-F",
       "categorySlug": ["all", "utensil"]
@@ -2106,6 +2131,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-G/04-AREA-CT-GM-G/04-AREA-CT-GM-G.jpg",
       "genericName": "04-AREA-CT-xxx-G",
       "categorySlug": ["all", "utensil"]
@@ -2120,6 +2146,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-G/04-AREA-CT-GMT-G/04-AREA-CT-GMT-G.jpg",
       "genericName": "04-AREA-CT-xxx-G",
       "categorySlug": ["all", "utensil"]
@@ -2134,6 +2161,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-G/04-AREA-CT-SW-G/04-AREA-CT-SW-G.jpg",
       "genericName": "04-AREA-CT-xxx-G",
       "categorySlug": ["all", "utensil"]
@@ -2148,6 +2176,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-H/04-AREA-CT-GM-H/04-AREA-CT-GM-H.jpg",
       "genericName": "04-AREA-CT-xxx-H",
       "categorySlug": ["all", "utensil"]
@@ -2162,6 +2191,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-H/04-AREA-CT-GMT-H/04-AREA-CT-GMT-H.jpg",
       "genericName": "04-AREA-CT-xxx-H",
       "categorySlug": ["all", "utensil"]
@@ -2176,6 +2206,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-H/04-AREA-CT-SW-H/04-AREA-CT-SW-H.jpg",
       "genericName": "04-AREA-CT-xxx-H",
       "categorySlug": ["all", "utensil"]
@@ -2232,6 +2263,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-K/04-AREA-CT-GM-K/04-AREA-CT-GM-K.jpg",
       "genericName": "04-AREA-CT-xxx-K",
       "categorySlug": ["all", "utensil"]
@@ -2246,6 +2278,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-K/04-AREA-CT-GMT-K/04-AREA-CT-GMT-K.jpg",
       "genericName": "04-AREA-CT-xxx-K",
       "categorySlug": ["all", "utensil"]
@@ -2260,6 +2293,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-K/04-AREA-CT-SW-K/04-AREA-CT-SW-K.jpg",
       "genericName": "04-AREA-CT-xxx-K",
       "categorySlug": ["all", "utensil"]
@@ -2316,6 +2350,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-L/04-AREA-CT-GM-L/04-AREA-CT-GM-L.jpg",
       "genericName": "04-AREA-CT-xxx-L",
       "categorySlug": ["all", "utensil"]
@@ -2330,6 +2365,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-L/04-AREA-CT-GMT-L/04-AREA-CT-GMT-L.jpg",
       "genericName": "04-AREA-CT-xxx-L",
       "categorySlug": ["all", "utensil"]
@@ -2344,6 +2380,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-L/04-AREA-CT-SW-L/04-AREA-CT-SW-L.jpg",
       "genericName": "04-AREA-CT-xxx-L",
       "categorySlug": ["all", "utensil"]
@@ -2358,6 +2395,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-N/04-AREA-CT-GM-N/04-AREA-CT-GM-N.jpg",
       "genericName": "04-AREA-CT-xxx-N",
       "categorySlug": ["all", "utensil"]
@@ -2372,6 +2410,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-N/04-AREA-CT-GMT-N/04-AREA-CT-GMT-N.jpg",
       "genericName": "04-AREA-CT-xxx-N",
       "categorySlug": ["all", "utensil"]
@@ -2386,6 +2425,7 @@
       "hasPegs": false,
       "isMat": false,
       "isImprintExtension": false,
+      "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-N/04-AREA-CT-SW-N/04-AREA-CT-SW-N.jpg",
       "genericName": "04-AREA-CT-xxx-N",
       "categorySlug": ["all", "utensil"]
