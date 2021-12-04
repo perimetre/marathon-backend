@@ -989,12 +989,18 @@ type Module {
   categories(where: CategoryWhereInput): [Category!]!
   collection: Collection!
   collectionId: Int!
+  defaultLeftExtension: Module
+  defaultLeftExtensionId: Int
+  defaultLeftExtensionParents(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
+  defaultRightExtension: Module
+  defaultRightExtensionId: Int
+  defaultRightExtensionParents(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
   description: String
   finish: Finish!
   finishId: Int!
   hasPegs: Boolean!
   id: Int!
-  isImprintExtension: Boolean!
+  isExtension: Boolean!
   isMat: Boolean!
   isSubmodule: Boolean!
   partNumber: String!
@@ -1121,11 +1127,13 @@ input ModuleCategoryWhereUniqueInput {
 
 input ModuleCreateManyCollectionInput {
   bundleUrl: String
+  defaultLeftExtensionId: Int
+  defaultRightExtensionId: Int
   description: String
   finishId: Int!
   hasPegs: Boolean
   id: Int
-  isImprintExtension: Boolean
+  isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
   partNumber: String!
@@ -1139,13 +1147,59 @@ input ModuleCreateManyCollectionInputEnvelope {
   skipDuplicates: Boolean
 }
 
+input ModuleCreateManyDefaultLeftExtensionInput {
+  bundleUrl: String
+  collectionId: Int!
+  defaultRightExtensionId: Int
+  description: String
+  finishId: Int!
+  hasPegs: Boolean
+  id: Int
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  partNumber: String!
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateManyDefaultLeftExtensionInputEnvelope {
+  data: [ModuleCreateManyDefaultLeftExtensionInput!]
+  skipDuplicates: Boolean
+}
+
+input ModuleCreateManyDefaultRightExtensionInput {
+  bundleUrl: String
+  collectionId: Int!
+  defaultLeftExtensionId: Int
+  description: String
+  finishId: Int!
+  hasPegs: Boolean
+  id: Int
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  partNumber: String!
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateManyDefaultRightExtensionInputEnvelope {
+  data: [ModuleCreateManyDefaultRightExtensionInput!]
+  skipDuplicates: Boolean
+}
+
 input ModuleCreateManyFinishInput {
   bundleUrl: String
   collectionId: Int!
+  defaultLeftExtensionId: Int
+  defaultRightExtensionId: Int
   description: String
   hasPegs: Boolean
   id: Int
-  isImprintExtension: Boolean
+  isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
   partNumber: String!
@@ -1166,11 +1220,37 @@ input ModuleCreateNestedManyWithoutCollectionInput {
   createMany: ModuleCreateManyCollectionInputEnvelope
 }
 
+input ModuleCreateNestedManyWithoutDefaultLeftExtensionInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutDefaultLeftExtensionInput!]
+  create: [ModuleCreateWithoutDefaultLeftExtensionInput!]
+  createMany: ModuleCreateManyDefaultLeftExtensionInputEnvelope
+}
+
+input ModuleCreateNestedManyWithoutDefaultRightExtensionInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutDefaultRightExtensionInput!]
+  create: [ModuleCreateWithoutDefaultRightExtensionInput!]
+  createMany: ModuleCreateManyDefaultRightExtensionInputEnvelope
+}
+
 input ModuleCreateNestedManyWithoutFinishInput {
   connect: [ModuleWhereUniqueInput!]
   connectOrCreate: [ModuleCreateOrConnectWithoutFinishInput!]
   create: [ModuleCreateWithoutFinishInput!]
   createMany: ModuleCreateManyFinishInputEnvelope
+}
+
+input ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutDefaultLeftExtensionParentsInput
+  create: ModuleCreateWithoutDefaultLeftExtensionParentsInput
+}
+
+input ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutDefaultRightExtensionParentsInput
+  create: ModuleCreateWithoutDefaultRightExtensionParentsInput
 }
 
 input ModuleCreateNestedOneWithoutProjectModulesInput {
@@ -1181,6 +1261,26 @@ input ModuleCreateNestedOneWithoutProjectModulesInput {
 
 input ModuleCreateOrConnectWithoutCollectionInput {
   create: ModuleCreateWithoutCollectionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateOrConnectWithoutDefaultLeftExtensionInput {
+  create: ModuleCreateWithoutDefaultLeftExtensionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateOrConnectWithoutDefaultLeftExtensionParentsInput {
+  create: ModuleCreateWithoutDefaultLeftExtensionParentsInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateOrConnectWithoutDefaultRightExtensionInput {
+  create: ModuleCreateWithoutDefaultRightExtensionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateOrConnectWithoutDefaultRightExtensionParentsInput {
+  create: ModuleCreateWithoutDefaultRightExtensionParentsInput!
   where: ModuleWhereUniqueInput!
 }
 
@@ -1196,10 +1296,94 @@ input ModuleCreateOrConnectWithoutProjectModulesInput {
 
 input ModuleCreateWithoutCollectionInput {
   bundleUrl: String
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
-  isImprintExtension: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutDefaultLeftExtensionInput {
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutDefaultLeftExtensionParentsInput {
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutDefaultRightExtensionInput {
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutDefaultRightExtensionParentsInput {
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
@@ -1213,9 +1397,13 @@ input ModuleCreateWithoutCollectionInput {
 input ModuleCreateWithoutFinishInput {
   bundleUrl: String
   collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
   hasPegs: Boolean
-  isImprintExtension: Boolean
+  isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
@@ -1229,10 +1417,14 @@ input ModuleCreateWithoutFinishInput {
 input ModuleCreateWithoutProjectModulesInput {
   bundleUrl: String
   collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
-  isImprintExtension: Boolean
+  isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
@@ -1268,11 +1460,13 @@ type ModuleMinMax {
 input ModuleOrderByInput {
   bundleUrl: SortOrder
   collectionId: SortOrder
+  defaultLeftExtensionId: SortOrder
+  defaultRightExtensionId: SortOrder
   description: SortOrder
   finishId: SortOrder
   hasPegs: SortOrder
   id: SortOrder
-  isImprintExtension: SortOrder
+  isExtension: SortOrder
   isMat: SortOrder
   isSubmodule: SortOrder
   partNumber: SortOrder
@@ -1340,11 +1534,13 @@ input ModuleScalarWhereInput {
   OR: [ModuleScalarWhereInput!]
   bundleUrl: StringNullableFilter
   collectionId: IntFilter
+  defaultLeftExtensionId: IntNullableFilter
+  defaultRightExtensionId: IntNullableFilter
   description: StringNullableFilter
   finishId: IntFilter
   hasPegs: BoolFilter
   id: IntFilter
-  isImprintExtension: BoolFilter
+  isExtension: BoolFilter
   isMat: BoolFilter
   isSubmodule: BoolFilter
   partNumber: StringFilter
@@ -1362,7 +1558,7 @@ input ModuleUpdateManyMutationInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
-  isImprintExtension: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
   partNumber: StringFieldUpdateOperationsInput
@@ -1372,6 +1568,16 @@ input ModuleUpdateManyMutationInput {
 }
 
 input ModuleUpdateManyWithWhereWithoutCollectionInput {
+  data: ModuleUpdateManyMutationInput!
+  where: ModuleScalarWhereInput!
+}
+
+input ModuleUpdateManyWithWhereWithoutDefaultLeftExtensionInput {
+  data: ModuleUpdateManyMutationInput!
+  where: ModuleScalarWhereInput!
+}
+
+input ModuleUpdateManyWithWhereWithoutDefaultRightExtensionInput {
   data: ModuleUpdateManyMutationInput!
   where: ModuleScalarWhereInput!
 }
@@ -1393,6 +1599,34 @@ input ModuleUpdateManyWithoutCollectionInput {
   update: [ModuleUpdateWithWhereUniqueWithoutCollectionInput!]
   updateMany: [ModuleUpdateManyWithWhereWithoutCollectionInput!]
   upsert: [ModuleUpsertWithWhereUniqueWithoutCollectionInput!]
+}
+
+input ModuleUpdateManyWithoutDefaultLeftExtensionInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutDefaultLeftExtensionInput!]
+  create: [ModuleCreateWithoutDefaultLeftExtensionInput!]
+  createMany: ModuleCreateManyDefaultLeftExtensionInputEnvelope
+  delete: [ModuleWhereUniqueInput!]
+  deleteMany: [ModuleScalarWhereInput!]
+  disconnect: [ModuleWhereUniqueInput!]
+  set: [ModuleWhereUniqueInput!]
+  update: [ModuleUpdateWithWhereUniqueWithoutDefaultLeftExtensionInput!]
+  updateMany: [ModuleUpdateManyWithWhereWithoutDefaultLeftExtensionInput!]
+  upsert: [ModuleUpsertWithWhereUniqueWithoutDefaultLeftExtensionInput!]
+}
+
+input ModuleUpdateManyWithoutDefaultRightExtensionInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutDefaultRightExtensionInput!]
+  create: [ModuleCreateWithoutDefaultRightExtensionInput!]
+  createMany: ModuleCreateManyDefaultRightExtensionInputEnvelope
+  delete: [ModuleWhereUniqueInput!]
+  deleteMany: [ModuleScalarWhereInput!]
+  disconnect: [ModuleWhereUniqueInput!]
+  set: [ModuleWhereUniqueInput!]
+  update: [ModuleUpdateWithWhereUniqueWithoutDefaultRightExtensionInput!]
+  updateMany: [ModuleUpdateManyWithWhereWithoutDefaultRightExtensionInput!]
+  upsert: [ModuleUpsertWithWhereUniqueWithoutDefaultRightExtensionInput!]
 }
 
 input ModuleUpdateManyWithoutFinishInput {
@@ -1417,8 +1651,38 @@ input ModuleUpdateOneRequiredWithoutProjectModulesInput {
   upsert: ModuleUpsertWithoutProjectModulesInput
 }
 
+input ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutDefaultLeftExtensionParentsInput
+  create: ModuleCreateWithoutDefaultLeftExtensionParentsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ModuleUpdateWithoutDefaultLeftExtensionParentsInput
+  upsert: ModuleUpsertWithoutDefaultLeftExtensionParentsInput
+}
+
+input ModuleUpdateOneWithoutDefaultRightExtensionParentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutDefaultRightExtensionParentsInput
+  create: ModuleCreateWithoutDefaultRightExtensionParentsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ModuleUpdateWithoutDefaultRightExtensionParentsInput
+  upsert: ModuleUpsertWithoutDefaultRightExtensionParentsInput
+}
+
 input ModuleUpdateWithWhereUniqueWithoutCollectionInput {
   data: ModuleUpdateWithoutCollectionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleUpdateWithWhereUniqueWithoutDefaultLeftExtensionInput {
+  data: ModuleUpdateWithoutDefaultLeftExtensionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleUpdateWithWhereUniqueWithoutDefaultRightExtensionInput {
+  data: ModuleUpdateWithoutDefaultRightExtensionInput!
   where: ModuleWhereUniqueInput!
 }
 
@@ -1429,10 +1693,94 @@ input ModuleUpdateWithWhereUniqueWithoutFinishInput {
 
 input ModuleUpdateWithoutCollectionInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
-  isImprintExtension: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutDefaultLeftExtensionInput {
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutDefaultLeftExtensionParentsInput {
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutDefaultRightExtensionInput {
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutDefaultRightExtensionParentsInput {
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
@@ -1446,9 +1794,13 @@ input ModuleUpdateWithoutCollectionInput {
 input ModuleUpdateWithoutFinishInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
-  isImprintExtension: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
@@ -1462,10 +1814,14 @@ input ModuleUpdateWithoutFinishInput {
 input ModuleUpdateWithoutProjectModulesInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
-  isImprintExtension: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
@@ -1481,10 +1837,32 @@ input ModuleUpsertWithWhereUniqueWithoutCollectionInput {
   where: ModuleWhereUniqueInput!
 }
 
+input ModuleUpsertWithWhereUniqueWithoutDefaultLeftExtensionInput {
+  create: ModuleCreateWithoutDefaultLeftExtensionInput!
+  update: ModuleUpdateWithoutDefaultLeftExtensionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleUpsertWithWhereUniqueWithoutDefaultRightExtensionInput {
+  create: ModuleCreateWithoutDefaultRightExtensionInput!
+  update: ModuleUpdateWithoutDefaultRightExtensionInput!
+  where: ModuleWhereUniqueInput!
+}
+
 input ModuleUpsertWithWhereUniqueWithoutFinishInput {
   create: ModuleCreateWithoutFinishInput!
   update: ModuleUpdateWithoutFinishInput!
   where: ModuleWhereUniqueInput!
+}
+
+input ModuleUpsertWithoutDefaultLeftExtensionParentsInput {
+  create: ModuleCreateWithoutDefaultLeftExtensionParentsInput!
+  update: ModuleUpdateWithoutDefaultLeftExtensionParentsInput!
+}
+
+input ModuleUpsertWithoutDefaultRightExtensionParentsInput {
+  create: ModuleCreateWithoutDefaultRightExtensionParentsInput!
+  update: ModuleUpdateWithoutDefaultRightExtensionParentsInput!
 }
 
 input ModuleUpsertWithoutProjectModulesInput {
@@ -1499,12 +1877,18 @@ input ModuleWhereInput {
   bundleUrl: StringNullableFilter
   collection: CollectionWhereInput
   collectionId: IntFilter
+  defaultLeftExtension: ModuleWhereInput
+  defaultLeftExtensionId: IntNullableFilter
+  defaultLeftExtensionParents: ModuleListRelationFilter
+  defaultRightExtension: ModuleWhereInput
+  defaultRightExtensionId: IntNullableFilter
+  defaultRightExtensionParents: ModuleListRelationFilter
   description: StringNullableFilter
   finish: FinishWhereInput
   finishId: IntFilter
   hasPegs: BoolFilter
   id: IntFilter
-  isImprintExtension: BoolFilter
+  isExtension: BoolFilter
   isMat: BoolFilter
   isSubmodule: BoolFilter
   moduleCategories: ModuleCategoryListRelationFilter

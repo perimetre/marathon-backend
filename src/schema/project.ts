@@ -27,7 +27,7 @@ export const Project = objectType({
             finishId: root.finishId,
             hasPegs: root.hasPegs,
             isSubmodule: false,
-            isImprintExtension: false
+            isExtension: false
           }
         });
 

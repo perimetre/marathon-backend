@@ -170,6 +170,21 @@ const main = async () => {
 
   const modules = await db.module.findMany({ select: { id: true, partNumber: true } });
 
+  const moduleWithExtensions = seedValues.modules.filter((x) => x.defaultLeftExtension || x.defaultRightExtension);
+  for (const module of moduleWithExtensions) {
+    const extensionLeft = modules.find((x) => x.partNumber === module.defaultLeftExtension);
+    const extensionRight = modules.find((x) => x.partNumber === module.defaultRightExtension);
+    await db.module.update({
+      where: {
+        partNumber: module.partNumber
+      },
+      data: {
+        defaultLeftExtensionId: extensionLeft?.id || undefined,
+        defaultRightExtensionId: extensionRight?.id || undefined
+      }
+    });
+  }
+
   // Automatically puts modules in "all" category
   const toCreate: { categoryId: number; moduleId: number }[] = [];
   seedValues.modules.forEach((module) => {
