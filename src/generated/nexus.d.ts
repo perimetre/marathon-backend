@@ -989,11 +989,13 @@ export interface NexusGenInputs {
   ModuleCreateManyCollectionInput: {
     // input type
     bundleUrl?: string | null; // String
+    defaultLeftExtensionId?: number | null; // Int
+    defaultRightExtensionId?: number | null; // Int
     description?: string | null; // String
     finishId: number; // Int!
     hasPegs?: boolean | null; // Boolean
     id?: number | null; // Int
-    isImprintExtension?: boolean | null; // Boolean
+    isExtension?: boolean | null; // Boolean
     isMat?: boolean | null; // Boolean
     isSubmodule?: boolean | null; // Boolean
     partNumber: string; // String!
@@ -1006,14 +1008,60 @@ export interface NexusGenInputs {
     data?: NexusGenInputs['ModuleCreateManyCollectionInput'][] | null; // [ModuleCreateManyCollectionInput!]
     skipDuplicates?: boolean | null; // Boolean
   };
+  ModuleCreateManyDefaultLeftExtensionInput: {
+    // input type
+    bundleUrl?: string | null; // String
+    collectionId: number; // Int!
+    defaultRightExtensionId?: number | null; // Int
+    description?: string | null; // String
+    finishId: number; // Int!
+    hasPegs?: boolean | null; // Boolean
+    id?: number | null; // Int
+    isExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
+    partNumber: string; // String!
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
+    thumbnailUrl?: string | null; // String
+  };
+  ModuleCreateManyDefaultLeftExtensionInputEnvelope: {
+    // input type
+    data?: NexusGenInputs['ModuleCreateManyDefaultLeftExtensionInput'][] | null; // [ModuleCreateManyDefaultLeftExtensionInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  };
+  ModuleCreateManyDefaultRightExtensionInput: {
+    // input type
+    bundleUrl?: string | null; // String
+    collectionId: number; // Int!
+    defaultLeftExtensionId?: number | null; // Int
+    description?: string | null; // String
+    finishId: number; // Int!
+    hasPegs?: boolean | null; // Boolean
+    id?: number | null; // Int
+    isExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
+    partNumber: string; // String!
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
+    thumbnailUrl?: string | null; // String
+  };
+  ModuleCreateManyDefaultRightExtensionInputEnvelope: {
+    // input type
+    data?: NexusGenInputs['ModuleCreateManyDefaultRightExtensionInput'][] | null; // [ModuleCreateManyDefaultRightExtensionInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  };
   ModuleCreateManyFinishInput: {
     // input type
     bundleUrl?: string | null; // String
     collectionId: number; // Int!
+    defaultLeftExtensionId?: number | null; // Int
+    defaultRightExtensionId?: number | null; // Int
     description?: string | null; // String
     hasPegs?: boolean | null; // Boolean
     id?: number | null; // Int
-    isImprintExtension?: boolean | null; // Boolean
+    isExtension?: boolean | null; // Boolean
     isMat?: boolean | null; // Boolean
     isSubmodule?: boolean | null; // Boolean
     partNumber: string; // String!
@@ -1033,12 +1081,38 @@ export interface NexusGenInputs {
     create?: NexusGenInputs['ModuleCreateWithoutCollectionInput'][] | null; // [ModuleCreateWithoutCollectionInput!]
     createMany?: NexusGenInputs['ModuleCreateManyCollectionInputEnvelope'] | null; // ModuleCreateManyCollectionInputEnvelope
   };
+  ModuleCreateNestedManyWithoutDefaultLeftExtensionInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutDefaultLeftExtensionInput'][] | null; // [ModuleCreateOrConnectWithoutDefaultLeftExtensionInput!]
+    create?: NexusGenInputs['ModuleCreateWithoutDefaultLeftExtensionInput'][] | null; // [ModuleCreateWithoutDefaultLeftExtensionInput!]
+    createMany?: NexusGenInputs['ModuleCreateManyDefaultLeftExtensionInputEnvelope'] | null; // ModuleCreateManyDefaultLeftExtensionInputEnvelope
+  };
+  ModuleCreateNestedManyWithoutDefaultRightExtensionInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutDefaultRightExtensionInput'][] | null; // [ModuleCreateOrConnectWithoutDefaultRightExtensionInput!]
+    create?: NexusGenInputs['ModuleCreateWithoutDefaultRightExtensionInput'][] | null; // [ModuleCreateWithoutDefaultRightExtensionInput!]
+    createMany?: NexusGenInputs['ModuleCreateManyDefaultRightExtensionInputEnvelope'] | null; // ModuleCreateManyDefaultRightExtensionInputEnvelope
+  };
   ModuleCreateNestedManyWithoutFinishInput: {
     // input type
     connect?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
     connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutFinishInput'][] | null; // [ModuleCreateOrConnectWithoutFinishInput!]
     create?: NexusGenInputs['ModuleCreateWithoutFinishInput'][] | null; // [ModuleCreateWithoutFinishInput!]
     createMany?: NexusGenInputs['ModuleCreateManyFinishInputEnvelope'] | null; // ModuleCreateManyFinishInputEnvelope
+  };
+  ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleCreateOrConnectWithoutDefaultLeftExtensionParentsInput
+    create?: NexusGenInputs['ModuleCreateWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleCreateWithoutDefaultLeftExtensionParentsInput
+  };
+  ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutDefaultRightExtensionParentsInput'] | null; // ModuleCreateOrConnectWithoutDefaultRightExtensionParentsInput
+    create?: NexusGenInputs['ModuleCreateWithoutDefaultRightExtensionParentsInput'] | null; // ModuleCreateWithoutDefaultRightExtensionParentsInput
   };
   ModuleCreateNestedOneWithoutProjectModulesInput: {
     // input type
@@ -1049,6 +1123,26 @@ export interface NexusGenInputs {
   ModuleCreateOrConnectWithoutCollectionInput: {
     // input type
     create: NexusGenInputs['ModuleCreateWithoutCollectionInput']; // ModuleCreateWithoutCollectionInput!
+    where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
+  };
+  ModuleCreateOrConnectWithoutDefaultLeftExtensionInput: {
+    // input type
+    create: NexusGenInputs['ModuleCreateWithoutDefaultLeftExtensionInput']; // ModuleCreateWithoutDefaultLeftExtensionInput!
+    where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
+  };
+  ModuleCreateOrConnectWithoutDefaultLeftExtensionParentsInput: {
+    // input type
+    create: NexusGenInputs['ModuleCreateWithoutDefaultLeftExtensionParentsInput']; // ModuleCreateWithoutDefaultLeftExtensionParentsInput!
+    where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
+  };
+  ModuleCreateOrConnectWithoutDefaultRightExtensionInput: {
+    // input type
+    create: NexusGenInputs['ModuleCreateWithoutDefaultRightExtensionInput']; // ModuleCreateWithoutDefaultRightExtensionInput!
+    where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
+  };
+  ModuleCreateOrConnectWithoutDefaultRightExtensionParentsInput: {
+    // input type
+    create: NexusGenInputs['ModuleCreateWithoutDefaultRightExtensionParentsInput']; // ModuleCreateWithoutDefaultRightExtensionParentsInput!
     where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
   };
   ModuleCreateOrConnectWithoutFinishInput: {
@@ -1064,10 +1158,94 @@ export interface NexusGenInputs {
   ModuleCreateWithoutCollectionInput: {
     // input type
     bundleUrl?: string | null; // String
+    defaultLeftExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultLeftExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultRightExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultRightExtensionInput
     description?: string | null; // String
     finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
     hasPegs?: boolean | null; // Boolean
-    isImprintExtension?: boolean | null; // Boolean
+    isExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
+    moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    partNumber: string; // String!
+    projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
+    thumbnailUrl?: string | null; // String
+  };
+  ModuleCreateWithoutDefaultLeftExtensionInput: {
+    // input type
+    bundleUrl?: string | null; // String
+    collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultLeftExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultRightExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+    description?: string | null; // String
+    finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
+    hasPegs?: boolean | null; // Boolean
+    isExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
+    moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    partNumber: string; // String!
+    projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
+    thumbnailUrl?: string | null; // String
+  };
+  ModuleCreateWithoutDefaultLeftExtensionParentsInput: {
+    // input type
+    bundleUrl?: string | null; // String
+    collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
+    defaultLeftExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+    defaultRightExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultRightExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+    description?: string | null; // String
+    finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
+    hasPegs?: boolean | null; // Boolean
+    isExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
+    moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    partNumber: string; // String!
+    projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
+    thumbnailUrl?: string | null; // String
+  };
+  ModuleCreateWithoutDefaultRightExtensionInput: {
+    // input type
+    bundleUrl?: string | null; // String
+    collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
+    defaultLeftExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultLeftExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultRightExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+    description?: string | null; // String
+    finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
+    hasPegs?: boolean | null; // Boolean
+    isExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
+    moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    partNumber: string; // String!
+    projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
+    thumbnailUrl?: string | null; // String
+  };
+  ModuleCreateWithoutDefaultRightExtensionParentsInput: {
+    // input type
+    bundleUrl?: string | null; // String
+    collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
+    defaultLeftExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultLeftExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+    description?: string | null; // String
+    finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
+    hasPegs?: boolean | null; // Boolean
+    isExtension?: boolean | null; // Boolean
     isMat?: boolean | null; // Boolean
     isSubmodule?: boolean | null; // Boolean
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
@@ -1081,9 +1259,13 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: string | null; // String
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
+    defaultLeftExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultLeftExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultRightExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultRightExtensionInput
     description?: string | null; // String
     hasPegs?: boolean | null; // Boolean
-    isImprintExtension?: boolean | null; // Boolean
+    isExtension?: boolean | null; // Boolean
     isMat?: boolean | null; // Boolean
     isSubmodule?: boolean | null; // Boolean
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
@@ -1097,10 +1279,14 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: string | null; // String
     collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
+    defaultLeftExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultLeftExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultRightExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultRightExtensionInput
     description?: string | null; // String
     finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
     hasPegs?: boolean | null; // Boolean
-    isImprintExtension?: boolean | null; // Boolean
+    isExtension?: boolean | null; // Boolean
     isMat?: boolean | null; // Boolean
     isSubmodule?: boolean | null; // Boolean
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
@@ -1119,11 +1305,13 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: NexusGenEnums['SortOrder'] | null; // SortOrder
     collectionId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    defaultLeftExtensionId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    defaultRightExtensionId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     description?: NexusGenEnums['SortOrder'] | null; // SortOrder
     finishId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     hasPegs?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    isImprintExtension?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isExtension?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isMat?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isSubmodule?: NexusGenEnums['SortOrder'] | null; // SortOrder
     partNumber?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -1138,11 +1326,13 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['ModuleScalarWhereInput'][] | null; // [ModuleScalarWhereInput!]
     bundleUrl?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     collectionId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    defaultLeftExtensionId?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
+    defaultRightExtensionId?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     description?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     finishId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     hasPegs?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     id?: NexusGenInputs['IntFilter'] | null; // IntFilter
-    isImprintExtension?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    isExtension?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     isMat?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     isSubmodule?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     partNumber?: NexusGenInputs['StringFilter'] | null; // StringFilter
@@ -1155,7 +1345,7 @@ export interface NexusGenInputs {
     bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -1164,6 +1354,16 @@ export interface NexusGenInputs {
     thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   };
   ModuleUpdateManyWithWhereWithoutCollectionInput: {
+    // input type
+    data: NexusGenInputs['ModuleUpdateManyMutationInput']; // ModuleUpdateManyMutationInput!
+    where: NexusGenInputs['ModuleScalarWhereInput']; // ModuleScalarWhereInput!
+  };
+  ModuleUpdateManyWithWhereWithoutDefaultLeftExtensionInput: {
+    // input type
+    data: NexusGenInputs['ModuleUpdateManyMutationInput']; // ModuleUpdateManyMutationInput!
+    where: NexusGenInputs['ModuleScalarWhereInput']; // ModuleScalarWhereInput!
+  };
+  ModuleUpdateManyWithWhereWithoutDefaultRightExtensionInput: {
     // input type
     data: NexusGenInputs['ModuleUpdateManyMutationInput']; // ModuleUpdateManyMutationInput!
     where: NexusGenInputs['ModuleScalarWhereInput']; // ModuleScalarWhereInput!
@@ -1187,6 +1387,34 @@ export interface NexusGenInputs {
     updateMany?: NexusGenInputs['ModuleUpdateManyWithWhereWithoutCollectionInput'][] | null; // [ModuleUpdateManyWithWhereWithoutCollectionInput!]
     upsert?: NexusGenInputs['ModuleUpsertWithWhereUniqueWithoutCollectionInput'][] | null; // [ModuleUpsertWithWhereUniqueWithoutCollectionInput!]
   };
+  ModuleUpdateManyWithoutDefaultLeftExtensionInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutDefaultLeftExtensionInput'][] | null; // [ModuleCreateOrConnectWithoutDefaultLeftExtensionInput!]
+    create?: NexusGenInputs['ModuleCreateWithoutDefaultLeftExtensionInput'][] | null; // [ModuleCreateWithoutDefaultLeftExtensionInput!]
+    createMany?: NexusGenInputs['ModuleCreateManyDefaultLeftExtensionInputEnvelope'] | null; // ModuleCreateManyDefaultLeftExtensionInputEnvelope
+    delete?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['ModuleScalarWhereInput'][] | null; // [ModuleScalarWhereInput!]
+    disconnect?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
+    set?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
+    update?: NexusGenInputs['ModuleUpdateWithWhereUniqueWithoutDefaultLeftExtensionInput'][] | null; // [ModuleUpdateWithWhereUniqueWithoutDefaultLeftExtensionInput!]
+    updateMany?: NexusGenInputs['ModuleUpdateManyWithWhereWithoutDefaultLeftExtensionInput'][] | null; // [ModuleUpdateManyWithWhereWithoutDefaultLeftExtensionInput!]
+    upsert?: NexusGenInputs['ModuleUpsertWithWhereUniqueWithoutDefaultLeftExtensionInput'][] | null; // [ModuleUpsertWithWhereUniqueWithoutDefaultLeftExtensionInput!]
+  };
+  ModuleUpdateManyWithoutDefaultRightExtensionInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutDefaultRightExtensionInput'][] | null; // [ModuleCreateOrConnectWithoutDefaultRightExtensionInput!]
+    create?: NexusGenInputs['ModuleCreateWithoutDefaultRightExtensionInput'][] | null; // [ModuleCreateWithoutDefaultRightExtensionInput!]
+    createMany?: NexusGenInputs['ModuleCreateManyDefaultRightExtensionInputEnvelope'] | null; // ModuleCreateManyDefaultRightExtensionInputEnvelope
+    delete?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['ModuleScalarWhereInput'][] | null; // [ModuleScalarWhereInput!]
+    disconnect?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
+    set?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
+    update?: NexusGenInputs['ModuleUpdateWithWhereUniqueWithoutDefaultRightExtensionInput'][] | null; // [ModuleUpdateWithWhereUniqueWithoutDefaultRightExtensionInput!]
+    updateMany?: NexusGenInputs['ModuleUpdateManyWithWhereWithoutDefaultRightExtensionInput'][] | null; // [ModuleUpdateManyWithWhereWithoutDefaultRightExtensionInput!]
+    upsert?: NexusGenInputs['ModuleUpsertWithWhereUniqueWithoutDefaultRightExtensionInput'][] | null; // [ModuleUpsertWithWhereUniqueWithoutDefaultRightExtensionInput!]
+  };
   ModuleUpdateManyWithoutFinishInput: {
     // input type
     connect?: NexusGenInputs['ModuleWhereUniqueInput'][] | null; // [ModuleWhereUniqueInput!]
@@ -1209,9 +1437,39 @@ export interface NexusGenInputs {
     update?: NexusGenInputs['ModuleUpdateWithoutProjectModulesInput'] | null; // ModuleUpdateWithoutProjectModulesInput
     upsert?: NexusGenInputs['ModuleUpsertWithoutProjectModulesInput'] | null; // ModuleUpsertWithoutProjectModulesInput
   };
+  ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleCreateOrConnectWithoutDefaultLeftExtensionParentsInput
+    create?: NexusGenInputs['ModuleCreateWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleCreateWithoutDefaultLeftExtensionParentsInput
+    delete?: boolean | null; // Boolean
+    disconnect?: boolean | null; // Boolean
+    update?: NexusGenInputs['ModuleUpdateWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleUpdateWithoutDefaultLeftExtensionParentsInput
+    upsert?: NexusGenInputs['ModuleUpsertWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleUpsertWithoutDefaultLeftExtensionParentsInput
+  };
+  ModuleUpdateOneWithoutDefaultRightExtensionParentsInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutDefaultRightExtensionParentsInput'] | null; // ModuleCreateOrConnectWithoutDefaultRightExtensionParentsInput
+    create?: NexusGenInputs['ModuleCreateWithoutDefaultRightExtensionParentsInput'] | null; // ModuleCreateWithoutDefaultRightExtensionParentsInput
+    delete?: boolean | null; // Boolean
+    disconnect?: boolean | null; // Boolean
+    update?: NexusGenInputs['ModuleUpdateWithoutDefaultRightExtensionParentsInput'] | null; // ModuleUpdateWithoutDefaultRightExtensionParentsInput
+    upsert?: NexusGenInputs['ModuleUpsertWithoutDefaultRightExtensionParentsInput'] | null; // ModuleUpsertWithoutDefaultRightExtensionParentsInput
+  };
   ModuleUpdateWithWhereUniqueWithoutCollectionInput: {
     // input type
     data: NexusGenInputs['ModuleUpdateWithoutCollectionInput']; // ModuleUpdateWithoutCollectionInput!
+    where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
+  };
+  ModuleUpdateWithWhereUniqueWithoutDefaultLeftExtensionInput: {
+    // input type
+    data: NexusGenInputs['ModuleUpdateWithoutDefaultLeftExtensionInput']; // ModuleUpdateWithoutDefaultLeftExtensionInput!
+    where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
+  };
+  ModuleUpdateWithWhereUniqueWithoutDefaultRightExtensionInput: {
+    // input type
+    data: NexusGenInputs['ModuleUpdateWithoutDefaultRightExtensionInput']; // ModuleUpdateWithoutDefaultRightExtensionInput!
     where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
   };
   ModuleUpdateWithWhereUniqueWithoutFinishInput: {
@@ -1222,10 +1480,94 @@ export interface NexusGenInputs {
   ModuleUpdateWithoutCollectionInput: {
     // input type
     bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    defaultLeftExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultLeftExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultRightExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultRightExtensionInput
     description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  };
+  ModuleUpdateWithoutDefaultLeftExtensionInput: {
+    // input type
+    bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultLeftExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultRightExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultRightExtensionInput
+    description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
+    hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  };
+  ModuleUpdateWithoutDefaultLeftExtensionParentsInput: {
+    // input type
+    bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
+    defaultLeftExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+    defaultRightExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultRightExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultRightExtensionInput
+    description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
+    hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  };
+  ModuleUpdateWithoutDefaultRightExtensionInput: {
+    // input type
+    bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
+    defaultLeftExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultLeftExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultLeftExtensionInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultRightExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultRightExtensionInput
+    description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
+    hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  };
+  ModuleUpdateWithoutDefaultRightExtensionParentsInput: {
+    // input type
+    bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
+    defaultLeftExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultLeftExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+    description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
+    hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
@@ -1239,9 +1581,13 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
+    defaultLeftExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultLeftExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultRightExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultRightExtensionInput
     description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
@@ -1255,10 +1601,14 @@ export interface NexusGenInputs {
     // input type
     bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
+    defaultLeftExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultLeftExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultRightExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultRightExtensionInput
     description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    isImprintExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
@@ -1273,11 +1623,33 @@ export interface NexusGenInputs {
     update: NexusGenInputs['ModuleUpdateWithoutCollectionInput']; // ModuleUpdateWithoutCollectionInput!
     where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
   };
+  ModuleUpsertWithWhereUniqueWithoutDefaultLeftExtensionInput: {
+    // input type
+    create: NexusGenInputs['ModuleCreateWithoutDefaultLeftExtensionInput']; // ModuleCreateWithoutDefaultLeftExtensionInput!
+    update: NexusGenInputs['ModuleUpdateWithoutDefaultLeftExtensionInput']; // ModuleUpdateWithoutDefaultLeftExtensionInput!
+    where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
+  };
+  ModuleUpsertWithWhereUniqueWithoutDefaultRightExtensionInput: {
+    // input type
+    create: NexusGenInputs['ModuleCreateWithoutDefaultRightExtensionInput']; // ModuleCreateWithoutDefaultRightExtensionInput!
+    update: NexusGenInputs['ModuleUpdateWithoutDefaultRightExtensionInput']; // ModuleUpdateWithoutDefaultRightExtensionInput!
+    where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
+  };
   ModuleUpsertWithWhereUniqueWithoutFinishInput: {
     // input type
     create: NexusGenInputs['ModuleCreateWithoutFinishInput']; // ModuleCreateWithoutFinishInput!
     update: NexusGenInputs['ModuleUpdateWithoutFinishInput']; // ModuleUpdateWithoutFinishInput!
     where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
+  };
+  ModuleUpsertWithoutDefaultLeftExtensionParentsInput: {
+    // input type
+    create: NexusGenInputs['ModuleCreateWithoutDefaultLeftExtensionParentsInput']; // ModuleCreateWithoutDefaultLeftExtensionParentsInput!
+    update: NexusGenInputs['ModuleUpdateWithoutDefaultLeftExtensionParentsInput']; // ModuleUpdateWithoutDefaultLeftExtensionParentsInput!
+  };
+  ModuleUpsertWithoutDefaultRightExtensionParentsInput: {
+    // input type
+    create: NexusGenInputs['ModuleCreateWithoutDefaultRightExtensionParentsInput']; // ModuleCreateWithoutDefaultRightExtensionParentsInput!
+    update: NexusGenInputs['ModuleUpdateWithoutDefaultRightExtensionParentsInput']; // ModuleUpdateWithoutDefaultRightExtensionParentsInput!
   };
   ModuleUpsertWithoutProjectModulesInput: {
     // input type
@@ -1292,12 +1664,18 @@ export interface NexusGenInputs {
     bundleUrl?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     collection?: NexusGenInputs['CollectionWhereInput'] | null; // CollectionWhereInput
     collectionId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    defaultLeftExtension?: NexusGenInputs['ModuleWhereInput'] | null; // ModuleWhereInput
+    defaultLeftExtensionId?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleListRelationFilter'] | null; // ModuleListRelationFilter
+    defaultRightExtension?: NexusGenInputs['ModuleWhereInput'] | null; // ModuleWhereInput
+    defaultRightExtensionId?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
+    defaultRightExtensionParents?: NexusGenInputs['ModuleListRelationFilter'] | null; // ModuleListRelationFilter
     description?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     finish?: NexusGenInputs['FinishWhereInput'] | null; // FinishWhereInput
     finishId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     hasPegs?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     id?: NexusGenInputs['IntFilter'] | null; // IntFilter
-    isImprintExtension?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    isExtension?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     isMat?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     isSubmodule?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     moduleCategories?: NexusGenInputs['ModuleCategoryListRelationFilter'] | null; // ModuleCategoryListRelationFilter
@@ -3135,11 +3513,13 @@ export interface NexusGenObjects {
   Module: {
     // root type
     collectionId: number; // Int!
+    defaultLeftExtensionId?: number | null; // Int
+    defaultRightExtensionId?: number | null; // Int
     description?: string | null; // String
     finishId: number; // Int!
     hasPegs: boolean; // Boolean!
     id: number; // Int!
-    isImprintExtension: boolean; // Boolean!
+    isExtension: boolean; // Boolean!
     isMat: boolean; // Boolean!
     isSubmodule: boolean; // Boolean!
     partNumber: string; // String!
@@ -3356,12 +3736,18 @@ export interface NexusGenFieldTypes {
     categories: NexusGenRootTypes['Category'][]; // [Category!]!
     collection: NexusGenRootTypes['Collection']; // Collection!
     collectionId: number; // Int!
+    defaultLeftExtension: NexusGenRootTypes['Module'] | null; // Module
+    defaultLeftExtensionId: number | null; // Int
+    defaultLeftExtensionParents: NexusGenRootTypes['Module'][]; // [Module!]!
+    defaultRightExtension: NexusGenRootTypes['Module'] | null; // Module
+    defaultRightExtensionId: number | null; // Int
+    defaultRightExtensionParents: NexusGenRootTypes['Module'][]; // [Module!]!
     description: string | null; // String
     finish: NexusGenRootTypes['Finish']; // Finish!
     finishId: number; // Int!
     hasPegs: boolean; // Boolean!
     id: number; // Int!
-    isImprintExtension: boolean; // Boolean!
+    isExtension: boolean; // Boolean!
     isMat: boolean; // Boolean!
     isSubmodule: boolean; // Boolean!
     partNumber: string; // String!
@@ -3641,12 +4027,18 @@ export interface NexusGenFieldTypeNames {
     categories: 'Category';
     collection: 'Collection';
     collectionId: 'Int';
+    defaultLeftExtension: 'Module';
+    defaultLeftExtensionId: 'Int';
+    defaultLeftExtensionParents: 'Module';
+    defaultRightExtension: 'Module';
+    defaultRightExtensionId: 'Int';
+    defaultRightExtensionParents: 'Module';
     description: 'String';
     finish: 'Finish';
     finishId: 'Int';
     hasPegs: 'Boolean';
     id: 'Int';
-    isImprintExtension: 'Boolean';
+    isExtension: 'Boolean';
     isMat: 'Boolean';
     isSubmodule: 'Boolean';
     partNumber: 'String';
@@ -3925,6 +4317,18 @@ export interface NexusGenArgTypes {
     categories: {
       // args
       where?: NexusGenInputs['CategoryWhereInput'] | null; // CategoryWhereInput
+    };
+    defaultLeftExtensionParents: {
+      // args
+      cursor?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
+      skip?: number | null; // Int
+      take?: number | null; // Int
+    };
+    defaultRightExtensionParents: {
+      // args
+      cursor?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
+      skip?: number | null; // Int
+      take?: number | null; // Int
     };
     projectModules: {
       // args

@@ -4,6 +4,7 @@ import path from 'path';
 import fs from 'fs';
 import seed from './seed.json';
 
+console.log('Initializing db...');
 const db = new PrismaClient();
 
 const getFiles = (inpath: string) => {
