@@ -1455,10 +1455,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT2/04-IM-BIR-CT2/04-IM-BIR-CT2.jpg",
       "genericName": "04-IM-xxx-CT2",
-      "categorySlug": [
-        "all",
-        "tray"
-      ],
+      "categorySlug": ["all", "tray"],
       "defaultLeftExtension": "04-IM-BIR-CT-EXTENSION",
       "defaultRightExtension": "04-IM-BIR-CT-EXTENSION"
     },
@@ -1475,10 +1472,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT2/04-IM-WAL-CT2/04-IM-WAL-CT2.jpg",
       "genericName": "04-IM-xxx-CT2",
-      "categorySlug": [
-        "all",
-        "tray"
-      ],
+      "categorySlug": ["all", "tray"],
       "defaultLeftExtension": "04-IM-WAL-CT-EXTENSION",
       "defaultRightExtension": "04-IM-WAL-CT-EXTENSION"
     },
@@ -1495,10 +1489,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT3/04-IM-BIR-CT3/04-IM-BIR-CT3.jpg",
       "genericName": "04-IM-xxx-CT3",
-      "categorySlug": [
-        "all",
-        "tray"
-      ],
+      "categorySlug": ["all", "tray"],
       "defaultLeftExtension": "04-IM-BIR-CT-EXTENSION",
       "defaultRightExtension": "04-IM-BIR-CT-EXTENSION"
     },
@@ -1515,10 +1506,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT3/04-IM-WAL-CT3/04-IM-WAL-CT3.jpg",
       "genericName": "04-IM-xxx-CT3",
-      "categorySlug": [
-        "all",
-        "tray"
-      ],
+      "categorySlug": ["all", "tray"],
       "defaultLeftExtension": "04-IM-WAL-CT-EXTENSION",
       "defaultRightExtension": "04-IM-WAL-CT-EXTENSION"
     },
@@ -1535,10 +1523,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT4/04-IM-BIR-CT4/04-IM-BIR-CT4.jpg",
       "genericName": "04-IM-xxx-CT4",
-      "categorySlug": [
-        "all",
-        "tray"
-      ],
+      "categorySlug": ["all", "tray"],
       "defaultLeftExtension": "04-IM-BIR-CT-EXTENSION",
       "defaultRightExtension": "04-IM-BIR-CT-EXTENSION"
     },
@@ -1555,10 +1540,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT4/04-IM-WAL-CT4/04-IM-WAL-CT4.jpg",
       "genericName": "04-IM-xxx-CT4",
-      "categorySlug": [
-        "all",
-        "tray"
-      ],
+      "categorySlug": ["all", "tray"],
       "defaultLeftExtension": "04-IM-WAL-CT-EXTENSION",
       "defaultRightExtension": "04-IM-WAL-CT-EXTENSION"
     },
@@ -1575,10 +1557,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT5/04-IM-BIR-CT5/04-IM-BIR-CT5.jpg",
       "genericName": "04-IM-xxx-CT5",
-      "categorySlug": [
-        "all",
-        "tray"
-      ],
+      "categorySlug": ["all", "tray"],
       "defaultLeftExtension": "04-IM-BIR-CT-EXTENSION",
       "defaultRightExtension": "04-IM-BIR-CT-EXTENSION"
     },
@@ -1595,10 +1574,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-CT5/04-IM-WAL-CT5/04-IM-WAL-CT5.jpg",
       "genericName": "04-IM-xxx-CT5",
-      "categorySlug": [
-        "all",
-        "tray"
-      ],
+      "categorySlug": ["all", "tray"],
       "defaultLeftExtension": "04-IM-WAL-CT-EXTENSION",
       "defaultRightExtension": "04-IM-WAL-CT-EXTENSION"
     },
@@ -1614,11 +1590,7 @@
       "isExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-DIVIDER-H55/04-IM-BIR-DIVIDER-H55/04-IM-BIR-DIVIDER-H55.jpg",
       "genericName": "04-IM-xxx-DIVIDER-H55",
-      "categorySlug": [
-        "all",
-        "tray",
-        "accessories"
-      ]
+      "categorySlug": ["all", "tray", "accessories"]
     },
     {
       "partNumber": "04-IM-WAL-DIVIDER-H55",
@@ -1632,11 +1604,7 @@
       "isExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-DIVIDER-H55/04-IM-WAL-DIVIDER-H55/04-IM-WAL-DIVIDER-H55.jpg",
       "genericName": "04-IM-xxx-DIVIDER-H55",
-      "categorySlug": [
-        "all",
-        "tray",
-        "accessories"
-      ]
+      "categorySlug": ["all", "tray", "accessories"]
     },
     {
       "partNumber": "04-IM-BIR-KNIFE-B",
@@ -1650,11 +1618,7 @@
       "isExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-KNIFE-B/04-IM-BIR-KNIFE-B/04-IM-BIR-KNIFE-B.jpg",
       "genericName": "04-IM-xxx-KNIFE-B",
-      "categorySlug": [
-        "all",
-        "tray",
-        "accessories"
-      ]
+      "categorySlug": ["all", "tray", "accessories"]
     },
     {
       "partNumber": "04-IM-WAL-KNIFE-B",
@@ -1668,11 +1632,7 @@
       "isExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-KNIFE-B/04-IM-WAL-KNIFE-B/04-IM-WAL-KNIFE-B.jpg",
       "genericName": "04-IM-xxx-KNIFE-B",
-      "categorySlug": [
-        "all",
-        "tray",
-        "accessories"
-      ]
+      "categorySlug": ["all", "tray", "accessories"]
     },
     {
       "partNumber": "04-IM-BIR-PARTN240-H125",
@@ -1738,12 +1698,7 @@
       "isExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-SPICE-H/04-IM-BIR-SPICE-H/04-IM-BIR-SPICE-H.jpg",
       "genericName": "04-IM-xxx-SPICE-H",
-      "categorySlug": [
-        "all",
-        "tray",
-        "accessories",
-        "spice-tray"
-      ]
+      "categorySlug": ["all", "tray", "accessories", "spice-tray"]
     },
     {
       "partNumber": "04-IM-WAL-SPICE-H",
@@ -1757,12 +1712,7 @@
       "isExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-SPICE-H/04-IM-WAL-SPICE-H/04-IM-WAL-SPICE-H.jpg",
       "genericName": "04-IM-xxx-SPICE-H",
-      "categorySlug": [
-        "all",
-        "tray",
-        "accessories",
-        "spice-tray"
-      ]
+      "categorySlug": ["all", "tray", "accessories", "spice-tray"]
     },
     {
       "partNumber": "04-IM-BIR-UT-B",
@@ -1776,11 +1726,7 @@
       "isExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-UT-B/04-IM-BIR-UT-B/IMG_NoImage.png",
       "genericName": "04-IM-xxx-UT-B",
-      "categorySlug": [
-        "all",
-        "tray",
-        "accessories"
-      ]
+      "categorySlug": ["all", "tray", "accessories"]
     },
     {
       "partNumber": "04-IM-WAL-UT-B",
@@ -1794,11 +1740,7 @@
       "isExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-UT-B/04-IM-WAL-UT-B/IMG_NoImage.png",
       "genericName": "04-IM-xxx-UT-B",
-      "categorySlug": [
-        "all",
-        "tray",
-        "accessories"
-      ]
+      "categorySlug": ["all", "tray", "accessories"]
     },
     {
       "partNumber": "04-IM-BIR-UT-D",
@@ -1812,11 +1754,7 @@
       "isExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-UT-D/04-IM-BIR-UT-D/04-IM-BIR-UT-D.jpg",
       "genericName": "04-IM-xxx-UT-D",
-      "categorySlug": [
-        "all",
-        "tray",
-        "accessories"
-      ]
+      "categorySlug": ["all", "tray", "accessories"]
     },
     {
       "partNumber": "04-IM-WAL-UT-D",
@@ -1830,11 +1768,7 @@
       "isExtension": true,
       "imageUrl": "images/module/imprint/04-IM-xxx-UT-D/04-IM-WAL-UT-D/04-IM-WAL-UT-D.jpg",
       "genericName": "04-IM-xxx-UT-D",
-      "categorySlug": [
-        "all",
-        "tray",
-        "accessories"
-      ]
+      "categorySlug": ["all", "tray", "accessories"]
     },
     {
       "partNumber": "04-PEG-BIR-H160",
@@ -1848,10 +1782,7 @@
       "isExtension": false,
       "imageUrl": "images/module/imprint/04-PEG-xxx-H160/04-PEG-BIR-H160/04-PEG-BIR-H160.jpg",
       "genericName": "04-PEG-xxx-H160",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-PEG-WAL-H160",
@@ -1865,10 +1796,7 @@
       "isExtension": false,
       "imageUrl": "images/module/imprint/04-PEG-xxx-H160/04-PEG-WAL-H160/04-PEG-WAL-H160.jpg",
       "genericName": "04-PEG-xxx-H160",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-PEGBOARD-BIR-H",
@@ -1883,10 +1811,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-H/04-PEGBOARD-BIR-H/04-PEGBOARD-BIR-H.jpg",
       "genericName": "04-PEGBOARD-xxx-H",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-PEGBOARD-WAL-H",
@@ -1901,10 +1826,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-H/04-PEGBOARD-WAL-H/04-PEGBOARD-WAL-H.jpg",
       "genericName": "04-PEGBOARD-xxx-H",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-PEGBOARD-BIR-J",
@@ -1919,10 +1841,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-J/04-PEGBOARD-BIR-J/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-J",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-PEGBOARD-WAL-J",
@@ -1937,10 +1856,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-J/04-PEGBOARD-WAL-J/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-J",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-PEGBOARD-BIR-L",
@@ -1955,10 +1871,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-L/04-PEGBOARD-BIR-L/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-L",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-PEGBOARD-WAL-L",
@@ -1973,10 +1886,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-L/04-PEGBOARD-WAL-L/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-L",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-PEGBOARD-BIR-N",
@@ -1991,10 +1901,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-N/04-PEGBOARD-BIR-N/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-N",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-PEGBOARD-WAL-N",
@@ -2009,10 +1916,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/imprint/04-PEGBOARD-xxx-N/04-PEGBOARD-WAL-N/IMG_NoImage.png",
       "genericName": "04-PEGBOARD-xxx-N",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-AREA-CT-GM-SPICE",
@@ -2026,10 +1930,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xx-SPICE/04-AREA-CT-GM-SPICE/04-AREA-CT-GM-SPICE.jpg",
       "genericName": "04-AREA-CT-xx-SPICE",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-SPICE",
@@ -2043,10 +1944,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xx-SPICE/04-AREA-CT-GMT-SPICE/04-AREA-CT-GMT-SPICE.jpg",
       "genericName": "04-AREA-CT-xx-SPICE",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-SPICE",
@@ -2060,10 +1958,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xx-SPICE/04-AREA-CT-SW-SPICE/04-AREA-CT-SW-SPICE.jpg",
       "genericName": "04-AREA-CT-xx-SPICE",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GM-D",
@@ -2078,10 +1973,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-D/04-AREA-CT-GM-D/04-AREA-CT-GM-D.jpg",
       "genericName": "04-AREA-CT-xxx-D",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-D",
@@ -2096,10 +1988,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-D/04-AREA-CT-GMT-D/04-AREA-CT-GMT-D.jpg",
       "genericName": "04-AREA-CT-xxx-D",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-D",
@@ -2114,10 +2003,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-D/04-AREA-CT-SW-D/04-AREA-CT-SW-D.jpg",
       "genericName": "04-AREA-CT-xxx-D",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GM-E",
@@ -2132,10 +2018,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-E/04-AREA-CT-GM-E/04-AREA-CT-GM-E.jpg",
       "genericName": "04-AREA-CT-xxx-E",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-E",
@@ -2150,10 +2033,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-E/04-AREA-CT-GMT-E/04-AREA-CT-GMT-E.jpg",
       "genericName": "04-AREA-CT-xxx-E",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-E",
@@ -2168,10 +2048,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-E/04-AREA-CT-SW-E/04-AREA-CT-SW-E.jpg",
       "genericName": "04-AREA-CT-xxx-E",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GM-F",
@@ -2186,10 +2063,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F/04-AREA-CT-GM-F/04-AREA-CT-GM-F.jpg",
       "genericName": "04-AREA-CT-xxx-F",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-F",
@@ -2204,10 +2078,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F/04-AREA-CT-GMT-F/04-AREA-CT-GMT-F.jpg",
       "genericName": "04-AREA-CT-xxx-F",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-F",
@@ -2222,10 +2093,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F/04-AREA-CT-SW-F/04-AREA-CT-SW-F.jpg",
       "genericName": "04-AREA-CT-xxx-F",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GM-F1",
@@ -2239,10 +2107,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F1/04-AREA-CT-GM-F1/04-AREA-CT-GM-F1.jpg",
       "genericName": "04-AREA-CT-xxx-F1",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-F1",
@@ -2256,10 +2121,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F1/04-AREA-CT-GMT-F1/04-AREA-CT-GMT-F1.jpg",
       "genericName": "04-AREA-CT-xxx-F1",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-F1",
@@ -2273,10 +2135,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F1/04-AREA-CT-SW-F1/04-AREA-CT-SW-F1.jpg",
       "genericName": "04-AREA-CT-xxx-F1",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GM-G",
@@ -2291,10 +2150,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-G/04-AREA-CT-GM-G/04-AREA-CT-GM-G.jpg",
       "genericName": "04-AREA-CT-xxx-G",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-G",
@@ -2309,10 +2165,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-G/04-AREA-CT-GMT-G/04-AREA-CT-GMT-G.jpg",
       "genericName": "04-AREA-CT-xxx-G",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-G",
@@ -2327,10 +2180,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-G/04-AREA-CT-SW-G/04-AREA-CT-SW-G.jpg",
       "genericName": "04-AREA-CT-xxx-G",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GM-H",
@@ -2345,10 +2195,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-H/04-AREA-CT-GM-H/04-AREA-CT-GM-H.jpg",
       "genericName": "04-AREA-CT-xxx-H",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-H",
@@ -2363,10 +2210,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-H/04-AREA-CT-GMT-H/04-AREA-CT-GMT-H.jpg",
       "genericName": "04-AREA-CT-xxx-H",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-H",
@@ -2381,10 +2225,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-H/04-AREA-CT-SW-H/04-AREA-CT-SW-H.jpg",
       "genericName": "04-AREA-CT-xxx-H",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GM-IJ",
@@ -2398,10 +2239,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-IJ/04-AREA-CT-GM-IJ/04-AREA-CT-GM-IJ.jpg",
       "genericName": "04-AREA-CT-xxx-IJ",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-IJ",
@@ -2415,10 +2253,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-IJ/04-AREA-CT-GMT-IJ/04-AREA-CT-GMT-IJ.jpg",
       "genericName": "04-AREA-CT-xxx-IJ",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-IJ",
@@ -2432,10 +2267,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-IJ/04-AREA-CT-SW-IJ/04-AREA-CT-SW-IJ.jpg",
       "genericName": "04-AREA-CT-xxx-IJ",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GM-K",
@@ -2450,10 +2282,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-K/04-AREA-CT-GM-K/04-AREA-CT-GM-K.jpg",
       "genericName": "04-AREA-CT-xxx-K",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-K",
@@ -2468,10 +2297,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-K/04-AREA-CT-GMT-K/04-AREA-CT-GMT-K.jpg",
       "genericName": "04-AREA-CT-xxx-K",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-K",
@@ -2486,10 +2312,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-K/04-AREA-CT-SW-K/04-AREA-CT-SW-K.jpg",
       "genericName": "04-AREA-CT-xxx-K",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GM-KNIFE",
@@ -2503,10 +2326,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-KNIFE/04-AREA-CT-GM-KNIFE/04-AREA-CT-GM-KNIFE.jpg",
       "genericName": "04-AREA-CT-xxx-KNIFE",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-KNIFE",
@@ -2520,10 +2340,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-KNIFE/04-AREA-CT-GMT-KNIFE/04-AREA-CT-GMT-KNIFE.jpg",
       "genericName": "04-AREA-CT-xxx-KNIFE",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-KNIFE",
@@ -2537,10 +2354,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-KNIFE/04-AREA-CT-SW-KNIFE/04-AREA-CT-SW-KNIFE.jpg",
       "genericName": "04-AREA-CT-xxx-KNIFE",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GM-L",
@@ -2555,10 +2369,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-L/04-AREA-CT-GM-L/04-AREA-CT-GM-L.jpg",
       "genericName": "04-AREA-CT-xxx-L",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-L",
@@ -2573,10 +2384,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-L/04-AREA-CT-GMT-L/04-AREA-CT-GMT-L.jpg",
       "genericName": "04-AREA-CT-xxx-L",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-L",
@@ -2591,10 +2399,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-L/04-AREA-CT-SW-L/04-AREA-CT-SW-L.jpg",
       "genericName": "04-AREA-CT-xxx-L",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GM-N",
@@ -2609,10 +2414,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-N/04-AREA-CT-GM-N/04-AREA-CT-GM-N.jpg",
       "genericName": "04-AREA-CT-xxx-N",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-GMT-N",
@@ -2627,10 +2429,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-N/04-AREA-CT-GMT-N/04-AREA-CT-GMT-N.jpg",
       "genericName": "04-AREA-CT-xxx-N",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-CT-SW-N",
@@ -2645,10 +2444,7 @@
       "shouldHideBasedOnWidth": true,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-N/04-AREA-CT-SW-N/04-AREA-CT-SW-N.jpg",
       "genericName": "04-AREA-CT-xxx-N",
-      "categorySlug": [
-        "all",
-        "utensil"
-      ]
+      "categorySlug": ["all", "utensil"]
     },
     {
       "partNumber": "04-AREA-SP-CH",
@@ -2753,10 +2549,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-D/04-AREA-UT-GM-D/04-AREA-UT-GM-D.jpg",
       "genericName": "04-AREA-UT-xxx-D",
-      "categorySlug": [
-        "all",
-        "utility"
-      ]
+      "categorySlug": ["all", "utility"]
     },
     {
       "partNumber": "04-AREA-UT-GMT-D",
@@ -2770,10 +2563,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-D/04-AREA-UT-GMT-D/04-AREA-UT-GMT-D.jpg",
       "genericName": "04-AREA-UT-xxx-D",
-      "categorySlug": [
-        "all",
-        "utility"
-      ]
+      "categorySlug": ["all", "utility"]
     },
     {
       "partNumber": "04-AREA-UT-SW-D",
@@ -2787,10 +2577,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-D/04-AREA-UT-SW-D/04-AREA-UT-SW-D.jpg",
       "genericName": "04-AREA-UT-xxx-D",
-      "categorySlug": [
-        "all",
-        "utility"
-      ]
+      "categorySlug": ["all", "utility"]
     },
     {
       "partNumber": "04-AREA-UT-GM-E",
@@ -2882,10 +2669,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-G/04-AREA-UT-GM-G/04-AREA-UT-GM-G.jpg",
       "genericName": "04-AREA-UT-xxx-G",
-      "categorySlug": [
-        "all",
-        "utility"
-      ]
+      "categorySlug": ["all", "utility"]
     },
     {
       "partNumber": "04-AREA-UT-GMT-G",
@@ -2899,10 +2683,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-G/04-AREA-UT-GMT-G/04-AREA-UT-GMT-G.jpg",
       "genericName": "04-AREA-UT-xxx-G",
-      "categorySlug": [
-        "all",
-        "utility"
-      ]
+      "categorySlug": ["all", "utility"]
     },
     {
       "partNumber": "04-AREA-UT-SW-G",
@@ -2916,10 +2697,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-G/04-AREA-UT-SW-G/04-AREA-UT-SW-G.jpg",
       "genericName": "04-AREA-UT-xxx-G",
-      "categorySlug": [
-        "all",
-        "utility"
-      ]
+      "categorySlug": ["all", "utility"]
     },
     {
       "partNumber": "04-AREA-UT-GM-H",
@@ -2933,10 +2711,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-H/04-AREA-UT-GM-H/04-AREA-UT-GM-H.jpg",
       "genericName": "04-AREA-UT-xxx-H",
-      "categorySlug": [
-        "all",
-        "utility"
-      ]
+      "categorySlug": ["all", "utility"]
     },
     {
       "partNumber": "04-AREA-UT-GMT-H",
@@ -2950,10 +2725,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-H/04-AREA-UT-GMT-H/04-AREA-UT-GMT-H.jpg",
       "genericName": "04-AREA-UT-xxx-H",
-      "categorySlug": [
-        "all",
-        "utility"
-      ]
+      "categorySlug": ["all", "utility"]
     },
     {
       "partNumber": "04-AREA-UT-SW-H",
@@ -2967,10 +2739,7 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-H/04-AREA-UT-SW-H/04-AREA-UT-SW-H.jpg",
       "genericName": "04-AREA-UT-xxx-H",
-      "categorySlug": [
-        "all",
-        "utility"
-      ]
+      "categorySlug": ["all", "utility"]
     },
     {
       "partNumber": "04-AU-ACCENT-AN-69",
@@ -3309,10 +3078,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-AN/04-AU-DIVIDER-AN.jpg",
       "genericName": "04-AU-DIVIDER-xx",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-DIVIDER-AU79",
@@ -3326,10 +3092,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-AU79/04-AU-DIVIDER-AU79.jpg",
       "genericName": "04-AU-DIVIDER-xx",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-DIVIDER-MB",
@@ -3343,10 +3106,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-MB/04-AU-DIVIDER-MB.jpg",
       "genericName": "04-AU-DIVIDER-xx",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-DIVIDER-SD",
@@ -3360,10 +3120,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-SD/04-AU-DIVIDER-SD.jpg",
       "genericName": "04-AU-DIVIDER-xx",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-DIVIDER-SW",
@@ -3377,10 +3134,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-DIVIDER-xx/04-AU-DIVIDER-SW/04-AU-DIVIDER-SW.jpg",
       "genericName": "04-AU-DIVIDER-xx",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-LSHAPE600-AN",
@@ -3394,10 +3148,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-AN/04-AU-LSHAPE600-AN.jpg",
       "genericName": "04-AU-LSHAPE600-xx",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-LSHAPE600-AU79",
@@ -3411,10 +3162,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-AU79/04-AU-LSHAPE600-AU79.jpg",
       "genericName": "04-AU-LSHAPE600-xx",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-LSHAPE600-MB",
@@ -3428,10 +3176,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-MB/04-AU-LSHAPE600-MB.jpg",
       "genericName": "04-AU-LSHAPE600-xx",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-LSHAPE600-SD",
@@ -3445,10 +3190,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-SD/04-AU-LSHAPE600-SD.jpg",
       "genericName": "04-AU-LSHAPE600-xx",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-LSHAPE600-SW",
@@ -3462,10 +3204,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE600-xx/04-AU-LSHAPE600-SW/04-AU-LSHAPE600-SW.jpg",
       "genericName": "04-AU-LSHAPE600-xx",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-LSHAPE1200-AN",
@@ -3479,10 +3218,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-AN/04-AU-LSHAPE1200-AN.jpg",
       "genericName": "04-AU-LSHAPE1200-xx",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-LSHAPE1200-AU79",
@@ -3496,10 +3232,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-AU79/04-AU-LSHAPE1200-AU79.jpg",
       "genericName": "04-AU-LSHAPE1200-xx",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-LSHAPE1200-MB",
@@ -3513,10 +3246,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-MB/04-AU-LSHAPE1200-MB.jpg",
       "genericName": "04-AU-LSHAPE1200-xx",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-LSHAPE1200-SD",
@@ -3530,10 +3260,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-SD/04-AU-LSHAPE1200-SD.jpg",
       "genericName": "04-AU-LSHAPE1200-xx",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-LSHAPE1200-SW",
@@ -3547,10 +3274,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-LSHAPE1200-xx/04-AU-LSHAPE1200-SW/04-AU-LSHAPE1200-SW.jpg",
       "genericName": "04-AU-LSHAPE1200-xx",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-USHAPE-BIR-B",
@@ -3564,10 +3288,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-BIR-B/04-AU-USHAPE-BIR-B.jpg",
       "genericName": "04-AU-USHAPE-xxx-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-USHAPE-WAL-B",
@@ -3581,10 +3302,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-WAL-B/04-AU-USHAPE-WAL-B.jpg",
       "genericName": "04-AU-USHAPE-xxx-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-BIR-CD-B",
@@ -3598,10 +3316,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CD-B/04-AU-BIR-CD-B/04-AU-BIR-CD-B.jpg",
       "genericName": "04-AU-xxx-CD-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-WAL-CD-B",
@@ -3615,10 +3330,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CD-B/04-AU-WAL-CD-B/04-AU-WAL-CD-B.jpg",
       "genericName": "04-AU-xxx-CD-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-BIR-CD-B.b",
@@ -3658,10 +3370,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CT4-D/04-AU-BIR-CT4-D/04-AU-BIR-CT4-D.jpg",
       "genericName": "04-AU-xxx-CT4-D",
-      "categorySlug": [
-        "all",
-        "tray"
-      ]
+      "categorySlug": ["all", "tray"]
     },
     {
       "partNumber": "04-AU-WAL-CT4-D",
@@ -3675,10 +3384,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CT4-D/04-AU-WAL-CT4-D/04-AU-WAL-CT4-D.jpg",
       "genericName": "04-AU-xxx-CT4-D",
-      "categorySlug": [
-        "all",
-        "tray"
-      ]
+      "categorySlug": ["all", "tray"]
     },
     {
       "partNumber": "04-AU-BIR-CT5-D",
@@ -3692,10 +3398,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CT5-D/04-AU-BIR-CT5-D/04-AU-BIR-CT5-D.jpg",
       "genericName": "04-AU-xxx-CT5-D",
-      "categorySlug": [
-        "all",
-        "tray"
-      ]
+      "categorySlug": ["all", "tray"]
     },
     {
       "partNumber": "04-AU-WAL-CT5-D",
@@ -3709,10 +3412,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CT5-D/04-AU-WAL-CT5-D/04-AU-WAL-CT5-D.jpg",
       "genericName": "04-AU-xxx-CT5-D",
-      "categorySlug": [
-        "all",
-        "tray"
-      ]
+      "categorySlug": ["all", "tray"]
     },
     {
       "partNumber": "04-AU-BIR-DIVIDER-H55",
@@ -3726,10 +3426,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-DIVIDER-H55/04-AU-BIR-DIVIDER-H55/04-AU-BIR-DIVIDER-H55.jpg",
       "genericName": "04-AU-xxx-DIVIDER-H55",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-WAL-DIVIDER-H55",
@@ -3743,10 +3440,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-DIVIDER-H55/04-AU-WAL-DIVIDER-H55/04-AU-WAL-DIVIDER-H55.jpg",
       "genericName": "04-AU-xxx-DIVIDER-H55",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-BIR-FLUTTED-B",
@@ -3760,10 +3454,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-FLUTTED-B/04-AU-BIR-FLUTTED-B/04-AU-BIR-FLUTTED-B.jpg",
       "genericName": "04-AU-xxx-FLUTTED-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-WAL-FLUTTED-B",
@@ -3777,10 +3468,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-FLUTTED-B/04-AU-WAL-FLUTTED-B/04-AU-WAL-FLUTTED-B.jpg",
       "genericName": "04-AU-xxx-FLUTTED-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-BIR-FLUTTED-B.b",
@@ -3820,10 +3508,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-KH-B/04-AU-BIR-KH-B/04-AU-BIR-KH-B.jpg",
       "genericName": "04-AU-xxx-KH-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-WAL-KH-B",
@@ -3837,10 +3522,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-KH-B/04-AU-WAL-KH-B/04-AU-WAL-KH-B.jpg",
       "genericName": "04-AU-xxx-KH-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-BIR-KH-B.b",
@@ -3880,10 +3562,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-PARTN240-H125/04-AU-BIR-PARTN240-H125/04-AU-BIR-PARTN240-H125.jpg",
       "genericName": "04-AU-xxx-PARTN240-H125",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-AU-WAL-PARTN240-H125",
@@ -3897,10 +3576,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-PARTN240-H125/04-AU-WAL-PARTN240-H125/04-AU-WAL-PARTN240-H125.jpg",
       "genericName": "04-AU-xxx-PARTN240-H125",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-AU-BIR-PARTN448-H125",
@@ -3914,10 +3590,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-PARTN448-H125/04-AU-BIR-PARTN448-H125/04-AU-BIR-PARTN448-H125.jpg",
       "genericName": "04-AU-xxx-PARTN448-H125",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-AU-WAL-PARTN448-H125",
@@ -3931,10 +3604,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-PARTN448-H125/04-AU-WAL-PARTN448-H125/04-AU-WAL-PARTN448-H125.jpg",
       "genericName": "04-AU-xxx-PARTN448-H125",
-      "categorySlug": [
-        "all",
-        "peg-board"
-      ]
+      "categorySlug": ["all", "peg-board"]
     },
     {
       "partNumber": "04-AU-BIR-SLOTTED-B",
@@ -3948,10 +3618,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B/04-AU-BIR-SLOTTED-B/04-AU-BIR-SLOTTED-B.jpg",
       "genericName": "04-AU-xxx-SLOTTED-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-WAL-SLOTTED-B",
@@ -3965,10 +3632,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B/04-AU-WAL-SLOTTED-B/04-AU-WAL-SLOTTED-B.jpg",
       "genericName": "04-AU-xxx-SLOTTED-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-BIR-SLOTTED-B.b",
@@ -4008,10 +3672,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SPICERACK-B/04-AU-BIR-SPICERACK-B/04-AU-BIR-SPICERACK-B.jpg",
       "genericName": "04-AU-xxx-SPICERACK-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-WAL-SPICERACK-B",
@@ -4025,10 +3686,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SPICERACK-B/04-AU-WAL-SPICERACK-B/04-AU-WAL-SPICERACK-B.jpg",
       "genericName": "04-AU-xxx-SPICERACK-B",
-      "categorySlug": [
-        "all",
-        "accessories"
-      ]
+      "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-BIR-T9494H36",
@@ -4042,10 +3700,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T9494H36/04-AU-BIR-T9494H36/04-AU-BIR-T9494H36.jpg",
       "genericName": "04-AU-xxx-T9494H36",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-WAL-T9494H36",
@@ -4059,10 +3714,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T9494H36/04-AU-WAL-T9494H36/04-AU-WAL-T9494H36.jpg",
       "genericName": "04-AU-xxx-T9494H36",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-BIR-T94266H36",
@@ -4076,10 +3728,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T94266H36/04-AU-BIR-T94266H36/04-AU-BIR-T94266H36.jpg",
       "genericName": "04-AU-xxx-T94266H36",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-WAL-T94266H36",
@@ -4093,10 +3742,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T94266H36/04-AU-WAL-T94266H36/04-AU-WAL-T94266H36.jpg",
       "genericName": "04-AU-xxx-T94266H36",
-      "categorySlug": [
-        "all",
-        "l-shape"
-      ]
+      "categorySlug": ["all", "l-shape"]
     },
     {
       "partNumber": "04-AU-BIR-T100305H55",
@@ -4110,10 +3756,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T100305H55/04-AU-BIR-T100305H55/04-AU-BIR-T100305H55.jpg",
       "genericName": "04-AU-xxx-T100305H55",
-      "categorySlug": [
-        "all",
-        "box"
-      ]
+      "categorySlug": ["all", "box"]
     },
     {
       "partNumber": "04-AU-WAL-T100305H55",
@@ -4127,10 +3770,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T100305H55/04-AU-WAL-T100305H55/04-AU-WAL-T100305H55.jpg",
       "genericName": "04-AU-xxx-T100305H55",
-      "categorySlug": [
-        "all",
-        "box"
-      ]
+      "categorySlug": ["all", "box"]
     },
     {
       "partNumber": "04-AU-BIR-T200305H55",
@@ -4144,10 +3784,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T200305H55/04-AU-BIR-T200305H55/04-AU-BIR-T200305H55.jpg",
       "genericName": "04-AU-xxx-T200305H55",
-      "categorySlug": [
-        "all",
-        "box"
-      ]
+      "categorySlug": ["all", "box"]
     },
     {
       "partNumber": "04-AU-WAL-T200305H55",
@@ -4161,10 +3798,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T200305H55/04-AU-WAL-T200305H55/04-AU-WAL-T200305H55.jpg",
       "genericName": "04-AU-xxx-T200305H55",
-      "categorySlug": [
-        "all",
-        "box"
-      ]
+      "categorySlug": ["all", "box"]
     },
     {
       "partNumber": "04-AU-BIR-T210406H110",
@@ -4178,10 +3812,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T210406H110/04-AU-BIR-T210406H110/04-AU-BIR-T210406H110.jpg",
       "genericName": "04-AU-xxx-T210406H110",
-      "categorySlug": [
-        "all",
-        "storage-box"
-      ]
+      "categorySlug": ["all", "storage-box"]
     },
     {
       "partNumber": "04-AU-WAL-T210406H110",
@@ -4195,10 +3826,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T210406H110/04-AU-WAL-T210406H110/04-AU-WAL-T210406H110.jpg",
       "genericName": "04-AU-xxx-T210406H110",
-      "categorySlug": [
-        "all",
-        "storage-box"
-      ]
+      "categorySlug": ["all", "storage-box"]
     },
     {
       "partNumber": "04-AU-BIR-T210506H110",
@@ -4212,10 +3840,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T210506H110/04-AU-BIR-T210506H110/04-AU-BIR-T210506H110.jpg",
       "genericName": "04-AU-xxx-T210506H110",
-      "categorySlug": [
-        "all",
-        "storage-box"
-      ]
+      "categorySlug": ["all", "storage-box"]
     },
     {
       "partNumber": "04-AU-WAL-T210506H110",
@@ -4229,10 +3854,7 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-T210506H110/04-AU-WAL-T210506H110/04-AU-WAL-T210506H110.jpg",
       "genericName": "04-AU-xxx-T210506H110",
-      "categorySlug": [
-        "all",
-        "storage-box"
-      ]
+      "categorySlug": ["all", "storage-box"]
     },
     {
       "partNumber": "BIR-spice rack 35mm spacer Size A",
