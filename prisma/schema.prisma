@@ -80,30 +80,43 @@ model FinishTranslations {
   finish      Finish  @relation(fields: [finishId], references: [id])
 }
 
+model ModuleAttachments {
+  id           Int    @id @default(autoincrement())
+  moduleId     Int
+  module       Module @relation("module_moduleAttachments", fields: [moduleId], references: [id])
+  attachmentId Int
+  attachment   Module @relation("attachment_moduleAttachments", fields: [attachmentId], references: [id])
+}
+
 model Module {
-  id                           Int              @id @default(autoincrement())
-  partNumber                   String           @unique
+  id                           Int                 @id @default(autoincrement())
+  partNumber                   String              @unique
   description                  String?
-  thumbnailUrl                 String?          @db.VarChar(255)
-  bundleUrl                    String?          @db.VarChar(255)
-  isSubmodule                  Boolean          @default(false)
-  hasPegs                      Boolean          @default(false)
-  isMat                        Boolean          @default(false)
-  isExtension                  Boolean          @default(false)
-  shouldHideBasedOnWidth       Boolean          @default(false)
+  thumbnailUrl                 String?             @db.VarChar(255)
+  bundleUrl                    String?             @db.VarChar(255)
+  isSubmodule                  Boolean             @default(false)
+  hasPegs                      Boolean             @default(false)
+  isMat                        Boolean             @default(false)
+  isExtension                  Boolean             @default(false)
+  shouldHideBasedOnWidth       Boolean             @default(false)
   defaultLeftExtensionId       Int?
-  defaultLeftExtension         Module?          @relation("defaultLeftExtensionRelation", fields: [defaultLeftExtensionId], references: [id])
+  defaultLeftExtension         Module?             @relation("defaultLeftExtensionRelation", fields: [defaultLeftExtensionId], references: [id])
   defaultRightExtensionId      Int?
-  defaultRightExtension        Module?          @relation("defaultRightExtensionRelation", fields: [defaultRightExtensionId], references: [id])
+  defaultRightExtension        Module?             @relation("defaultRightExtensionRelation", fields: [defaultRightExtensionId], references: [id])
+  attachmentToAppendId         Int?
+  attachmentToAppend           Module?             @relation("attachmentToAppendRelation", fields: [attachmentToAppendId], references: [id])
   finishId                     Int
-  finish                       Finish           @relation(fields: [finishId], references: [id])
+  finish                       Finish              @relation(fields: [finishId], references: [id])
   collectionId                 Int
-  collection                   Collection       @relation(fields: [collectionId], references: [id])
+  collection                   Collection          @relation(fields: [collectionId], references: [id])
   rules                        Json?
   projectModules               ProjectModule[]
   moduleCategories             ModuleCategory[]
-  defaultLeftExtensionParents  Module[]         @relation("defaultLeftExtensionRelation")
-  defaultRightExtensionParents Module[]         @relation("defaultRightExtensionRelation")
+  defaultLeftExtensionParents  Module[]            @relation("defaultLeftExtensionRelation")
+  defaultRightExtensionParents Module[]            @relation("defaultRightExtensionRelation")
+  attachmentToAppendParents    Module[]            @relation("attachmentToAppendRelation")
+  moduleAttachments            ModuleAttachments[] @relation("module_moduleAttachments")
+  moduleAttachedTo             ModuleAttachments[] @relation("attachment_moduleAttachments")
 }
 
 model Project {
