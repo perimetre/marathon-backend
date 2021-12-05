@@ -4,6 +4,7 @@ import { projectService } from '../services/project';
 import { moduleService } from '../services/modules';
 import { Context } from '../typings/context';
 import { GraphQLResolveInfo } from 'graphql';
+import { nanoid } from 'nanoid';
 
 export const Project = objectType({
   name: 'Project',
@@ -81,7 +82,11 @@ export const createOneProjectCustomResolver = async (
         calculatedWidth
       );
       await ctx.prisma.projectModule.createMany({
-        data: filteredModules.map((mod) => ({ projectId: Number(project?.id), moduleId: mod.id }))
+        data: filteredModules.map((mod) => ({
+          projectId: Number(project?.id),
+          moduleId: mod.id,
+          nanoId: nanoid()
+        }))
       });
     }
   }

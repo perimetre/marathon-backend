@@ -2286,8 +2286,10 @@ type ProjectModule {
   id: Int!
   module: Module!
   moduleId: Int!
+  nanoId: String!
   parent: ProjectModule
   parentId: Int
+  parentNanoId: String
   posX: Float!
   posY: Float!
   posZ: Float!
@@ -2299,7 +2301,9 @@ type ProjectModule {
 input ProjectModuleCreateInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
+  nanoId: String!
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2309,7 +2313,9 @@ input ProjectModuleCreateInput {
 
 input ProjectModuleCreateManyModuleInput {
   id: Int
+  nanoId: String!
   parentId: Int
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2325,6 +2331,8 @@ input ProjectModuleCreateManyModuleInputEnvelope {
 input ProjectModuleCreateManyParentInput {
   id: Int
   moduleId: Int!
+  nanoId: String!
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2340,7 +2348,9 @@ input ProjectModuleCreateManyParentInputEnvelope {
 input ProjectModuleCreateManyProjectInput {
   id: Int
   moduleId: Int!
+  nanoId: String!
   parentId: Int
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2401,7 +2411,9 @@ input ProjectModuleCreateOrConnectWithoutProjectInput {
 
 input ProjectModuleCreateWithoutChildrenInput {
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
+  nanoId: String!
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2411,7 +2423,9 @@ input ProjectModuleCreateWithoutChildrenInput {
 
 input ProjectModuleCreateWithoutModuleInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
+  nanoId: String!
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2422,6 +2436,8 @@ input ProjectModuleCreateWithoutModuleInput {
 input ProjectModuleCreateWithoutParentInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
+  nanoId: String!
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2432,7 +2448,9 @@ input ProjectModuleCreateWithoutParentInput {
 input ProjectModuleCreateWithoutProjectInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
+  nanoId: String!
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2448,7 +2466,9 @@ input ProjectModuleListRelationFilter {
 input ProjectModuleOrderByInput {
   id: SortOrder
   moduleId: SortOrder
+  nanoId: SortOrder
   parentId: SortOrder
+  parentNanoId: SortOrder
   posX: SortOrder
   posY: SortOrder
   posZ: SortOrder
@@ -2462,7 +2482,9 @@ input ProjectModuleScalarWhereInput {
   OR: [ProjectModuleScalarWhereInput!]
   id: IntFilter
   moduleId: IntFilter
+  nanoId: StringFilter
   parentId: IntNullableFilter
+  parentNanoId: StringNullableFilter
   posX: FloatFilter
   posY: FloatFilter
   posZ: FloatFilter
@@ -2473,7 +2495,9 @@ input ProjectModuleScalarWhereInput {
 input ProjectModuleUpdateInput {
   children: ProjectModuleUpdateManyWithoutParentInput
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
+  nanoId: StringFieldUpdateOperationsInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2482,6 +2506,8 @@ input ProjectModuleUpdateInput {
 }
 
 input ProjectModuleUpdateManyMutationInput {
+  nanoId: StringFieldUpdateOperationsInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2572,7 +2598,9 @@ input ProjectModuleUpdateWithWhereUniqueWithoutProjectInput {
 
 input ProjectModuleUpdateWithoutChildrenInput {
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
+  nanoId: StringFieldUpdateOperationsInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2582,7 +2610,9 @@ input ProjectModuleUpdateWithoutChildrenInput {
 
 input ProjectModuleUpdateWithoutModuleInput {
   children: ProjectModuleUpdateManyWithoutParentInput
+  nanoId: StringFieldUpdateOperationsInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2593,6 +2623,8 @@ input ProjectModuleUpdateWithoutModuleInput {
 input ProjectModuleUpdateWithoutParentInput {
   children: ProjectModuleUpdateManyWithoutParentInput
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
+  nanoId: StringFieldUpdateOperationsInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2603,7 +2635,9 @@ input ProjectModuleUpdateWithoutParentInput {
 input ProjectModuleUpdateWithoutProjectInput {
   children: ProjectModuleUpdateManyWithoutParentInput
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
+  nanoId: StringFieldUpdateOperationsInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2641,8 +2675,10 @@ input ProjectModuleWhereInput {
   id: IntFilter
   module: ModuleWhereInput
   moduleId: IntFilter
+  nanoId: StringFilter
   parent: ProjectModuleWhereInput
   parentId: IntNullableFilter
+  parentNanoId: StringNullableFilter
   posX: FloatFilter
   posY: FloatFilter
   posZ: FloatFilter
@@ -2653,6 +2689,7 @@ input ProjectModuleWhereInput {
 
 input ProjectModuleWhereUniqueInput {
   id: Int
+  nanoId: String
 }
 
 input ProjectOrderByInput {

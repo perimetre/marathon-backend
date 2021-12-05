@@ -130,18 +130,20 @@ model Project {
 }
 
 model ProjectModule {
-  id        Int             @id @default(autoincrement())
-  posX      Float           @default(0)
-  posY      Float           @default(0)
-  posZ      Float           @default(0)
-  rotY      Float           @default(0)
-  moduleId  Int
-  module    Module          @relation(fields: [moduleId], references: [id])
-  parentId  Int?
-  parent    ProjectModule?  @relation("ProjectModuleToProjectModule", fields: [parentId], references: [id])
-  children  ProjectModule[] @relation("ProjectModuleToProjectModule")
-  projectId Int?
-  project   Project?        @relation(fields: [projectId], references: [id])
+  id           Int             @id @default(autoincrement())
+  nanoId       String          @unique
+  posX         Float           @default(0)
+  posY         Float           @default(0)
+  posZ         Float           @default(0)
+  rotY         Float           @default(0)
+  moduleId     Int
+  module       Module          @relation(fields: [moduleId], references: [id])
+  parentId     Int?
+  parentNanoId String?
+  parent       ProjectModule?  @relation("ProjectModuleToProjectModule", fields: [parentId], references: [id])
+  children     ProjectModule[] @relation("ProjectModuleToProjectModule")
+  projectId    Int?
+  project      Project?        @relation(fields: [projectId], references: [id])
 }
 
 model Slide {
