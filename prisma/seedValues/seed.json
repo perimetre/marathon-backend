@@ -3672,7 +3672,9 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SPICERACK-B/04-AU-BIR-SPICERACK-B/04-AU-BIR-SPICERACK-B.jpg",
       "genericName": "04-AU-xxx-SPICERACK-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": ["all", "accessories"],
+      "attachmentToAppend": "BIR-spice rack 53mm spacer Size A",
+      "moduleAttachments": ["BIR-spice rack 35mm spacer Size A", "BIR-Spice rack Size A"]
     },
     {
       "partNumber": "04-AU-WAL-SPICERACK-B",
@@ -3686,7 +3688,9 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SPICERACK-B/04-AU-WAL-SPICERACK-B/04-AU-WAL-SPICERACK-B.jpg",
       "genericName": "04-AU-xxx-SPICERACK-B",
-      "categorySlug": ["all", "accessories"]
+      "categorySlug": ["all", "accessories"],
+      "attachmentToAppend": "WAL-spice rack 53mm spacer Size A",
+      "moduleAttachments": ["WAL-spice rack 35mm spacer Size A", "WAL-Spice rack Size A"]
     },
     {
       "partNumber": "04-AU-BIR-T9494H36",
