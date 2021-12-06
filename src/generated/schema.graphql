@@ -1005,8 +1005,7 @@ type Module {
     take: Int
     where: ProjectModuleWhereInput
   ): [ProjectModule!]!
-  rules: ModuleRules
-  rulesJson: Json
+  rules: Json
   shouldHideBasedOnWidth: Boolean!
   thumbnailUrl: String
 }

@@ -3366,8 +3366,7 @@ export interface NexusGenFieldTypes {
     isSubmodule: boolean; // Boolean!
     partNumber: string; // String!
     projectModules: NexusGenRootTypes['ProjectModule'][]; // [ProjectModule!]!
-    rules: NexusGenRootTypes['ModuleRules'] | null; // ModuleRules
-    rulesJson: NexusGenScalars['Json'] | null; // Json
+    rules: NexusGenScalars['Json'] | null; // Json
     shouldHideBasedOnWidth: boolean; // Boolean!
     thumbnailUrl: string | null; // String
   };
@@ -3651,8 +3650,7 @@ export interface NexusGenFieldTypeNames {
     isSubmodule: 'Boolean';
     partNumber: 'String';
     projectModules: 'ProjectModule';
-    rules: 'ModuleRules';
-    rulesJson: 'Json';
+    rules: 'Json';
     shouldHideBasedOnWidth: 'Boolean';
     thumbnailUrl: 'String';
   };

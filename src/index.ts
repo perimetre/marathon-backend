@@ -8,6 +8,7 @@ import { ApolloServer } from 'apollo-server-express';
 import { Context } from './typings/context';
 import logging from './utils/logging';
 import { getDb } from './database';
+import scheduleJobs from './cron';
 
 // Helpers
 const normalizePort = (val: string): number => {
@@ -107,6 +108,9 @@ const main = async () => {
 
     // Server start
     const port = normalizePort(env.PORT);
+
+    // Schedule Cron
+    scheduleJobs(prisma);
 
     await new Promise<void>((resolve) => app.listen({ port }, resolve));
     console.log(`🚀 Server ready at http://localhost:${port}/graphql`);

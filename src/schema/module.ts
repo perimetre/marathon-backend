@@ -4,7 +4,6 @@ import {
   resolveAssetBundleUrlToField,
   resolvePublicMediaUrlToField
 } from '../utils/nexus';
-import { NexusGenObjects } from '../generated/nexus';
 
 export const Module = objectType({
   name: 'Module',
@@ -29,19 +28,13 @@ export const Module = objectType({
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           .moduleCategories({ where: { category: (args.where as any) || undefined }, select: { category: true } });
 
-        return moduleCategories.map((moduleCategory) => moduleCategory.category) || [];
+        return (moduleCategories || []).map((moduleCategory) => moduleCategory.category) || [];
       }
     });
 
     t.model.rules({
-      alias: 'rulesJson'
-    });
-
-    t.field('rules', {
-      type: 'ModuleRules',
-      resolve: async (root, _args, ctx) => {
-        const module = await ctx.prisma.module.findUnique({ where: { id: root.id } });
-        return (module?.rules as unknown as NexusGenObjects['ModuleRules']) || null;
+      resolve: (root: any) => {
+        return JSON.parse(root.rules);
       }
     });
   }
