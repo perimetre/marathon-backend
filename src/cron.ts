@@ -1,10 +1,10 @@
 import * as cron from 'node-cron';
-import { PrismaClient } from '.prisma/client';
+import { PrismaClient } from '@prisma/client';
 import logging from './utils/logging';
 import { marathonGraphql } from './utils/marathon';
 import { GetProductListingQuery, GET_PRODUCT_LISTING } from './utils/marathon/queries';
 import { convertInToMmFormatted, convertMmToInFormatted } from './utils/conversion';
-import { Rule } from './typings/Rule';
+import { NexusGenObjects } from './generated/nexus';
 import {
   FeatureBooleanSelect,
   FeatureInput,
@@ -85,7 +85,7 @@ const marathonProductCron = async (prisma: PrismaClient) => {
 
       const trimmable = genericFind<FeatureMultiselect>(nodeRule?.features, 'name', 'trimmable')?.selections;
 
-      const rules: Rule = {
+      const rules: NexusGenObjects['ModuleRules'] = {
         partNumber: node.partNumber,
         finishes: (node.finishes || []).map((finish) => finish.element.partNumber),
         dimensions: {
@@ -203,8 +203,6 @@ const marathonProductCron = async (prisma: PrismaClient) => {
         }
       };
 
-      console.log({ rules: JSON.stringify(rules) });
-
       return {
         id: Number(node.pimcoreId),
         partNumber: node.partNumber,
@@ -214,9 +212,6 @@ const marathonProductCron = async (prisma: PrismaClient) => {
         rules
       };
     });
-
-    // const createModules = modules.filter((mod) => !dbModules.find((db) => db.partNumber === mod.partNumber));
-    // const updateModules = modules.filter((mod) => dbModules.find((db) => db.partNumber === mod.partNumber));
 
     const createModules: typeof modules = [];
     const updateModules: typeof modules = [];
@@ -231,7 +226,6 @@ const marathonProductCron = async (prisma: PrismaClient) => {
     });
 
     for (const module of updateModules) {
-      console.log({ module });
       await prisma.module.update({
         where: { partNumber: module.partNumber },
         data: {
@@ -257,15 +251,15 @@ const marathonProductCron = async (prisma: PrismaClient) => {
 };
 
 const scheduleJobs = async (prisma: PrismaClient): Promise<void> => {
-  // const daily = '0 4 * * *';
-  // cron.schedule(daily, async () => {
-  //   console.log(`Daily job (${daily}) `);
-  try {
-    await marathonProductCron(prisma);
-  } catch (error) {
-    logging.error(error, 'Daily cronjob has failed.');
-  }
-  // });
+  const daily = '0 4 * * *';
+  cron.schedule(daily, async () => {
+    console.log(`Daily job (${daily}) `);
+    try {
+      await marathonProductCron(prisma);
+    } catch (error) {
+      logging.error(error, 'Daily cronjob has failed.');
+    }
+  });
 
   console.log('All jobs scheduled');
 };

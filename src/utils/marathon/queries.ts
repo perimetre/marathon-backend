@@ -4,8 +4,6 @@ export type GetProductListingQuery = {
   data: { getProductListing: { edges: { node: Product }[] } };
 };
 
-// {"where":{"partNumber":{"in":["04-AREA-CT-GM-D"]}}}
-
 export const GET_PRODUCT_LISTING = `
   query GetProductListing {
     getProductListing(published: true, filter: "{\\"itemId\\":{\\"$like\\":\\"04-AU-WAL-CD-B\\"}}") {
