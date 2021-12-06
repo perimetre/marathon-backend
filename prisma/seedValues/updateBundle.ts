@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import bundles from './bundles.json';
 
+console.log('Initializing db...');
 const db = new PrismaClient();
 
 const main = async () => {

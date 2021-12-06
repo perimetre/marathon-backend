@@ -985,18 +985,29 @@ enum Locale {
 }
 
 type Module {
+  attachmentToAppend: Module
+  attachmentToAppendId: Int
+  attachmentToAppendParents(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
   bundleUrl: String
   categories(where: CategoryWhereInput): [Category!]!
   collection: Collection!
   collectionId: Int!
+  defaultLeftExtension: Module
+  defaultLeftExtensionId: Int
+  defaultLeftExtensionParents(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
+  defaultRightExtension: Module
+  defaultRightExtensionId: Int
+  defaultRightExtensionParents(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
   description: String
   finish: Finish!
   finishId: Int!
   hasPegs: Boolean!
   id: Int!
-  isImprintExtension: Boolean!
+  isExtension: Boolean!
   isMat: Boolean!
   isSubmodule: Boolean!
+  moduleAttachedTo(cursor: ModuleAttachmentsWhereUniqueInput, skip: Int, take: Int): [ModuleAttachments!]!
+  moduleAttachments(cursor: ModuleAttachmentsWhereUniqueInput, skip: Int, take: Int): [ModuleAttachments!]!
   partNumber: String!
   projectModules(
     cursor: ProjectModuleWhereUniqueInput
@@ -1008,6 +1019,168 @@ type Module {
   rules: Json
   shouldHideBasedOnWidth: Boolean!
   thumbnailUrl: String
+}
+
+type ModuleAttachments {
+  attachment: Module!
+  attachmentId: Int!
+  id: Int!
+  module: Module!
+  moduleId: Int!
+}
+
+input ModuleAttachmentsCreateManyAttachmentInput {
+  id: Int
+  moduleId: Int!
+}
+
+input ModuleAttachmentsCreateManyAttachmentInputEnvelope {
+  data: [ModuleAttachmentsCreateManyAttachmentInput!]
+  skipDuplicates: Boolean
+}
+
+input ModuleAttachmentsCreateManyModuleInput {
+  attachmentId: Int!
+  id: Int
+}
+
+input ModuleAttachmentsCreateManyModuleInputEnvelope {
+  data: [ModuleAttachmentsCreateManyModuleInput!]
+  skipDuplicates: Boolean
+}
+
+input ModuleAttachmentsCreateNestedManyWithoutAttachmentInput {
+  connect: [ModuleAttachmentsWhereUniqueInput!]
+  connectOrCreate: [ModuleAttachmentsCreateOrConnectWithoutAttachmentInput!]
+  create: [ModuleAttachmentsCreateWithoutAttachmentInput!]
+  createMany: ModuleAttachmentsCreateManyAttachmentInputEnvelope
+}
+
+input ModuleAttachmentsCreateNestedManyWithoutModuleInput {
+  connect: [ModuleAttachmentsWhereUniqueInput!]
+  connectOrCreate: [ModuleAttachmentsCreateOrConnectWithoutModuleInput!]
+  create: [ModuleAttachmentsCreateWithoutModuleInput!]
+  createMany: ModuleAttachmentsCreateManyModuleInputEnvelope
+}
+
+input ModuleAttachmentsCreateOrConnectWithoutAttachmentInput {
+  create: ModuleAttachmentsCreateWithoutAttachmentInput!
+  where: ModuleAttachmentsWhereUniqueInput!
+}
+
+input ModuleAttachmentsCreateOrConnectWithoutModuleInput {
+  create: ModuleAttachmentsCreateWithoutModuleInput!
+  where: ModuleAttachmentsWhereUniqueInput!
+}
+
+input ModuleAttachmentsCreateWithoutAttachmentInput {
+  module: ModuleCreateNestedOneWithoutModuleAttachmentsInput!
+}
+
+input ModuleAttachmentsCreateWithoutModuleInput {
+  attachment: ModuleCreateNestedOneWithoutModuleAttachedToInput!
+}
+
+input ModuleAttachmentsListRelationFilter {
+  every: ModuleAttachmentsWhereInput
+  none: ModuleAttachmentsWhereInput
+  some: ModuleAttachmentsWhereInput
+}
+
+input ModuleAttachmentsScalarWhereInput {
+  AND: [ModuleAttachmentsScalarWhereInput!]
+  NOT: [ModuleAttachmentsScalarWhereInput!]
+  OR: [ModuleAttachmentsScalarWhereInput!]
+  attachmentId: IntFilter
+  id: IntFilter
+  moduleId: IntFilter
+}
+
+input ModuleAttachmentsUpdateManyMutationInput {
+  _: Int
+}
+
+input ModuleAttachmentsUpdateManyWithWhereWithoutAttachmentInput {
+  data: ModuleAttachmentsUpdateManyMutationInput!
+  where: ModuleAttachmentsScalarWhereInput!
+}
+
+input ModuleAttachmentsUpdateManyWithWhereWithoutModuleInput {
+  data: ModuleAttachmentsUpdateManyMutationInput!
+  where: ModuleAttachmentsScalarWhereInput!
+}
+
+input ModuleAttachmentsUpdateManyWithoutAttachmentInput {
+  connect: [ModuleAttachmentsWhereUniqueInput!]
+  connectOrCreate: [ModuleAttachmentsCreateOrConnectWithoutAttachmentInput!]
+  create: [ModuleAttachmentsCreateWithoutAttachmentInput!]
+  createMany: ModuleAttachmentsCreateManyAttachmentInputEnvelope
+  delete: [ModuleAttachmentsWhereUniqueInput!]
+  deleteMany: [ModuleAttachmentsScalarWhereInput!]
+  disconnect: [ModuleAttachmentsWhereUniqueInput!]
+  set: [ModuleAttachmentsWhereUniqueInput!]
+  update: [ModuleAttachmentsUpdateWithWhereUniqueWithoutAttachmentInput!]
+  updateMany: [ModuleAttachmentsUpdateManyWithWhereWithoutAttachmentInput!]
+  upsert: [ModuleAttachmentsUpsertWithWhereUniqueWithoutAttachmentInput!]
+}
+
+input ModuleAttachmentsUpdateManyWithoutModuleInput {
+  connect: [ModuleAttachmentsWhereUniqueInput!]
+  connectOrCreate: [ModuleAttachmentsCreateOrConnectWithoutModuleInput!]
+  create: [ModuleAttachmentsCreateWithoutModuleInput!]
+  createMany: ModuleAttachmentsCreateManyModuleInputEnvelope
+  delete: [ModuleAttachmentsWhereUniqueInput!]
+  deleteMany: [ModuleAttachmentsScalarWhereInput!]
+  disconnect: [ModuleAttachmentsWhereUniqueInput!]
+  set: [ModuleAttachmentsWhereUniqueInput!]
+  update: [ModuleAttachmentsUpdateWithWhereUniqueWithoutModuleInput!]
+  updateMany: [ModuleAttachmentsUpdateManyWithWhereWithoutModuleInput!]
+  upsert: [ModuleAttachmentsUpsertWithWhereUniqueWithoutModuleInput!]
+}
+
+input ModuleAttachmentsUpdateWithWhereUniqueWithoutAttachmentInput {
+  data: ModuleAttachmentsUpdateWithoutAttachmentInput!
+  where: ModuleAttachmentsWhereUniqueInput!
+}
+
+input ModuleAttachmentsUpdateWithWhereUniqueWithoutModuleInput {
+  data: ModuleAttachmentsUpdateWithoutModuleInput!
+  where: ModuleAttachmentsWhereUniqueInput!
+}
+
+input ModuleAttachmentsUpdateWithoutAttachmentInput {
+  module: ModuleUpdateOneRequiredWithoutModuleAttachmentsInput
+}
+
+input ModuleAttachmentsUpdateWithoutModuleInput {
+  attachment: ModuleUpdateOneRequiredWithoutModuleAttachedToInput
+}
+
+input ModuleAttachmentsUpsertWithWhereUniqueWithoutAttachmentInput {
+  create: ModuleAttachmentsCreateWithoutAttachmentInput!
+  update: ModuleAttachmentsUpdateWithoutAttachmentInput!
+  where: ModuleAttachmentsWhereUniqueInput!
+}
+
+input ModuleAttachmentsUpsertWithWhereUniqueWithoutModuleInput {
+  create: ModuleAttachmentsCreateWithoutModuleInput!
+  update: ModuleAttachmentsUpdateWithoutModuleInput!
+  where: ModuleAttachmentsWhereUniqueInput!
+}
+
+input ModuleAttachmentsWhereInput {
+  AND: [ModuleAttachmentsWhereInput!]
+  NOT: [ModuleAttachmentsWhereInput!]
+  OR: [ModuleAttachmentsWhereInput!]
+  attachment: ModuleWhereInput
+  attachmentId: IntFilter
+  id: IntFilter
+  module: ModuleWhereInput
+  moduleId: IntFilter
+}
+
+input ModuleAttachmentsWhereUniqueInput {
+  id: Int
 }
 
 type ModuleCategory {
@@ -1118,13 +1291,39 @@ input ModuleCategoryWhereUniqueInput {
   id: Int
 }
 
-input ModuleCreateManyCollectionInput {
+input ModuleCreateManyAttachmentToAppendInput {
   bundleUrl: String
+  collectionId: Int!
+  defaultLeftExtensionId: Int
+  defaultRightExtensionId: Int
   description: String
   finishId: Int!
   hasPegs: Boolean
   id: Int
-  isImprintExtension: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  partNumber: String!
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateManyAttachmentToAppendInputEnvelope {
+  data: [ModuleCreateManyAttachmentToAppendInput!]
+  skipDuplicates: Boolean
+}
+
+input ModuleCreateManyCollectionInput {
+  attachmentToAppendId: Int
+  bundleUrl: String
+  defaultLeftExtensionId: Int
+  defaultRightExtensionId: Int
+  description: String
+  finishId: Int!
+  hasPegs: Boolean
+  id: Int
+  isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
   partNumber: String!
@@ -1138,13 +1337,62 @@ input ModuleCreateManyCollectionInputEnvelope {
   skipDuplicates: Boolean
 }
 
-input ModuleCreateManyFinishInput {
+input ModuleCreateManyDefaultLeftExtensionInput {
+  attachmentToAppendId: Int
   bundleUrl: String
   collectionId: Int!
+  defaultRightExtensionId: Int
+  description: String
+  finishId: Int!
+  hasPegs: Boolean
+  id: Int
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  partNumber: String!
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateManyDefaultLeftExtensionInputEnvelope {
+  data: [ModuleCreateManyDefaultLeftExtensionInput!]
+  skipDuplicates: Boolean
+}
+
+input ModuleCreateManyDefaultRightExtensionInput {
+  attachmentToAppendId: Int
+  bundleUrl: String
+  collectionId: Int!
+  defaultLeftExtensionId: Int
+  description: String
+  finishId: Int!
+  hasPegs: Boolean
+  id: Int
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  partNumber: String!
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateManyDefaultRightExtensionInputEnvelope {
+  data: [ModuleCreateManyDefaultRightExtensionInput!]
+  skipDuplicates: Boolean
+}
+
+input ModuleCreateManyFinishInput {
+  attachmentToAppendId: Int
+  bundleUrl: String
+  collectionId: Int!
+  defaultLeftExtensionId: Int
+  defaultRightExtensionId: Int
   description: String
   hasPegs: Boolean
   id: Int
-  isImprintExtension: Boolean
+  isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
   partNumber: String!
@@ -1158,11 +1406,32 @@ input ModuleCreateManyFinishInputEnvelope {
   skipDuplicates: Boolean
 }
 
+input ModuleCreateNestedManyWithoutAttachmentToAppendInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutAttachmentToAppendInput!]
+  create: [ModuleCreateWithoutAttachmentToAppendInput!]
+  createMany: ModuleCreateManyAttachmentToAppendInputEnvelope
+}
+
 input ModuleCreateNestedManyWithoutCollectionInput {
   connect: [ModuleWhereUniqueInput!]
   connectOrCreate: [ModuleCreateOrConnectWithoutCollectionInput!]
   create: [ModuleCreateWithoutCollectionInput!]
   createMany: ModuleCreateManyCollectionInputEnvelope
+}
+
+input ModuleCreateNestedManyWithoutDefaultLeftExtensionInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutDefaultLeftExtensionInput!]
+  create: [ModuleCreateWithoutDefaultLeftExtensionInput!]
+  createMany: ModuleCreateManyDefaultLeftExtensionInputEnvelope
+}
+
+input ModuleCreateNestedManyWithoutDefaultRightExtensionInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutDefaultRightExtensionInput!]
+  create: [ModuleCreateWithoutDefaultRightExtensionInput!]
+  createMany: ModuleCreateManyDefaultRightExtensionInputEnvelope
 }
 
 input ModuleCreateNestedManyWithoutFinishInput {
@@ -1172,14 +1441,74 @@ input ModuleCreateNestedManyWithoutFinishInput {
   createMany: ModuleCreateManyFinishInputEnvelope
 }
 
+input ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutAttachmentToAppendParentsInput
+  create: ModuleCreateWithoutAttachmentToAppendParentsInput
+}
+
+input ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutDefaultLeftExtensionParentsInput
+  create: ModuleCreateWithoutDefaultLeftExtensionParentsInput
+}
+
+input ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutDefaultRightExtensionParentsInput
+  create: ModuleCreateWithoutDefaultRightExtensionParentsInput
+}
+
+input ModuleCreateNestedOneWithoutModuleAttachedToInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutModuleAttachedToInput
+  create: ModuleCreateWithoutModuleAttachedToInput
+}
+
+input ModuleCreateNestedOneWithoutModuleAttachmentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutModuleAttachmentsInput
+  create: ModuleCreateWithoutModuleAttachmentsInput
+}
+
 input ModuleCreateNestedOneWithoutProjectModulesInput {
   connect: ModuleWhereUniqueInput
   connectOrCreate: ModuleCreateOrConnectWithoutProjectModulesInput
   create: ModuleCreateWithoutProjectModulesInput
 }
 
+input ModuleCreateOrConnectWithoutAttachmentToAppendInput {
+  create: ModuleCreateWithoutAttachmentToAppendInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateOrConnectWithoutAttachmentToAppendParentsInput {
+  create: ModuleCreateWithoutAttachmentToAppendParentsInput!
+  where: ModuleWhereUniqueInput!
+}
+
 input ModuleCreateOrConnectWithoutCollectionInput {
   create: ModuleCreateWithoutCollectionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateOrConnectWithoutDefaultLeftExtensionInput {
+  create: ModuleCreateWithoutDefaultLeftExtensionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateOrConnectWithoutDefaultLeftExtensionParentsInput {
+  create: ModuleCreateWithoutDefaultLeftExtensionParentsInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateOrConnectWithoutDefaultRightExtensionInput {
+  create: ModuleCreateWithoutDefaultRightExtensionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateOrConnectWithoutDefaultRightExtensionParentsInput {
+  create: ModuleCreateWithoutDefaultRightExtensionParentsInput!
   where: ModuleWhereUniqueInput!
 }
 
@@ -1188,19 +1517,181 @@ input ModuleCreateOrConnectWithoutFinishInput {
   where: ModuleWhereUniqueInput!
 }
 
+input ModuleCreateOrConnectWithoutModuleAttachedToInput {
+  create: ModuleCreateWithoutModuleAttachedToInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateOrConnectWithoutModuleAttachmentsInput {
+  create: ModuleCreateWithoutModuleAttachmentsInput!
+  where: ModuleWhereUniqueInput!
+}
+
 input ModuleCreateOrConnectWithoutProjectModulesInput {
   create: ModuleCreateWithoutProjectModulesInput!
   where: ModuleWhereUniqueInput!
 }
 
-input ModuleCreateWithoutCollectionInput {
+input ModuleCreateWithoutAttachmentToAppendInput {
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
-  isImprintExtension: Boolean
+  isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutAttachmentToAppendParentsInput {
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutCollectionInput {
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
+  bundleUrl: String
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutDefaultLeftExtensionInput {
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutDefaultLeftExtensionParentsInput {
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutDefaultRightExtensionInput {
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutDefaultRightExtensionParentsInput {
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
@@ -1210,13 +1701,69 @@ input ModuleCreateWithoutCollectionInput {
 }
 
 input ModuleCreateWithoutFinishInput {
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
   collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
   hasPegs: Boolean
-  isImprintExtension: Boolean
+  isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutModuleAttachedToInput {
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+}
+
+input ModuleCreateWithoutModuleAttachmentsInput {
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
@@ -1226,14 +1773,22 @@ input ModuleCreateWithoutFinishInput {
 }
 
 input ModuleCreateWithoutProjectModulesInput {
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
   collection: CollectionCreateNestedOneWithoutModulesInput!
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
-  isImprintExtension: Boolean
+  isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   partNumber: String!
   rules: Json
@@ -1265,13 +1820,16 @@ type ModuleMinMax {
 }
 
 input ModuleOrderByInput {
+  attachmentToAppendId: SortOrder
   bundleUrl: SortOrder
   collectionId: SortOrder
+  defaultLeftExtensionId: SortOrder
+  defaultRightExtensionId: SortOrder
   description: SortOrder
   finishId: SortOrder
   hasPegs: SortOrder
   id: SortOrder
-  isImprintExtension: SortOrder
+  isExtension: SortOrder
   isMat: SortOrder
   isSubmodule: SortOrder
   partNumber: SortOrder
@@ -1337,13 +1895,16 @@ input ModuleScalarWhereInput {
   AND: [ModuleScalarWhereInput!]
   NOT: [ModuleScalarWhereInput!]
   OR: [ModuleScalarWhereInput!]
+  attachmentToAppendId: IntNullableFilter
   bundleUrl: StringNullableFilter
   collectionId: IntFilter
+  defaultLeftExtensionId: IntNullableFilter
+  defaultRightExtensionId: IntNullableFilter
   description: StringNullableFilter
   finishId: IntFilter
   hasPegs: BoolFilter
   id: IntFilter
-  isImprintExtension: BoolFilter
+  isExtension: BoolFilter
   isMat: BoolFilter
   isSubmodule: BoolFilter
   partNumber: StringFilter
@@ -1361,7 +1922,7 @@ input ModuleUpdateManyMutationInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
-  isImprintExtension: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
   partNumber: StringFieldUpdateOperationsInput
@@ -1370,7 +1931,22 @@ input ModuleUpdateManyMutationInput {
   thumbnailUrl: NullableStringFieldUpdateOperationsInput
 }
 
+input ModuleUpdateManyWithWhereWithoutAttachmentToAppendInput {
+  data: ModuleUpdateManyMutationInput!
+  where: ModuleScalarWhereInput!
+}
+
 input ModuleUpdateManyWithWhereWithoutCollectionInput {
+  data: ModuleUpdateManyMutationInput!
+  where: ModuleScalarWhereInput!
+}
+
+input ModuleUpdateManyWithWhereWithoutDefaultLeftExtensionInput {
+  data: ModuleUpdateManyMutationInput!
+  where: ModuleScalarWhereInput!
+}
+
+input ModuleUpdateManyWithWhereWithoutDefaultRightExtensionInput {
   data: ModuleUpdateManyMutationInput!
   where: ModuleScalarWhereInput!
 }
@@ -1378,6 +1954,20 @@ input ModuleUpdateManyWithWhereWithoutCollectionInput {
 input ModuleUpdateManyWithWhereWithoutFinishInput {
   data: ModuleUpdateManyMutationInput!
   where: ModuleScalarWhereInput!
+}
+
+input ModuleUpdateManyWithoutAttachmentToAppendInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutAttachmentToAppendInput!]
+  create: [ModuleCreateWithoutAttachmentToAppendInput!]
+  createMany: ModuleCreateManyAttachmentToAppendInputEnvelope
+  delete: [ModuleWhereUniqueInput!]
+  deleteMany: [ModuleScalarWhereInput!]
+  disconnect: [ModuleWhereUniqueInput!]
+  set: [ModuleWhereUniqueInput!]
+  update: [ModuleUpdateWithWhereUniqueWithoutAttachmentToAppendInput!]
+  updateMany: [ModuleUpdateManyWithWhereWithoutAttachmentToAppendInput!]
+  upsert: [ModuleUpsertWithWhereUniqueWithoutAttachmentToAppendInput!]
 }
 
 input ModuleUpdateManyWithoutCollectionInput {
@@ -1394,6 +1984,34 @@ input ModuleUpdateManyWithoutCollectionInput {
   upsert: [ModuleUpsertWithWhereUniqueWithoutCollectionInput!]
 }
 
+input ModuleUpdateManyWithoutDefaultLeftExtensionInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutDefaultLeftExtensionInput!]
+  create: [ModuleCreateWithoutDefaultLeftExtensionInput!]
+  createMany: ModuleCreateManyDefaultLeftExtensionInputEnvelope
+  delete: [ModuleWhereUniqueInput!]
+  deleteMany: [ModuleScalarWhereInput!]
+  disconnect: [ModuleWhereUniqueInput!]
+  set: [ModuleWhereUniqueInput!]
+  update: [ModuleUpdateWithWhereUniqueWithoutDefaultLeftExtensionInput!]
+  updateMany: [ModuleUpdateManyWithWhereWithoutDefaultLeftExtensionInput!]
+  upsert: [ModuleUpsertWithWhereUniqueWithoutDefaultLeftExtensionInput!]
+}
+
+input ModuleUpdateManyWithoutDefaultRightExtensionInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutDefaultRightExtensionInput!]
+  create: [ModuleCreateWithoutDefaultRightExtensionInput!]
+  createMany: ModuleCreateManyDefaultRightExtensionInputEnvelope
+  delete: [ModuleWhereUniqueInput!]
+  deleteMany: [ModuleScalarWhereInput!]
+  disconnect: [ModuleWhereUniqueInput!]
+  set: [ModuleWhereUniqueInput!]
+  update: [ModuleUpdateWithWhereUniqueWithoutDefaultRightExtensionInput!]
+  updateMany: [ModuleUpdateManyWithWhereWithoutDefaultRightExtensionInput!]
+  upsert: [ModuleUpsertWithWhereUniqueWithoutDefaultRightExtensionInput!]
+}
+
 input ModuleUpdateManyWithoutFinishInput {
   connect: [ModuleWhereUniqueInput!]
   connectOrCreate: [ModuleCreateOrConnectWithoutFinishInput!]
@@ -1408,6 +2026,22 @@ input ModuleUpdateManyWithoutFinishInput {
   upsert: [ModuleUpsertWithWhereUniqueWithoutFinishInput!]
 }
 
+input ModuleUpdateOneRequiredWithoutModuleAttachedToInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutModuleAttachedToInput
+  create: ModuleCreateWithoutModuleAttachedToInput
+  update: ModuleUpdateWithoutModuleAttachedToInput
+  upsert: ModuleUpsertWithoutModuleAttachedToInput
+}
+
+input ModuleUpdateOneRequiredWithoutModuleAttachmentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutModuleAttachmentsInput
+  create: ModuleCreateWithoutModuleAttachmentsInput
+  update: ModuleUpdateWithoutModuleAttachmentsInput
+  upsert: ModuleUpsertWithoutModuleAttachmentsInput
+}
+
 input ModuleUpdateOneRequiredWithoutProjectModulesInput {
   connect: ModuleWhereUniqueInput
   connectOrCreate: ModuleCreateOrConnectWithoutProjectModulesInput
@@ -1416,8 +2050,53 @@ input ModuleUpdateOneRequiredWithoutProjectModulesInput {
   upsert: ModuleUpsertWithoutProjectModulesInput
 }
 
+input ModuleUpdateOneWithoutAttachmentToAppendParentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutAttachmentToAppendParentsInput
+  create: ModuleCreateWithoutAttachmentToAppendParentsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ModuleUpdateWithoutAttachmentToAppendParentsInput
+  upsert: ModuleUpsertWithoutAttachmentToAppendParentsInput
+}
+
+input ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutDefaultLeftExtensionParentsInput
+  create: ModuleCreateWithoutDefaultLeftExtensionParentsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ModuleUpdateWithoutDefaultLeftExtensionParentsInput
+  upsert: ModuleUpsertWithoutDefaultLeftExtensionParentsInput
+}
+
+input ModuleUpdateOneWithoutDefaultRightExtensionParentsInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutDefaultRightExtensionParentsInput
+  create: ModuleCreateWithoutDefaultRightExtensionParentsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ModuleUpdateWithoutDefaultRightExtensionParentsInput
+  upsert: ModuleUpsertWithoutDefaultRightExtensionParentsInput
+}
+
+input ModuleUpdateWithWhereUniqueWithoutAttachmentToAppendInput {
+  data: ModuleUpdateWithoutAttachmentToAppendInput!
+  where: ModuleWhereUniqueInput!
+}
+
 input ModuleUpdateWithWhereUniqueWithoutCollectionInput {
   data: ModuleUpdateWithoutCollectionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleUpdateWithWhereUniqueWithoutDefaultLeftExtensionInput {
+  data: ModuleUpdateWithoutDefaultLeftExtensionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleUpdateWithWhereUniqueWithoutDefaultRightExtensionInput {
+  data: ModuleUpdateWithoutDefaultRightExtensionInput!
   where: ModuleWhereUniqueInput!
 }
 
@@ -1426,14 +2105,166 @@ input ModuleUpdateWithWhereUniqueWithoutFinishInput {
   where: ModuleWhereUniqueInput!
 }
 
-input ModuleUpdateWithoutCollectionInput {
+input ModuleUpdateWithoutAttachmentToAppendInput {
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
-  isImprintExtension: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutAttachmentToAppendParentsInput {
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutCollectionInput {
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutDefaultLeftExtensionInput {
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutDefaultLeftExtensionParentsInput {
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutDefaultRightExtensionInput {
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutDefaultRightExtensionParentsInput {
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
@@ -1443,13 +2274,69 @@ input ModuleUpdateWithoutCollectionInput {
 }
 
 input ModuleUpdateWithoutFinishInput {
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
-  isImprintExtension: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutModuleAttachedToInput {
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutModuleAttachmentsInput {
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
@@ -1459,19 +2346,33 @@ input ModuleUpdateWithoutFinishInput {
 }
 
 input ModuleUpdateWithoutProjectModulesInput {
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
-  isImprintExtension: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   partNumber: StringFieldUpdateOperationsInput
   rules: Json
   shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
   thumbnailUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input ModuleUpsertWithWhereUniqueWithoutAttachmentToAppendInput {
+  create: ModuleCreateWithoutAttachmentToAppendInput!
+  update: ModuleUpdateWithoutAttachmentToAppendInput!
+  where: ModuleWhereUniqueInput!
 }
 
 input ModuleUpsertWithWhereUniqueWithoutCollectionInput {
@@ -1480,10 +2381,47 @@ input ModuleUpsertWithWhereUniqueWithoutCollectionInput {
   where: ModuleWhereUniqueInput!
 }
 
+input ModuleUpsertWithWhereUniqueWithoutDefaultLeftExtensionInput {
+  create: ModuleCreateWithoutDefaultLeftExtensionInput!
+  update: ModuleUpdateWithoutDefaultLeftExtensionInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleUpsertWithWhereUniqueWithoutDefaultRightExtensionInput {
+  create: ModuleCreateWithoutDefaultRightExtensionInput!
+  update: ModuleUpdateWithoutDefaultRightExtensionInput!
+  where: ModuleWhereUniqueInput!
+}
+
 input ModuleUpsertWithWhereUniqueWithoutFinishInput {
   create: ModuleCreateWithoutFinishInput!
   update: ModuleUpdateWithoutFinishInput!
   where: ModuleWhereUniqueInput!
+}
+
+input ModuleUpsertWithoutAttachmentToAppendParentsInput {
+  create: ModuleCreateWithoutAttachmentToAppendParentsInput!
+  update: ModuleUpdateWithoutAttachmentToAppendParentsInput!
+}
+
+input ModuleUpsertWithoutDefaultLeftExtensionParentsInput {
+  create: ModuleCreateWithoutDefaultLeftExtensionParentsInput!
+  update: ModuleUpdateWithoutDefaultLeftExtensionParentsInput!
+}
+
+input ModuleUpsertWithoutDefaultRightExtensionParentsInput {
+  create: ModuleCreateWithoutDefaultRightExtensionParentsInput!
+  update: ModuleUpdateWithoutDefaultRightExtensionParentsInput!
+}
+
+input ModuleUpsertWithoutModuleAttachedToInput {
+  create: ModuleCreateWithoutModuleAttachedToInput!
+  update: ModuleUpdateWithoutModuleAttachedToInput!
+}
+
+input ModuleUpsertWithoutModuleAttachmentsInput {
+  create: ModuleCreateWithoutModuleAttachmentsInput!
+  update: ModuleUpdateWithoutModuleAttachmentsInput!
 }
 
 input ModuleUpsertWithoutProjectModulesInput {
@@ -1495,17 +2433,28 @@ input ModuleWhereInput {
   AND: [ModuleWhereInput!]
   NOT: [ModuleWhereInput!]
   OR: [ModuleWhereInput!]
+  attachmentToAppend: ModuleWhereInput
+  attachmentToAppendId: IntNullableFilter
+  attachmentToAppendParents: ModuleListRelationFilter
   bundleUrl: StringNullableFilter
   collection: CollectionWhereInput
   collectionId: IntFilter
+  defaultLeftExtension: ModuleWhereInput
+  defaultLeftExtensionId: IntNullableFilter
+  defaultLeftExtensionParents: ModuleListRelationFilter
+  defaultRightExtension: ModuleWhereInput
+  defaultRightExtensionId: IntNullableFilter
+  defaultRightExtensionParents: ModuleListRelationFilter
   description: StringNullableFilter
   finish: FinishWhereInput
   finishId: IntFilter
   hasPegs: BoolFilter
   id: IntFilter
-  isImprintExtension: BoolFilter
+  isExtension: BoolFilter
   isMat: BoolFilter
   isSubmodule: BoolFilter
+  moduleAttachedTo: ModuleAttachmentsListRelationFilter
+  moduleAttachments: ModuleAttachmentsListRelationFilter
   moduleCategories: ModuleCategoryListRelationFilter
   partNumber: StringFilter
   projectModules: ProjectModuleListRelationFilter
@@ -1901,8 +2850,10 @@ type ProjectModule {
   id: Int!
   module: Module!
   moduleId: Int!
+  nanoId: String!
   parent: ProjectModule
   parentId: Int
+  parentNanoId: String
   posX: Float!
   posY: Float!
   posZ: Float!
@@ -1914,7 +2865,9 @@ type ProjectModule {
 input ProjectModuleCreateInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
+  nanoId: String!
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -1924,7 +2877,9 @@ input ProjectModuleCreateInput {
 
 input ProjectModuleCreateManyModuleInput {
   id: Int
+  nanoId: String!
   parentId: Int
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -1940,6 +2895,8 @@ input ProjectModuleCreateManyModuleInputEnvelope {
 input ProjectModuleCreateManyParentInput {
   id: Int
   moduleId: Int!
+  nanoId: String!
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -1955,7 +2912,9 @@ input ProjectModuleCreateManyParentInputEnvelope {
 input ProjectModuleCreateManyProjectInput {
   id: Int
   moduleId: Int!
+  nanoId: String!
   parentId: Int
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2016,7 +2975,9 @@ input ProjectModuleCreateOrConnectWithoutProjectInput {
 
 input ProjectModuleCreateWithoutChildrenInput {
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
+  nanoId: String!
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2026,7 +2987,9 @@ input ProjectModuleCreateWithoutChildrenInput {
 
 input ProjectModuleCreateWithoutModuleInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
+  nanoId: String!
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2037,6 +3000,8 @@ input ProjectModuleCreateWithoutModuleInput {
 input ProjectModuleCreateWithoutParentInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
+  nanoId: String!
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2047,7 +3012,9 @@ input ProjectModuleCreateWithoutParentInput {
 input ProjectModuleCreateWithoutProjectInput {
   children: ProjectModuleCreateNestedManyWithoutParentInput
   module: ModuleCreateNestedOneWithoutProjectModulesInput!
+  nanoId: String!
   parent: ProjectModuleCreateNestedOneWithoutChildrenInput
+  parentNanoId: String
   posX: Float
   posY: Float
   posZ: Float
@@ -2063,7 +3030,9 @@ input ProjectModuleListRelationFilter {
 input ProjectModuleOrderByInput {
   id: SortOrder
   moduleId: SortOrder
+  nanoId: SortOrder
   parentId: SortOrder
+  parentNanoId: SortOrder
   posX: SortOrder
   posY: SortOrder
   posZ: SortOrder
@@ -2077,7 +3046,9 @@ input ProjectModuleScalarWhereInput {
   OR: [ProjectModuleScalarWhereInput!]
   id: IntFilter
   moduleId: IntFilter
+  nanoId: StringFilter
   parentId: IntNullableFilter
+  parentNanoId: StringNullableFilter
   posX: FloatFilter
   posY: FloatFilter
   posZ: FloatFilter
@@ -2088,7 +3059,9 @@ input ProjectModuleScalarWhereInput {
 input ProjectModuleUpdateInput {
   children: ProjectModuleUpdateManyWithoutParentInput
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
+  nanoId: StringFieldUpdateOperationsInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2097,6 +3070,8 @@ input ProjectModuleUpdateInput {
 }
 
 input ProjectModuleUpdateManyMutationInput {
+  nanoId: StringFieldUpdateOperationsInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2187,7 +3162,9 @@ input ProjectModuleUpdateWithWhereUniqueWithoutProjectInput {
 
 input ProjectModuleUpdateWithoutChildrenInput {
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
+  nanoId: StringFieldUpdateOperationsInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2197,7 +3174,9 @@ input ProjectModuleUpdateWithoutChildrenInput {
 
 input ProjectModuleUpdateWithoutModuleInput {
   children: ProjectModuleUpdateManyWithoutParentInput
+  nanoId: StringFieldUpdateOperationsInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2208,6 +3187,8 @@ input ProjectModuleUpdateWithoutModuleInput {
 input ProjectModuleUpdateWithoutParentInput {
   children: ProjectModuleUpdateManyWithoutParentInput
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
+  nanoId: StringFieldUpdateOperationsInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2218,7 +3199,9 @@ input ProjectModuleUpdateWithoutParentInput {
 input ProjectModuleUpdateWithoutProjectInput {
   children: ProjectModuleUpdateManyWithoutParentInput
   module: ModuleUpdateOneRequiredWithoutProjectModulesInput
+  nanoId: StringFieldUpdateOperationsInput
   parent: ProjectModuleUpdateOneWithoutChildrenInput
+  parentNanoId: NullableStringFieldUpdateOperationsInput
   posX: FloatFieldUpdateOperationsInput
   posY: FloatFieldUpdateOperationsInput
   posZ: FloatFieldUpdateOperationsInput
@@ -2256,8 +3239,10 @@ input ProjectModuleWhereInput {
   id: IntFilter
   module: ModuleWhereInput
   moduleId: IntFilter
+  nanoId: StringFilter
   parent: ProjectModuleWhereInput
   parentId: IntNullableFilter
+  parentNanoId: StringNullableFilter
   posX: FloatFilter
   posY: FloatFilter
   posZ: FloatFilter
@@ -2268,6 +3253,7 @@ input ProjectModuleWhereInput {
 
 input ProjectModuleWhereUniqueInput {
   id: Int
+  nanoId: String
 }
 
 input ProjectOrderByInput {
