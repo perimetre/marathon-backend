@@ -1413,6 +1413,10 @@
     {
       "slug": "spice",
       "name": "Spice"
+    },
+    {
+      "slug": "slip-resistant-mat",
+      "name": "SLIP RESISTANT MAT"
     }
   ],
   "modules": [
@@ -3937,6 +3941,34 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/Spice rack Size A/WAL-Spice rack Size A/WAL-Spice rack Size A.jpg",
       "genericName": "Spice rack Size A"
+    },
+    {
+      "partNumber": "04-SRMAT-GM",
+      "bundlePath": "modules/autograph/04-SRMAT-GM/module",
+      "finish": "matte-grey",
+      "collection": "autograph",
+      "rules": "",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "isMat": true,
+      "isExtension": false,
+      "imageUrl": "images/module/autograph/04-SRMAT-GM/04-SRMAT-GM.jpg",
+      "genericName": "04-SRMAT-GM",
+      "categorySlug": ["all", "slip-resistant-mat"]
+    },
+    {
+      "partNumber": "04-SRMAT-SIL",
+      "bundlePath": "modules/autograph/04-SRMAT-SIL/module",
+      "finish": "silver-grey",
+      "collection": "autograph",
+      "rules": "",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "isMat": true,
+      "isExtension": false,
+      "imageUrl": "images/module/autograph/04-SRMAT-SIL/04-SRMAT-SIL.jpg",
+      "genericName": "04-SRMAT-SIL",
+      "categorySlug": ["all", "slip-resistant-mat"]
     }
   ]
 }

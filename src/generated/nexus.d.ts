@@ -4430,6 +4430,7 @@ export interface NexusGenFieldTypes {
     // field return type
     cabinetWidth: number | null; // Float
     calculatedWidth: number | null; // Float
+    cartAmount: number; // Int!
     collection: NexusGenRootTypes['Collection']; // Collection!
     collectionId: number; // Int!
     finish: NexusGenRootTypes['Finish']; // Finish!
@@ -4736,6 +4737,7 @@ export interface NexusGenFieldTypeNames {
     // field return type name
     cabinetWidth: 'Float';
     calculatedWidth: 'Float';
+    cartAmount: 'Int';
     collection: 'Collection';
     collectionId: 'Int';
     finish: 'Finish';
