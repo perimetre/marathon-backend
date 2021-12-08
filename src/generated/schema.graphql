@@ -2583,6 +2583,7 @@ input NullableStringFieldUpdateOperationsInput {
 type Project {
   cabinetWidth: Float
   calculatedWidth: Float
+  cartAmount: Int!
   collection: Collection!
   collectionId: Int!
   finish: Finish!
