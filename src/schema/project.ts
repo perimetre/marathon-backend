@@ -129,15 +129,15 @@ export const createOneProjectModuleCustomResolver = async (
 ) => {
   const res = await originalResolver(root, args, ctx, info);
 
-  const haveMatt = await ctx.prisma.projectModule.findFirst({
+  const haveMat = await ctx.prisma.project.findFirst({ where: { id: Number(res.projectId) } }).projectModules({
     where: {
-      projectId: Number(res.projectId),
       module: { isMat: true },
       moduleId: { not: { equals: Number(res.moduleId) } }
     }
   });
-  if (haveMatt) {
-    await ctx.prisma.projectModule.delete({ where: { id: haveMatt.id } });
+
+  if (haveMat && haveMat.length > 0) {
+    await ctx.prisma.projectModule.delete({ where: { id: haveMat[0].id } });
   }
 
   return res;

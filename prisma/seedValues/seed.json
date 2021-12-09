@@ -145,7 +145,7 @@
     {
       "collection": "imprint",
       "supplier": "Ballbearing",
-      "product": "1/2, box 1/2",
+      "product": "Slide 1/2\" side spacing with box made from 1/2\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 -2 * 12.7",
       "depth": [
         {
@@ -169,7 +169,7 @@
     {
       "collection": "imprint",
       "supplier": "Ballbearing",
-      "product": "1/2, box 5/8",
+      "product": "Slide 1/2\" side spacing with box made from 5/8\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 -2 * 15.875",
       "depth": [
         {
@@ -589,7 +589,7 @@
     {
       "collection": "area",
       "supplier": "Ballbearing",
-      "product": "1/2, box 1/2",
+      "product": "Slide 1/2\" side spacing with box made from 1/2\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 - 2 * 12.7",
       "depth": [
         {
@@ -605,7 +605,7 @@
     {
       "collection": "area",
       "supplier": "Ballbearing",
-      "product": "1/2, box 5/8",
+      "product": "Slide 1/2\" side spacing with box made from 5/8\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 - 2 * 15.875",
       "depth": [
         {
@@ -893,7 +893,7 @@
     {
       "collection": "autograph",
       "supplier": "Ballbearing",
-      "product": "1/2, box 1/2",
+      "product": "Slide 1/2\" side spacing with box made from 1/2\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 - 2 * 12.7",
       "depth": [
         {
@@ -917,7 +917,7 @@
     {
       "collection": "autograph",
       "supplier": "Ballbearing",
-      "product": "1/2, box 5/8",
+      "product": "Slide 1/2\" side spacing with box made from 5/8\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 - 2 * 15.875",
       "depth": [
         {
