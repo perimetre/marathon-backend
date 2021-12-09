@@ -27,6 +27,7 @@ const updateDeleteProjectRule = and(
 );
 export const updateOneProject = updateDeleteProjectRule;
 export const deleteOneProject = updateDeleteProjectRule;
+export const cloneOneProject = isAuthenticated;
 
 export const createOneProjectModule = and(
   isAuthenticated,

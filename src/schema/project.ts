@@ -29,7 +29,12 @@ export const Project = objectType({
             hasPegs: root.hasPegs,
             isSubmodule: false,
             isExtension: false,
-            isMat: false
+            isMat: false,
+            moduleType: {
+              every: {
+                typeId: { equals: root.typeId }
+              }
+            }
           }
         });
 
@@ -67,7 +72,7 @@ export const Project = objectType({
             })
             .projectModules({
               where: { parentId: { equals: null } },
-              include: { children: true }
+              include: { children: { where: { module: { partNumber: { not: { contains: 'EXTENSION' } } } } } }
             })
         ).reduce((prev, curr) => {
           prev = prev || 0;

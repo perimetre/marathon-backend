@@ -1320,6 +1320,12 @@ export interface NexusGenInputs {
     connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutModuleAttachmentsInput'] | null; // ModuleCreateOrConnectWithoutModuleAttachmentsInput
     create?: NexusGenInputs['ModuleCreateWithoutModuleAttachmentsInput'] | null; // ModuleCreateWithoutModuleAttachmentsInput
   };
+  ModuleCreateNestedOneWithoutModuleTypeInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutModuleTypeInput'] | null; // ModuleCreateOrConnectWithoutModuleTypeInput
+    create?: NexusGenInputs['ModuleCreateWithoutModuleTypeInput'] | null; // ModuleCreateWithoutModuleTypeInput
+  };
   ModuleCreateNestedOneWithoutProjectModulesInput: {
     // input type
     connect?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
@@ -1376,6 +1382,11 @@ export interface NexusGenInputs {
     create: NexusGenInputs['ModuleCreateWithoutModuleAttachmentsInput']; // ModuleCreateWithoutModuleAttachmentsInput!
     where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
   };
+  ModuleCreateOrConnectWithoutModuleTypeInput: {
+    // input type
+    create: NexusGenInputs['ModuleCreateWithoutModuleTypeInput']; // ModuleCreateWithoutModuleTypeInput!
+    where: NexusGenInputs['ModuleWhereUniqueInput']; // ModuleWhereUniqueInput!
+  };
   ModuleCreateOrConnectWithoutProjectModulesInput: {
     // input type
     create: NexusGenInputs['ModuleCreateWithoutProjectModulesInput']; // ModuleCreateWithoutProjectModulesInput!
@@ -1399,6 +1410,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutAttachmentInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutModuleInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutModuleInput'] | null; // ModuleTypeCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1423,6 +1435,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutAttachmentInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutModuleInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutModuleInput'] | null; // ModuleTypeCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1447,6 +1460,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutAttachmentInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutModuleInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutModuleInput'] | null; // ModuleTypeCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1471,6 +1485,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutAttachmentInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutModuleInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutModuleInput'] | null; // ModuleTypeCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1495,6 +1510,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutAttachmentInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutModuleInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutModuleInput'] | null; // ModuleTypeCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1519,6 +1535,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutAttachmentInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutModuleInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutModuleInput'] | null; // ModuleTypeCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1543,6 +1560,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutAttachmentInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutModuleInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutModuleInput'] | null; // ModuleTypeCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1567,6 +1585,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutAttachmentInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutModuleInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutModuleInput'] | null; // ModuleTypeCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1591,6 +1610,7 @@ export interface NexusGenInputs {
     isSubmodule?: boolean | null; // Boolean
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutModuleInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutModuleInput'] | null; // ModuleTypeCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1614,6 +1634,32 @@ export interface NexusGenInputs {
     isMat?: boolean | null; // Boolean
     isSubmodule?: boolean | null; // Boolean
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutAttachmentInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+    moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutModuleInput'] | null; // ModuleTypeCreateNestedManyWithoutModuleInput
+    partNumber: string; // String!
+    projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
+    thumbnailUrl?: string | null; // String
+  };
+  ModuleCreateWithoutModuleTypeInput: {
+    // input type
+    attachmentToAppend?: NexusGenInputs['ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput'] | null; // ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+    attachmentToAppendParents?: NexusGenInputs['ModuleCreateNestedManyWithoutAttachmentToAppendInput'] | null; // ModuleCreateNestedManyWithoutAttachmentToAppendInput
+    bundleUrl?: string | null; // String
+    collection: NexusGenInputs['CollectionCreateNestedOneWithoutModulesInput']; // CollectionCreateNestedOneWithoutModulesInput!
+    defaultLeftExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultLeftExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleCreateNestedManyWithoutDefaultRightExtensionInput'] | null; // ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+    description?: string | null; // String
+    finish: NexusGenInputs['FinishCreateNestedOneWithoutModulesInput']; // FinishCreateNestedOneWithoutModulesInput!
+    hasPegs?: boolean | null; // Boolean
+    isExtension?: boolean | null; // Boolean
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
+    moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutAttachmentInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+    moduleAttachments?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutModuleInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutModuleInput'] | null; // ProjectModuleCreateNestedManyWithoutModuleInput
@@ -1640,6 +1686,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutAttachmentInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsCreateNestedManyWithoutModuleInput'] | null; // ModuleAttachmentsCreateNestedManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryCreateNestedManyWithoutModuleInput'] | null; // ModuleCategoryCreateNestedManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutModuleInput'] | null; // ModuleTypeCreateNestedManyWithoutModuleInput
     partNumber: string; // String!
     rules?: NexusGenScalars['Json'] | null; // Json
     shouldHideBasedOnWidth?: boolean | null; // Boolean
@@ -1691,6 +1738,160 @@ export interface NexusGenInputs {
     rules?: NexusGenInputs['JsonNullableFilter'] | null; // JsonNullableFilter
     shouldHideBasedOnWidth?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     thumbnailUrl?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+  };
+  ModuleTypeCreateManyModuleInput: {
+    // input type
+    id?: number | null; // Int
+    typeId: number; // Int!
+  };
+  ModuleTypeCreateManyModuleInputEnvelope: {
+    // input type
+    data?: NexusGenInputs['ModuleTypeCreateManyModuleInput'][] | null; // [ModuleTypeCreateManyModuleInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  };
+  ModuleTypeCreateManyTypeInput: {
+    // input type
+    id?: number | null; // Int
+    moduleId: number; // Int!
+  };
+  ModuleTypeCreateManyTypeInputEnvelope: {
+    // input type
+    data?: NexusGenInputs['ModuleTypeCreateManyTypeInput'][] | null; // [ModuleTypeCreateManyTypeInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  };
+  ModuleTypeCreateNestedManyWithoutModuleInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleTypeWhereUniqueInput'][] | null; // [ModuleTypeWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ModuleTypeCreateOrConnectWithoutModuleInput'][] | null; // [ModuleTypeCreateOrConnectWithoutModuleInput!]
+    create?: NexusGenInputs['ModuleTypeCreateWithoutModuleInput'][] | null; // [ModuleTypeCreateWithoutModuleInput!]
+    createMany?: NexusGenInputs['ModuleTypeCreateManyModuleInputEnvelope'] | null; // ModuleTypeCreateManyModuleInputEnvelope
+  };
+  ModuleTypeCreateNestedManyWithoutTypeInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleTypeWhereUniqueInput'][] | null; // [ModuleTypeWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ModuleTypeCreateOrConnectWithoutTypeInput'][] | null; // [ModuleTypeCreateOrConnectWithoutTypeInput!]
+    create?: NexusGenInputs['ModuleTypeCreateWithoutTypeInput'][] | null; // [ModuleTypeCreateWithoutTypeInput!]
+    createMany?: NexusGenInputs['ModuleTypeCreateManyTypeInputEnvelope'] | null; // ModuleTypeCreateManyTypeInputEnvelope
+  };
+  ModuleTypeCreateOrConnectWithoutModuleInput: {
+    // input type
+    create: NexusGenInputs['ModuleTypeCreateWithoutModuleInput']; // ModuleTypeCreateWithoutModuleInput!
+    where: NexusGenInputs['ModuleTypeWhereUniqueInput']; // ModuleTypeWhereUniqueInput!
+  };
+  ModuleTypeCreateOrConnectWithoutTypeInput: {
+    // input type
+    create: NexusGenInputs['ModuleTypeCreateWithoutTypeInput']; // ModuleTypeCreateWithoutTypeInput!
+    where: NexusGenInputs['ModuleTypeWhereUniqueInput']; // ModuleTypeWhereUniqueInput!
+  };
+  ModuleTypeCreateWithoutModuleInput: {
+    // input type
+    type: NexusGenInputs['TypeCreateNestedOneWithoutModuleTypeInput']; // TypeCreateNestedOneWithoutModuleTypeInput!
+  };
+  ModuleTypeCreateWithoutTypeInput: {
+    // input type
+    module: NexusGenInputs['ModuleCreateNestedOneWithoutModuleTypeInput']; // ModuleCreateNestedOneWithoutModuleTypeInput!
+  };
+  ModuleTypeListRelationFilter: {
+    // input type
+    every?: NexusGenInputs['ModuleTypeWhereInput'] | null; // ModuleTypeWhereInput
+    none?: NexusGenInputs['ModuleTypeWhereInput'] | null; // ModuleTypeWhereInput
+    some?: NexusGenInputs['ModuleTypeWhereInput'] | null; // ModuleTypeWhereInput
+  };
+  ModuleTypeScalarWhereInput: {
+    // input type
+    AND?: NexusGenInputs['ModuleTypeScalarWhereInput'][] | null; // [ModuleTypeScalarWhereInput!]
+    NOT?: NexusGenInputs['ModuleTypeScalarWhereInput'][] | null; // [ModuleTypeScalarWhereInput!]
+    OR?: NexusGenInputs['ModuleTypeScalarWhereInput'][] | null; // [ModuleTypeScalarWhereInput!]
+    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    moduleId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    typeId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+  };
+  ModuleTypeUpdateManyMutationInput: {
+    // input type
+    _?: number | null; // Int
+  };
+  ModuleTypeUpdateManyWithWhereWithoutModuleInput: {
+    // input type
+    data: NexusGenInputs['ModuleTypeUpdateManyMutationInput']; // ModuleTypeUpdateManyMutationInput!
+    where: NexusGenInputs['ModuleTypeScalarWhereInput']; // ModuleTypeScalarWhereInput!
+  };
+  ModuleTypeUpdateManyWithWhereWithoutTypeInput: {
+    // input type
+    data: NexusGenInputs['ModuleTypeUpdateManyMutationInput']; // ModuleTypeUpdateManyMutationInput!
+    where: NexusGenInputs['ModuleTypeScalarWhereInput']; // ModuleTypeScalarWhereInput!
+  };
+  ModuleTypeUpdateManyWithoutModuleInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleTypeWhereUniqueInput'][] | null; // [ModuleTypeWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ModuleTypeCreateOrConnectWithoutModuleInput'][] | null; // [ModuleTypeCreateOrConnectWithoutModuleInput!]
+    create?: NexusGenInputs['ModuleTypeCreateWithoutModuleInput'][] | null; // [ModuleTypeCreateWithoutModuleInput!]
+    createMany?: NexusGenInputs['ModuleTypeCreateManyModuleInputEnvelope'] | null; // ModuleTypeCreateManyModuleInputEnvelope
+    delete?: NexusGenInputs['ModuleTypeWhereUniqueInput'][] | null; // [ModuleTypeWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['ModuleTypeScalarWhereInput'][] | null; // [ModuleTypeScalarWhereInput!]
+    disconnect?: NexusGenInputs['ModuleTypeWhereUniqueInput'][] | null; // [ModuleTypeWhereUniqueInput!]
+    set?: NexusGenInputs['ModuleTypeWhereUniqueInput'][] | null; // [ModuleTypeWhereUniqueInput!]
+    update?: NexusGenInputs['ModuleTypeUpdateWithWhereUniqueWithoutModuleInput'][] | null; // [ModuleTypeUpdateWithWhereUniqueWithoutModuleInput!]
+    updateMany?: NexusGenInputs['ModuleTypeUpdateManyWithWhereWithoutModuleInput'][] | null; // [ModuleTypeUpdateManyWithWhereWithoutModuleInput!]
+    upsert?: NexusGenInputs['ModuleTypeUpsertWithWhereUniqueWithoutModuleInput'][] | null; // [ModuleTypeUpsertWithWhereUniqueWithoutModuleInput!]
+  };
+  ModuleTypeUpdateManyWithoutTypeInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleTypeWhereUniqueInput'][] | null; // [ModuleTypeWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ModuleTypeCreateOrConnectWithoutTypeInput'][] | null; // [ModuleTypeCreateOrConnectWithoutTypeInput!]
+    create?: NexusGenInputs['ModuleTypeCreateWithoutTypeInput'][] | null; // [ModuleTypeCreateWithoutTypeInput!]
+    createMany?: NexusGenInputs['ModuleTypeCreateManyTypeInputEnvelope'] | null; // ModuleTypeCreateManyTypeInputEnvelope
+    delete?: NexusGenInputs['ModuleTypeWhereUniqueInput'][] | null; // [ModuleTypeWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['ModuleTypeScalarWhereInput'][] | null; // [ModuleTypeScalarWhereInput!]
+    disconnect?: NexusGenInputs['ModuleTypeWhereUniqueInput'][] | null; // [ModuleTypeWhereUniqueInput!]
+    set?: NexusGenInputs['ModuleTypeWhereUniqueInput'][] | null; // [ModuleTypeWhereUniqueInput!]
+    update?: NexusGenInputs['ModuleTypeUpdateWithWhereUniqueWithoutTypeInput'][] | null; // [ModuleTypeUpdateWithWhereUniqueWithoutTypeInput!]
+    updateMany?: NexusGenInputs['ModuleTypeUpdateManyWithWhereWithoutTypeInput'][] | null; // [ModuleTypeUpdateManyWithWhereWithoutTypeInput!]
+    upsert?: NexusGenInputs['ModuleTypeUpsertWithWhereUniqueWithoutTypeInput'][] | null; // [ModuleTypeUpsertWithWhereUniqueWithoutTypeInput!]
+  };
+  ModuleTypeUpdateWithWhereUniqueWithoutModuleInput: {
+    // input type
+    data: NexusGenInputs['ModuleTypeUpdateWithoutModuleInput']; // ModuleTypeUpdateWithoutModuleInput!
+    where: NexusGenInputs['ModuleTypeWhereUniqueInput']; // ModuleTypeWhereUniqueInput!
+  };
+  ModuleTypeUpdateWithWhereUniqueWithoutTypeInput: {
+    // input type
+    data: NexusGenInputs['ModuleTypeUpdateWithoutTypeInput']; // ModuleTypeUpdateWithoutTypeInput!
+    where: NexusGenInputs['ModuleTypeWhereUniqueInput']; // ModuleTypeWhereUniqueInput!
+  };
+  ModuleTypeUpdateWithoutModuleInput: {
+    // input type
+    type?: NexusGenInputs['TypeUpdateOneRequiredWithoutModuleTypeInput'] | null; // TypeUpdateOneRequiredWithoutModuleTypeInput
+  };
+  ModuleTypeUpdateWithoutTypeInput: {
+    // input type
+    module?: NexusGenInputs['ModuleUpdateOneRequiredWithoutModuleTypeInput'] | null; // ModuleUpdateOneRequiredWithoutModuleTypeInput
+  };
+  ModuleTypeUpsertWithWhereUniqueWithoutModuleInput: {
+    // input type
+    create: NexusGenInputs['ModuleTypeCreateWithoutModuleInput']; // ModuleTypeCreateWithoutModuleInput!
+    update: NexusGenInputs['ModuleTypeUpdateWithoutModuleInput']; // ModuleTypeUpdateWithoutModuleInput!
+    where: NexusGenInputs['ModuleTypeWhereUniqueInput']; // ModuleTypeWhereUniqueInput!
+  };
+  ModuleTypeUpsertWithWhereUniqueWithoutTypeInput: {
+    // input type
+    create: NexusGenInputs['ModuleTypeCreateWithoutTypeInput']; // ModuleTypeCreateWithoutTypeInput!
+    update: NexusGenInputs['ModuleTypeUpdateWithoutTypeInput']; // ModuleTypeUpdateWithoutTypeInput!
+    where: NexusGenInputs['ModuleTypeWhereUniqueInput']; // ModuleTypeWhereUniqueInput!
+  };
+  ModuleTypeWhereInput: {
+    // input type
+    AND?: NexusGenInputs['ModuleTypeWhereInput'][] | null; // [ModuleTypeWhereInput!]
+    NOT?: NexusGenInputs['ModuleTypeWhereInput'][] | null; // [ModuleTypeWhereInput!]
+    OR?: NexusGenInputs['ModuleTypeWhereInput'][] | null; // [ModuleTypeWhereInput!]
+    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    module?: NexusGenInputs['ModuleWhereInput'] | null; // ModuleWhereInput
+    moduleId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    type?: NexusGenInputs['TypeWhereInput'] | null; // TypeWhereInput
+    typeId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+  };
+  ModuleTypeWhereUniqueInput: {
+    // input type
+    id?: number | null; // Int
   };
   ModuleUpdateManyMutationInput: {
     // input type
@@ -1816,6 +2017,14 @@ export interface NexusGenInputs {
     update?: NexusGenInputs['ModuleUpdateWithoutModuleAttachmentsInput'] | null; // ModuleUpdateWithoutModuleAttachmentsInput
     upsert?: NexusGenInputs['ModuleUpsertWithoutModuleAttachmentsInput'] | null; // ModuleUpsertWithoutModuleAttachmentsInput
   };
+  ModuleUpdateOneRequiredWithoutModuleTypeInput: {
+    // input type
+    connect?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['ModuleCreateOrConnectWithoutModuleTypeInput'] | null; // ModuleCreateOrConnectWithoutModuleTypeInput
+    create?: NexusGenInputs['ModuleCreateWithoutModuleTypeInput'] | null; // ModuleCreateWithoutModuleTypeInput
+    update?: NexusGenInputs['ModuleUpdateWithoutModuleTypeInput'] | null; // ModuleUpdateWithoutModuleTypeInput
+    upsert?: NexusGenInputs['ModuleUpsertWithoutModuleTypeInput'] | null; // ModuleUpsertWithoutModuleTypeInput
+  };
   ModuleUpdateOneRequiredWithoutProjectModulesInput: {
     // input type
     connect?: NexusGenInputs['ModuleWhereUniqueInput'] | null; // ModuleWhereUniqueInput
@@ -1897,6 +2106,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutAttachmentInput'] | null; // ModuleAttachmentsUpdateManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutModuleInput'] | null; // ModuleAttachmentsUpdateManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutModuleInput'] | null; // ModuleTypeUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1921,6 +2131,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutAttachmentInput'] | null; // ModuleAttachmentsUpdateManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutModuleInput'] | null; // ModuleAttachmentsUpdateManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutModuleInput'] | null; // ModuleTypeUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1945,6 +2156,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutAttachmentInput'] | null; // ModuleAttachmentsUpdateManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutModuleInput'] | null; // ModuleAttachmentsUpdateManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutModuleInput'] | null; // ModuleTypeUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1969,6 +2181,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutAttachmentInput'] | null; // ModuleAttachmentsUpdateManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutModuleInput'] | null; // ModuleAttachmentsUpdateManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutModuleInput'] | null; // ModuleTypeUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -1993,6 +2206,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutAttachmentInput'] | null; // ModuleAttachmentsUpdateManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutModuleInput'] | null; // ModuleAttachmentsUpdateManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutModuleInput'] | null; // ModuleTypeUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -2017,6 +2231,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutAttachmentInput'] | null; // ModuleAttachmentsUpdateManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutModuleInput'] | null; // ModuleAttachmentsUpdateManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutModuleInput'] | null; // ModuleTypeUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -2041,6 +2256,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutAttachmentInput'] | null; // ModuleAttachmentsUpdateManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutModuleInput'] | null; // ModuleAttachmentsUpdateManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutModuleInput'] | null; // ModuleTypeUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -2065,6 +2281,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutAttachmentInput'] | null; // ModuleAttachmentsUpdateManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutModuleInput'] | null; // ModuleAttachmentsUpdateManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutModuleInput'] | null; // ModuleTypeUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -2089,6 +2306,7 @@ export interface NexusGenInputs {
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutModuleInput'] | null; // ModuleAttachmentsUpdateManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutModuleInput'] | null; // ModuleTypeUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
     rules?: NexusGenScalars['Json'] | null; // Json
@@ -2112,6 +2330,32 @@ export interface NexusGenInputs {
     isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutAttachmentInput'] | null; // ModuleAttachmentsUpdateManyWithoutAttachmentInput
+    moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutModuleInput'] | null; // ModuleTypeUpdateManyWithoutModuleInput
+    partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
+    rules?: NexusGenScalars['Json'] | null; // Json
+    shouldHideBasedOnWidth?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  };
+  ModuleUpdateWithoutModuleTypeInput: {
+    // input type
+    attachmentToAppend?: NexusGenInputs['ModuleUpdateOneWithoutAttachmentToAppendParentsInput'] | null; // ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+    attachmentToAppendParents?: NexusGenInputs['ModuleUpdateManyWithoutAttachmentToAppendInput'] | null; // ModuleUpdateManyWithoutAttachmentToAppendInput
+    bundleUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutModulesInput'] | null; // CollectionUpdateOneRequiredWithoutModulesInput
+    defaultLeftExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+    defaultLeftExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultLeftExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultLeftExtensionInput
+    defaultRightExtension?: NexusGenInputs['ModuleUpdateOneWithoutDefaultRightExtensionParentsInput'] | null; // ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+    defaultRightExtensionParents?: NexusGenInputs['ModuleUpdateManyWithoutDefaultRightExtensionInput'] | null; // ModuleUpdateManyWithoutDefaultRightExtensionInput
+    description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutModulesInput'] | null; // FinishUpdateOneRequiredWithoutModulesInput
+    hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isExtension?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isMat?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isSubmodule?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutAttachmentInput'] | null; // ModuleAttachmentsUpdateManyWithoutAttachmentInput
+    moduleAttachments?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutModuleInput'] | null; // ModuleAttachmentsUpdateManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutModuleInput'] | null; // ProjectModuleUpdateManyWithoutModuleInput
@@ -2138,6 +2382,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutAttachmentInput'] | null; // ModuleAttachmentsUpdateManyWithoutAttachmentInput
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsUpdateManyWithoutModuleInput'] | null; // ModuleAttachmentsUpdateManyWithoutModuleInput
     moduleCategories?: NexusGenInputs['ModuleCategoryUpdateManyWithoutModuleInput'] | null; // ModuleCategoryUpdateManyWithoutModuleInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutModuleInput'] | null; // ModuleTypeUpdateManyWithoutModuleInput
     partNumber?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     rules?: NexusGenScalars['Json'] | null; // Json
     shouldHideBasedOnWidth?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
@@ -2198,6 +2443,11 @@ export interface NexusGenInputs {
     create: NexusGenInputs['ModuleCreateWithoutModuleAttachmentsInput']; // ModuleCreateWithoutModuleAttachmentsInput!
     update: NexusGenInputs['ModuleUpdateWithoutModuleAttachmentsInput']; // ModuleUpdateWithoutModuleAttachmentsInput!
   };
+  ModuleUpsertWithoutModuleTypeInput: {
+    // input type
+    create: NexusGenInputs['ModuleCreateWithoutModuleTypeInput']; // ModuleCreateWithoutModuleTypeInput!
+    update: NexusGenInputs['ModuleUpdateWithoutModuleTypeInput']; // ModuleUpdateWithoutModuleTypeInput!
+  };
   ModuleUpsertWithoutProjectModulesInput: {
     // input type
     create: NexusGenInputs['ModuleCreateWithoutProjectModulesInput']; // ModuleCreateWithoutProjectModulesInput!
@@ -2231,6 +2481,7 @@ export interface NexusGenInputs {
     moduleAttachedTo?: NexusGenInputs['ModuleAttachmentsListRelationFilter'] | null; // ModuleAttachmentsListRelationFilter
     moduleAttachments?: NexusGenInputs['ModuleAttachmentsListRelationFilter'] | null; // ModuleAttachmentsListRelationFilter
     moduleCategories?: NexusGenInputs['ModuleCategoryListRelationFilter'] | null; // ModuleCategoryListRelationFilter
+    moduleType?: NexusGenInputs['ModuleTypeListRelationFilter'] | null; // ModuleTypeListRelationFilter
     partNumber?: NexusGenInputs['StringFilter'] | null; // StringFilter
     projectModules?: NexusGenInputs['ProjectModuleListRelationFilter'] | null; // ProjectModuleListRelationFilter
     rules?: NexusGenInputs['JsonNullableFilter'] | null; // JsonNullableFilter
@@ -2434,6 +2685,26 @@ export interface NexusGenInputs {
     data?: NexusGenInputs['ProjectCreateManySlideInput'][] | null; // [ProjectCreateManySlideInput!]
     skipDuplicates?: boolean | null; // Boolean
   };
+  ProjectCreateManyTypeInput: {
+    // input type
+    cabinetWidth?: number | null; // Float
+    calculatedWidth?: number | null; // Float
+    collectionId: number; // Int!
+    finishId: number; // Int!
+    gable: number; // Float!
+    hasPegs?: boolean | null; // Boolean
+    id?: number | null; // Int
+    slideDepthId: number; // Int!
+    slideId: number; // Int!
+    slug: string; // String!
+    title: string; // String!
+    userId?: number | null; // Int
+  };
+  ProjectCreateManyTypeInputEnvelope: {
+    // input type
+    data?: NexusGenInputs['ProjectCreateManyTypeInput'][] | null; // [ProjectCreateManyTypeInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  };
   ProjectCreateNestedManyWithoutCollectionInput: {
     // input type
     connect?: NexusGenInputs['ProjectWhereUniqueInput'][] | null; // [ProjectWhereUniqueInput!]
@@ -2461,6 +2732,13 @@ export interface NexusGenInputs {
     connectOrCreate?: NexusGenInputs['ProjectCreateOrConnectWithoutSlideInput'][] | null; // [ProjectCreateOrConnectWithoutSlideInput!]
     create?: NexusGenInputs['ProjectCreateWithoutSlideInput'][] | null; // [ProjectCreateWithoutSlideInput!]
     createMany?: NexusGenInputs['ProjectCreateManySlideInputEnvelope'] | null; // ProjectCreateManySlideInputEnvelope
+  };
+  ProjectCreateNestedManyWithoutTypeInput: {
+    // input type
+    connect?: NexusGenInputs['ProjectWhereUniqueInput'][] | null; // [ProjectWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ProjectCreateOrConnectWithoutTypeInput'][] | null; // [ProjectCreateOrConnectWithoutTypeInput!]
+    create?: NexusGenInputs['ProjectCreateWithoutTypeInput'][] | null; // [ProjectCreateWithoutTypeInput!]
+    createMany?: NexusGenInputs['ProjectCreateManyTypeInputEnvelope'] | null; // ProjectCreateManyTypeInputEnvelope
   };
   ProjectCreateNestedOneWithoutProjectModulesInput: {
     // input type
@@ -2491,6 +2769,11 @@ export interface NexusGenInputs {
   ProjectCreateOrConnectWithoutSlideInput: {
     // input type
     create: NexusGenInputs['ProjectCreateWithoutSlideInput']; // ProjectCreateWithoutSlideInput!
+    where: NexusGenInputs['ProjectWhereUniqueInput']; // ProjectWhereUniqueInput!
+  };
+  ProjectCreateOrConnectWithoutTypeInput: {
+    // input type
+    create: NexusGenInputs['ProjectCreateWithoutTypeInput']; // ProjectCreateWithoutTypeInput!
     where: NexusGenInputs['ProjectWhereUniqueInput']; // ProjectWhereUniqueInput!
   };
   ProjectCreateWithoutCollectionInput: {
@@ -2566,6 +2849,21 @@ export interface NexusGenInputs {
     slug: string; // String!
     title: string; // String!
     type: NexusGenInputs['TypeCreateNestedOneWithoutProjectsInput']; // TypeCreateNestedOneWithoutProjectsInput!
+    user?: NexusGenInputs['UserCreateNestedOneWithoutProjectInput'] | null; // UserCreateNestedOneWithoutProjectInput
+  };
+  ProjectCreateWithoutTypeInput: {
+    // input type
+    cabinetWidth?: number | null; // Float
+    calculatedWidth?: number | null; // Float
+    collection: NexusGenInputs['CollectionCreateNestedOneWithoutProjectsInput']; // CollectionCreateNestedOneWithoutProjectsInput!
+    finish: NexusGenInputs['FinishCreateNestedOneWithoutProjectsInput']; // FinishCreateNestedOneWithoutProjectsInput!
+    gable: number; // Float!
+    hasPegs?: boolean | null; // Boolean
+    projectModules?: NexusGenInputs['ProjectModuleCreateNestedManyWithoutProjectInput'] | null; // ProjectModuleCreateNestedManyWithoutProjectInput
+    slide: NexusGenInputs['SlideCreateNestedOneWithoutProjectsInput']; // SlideCreateNestedOneWithoutProjectsInput!
+    slideDepth: NexusGenInputs['SlideDepthCreateNestedOneWithoutProjectsInput']; // SlideDepthCreateNestedOneWithoutProjectsInput!
+    slug: string; // String!
+    title: string; // String!
     user?: NexusGenInputs['UserCreateNestedOneWithoutProjectInput'] | null; // UserCreateNestedOneWithoutProjectInput
   };
   ProjectListRelationFilter: {
@@ -3048,6 +3346,11 @@ export interface NexusGenInputs {
     data: NexusGenInputs['ProjectUpdateManyMutationInput']; // ProjectUpdateManyMutationInput!
     where: NexusGenInputs['ProjectScalarWhereInput']; // ProjectScalarWhereInput!
   };
+  ProjectUpdateManyWithWhereWithoutTypeInput: {
+    // input type
+    data: NexusGenInputs['ProjectUpdateManyMutationInput']; // ProjectUpdateManyMutationInput!
+    where: NexusGenInputs['ProjectScalarWhereInput']; // ProjectScalarWhereInput!
+  };
   ProjectUpdateManyWithoutCollectionInput: {
     // input type
     connect?: NexusGenInputs['ProjectWhereUniqueInput'][] | null; // [ProjectWhereUniqueInput!]
@@ -3104,6 +3407,20 @@ export interface NexusGenInputs {
     updateMany?: NexusGenInputs['ProjectUpdateManyWithWhereWithoutSlideInput'][] | null; // [ProjectUpdateManyWithWhereWithoutSlideInput!]
     upsert?: NexusGenInputs['ProjectUpsertWithWhereUniqueWithoutSlideInput'][] | null; // [ProjectUpsertWithWhereUniqueWithoutSlideInput!]
   };
+  ProjectUpdateManyWithoutTypeInput: {
+    // input type
+    connect?: NexusGenInputs['ProjectWhereUniqueInput'][] | null; // [ProjectWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ProjectCreateOrConnectWithoutTypeInput'][] | null; // [ProjectCreateOrConnectWithoutTypeInput!]
+    create?: NexusGenInputs['ProjectCreateWithoutTypeInput'][] | null; // [ProjectCreateWithoutTypeInput!]
+    createMany?: NexusGenInputs['ProjectCreateManyTypeInputEnvelope'] | null; // ProjectCreateManyTypeInputEnvelope
+    delete?: NexusGenInputs['ProjectWhereUniqueInput'][] | null; // [ProjectWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['ProjectScalarWhereInput'][] | null; // [ProjectScalarWhereInput!]
+    disconnect?: NexusGenInputs['ProjectWhereUniqueInput'][] | null; // [ProjectWhereUniqueInput!]
+    set?: NexusGenInputs['ProjectWhereUniqueInput'][] | null; // [ProjectWhereUniqueInput!]
+    update?: NexusGenInputs['ProjectUpdateWithWhereUniqueWithoutTypeInput'][] | null; // [ProjectUpdateWithWhereUniqueWithoutTypeInput!]
+    updateMany?: NexusGenInputs['ProjectUpdateManyWithWhereWithoutTypeInput'][] | null; // [ProjectUpdateManyWithWhereWithoutTypeInput!]
+    upsert?: NexusGenInputs['ProjectUpsertWithWhereUniqueWithoutTypeInput'][] | null; // [ProjectUpsertWithWhereUniqueWithoutTypeInput!]
+  };
   ProjectUpdateOneWithoutProjectModulesInput: {
     // input type
     connect?: NexusGenInputs['ProjectWhereUniqueInput'] | null; // ProjectWhereUniqueInput
@@ -3132,6 +3449,11 @@ export interface NexusGenInputs {
   ProjectUpdateWithWhereUniqueWithoutSlideInput: {
     // input type
     data: NexusGenInputs['ProjectUpdateWithoutSlideInput']; // ProjectUpdateWithoutSlideInput!
+    where: NexusGenInputs['ProjectWhereUniqueInput']; // ProjectWhereUniqueInput!
+  };
+  ProjectUpdateWithWhereUniqueWithoutTypeInput: {
+    // input type
+    data: NexusGenInputs['ProjectUpdateWithoutTypeInput']; // ProjectUpdateWithoutTypeInput!
     where: NexusGenInputs['ProjectWhereUniqueInput']; // ProjectWhereUniqueInput!
   };
   ProjectUpdateWithoutCollectionInput: {
@@ -3209,6 +3531,21 @@ export interface NexusGenInputs {
     type?: NexusGenInputs['TypeUpdateOneRequiredWithoutProjectsInput'] | null; // TypeUpdateOneRequiredWithoutProjectsInput
     user?: NexusGenInputs['UserUpdateOneWithoutProjectInput'] | null; // UserUpdateOneWithoutProjectInput
   };
+  ProjectUpdateWithoutTypeInput: {
+    // input type
+    cabinetWidth?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    calculatedWidth?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    collection?: NexusGenInputs['CollectionUpdateOneRequiredWithoutProjectsInput'] | null; // CollectionUpdateOneRequiredWithoutProjectsInput
+    finish?: NexusGenInputs['FinishUpdateOneRequiredWithoutProjectsInput'] | null; // FinishUpdateOneRequiredWithoutProjectsInput
+    gable?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    projectModules?: NexusGenInputs['ProjectModuleUpdateManyWithoutProjectInput'] | null; // ProjectModuleUpdateManyWithoutProjectInput
+    slide?: NexusGenInputs['SlideUpdateOneRequiredWithoutProjectsInput'] | null; // SlideUpdateOneRequiredWithoutProjectsInput
+    slideDepth?: NexusGenInputs['SlideDepthUpdateOneRequiredWithoutProjectsInput'] | null; // SlideDepthUpdateOneRequiredWithoutProjectsInput
+    slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    user?: NexusGenInputs['UserUpdateOneWithoutProjectInput'] | null; // UserUpdateOneWithoutProjectInput
+  };
   ProjectUpsertWithWhereUniqueWithoutCollectionInput: {
     // input type
     create: NexusGenInputs['ProjectCreateWithoutCollectionInput']; // ProjectCreateWithoutCollectionInput!
@@ -3231,6 +3568,12 @@ export interface NexusGenInputs {
     // input type
     create: NexusGenInputs['ProjectCreateWithoutSlideInput']; // ProjectCreateWithoutSlideInput!
     update: NexusGenInputs['ProjectUpdateWithoutSlideInput']; // ProjectUpdateWithoutSlideInput!
+    where: NexusGenInputs['ProjectWhereUniqueInput']; // ProjectWhereUniqueInput!
+  };
+  ProjectUpsertWithWhereUniqueWithoutTypeInput: {
+    // input type
+    create: NexusGenInputs['ProjectCreateWithoutTypeInput']; // ProjectCreateWithoutTypeInput!
+    update: NexusGenInputs['ProjectUpdateWithoutTypeInput']; // ProjectUpdateWithoutTypeInput!
     where: NexusGenInputs['ProjectWhereUniqueInput']; // ProjectWhereUniqueInput!
   };
   ProjectUpsertWithoutProjectModulesInput: {
@@ -3809,20 +4152,40 @@ export interface NexusGenInputs {
     notIn?: string[] | null; // [String!]
     startsWith?: string | null; // String
   };
+  TypeCreateNestedOneWithoutModuleTypeInput: {
+    // input type
+    connect?: NexusGenInputs['TypeWhereUniqueInput'] | null; // TypeWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['TypeCreateOrConnectWithoutModuleTypeInput'] | null; // TypeCreateOrConnectWithoutModuleTypeInput
+    create?: NexusGenInputs['TypeCreateWithoutModuleTypeInput'] | null; // TypeCreateWithoutModuleTypeInput
+  };
   TypeCreateNestedOneWithoutProjectsInput: {
     // input type
     connect?: NexusGenInputs['TypeWhereUniqueInput'] | null; // TypeWhereUniqueInput
     connectOrCreate?: NexusGenInputs['TypeCreateOrConnectWithoutProjectsInput'] | null; // TypeCreateOrConnectWithoutProjectsInput
     create?: NexusGenInputs['TypeCreateWithoutProjectsInput'] | null; // TypeCreateWithoutProjectsInput
   };
+  TypeCreateOrConnectWithoutModuleTypeInput: {
+    // input type
+    create: NexusGenInputs['TypeCreateWithoutModuleTypeInput']; // TypeCreateWithoutModuleTypeInput!
+    where: NexusGenInputs['TypeWhereUniqueInput']; // TypeWhereUniqueInput!
+  };
   TypeCreateOrConnectWithoutProjectsInput: {
     // input type
     create: NexusGenInputs['TypeCreateWithoutProjectsInput']; // TypeCreateWithoutProjectsInput!
     where: NexusGenInputs['TypeWhereUniqueInput']; // TypeWhereUniqueInput!
   };
+  TypeCreateWithoutModuleTypeInput: {
+    // input type
+    hasPegs?: boolean | null; // Boolean
+    projects?: NexusGenInputs['ProjectCreateNestedManyWithoutTypeInput'] | null; // ProjectCreateNestedManyWithoutTypeInput
+    slug: string; // String!
+    thumbnailUrl?: string | null; // String
+    translations?: NexusGenInputs['TypeTranslationsCreateNestedManyWithoutTypeInput'] | null; // TypeTranslationsCreateNestedManyWithoutTypeInput
+  };
   TypeCreateWithoutProjectsInput: {
     // input type
     hasPegs?: boolean | null; // Boolean
+    moduleType?: NexusGenInputs['ModuleTypeCreateNestedManyWithoutTypeInput'] | null; // ModuleTypeCreateNestedManyWithoutTypeInput
     slug: string; // String!
     thumbnailUrl?: string | null; // String
     translations?: NexusGenInputs['TypeTranslationsCreateNestedManyWithoutTypeInput'] | null; // TypeTranslationsCreateNestedManyWithoutTypeInput
@@ -3939,6 +4302,14 @@ export interface NexusGenInputs {
     // input type
     id?: number | null; // Int
   };
+  TypeUpdateOneRequiredWithoutModuleTypeInput: {
+    // input type
+    connect?: NexusGenInputs['TypeWhereUniqueInput'] | null; // TypeWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['TypeCreateOrConnectWithoutModuleTypeInput'] | null; // TypeCreateOrConnectWithoutModuleTypeInput
+    create?: NexusGenInputs['TypeCreateWithoutModuleTypeInput'] | null; // TypeCreateWithoutModuleTypeInput
+    update?: NexusGenInputs['TypeUpdateWithoutModuleTypeInput'] | null; // TypeUpdateWithoutModuleTypeInput
+    upsert?: NexusGenInputs['TypeUpsertWithoutModuleTypeInput'] | null; // TypeUpsertWithoutModuleTypeInput
+  };
   TypeUpdateOneRequiredWithoutProjectsInput: {
     // input type
     connect?: NexusGenInputs['TypeWhereUniqueInput'] | null; // TypeWhereUniqueInput
@@ -3947,12 +4318,26 @@ export interface NexusGenInputs {
     update?: NexusGenInputs['TypeUpdateWithoutProjectsInput'] | null; // TypeUpdateWithoutProjectsInput
     upsert?: NexusGenInputs['TypeUpsertWithoutProjectsInput'] | null; // TypeUpsertWithoutProjectsInput
   };
-  TypeUpdateWithoutProjectsInput: {
+  TypeUpdateWithoutModuleTypeInput: {
     // input type
     hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    projects?: NexusGenInputs['ProjectUpdateManyWithoutTypeInput'] | null; // ProjectUpdateManyWithoutTypeInput
     slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     translations?: NexusGenInputs['TypeTranslationsUpdateManyWithoutTypeInput'] | null; // TypeTranslationsUpdateManyWithoutTypeInput
+  };
+  TypeUpdateWithoutProjectsInput: {
+    // input type
+    hasPegs?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    moduleType?: NexusGenInputs['ModuleTypeUpdateManyWithoutTypeInput'] | null; // ModuleTypeUpdateManyWithoutTypeInput
+    slug?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    thumbnailUrl?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    translations?: NexusGenInputs['TypeTranslationsUpdateManyWithoutTypeInput'] | null; // TypeTranslationsUpdateManyWithoutTypeInput
+  };
+  TypeUpsertWithoutModuleTypeInput: {
+    // input type
+    create: NexusGenInputs['TypeCreateWithoutModuleTypeInput']; // TypeCreateWithoutModuleTypeInput!
+    update: NexusGenInputs['TypeUpdateWithoutModuleTypeInput']; // TypeUpdateWithoutModuleTypeInput!
   };
   TypeUpsertWithoutProjectsInput: {
     // input type
@@ -3966,6 +4351,7 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['TypeWhereInput'][] | null; // [TypeWhereInput!]
     hasPegs?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    moduleType?: NexusGenInputs['ModuleTypeListRelationFilter'] | null; // ModuleTypeListRelationFilter
     projects?: NexusGenInputs['ProjectListRelationFilter'] | null; // ProjectListRelationFilter
     slug?: NexusGenInputs['StringFilter'] | null; // StringFilter
     thumbnailUrl?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
@@ -4160,6 +4546,12 @@ export interface NexusGenObjects {
     trimOffset?: NexusGenRootTypes['TrimOffsetMetadata'] | null; // TrimOffsetMetadata
     trimmable?: string[] | null; // [String!]
   };
+  ModuleType: {
+    // root type
+    id: number; // Int!
+    moduleId: number; // Int!
+    typeId: number; // Int!
+  };
   ModuleUnit: {
     // root type
     inches?: string | null; // String
@@ -4351,6 +4743,7 @@ export interface NexusGenFieldTypes {
     isSubmodule: boolean; // Boolean!
     moduleAttachedTo: NexusGenRootTypes['ModuleAttachments'][]; // [ModuleAttachments!]!
     moduleAttachments: NexusGenRootTypes['ModuleAttachments'][]; // [ModuleAttachments!]!
+    moduleType: NexusGenRootTypes['ModuleType'][]; // [ModuleType!]!
     partNumber: string; // String!
     projectModules: NexusGenRootTypes['ProjectModule'][]; // [ProjectModule!]!
     rules: NexusGenRootTypes['ModuleRules'] | null; // ModuleRules
@@ -4409,6 +4802,14 @@ export interface NexusGenFieldTypes {
     trimOffset: NexusGenRootTypes['TrimOffsetMetadata'] | null; // TrimOffsetMetadata
     trimmable: string[] | null; // [String!]
   };
+  ModuleType: {
+    // field return type
+    id: number; // Int!
+    module: NexusGenRootTypes['Module']; // Module!
+    moduleId: number; // Int!
+    type: NexusGenRootTypes['Type']; // Type!
+    typeId: number; // Int!
+  };
   ModuleUnit: {
     // field return type
     inches: string | null; // String
@@ -4416,6 +4817,7 @@ export interface NexusGenFieldTypes {
   };
   Mutation: {
     // field return type
+    cloneOneProject: NexusGenRootTypes['Project']; // Project!
     createOneProject: NexusGenRootTypes['Project']; // Project!
     createOneProjectModule: NexusGenRootTypes['ProjectModule']; // ProjectModule!
     deleteManyProjectModule: NexusGenRootTypes['AffectedRowsOutput']; // AffectedRowsOutput!
@@ -4543,6 +4945,7 @@ export interface NexusGenFieldTypes {
     description: string | null; // String
     hasPegs: boolean; // Boolean!
     id: number; // Int!
+    moduleType: NexusGenRootTypes['ModuleType'][]; // [ModuleType!]!
     name: string; // String!
     projects: NexusGenRootTypes['Project'][]; // [Project!]!
     slug: string; // String!
@@ -4658,6 +5061,7 @@ export interface NexusGenFieldTypeNames {
     isSubmodule: 'Boolean';
     moduleAttachedTo: 'ModuleAttachments';
     moduleAttachments: 'ModuleAttachments';
+    moduleType: 'ModuleType';
     partNumber: 'String';
     projectModules: 'ProjectModule';
     rules: 'ModuleRules';
@@ -4716,6 +5120,14 @@ export interface NexusGenFieldTypeNames {
     trimOffset: 'TrimOffsetMetadata';
     trimmable: 'String';
   };
+  ModuleType: {
+    // field return type name
+    id: 'Int';
+    module: 'Module';
+    moduleId: 'Int';
+    type: 'Type';
+    typeId: 'Int';
+  };
   ModuleUnit: {
     // field return type name
     inches: 'String';
@@ -4723,6 +5135,7 @@ export interface NexusGenFieldTypeNames {
   };
   Mutation: {
     // field return type name
+    cloneOneProject: 'Project';
     createOneProject: 'Project';
     createOneProjectModule: 'ProjectModule';
     deleteManyProjectModule: 'AffectedRowsOutput';
@@ -4850,6 +5263,7 @@ export interface NexusGenFieldTypeNames {
     description: 'String';
     hasPegs: 'Boolean';
     id: 'Int';
+    moduleType: 'ModuleType';
     name: 'String';
     projects: 'Project';
     slug: 'String';
@@ -4976,6 +5390,12 @@ export interface NexusGenArgTypes {
       skip?: number | null; // Int
       take?: number | null; // Int
     };
+    moduleType: {
+      // args
+      cursor?: NexusGenInputs['ModuleTypeWhereUniqueInput'] | null; // ModuleTypeWhereUniqueInput
+      skip?: number | null; // Int
+      take?: number | null; // Int
+    };
     projectModules: {
       // args
       cursor?: NexusGenInputs['ProjectModuleWhereUniqueInput'] | null; // ProjectModuleWhereUniqueInput
@@ -4986,6 +5406,10 @@ export interface NexusGenArgTypes {
     };
   };
   Mutation: {
+    cloneOneProject: {
+      // args
+      id: number; // Int!
+    };
     createOneProject: {
       // args
       data: NexusGenInputs['ProjectCreateInput']; // ProjectCreateInput!
@@ -5040,8 +5464,10 @@ export interface NexusGenArgTypes {
     children: {
       // args
       cursor?: NexusGenInputs['ProjectModuleWhereUniqueInput'] | null; // ProjectModuleWhereUniqueInput
+      orderBy?: NexusGenInputs['ProjectModuleOrderByInput'][] | null; // [ProjectModuleOrderByInput!]
       skip?: number | null; // Int
       take?: number | null; // Int
+      where?: NexusGenInputs['ProjectModuleWhereInput'] | null; // ProjectModuleWhereInput
     };
   };
   Query: {
@@ -5225,6 +5651,12 @@ export interface NexusGenArgTypes {
     };
   };
   Type: {
+    moduleType: {
+      // args
+      cursor?: NexusGenInputs['ModuleTypeWhereUniqueInput'] | null; // ModuleTypeWhereUniqueInput
+      skip?: number | null; // Int
+      take?: number | null; // Int
+    };
     projects: {
       // args
       cursor?: NexusGenInputs['ProjectWhereUniqueInput'] | null; // ProjectWhereUniqueInput

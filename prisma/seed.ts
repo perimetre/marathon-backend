@@ -170,6 +170,13 @@ const main = async () => {
 
   const modules = await db.module.findMany({ select: { id: true, partNumber: true } });
 
+  await db.moduleType.createMany({
+    data: seedValues.moduleTypes.map(({ partNumber, type }) => ({
+      typeId: types.find((f) => f.slug === type).id,
+      moduleId: modules.find((f) => f.partNumber === partNumber).id
+    }))
+  });
+
   const moduleWithExtensions = seedValues.modules.filter((x) => x.defaultLeftExtension || x.defaultRightExtension);
   for (const module of moduleWithExtensions) {
     const extensionLeft = modules.find((x) => x.partNumber === module.defaultLeftExtension);
