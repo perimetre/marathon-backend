@@ -4,6 +4,6 @@ import { registerModelsWithPrismaBinding } from '../utils/nexus';
 export const ProjectModule = objectType({
   name: 'ProjectModule',
   definition(t) {
-    registerModelsWithPrismaBinding(t);
+    registerModelsWithPrismaBinding(t, ['children']);
   }
 });

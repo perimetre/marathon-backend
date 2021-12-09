@@ -117,6 +117,7 @@ model Module {
   attachmentToAppendParents    Module[]            @relation("attachmentToAppendRelation")
   moduleAttachments            ModuleAttachments[] @relation("module_moduleAttachments")
   moduleAttachedTo             ModuleAttachments[] @relation("attachment_moduleAttachments")
+  moduleType                   ModuleType[]
 }
 
 model Project {
@@ -196,6 +197,16 @@ model Type {
   hasPegs      Boolean            @default(false)
   translations TypeTranslations[]
   projects     Project[]
+  moduleType   ModuleType[]
+}
+
+model ModuleType {
+  id       Int @id @default(autoincrement())
+  typeId   Int
+  moduleId Int
+
+  type   Type   @relation(fields: [typeId], references: [id])
+  module Module @relation(fields: [moduleId], references: [id])
 }
 
 model TypeTranslations {
