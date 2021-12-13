@@ -26,7 +26,14 @@ export const Project = objectType({
           where: {
             collectionId: root.collectionId,
             finishId: root.finishId,
-            hasPegs: root.hasPegs,
+            OR: [
+              {
+                hasPegs: root.hasPegs
+              },
+              {
+                alwaysDisplay: true
+              }
+            ],
             isSubmodule: false,
             isExtension: false,
             isMat: false,

@@ -4671,6 +4671,14 @@
       "type": "deep"
     },
     {
+      "partNumber": "04-PEG-BIR-H160",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-PEG-WAL-H160",
+      "type": "deep"
+    },
+    {
       "partNumber": "04-SRMAT-GM",
       "type": "shallow"
     },
@@ -4807,10 +4815,6 @@
       "type": "shallow"
     },
     {
-      "partNumber": "04-AU-DIVIDER-SW",
-      "type": "shallow"
-    },
-    {
       "partNumber": "04-IM-BIR-CT-EXTENSION",
       "type": "shallow"
     },
@@ -4820,10 +4824,6 @@
     },
     {
       "partNumber": "04-IM-BIR-CT2",
-      "type": "shallow"
-    },
-    {
-      "partNumber": "04-IM-WAL-CT2",
       "type": "shallow"
     },
     {
@@ -5080,6 +5080,46 @@
     },
     {
       "partNumber": "04-AREA-ST-SW-G",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-SLOTTED-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-FLUTTED-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-KH-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-CD-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-SPICERACK-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-T100305H55",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-T200305H55",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-T210406H110",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-T210506H110",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-WAL-CT2",
       "type": "shallow"
     }
   ]

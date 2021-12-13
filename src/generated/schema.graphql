@@ -985,6 +985,7 @@ enum Locale {
 }
 
 type Module {
+  alwaysDisplay: Boolean!
   attachmentToAppend: Module
   attachmentToAppendId: Int
   attachmentToAppendParents(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
@@ -1294,6 +1295,7 @@ input ModuleCategoryWhereUniqueInput {
 }
 
 input ModuleCreateManyAttachmentToAppendInput {
+  alwaysDisplay: Boolean
   bundleUrl: String
   collectionId: Int!
   defaultLeftExtensionId: Int
@@ -1317,6 +1319,7 @@ input ModuleCreateManyAttachmentToAppendInputEnvelope {
 }
 
 input ModuleCreateManyCollectionInput {
+  alwaysDisplay: Boolean
   attachmentToAppendId: Int
   bundleUrl: String
   defaultLeftExtensionId: Int
@@ -1340,6 +1343,7 @@ input ModuleCreateManyCollectionInputEnvelope {
 }
 
 input ModuleCreateManyDefaultLeftExtensionInput {
+  alwaysDisplay: Boolean
   attachmentToAppendId: Int
   bundleUrl: String
   collectionId: Int!
@@ -1363,6 +1367,7 @@ input ModuleCreateManyDefaultLeftExtensionInputEnvelope {
 }
 
 input ModuleCreateManyDefaultRightExtensionInput {
+  alwaysDisplay: Boolean
   attachmentToAppendId: Int
   bundleUrl: String
   collectionId: Int!
@@ -1386,6 +1391,7 @@ input ModuleCreateManyDefaultRightExtensionInputEnvelope {
 }
 
 input ModuleCreateManyFinishInput {
+  alwaysDisplay: Boolean
   attachmentToAppendId: Int
   bundleUrl: String
   collectionId: Int!
@@ -1546,6 +1552,7 @@ input ModuleCreateOrConnectWithoutProjectModulesInput {
 }
 
 input ModuleCreateWithoutAttachmentToAppendInput {
+  alwaysDisplay: Boolean
   attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
   collection: CollectionCreateNestedOneWithoutModulesInput!
@@ -1571,6 +1578,7 @@ input ModuleCreateWithoutAttachmentToAppendInput {
 }
 
 input ModuleCreateWithoutAttachmentToAppendParentsInput {
+  alwaysDisplay: Boolean
   attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
   bundleUrl: String
   collection: CollectionCreateNestedOneWithoutModulesInput!
@@ -1596,6 +1604,7 @@ input ModuleCreateWithoutAttachmentToAppendParentsInput {
 }
 
 input ModuleCreateWithoutCollectionInput {
+  alwaysDisplay: Boolean
   attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
@@ -1621,6 +1630,7 @@ input ModuleCreateWithoutCollectionInput {
 }
 
 input ModuleCreateWithoutDefaultLeftExtensionInput {
+  alwaysDisplay: Boolean
   attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
@@ -1646,6 +1656,7 @@ input ModuleCreateWithoutDefaultLeftExtensionInput {
 }
 
 input ModuleCreateWithoutDefaultLeftExtensionParentsInput {
+  alwaysDisplay: Boolean
   attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
@@ -1671,6 +1682,7 @@ input ModuleCreateWithoutDefaultLeftExtensionParentsInput {
 }
 
 input ModuleCreateWithoutDefaultRightExtensionInput {
+  alwaysDisplay: Boolean
   attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
@@ -1696,6 +1708,7 @@ input ModuleCreateWithoutDefaultRightExtensionInput {
 }
 
 input ModuleCreateWithoutDefaultRightExtensionParentsInput {
+  alwaysDisplay: Boolean
   attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
@@ -1721,6 +1734,7 @@ input ModuleCreateWithoutDefaultRightExtensionParentsInput {
 }
 
 input ModuleCreateWithoutFinishInput {
+  alwaysDisplay: Boolean
   attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
@@ -1746,6 +1760,7 @@ input ModuleCreateWithoutFinishInput {
 }
 
 input ModuleCreateWithoutModuleAttachedToInput {
+  alwaysDisplay: Boolean
   attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
@@ -1771,6 +1786,7 @@ input ModuleCreateWithoutModuleAttachedToInput {
 }
 
 input ModuleCreateWithoutModuleAttachmentsInput {
+  alwaysDisplay: Boolean
   attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
@@ -1796,6 +1812,7 @@ input ModuleCreateWithoutModuleAttachmentsInput {
 }
 
 input ModuleCreateWithoutModuleTypeInput {
+  alwaysDisplay: Boolean
   attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
@@ -1821,6 +1838,7 @@ input ModuleCreateWithoutModuleTypeInput {
 }
 
 input ModuleCreateWithoutProjectModulesInput {
+  alwaysDisplay: Boolean
   attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
   bundleUrl: String
@@ -1869,6 +1887,7 @@ type ModuleMinMax {
 }
 
 input ModuleOrderByInput {
+  alwaysDisplay: SortOrder
   attachmentToAppendId: SortOrder
   bundleUrl: SortOrder
   collectionId: SortOrder
@@ -1944,6 +1963,7 @@ input ModuleScalarWhereInput {
   AND: [ModuleScalarWhereInput!]
   NOT: [ModuleScalarWhereInput!]
   OR: [ModuleScalarWhereInput!]
+  alwaysDisplay: BoolFilter
   attachmentToAppendId: IntNullableFilter
   bundleUrl: StringNullableFilter
   collectionId: IntFilter
@@ -2130,6 +2150,7 @@ type ModuleUnit {
 }
 
 input ModuleUpdateManyMutationInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
@@ -2325,6 +2346,7 @@ input ModuleUpdateWithWhereUniqueWithoutFinishInput {
 }
 
 input ModuleUpdateWithoutAttachmentToAppendInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
@@ -2350,6 +2372,7 @@ input ModuleUpdateWithoutAttachmentToAppendInput {
 }
 
 input ModuleUpdateWithoutAttachmentToAppendParentsInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
   collection: CollectionUpdateOneRequiredWithoutModulesInput
@@ -2375,6 +2398,7 @@ input ModuleUpdateWithoutAttachmentToAppendParentsInput {
 }
 
 input ModuleUpdateWithoutCollectionInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
@@ -2400,6 +2424,7 @@ input ModuleUpdateWithoutCollectionInput {
 }
 
 input ModuleUpdateWithoutDefaultLeftExtensionInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
@@ -2425,6 +2450,7 @@ input ModuleUpdateWithoutDefaultLeftExtensionInput {
 }
 
 input ModuleUpdateWithoutDefaultLeftExtensionParentsInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
@@ -2450,6 +2476,7 @@ input ModuleUpdateWithoutDefaultLeftExtensionParentsInput {
 }
 
 input ModuleUpdateWithoutDefaultRightExtensionInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
@@ -2475,6 +2502,7 @@ input ModuleUpdateWithoutDefaultRightExtensionInput {
 }
 
 input ModuleUpdateWithoutDefaultRightExtensionParentsInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
@@ -2500,6 +2528,7 @@ input ModuleUpdateWithoutDefaultRightExtensionParentsInput {
 }
 
 input ModuleUpdateWithoutFinishInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
@@ -2525,6 +2554,7 @@ input ModuleUpdateWithoutFinishInput {
 }
 
 input ModuleUpdateWithoutModuleAttachedToInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
@@ -2550,6 +2580,7 @@ input ModuleUpdateWithoutModuleAttachedToInput {
 }
 
 input ModuleUpdateWithoutModuleAttachmentsInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
@@ -2575,6 +2606,7 @@ input ModuleUpdateWithoutModuleAttachmentsInput {
 }
 
 input ModuleUpdateWithoutModuleTypeInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
@@ -2600,6 +2632,7 @@ input ModuleUpdateWithoutModuleTypeInput {
 }
 
 input ModuleUpdateWithoutProjectModulesInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
   bundleUrl: NullableStringFieldUpdateOperationsInput
@@ -2693,6 +2726,7 @@ input ModuleWhereInput {
   AND: [ModuleWhereInput!]
   NOT: [ModuleWhereInput!]
   OR: [ModuleWhereInput!]
+  alwaysDisplay: BoolFilter
   attachmentToAppend: ModuleWhereInput
   attachmentToAppendId: IntNullableFilter
   attachmentToAppendParents: ModuleListRelationFilter
