@@ -149,7 +149,8 @@ const main = async () => {
           imageUrl,
           isMat,
           shouldHideBasedOnWidth,
-          isExtension
+          isExtension,
+          isEdge
         }) => {
           return {
             thumbnailUrl: imageUrl,
@@ -160,6 +161,7 @@ const main = async () => {
             isMat,
             isExtension,
             shouldHideBasedOnWidth,
+            isEdge,
             rules: JSON.parse(rules),
             collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
             finishId: finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1
@@ -172,8 +174,8 @@ const main = async () => {
 
   await db.moduleType.createMany({
     data: seedValues.moduleTypes.map(({ partNumber, type }) => ({
-      typeId: types.find((f) => f.slug === type).id,
-      moduleId: modules.find((f) => f.partNumber === partNumber).id
+      typeId: types.find((f) => f.slug === type)?.id || -1,
+      moduleId: modules.find((f) => f.partNumber === partNumber)?.id || -1
     }))
   });
 

@@ -84,6 +84,10 @@
     {
       "name": "Silver Grey",
       "slug": "silver-grey"
+    },
+    {
+      "name": "Chrome",
+      "slug": "chrome"
     }
   ],
   "collectionFinishes": [
@@ -4359,6 +4363,20 @@
         "all",
         "slip-resistant-mat"
       ]
+    },
+    {
+      "partNumber": "04-AREA-SP-CH",
+      "bundlePath": "modules/area/04-area-sp-ch/04-area-sp-ch/module",
+      "finish": "chrome",
+      "collection": "area",
+      "rules": "{\"partNumber\":\"04-AREA-SP-CH\",\"finishes\":[],\"dimensions\":{\"width\":{\"min\":{\"millimeters\":2,\"inches\":\"0\\\" 3/32\"},\"max\":{\"millimeters\":2,\"inches\":\"0\\\" 3/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"top\",\"bottom\"]}}",
+      "isSubmodule": true,
+      "hasPegs": false,
+      "isMat": false,
+      "isExtension": false,
+      "isEdge": true,
+      "imageUrl": "images/module/area/04-AREA-SP-CH/04-AREA-SP-CH.jpg",
+      "genericName": "04-AREA-SP-CH"
     }
   ],
   "moduleTypes": [
