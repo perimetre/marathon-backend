@@ -28,6 +28,11 @@ export const Project = objectType({
             finishId: root.finishId,
             OR: [
               {
+                moduleType: {
+                  some: {
+                    typeId: { equals: root.typeId }
+                  }
+                },
                 hasPegs: root.hasPegs
               },
               {
@@ -36,12 +41,7 @@ export const Project = objectType({
             ],
             isSubmodule: false,
             isExtension: false,
-            isMat: false,
-            moduleType: {
-              every: {
-                typeId: { equals: root.typeId }
-              }
-            }
+            isMat: false
           }
         });
 
