@@ -1004,6 +1004,7 @@ type Module {
   finishId: Int!
   hasPegs: Boolean!
   id: Int!
+  isEdge: Boolean!
   isExtension: Boolean!
   isMat: Boolean!
   isSubmodule: Boolean!
@@ -1304,6 +1305,7 @@ input ModuleCreateManyAttachmentToAppendInput {
   finishId: Int!
   hasPegs: Boolean
   id: Int
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1328,6 +1330,7 @@ input ModuleCreateManyCollectionInput {
   finishId: Int!
   hasPegs: Boolean
   id: Int
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1352,6 +1355,7 @@ input ModuleCreateManyDefaultLeftExtensionInput {
   finishId: Int!
   hasPegs: Boolean
   id: Int
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1376,6 +1380,7 @@ input ModuleCreateManyDefaultRightExtensionInput {
   finishId: Int!
   hasPegs: Boolean
   id: Int
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1400,6 +1405,7 @@ input ModuleCreateManyFinishInput {
   description: String
   hasPegs: Boolean
   id: Int
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1563,6 +1569,7 @@ input ModuleCreateWithoutAttachmentToAppendInput {
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1589,6 +1596,7 @@ input ModuleCreateWithoutAttachmentToAppendParentsInput {
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1615,6 +1623,7 @@ input ModuleCreateWithoutCollectionInput {
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1641,6 +1650,7 @@ input ModuleCreateWithoutDefaultLeftExtensionInput {
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1667,6 +1677,7 @@ input ModuleCreateWithoutDefaultLeftExtensionParentsInput {
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1693,6 +1704,7 @@ input ModuleCreateWithoutDefaultRightExtensionInput {
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1719,6 +1731,7 @@ input ModuleCreateWithoutDefaultRightExtensionParentsInput {
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1745,6 +1758,7 @@ input ModuleCreateWithoutFinishInput {
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1772,6 +1786,7 @@ input ModuleCreateWithoutModuleAttachedToInput {
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1798,6 +1813,7 @@ input ModuleCreateWithoutModuleAttachmentsInput {
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1824,6 +1840,7 @@ input ModuleCreateWithoutModuleTypeInput {
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1850,6 +1867,7 @@ input ModuleCreateWithoutProjectModulesInput {
   description: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
+  isEdge: Boolean
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
@@ -1897,6 +1915,7 @@ input ModuleOrderByInput {
   finishId: SortOrder
   hasPegs: SortOrder
   id: SortOrder
+  isEdge: SortOrder
   isExtension: SortOrder
   isMat: SortOrder
   isSubmodule: SortOrder
@@ -1973,6 +1992,7 @@ input ModuleScalarWhereInput {
   finishId: IntFilter
   hasPegs: BoolFilter
   id: IntFilter
+  isEdge: BoolFilter
   isExtension: BoolFilter
   isMat: BoolFilter
   isSubmodule: BoolFilter
@@ -2154,6 +2174,7 @@ input ModuleUpdateManyMutationInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2357,6 +2378,7 @@ input ModuleUpdateWithoutAttachmentToAppendInput {
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2383,6 +2405,7 @@ input ModuleUpdateWithoutAttachmentToAppendParentsInput {
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2409,6 +2432,7 @@ input ModuleUpdateWithoutCollectionInput {
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2435,6 +2459,7 @@ input ModuleUpdateWithoutDefaultLeftExtensionInput {
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2461,6 +2486,7 @@ input ModuleUpdateWithoutDefaultLeftExtensionParentsInput {
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2487,6 +2513,7 @@ input ModuleUpdateWithoutDefaultRightExtensionInput {
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2513,6 +2540,7 @@ input ModuleUpdateWithoutDefaultRightExtensionParentsInput {
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2539,6 +2567,7 @@ input ModuleUpdateWithoutFinishInput {
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2566,6 +2595,7 @@ input ModuleUpdateWithoutModuleAttachedToInput {
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2592,6 +2622,7 @@ input ModuleUpdateWithoutModuleAttachmentsInput {
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2618,6 +2649,7 @@ input ModuleUpdateWithoutModuleTypeInput {
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2644,6 +2676,7 @@ input ModuleUpdateWithoutProjectModulesInput {
   description: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
@@ -2744,6 +2777,7 @@ input ModuleWhereInput {
   finishId: IntFilter
   hasPegs: BoolFilter
   id: IntFilter
+  isEdge: BoolFilter
   isExtension: BoolFilter
   isMat: BoolFilter
   isSubmodule: BoolFilter

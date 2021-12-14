@@ -100,6 +100,7 @@ model Module {
   isExtension                  Boolean             @default(false)
   shouldHideBasedOnWidth       Boolean             @default(false)
   alwaysDisplay                Boolean             @default(false)
+  isEdge                       Boolean             @default(false)
   defaultLeftExtensionId       Int?
   defaultLeftExtension         Module?             @relation("defaultLeftExtensionRelation", fields: [defaultLeftExtensionId], references: [id])
   defaultRightExtensionId      Int?
