@@ -47,7 +47,6 @@ export const UserMutations = [
 
         return null;
       } catch (err: any) {
-        console.log({ err });
         if (err.response.status === 403 || err.response.status === 401) {
           throw makeError('Email or password is incorrect', 'wrongCredentials');
         }
