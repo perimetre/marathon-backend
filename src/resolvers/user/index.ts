@@ -18,6 +18,7 @@ export const UserMutations = [
     resolve: async (_parent, args, ctx) => {
       try {
         const { user } = args;
+
         const request = (await axios({
           method: 'POST',
           url: env.MARATHON_API_LOGIN,
@@ -46,10 +47,11 @@ export const UserMutations = [
 
         return null;
       } catch (err: any) {
-        if (err.response.status === 403) {
+        console.log({ err });
+        if (err.response.status === 403 || err.response.status === 401) {
           throw makeError('Email or password is incorrect', 'wrongCredentials');
         }
-        return null;
+        throw makeError('Failed on login', err.response.statusText);
       }
     }
   })
