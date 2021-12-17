@@ -35,6 +35,7 @@ model Collection {
   slug               String                   @unique
   thumbnailUrl       String?                  @db.VarChar(255)
   hasPegs            Boolean                  @default(false)
+  isComingSoon       Boolean                  @default(false)
   translations       CollectionTranslations[]
   projects           Project[]
   modules            Module[]

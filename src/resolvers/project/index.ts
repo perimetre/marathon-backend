@@ -1,6 +1,7 @@
 import { intArg, mutationField, nonNull } from 'nexus';
 import { makeError } from '../../utils/exception';
 import { nanoid } from 'nanoid';
+import logging from '../../utils/logging';
 
 export const ProjectMutations = [
   mutationField('cloneOneProject', {
@@ -34,7 +35,7 @@ export const ProjectMutations = [
           }
         });
       } catch (err: any) {
-        console.log({ err });
+        logging.error(err, 'Error trying to clone project');
         throw makeError('Erro while trying to clone project', 'cloneProjectError');
       }
     }

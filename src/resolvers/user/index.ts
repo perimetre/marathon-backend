@@ -2,6 +2,7 @@ import { mutationField, nonNull, nullable, arg, inputObjectType } from 'nexus';
 import axios, { AxiosResponse } from 'axios';
 import { env } from '../../env';
 import { makeError } from '../../utils/exception';
+import logging from '../../utils/logging';
 
 export const UserSingIn = inputObjectType({
   name: 'UserSingIn',
@@ -50,6 +51,7 @@ export const UserMutations = [
         if (err.response.status === 403 || err.response.status === 401) {
           throw makeError('Email or password is incorrect', 'wrongCredentials');
         }
+        logging.error(err, 'Error on login');
         throw makeError('Failed on login', err.response.statusText);
       }
     }
