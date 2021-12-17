@@ -8,9 +8,10 @@ const db = new PrismaClient();
 const main = async () => {
   // -- Collections
   await db.collection.createMany({
-    data: seedValues.collections.map(({ slug, thumbnailUrl, hasPegs }) => ({
+    data: seedValues.collections.map(({ slug, thumbnailUrl, hasPegs, isComingSoon }) => ({
       slug: slug.toLowerCase(),
       thumbnailUrl,
+      isComingSoon: isComingSoon || false,
       hasPegs: hasPegs || false
     }))
   });

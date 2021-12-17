@@ -3,6 +3,7 @@
     {
       "slug": "area",
       "thumbnailUrl": "images/collection/area.jpg",
+      "isComingSoon": false,
       "translations": [
         {
           "locale": "en",
@@ -16,6 +17,7 @@
       "slug": "imprint",
       "hasPegs": true,
       "thumbnailUrl": "images/collection/imprint.jpg",
+      "isComingSoon": true,
       "translations": [
         {
           "locale": "en",
@@ -29,6 +31,7 @@
       "slug": "autograph",
       "hasPegs": true,
       "thumbnailUrl": "images/collection/autograph.jpg",
+      "isComingSoon": true,
       "translations": [
         {
           "locale": "en",

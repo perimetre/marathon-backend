@@ -46,8 +46,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'moduleId' | 'categoryId'
     }
     collections: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'thumbnailUrl' | 'hasPegs' | 'translations' | 'projects' | 'modules' | 'collectionFinishes' | 'slides'
-      ordering: 'id' | 'slug' | 'thumbnailUrl' | 'hasPegs'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'thumbnailUrl' | 'hasPegs' | 'isComingSoon' | 'translations' | 'projects' | 'modules' | 'collectionFinishes' | 'slides'
+      ordering: 'id' | 'slug' | 'thumbnailUrl' | 'hasPegs' | 'isComingSoon'
     }
     collectionFinishes: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'collectionId' | 'collection' | 'finishId' | 'finish'
@@ -454,6 +454,7 @@ interface NexusPrismaOutputs {
     slug: 'String'
     thumbnailUrl: 'String'
     hasPegs: 'Boolean'
+    isComingSoon: 'Boolean'
     translations: 'CollectionTranslations'
     projects: 'Project'
     modules: 'Module'

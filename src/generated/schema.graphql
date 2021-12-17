@@ -88,6 +88,7 @@ type Collection {
   footer: String
   hasPegs: Boolean!
   id: Int!
+  isComingSoon: Boolean!
   modules(
     cursor: ModuleWhereUniqueInput
     orderBy: [ModuleOrderByInput!]
@@ -161,6 +162,7 @@ input CollectionCreateOrConnectWithoutSlidesInput {
 
 input CollectionCreateWithoutCollectionFinishesInput {
   hasPegs: Boolean
+  isComingSoon: Boolean
   modules: ModuleCreateNestedManyWithoutCollectionInput
   projects: ProjectCreateNestedManyWithoutCollectionInput
   slides: SlideCreateNestedManyWithoutCollectionInput
@@ -172,6 +174,7 @@ input CollectionCreateWithoutCollectionFinishesInput {
 input CollectionCreateWithoutModulesInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutCollectionInput
   hasPegs: Boolean
+  isComingSoon: Boolean
   projects: ProjectCreateNestedManyWithoutCollectionInput
   slides: SlideCreateNestedManyWithoutCollectionInput
   slug: String!
@@ -182,6 +185,7 @@ input CollectionCreateWithoutModulesInput {
 input CollectionCreateWithoutProjectsInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutCollectionInput
   hasPegs: Boolean
+  isComingSoon: Boolean
   modules: ModuleCreateNestedManyWithoutCollectionInput
   slides: SlideCreateNestedManyWithoutCollectionInput
   slug: String!
@@ -192,6 +196,7 @@ input CollectionCreateWithoutProjectsInput {
 input CollectionCreateWithoutSlidesInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutCollectionInput
   hasPegs: Boolean
+  isComingSoon: Boolean
   modules: ModuleCreateNestedManyWithoutCollectionInput
   projects: ProjectCreateNestedManyWithoutCollectionInput
   slug: String!
@@ -370,6 +375,7 @@ input CollectionFinishesWhereUniqueInput {
 input CollectionOrderByInput {
   hasPegs: SortOrder
   id: SortOrder
+  isComingSoon: SortOrder
   slug: SortOrder
   thumbnailUrl: SortOrder
 }
@@ -536,6 +542,7 @@ input CollectionUpdateOneRequiredWithoutSlidesInput {
 
 input CollectionUpdateWithoutCollectionFinishesInput {
   hasPegs: BoolFieldUpdateOperationsInput
+  isComingSoon: BoolFieldUpdateOperationsInput
   modules: ModuleUpdateManyWithoutCollectionInput
   projects: ProjectUpdateManyWithoutCollectionInput
   slides: SlideUpdateManyWithoutCollectionInput
@@ -547,6 +554,7 @@ input CollectionUpdateWithoutCollectionFinishesInput {
 input CollectionUpdateWithoutModulesInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutCollectionInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isComingSoon: BoolFieldUpdateOperationsInput
   projects: ProjectUpdateManyWithoutCollectionInput
   slides: SlideUpdateManyWithoutCollectionInput
   slug: StringFieldUpdateOperationsInput
@@ -557,6 +565,7 @@ input CollectionUpdateWithoutModulesInput {
 input CollectionUpdateWithoutProjectsInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutCollectionInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isComingSoon: BoolFieldUpdateOperationsInput
   modules: ModuleUpdateManyWithoutCollectionInput
   slides: SlideUpdateManyWithoutCollectionInput
   slug: StringFieldUpdateOperationsInput
@@ -567,6 +576,7 @@ input CollectionUpdateWithoutProjectsInput {
 input CollectionUpdateWithoutSlidesInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutCollectionInput
   hasPegs: BoolFieldUpdateOperationsInput
+  isComingSoon: BoolFieldUpdateOperationsInput
   modules: ModuleUpdateManyWithoutCollectionInput
   projects: ProjectUpdateManyWithoutCollectionInput
   slug: StringFieldUpdateOperationsInput
@@ -601,6 +611,7 @@ input CollectionWhereInput {
   collectionFinishes: CollectionFinishesListRelationFilter
   hasPegs: BoolFilter
   id: IntFilter
+  isComingSoon: BoolFilter
   modules: ModuleListRelationFilter
   projects: ProjectListRelationFilter
   slides: SlideListRelationFilter
