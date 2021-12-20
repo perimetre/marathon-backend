@@ -99,6 +99,8 @@ model Module {
   isMat                        Boolean             @default(false)
   isExtension                  Boolean             @default(false)
   shouldHideBasedOnWidth       Boolean             @default(false)
+  createdAt                    DateTime            @default(now()) @db.DateTime(0)
+  updatedAt                    DateTime            @default(now()) @db.DateTime(0)
   defaultLeftExtensionId       Int?
   defaultLeftExtension         Module?             @relation("defaultLeftExtensionRelation", fields: [defaultLeftExtensionId], references: [id])
   defaultRightExtensionId      Int?

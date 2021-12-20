@@ -1,88 +1,88 @@
-import { Product } from '../../typings/Product';
+import { Product, SpCategories, SpCollection, SpDrawerTypes, SpFinish } from '../../typings/Product';
+import {
+  SP_CATEGORY_FRAGMENT,
+  SP_COLLECTION_FRAGMENT,
+  SP_DRAWER_TYPE_FRAGMENT,
+  SP_FINISH_FRAGMENT,
+  SP_PRODUCT_FRAGMENT
+} from './fragments';
 
-export type GetProductListingQuery = {
-  data: { getProductListing: { edges: { node: Product }[] } };
+export type GetSpCategoryListingQuery = {
+  data: { getSpCategoryListing: { edges: { node: SpCategories }[] } };
 };
-
-export const GET_PRODUCT_LISTING = `
-  query GetProductListing {
-    getProductListing(published: true, filter: "{\\"itemId\\":{\\"$like\\":\\"04-AU-WAL-CD-B\\"}}") {
+export const GET_SP_CATEGORY_LISTING = `
+  query GetSpCategoryListing {
+    getSpCategoryListing {
       edges {
         node {
-          pimcoreId: id
-          partNumber: itemId
-          finishes {
-            element {
-              id
-              partNumber: itemId
-            }
-            metadata {
-              name
-            }
-          }
-          options {
-            ... on object_product {
-              id
-              partNumber: itemId
-            }
-          }
-          configuratorAttributes {
-            id
-            description
-            features {
-              __typename
-              ... on csFeatureQuantityValue {
-                id
-                name
-                description
-                type
-                quantityvalue {
-                  value
-                  unit {
-                    id
-                  }
-                  toString
-                }
-              }
-              ... on csFeatureSelect {
-                id
-                name
-                description
-                type
-                selection
-              }
-              ... on csFeatureNumeric {
-                id
-                name
-                description
-                type
-                number
-              }
-              ... on csFeatureBooleanSelect {
-                id
-                name
-                description
-                type
-                checked
-              }
-              ... on csFeatureMultiselect {
-                id
-                name
-                description
-                type
-                selections
-              }
-              ... on csFeatureInput {
-                id
-                name
-                description
-                type
-                text
-              }
-            }
-          }
+          ...SpCategory
         }
       }
     }
   }
+  ${SP_CATEGORY_FRAGMENT}
+`;
+
+export type GetSpCollectionListingQuery = {
+  data: { getSpCollectionListing: { edges: { node: SpCollection }[] } };
+};
+export const GET_SP_COLLECTION_LISTING = `
+  query GetSpCollectionListing {
+    getSpCollectionListing {
+      edges {
+        node {
+          ...SpCollection
+        }
+      }
+    }
+  }
+  ${SP_COLLECTION_FRAGMENT}
+`;
+
+export type GetSpDrawerTypesListingQuery = {
+  data: { getSpDrawerTypesListing: { edges: { node: SpDrawerTypes }[] } };
+};
+export const GET_SP_DRAWER_TYPES_LISTING = `
+  query GetSpDrawerTypesListing {
+    getSpDrawerTypesListing {
+      edges {
+        node {
+          ...SpDrawerType
+        }
+      }
+    }
+  }
+  ${SP_DRAWER_TYPE_FRAGMENT}
+`;
+
+export type GetSpFinishListingQuery = {
+  data: { getSpFinishListing: { edges: { node: SpFinish }[] } };
+};
+export const GET_SP_FINISH_LISTING = `
+  query GetSpFinishListing {
+    getSpFinishListing {
+      edges {
+        node {
+          ...SpFinish
+        }
+      }
+    }
+  }
+  ${SP_FINISH_FRAGMENT}
+`;
+
+export type GetProductListingQuery = {
+  data: { getProductListing: { edges: { node: Product }[] } };
+};
+export const GET_PRODUCT_LISTING = `
+  query GetProductListing {
+    getProductListing(published: true) {
+      edges {
+        node {
+          ...Product
+        }
+      }
+    }
+  }
+  ${SP_PRODUCT_FRAGMENT}
 `;

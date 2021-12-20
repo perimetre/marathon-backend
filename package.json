@@ -29,6 +29,7 @@
     "prisma:format": "prisma format",
     "nexus:generate": "ts-node --transpile-only ./src/schema/index.ts",
     "generate": "npm run prisma:generate && npm run nexus:generate",
+    "generate-marathon": "graphql-codegen",
     "postinstall": "npm run generate",
     "prepare": "husky install"
   },
@@ -45,6 +46,8 @@
   "dependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@graphql-codegen/cli": "^2.3.0",
+    "@graphql-codegen/typescript": "^2.4.1",
     "@prisma/client": "^2.29.0",
     "@types/cors": "^2.8.12",
     "@types/dotenv": "^8.2.0",
