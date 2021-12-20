@@ -1,6 +1,4 @@
-import * as cron from 'node-cron';
 import { PrismaClient } from '@prisma/client';
-import logging from './utils/logging';
 import { marathonGraphql } from './utils/marathon';
 import {
   GetProductListingQuery,
@@ -176,6 +174,67 @@ const marathonFinish = async (prisma: PrismaClient) => {
 const marathonProduct = async (prisma: PrismaClient) => {
   const data = await marathonGraphql<GetProductListingQuery>(GET_PRODUCT_LISTING);
   if (data && data.data && data.data.getProductListing) {
+    const dbProducts = await prisma.module.findMany({ select: { partNumber: true, updatedAt: true } });
+
+    const products = data.data.getProductListing.edges || [];
+
+    for (const product of products) {
+      const exists = dbProducts.find((f) => f.partNumber === product.node.partNumber);
+
+      if (exists && new Date(product.node.modificationDate * 1000).getTime() > exists?.updatedAt.getTime()) {
+        await prisma.module.update({
+          where: { partNumber: product.node.partNumber },
+          data: {
+            isMat: product.node.isMat,
+            isSubmodule: product.node.isSubmodule,
+            hasPegs: product.node.hasPegs,
+            shouldHideBasedOnWidth: product.node.shouldHideBasedOnWidth,
+            isExtension: false,
+
+            ...(product.node.spCollection
+              ? {
+                  collection: {
+                    connect: {
+                      slug: product.node.spCollection.slug
+                    }
+                  }
+                }
+              : {}),
+            ...(product.node.spFinish
+              ? {
+                  finish: {
+                    connect: {
+                      slug: product.node.spFinish.slug
+                    }
+                  }
+                }
+              : {})
+          }
+        });
+      }
+      if (!exists) {
+        await prisma.module.create({
+          data: {
+            partNumber: product.node.partNumber,
+            isMat: product.node.isMat,
+            isSubmodule: product.node.isSubmodule,
+            hasPegs: product.node.hasPegs,
+            shouldHideBasedOnWidth: product.node.shouldHideBasedOnWidth,
+            isExtension: false,
+            collection: {
+              connect: {
+                slug: product.node.spCollection.slug
+              }
+            },
+            finish: {
+              connect: {
+                slug: product.node.spFinish.slug
+              }
+            }
+          }
+        });
+      }
+    }
   }
 };
 
@@ -185,6 +244,7 @@ const marathonCron = async (prisma: PrismaClient) => {
   // await marathonDrawerTypes(prisma);
   // Not sure if its a good ideia to run finish now because they dont return slug;
   // await marathonFinish(prisma);
+  await marathonProduct(prisma);
 };
 
 const scheduleJobs = async (prisma: PrismaClient): Promise<void> => {

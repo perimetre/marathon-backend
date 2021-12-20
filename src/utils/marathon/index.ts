@@ -12,7 +12,7 @@ export const marathonGraphql = async <T>(query: string) => {
     return data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
-    logging.error({ err }, 'Error fetching Marathon Graphql api');
+    logging.error(err, 'Error fetching Marathon Graphql api');
     return null;
   }
 };

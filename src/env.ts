@@ -10,6 +10,7 @@ export const env = {
   ALLOWED_ORIGINS: process.env.ALLOWED_ORIGINS,
   PRISMA_LOG_QUERY: process.env.NODE_ENV,
   BEARER: process.env.BEARER,
+  SENTRY_DSN: process.env.SENTRY_DSN,
   AWS_S3_ENDPOINT_URL: process.env.AWS_S3_ENDPOINT_URL,
   AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
   AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,

@@ -26,10 +26,23 @@ export const Project = objectType({
           where: {
             collectionId: root.collectionId,
             finishId: root.finishId,
-            hasPegs: root.hasPegs,
+            OR: [
+              {
+                moduleType: { some: { typeId: { equals: root.typeId } } },
+                hasPegs: root.hasPegs
+              },
+              {
+                alwaysDisplay: true
+              }
+            ],
             isSubmodule: false,
-            isExtension: false
+            isExtension: false,
+            isMat: false
           }
+        });
+
+        const mattModules = await ctx.prisma.module.findMany({
+          where: { isMat: true, collectionId: root.collectionId }
         });
 
         const project = await ctx.prisma.project.findUnique({ where: { id: root.id } });
@@ -45,10 +58,31 @@ export const Project = objectType({
             modules,
             calculatedWidth
           );
-          return filteredModules;
+          return [...filteredModules, ...mattModules];
         } else {
-          return modules;
+          return [...modules, ...mattModules];
         }
+      }
+    });
+
+    t.field('cartAmount', {
+      type: nonNull('Int'),
+      resolve: async (root, _args, ctx) => {
+        return (
+          await ctx.prisma.project
+            .findUnique({
+              where: { id: root.id }
+            })
+            .projectModules({
+              where: { parentId: { equals: null } },
+              include: { children: { where: { module: { partNumber: { not: { contains: 'EXTENSION' } } } } } }
+            })
+        ).reduce((prev, curr) => {
+          prev = prev || 0;
+          prev++;
+          prev += curr?.children?.length || 0;
+          return prev;
+        }, 0);
       }
     });
   }
@@ -89,6 +123,29 @@ export const createOneProjectCustomResolver = async (
         }))
       });
     }
+  }
+
+  return res;
+};
+
+export const createOneProjectModuleCustomResolver = async (
+  root: Record<string, unknown>,
+  args: any,
+  ctx: Context,
+  info: GraphQLResolveInfo,
+  originalResolver: FieldResolver<'Mutation', 'createOneProjectModule'>
+) => {
+  const res = await originalResolver(root, args, ctx, info);
+
+  const haveMat = await ctx.prisma.project.findFirst({ where: { id: Number(res.projectId) } }).projectModules({
+    where: {
+      module: { isMat: true },
+      moduleId: { not: { equals: Number(res.moduleId) } }
+    }
+  });
+
+  if (haveMat && haveMat.length > 0) {
+    await ctx.prisma.projectModule.delete({ where: { id: haveMat[0].id } });
   }
 
   return res;

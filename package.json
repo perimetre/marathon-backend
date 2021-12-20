@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "14.15.5",
+    "node": "14.17.0",
     "npm": "^6.14"
   },
   "scripts": {
@@ -49,6 +49,8 @@
     "@graphql-codegen/cli": "^2.3.0",
     "@graphql-codegen/typescript": "^2.4.1",
     "@prisma/client": "^2.29.0",
+    "@sentry/node": "^6.16.1",
+    "@sentry/tracing": "^6.16.1",
     "@types/cors": "^2.8.12",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.13",

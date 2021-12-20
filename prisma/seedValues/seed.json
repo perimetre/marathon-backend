@@ -3,6 +3,7 @@
     {
       "slug": "area",
       "thumbnailUrl": "images/collection/area.jpg",
+      "isComingSoon": false,
       "translations": [
         {
           "locale": "en",
@@ -16,6 +17,7 @@
       "slug": "imprint",
       "hasPegs": true,
       "thumbnailUrl": "images/collection/imprint.jpg",
+      "isComingSoon": true,
       "translations": [
         {
           "locale": "en",
@@ -29,6 +31,7 @@
       "slug": "autograph",
       "hasPegs": true,
       "thumbnailUrl": "images/collection/autograph.jpg",
+      "isComingSoon": true,
       "translations": [
         {
           "locale": "en",
@@ -84,6 +87,10 @@
     {
       "name": "Silver Grey",
       "slug": "silver-grey"
+    },
+    {
+      "name": "Chrome",
+      "slug": "chrome"
     }
   ],
   "collectionFinishes": [
@@ -145,7 +152,7 @@
     {
       "collection": "imprint",
       "supplier": "Ballbearing",
-      "product": "1/2, box 1/2",
+      "product": "Slide 1/2\" side spacing with box made from 1/2\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 -2 * 12.7",
       "depth": [
         {
@@ -169,7 +176,7 @@
     {
       "collection": "imprint",
       "supplier": "Ballbearing",
-      "product": "1/2, box 5/8",
+      "product": "Slide 1/2\" side spacing with box made from 5/8\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 -2 * 15.875",
       "depth": [
         {
@@ -589,7 +596,7 @@
     {
       "collection": "area",
       "supplier": "Ballbearing",
-      "product": "1/2, box 1/2",
+      "product": "Slide 1/2\" side spacing with box made from 1/2\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 - 2 * 12.7",
       "depth": [
         {
@@ -605,7 +612,7 @@
     {
       "collection": "area",
       "supplier": "Ballbearing",
-      "product": "1/2, box 5/8",
+      "product": "Slide 1/2\" side spacing with box made from 5/8\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 - 2 * 15.875",
       "depth": [
         {
@@ -893,7 +900,7 @@
     {
       "collection": "autograph",
       "supplier": "Ballbearing",
-      "product": "1/2, box 1/2",
+      "product": "Slide 1/2\" side spacing with box made from 1/2\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 - 2 * 12.7",
       "depth": [
         {
@@ -917,7 +924,7 @@
     {
       "collection": "autograph",
       "supplier": "Ballbearing",
-      "product": "1/2, box 5/8",
+      "product": "Slide 1/2\" side spacing with box made from 5/8\" material",
       "formula": "{width} - 2 * {gable} - 2 * 13 - 2 * 15.875",
       "depth": [
         {
@@ -1413,6 +1420,10 @@
     {
       "slug": "spice",
       "name": "Spice"
+    },
+    {
+      "slug": "slip-resistant-mat",
+      "name": "SLIP RESISTANT MAT"
     }
   ],
   "modules": [
@@ -3937,6 +3948,810 @@
       "isExtension": false,
       "imageUrl": "images/module/autograph/Spice rack Size A/WAL-Spice rack Size A/WAL-Spice rack Size A.jpg",
       "genericName": "Spice rack Size A"
+    },
+    {
+      "partNumber": "04-SRMAT-GM",
+      "bundlePath": "modules/autograph/04-SRMAT-GM/module",
+      "finish": "matte-grey",
+      "collection": "autograph",
+      "rules": "",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "isMat": true,
+      "isExtension": false,
+      "imageUrl": "images/module/autograph/04-SRMAT-GM/04-SRMAT-GM.jpg",
+      "genericName": "04-SRMAT-GM",
+      "categorySlug": ["all", "slip-resistant-mat"]
+    },
+    {
+      "partNumber": "04-SRMAT-SIL",
+      "bundlePath": "modules/autograph/04-SRMAT-SIL/module",
+      "finish": "silver-grey",
+      "collection": "autograph",
+      "rules": "",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "isMat": true,
+      "isExtension": false,
+      "imageUrl": "images/module/autograph/04-SRMAT-SIL/04-SRMAT-SIL.jpg",
+      "genericName": "04-SRMAT-SIL",
+      "categorySlug": ["all", "slip-resistant-mat"]
+    },
+    {
+      "partNumber": "04-AREA-SP-CH",
+      "bundlePath": "modules/area/04-area-sp-ch/04-area-sp-ch/module",
+      "finish": "chrome",
+      "collection": "area",
+      "rules": "{\"partNumber\":\"04-AREA-SP-CH\",\"finishes\":[],\"dimensions\":{\"width\":{\"min\":{\"millimeters\":2,\"inches\":\"0\\\" 3/32\"},\"max\":{\"millimeters\":2,\"inches\":\"0\\\" 3/32\"}},\"depth\":{\"min\":{\"millimeters\":460,\"inches\":\"18\\\" 1/8\"},\"max\":{\"millimeters\":550,\"inches\":\"21\\\" 21/32\"}}},\"rules\":{\"trimmable\":[\"top\",\"bottom\"]}}",
+      "isSubmodule": true,
+      "hasPegs": false,
+      "isMat": false,
+      "isExtension": false,
+      "isEdge": true,
+      "imageUrl": "images/module/area/04-AREA-SP-CH/04-AREA-SP-CH.jpg",
+      "genericName": "04-AREA-SP-CH"
+    }
+  ],
+  "moduleTypes": [
+    {
+      "partNumber": "04-PEGBOARD-BIR-H",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-PEGBOARD-WAL-H",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-PEGBOARD-BIR-J",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-PEGBOARD-WAL-J",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-PEGBOARD-BIR-L",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-PEGBOARD-WAL-L",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-PEGBOARD-BIR-N",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-PEGBOARD-WAL-N",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-BIR-CD-B",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-WAL-CD-B",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-BIR-KH-B",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-WAL-KH-B",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-BIR-FLUTTED-B",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-WAL-FLUTTED-B",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-BIR-SLOTTED-B",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-WAL-SLOTTED-B",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-BIR-DIVIDER-H55",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-WAL-DIVIDER-H55",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-BIR-PARTN240-H125",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-WAL-PARTN240-H125",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-BIR-PARTN448-H125",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-WAL-PARTN448-H125",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-SD",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-SW",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-AN",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-AU79",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-MB",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-SD",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-SW",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-D",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-D",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-D",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-E",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-E",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-E",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-F",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-F",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-F",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-F1",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-F1",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-F1",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-G",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-G",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-G",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-H",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-H",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-H",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-IJ",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-IJ",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-IJ",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-K",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-K",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-K",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-L",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-L",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-L",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-N",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-N",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-N",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-SPICE",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-SPICE",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-SPICE",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-KNIFE",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-KNIFE",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-KNIFE",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-UT-GM-D",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-UT-GMT-D",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-UT-SW-D",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-UT-GM-H",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-UT-GMT-H",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-UT-SW-H",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-ST-GM-H",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-ST-GMT-H",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-ST-SW-H",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-ST-GM-G",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-ST-GMT-G",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AREA-ST-SW-G",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-PEG-BIR-H160",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-PEG-WAL-H160",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-SRMAT-GM",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-SRMAT-SIL",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-T100305H55",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-T200305H55",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-T210406H110",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-T210506H110",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-CT4-D",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-CT5-D",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-USHAPE-BIR-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-USHAPE-WAL-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-AN",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-AU79",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-AN",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-AU79",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-MB",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-SD",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-SPICERACK-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE1200-SW",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-FLUTTED-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-SLOTTED-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-T9494H36",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-T9494H36",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-MB",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-SD",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-T94266H36",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-T94266H36",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-LSHAPE600-SW",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-KH-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-CD-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-SW",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-AN",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-AU79",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-MB",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-DIVIDER-SD",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-BIR-CT-EXTENSION",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-WAL-CT-EXTENSION",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-BIR-CT2",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-BIR-CT3",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-WAL-CT3",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-BIR-CT4",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-WAL-CT4",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-BIR-CT5",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-WAL-CT5",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-BIR-SPICE-H",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-WAL-SPICE-H",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-BIR-UT-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-WAL-UT-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-BIR-UT-D",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-WAL-UT-D",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-BIR-KNIFE-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-WAL-KNIFE-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-BIR-DIVIDER-H55",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-WAL-DIVIDER-H55",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-D",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-D",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-D",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-E",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-E",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-E",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-F",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-F",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-F",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-F1",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-F1",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-F1",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-G",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-G",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-G",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-H",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-H",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-H",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-IJ",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-IJ",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-IJ",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-K",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-K",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-K",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-L",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-L",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-L",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-N",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-N",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-N",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-SPICE",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-SPICE",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-SPICE",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GM-KNIFE",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-GMT-KNIFE",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-CT-SW-KNIFE",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-UT-GM-D",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-UT-GMT-D",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-UT-SW-D",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-UT-GM-H",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-UT-GMT-H",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-UT-SW-H",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-ST-GM-H",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-ST-GMT-H",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-ST-SW-H",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-ST-GM-G",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-ST-GMT-G",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AREA-ST-SW-G",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-SLOTTED-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-FLUTTED-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-KH-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-CD-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-SPICERACK-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-T100305H55",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-T200305H55",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-T210406H110",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-T210506H110",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-IM-WAL-CT2",
+      "type": "shallow"
     }
   ]
 }

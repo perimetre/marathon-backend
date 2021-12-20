@@ -8,9 +8,10 @@ const db = new PrismaClient();
 const main = async () => {
   // -- Collections
   await db.collection.createMany({
-    data: seedValues.collections.map(({ slug, thumbnailUrl, hasPegs }) => ({
+    data: seedValues.collections.map(({ slug, thumbnailUrl, hasPegs, isComingSoon }) => ({
       slug: slug.toLowerCase(),
       thumbnailUrl,
+      isComingSoon: isComingSoon || false,
       hasPegs: hasPegs || false
     }))
   });
@@ -149,7 +150,8 @@ const main = async () => {
           imageUrl,
           isMat,
           shouldHideBasedOnWidth,
-          isExtension
+          isExtension,
+          isEdge
         }) => {
           return {
             thumbnailUrl: imageUrl,
@@ -160,6 +162,7 @@ const main = async () => {
             isMat,
             isExtension,
             shouldHideBasedOnWidth,
+            isEdge,
             rules: JSON.parse(rules),
             collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
             finishId: finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1
@@ -169,6 +172,13 @@ const main = async () => {
   });
 
   const modules = await db.module.findMany({ select: { id: true, partNumber: true } });
+
+  await db.moduleType.createMany({
+    data: seedValues.moduleTypes.map(({ partNumber, type }) => ({
+      typeId: types.find((f) => f.slug === type)?.id || -1,
+      moduleId: modules.find((f) => f.partNumber === partNumber)?.id || -1
+    }))
+  });
 
   const moduleWithExtensions = seedValues.modules.filter((x) => x.defaultLeftExtension || x.defaultRightExtension);
   for (const module of moduleWithExtensions) {

@@ -9,6 +9,8 @@ import { Context } from './typings/context';
 import logging from './utils/logging';
 import { getDb } from './database';
 import scheduleJobs from './cron';
+import { initSentry } from './lib/sentry';
+import * as Sentry from '@sentry/node';
 
 // Helpers
 const normalizePort = (val: string): number => {
@@ -79,6 +81,14 @@ const main = async () => {
     // App
     const app = express();
 
+    initSentry(app);
+
+    // RequestHandler creates a separate execution context using domains, so that every
+    // transaction/span/breadcrumb is attached to its own Hub instance
+    app.use(Sentry.Handlers.requestHandler());
+    // TracingHandler creates a trace for every incoming request
+    app.use(Sentry.Handlers.tracingHandler());
+
     server.applyMiddleware({
       app,
       bodyParserConfig: { limit: '20mb' },
@@ -106,6 +116,9 @@ const main = async () => {
     // Initializing routes
     app.use(routes);
 
+    // The error handler must be before any other error middleware and after all controllers(routes)
+    app.use(Sentry.Handlers.errorHandler());
+
     // Server start
     const port = normalizePort(env.PORT);
 
@@ -114,7 +127,7 @@ const main = async () => {
 
     await new Promise<void>((resolve) => app.listen({ port }, resolve));
     console.log(`🚀 Server ready at http://localhost:${port}/graphql`);
-  } catch (error) {
+  } catch (error: any) {
     logging.error(error);
     process.exit(1);
   }
