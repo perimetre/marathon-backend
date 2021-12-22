@@ -4,6 +4,7 @@ import {
   resolveAssetBundleUrlToField,
   resolvePublicMediaUrlToField
 } from '../utils/nexus';
+import { NexusGenObjects } from '../generated/nexus';
 
 export const Module = objectType({
   name: 'Module',
@@ -33,8 +34,14 @@ export const Module = objectType({
     });
 
     t.model.rules({
-      resolve: (root: any) => {
-        return JSON.parse(root.rules);
+      alias: 'rulesJson'
+    });
+
+    t.field('rules', {
+      type: 'ModuleRules',
+      resolve: async (root, _args, ctx) => {
+        const module = await ctx.prisma.module.findUnique({ where: { id: root.id } });
+        return (module?.rules as unknown as NexusGenObjects['ModuleRules']) || null;
       }
     });
   }

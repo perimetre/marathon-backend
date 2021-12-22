@@ -1,7 +1,9 @@
-import { intArg, mutationField, nonNull } from 'nexus';
+import { intArg, mutationField, nonNull, nullable } from 'nexus';
 import { makeError } from '../../utils/exception';
 import { nanoid } from 'nanoid';
 import logging from '../../utils/logging';
+import { marathonService } from '../../services/marathon';
+import { NexusGenArgTypes } from '../../generated/nexus';
 
 export const ProjectMutations = [
   mutationField('cloneOneProject', {
@@ -36,8 +38,18 @@ export const ProjectMutations = [
         });
       } catch (err: any) {
         logging.error(err, 'Error trying to clone project');
-        throw makeError('Erro while trying to clone project', 'cloneProjectError');
+        throw makeError('Error while trying to clone project', 'cloneProjectError');
       }
+    }
+  }),
+  mutationField('createList', {
+    type: nullable('List'),
+    args: { id: nonNull(intArg()) },
+    resolve: async (_, args: NexusGenArgTypes['Mutation']['createList'], ctx) => {
+      return await marathonService({ db: ctx.prisma }).createList(
+        args.id,
+        ctx.req.headers['x-auth-token'] as string | undefined
+      );
     }
   })
 ];

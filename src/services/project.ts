@@ -1,4 +1,6 @@
 import { PrismaClient } from '@prisma/client';
+import { groupBy, values } from 'lodash';
+import { NexusGenObjects } from '../generated/nexus';
 
 type ProjectServiceDependencies = {
   db?: PrismaClient;
@@ -31,7 +33,51 @@ export const projectService = ({ db }: ProjectServiceDependencies) => {
     return originalCalculatedWidth;
   };
 
+  const getCartModules = async (projectId: number) => {
+    if (!db) {
+      throw new Error('db dependency was not provided');
+    }
+
+    return db.project
+      .findUnique({
+        where: { id: projectId }
+      })
+      .projectModules({
+        where: { parentId: { equals: null } },
+        include: {
+          module: true,
+          children: { where: { module: { partNumber: { not: { contains: 'EXTENSION' } } } } }
+        }
+      });
+  };
+
+  const getCart = async (projectId: number) => {
+    const projectModules = await getCartModules(projectId);
+
+    // This method groups similar modules and returns the amount as quantity, then does the same for the children.
+    // So if the user has two of the same modules. We show "quantity:2" instead of showing the module twice
+    const cart = values(groupBy(projectModules, 'moduleId')).map((group) => ({
+      id: group[0].id,
+      projectModule: { ...group[0] },
+      quantity: group.length,
+      children: values(
+        groupBy(
+          projectModules.filter((x) => x.moduleId === group[0].moduleId).flatMap((x) => x.children) || [],
+          'moduleId'
+        )
+      ).map((childGroup) => ({
+        id: childGroup[0].id,
+        projectModule: { ...childGroup[0] },
+        quantity: childGroup.length
+      }))
+    }));
+
+    return cart;
+  };
+
   return {
-    calculateCabinetWidth
+    calculateCabinetWidth,
+    getCartModules,
+    getCart
   };
 };

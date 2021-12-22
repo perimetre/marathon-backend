@@ -56,7 +56,7 @@ export const SP_FINISH_FRAGMENT = `
 
 export const SP_PRODUCT_FRAGMENT = `
   fragment Product on object_product {
-    pimcoreId: id
+    id
     partNumber: itemId
 
     classname

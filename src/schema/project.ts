@@ -5,6 +5,24 @@ import { moduleService } from '../services/modules';
 import { Context } from '../typings/context';
 import { GraphQLResolveInfo } from 'graphql';
 import { nanoid } from 'nanoid';
+import { NexusGenArgTypes } from '../generated/nexus';
+
+export const ProjectCart = objectType({
+  name: 'ProjectCart',
+  definition(t) {
+    t.nonNull.int('id');
+
+    t.nonNull.int('quantity');
+
+    t.nonNull.field('projectModule', {
+      type: 'ProjectModule'
+    });
+
+    t.list.field('children', {
+      type: nonNull(ProjectCart)
+    });
+  }
+});
 
 export const Project = objectType({
   name: 'Project',
@@ -65,18 +83,18 @@ export const Project = objectType({
       }
     });
 
+    t.field('cart', {
+      type: nonNull(list(nonNull(ProjectCart))),
+      resolve: (root, _args, ctx) => projectService({ db: ctx.prisma }).getCart(root.id)
+    });
+
     t.field('cartAmount', {
       type: nonNull('Int'),
       resolve: async (root, _args, ctx) => {
         return (
-          await ctx.prisma.project
-            .findUnique({
-              where: { id: root.id }
-            })
-            .projectModules({
-              where: { parentId: { equals: null } },
-              include: { children: { where: { module: { partNumber: { not: { contains: 'EXTENSION' } } } } } }
-            })
+          await projectService({
+            db: ctx.prisma
+          }).getCartModules(root.id)
         ).reduce((prev, curr) => {
           prev = prev || 0;
           prev++;
@@ -90,7 +108,7 @@ export const Project = objectType({
 
 export const createOneProjectCustomResolver = async (
   root: Record<string, unknown>,
-  args: any,
+  args: NexusGenArgTypes['Mutation']['createOneProject'],
   ctx: Context,
   info: GraphQLResolveInfo,
   originalResolver: FieldResolver<'Mutation', 'createOneProject'>
@@ -130,7 +148,7 @@ export const createOneProjectCustomResolver = async (
 
 export const createOneProjectModuleCustomResolver = async (
   root: Record<string, unknown>,
-  args: any,
+  args: NexusGenArgTypes['Mutation']['createOneProjectModule'],
   ctx: Context,
   info: GraphQLResolveInfo,
   originalResolver: FieldResolver<'Mutation', 'createOneProjectModule'>

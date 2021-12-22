@@ -15,6 +15,7 @@ input BoolFilter {
 }
 
 type Category {
+  externalId: String
   id: Int!
   modules(where: ModuleWhereInput): [Module!]!
   name: String!
@@ -33,11 +34,13 @@ input CategoryCreateOrConnectWithoutModuleCategoriesInput {
 }
 
 input CategoryCreateWithoutModuleCategoriesInput {
+  externalId: String
   name: String!
   slug: String!
 }
 
 input CategoryOrderByInput {
+  externalId: SortOrder
   id: SortOrder
   name: SortOrder
   slug: SortOrder
@@ -52,6 +55,7 @@ input CategoryUpdateOneRequiredWithoutModuleCategoriesInput {
 }
 
 input CategoryUpdateWithoutModuleCategoriesInput {
+  externalId: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   slug: StringFieldUpdateOperationsInput
 }
@@ -65,6 +69,7 @@ input CategoryWhereInput {
   AND: [CategoryWhereInput!]
   NOT: [CategoryWhereInput!]
   OR: [CategoryWhereInput!]
+  externalId: StringNullableFilter
   id: IntFilter
   moduleCategories: ModuleCategoryListRelationFilter
   name: StringFilter
@@ -72,6 +77,7 @@ input CategoryWhereInput {
 }
 
 input CategoryWhereUniqueInput {
+  externalId: String
   id: Int
   slug: String
 }
@@ -85,6 +91,7 @@ type Collection {
     where: CollectionFinishesWhereInput
   ): [CollectionFinishes!]!
   description: String
+  externalId: String
   footer: String
   hasPegs: Boolean!
   id: Int!
@@ -161,6 +168,7 @@ input CollectionCreateOrConnectWithoutSlidesInput {
 }
 
 input CollectionCreateWithoutCollectionFinishesInput {
+  externalId: String
   hasPegs: Boolean
   isComingSoon: Boolean
   modules: ModuleCreateNestedManyWithoutCollectionInput
@@ -173,6 +181,7 @@ input CollectionCreateWithoutCollectionFinishesInput {
 
 input CollectionCreateWithoutModulesInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutCollectionInput
+  externalId: String
   hasPegs: Boolean
   isComingSoon: Boolean
   projects: ProjectCreateNestedManyWithoutCollectionInput
@@ -184,6 +193,7 @@ input CollectionCreateWithoutModulesInput {
 
 input CollectionCreateWithoutProjectsInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutCollectionInput
+  externalId: String
   hasPegs: Boolean
   isComingSoon: Boolean
   modules: ModuleCreateNestedManyWithoutCollectionInput
@@ -195,6 +205,7 @@ input CollectionCreateWithoutProjectsInput {
 
 input CollectionCreateWithoutSlidesInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutCollectionInput
+  externalId: String
   hasPegs: Boolean
   isComingSoon: Boolean
   modules: ModuleCreateNestedManyWithoutCollectionInput
@@ -373,6 +384,7 @@ input CollectionFinishesWhereUniqueInput {
 }
 
 input CollectionOrderByInput {
+  externalId: SortOrder
   hasPegs: SortOrder
   id: SortOrder
   isComingSoon: SortOrder
@@ -541,6 +553,7 @@ input CollectionUpdateOneRequiredWithoutSlidesInput {
 }
 
 input CollectionUpdateWithoutCollectionFinishesInput {
+  externalId: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   isComingSoon: BoolFieldUpdateOperationsInput
   modules: ModuleUpdateManyWithoutCollectionInput
@@ -553,6 +566,7 @@ input CollectionUpdateWithoutCollectionFinishesInput {
 
 input CollectionUpdateWithoutModulesInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutCollectionInput
+  externalId: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   isComingSoon: BoolFieldUpdateOperationsInput
   projects: ProjectUpdateManyWithoutCollectionInput
@@ -564,6 +578,7 @@ input CollectionUpdateWithoutModulesInput {
 
 input CollectionUpdateWithoutProjectsInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutCollectionInput
+  externalId: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   isComingSoon: BoolFieldUpdateOperationsInput
   modules: ModuleUpdateManyWithoutCollectionInput
@@ -575,6 +590,7 @@ input CollectionUpdateWithoutProjectsInput {
 
 input CollectionUpdateWithoutSlidesInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutCollectionInput
+  externalId: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   isComingSoon: BoolFieldUpdateOperationsInput
   modules: ModuleUpdateManyWithoutCollectionInput
@@ -609,6 +625,7 @@ input CollectionWhereInput {
   NOT: [CollectionWhereInput!]
   OR: [CollectionWhereInput!]
   collectionFinishes: CollectionFinishesListRelationFilter
+  externalId: StringNullableFilter
   hasPegs: BoolFilter
   id: IntFilter
   isComingSoon: BoolFilter
@@ -621,6 +638,7 @@ input CollectionWhereInput {
 }
 
 input CollectionWhereUniqueInput {
+  externalId: String
   id: Int
   slug: String
 }
@@ -662,6 +680,7 @@ type Finish {
     where: CollectionFinishesWhereInput
   ): [CollectionFinishes!]!
   description: String
+  externalId: String
   id: Int!
   modules(
     cursor: ModuleWhereUniqueInput
@@ -716,6 +735,7 @@ input FinishCreateOrConnectWithoutProjectsInput {
 }
 
 input FinishCreateWithoutCollectionFinishesInput {
+  externalId: String
   modules: ModuleCreateNestedManyWithoutFinishInput
   projects: ProjectCreateNestedManyWithoutFinishInput
   slug: String!
@@ -725,6 +745,7 @@ input FinishCreateWithoutCollectionFinishesInput {
 
 input FinishCreateWithoutModulesInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutFinishInput
+  externalId: String
   projects: ProjectCreateNestedManyWithoutFinishInput
   slug: String!
   thumbnailUrl: String
@@ -733,6 +754,7 @@ input FinishCreateWithoutModulesInput {
 
 input FinishCreateWithoutProjectsInput {
   collectionFinishes: CollectionFinishesCreateNestedManyWithoutFinishInput
+  externalId: String
   modules: ModuleCreateNestedManyWithoutFinishInput
   slug: String!
   thumbnailUrl: String
@@ -740,6 +762,7 @@ input FinishCreateWithoutProjectsInput {
 }
 
 input FinishOrderByInput {
+  externalId: SortOrder
   id: SortOrder
   slug: SortOrder
   thumbnailUrl: SortOrder
@@ -884,6 +907,7 @@ input FinishUpdateOneRequiredWithoutProjectsInput {
 }
 
 input FinishUpdateWithoutCollectionFinishesInput {
+  externalId: NullableStringFieldUpdateOperationsInput
   modules: ModuleUpdateManyWithoutFinishInput
   projects: ProjectUpdateManyWithoutFinishInput
   slug: StringFieldUpdateOperationsInput
@@ -893,6 +917,7 @@ input FinishUpdateWithoutCollectionFinishesInput {
 
 input FinishUpdateWithoutModulesInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutFinishInput
+  externalId: NullableStringFieldUpdateOperationsInput
   projects: ProjectUpdateManyWithoutFinishInput
   slug: StringFieldUpdateOperationsInput
   thumbnailUrl: NullableStringFieldUpdateOperationsInput
@@ -901,6 +926,7 @@ input FinishUpdateWithoutModulesInput {
 
 input FinishUpdateWithoutProjectsInput {
   collectionFinishes: CollectionFinishesUpdateManyWithoutFinishInput
+  externalId: NullableStringFieldUpdateOperationsInput
   modules: ModuleUpdateManyWithoutFinishInput
   slug: StringFieldUpdateOperationsInput
   thumbnailUrl: NullableStringFieldUpdateOperationsInput
@@ -927,6 +953,7 @@ input FinishWhereInput {
   NOT: [FinishWhereInput!]
   OR: [FinishWhereInput!]
   collectionFinishes: CollectionFinishesListRelationFilter
+  externalId: StringNullableFilter
   id: IntFilter
   modules: ModuleListRelationFilter
   projects: ProjectListRelationFilter
@@ -936,6 +963,7 @@ input FinishWhereInput {
 }
 
 input FinishWhereUniqueInput {
+  externalId: String
   id: Int
   slug: String
 }
@@ -1007,6 +1035,114 @@ input JsonNullableFilter {
   not: Json
 }
 
+type List {
+  externalId: String
+  id: Int!
+  name: String
+  project: Project
+  projectId: Int
+}
+
+input ListCreateManyProjectInput {
+  externalId: String
+  id: Int
+  name: String
+}
+
+input ListCreateManyProjectInputEnvelope {
+  data: [ListCreateManyProjectInput!]
+  skipDuplicates: Boolean
+}
+
+input ListCreateNestedManyWithoutProjectInput {
+  connect: [ListWhereUniqueInput!]
+  connectOrCreate: [ListCreateOrConnectWithoutProjectInput!]
+  create: [ListCreateWithoutProjectInput!]
+  createMany: ListCreateManyProjectInputEnvelope
+}
+
+input ListCreateOrConnectWithoutProjectInput {
+  create: ListCreateWithoutProjectInput!
+  where: ListWhereUniqueInput!
+}
+
+input ListCreateWithoutProjectInput {
+  externalId: String
+  name: String
+}
+
+input ListListRelationFilter {
+  every: ListWhereInput
+  none: ListWhereInput
+  some: ListWhereInput
+}
+
+input ListScalarWhereInput {
+  AND: [ListScalarWhereInput!]
+  NOT: [ListScalarWhereInput!]
+  OR: [ListScalarWhereInput!]
+  externalId: StringNullableFilter
+  id: IntFilter
+  name: StringNullableFilter
+  projectId: IntNullableFilter
+}
+
+input ListUpdateManyMutationInput {
+  externalId: NullableStringFieldUpdateOperationsInput
+  name: NullableStringFieldUpdateOperationsInput
+}
+
+input ListUpdateManyWithWhereWithoutProjectInput {
+  data: ListUpdateManyMutationInput!
+  where: ListScalarWhereInput!
+}
+
+input ListUpdateManyWithoutProjectInput {
+  connect: [ListWhereUniqueInput!]
+  connectOrCreate: [ListCreateOrConnectWithoutProjectInput!]
+  create: [ListCreateWithoutProjectInput!]
+  createMany: ListCreateManyProjectInputEnvelope
+  delete: [ListWhereUniqueInput!]
+  deleteMany: [ListScalarWhereInput!]
+  disconnect: [ListWhereUniqueInput!]
+  set: [ListWhereUniqueInput!]
+  update: [ListUpdateWithWhereUniqueWithoutProjectInput!]
+  updateMany: [ListUpdateManyWithWhereWithoutProjectInput!]
+  upsert: [ListUpsertWithWhereUniqueWithoutProjectInput!]
+}
+
+input ListUpdateWithWhereUniqueWithoutProjectInput {
+  data: ListUpdateWithoutProjectInput!
+  where: ListWhereUniqueInput!
+}
+
+input ListUpdateWithoutProjectInput {
+  externalId: NullableStringFieldUpdateOperationsInput
+  name: NullableStringFieldUpdateOperationsInput
+}
+
+input ListUpsertWithWhereUniqueWithoutProjectInput {
+  create: ListCreateWithoutProjectInput!
+  update: ListUpdateWithoutProjectInput!
+  where: ListWhereUniqueInput!
+}
+
+input ListWhereInput {
+  AND: [ListWhereInput!]
+  NOT: [ListWhereInput!]
+  OR: [ListWhereInput!]
+  externalId: StringNullableFilter
+  id: IntFilter
+  name: StringNullableFilter
+  project: ProjectWhereInput
+  projectId: IntNullableFilter
+}
+
+input ListWhereUniqueInput {
+  externalId: String
+  id: Int
+}
+
 enum Locale {
   en
   fr
@@ -1029,6 +1165,7 @@ type Module {
   defaultRightExtensionId: Int
   defaultRightExtensionParents(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
   description: String
+  externalId: String
   finish: Finish!
   finishId: Int!
   hasPegs: Boolean!
@@ -1048,7 +1185,8 @@ type Module {
     take: Int
     where: ProjectModuleWhereInput
   ): [ProjectModule!]!
-  rules: Json
+  rules: ModuleRules
+  rulesJson: Json
   shouldHideBasedOnWidth: Boolean!
   thumbnailUrl: String
   updatedAt: DateTime!
@@ -1332,6 +1470,7 @@ input ModuleCreateManyAttachmentToAppendInput {
   defaultLeftExtensionId: Int
   defaultRightExtensionId: Int
   description: String
+  externalId: String
   finishId: Int!
   hasPegs: Boolean
   id: Int
@@ -1359,6 +1498,7 @@ input ModuleCreateManyCollectionInput {
   defaultLeftExtensionId: Int
   defaultRightExtensionId: Int
   description: String
+  externalId: String
   finishId: Int!
   hasPegs: Boolean
   id: Int
@@ -1386,6 +1526,7 @@ input ModuleCreateManyDefaultLeftExtensionInput {
   createdAt: DateTime
   defaultRightExtensionId: Int
   description: String
+  externalId: String
   finishId: Int!
   hasPegs: Boolean
   id: Int
@@ -1413,6 +1554,7 @@ input ModuleCreateManyDefaultRightExtensionInput {
   createdAt: DateTime
   defaultLeftExtensionId: Int
   description: String
+  externalId: String
   finishId: Int!
   hasPegs: Boolean
   id: Int
@@ -1441,6 +1583,7 @@ input ModuleCreateManyFinishInput {
   defaultLeftExtensionId: Int
   defaultRightExtensionId: Int
   description: String
+  externalId: String
   hasPegs: Boolean
   id: Int
   isEdge: Boolean
@@ -1607,6 +1750,7 @@ input ModuleCreateWithoutAttachmentToAppendInput {
   defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
+  externalId: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isEdge: Boolean
@@ -1636,6 +1780,7 @@ input ModuleCreateWithoutAttachmentToAppendParentsInput {
   defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
+  externalId: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isEdge: Boolean
@@ -1665,6 +1810,7 @@ input ModuleCreateWithoutCollectionInput {
   defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
+  externalId: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isEdge: Boolean
@@ -1694,6 +1840,7 @@ input ModuleCreateWithoutDefaultLeftExtensionInput {
   defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
+  externalId: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isEdge: Boolean
@@ -1723,6 +1870,7 @@ input ModuleCreateWithoutDefaultLeftExtensionParentsInput {
   defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
+  externalId: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isEdge: Boolean
@@ -1752,6 +1900,7 @@ input ModuleCreateWithoutDefaultRightExtensionInput {
   defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
+  externalId: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isEdge: Boolean
@@ -1781,6 +1930,7 @@ input ModuleCreateWithoutDefaultRightExtensionParentsInput {
   defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
   defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
   description: String
+  externalId: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isEdge: Boolean
@@ -1811,6 +1961,7 @@ input ModuleCreateWithoutFinishInput {
   defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
+  externalId: String
   hasPegs: Boolean
   isEdge: Boolean
   isExtension: Boolean
@@ -1840,6 +1991,7 @@ input ModuleCreateWithoutModuleAttachedToInput {
   defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
+  externalId: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isEdge: Boolean
@@ -1869,6 +2021,7 @@ input ModuleCreateWithoutModuleAttachmentsInput {
   defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
+  externalId: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isEdge: Boolean
@@ -1898,6 +2051,7 @@ input ModuleCreateWithoutModuleTypeInput {
   defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
+  externalId: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isEdge: Boolean
@@ -1927,6 +2081,7 @@ input ModuleCreateWithoutProjectModulesInput {
   defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
   description: String
+  externalId: String
   finish: FinishCreateNestedOneWithoutModulesInput!
   hasPegs: Boolean
   isEdge: Boolean
@@ -1976,6 +2131,7 @@ input ModuleOrderByInput {
   defaultLeftExtensionId: SortOrder
   defaultRightExtensionId: SortOrder
   description: SortOrder
+  externalId: SortOrder
   finishId: SortOrder
   hasPegs: SortOrder
   id: SortOrder
@@ -2055,6 +2211,7 @@ input ModuleScalarWhereInput {
   defaultLeftExtensionId: IntNullableFilter
   defaultRightExtensionId: IntNullableFilter
   description: StringNullableFilter
+  externalId: StringNullableFilter
   finishId: IntFilter
   hasPegs: BoolFilter
   id: IntFilter
@@ -2241,6 +2398,7 @@ input ModuleUpdateManyMutationInput {
   bundleUrl: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
@@ -2446,6 +2604,7 @@ input ModuleUpdateWithoutAttachmentToAppendInput {
   defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
@@ -2475,6 +2634,7 @@ input ModuleUpdateWithoutAttachmentToAppendParentsInput {
   defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
@@ -2504,6 +2664,7 @@ input ModuleUpdateWithoutCollectionInput {
   defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
@@ -2533,6 +2694,7 @@ input ModuleUpdateWithoutDefaultLeftExtensionInput {
   defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
@@ -2562,6 +2724,7 @@ input ModuleUpdateWithoutDefaultLeftExtensionParentsInput {
   defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
@@ -2591,6 +2754,7 @@ input ModuleUpdateWithoutDefaultRightExtensionInput {
   defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
@@ -2620,6 +2784,7 @@ input ModuleUpdateWithoutDefaultRightExtensionParentsInput {
   defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
   defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
@@ -2650,6 +2815,7 @@ input ModuleUpdateWithoutFinishInput {
   defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
   isExtension: BoolFieldUpdateOperationsInput
@@ -2679,6 +2845,7 @@ input ModuleUpdateWithoutModuleAttachedToInput {
   defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
@@ -2708,6 +2875,7 @@ input ModuleUpdateWithoutModuleAttachmentsInput {
   defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
@@ -2737,6 +2905,7 @@ input ModuleUpdateWithoutModuleTypeInput {
   defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
@@ -2766,6 +2935,7 @@ input ModuleUpdateWithoutProjectModulesInput {
   defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
   defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
   description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
   finish: FinishUpdateOneRequiredWithoutModulesInput
   hasPegs: BoolFieldUpdateOperationsInput
   isEdge: BoolFieldUpdateOperationsInput
@@ -2867,6 +3037,7 @@ input ModuleWhereInput {
   defaultRightExtensionId: IntNullableFilter
   defaultRightExtensionParents: ModuleListRelationFilter
   description: StringNullableFilter
+  externalId: StringNullableFilter
   finish: FinishWhereInput
   finishId: IntFilter
   hasPegs: BoolFilter
@@ -2888,12 +3059,14 @@ input ModuleWhereInput {
 }
 
 input ModuleWhereUniqueInput {
+  externalId: String
   id: Int
   partNumber: String
 }
 
 type Mutation {
   cloneOneProject(id: Int!): Project!
+  createList(id: Int!): List
   createOneProject(data: ProjectCreateInput!): Project!
   createOneProjectModule(data: ProjectModuleCreateInput!): ProjectModule!
   deleteManyProjectModule(where: ProjectModuleWhereInput): AffectedRowsOutput!
@@ -3018,6 +3191,7 @@ input NullableStringFieldUpdateOperationsInput {
 type Project {
   cabinetWidth: Float
   calculatedWidth: Float
+  cart: [ProjectCart!]!
   cartAmount: Int!
   collection: Collection!
   collectionId: Int!
@@ -3026,6 +3200,7 @@ type Project {
   gable: Float!
   hasPegs: Boolean!
   id: Int!
+  lists(cursor: ListWhereUniqueInput, skip: Int, take: Int): [List!]!
   modules: [Module!]!
   projectModules(
     cursor: ProjectModuleWhereUniqueInput
@@ -3046,6 +3221,13 @@ type Project {
   userId: Int
 }
 
+type ProjectCart {
+  children: [ProjectCart!]
+  id: Int!
+  projectModule: ProjectModule!
+  quantity: Int!
+}
+
 input ProjectCreateInput {
   cabinetWidth: Float
   calculatedWidth: Float
@@ -3053,6 +3235,7 @@ input ProjectCreateInput {
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
   hasPegs: Boolean
+  lists: ListCreateNestedManyWithoutProjectInput
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -3239,6 +3422,7 @@ input ProjectCreateWithoutCollectionInput {
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
   hasPegs: Boolean
+  lists: ListCreateNestedManyWithoutProjectInput
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -3254,6 +3438,7 @@ input ProjectCreateWithoutFinishInput {
   collection: CollectionCreateNestedOneWithoutProjectsInput!
   gable: Float!
   hasPegs: Boolean
+  lists: ListCreateNestedManyWithoutProjectInput
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -3270,6 +3455,7 @@ input ProjectCreateWithoutProjectModulesInput {
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
   hasPegs: Boolean
+  lists: ListCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
   slug: String!
@@ -3285,6 +3471,7 @@ input ProjectCreateWithoutSlideDepthInput {
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
   hasPegs: Boolean
+  lists: ListCreateNestedManyWithoutProjectInput
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slug: String!
@@ -3300,6 +3487,7 @@ input ProjectCreateWithoutSlideInput {
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
   hasPegs: Boolean
+  lists: ListCreateNestedManyWithoutProjectInput
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
   slug: String!
@@ -3315,6 +3503,7 @@ input ProjectCreateWithoutTypeInput {
   finish: FinishCreateNestedOneWithoutProjectsInput!
   gable: Float!
   hasPegs: Boolean
+  lists: ListCreateNestedManyWithoutProjectInput
   projectModules: ProjectModuleCreateNestedManyWithoutProjectInput
   slide: SlideCreateNestedOneWithoutProjectsInput!
   slideDepth: SlideDepthCreateNestedOneWithoutProjectsInput!
@@ -3788,6 +3977,7 @@ input ProjectUpdateInput {
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
+  lists: ListUpdateManyWithoutProjectInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -3942,6 +4132,7 @@ input ProjectUpdateWithoutCollectionInput {
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
+  lists: ListUpdateManyWithoutProjectInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -3957,6 +4148,7 @@ input ProjectUpdateWithoutFinishInput {
   collection: CollectionUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
+  lists: ListUpdateManyWithoutProjectInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -3973,6 +4165,7 @@ input ProjectUpdateWithoutProjectModulesInput {
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
+  lists: ListUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
   slug: StringFieldUpdateOperationsInput
@@ -3988,6 +4181,7 @@ input ProjectUpdateWithoutSlideDepthInput {
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
+  lists: ListUpdateManyWithoutProjectInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slug: StringFieldUpdateOperationsInput
@@ -4003,6 +4197,7 @@ input ProjectUpdateWithoutSlideInput {
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
+  lists: ListUpdateManyWithoutProjectInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
   slug: StringFieldUpdateOperationsInput
@@ -4018,6 +4213,7 @@ input ProjectUpdateWithoutTypeInput {
   finish: FinishUpdateOneRequiredWithoutProjectsInput
   gable: FloatFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
+  lists: ListUpdateManyWithoutProjectInput
   projectModules: ProjectModuleUpdateManyWithoutProjectInput
   slide: SlideUpdateOneRequiredWithoutProjectsInput
   slideDepth: SlideDepthUpdateOneRequiredWithoutProjectsInput
@@ -4074,6 +4270,7 @@ input ProjectWhereInput {
   gable: FloatFilter
   hasPegs: BoolFilter
   id: IntFilter
+  lists: ListListRelationFilter
   projectModules: ProjectModuleListRelationFilter
   slide: SlideWhereInput
   slideDepth: SlideDepthWhereInput
@@ -4805,6 +5002,7 @@ type TrimOffsetMetadata {
 
 type Type {
   description: String
+  externalId: String
   hasPegs: Boolean!
   id: Int!
   moduleType(cursor: ModuleTypeWhereUniqueInput, skip: Int, take: Int): [ModuleType!]!
@@ -4843,6 +5041,7 @@ input TypeCreateOrConnectWithoutProjectsInput {
 }
 
 input TypeCreateWithoutModuleTypeInput {
+  externalId: String
   hasPegs: Boolean
   projects: ProjectCreateNestedManyWithoutTypeInput
   slug: String!
@@ -4851,6 +5050,7 @@ input TypeCreateWithoutModuleTypeInput {
 }
 
 input TypeCreateWithoutProjectsInput {
+  externalId: String
   hasPegs: Boolean
   moduleType: ModuleTypeCreateNestedManyWithoutTypeInput
   slug: String!
@@ -4859,6 +5059,7 @@ input TypeCreateWithoutProjectsInput {
 }
 
 input TypeOrderByInput {
+  externalId: SortOrder
   hasPegs: SortOrder
   id: SortOrder
   slug: SortOrder
@@ -4996,6 +5197,7 @@ input TypeUpdateOneRequiredWithoutProjectsInput {
 }
 
 input TypeUpdateWithoutModuleTypeInput {
+  externalId: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   projects: ProjectUpdateManyWithoutTypeInput
   slug: StringFieldUpdateOperationsInput
@@ -5004,6 +5206,7 @@ input TypeUpdateWithoutModuleTypeInput {
 }
 
 input TypeUpdateWithoutProjectsInput {
+  externalId: NullableStringFieldUpdateOperationsInput
   hasPegs: BoolFieldUpdateOperationsInput
   moduleType: ModuleTypeUpdateManyWithoutTypeInput
   slug: StringFieldUpdateOperationsInput
@@ -5025,6 +5228,7 @@ input TypeWhereInput {
   AND: [TypeWhereInput!]
   NOT: [TypeWhereInput!]
   OR: [TypeWhereInput!]
+  externalId: StringNullableFilter
   hasPegs: BoolFilter
   id: IntFilter
   moduleType: ModuleTypeListRelationFilter
@@ -5035,6 +5239,7 @@ input TypeWhereInput {
 }
 
 input TypeWhereUniqueInput {
+  externalId: String
   id: Int
   slug: String
 }
