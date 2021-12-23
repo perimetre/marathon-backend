@@ -2147,6 +2147,7 @@ input ModuleOrderByInput {
 }
 
 type ModuleRules {
+  bundleUrl: String
   dimensions: ModuleDimension
 
   """
@@ -2158,6 +2159,7 @@ type ModuleRules {
   Modules that are basically this module but in a different finish(color), to allow the ui to easily switch between them
   """
   finishes: [String!]
+  isImprintExtension: Boolean!
 
   """
   The module part number, probably equivalent to the module id
@@ -2181,6 +2183,11 @@ type ModuleRulesMetadata {
   Options are which other modules can be put IN modules
   """
   options: [String!]
+
+  """
+  Queue info
+  """
+  queue: QueueInfoMetadata
 
   """
   The product can only be put inside the drawer, if the current net interior of the drawer belongs to the range of the piece
@@ -4385,6 +4392,18 @@ type Query {
     take: Int
     where: TypeWhereInput
   ): [Type!]!
+}
+
+type QueueInfoMetadata {
+  """
+  Repeat models
+  """
+  append: String
+
+  """
+  Last model after repeat
+  """
+  modules: [String!]!
 }
 
 type Session {

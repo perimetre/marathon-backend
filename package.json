@@ -84,6 +84,7 @@
     "nexus": "^1.1.0",
     "nexus-plugin-prisma": "^0.35.0",
     "node-cron": "^3.0.0",
+    "p-limit": "^3.1.0",
     "prettier": "^2.3.2",
     "prisma": "^2.29.0",
     "require-all": "^3.0.0",

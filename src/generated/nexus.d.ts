@@ -4896,9 +4896,11 @@ export interface NexusGenObjects {
   };
   ModuleRules: {
     // root type
+    bundleUrl?: string | null; // String
     dimensions?: NexusGenRootTypes['ModuleDimension'] | null; // ModuleDimension
     extensions?: NexusGenRootTypes['ModuleExtensionsMetadata'] | null; // ModuleExtensionsMetadata
     finishes?: string[] | null; // [String!]
+    isImprintExtension: boolean; // Boolean!
     partNumber: string; // String!
     rules?: NexusGenRootTypes['ModuleRulesMetadata'] | null; // ModuleRulesMetadata
     trims?: string[] | null; // [String!]
@@ -4907,6 +4909,7 @@ export interface NexusGenObjects {
     // root type
     fullDepth?: boolean | null; // Boolean
     options?: string[] | null; // [String!]
+    queue?: NexusGenRootTypes['QueueInfoMetadata'] | null; // QueueInfoMetadata
     requiredNetInterior?: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
     rotation?: number | null; // Float
     trimOffset?: NexusGenRootTypes['TrimOffsetMetadata'] | null; // TrimOffsetMetadata
@@ -4960,6 +4963,11 @@ export interface NexusGenObjects {
     rotY: number; // Float!
   };
   Query: {};
+  QueueInfoMetadata: {
+    // root type
+    append?: string | null; // String
+    modules: string[]; // [String!]!
+  };
   Session: {
     // root type
     id: number; // Int!
@@ -5177,9 +5185,11 @@ export interface NexusGenFieldTypes {
   };
   ModuleRules: {
     // field return type
+    bundleUrl: string | null; // String
     dimensions: NexusGenRootTypes['ModuleDimension'] | null; // ModuleDimension
     extensions: NexusGenRootTypes['ModuleExtensionsMetadata'] | null; // ModuleExtensionsMetadata
     finishes: string[] | null; // [String!]
+    isImprintExtension: boolean; // Boolean!
     partNumber: string; // String!
     rules: NexusGenRootTypes['ModuleRulesMetadata'] | null; // ModuleRulesMetadata
     trims: string[] | null; // [String!]
@@ -5188,6 +5198,7 @@ export interface NexusGenFieldTypes {
     // field return type
     fullDepth: boolean | null; // Boolean
     options: string[] | null; // [String!]
+    queue: NexusGenRootTypes['QueueInfoMetadata'] | null; // QueueInfoMetadata
     requiredNetInterior: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
     rotation: number | null; // Float
     trimOffset: NexusGenRootTypes['TrimOffsetMetadata'] | null; // TrimOffsetMetadata
@@ -5296,6 +5307,11 @@ export interface NexusGenFieldTypes {
     slides: NexusGenRootTypes['Slide'][]; // [Slide!]!
     type: NexusGenRootTypes['Type'] | null; // Type
     types: NexusGenRootTypes['Type'][]; // [Type!]!
+  };
+  QueueInfoMetadata: {
+    // field return type
+    append: string | null; // String
+    modules: string[]; // [String!]!
   };
   Session: {
     // field return type
@@ -5523,9 +5539,11 @@ export interface NexusGenFieldTypeNames {
   };
   ModuleRules: {
     // field return type name
+    bundleUrl: 'String';
     dimensions: 'ModuleDimension';
     extensions: 'ModuleExtensionsMetadata';
     finishes: 'String';
+    isImprintExtension: 'Boolean';
     partNumber: 'String';
     rules: 'ModuleRulesMetadata';
     trims: 'String';
@@ -5534,6 +5552,7 @@ export interface NexusGenFieldTypeNames {
     // field return type name
     fullDepth: 'Boolean';
     options: 'String';
+    queue: 'QueueInfoMetadata';
     requiredNetInterior: 'ModuleMinMax';
     rotation: 'Float';
     trimOffset: 'TrimOffsetMetadata';
@@ -5642,6 +5661,11 @@ export interface NexusGenFieldTypeNames {
     slides: 'Slide';
     type: 'Type';
     types: 'Type';
+  };
+  QueueInfoMetadata: {
+    // field return type name
+    append: 'String';
+    modules: 'String';
   };
   Session: {
     // field return type name
