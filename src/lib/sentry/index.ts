@@ -53,7 +53,7 @@ export const captureMessage = (message: string, context: ContextType = {}): void
   }
 };
 
-export const captureException = (error: Error, context: ContextType = {}): void => {
+export const captureException = (error: unknown, context: ContextType = {}): void => {
   if (!sentryInitialized) {
     initSentry();
   }

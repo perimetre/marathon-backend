@@ -71,3 +71,5 @@ export const deleteOneProjectModule = updateDeleteProjectModuleRule;
 const updateDeleteManyProjectModuleRule = isAuthenticated;
 export const updateManyProjectModule = updateDeleteManyProjectModuleRule;
 export const deleteManyProjectModule = updateDeleteManyProjectModuleRule;
+
+export const createList = isAuthenticated;

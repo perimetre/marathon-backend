@@ -163,7 +163,7 @@ const main = async () => {
             isExtension,
             shouldHideBasedOnWidth,
             isEdge,
-            rules: JSON.parse(rules),
+            rules: rules ? JSON.parse(rules) : undefined,
             collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
             finishId: finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1
           };

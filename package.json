@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "14.15.5",
+    "node": "14.17.0",
     "npm": "^6.14"
   },
   "scripts": {
@@ -29,6 +29,7 @@
     "prisma:format": "prisma format",
     "nexus:generate": "ts-node --transpile-only ./src/schema/index.ts",
     "generate": "npm run prisma:generate && npm run nexus:generate",
+    "generate-marathon": "graphql-codegen",
     "postinstall": "npm run generate",
     "prepare": "husky install"
   },
@@ -45,6 +46,8 @@
   "dependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@graphql-codegen/cli": "^2.3.0",
+    "@graphql-codegen/typescript": "^2.4.1",
     "@prisma/client": "^2.29.0",
     "@sentry/node": "^6.16.1",
     "@sentry/tracing": "^6.16.1",
@@ -80,6 +83,8 @@
     "nanoid": "^3.1.30",
     "nexus": "^1.1.0",
     "nexus-plugin-prisma": "^0.35.0",
+    "node-cron": "^3.0.0",
+    "p-limit": "^3.1.0",
     "prettier": "^2.3.2",
     "prisma": "^2.29.0",
     "require-all": "^3.0.0",
@@ -87,6 +92,7 @@
     "typescript": "^4.3.5"
   },
   "devDependencies": {
+    "@types/node-cron": "^3.0.0",
     "husky": "^7.0.0",
     "nodemon": "^2.0.12"
   }
