@@ -7,7 +7,7 @@ const scheduleJobs = async (prisma: PrismaClient): Promise<void> => {
   const daily = '0 4 * * *';
 
   const marathon = marathonService({ db: prisma });
-  await marathon.syncData();
+  // await marathon.syncData();
 
   // cron.schedule(daily, async () => {
   //   console.log(`Daily job (${daily}) `);

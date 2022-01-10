@@ -58,6 +58,8 @@ export const UserMutations = [
       } catch (err: any) {
         if (err.response.status === 403 || err.response.status === 401) {
           throw makeError('Email or password is incorrect', 'wrongCredentials');
+        } else if (err.response.status === 404) {
+          throw makeError('External service is unreachable or was not found', 'unreachableService');
         }
         logging.error(err, 'Error on login');
         throw makeError('Failed on login', err.response.statusText);
