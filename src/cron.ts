@@ -1,12 +1,12 @@
 import { PrismaClient } from '@prisma/client';
-import * as cron from 'node-cron';
-import { marathonService } from './services/marathon';
-import logging from './utils/logging';
+// import * as cron from 'node-cron';
+// import { marathonService } from './services/marathon';
+// import logging from './utils/logging';
 
 const scheduleJobs = async (prisma: PrismaClient): Promise<void> => {
-  const daily = '0 4 * * *';
-
-  const marathon = marathonService({ db: prisma });
+  // const daily = '0 4 * * *';
+  //
+  // const marathon = marathonService({ db: prisma });
   // await marathon.syncData();
 
   // cron.schedule(daily, async () => {
