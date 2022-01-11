@@ -10,103 +10,246 @@ generator client {
   provider = "prisma-client-js"
 }
 
+enum Locale {
+  en
+  fr
+}
+
+model Category {
+  id               Int              @id @default(autoincrement())
+  slug             String           @unique
+  externalId       String?          @unique
+  name             String
+  moduleCategories ModuleCategory[]
+}
+
+model ModuleCategory {
+  id         Int      @id @default(autoincrement())
+  moduleId   Int
+  module     Module   @relation(fields: [moduleId], references: [id])
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
+}
+
 model Collection {
-  id       Int       @id @default(autoincrement())
-  name     String    @db.VarChar(255)
-  projects Project[]
+  id                 Int                      @id @default(autoincrement())
+  slug               String                   @unique
+  externalId         String?                  @unique
+  thumbnailUrl       String?                  @db.VarChar(255)
+  hasPegs            Boolean                  @default(false)
+  isComingSoon       Boolean                  @default(false)
+  translations       CollectionTranslations[]
+  projects           Project[]
+  modules            Module[]
+  collectionFinishes CollectionFinishes[]
+  slides             Slide[]
+}
+
+model CollectionFinishes {
+  id           Int        @id @default(autoincrement())
+  collectionId Int
+  collection   Collection @relation(fields: [collectionId], references: [id])
+  finishId     Int
+  finish       Finish     @relation(fields: [finishId], references: [id])
+}
+
+model CollectionTranslations {
+  id           Int        @id @default(autoincrement())
+  locale       Locale
+  name         String
+  subtitle     String?
+  description  String?
+  footer       String?
+  collectionId Int
+  collection   Collection @relation(fields: [collectionId], references: [id])
 }
 
 model Finish {
-  id       Int       @id @default(autoincrement())
-  name     String    @db.VarChar(255)
-  projects Project[]
+  id                 Int                  @id @default(autoincrement())
+  slug               String               @unique
+  externalId         String?              @unique
+  thumbnailUrl       String?              @db.VarChar(255)
+  translations       FinishTranslations[]
+  projects           Project[]
+  modules            Module[]
+  collectionFinishes CollectionFinishes[]
+}
+
+model FinishTranslations {
+  id          Int     @id @default(autoincrement())
+  locale      Locale
+  name        String
+  description String?
+  finishId    Int
+  finish      Finish  @relation(fields: [finishId], references: [id])
+}
+
+model List {
+  id         Int      @id @default(autoincrement())
+  externalId String?  @unique
+  name       String?
+  projectId  Int?
+  project    Project? @relation(fields: [projectId], references: [id])
+}
+
+model ModuleAttachments {
+  id           Int    @id @default(autoincrement())
+  moduleId     Int
+  module       Module @relation("module_moduleAttachments", fields: [moduleId], references: [id])
+  attachmentId Int
+  attachment   Module @relation("attachment_moduleAttachments", fields: [attachmentId], references: [id])
 }
 
 model Module {
-  id                    Int             @id @default(autoincrement())
-  partNumber            String          @unique
-  projectsThisBelongsTo ProjectModule[]
-}
-
-enum DrawerType {
-  shallow
-  deep
-}
-
-enum MeasureSystem {
-  metric
-  imperial
+  id                           Int                 @id @default(autoincrement())
+  partNumber                   String              @unique
+  externalId                   String?             @unique
+  description                  String?
+  thumbnailUrl                 String?             @db.VarChar(255)
+  bundleUrl                    String?             @db.VarChar(255)
+  isSubmodule                  Boolean             @default(false)
+  hasPegs                      Boolean             @default(false)
+  isMat                        Boolean             @default(false)
+  isExtension                  Boolean             @default(false)
+  shouldHideBasedOnWidth       Boolean             @default(false)
+  createdAt                    DateTime            @default(now()) @db.DateTime(0)
+  updatedAt                    DateTime            @default(now()) @db.DateTime(0)
+  alwaysDisplay                Boolean             @default(false)
+  isEdge                       Boolean             @default(false)
+  defaultLeftExtensionId       Int?
+  defaultLeftExtension         Module?             @relation("defaultLeftExtensionRelation", fields: [defaultLeftExtensionId], references: [id])
+  defaultRightExtensionId      Int?
+  defaultRightExtension        Module?             @relation("defaultRightExtensionRelation", fields: [defaultRightExtensionId], references: [id])
+  attachmentToAppendId         Int?
+  attachmentToAppend           Module?             @relation("attachmentToAppendRelation", fields: [attachmentToAppendId], references: [id])
+  finishId                     Int
+  finish                       Finish              @relation(fields: [finishId], references: [id])
+  collectionId                 Int
+  collection                   Collection          @relation(fields: [collectionId], references: [id])
+  rules                        Json?
+  projectModules               ProjectModule[]
+  moduleCategories             ModuleCategory[]
+  defaultLeftExtensionParents  Module[]            @relation("defaultLeftExtensionRelation")
+  defaultRightExtensionParents Module[]            @relation("defaultRightExtensionRelation")
+  attachmentToAppendParents    Module[]            @relation("attachmentToAppendRelation")
+  moduleAttachments            ModuleAttachments[] @relation("module_moduleAttachments")
+  moduleAttachedTo             ModuleAttachments[] @relation("attachment_moduleAttachments")
+  moduleType                   ModuleType[]
 }
 
 model Project {
-  id                Int             @id @default(autoincrement())
-  title             String          @db.VarChar(255)
-  type              DrawerType
-  mainMeasureSystem MeasureSystem
-  widthInCM         Float
-  gableInCM         Float
-  widthInIN         String          @db.VarChar(255)
-  gableInIN         String          @db.VarChar(255)
-  collectionId      Int
-  collection        Collection      @relation(fields: [collectionId], references: [id])
-  finishId          Int
-  finish            Finish          @relation(fields: [finishId], references: [id])
-  groupId           Int
-  group             ProjectGroup    @relation(fields: [groupId], references: [id])
-  slideId           Int
-  slide             Slide           @relation(fields: [slideId], references: [id])
-  modules           ProjectModule[]
-}
-
-model ProjectGroup {
-  id       Int                @id @default(autoincrement())
-  name     String             @db.VarChar(255)
-  projects Project[]
-  users    UserProjectGroup[]
+  id              Int             @id @default(autoincrement())
+  slug            String          @unique
+  title           String          @db.VarChar(255)
+  cabinetWidth    Float?
+  calculatedWidth Float?
+  gable           Float
+  typeId          Int
+  hasPegs         Boolean         @default(false)
+  type            Type            @relation(fields: [typeId], references: [id])
+  collectionId    Int
+  collection      Collection      @relation(fields: [collectionId], references: [id])
+  finishId        Int
+  finish          Finish          @relation(fields: [finishId], references: [id])
+  slideId         Int
+  slide           Slide           @relation(fields: [slideId], references: [id])
+  slideDepthId    Int
+  slideDepth      SlideDepth      @relation(fields: [slideDepthId], references: [id])
+  userId          Int?
+  user            User?           @relation(fields: [userId], references: [id])
+  projectModules  ProjectModule[]
+  lists           List[]
 }
 
 model ProjectModule {
-  id        Int             @id @default(autoincrement())
-  posX      Float
-  posY      Float
-  posZ      Float
-  rotX      Float
-  rotY      Float
-  rotZ      Float
-  moduleId  Int
-  module    Module          @relation(fields: [moduleId], references: [id])
-  parentId  Int?
-  parent    ProjectModule?  @relation(fields: [parentId], references: [id])
-  children  ProjectModule[] @relation("ProjectModuleToProjectModule")
-  Project   Project?        @relation(fields: [projectId], references: [id])
-  projectId Int?
+  id           Int             @id @default(autoincrement())
+  nanoId       String          @unique
+  posX         Float           @default(0)
+  posY         Float           @default(0)
+  posZ         Float           @default(0)
+  rotY         Float           @default(0)
+  moduleId     Int
+  module       Module          @relation(fields: [moduleId], references: [id])
+  parentId     Int?
+  parentNanoId String?
+  parent       ProjectModule?  @relation("ProjectModuleToProjectModule", fields: [parentId], references: [id])
+  children     ProjectModule[] @relation("ProjectModuleToProjectModule")
+  projectId    Int?
+  project      Project?        @relation(fields: [projectId], references: [id])
 }
 
 model Slide {
-  id        Int       @id @default(autoincrement())
-  brand     String    @db.VarChar(255)
-  model     String    @db.VarChar(255)
-  depthInCM Float
-  depthInIN String    @db.VarChar(255)
-  projects  Project[]
+  id           Int           @id @default(autoincrement())
+  product      String        @db.VarChar(255)
+  slug         String        @unique
+  formula      String        @db.VarChar(255)
+  supplierId   Int
+  supplier     SlideSupplier @relation(fields: [supplierId], references: [id])
+  collectionId Int
+  collection   Collection    @relation(fields: [collectionId], references: [id])
+  depths       SlideDepth[]
+  projects     Project[]
+}
+
+model SlideDepth {
+  id       Int       @id @default(autoincrement())
+  display  String    @db.VarChar(255)
+  depth    Float
+  slideId  Int
+  slide    Slide     @relation(fields: [slideId], references: [id])
+  projects Project[]
+}
+
+model SlideSupplier {
+  id           Int     @id @default(autoincrement())
+  thumbnailUrl String? @db.VarChar(255)
+  name         String  @db.VarChar(255)
+  slug         String  @unique
+  slides       Slide[]
+}
+
+model Type {
+  id           Int                @id @default(autoincrement())
+  slug         String             @unique
+  externalId   String?            @unique
+  thumbnailUrl String?            @db.VarChar(255)
+  hasPegs      Boolean            @default(false)
+  translations TypeTranslations[]
+  projects     Project[]
+  moduleType   ModuleType[]
+}
+
+model ModuleType {
+  id       Int @id @default(autoincrement())
+  typeId   Int
+  moduleId Int
+
+  type   Type   @relation(fields: [typeId], references: [id])
+  module Module @relation(fields: [moduleId], references: [id])
+}
+
+model TypeTranslations {
+  id          Int     @id @default(autoincrement())
+  locale      Locale
+  name        String
+  description String?
+  typeId      Int
+  type        Type    @relation(fields: [typeId], references: [id])
 }
 
 model User {
-  id            Int                @id @default(autoincrement())
-  email         String             @unique @db.VarChar(255)
-  projectGroups UserProjectGroup[]
+  id             Int    @id @default(autoincrement())
+  email          String @unique @db.VarChar(255)
+  marathonUserId Int
+
+  project Project[]
+  session Session[]
 }
 
-enum UserProjectGroupRelationshipType {
-  owner
-  default
-}
+model Session {
+  id     Int    @id @default(autoincrement())
+  userId Int
+  token  String
 
-model UserProjectGroup {
-  id               Int                              @id @default(autoincrement())
-  groupId          Int
-  group            ProjectGroup                     @relation(fields: [groupId], references: [id])
-  userId           Int
-  user             User                             @relation(fields: [userId], references: [id])
-  relationshipType UserProjectGroupRelationshipType
+  user User @relation(fields: [userId], references: [id])
 }

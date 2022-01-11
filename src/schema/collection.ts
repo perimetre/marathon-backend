@@ -1,9 +1,23 @@
 import { objectType } from 'nexus';
-import { registerModelsWithPrismaBinding } from '../utils/nexus';
+import {
+  registerModelsWithPrismaBinding,
+  registerNonNullTranslatedFields,
+  registerTranslatedFields,
+  resolvePublicMediaUrlToField
+} from '../utils/nexus';
 
 export const Collection = objectType({
   name: 'Collection',
   definition(t) {
-    registerModelsWithPrismaBinding(t);
+    registerModelsWithPrismaBinding(
+      t,
+      ['projects', 'modules', 'collectionFinishes', 'slides'],
+      ['thumbnailUrl', 'translations']
+    );
+    t.model.thumbnailUrl({
+      resolve: resolvePublicMediaUrlToField
+    });
+    registerNonNullTranslatedFields(t, ['name'], (ctx) => ctx.prisma.collection);
+    registerTranslatedFields(t, ['subtitle', 'description', 'footer'], (ctx) => ctx.prisma.collection);
   }
 });

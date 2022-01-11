@@ -1,8 +1,8 @@
 import { objectType } from 'nexus';
 import { registerModelsWithPrismaBinding } from '../utils/nexus';
 
-export const UserProjectGroup = objectType({
-  name: 'UserProjectGroup',
+export const CollectionTranslations = objectType({
+  name: 'CollectionTranslations',
   definition(t) {
     registerModelsWithPrismaBinding(t);
   }

@@ -9,12 +9,12 @@ export const authMiddleware = () => {
   return shield(
     {
       Query: {
-        ...query,
-        '*': allow
+        '*': deny,
+        ...query
       },
       Mutation: {
-        ...mutation,
-        '*': deny
+        '*': deny,
+        ...mutation
       }
       // Other type specific rules are left out in favor of the fallbackRule
     },

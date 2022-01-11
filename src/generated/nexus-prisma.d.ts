@@ -9,114 +9,283 @@ type Pagination = {
 }
 
 // Prisma custom scalar names
-type CustomScalars = 'No custom scalars are used in your Prisma Schema.'
+type CustomScalars = 'DateTime' | 'Json'
 
 // Prisma model type definitions
 interface PrismaModels {
+  Category: Prisma.Category
+  ModuleCategory: Prisma.ModuleCategory
   Collection: Prisma.Collection
+  CollectionFinishes: Prisma.CollectionFinishes
+  CollectionTranslations: Prisma.CollectionTranslations
   Finish: Prisma.Finish
+  FinishTranslations: Prisma.FinishTranslations
+  List: Prisma.List
+  ModuleAttachments: Prisma.ModuleAttachments
   Module: Prisma.Module
   Project: Prisma.Project
-  ProjectGroup: Prisma.ProjectGroup
   ProjectModule: Prisma.ProjectModule
   Slide: Prisma.Slide
+  SlideDepth: Prisma.SlideDepth
+  SlideSupplier: Prisma.SlideSupplier
+  Type: Prisma.Type
+  ModuleType: Prisma.ModuleType
+  TypeTranslations: Prisma.TypeTranslations
   User: Prisma.User
-  UserProjectGroup: Prisma.UserProjectGroup
+  Session: Prisma.Session
 }
 
 // Prisma input types metadata
 interface NexusPrismaInputs {
   Query: {
+    categories: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'externalId' | 'name' | 'moduleCategories'
+      ordering: 'id' | 'slug' | 'externalId' | 'name'
+    }
+    moduleCategories: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'moduleId' | 'module' | 'categoryId' | 'category'
+      ordering: 'id' | 'moduleId' | 'categoryId'
+    }
     collections: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'projects'
-      ordering: 'id' | 'name'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'externalId' | 'thumbnailUrl' | 'hasPegs' | 'isComingSoon' | 'translations' | 'projects' | 'modules' | 'collectionFinishes' | 'slides'
+      ordering: 'id' | 'slug' | 'externalId' | 'thumbnailUrl' | 'hasPegs' | 'isComingSoon'
+    }
+    collectionFinishes: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'collectionId' | 'collection' | 'finishId' | 'finish'
+      ordering: 'id' | 'collectionId' | 'finishId'
+    }
+    collectionTranslations: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'locale' | 'name' | 'subtitle' | 'description' | 'footer' | 'collectionId' | 'collection'
+      ordering: 'id' | 'locale' | 'name' | 'subtitle' | 'description' | 'footer' | 'collectionId'
     }
     finishes: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'projects'
-      ordering: 'id' | 'name'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'externalId' | 'thumbnailUrl' | 'translations' | 'projects' | 'modules' | 'collectionFinishes'
+      ordering: 'id' | 'slug' | 'externalId' | 'thumbnailUrl'
+    }
+    finishTranslations: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'locale' | 'name' | 'description' | 'finishId' | 'finish'
+      ordering: 'id' | 'locale' | 'name' | 'description' | 'finishId'
+    }
+    lists: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'externalId' | 'name' | 'projectId' | 'project'
+      ordering: 'id' | 'externalId' | 'name' | 'projectId'
+    }
+    moduleAttachments: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'moduleId' | 'module' | 'attachmentId' | 'attachment'
+      ordering: 'id' | 'moduleId' | 'attachmentId'
     }
     modules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'projectsThisBelongsTo'
-      ordering: 'id' | 'partNumber'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      ordering: 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules'
     }
     projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'groupId' | 'group' | 'slideId' | 'slide' | 'modules'
-      ordering: 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'groupId' | 'slideId'
-    }
-    projectGroups: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'projects' | 'users'
-      ordering: 'id' | 'name'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'userId' | 'user' | 'projectModules' | 'lists'
+      ordering: 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId' | 'userId'
     }
     projectModules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'module' | 'parentId' | 'parent' | 'children' | 'Project' | 'projectId'
-      ordering: 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'parentId' | 'projectId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'nanoId' | 'posX' | 'posY' | 'posZ' | 'rotY' | 'moduleId' | 'module' | 'parentId' | 'parentNanoId' | 'parent' | 'children' | 'projectId' | 'project'
+      ordering: 'id' | 'nanoId' | 'posX' | 'posY' | 'posZ' | 'rotY' | 'moduleId' | 'parentId' | 'parentNanoId' | 'projectId'
     }
     slides: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'brand' | 'model' | 'depthInCM' | 'depthInIN' | 'projects'
-      ordering: 'id' | 'brand' | 'model' | 'depthInCM' | 'depthInIN'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'slug' | 'formula' | 'supplierId' | 'supplier' | 'collectionId' | 'collection' | 'depths' | 'projects'
+      ordering: 'id' | 'product' | 'slug' | 'formula' | 'supplierId' | 'collectionId'
+    }
+    slideDepths: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'display' | 'depth' | 'slideId' | 'slide' | 'projects'
+      ordering: 'id' | 'display' | 'depth' | 'slideId'
+    }
+    slideSuppliers: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'thumbnailUrl' | 'name' | 'slug' | 'slides'
+      ordering: 'id' | 'thumbnailUrl' | 'name' | 'slug'
+    }
+    types: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'externalId' | 'thumbnailUrl' | 'hasPegs' | 'translations' | 'projects' | 'moduleType'
+      ordering: 'id' | 'slug' | 'externalId' | 'thumbnailUrl' | 'hasPegs'
+    }
+    moduleTypes: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'typeId' | 'moduleId' | 'type' | 'module'
+      ordering: 'id' | 'typeId' | 'moduleId'
+    }
+    typeTranslations: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'locale' | 'name' | 'description' | 'typeId' | 'type'
+      ordering: 'id' | 'locale' | 'name' | 'description' | 'typeId'
     }
     users: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'email' | 'projectGroups'
-      ordering: 'id' | 'email'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'email' | 'marathonUserId' | 'project' | 'session'
+      ordering: 'id' | 'email' | 'marathonUserId'
     }
-    userProjectGroups: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'groupId' | 'group' | 'userId' | 'user' | 'relationshipType'
-      ordering: 'id' | 'groupId' | 'userId' | 'relationshipType'
+    sessions: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'userId' | 'token' | 'user'
+      ordering: 'id' | 'userId' | 'token'
     }
   },
-  Collection: {
-    projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'groupId' | 'group' | 'slideId' | 'slide' | 'modules'
-      ordering: 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'groupId' | 'slideId'
+  Category: {
+    moduleCategories: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'moduleId' | 'module' | 'categoryId' | 'category'
+      ordering: 'id' | 'moduleId' | 'categoryId'
     }
+  }
+  ModuleCategory: {
+
+  }
+  Collection: {
+    translations: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'locale' | 'name' | 'subtitle' | 'description' | 'footer' | 'collectionId' | 'collection'
+      ordering: 'id' | 'locale' | 'name' | 'subtitle' | 'description' | 'footer' | 'collectionId'
+    }
+    projects: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'userId' | 'user' | 'projectModules' | 'lists'
+      ordering: 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId' | 'userId'
+    }
+    modules: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      ordering: 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules'
+    }
+    collectionFinishes: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'collectionId' | 'collection' | 'finishId' | 'finish'
+      ordering: 'id' | 'collectionId' | 'finishId'
+    }
+    slides: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'slug' | 'formula' | 'supplierId' | 'supplier' | 'collectionId' | 'collection' | 'depths' | 'projects'
+      ordering: 'id' | 'product' | 'slug' | 'formula' | 'supplierId' | 'collectionId'
+    }
+  }
+  CollectionFinishes: {
+
+  }
+  CollectionTranslations: {
+
   }
   Finish: {
+    translations: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'locale' | 'name' | 'description' | 'finishId' | 'finish'
+      ordering: 'id' | 'locale' | 'name' | 'description' | 'finishId'
+    }
     projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'groupId' | 'group' | 'slideId' | 'slide' | 'modules'
-      ordering: 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'groupId' | 'slideId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'userId' | 'user' | 'projectModules' | 'lists'
+      ordering: 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId' | 'userId'
+    }
+    modules: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      ordering: 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules'
+    }
+    collectionFinishes: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'collectionId' | 'collection' | 'finishId' | 'finish'
+      ordering: 'id' | 'collectionId' | 'finishId'
     }
   }
+  FinishTranslations: {
+
+  }
+  List: {
+
+  }
+  ModuleAttachments: {
+
+  }
   Module: {
-    projectsThisBelongsTo: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'module' | 'parentId' | 'parent' | 'children' | 'Project' | 'projectId'
-      ordering: 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'parentId' | 'projectId'
+    projectModules: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'nanoId' | 'posX' | 'posY' | 'posZ' | 'rotY' | 'moduleId' | 'module' | 'parentId' | 'parentNanoId' | 'parent' | 'children' | 'projectId' | 'project'
+      ordering: 'id' | 'nanoId' | 'posX' | 'posY' | 'posZ' | 'rotY' | 'moduleId' | 'parentId' | 'parentNanoId' | 'projectId'
+    }
+    moduleCategories: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'moduleId' | 'module' | 'categoryId' | 'category'
+      ordering: 'id' | 'moduleId' | 'categoryId'
+    }
+    defaultLeftExtensionParents: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      ordering: 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules'
+    }
+    defaultRightExtensionParents: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      ordering: 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules'
+    }
+    attachmentToAppendParents: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      ordering: 'id' | 'partNumber' | 'externalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules'
+    }
+    moduleAttachments: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'moduleId' | 'module' | 'attachmentId' | 'attachment'
+      ordering: 'id' | 'moduleId' | 'attachmentId'
+    }
+    moduleAttachedTo: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'moduleId' | 'module' | 'attachmentId' | 'attachment'
+      ordering: 'id' | 'moduleId' | 'attachmentId'
+    }
+    moduleType: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'typeId' | 'moduleId' | 'type' | 'module'
+      ordering: 'id' | 'typeId' | 'moduleId'
     }
   }
   Project: {
-    modules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'module' | 'parentId' | 'parent' | 'children' | 'Project' | 'projectId'
-      ordering: 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'parentId' | 'projectId'
+    projectModules: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'nanoId' | 'posX' | 'posY' | 'posZ' | 'rotY' | 'moduleId' | 'module' | 'parentId' | 'parentNanoId' | 'parent' | 'children' | 'projectId' | 'project'
+      ordering: 'id' | 'nanoId' | 'posX' | 'posY' | 'posZ' | 'rotY' | 'moduleId' | 'parentId' | 'parentNanoId' | 'projectId'
     }
-  }
-  ProjectGroup: {
-    projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'groupId' | 'group' | 'slideId' | 'slide' | 'modules'
-      ordering: 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'groupId' | 'slideId'
-    }
-    users: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'groupId' | 'group' | 'userId' | 'user' | 'relationshipType'
-      ordering: 'id' | 'groupId' | 'userId' | 'relationshipType'
+    lists: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'externalId' | 'name' | 'projectId' | 'project'
+      ordering: 'id' | 'externalId' | 'name' | 'projectId'
     }
   }
   ProjectModule: {
     children: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'module' | 'parentId' | 'parent' | 'children' | 'Project' | 'projectId'
-      ordering: 'id' | 'posX' | 'posY' | 'posZ' | 'rotX' | 'rotY' | 'rotZ' | 'moduleId' | 'parentId' | 'projectId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'nanoId' | 'posX' | 'posY' | 'posZ' | 'rotY' | 'moduleId' | 'module' | 'parentId' | 'parentNanoId' | 'parent' | 'children' | 'projectId' | 'project'
+      ordering: 'id' | 'nanoId' | 'posX' | 'posY' | 'posZ' | 'rotY' | 'moduleId' | 'parentId' | 'parentNanoId' | 'projectId'
     }
   }
   Slide: {
-    projects: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'groupId' | 'group' | 'slideId' | 'slide' | 'modules'
-      ordering: 'id' | 'title' | 'type' | 'mainMeasureSystem' | 'widthInCM' | 'gableInCM' | 'widthInIN' | 'gableInIN' | 'collectionId' | 'finishId' | 'groupId' | 'slideId'
+    depths: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'display' | 'depth' | 'slideId' | 'slide' | 'projects'
+      ordering: 'id' | 'display' | 'depth' | 'slideId'
     }
+    projects: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'userId' | 'user' | 'projectModules' | 'lists'
+      ordering: 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId' | 'userId'
+    }
+  }
+  SlideDepth: {
+    projects: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'userId' | 'user' | 'projectModules' | 'lists'
+      ordering: 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId' | 'userId'
+    }
+  }
+  SlideSupplier: {
+    slides: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'slug' | 'formula' | 'supplierId' | 'supplier' | 'collectionId' | 'collection' | 'depths' | 'projects'
+      ordering: 'id' | 'product' | 'slug' | 'formula' | 'supplierId' | 'collectionId'
+    }
+  }
+  Type: {
+    translations: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'locale' | 'name' | 'description' | 'typeId' | 'type'
+      ordering: 'id' | 'locale' | 'name' | 'description' | 'typeId'
+    }
+    projects: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'userId' | 'user' | 'projectModules' | 'lists'
+      ordering: 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId' | 'userId'
+    }
+    moduleType: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'typeId' | 'moduleId' | 'type' | 'module'
+      ordering: 'id' | 'typeId' | 'moduleId'
+    }
+  }
+  ModuleType: {
+
+  }
+  TypeTranslations: {
+
   }
   User: {
-    projectGroups: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'groupId' | 'group' | 'userId' | 'user' | 'relationshipType'
-      ordering: 'id' | 'groupId' | 'userId' | 'relationshipType'
+    project: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'type' | 'collectionId' | 'collection' | 'finishId' | 'finish' | 'slideId' | 'slide' | 'slideDepthId' | 'slideDepth' | 'userId' | 'user' | 'projectModules' | 'lists'
+      ordering: 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId' | 'userId'
+    }
+    session: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'userId' | 'token' | 'user'
+      ordering: 'id' | 'userId' | 'token'
     }
   }
-  UserProjectGroup: {
+  Session: {
 
   }
 }
@@ -124,38 +293,102 @@ interface NexusPrismaInputs {
 // Prisma output types metadata
 interface NexusPrismaOutputs {
   Query: {
+    category: 'Category'
+    categories: 'Category'
+    moduleCategory: 'ModuleCategory'
+    moduleCategories: 'ModuleCategory'
     collection: 'Collection'
     collections: 'Collection'
+    collectionFinishes: 'CollectionFinishes'
+    collectionFinishes: 'CollectionFinishes'
+    collectionTranslations: 'CollectionTranslations'
+    collectionTranslations: 'CollectionTranslations'
     finish: 'Finish'
     finishes: 'Finish'
+    finishTranslations: 'FinishTranslations'
+    finishTranslations: 'FinishTranslations'
+    list: 'List'
+    lists: 'List'
+    moduleAttachments: 'ModuleAttachments'
+    moduleAttachments: 'ModuleAttachments'
     module: 'Module'
     modules: 'Module'
     project: 'Project'
     projects: 'Project'
-    projectGroup: 'ProjectGroup'
-    projectGroups: 'ProjectGroup'
     projectModule: 'ProjectModule'
     projectModules: 'ProjectModule'
     slide: 'Slide'
     slides: 'Slide'
+    slideDepth: 'SlideDepth'
+    slideDepths: 'SlideDepth'
+    slideSupplier: 'SlideSupplier'
+    slideSuppliers: 'SlideSupplier'
+    type: 'Type'
+    types: 'Type'
+    moduleType: 'ModuleType'
+    moduleTypes: 'ModuleType'
+    typeTranslations: 'TypeTranslations'
+    typeTranslations: 'TypeTranslations'
     user: 'User'
     users: 'User'
-    userProjectGroup: 'UserProjectGroup'
-    userProjectGroups: 'UserProjectGroup'
+    session: 'Session'
+    sessions: 'Session'
   },
   Mutation: {
+    createOneCategory: 'Category'
+    updateOneCategory: 'Category'
+    updateManyCategory: 'AffectedRowsOutput'
+    deleteOneCategory: 'Category'
+    deleteManyCategory: 'AffectedRowsOutput'
+    upsertOneCategory: 'Category'
+    createOneModuleCategory: 'ModuleCategory'
+    updateOneModuleCategory: 'ModuleCategory'
+    updateManyModuleCategory: 'AffectedRowsOutput'
+    deleteOneModuleCategory: 'ModuleCategory'
+    deleteManyModuleCategory: 'AffectedRowsOutput'
+    upsertOneModuleCategory: 'ModuleCategory'
     createOneCollection: 'Collection'
     updateOneCollection: 'Collection'
     updateManyCollection: 'AffectedRowsOutput'
     deleteOneCollection: 'Collection'
     deleteManyCollection: 'AffectedRowsOutput'
     upsertOneCollection: 'Collection'
+    createOneCollectionFinishes: 'CollectionFinishes'
+    updateOneCollectionFinishes: 'CollectionFinishes'
+    updateManyCollectionFinishes: 'AffectedRowsOutput'
+    deleteOneCollectionFinishes: 'CollectionFinishes'
+    deleteManyCollectionFinishes: 'AffectedRowsOutput'
+    upsertOneCollectionFinishes: 'CollectionFinishes'
+    createOneCollectionTranslations: 'CollectionTranslations'
+    updateOneCollectionTranslations: 'CollectionTranslations'
+    updateManyCollectionTranslations: 'AffectedRowsOutput'
+    deleteOneCollectionTranslations: 'CollectionTranslations'
+    deleteManyCollectionTranslations: 'AffectedRowsOutput'
+    upsertOneCollectionTranslations: 'CollectionTranslations'
     createOneFinish: 'Finish'
     updateOneFinish: 'Finish'
     updateManyFinish: 'AffectedRowsOutput'
     deleteOneFinish: 'Finish'
     deleteManyFinish: 'AffectedRowsOutput'
     upsertOneFinish: 'Finish'
+    createOneFinishTranslations: 'FinishTranslations'
+    updateOneFinishTranslations: 'FinishTranslations'
+    updateManyFinishTranslations: 'AffectedRowsOutput'
+    deleteOneFinishTranslations: 'FinishTranslations'
+    deleteManyFinishTranslations: 'AffectedRowsOutput'
+    upsertOneFinishTranslations: 'FinishTranslations'
+    createOneList: 'List'
+    updateOneList: 'List'
+    updateManyList: 'AffectedRowsOutput'
+    deleteOneList: 'List'
+    deleteManyList: 'AffectedRowsOutput'
+    upsertOneList: 'List'
+    createOneModuleAttachments: 'ModuleAttachments'
+    updateOneModuleAttachments: 'ModuleAttachments'
+    updateManyModuleAttachments: 'AffectedRowsOutput'
+    deleteOneModuleAttachments: 'ModuleAttachments'
+    deleteManyModuleAttachments: 'AffectedRowsOutput'
+    upsertOneModuleAttachments: 'ModuleAttachments'
     createOneModule: 'Module'
     updateOneModule: 'Module'
     updateManyModule: 'AffectedRowsOutput'
@@ -168,12 +401,6 @@ interface NexusPrismaOutputs {
     deleteOneProject: 'Project'
     deleteManyProject: 'AffectedRowsOutput'
     upsertOneProject: 'Project'
-    createOneProjectGroup: 'ProjectGroup'
-    updateOneProjectGroup: 'ProjectGroup'
-    updateManyProjectGroup: 'AffectedRowsOutput'
-    deleteOneProjectGroup: 'ProjectGroup'
-    deleteManyProjectGroup: 'AffectedRowsOutput'
-    upsertOneProjectGroup: 'ProjectGroup'
     createOneProjectModule: 'ProjectModule'
     updateOneProjectModule: 'ProjectModule'
     updateManyProjectModule: 'AffectedRowsOutput'
@@ -186,109 +413,289 @@ interface NexusPrismaOutputs {
     deleteOneSlide: 'Slide'
     deleteManySlide: 'AffectedRowsOutput'
     upsertOneSlide: 'Slide'
+    createOneSlideDepth: 'SlideDepth'
+    updateOneSlideDepth: 'SlideDepth'
+    updateManySlideDepth: 'AffectedRowsOutput'
+    deleteOneSlideDepth: 'SlideDepth'
+    deleteManySlideDepth: 'AffectedRowsOutput'
+    upsertOneSlideDepth: 'SlideDepth'
+    createOneSlideSupplier: 'SlideSupplier'
+    updateOneSlideSupplier: 'SlideSupplier'
+    updateManySlideSupplier: 'AffectedRowsOutput'
+    deleteOneSlideSupplier: 'SlideSupplier'
+    deleteManySlideSupplier: 'AffectedRowsOutput'
+    upsertOneSlideSupplier: 'SlideSupplier'
+    createOneType: 'Type'
+    updateOneType: 'Type'
+    updateManyType: 'AffectedRowsOutput'
+    deleteOneType: 'Type'
+    deleteManyType: 'AffectedRowsOutput'
+    upsertOneType: 'Type'
+    createOneModuleType: 'ModuleType'
+    updateOneModuleType: 'ModuleType'
+    updateManyModuleType: 'AffectedRowsOutput'
+    deleteOneModuleType: 'ModuleType'
+    deleteManyModuleType: 'AffectedRowsOutput'
+    upsertOneModuleType: 'ModuleType'
+    createOneTypeTranslations: 'TypeTranslations'
+    updateOneTypeTranslations: 'TypeTranslations'
+    updateManyTypeTranslations: 'AffectedRowsOutput'
+    deleteOneTypeTranslations: 'TypeTranslations'
+    deleteManyTypeTranslations: 'AffectedRowsOutput'
+    upsertOneTypeTranslations: 'TypeTranslations'
     createOneUser: 'User'
     updateOneUser: 'User'
     updateManyUser: 'AffectedRowsOutput'
     deleteOneUser: 'User'
     deleteManyUser: 'AffectedRowsOutput'
     upsertOneUser: 'User'
-    createOneUserProjectGroup: 'UserProjectGroup'
-    updateOneUserProjectGroup: 'UserProjectGroup'
-    updateManyUserProjectGroup: 'AffectedRowsOutput'
-    deleteOneUserProjectGroup: 'UserProjectGroup'
-    deleteManyUserProjectGroup: 'AffectedRowsOutput'
-    upsertOneUserProjectGroup: 'UserProjectGroup'
+    createOneSession: 'Session'
+    updateOneSession: 'Session'
+    updateManySession: 'AffectedRowsOutput'
+    deleteOneSession: 'Session'
+    deleteManySession: 'AffectedRowsOutput'
+    upsertOneSession: 'Session'
   },
+  Category: {
+    id: 'Int'
+    slug: 'String'
+    externalId: 'String'
+    name: 'String'
+    moduleCategories: 'ModuleCategory'
+  }
+  ModuleCategory: {
+    id: 'Int'
+    moduleId: 'Int'
+    module: 'Module'
+    categoryId: 'Int'
+    category: 'Category'
+  }
   Collection: {
     id: 'Int'
-    name: 'String'
+    slug: 'String'
+    externalId: 'String'
+    thumbnailUrl: 'String'
+    hasPegs: 'Boolean'
+    isComingSoon: 'Boolean'
+    translations: 'CollectionTranslations'
     projects: 'Project'
+    modules: 'Module'
+    collectionFinishes: 'CollectionFinishes'
+    slides: 'Slide'
   }
-  Finish: {
+  CollectionFinishes: {
     id: 'Int'
-    name: 'String'
-    projects: 'Project'
-  }
-  Module: {
-    id: 'Int'
-    partNumber: 'String'
-    projectsThisBelongsTo: 'ProjectModule'
-  }
-  Project: {
-    id: 'Int'
-    title: 'String'
-    type: 'DrawerType'
-    mainMeasureSystem: 'MeasureSystem'
-    widthInCM: 'Float'
-    gableInCM: 'Float'
-    widthInIN: 'String'
-    gableInIN: 'String'
     collectionId: 'Int'
     collection: 'Collection'
     finishId: 'Int'
     finish: 'Finish'
-    groupId: 'Int'
-    group: 'ProjectGroup'
+  }
+  CollectionTranslations: {
+    id: 'Int'
+    locale: 'Locale'
+    name: 'String'
+    subtitle: 'String'
+    description: 'String'
+    footer: 'String'
+    collectionId: 'Int'
+    collection: 'Collection'
+  }
+  Finish: {
+    id: 'Int'
+    slug: 'String'
+    externalId: 'String'
+    thumbnailUrl: 'String'
+    translations: 'FinishTranslations'
+    projects: 'Project'
+    modules: 'Module'
+    collectionFinishes: 'CollectionFinishes'
+  }
+  FinishTranslations: {
+    id: 'Int'
+    locale: 'Locale'
+    name: 'String'
+    description: 'String'
+    finishId: 'Int'
+    finish: 'Finish'
+  }
+  List: {
+    id: 'Int'
+    externalId: 'String'
+    name: 'String'
+    projectId: 'Int'
+    project: 'Project'
+  }
+  ModuleAttachments: {
+    id: 'Int'
+    moduleId: 'Int'
+    module: 'Module'
+    attachmentId: 'Int'
+    attachment: 'Module'
+  }
+  Module: {
+    id: 'Int'
+    partNumber: 'String'
+    externalId: 'String'
+    description: 'String'
+    thumbnailUrl: 'String'
+    bundleUrl: 'String'
+    isSubmodule: 'Boolean'
+    hasPegs: 'Boolean'
+    isMat: 'Boolean'
+    isExtension: 'Boolean'
+    shouldHideBasedOnWidth: 'Boolean'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
+    alwaysDisplay: 'Boolean'
+    isEdge: 'Boolean'
+    defaultLeftExtensionId: 'Int'
+    defaultLeftExtension: 'Module'
+    defaultRightExtensionId: 'Int'
+    defaultRightExtension: 'Module'
+    attachmentToAppendId: 'Int'
+    attachmentToAppend: 'Module'
+    finishId: 'Int'
+    finish: 'Finish'
+    collectionId: 'Int'
+    collection: 'Collection'
+    rules: 'Json'
+    projectModules: 'ProjectModule'
+    moduleCategories: 'ModuleCategory'
+    defaultLeftExtensionParents: 'Module'
+    defaultRightExtensionParents: 'Module'
+    attachmentToAppendParents: 'Module'
+    moduleAttachments: 'ModuleAttachments'
+    moduleAttachedTo: 'ModuleAttachments'
+    moduleType: 'ModuleType'
+  }
+  Project: {
+    id: 'Int'
+    slug: 'String'
+    title: 'String'
+    cabinetWidth: 'Float'
+    calculatedWidth: 'Float'
+    gable: 'Float'
+    typeId: 'Int'
+    hasPegs: 'Boolean'
+    type: 'Type'
+    collectionId: 'Int'
+    collection: 'Collection'
+    finishId: 'Int'
+    finish: 'Finish'
     slideId: 'Int'
     slide: 'Slide'
-    modules: 'ProjectModule'
-  }
-  ProjectGroup: {
-    id: 'Int'
-    name: 'String'
-    projects: 'Project'
-    users: 'UserProjectGroup'
+    slideDepthId: 'Int'
+    slideDepth: 'SlideDepth'
+    userId: 'Int'
+    user: 'User'
+    projectModules: 'ProjectModule'
+    lists: 'List'
   }
   ProjectModule: {
     id: 'Int'
+    nanoId: 'String'
     posX: 'Float'
     posY: 'Float'
     posZ: 'Float'
-    rotX: 'Float'
     rotY: 'Float'
-    rotZ: 'Float'
     moduleId: 'Int'
     module: 'Module'
     parentId: 'Int'
+    parentNanoId: 'String'
     parent: 'ProjectModule'
     children: 'ProjectModule'
-    Project: 'Project'
     projectId: 'Int'
+    project: 'Project'
   }
   Slide: {
     id: 'Int'
-    brand: 'String'
-    model: 'String'
-    depthInCM: 'Float'
-    depthInIN: 'String'
+    product: 'String'
+    slug: 'String'
+    formula: 'String'
+    supplierId: 'Int'
+    supplier: 'SlideSupplier'
+    collectionId: 'Int'
+    collection: 'Collection'
+    depths: 'SlideDepth'
     projects: 'Project'
+  }
+  SlideDepth: {
+    id: 'Int'
+    display: 'String'
+    depth: 'Float'
+    slideId: 'Int'
+    slide: 'Slide'
+    projects: 'Project'
+  }
+  SlideSupplier: {
+    id: 'Int'
+    thumbnailUrl: 'String'
+    name: 'String'
+    slug: 'String'
+    slides: 'Slide'
+  }
+  Type: {
+    id: 'Int'
+    slug: 'String'
+    externalId: 'String'
+    thumbnailUrl: 'String'
+    hasPegs: 'Boolean'
+    translations: 'TypeTranslations'
+    projects: 'Project'
+    moduleType: 'ModuleType'
+  }
+  ModuleType: {
+    id: 'Int'
+    typeId: 'Int'
+    moduleId: 'Int'
+    type: 'Type'
+    module: 'Module'
+  }
+  TypeTranslations: {
+    id: 'Int'
+    locale: 'Locale'
+    name: 'String'
+    description: 'String'
+    typeId: 'Int'
+    type: 'Type'
   }
   User: {
     id: 'Int'
     email: 'String'
-    projectGroups: 'UserProjectGroup'
+    marathonUserId: 'Int'
+    project: 'Project'
+    session: 'Session'
   }
-  UserProjectGroup: {
+  Session: {
     id: 'Int'
-    groupId: 'Int'
-    group: 'ProjectGroup'
     userId: 'Int'
+    token: 'String'
     user: 'User'
-    relationshipType: 'UserProjectGroupRelationshipType'
   }
 }
 
 // Helper to gather all methods relative to a model
 interface NexusPrismaMethods {
+  Category: Typegen.NexusPrismaFields<'Category'>
+  ModuleCategory: Typegen.NexusPrismaFields<'ModuleCategory'>
   Collection: Typegen.NexusPrismaFields<'Collection'>
+  CollectionFinishes: Typegen.NexusPrismaFields<'CollectionFinishes'>
+  CollectionTranslations: Typegen.NexusPrismaFields<'CollectionTranslations'>
   Finish: Typegen.NexusPrismaFields<'Finish'>
+  FinishTranslations: Typegen.NexusPrismaFields<'FinishTranslations'>
+  List: Typegen.NexusPrismaFields<'List'>
+  ModuleAttachments: Typegen.NexusPrismaFields<'ModuleAttachments'>
   Module: Typegen.NexusPrismaFields<'Module'>
   Project: Typegen.NexusPrismaFields<'Project'>
-  ProjectGroup: Typegen.NexusPrismaFields<'ProjectGroup'>
   ProjectModule: Typegen.NexusPrismaFields<'ProjectModule'>
   Slide: Typegen.NexusPrismaFields<'Slide'>
+  SlideDepth: Typegen.NexusPrismaFields<'SlideDepth'>
+  SlideSupplier: Typegen.NexusPrismaFields<'SlideSupplier'>
+  Type: Typegen.NexusPrismaFields<'Type'>
+  ModuleType: Typegen.NexusPrismaFields<'ModuleType'>
+  TypeTranslations: Typegen.NexusPrismaFields<'TypeTranslations'>
   User: Typegen.NexusPrismaFields<'User'>
-  UserProjectGroup: Typegen.NexusPrismaFields<'UserProjectGroup'>
+  Session: Typegen.NexusPrismaFields<'Session'>
   Query: Typegen.NexusPrismaFields<'Query'>
   Mutation: Typegen.NexusPrismaFields<'Mutation'>
 }

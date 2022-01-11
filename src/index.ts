@@ -8,6 +8,9 @@ import { ApolloServer } from 'apollo-server-express';
 import { Context } from './typings/context';
 import logging from './utils/logging';
 import { getDb } from './database';
+import scheduleJobs from './cron';
+import { initSentry } from './lib/sentry';
+import * as Sentry from '@sentry/node';
 
 // Helpers
 const normalizePort = (val: string): number => {
@@ -32,25 +35,42 @@ const main = async () => {
       context: async (prevContext) => {
         let context: Context = {
           ...prevContext,
-          prisma
+          prisma,
+          locale: env.DEFAULT_LOCALE,
+          platform: env.DEFAULT_PLATFORM
         };
 
         try {
-          const auth = context.req.get('Authorization');
+          const auth = context.req.get('x-auth-token');
           // Validate the auth string
-          if (auth && auth.includes('Bearer')) {
-            // If has the Bearer word, split by spaces
-            const splitAuth = auth.split(' ');
-
-            // Must be exactly 2, the bearer word and the token
-            if (splitAuth && splitAuth.length === 2) {
-              // Get the second one(the token)
-              const bearer = splitAuth[1];
-              context = { ...context, bearer };
+          if (auth) {
+            const user = await context.prisma.user.findFirst({
+              where: {
+                session: {
+                  some: {
+                    token: auth
+                  }
+                }
+              }
+            });
+            if (user) {
+              context.user = user;
             }
           }
         } catch (error) {
           // Do nothing, because it wasn't authorized(the token is expired or wrong)
+        }
+
+        const locale = context.req.get('Locale');
+
+        if (locale) {
+          context = { ...context, locale };
+        }
+
+        const platform = context.req.get('Platform');
+
+        if (platform) {
+          context = { ...context, platform };
         }
 
         return context;
@@ -61,13 +81,21 @@ const main = async () => {
     // App
     const app = express();
 
+    initSentry(app);
+
+    // RequestHandler creates a separate execution context using domains, so that every
+    // transaction/span/breadcrumb is attached to its own Hub instance
+    app.use(Sentry.Handlers.requestHandler());
+    // TracingHandler creates a trace for every incoming request
+    app.use(Sentry.Handlers.tracingHandler());
+
     server.applyMiddleware({
       app,
       bodyParserConfig: { limit: '20mb' },
       cors: {
         origin:
           /*env.NODE_ENV === 'development' ? */ /.*/ /* : getAllowedOrigins().map((url) => `${url.protocol}//${url.host}`)*/,
-        allowedHeaders: ['Authorization', 'X-Requested-With', 'Content-Type', 'ignoreas'],
+        allowedHeaders: ['Authorization', 'x-auth-token', 'X-Requested-With', 'Content-Type', 'Platform', 'Locale'],
         maxAge: 86400, // 1 day
         credentials: true
       }
@@ -77,7 +105,7 @@ const main = async () => {
       cors({
         origin:
           /*env.NODE_ENV === 'development' ? */ /.*/ /* : getAllowedOrigins().map((url) => `${url.protocol}//${url.host}`) */,
-        allowedHeaders: ['Authorization', 'X-Requested-With', 'Content-Type', 'ignoreas'],
+        allowedHeaders: ['Authorization', 'x-auth-token', 'X-Requested-With', 'Content-Type', 'Platform', 'Locale'],
         maxAge: 86400, // 1 day
         credentials: true
       })
@@ -88,12 +116,18 @@ const main = async () => {
     // Initializing routes
     app.use(routes);
 
+    // The error handler must be before any other error middleware and after all controllers(routes)
+    app.use(Sentry.Handlers.errorHandler());
+
     // Server start
     const port = normalizePort(env.PORT);
 
+    // Schedule Cron
+    scheduleJobs(prisma);
+
     await new Promise<void>((resolve) => app.listen({ port }, resolve));
-    console.log(`🚀 Server ready at http://localhost:${port}`);
-  } catch (error) {
+    console.log(`🚀 Server ready at http://localhost:${port}/graphql`);
+  } catch (error: any) {
     logging.error(error);
     process.exit(1);
   }

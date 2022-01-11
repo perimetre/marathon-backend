@@ -1,0 +1,5 @@
+schema: http://new-web.marathonhardware.com/pimcore-datahub-webservices/explorer/drawer-config?apikey=f7e06574094bab1bc80eda503357c12d
+generates:
+  types.ts:
+    plugins:
+      - '@graphql-codegen/typescript'
