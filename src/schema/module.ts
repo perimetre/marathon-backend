@@ -29,7 +29,7 @@ export const Module = objectType({
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           .moduleCategories({ where: { category: (args.where as any) || undefined }, select: { category: true } });
 
-        return moduleCategories.map((moduleCategory) => moduleCategory.category) || [];
+        return (moduleCategories || []).map((moduleCategory) => moduleCategory.category) || [];
       }
     });
 

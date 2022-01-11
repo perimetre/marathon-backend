@@ -8,9 +8,10 @@ const db = new PrismaClient();
 const main = async () => {
   // -- Collections
   await db.collection.createMany({
-    data: seedValues.collections.map(({ slug, thumbnailUrl, hasPegs }) => ({
+    data: seedValues.collections.map(({ slug, thumbnailUrl, hasPegs, isComingSoon }) => ({
       slug: slug.toLowerCase(),
       thumbnailUrl,
+      isComingSoon: isComingSoon || false,
       hasPegs: hasPegs || false
     }))
   });
@@ -148,7 +149,9 @@ const main = async () => {
           bundlePath,
           imageUrl,
           isMat,
-          isImprintExtension
+          shouldHideBasedOnWidth,
+          isExtension,
+          isEdge
         }) => {
           return {
             thumbnailUrl: imageUrl,
@@ -157,8 +160,10 @@ const main = async () => {
             isSubmodule,
             hasPegs,
             isMat,
-            isImprintExtension,
-            rules: JSON.parse(rules),
+            isExtension,
+            shouldHideBasedOnWidth,
+            isEdge,
+            rules: rules ? JSON.parse(rules) : undefined,
             collectionId: collections.find((x) => x.slug === helpers.slugify(collection).toLowerCase())?.id || -1,
             finishId: finishes.find((x) => x.slug === helpers.slugify(finish).toLowerCase())?.id || -1
           };
@@ -167,6 +172,47 @@ const main = async () => {
   });
 
   const modules = await db.module.findMany({ select: { id: true, partNumber: true } });
+
+  await db.moduleType.createMany({
+    data: seedValues.moduleTypes.map(({ partNumber, type }) => ({
+      typeId: types.find((f) => f.slug === type)?.id || -1,
+      moduleId: modules.find((f) => f.partNumber === partNumber)?.id || -1
+    }))
+  });
+
+  const moduleWithExtensions = seedValues.modules.filter((x) => x.defaultLeftExtension || x.defaultRightExtension);
+  for (const module of moduleWithExtensions) {
+    const extensionLeft = modules.find((x) => x.partNumber === module.defaultLeftExtension);
+    const extensionRight = modules.find((x) => x.partNumber === module.defaultRightExtension);
+    await db.module.update({
+      where: {
+        partNumber: module.partNumber
+      },
+      data: {
+        defaultLeftExtensionId: extensionLeft?.id || undefined,
+        defaultRightExtensionId: extensionRight?.id || undefined
+      }
+    });
+  }
+
+  const moduleWithAttachments = seedValues.modules.filter((x) => x.moduleAttachments || x.attachmentToAppend);
+  for (const module of moduleWithAttachments) {
+    const attachments = modules.filter((x) => moduleWithAttachments.some((y) => x.partNumber === y.partNumber));
+    const appendAttachment = modules.find((x) => x.partNumber === module.attachmentToAppend);
+    await db.module.update({
+      where: {
+        partNumber: module.partNumber
+      },
+      data: {
+        attachmentToAppendId: appendAttachment?.id || undefined,
+        moduleAttachments: {
+          createMany: {
+            data: attachments.map((x) => ({ attachmentId: x.id }))
+          }
+        }
+      }
+    });
+  }
 
   // Automatically puts modules in "all" category
   const toCreate: { categoryId: number; moduleId: number }[] = [];

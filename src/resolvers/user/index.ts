@@ -2,6 +2,8 @@ import { mutationField, nonNull, nullable, arg, inputObjectType } from 'nexus';
 import axios, { AxiosResponse } from 'axios';
 import { env } from '../../env';
 import { makeError } from '../../utils/exception';
+import logging from '../../utils/logging';
+import { URL } from 'url';
 
 export const UserSingIn = inputObjectType({
   name: 'UserSingIn',
@@ -17,10 +19,18 @@ export const UserMutations = [
     args: { user: nonNull(arg({ type: 'UserSingIn' })) },
     resolve: async (_parent, args, ctx) => {
       try {
+        const { MARATHON_API_LOGIN, MARATHON_API } = env;
+        if (!MARATHON_API || !MARATHON_API_LOGIN) {
+          throw new Error('Missing marathon environment');
+        }
+
+        const url = new URL(MARATHON_API_LOGIN, MARATHON_API);
+
         const { user } = args;
+
         const request = (await axios({
           method: 'POST',
-          url: env.MARATHON_API_LOGIN,
+          url: url.toString(),
           headers: {
             Authorization: `Basic ${Buffer.from(`${user.email}:${user.password}`).toString('base64')}`
           }
@@ -46,10 +56,13 @@ export const UserMutations = [
 
         return null;
       } catch (err: any) {
-        if (err.response.status === 403) {
+        if (err.response.status === 403 || err.response.status === 401) {
           throw makeError('Email or password is incorrect', 'wrongCredentials');
+        } else if (err.response.status === 404) {
+          throw makeError('External service is unreachable or was not found', 'unreachableService');
         }
-        return null;
+        logging.error(err, 'Error on login');
+        throw makeError('Failed on login', err.response.statusText);
       }
     }
   })

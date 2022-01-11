@@ -38,6 +38,29 @@ export const ModuleDimension = objectType({
   }
 });
 
+export const TrimOffsetMetadata = objectType({
+  name: 'TrimOffsetMetadata',
+  definition(t) {
+    t.float('left');
+    t.float('right');
+    t.float('top');
+    t.float('bottom');
+  }
+});
+
+export const QueueInfoMetadata = objectType({
+  name: 'QueueInfoMetadata',
+  definition(t) {
+    t.string('append', {
+      description: 'Repeat models'
+    });
+
+    t.nonNull.list.nonNull.string('modules', {
+      description: 'Last model after repeat'
+    });
+  }
+});
+
 export const ModuleRulesMetadata = objectType({
   name: 'ModuleRulesMetadata',
   definition(t) {
@@ -59,8 +82,17 @@ export const ModuleRulesMetadata = objectType({
       description: "Where a module can be cut if there's excess beyond the drawer"
     });
 
+    t.field('trimOffset', {
+      type: TrimOffsetMetadata
+    });
+
     t.boolean('fullDepth', {
       description: "Whether or not this module is only valid if it's taking the drawer full depth"
+    });
+
+    t.field('queue', {
+      type: QueueInfoMetadata,
+      description: 'Queue info'
     });
   }
 });
@@ -89,6 +121,10 @@ export const ModuleRules = objectType({
     t.list.nonNull.string('trims', {
       description: 'Different types of edges a module might have'
     });
+
+    t.string('bundleUrl');
+
+    t.nonNull.boolean('isImprintExtension');
 
     t.field('dimensions', {
       type: ModuleDimension
