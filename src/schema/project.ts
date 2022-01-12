@@ -94,11 +94,14 @@ export const Project = objectType({
         return (
           await projectService({
             db: ctx.prisma
-          }).getCartModules(root.id)
+          }).getCart(root.id)
         ).reduce((prev, curr) => {
-          prev = prev || 0;
-          prev++;
-          prev += curr?.children?.length || 0;
+          prev += curr.quantity;
+
+          if (curr.children && curr.children.length > 0) {
+            prev += curr.children.map((x) => x.quantity).reduce((sum, curr) => sum + curr, 0);
+          }
+
           return prev;
         }, 0);
       }
