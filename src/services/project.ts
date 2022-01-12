@@ -46,7 +46,12 @@ export const projectService = ({ db }: ProjectServiceDependencies) => {
         where: { parentId: { equals: null } },
         include: {
           module: true,
-          children: { where: { module: { partNumber: { not: { contains: 'EXTENSION' } } } } }
+          children: {
+            where: { module: { partNumber: { not: { contains: 'EXTENSION' } } } },
+            include: {
+              module: true
+            }
+          }
         }
       });
   };
@@ -59,7 +64,7 @@ export const projectService = ({ db }: ProjectServiceDependencies) => {
     const cart = values(groupBy(projectModules, 'moduleId')).map((group) => ({
       id: group[0].id,
       projectModule: { ...group[0] },
-      quantity: group.length,
+      quantity: group[0].module.isEdge ? group.length * 2 : group.length,
       children: values(
         groupBy(
           projectModules.filter((x) => x.moduleId === group[0].moduleId).flatMap((x) => x.children) || [],
@@ -68,7 +73,7 @@ export const projectService = ({ db }: ProjectServiceDependencies) => {
       ).map((childGroup) => ({
         id: childGroup[0].id,
         projectModule: { ...childGroup[0] },
-        quantity: childGroup.length
+        quantity: childGroup[0].module.isEdge ? childGroup.length * 2 : childGroup.length
       }))
     }));
 
