@@ -94,11 +94,14 @@ export const Project = objectType({
         return (
           await projectService({
             db: ctx.prisma
-          }).getCartModules(root.id)
+          }).getCart(root.id)
         ).reduce((prev, curr) => {
-          prev = prev || 0;
-          prev++;
-          prev += curr?.children?.length || 0;
+          prev += curr.quantity;
+
+          if (curr.children && curr.children.length > 0) {
+            prev += curr.children.map((x) => x.quantity).reduce((sum, curr) => sum + curr, 0);
+          }
+
           return prev;
         }, 0);
       }
@@ -113,7 +116,15 @@ export const createOneProjectCustomResolver = async (
   info: GraphQLResolveInfo,
   originalResolver: FieldResolver<'Mutation', 'createOneProject'>
 ) => {
-  const res = await originalResolver(root, args, ctx, info);
+  const nameProject = await ctx.prisma.project.count({ where: { slug: args.data.slug } });
+
+  const res = await originalResolver(
+    root,
+    { ...args, data: { ...args.data, slug: nameProject > 0 ? `${args.data.slug}-${nameProject}` : args.data.slug } },
+    ctx,
+    info
+  );
+
   const project = await ctx.prisma.project.findUnique({ where: { id: Number(res.id) } });
   if (project?.hasPegs) {
     const modules = await ctx.prisma.module.findMany({
