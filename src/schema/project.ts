@@ -113,7 +113,15 @@ export const createOneProjectCustomResolver = async (
   info: GraphQLResolveInfo,
   originalResolver: FieldResolver<'Mutation', 'createOneProject'>
 ) => {
-  const res = await originalResolver(root, args, ctx, info);
+  const nameProject = await ctx.prisma.project.count({ where: { slug: args.data.slug } });
+
+  const res = await originalResolver(
+    root,
+    { ...args, data: { ...args.data, slug: nameProject > 0 ? `${args.data.slug}-${nameProject}` : args.data.slug } },
+    ctx,
+    info
+  );
+
   const project = await ctx.prisma.project.findUnique({ where: { id: Number(res.id) } });
   if (project?.hasPegs) {
     const modules = await ctx.prisma.module.findMany({
