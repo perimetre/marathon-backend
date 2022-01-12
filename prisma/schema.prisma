@@ -18,6 +18,7 @@ enum Locale {
 model Category {
   id               Int              @id @default(autoincrement())
   slug             String           @unique
+  externalId       String?          @unique
   name             String
   moduleCategories ModuleCategory[]
 }
@@ -33,6 +34,7 @@ model ModuleCategory {
 model Collection {
   id                 Int                      @id @default(autoincrement())
   slug               String                   @unique
+  externalId         String?                  @unique
   thumbnailUrl       String?                  @db.VarChar(255)
   hasPegs            Boolean                  @default(false)
   isComingSoon       Boolean                  @default(false)
@@ -65,6 +67,7 @@ model CollectionTranslations {
 model Finish {
   id                 Int                  @id @default(autoincrement())
   slug               String               @unique
+  externalId         String?              @unique
   thumbnailUrl       String?              @db.VarChar(255)
   translations       FinishTranslations[]
   projects           Project[]
@@ -81,6 +84,14 @@ model FinishTranslations {
   finish      Finish  @relation(fields: [finishId], references: [id])
 }
 
+model List {
+  id         Int      @id @default(autoincrement())
+  externalId String?  @unique
+  name       String?
+  projectId  Int?
+  project    Project? @relation(fields: [projectId], references: [id])
+}
+
 model ModuleAttachments {
   id           Int    @id @default(autoincrement())
   moduleId     Int
@@ -92,6 +103,7 @@ model ModuleAttachments {
 model Module {
   id                           Int                 @id @default(autoincrement())
   partNumber                   String              @unique
+  externalId                   String?             @unique
   description                  String?
   thumbnailUrl                 String?             @db.VarChar(255)
   bundleUrl                    String?             @db.VarChar(255)
@@ -100,6 +112,8 @@ model Module {
   isMat                        Boolean             @default(false)
   isExtension                  Boolean             @default(false)
   shouldHideBasedOnWidth       Boolean             @default(false)
+  createdAt                    DateTime            @default(now()) @db.DateTime(0)
+  updatedAt                    DateTime            @default(now()) @db.DateTime(0)
   alwaysDisplay                Boolean             @default(false)
   isEdge                       Boolean             @default(false)
   defaultLeftExtensionId       Int?
@@ -144,6 +158,7 @@ model Project {
   userId          Int?
   user            User?           @relation(fields: [userId], references: [id])
   projectModules  ProjectModule[]
+  lists           List[]
 }
 
 model ProjectModule {
@@ -196,6 +211,7 @@ model SlideSupplier {
 model Type {
   id           Int                @id @default(autoincrement())
   slug         String             @unique
+  externalId   String?            @unique
   thumbnailUrl String?            @db.VarChar(255)
   hasPegs      Boolean            @default(false)
   translations TypeTranslations[]

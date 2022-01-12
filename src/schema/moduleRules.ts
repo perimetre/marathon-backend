@@ -48,6 +48,19 @@ export const TrimOffsetMetadata = objectType({
   }
 });
 
+export const QueueInfoMetadata = objectType({
+  name: 'QueueInfoMetadata',
+  definition(t) {
+    t.string('append', {
+      description: 'Repeat models'
+    });
+
+    t.nonNull.list.nonNull.string('modules', {
+      description: 'Last model after repeat'
+    });
+  }
+});
+
 export const ModuleRulesMetadata = objectType({
   name: 'ModuleRulesMetadata',
   definition(t) {
@@ -76,6 +89,11 @@ export const ModuleRulesMetadata = objectType({
     t.boolean('fullDepth', {
       description: "Whether or not this module is only valid if it's taking the drawer full depth"
     });
+
+    t.field('queue', {
+      type: QueueInfoMetadata,
+      description: 'Queue info'
+    });
   }
 });
 
@@ -103,6 +121,10 @@ export const ModuleRules = objectType({
     t.list.nonNull.string('trims', {
       description: 'Different types of edges a module might have'
     });
+
+    t.string('bundleUrl');
+
+    t.nonNull.boolean('isImprintExtension');
 
     t.field('dimensions', {
       type: ModuleDimension
