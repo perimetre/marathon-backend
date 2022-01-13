@@ -238,9 +238,10 @@ model TypeTranslations {
 }
 
 model User {
-  id             Int    @id @default(autoincrement())
-  email          String @unique @db.VarChar(255)
+  id             Int     @id @default(autoincrement())
+  email          String  @unique @db.VarChar(255)
   marathonUserId Int
+  isAdminUser    Boolean @default(false)
 
   project Project[]
   session Session[]
