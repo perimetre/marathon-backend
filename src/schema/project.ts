@@ -6,6 +6,8 @@ import { Context } from '../typings/context';
 import { GraphQLResolveInfo } from 'graphql';
 import { nanoid } from 'nanoid';
 import { NexusGenArgTypes } from '../generated/nexus';
+import logging from '../utils/logging';
+import { makeError } from '../utils/exception';
 
 export const ProjectCart = objectType({
   name: 'ProjectCart',
@@ -116,45 +118,49 @@ export const createOneProjectCustomResolver = async (
   info: GraphQLResolveInfo,
   originalResolver: FieldResolver<'Mutation', 'createOneProject'>
 ) => {
-  const nameProject = await ctx.prisma.project.count({ where: { slug: args.data.slug } });
+  try {
+    const nameProject = await ctx.prisma.project.count({ where: { title: args.data.title } });
 
-  const res = await originalResolver(
-    root,
-    { ...args, data: { ...args.data, slug: nameProject > 0 ? `${args.data.slug}-${nameProject}` : args.data.slug } },
-    ctx,
-    info
-  );
-
-  const project = await ctx.prisma.project.findUnique({ where: { id: Number(res.id) } });
-  if (project?.hasPegs) {
-    const modules = await ctx.prisma.module.findMany({
-      where: {
-        partNumber: { contains: 'PEGBOARD' },
-        collectionId: Number(project.collectionId),
-        finishId: Number(project.finishId)
-      }
-    });
-    const calculatedWidth = await projectService({ db: ctx.prisma }).calculateCabinetWidth(
-      Number(project?.id),
-      { cabinetWidth: project?.cabinetWidth, gable: project?.gable },
-      project?.calculatedWidth
+    const res = await originalResolver(
+      root,
+      { ...args, data: { ...args.data, slug: nameProject > 0 ? `${args.data.slug}-${nameProject}` : args.data.slug } },
+      ctx,
+      info
     );
-    if (calculatedWidth) {
-      const filteredModules = await moduleService({ db: ctx.prisma }).filterModuleBasedOnWidth(
-        modules,
-        calculatedWidth
-      );
-      await ctx.prisma.projectModule.createMany({
-        data: filteredModules.map((mod) => ({
-          projectId: Number(project?.id),
-          moduleId: mod.id,
-          nanoId: nanoid()
-        }))
-      });
-    }
-  }
 
-  return res;
+    const project = await ctx.prisma.project.findUnique({ where: { id: Number(res.id) } });
+    if (project?.hasPegs) {
+      const modules = await ctx.prisma.module.findMany({
+        where: {
+          partNumber: { contains: 'PEGBOARD' },
+          collectionId: Number(project.collectionId),
+          finishId: Number(project.finishId)
+        }
+      });
+      const calculatedWidth = await projectService({ db: ctx.prisma }).calculateCabinetWidth(
+        Number(project?.id),
+        { cabinetWidth: project?.cabinetWidth, gable: project?.gable },
+        project?.calculatedWidth
+      );
+      if (calculatedWidth) {
+        const filteredModules = await moduleService({ db: ctx.prisma }).filterModuleBasedOnWidth(
+          modules,
+          calculatedWidth
+        );
+        await ctx.prisma.projectModule.createMany({
+          data: filteredModules.map((mod) => ({
+            projectId: Number(project?.id),
+            moduleId: mod.id,
+            nanoId: nanoid()
+          }))
+        });
+      }
+    }
+    return res;
+  } catch (err: any) {
+    logging.error(err, 'Error creating project');
+    throw makeError('Error creating project', err.response.statusText);
+  }
 };
 
 export const createOneProjectModuleCustomResolver = async (
