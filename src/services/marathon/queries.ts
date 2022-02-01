@@ -23,6 +23,18 @@ export const GET_SP_CATEGORY_LISTING = `
   ${SP_CATEGORY_FRAGMENT}
 `;
 
+export const GET_SP_CATEGORY_STATUS = `
+  query GetSpCategoryStatus {
+    getSpCategoryListing(first:5) {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+  }
+`;
+
 export type GetSpCollectionListingQuery = {
   data: { getSpCollectionListing: { edges: { node: SpCollection }[] } };
 };
@@ -37,6 +49,18 @@ export const GET_SP_COLLECTION_LISTING = `
     }
   }
   ${SP_COLLECTION_FRAGMENT}
+`;
+
+export const GET_SP_COLLECTION_STATUS = `
+  query GetSpCollectionStatus {
+    getSpCollectionListing(first:5) {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+  }
 `;
 
 export type GetSpDrawerTypesListingQuery = {
@@ -55,6 +79,18 @@ export const GET_SP_DRAWER_TYPES_LISTING = `
   ${SP_DRAWER_TYPE_FRAGMENT}
 `;
 
+export const GET_SP_DRAWER_TYPES_STATUS = `
+  query GetSpDrawerTypesStatus {
+    getSpDrawerTypesListing(first:5) {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+  }
+`;
+
 export type GetSpFinishListingQuery = {
   data: { getSpFinishListing: { edges: { node: SpFinish }[] } };
 };
@@ -71,6 +107,18 @@ export const GET_SP_FINISH_LISTING = `
   ${SP_FINISH_FRAGMENT}
 `;
 
+export const GET_SP_FINISH_STATUS = `
+  query GetSpFinishStatus {
+    getSpFinishListing(first:5) {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+  }
+`;
+
 export type GetProductListingQuery = {
   data: { getProductListing: { edges: { node: Product }[] } };
 };
@@ -85,4 +133,16 @@ export const GET_PRODUCT_LISTING = `
     }
   }
   ${SP_PRODUCT_FRAGMENT}
+`;
+
+export const GET_PRODUCT_STATUS = `
+  query GetProductStatus {
+    getProductListing(published: true, first:5) {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+  }
 `;
