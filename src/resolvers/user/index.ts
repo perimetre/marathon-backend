@@ -4,6 +4,7 @@ import { env } from '../../env';
 import { makeError } from '../../utils/exception';
 import logging from '../../utils/logging';
 import { URL } from 'url';
+import { marathonService } from '../../services/marathon';
 
 export const UserSingIn = inputObjectType({
   name: 'UserSingIn',
@@ -19,22 +20,8 @@ export const UserMutations = [
     args: { user: nonNull(arg({ type: 'UserSingIn' })) },
     resolve: async (_parent, args, ctx) => {
       try {
-        const { MARATHON_API_LOGIN, MARATHON_API } = env;
-        if (!MARATHON_API || !MARATHON_API_LOGIN) {
-          throw new Error('Missing marathon environment');
-        }
-
-        const url = new URL(MARATHON_API_LOGIN, MARATHON_API);
-
         const { user } = args;
-
-        const request = (await axios({
-          method: 'POST',
-          url: url.toString(),
-          headers: {
-            Authorization: `Basic ${Buffer.from(`${user.email}:${user.password}`).toString('base64')}`
-          }
-        })) as AxiosResponse<{ user_id: number; user_token: string }>;
+        const request = await marathonService({ db: ctx.prisma }).login(user);
 
         if (request.status === 200) {
           let verifyUser = await ctx.prisma.user.findFirst({ where: { email: user.email as string } });
