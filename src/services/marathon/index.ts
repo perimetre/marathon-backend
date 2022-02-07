@@ -39,7 +39,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     }
 
     const url = new URL(MARATHON_API_GRAPHQL, MARATHON_API);
-    url.searchParams.append('apiKey', MARATHON_API_GRAPHQL_KEY);
+    url.searchParams.append('apikey', MARATHON_API_GRAPHQL_KEY);
 
     const { data } = (await axios({
       url: url.toString(),
