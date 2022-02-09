@@ -5266,6 +5266,7 @@ input TypeWhereUniqueInput {
 type User {
   email: String!
   id: Int!
+  isAdminUser: Boolean!
   marathonUserId: Int!
   project(cursor: ProjectWhereUniqueInput, skip: Int, take: Int): [Project!]!
   session(cursor: SessionWhereUniqueInput, skip: Int, take: Int): [Session!]!
@@ -5284,6 +5285,7 @@ input UserCreateOrConnectWithoutProjectInput {
 
 input UserCreateWithoutProjectInput {
   email: String!
+  isAdminUser: Boolean
   marathonUserId: Int!
   session: SessionCreateNestedManyWithoutUserInput
 }
@@ -5305,6 +5307,7 @@ input UserUpdateOneWithoutProjectInput {
 
 input UserUpdateWithoutProjectInput {
   email: StringFieldUpdateOperationsInput
+  isAdminUser: BoolFieldUpdateOperationsInput
   marathonUserId: IntFieldUpdateOperationsInput
   session: SessionUpdateManyWithoutUserInput
 }
@@ -5320,6 +5323,7 @@ input UserWhereInput {
   OR: [UserWhereInput!]
   email: StringFilter
   id: IntFilter
+  isAdminUser: BoolFilter
   marathonUserId: IntFilter
   project: ProjectListRelationFilter
   session: SessionListRelationFilter

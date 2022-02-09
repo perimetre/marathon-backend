@@ -1,5 +1,15 @@
-schema: http://new-web.marathonhardware.com/pimcore-datahub-webservices/explorer/drawer-config?apikey=f7e06574094bab1bc80eda503357c12d
+overwrite: true
+schema: ${MARATHON_API}${MARATHON_API_GRAPHQL}?apikey=${MARATHON_API_GRAPHQL_KEY}
+documents:
+  - './src/**/*.{graphql,ts,tsx}'
 generates:
-  types.ts:
+  src/generated/graphql.ts:
+    hooks:
+      afterAllFileWrite:
+        - prettier --write
     plugins:
-      - '@graphql-codegen/typescript'
+      - 'typescript'
+      - 'typescript-operations'
+  ./graphql.schema.json:
+    plugins:
+      - 'introspection'
