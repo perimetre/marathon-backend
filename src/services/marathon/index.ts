@@ -56,8 +56,14 @@ type MarathonModule = NonNullable<
 >['node'];
 
 export const marathonService = ({ db }: MarathonServiceDependencies) => {
-  const { MARATHON_API, MARATHON_API_GRAPHQL, MARATHON_API_GRAPHQL_KEY, MARATHON_API_CREATE_LIST, MARATHON_API_LOGIN } =
-    env;
+  const {
+    MARATHON_API,
+    MARATHON_API_GRAPHQL,
+    MARATHON_API_GRAPHQL_KEY,
+    MARATHON_API_CREATE_LIST,
+    MARATHON_API_LOGIN,
+    MARATHON_API_SYNC
+  } = env;
 
   const defaultSyncLocale: Locale = 'en';
 
@@ -1080,15 +1086,17 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
   };
 
   const syncData = async () => {
-    console.time('apiSync');
-    await syncCategory();
-    await syncCollection();
-    await syncDrawerType();
-    await syncFinish();
+    if (MARATHON_API_SYNC === 'true') {
+      console.time('apiSync');
+      await syncCategory();
+      await syncCollection();
+      await syncDrawerType();
+      await syncFinish();
 
-    // Always leave products for last!!
-    await syncProduct();
-    console.timeEnd('apiSync');
+      // Always leave products for last!!
+      await syncProduct();
+      console.timeEnd('apiSync');
+    }
   };
 
   const createList = async (projectId: number, token?: string) => {
