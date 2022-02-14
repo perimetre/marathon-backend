@@ -111,8 +111,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'locale' | 'name' | 'description' | 'typeId'
     }
     users: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'email' | 'marathonUserId' | 'project' | 'session'
-      ordering: 'id' | 'email' | 'marathonUserId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'email' | 'marathonUserId' | 'isAdminUser' | 'project' | 'session'
+      ordering: 'id' | 'email' | 'marathonUserId' | 'isAdminUser'
     }
     sessions: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'userId' | 'token' | 'user'
@@ -663,6 +663,7 @@ interface NexusPrismaOutputs {
     id: 'Int'
     email: 'String'
     marathonUserId: 'Int'
+    isAdminUser: 'Boolean'
     project: 'Project'
     session: 'Session'
   }

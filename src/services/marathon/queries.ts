@@ -1,4 +1,5 @@
-import { Product, SpCategories, SpCollection, SpDrawerTypes, SpFinish } from '../../typings/Product';
+import { gql } from '@apollo/client/core';
+
 import {
   SP_CATEGORY_FRAGMENT,
   SP_COLLECTION_FRAGMENT,
@@ -7,10 +8,7 @@ import {
   SP_PRODUCT_FRAGMENT
 } from './fragments';
 
-export type GetSpCategoryListingQuery = {
-  data: { getSpCategoryListing: { edges: { node: SpCategories }[] } };
-};
-export const GET_SP_CATEGORY_LISTING = `
+export const GET_SP_CATEGORY_LISTING = gql`
   query GetSpCategoryListing {
     getSpCategoryListing {
       edges {
@@ -23,9 +21,9 @@ export const GET_SP_CATEGORY_LISTING = `
   ${SP_CATEGORY_FRAGMENT}
 `;
 
-export const GET_SP_CATEGORY_STATUS = `
+export const GET_SP_CATEGORY_STATUS = gql`
   query GetSpCategoryStatus {
-    getSpCategoryListing(first:5) {
+    getSpCategoryListing(first: 5) {
       edges {
         node {
           id
@@ -35,10 +33,7 @@ export const GET_SP_CATEGORY_STATUS = `
   }
 `;
 
-export type GetSpCollectionListingQuery = {
-  data: { getSpCollectionListing: { edges: { node: SpCollection }[] } };
-};
-export const GET_SP_COLLECTION_LISTING = `
+export const GET_SP_COLLECTION_LISTING = gql`
   query GetSpCollectionListing {
     getSpCollectionListing {
       edges {
@@ -51,9 +46,9 @@ export const GET_SP_COLLECTION_LISTING = `
   ${SP_COLLECTION_FRAGMENT}
 `;
 
-export const GET_SP_COLLECTION_STATUS = `
+export const GET_SP_COLLECTION_STATUS = gql`
   query GetSpCollectionStatus {
-    getSpCollectionListing(first:5) {
+    getSpCollectionListing(first: 5) {
       edges {
         node {
           id
@@ -63,10 +58,7 @@ export const GET_SP_COLLECTION_STATUS = `
   }
 `;
 
-export type GetSpDrawerTypesListingQuery = {
-  data: { getSpDrawerTypesListing: { edges: { node: SpDrawerTypes }[] } };
-};
-export const GET_SP_DRAWER_TYPES_LISTING = `
+export const GET_SP_DRAWER_TYPES_LISTING = gql`
   query GetSpDrawerTypesListing {
     getSpDrawerTypesListing {
       edges {
@@ -79,9 +71,9 @@ export const GET_SP_DRAWER_TYPES_LISTING = `
   ${SP_DRAWER_TYPE_FRAGMENT}
 `;
 
-export const GET_SP_DRAWER_TYPES_STATUS = `
+export const GET_SP_DRAWER_TYPES_STATUS = gql`
   query GetSpDrawerTypesStatus {
-    getSpDrawerTypesListing(first:5) {
+    getSpDrawerTypesListing(first: 5) {
       edges {
         node {
           id
@@ -91,10 +83,7 @@ export const GET_SP_DRAWER_TYPES_STATUS = `
   }
 `;
 
-export type GetSpFinishListingQuery = {
-  data: { getSpFinishListing: { edges: { node: SpFinish }[] } };
-};
-export const GET_SP_FINISH_LISTING = `
+export const GET_SP_FINISH_LISTING = gql`
   query GetSpFinishListing {
     getSpFinishListing {
       edges {
@@ -107,9 +96,9 @@ export const GET_SP_FINISH_LISTING = `
   ${SP_FINISH_FRAGMENT}
 `;
 
-export const GET_SP_FINISH_STATUS = `
+export const GET_SP_FINISH_STATUS = gql`
   query GetSpFinishStatus {
-    getSpFinishListing(first:5) {
+    getSpFinishListing(first: 5) {
       edges {
         node {
           id
@@ -119,12 +108,9 @@ export const GET_SP_FINISH_STATUS = `
   }
 `;
 
-export type GetProductListingQuery = {
-  data: { getProductListing: { edges: { node: Product }[] } };
-};
-export const GET_PRODUCT_LISTING = `
-  query GetProductListing {
-    getProductListing(published: true) {
+export const GET_PRODUCT_LISTING = gql`
+  query GetProductListing($first: Int, $after: Int) {
+    getProductListing(published: true, first: $first, after: $after) {
       edges {
         node {
           ...Product
@@ -135,9 +121,9 @@ export const GET_PRODUCT_LISTING = `
   ${SP_PRODUCT_FRAGMENT}
 `;
 
-export const GET_PRODUCT_STATUS = `
+export const GET_PRODUCT_STATUS = gql`
   query GetProductStatus {
-    getProductListing(published: true, first:5) {
+    getProductListing(published: true, first: 5) {
       edges {
         node {
           id

@@ -29,9 +29,9 @@
     "prisma:format": "prisma format",
     "nexus:generate": "ts-node --transpile-only ./src/schema/index.ts",
     "generate": "npm run prisma:generate && npm run nexus:generate",
-    "generate-marathon": "graphql-codegen",
     "postinstall": "npm run generate",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "graphql:codegen": "graphql-codegen -r dotenv/config --config codegen.yml"
   },
   "repository": {
     "type": "git",
@@ -44,10 +44,12 @@
   },
   "homepage": "https://github.com/perimetre/marathon-backend#readme",
   "dependencies": {
+    "@apollo/client": "^3.5.8",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "@graphql-codegen/cli": "^2.3.0",
+    "@graphql-codegen/cli": "^2.5.0",
     "@graphql-codegen/typescript": "^2.4.1",
+    "@graphql-codegen/typescript-operations": "^2.2.4",
     "@prisma/client": "^2.29.0",
     "@sentry/node": "^6.16.1",
     "@sentry/tracing": "^6.16.1",
@@ -69,19 +71,21 @@
     "axios": "^0.24.0",
     "copyfiles": "^2.4.1",
     "cors": "^2.8.5",
+    "cross-fetch": "^3.1.5",
+    "deepmerge": "^4.2.2",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "express": "^4.17.1",
     "faker": "^5.5.3",
-    "graphql": "^15.5.1",
+    "graphql": "^15.8.0",
     "graphql-middleware": "^6.0.10",
     "graphql-shield": "^7.5.0",
     "lodash": "^4.17.21",
     "multer": "^1.4.3",
     "multer-s3": "^2.10.0",
-    "nanoid": "^3.1.30",
+    "nanoid": "^3.2.0",
     "nexus": "^1.1.0",
     "nexus-plugin-prisma": "^0.35.0",
     "node-cron": "^3.0.0",
@@ -94,6 +98,11 @@
   },
   "devDependencies": {
     "husky": "^7.0.0",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "@graphql-codegen/typescript": "2.4.3",
+    "@graphql-codegen/typescript-resolvers": "2.5.0",
+    "@graphql-codegen/typescript-document-nodes": "2.2.3",
+    "@graphql-codegen/introspection": "2.1.1",
+    "@graphql-codegen/cli": "2.5.0"
   }
 }

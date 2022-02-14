@@ -4725,6 +4725,7 @@ export interface NexusGenInputs {
   UserCreateWithoutProjectInput: {
     // input type
     email: string; // String!
+    isAdminUser?: boolean | null; // Boolean
     marathonUserId: number; // Int!
     session?: NexusGenInputs['SessionCreateNestedManyWithoutUserInput'] | null; // SessionCreateNestedManyWithoutUserInput
   };
@@ -4746,6 +4747,7 @@ export interface NexusGenInputs {
   UserUpdateWithoutProjectInput: {
     // input type
     email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isAdminUser?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     marathonUserId?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
     session?: NexusGenInputs['SessionUpdateManyWithoutUserInput'] | null; // SessionUpdateManyWithoutUserInput
   };
@@ -4761,6 +4763,7 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
     email?: NexusGenInputs['StringFilter'] | null; // StringFilter
     id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    isAdminUser?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     marathonUserId?: NexusGenInputs['IntFilter'] | null; // IntFilter
     project?: NexusGenInputs['ProjectListRelationFilter'] | null; // ProjectListRelationFilter
     session?: NexusGenInputs['SessionListRelationFilter'] | null; // SessionListRelationFilter
@@ -5022,6 +5025,7 @@ export interface NexusGenObjects {
     // root type
     email: string; // String!
     id: number; // Int!
+    isAdminUser: boolean; // Boolean!
     marathonUserId: number; // Int!
   };
 }
@@ -5382,6 +5386,7 @@ export interface NexusGenFieldTypes {
     // field return type
     email: string; // String!
     id: number; // Int!
+    isAdminUser: boolean; // Boolean!
     marathonUserId: number; // Int!
     project: NexusGenRootTypes['Project'][]; // [Project!]!
     session: NexusGenRootTypes['Session'][]; // [Session!]!
@@ -5736,6 +5741,7 @@ export interface NexusGenFieldTypeNames {
     // field return type name
     email: 'String';
     id: 'Int';
+    isAdminUser: 'Boolean';
     marathonUserId: 'Int';
     project: 'Project';
     session: 'Session';
