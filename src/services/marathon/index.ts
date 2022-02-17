@@ -591,7 +591,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     // If unit is wrong
     if (feature?.quantityvalue?.unit?.id && feature.quantityvalue.unit.id !== featureUnitId) {
       throw makeError(
-        `Expected ${featureName} feature as ${featureUnitId}, but was returned as "${feature?.quantityvalue?.unit?.id}"`,
+        `Expected ${featureName} feature as ${featureUnitId}, but was returned as "${feature?.quantityvalue?.unit?.id} with value "${feature.quantityvalue.value}"`,
         'ruleMergeFeatureQuantityUnit'
       );
     }
@@ -971,7 +971,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               });
             } catch (err) {
               logging.error(err, 'Error when batch creating products', {
-                modulesToCreate,
+                modulesToCreate: modulesToCreate?.map((x) => x?.node).filter((x) => !!x),
                 existingCollections,
                 existingFinishes
               });
