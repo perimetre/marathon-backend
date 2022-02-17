@@ -18,7 +18,7 @@ import {
   GetSpFinishListingQuery
 } from '../../generated/graphql';
 import { NexusGenObjects } from '../../generated/nexus';
-import { convertMmToInFormatted } from '../../utils/conversion';
+import { convertInToMmFormatted, convertMmToInFormatted } from '../../utils/conversion';
 import { makeError } from '../../utils/exception';
 import logging from '../../utils/logging';
 import { projectService } from '../project';
@@ -62,7 +62,9 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     MARATHON_API_GRAPHQL_KEY,
     MARATHON_API_CREATE_LIST,
     MARATHON_API_LOGIN,
-    MARATHON_API_SYNC
+    MARATHON_API_SYNC,
+    MARATHON_SYNC_PRODUCTS_PER_PAGE,
+    MARATHON_SYNC_EMPTY_PAGES_TO_STOP
   } = env;
 
   const defaultSyncLocale: Locale = 'en';
@@ -590,10 +592,28 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     // If unit is wrong
     if (feature?.quantityvalue?.unit?.id && feature.quantityvalue.unit.id !== featureUnitId) {
-      throw makeError(
-        `Expected ${featureName} feature as ${featureUnitId}, but was returned as "${feature?.quantityvalue?.unit?.id}"`,
-        'ruleMergeFeatureQuantityUnit'
-      );
+      if (
+        featureUnitId === FEATURE_NAMES.MM_ID &&
+        feature.quantityvalue.unit.id === FEATURE_NAMES.IN_ID &&
+        feature?.quantityvalue?.value
+      ) {
+        const inchValue = convertInToMmFormatted(`${feature.quantityvalue.value}`);
+
+        return format ? format(inchValue) : (inchValue as unknown as TResult);
+      } else if (
+        featureUnitId === FEATURE_NAMES.IN_ID &&
+        feature.quantityvalue.unit.id === FEATURE_NAMES.MM_ID &&
+        feature?.quantityvalue?.value
+      ) {
+        const mmValue = convertMmToInFormatted(`${feature.quantityvalue.value}`);
+
+        return format ? format(mmValue) : (mmValue as unknown as TResult);
+      } else {
+        throw makeError(
+          `Expected ${featureName} feature as ${featureUnitId}, but was returned as "${feature?.quantityvalue?.unit?.id} with value "${feature.quantityvalue.value}"`,
+          'ruleMergeFeatureQuantityUnit'
+        );
+      }
     }
 
     // Format or return plain
@@ -791,8 +811,9 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.log('Syncing products(modules)');
     console.time('products');
 
-    const productsPerPage = 20;
+    const productsPerPage = MARATHON_SYNC_PRODUCTS_PER_PAGE;
     let pageIndex = 0;
+    let emptyPages = 0;
 
     try {
       console.log('Fetching required data');
@@ -825,13 +846,15 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       });
 
       console.log('Fetching products');
+      const ignoredModules: string[] = [];
       while (pageIndex >= 0) {
         console.log(`Asking for ${productsPerPage} products on page ${pageIndex + 1}`);
         const { data } = await marathonApollo.query<GetProductListingQuery, GetProductListingQueryVariables>({
           query: GET_PRODUCT_LISTING,
           variables: {
             first: productsPerPage,
-            after: pageIndex * productsPerPage
+            after: pageIndex * productsPerPage,
+            filter: '{"itemId": { "$not": null }}'
           }
         });
 
@@ -876,9 +899,28 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           // Received products
           const modulesToCreate = products.filter(
             // Where it DOESN'T exist in the database
-            (productEdge) =>
-              productEdge?.node?.partNumber?.trim() &&
-              !existingModules.some((mod) => mod.partNumber === productEdge?.node?.partNumber?.trim())
+            (productEdge) => {
+              const module = productEdge?.node;
+
+              const finishId =
+                existingFinishes.find((finish) => finish.slug === module?.spFinish?.slug?.trim())?.id || undefined;
+              const collectionId =
+                existingCollections.find((collection) => collection.slug === module?.spCollection?.slug?.trim())?.id ||
+                undefined;
+
+              const hasExpectedCondition =
+                finishId !== undefined &&
+                collectionId !== undefined &&
+                module?.partNumber?.trim() &&
+                !existingModules.some((mod) => mod.partNumber === module.partNumber?.trim());
+
+              if (!hasExpectedCondition) {
+                // Casting because we know it should exist, since there's a condition for that in hasExpectedCondition
+                ignoredModules.push(module?.partNumber as string);
+              }
+
+              return hasExpectedCondition;
+            }
           );
 
           if (modulesToCreate && modulesToCreate.length > 0) {
@@ -971,7 +1013,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               });
             } catch (err) {
               logging.error(err, 'Error when batch creating products', {
-                modulesToCreate,
+                modulesToCreate: modulesToCreate?.map((x) => x?.node).filter((x) => !!x),
                 existingCollections,
                 existingFinishes
               });
@@ -1087,13 +1129,36 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             });
           }
 
-          // Next page
-          pageIndex++;
+          if (modulesToCreate && modulesToCreate.length === 0 && modulesToUpdate && modulesToUpdate.length === 0) {
+            emptyPages++;
+            console.log(`Empty page ${emptyPages} of ${MARATHON_SYNC_EMPTY_PAGES_TO_STOP}`);
+          } else {
+            // Reset count if there's a page that is not empty
+            emptyPages = 0;
+          }
+
+          if (emptyPages >= MARATHON_SYNC_EMPTY_PAGES_TO_STOP) {
+            // Stop
+            pageIndex = -1;
+            logging.warn(
+              `Preemptively stopping sync, since there was no product to sync that followed the criteria after ${MARATHON_SYNC_EMPTY_PAGES_TO_STOP} pages`
+            );
+          } else {
+            // Next page
+            pageIndex++;
+          }
         } else {
           // If there are no more procuts, it means we should stop
           console.log(`No products on page ${pageIndex + 1}, last page finished.`);
           pageIndex = -1;
         }
+      }
+
+      if (ignoredModules && ignoredModules.length > 0) {
+        logging.warn(
+          `Sync: ${ignoredModules.length} modules that were not created due to not following required criteria`,
+          { ignoredModules }
+        );
       }
     } catch (err) {
       logging.error(err, 'Error fetching Marathon products');
