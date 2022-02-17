@@ -7,15 +7,23 @@ const scheduleJobs = async (prisma: PrismaClient): Promise<void> => {
   const daily = '0 4 * * *';
 
   const marathon = marathonService({ db: prisma });
+  marathon.syncData();
 
-  cron.schedule(daily, async () => {
-    console.log(`Daily job (${daily})`);
-    try {
-      await marathon.syncData();
-    } catch (error) {
-      logging.error(error, 'Daily cronjob has failed.');
+  cron.schedule(
+    daily,
+    async () => {
+      console.log(`Daily job (${daily})`);
+      try {
+        await marathon.syncData();
+      } catch (error) {
+        logging.error(error, 'Daily cronjob has failed.');
+      }
+    },
+    {
+      scheduled: true,
+      timezone: 'America/Montreal'
     }
-  });
+  );
 
   console.log('All jobs scheduled');
 };

@@ -139,8 +139,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.category.update({
             where: { slug },
             data: {
-              externalId: categoryEdge?.node?.id?.trim(),
-              name: categoryEdge?.node?.name?.trim()
+              externalId: categoryEdge?.node?.id?.trim()
+              // name: categoryEdge?.node?.name?.trim() // FIX: Fow now we only sync externalId
             }
           });
         }
@@ -230,24 +230,26 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.collection.update({
             where: { slug },
             data: {
-              externalId: collectionEdge?.node?.id?.trim(),
-              thumbnailUrl: collectionEdge?.node?.image?.fullpath?.trim(),
-              hasPegs: collectionEdge?.node?.hasPegs || false,
+              externalId: collectionEdge?.node?.id?.trim()
+              // thumbnailUrl: collectionEdge?.node?.image?.fullpath?.trim(), // FIX: Uncomment after also importing/uploading the image
+              // hasPegs: collectionEdge?.node?.hasPegs || undefined,  // FIX: Fow now we only sync externalId
               // isComingSoon, TODO: Make sure they provide this info
-              translations:
-                translationIds && translationIds.length > 0
-                  ? {
-                      update: {
-                        // Theoretically we should only have one id for locale+slug
-                        where: { id: translationIds[0] },
-                        data: {
-                          name: collectionEdge?.node?.name?.trim(),
-                          subtitle: collectionEdge?.node?.subtitle?.trim(),
-                          description: collectionEdge?.node?.description?.trim()
-                        }
-                      }
-                    }
-                  : undefined
+
+              // FIX: Fow now we only sync externalId
+              // translations:
+              //   translationIds && translationIds.length > 0
+              //     ? {
+              //         update: {
+              //           // Theoretically we should only have one id for locale+slug
+              //           where: { id: translationIds[0] },
+              //           data: {
+              //             name: collectionEdge?.node?.name?.trim(),
+              //             subtitle: collectionEdge?.node?.subtitle?.trim(),
+              //             description: collectionEdge?.node?.description?.trim()
+              //           }
+              //         }
+              //       }
+              //     : undefined
             }
           });
         }
@@ -264,7 +266,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                 // Casting because we're sure, since there's a filter right above
                 externalId: collectionEdge?.node?.id?.trim() as string,
                 slug: collectionEdge?.node?.slug?.trim() as string,
-                thumbnailUrl: collectionEdge?.node?.image?.fullpath?.trim() as string,
+                // thumbnailUrl: collectionEdge?.node?.image?.fullpath?.trim() as string,  // FIX: Uncomment after also importing/uploading the image
                 hasPegs: collectionEdge?.node?.hasPegs || false
                 // isComingSoon, TODO: Make sure they provide this info
               }))
@@ -369,23 +371,24 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.type.update({
             where: { slug },
             data: {
-              externalId: drawerTypeEdge?.node?.id?.trim(),
-              // thumbnailUrl: image?.fullpath?.trim(),, TODO: Make sure they provide this info
-              // hasPegs: hasPegs3|| false,, TODO: Make sure they provide this info
-              // isComingSoon,, TODO: Make sure they provide this info
-              translations:
-                translationIds && translationIds.length > 0
-                  ? {
-                      update: {
-                        // Theoretically we should only have one id for locale+slug
-                        where: { id: translationIds[0] },
-                        data: {
-                          name: drawerTypeEdge?.node?.name?.trim()
-                          // description?.trim, TODO: Make sure they provide this info
-                        }
-                      }
-                    }
-                  : undefined
+              externalId: drawerTypeEdge?.node?.id?.trim()
+              // thumbnailUrl: image?.fullpath?.trim(), TODO: Make sure they provide this info
+              // hasPegs: hasPegs3|| undefined, TODO: Make sure they provide this info
+              // isComingSoon, TODO: Make sure they provide this info
+              // FIX: Fow now we only sync externalId
+              // translations:
+              //   translationIds && translationIds.length > 0
+              //     ? {
+              //         update: {
+              //           // Theoretically we should only have one id for locale+slug
+              //           where: { id: translationIds[0] },
+              //           data: {
+              //             name: drawerTypeEdge?.node?.name?.trim()
+              //             // description?.trim, TODO: Make sure they provide this info
+              //           }
+              //         }
+              //       }
+              //     : undefined
             }
           });
         }
@@ -399,7 +402,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                 // Casting because we're filtering right above
                 externalId: drawerTypeEdge?.node?.id?.trim() as string,
                 slug: drawerTypeEdge?.node?.slug?.trim() as string
-                // thumbnailUrl: image?.fullpath?.trim(),, TODO: Make sure they provide this info
+                // thumbnailUrl: image?.fullpath?.trim(), TODO: Make sure they provide this info
                 // hasPegs: hasPegs || false, TODO: Make sure they provide this info
               }))
           });
@@ -499,22 +502,23 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.finish.update({
             where: { slug },
             data: {
-              externalId: finishEdge?.node?.id?.trim(),
-              thumbnailUrl: finishEdge?.node?.image?.fullpath?.trim(),
+              externalId: finishEdge?.node?.id?.trim()
+              // thumbnailUrl: finishEdge?.node?.image?.fullpath?.trim(),  // FIX: Uncomment after also importing/uploading the image
               // isComingSoon, , TODO: Make sure they provide this info
-              translations:
-                translationIds && translationIds.length > 0
-                  ? {
-                      update: {
-                        // Theoretically we should only have one id for locale+slug
-                        where: { id: translationIds[0] },
-                        data: {
-                          name: finishEdge?.node?.name?.trim(),
-                          description: finishEdge?.node?.description?.trim()
-                        }
-                      }
-                    }
-                  : undefined
+              // FIX: Fow now we only sync externalId
+              // translations:
+              //   translationIds && translationIds.length > 0
+              //     ? {
+              //         update: {
+              //           // Theoretically we should only have one id for locale+slug
+              //           where: { id: translationIds[0] },
+              //           data: {
+              //             name: finishEdge?.node?.name?.trim(),
+              //             description: finishEdge?.node?.description?.trim()
+              //           }
+              //         }
+              //       }
+              //     : undefined
             }
           });
         }
@@ -529,8 +533,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               .map((finishEdge) => ({
                 // Casing since we're filtering right above
                 externalId: finishEdge?.node?.id?.trim() as string,
-                slug: finishEdge?.node?.slug?.trim() as string,
-                thumbnailUrl: finishEdge?.node?.image?.fullpath?.trim() as string
+                slug: finishEdge?.node?.slug?.trim() as string
+                // thumbnailUrl: finishEdge?.node?.image?.fullpath?.trim() as string  // FIX: Uncomment after also importing/uploading the image
                 // isComingSoon, , TODO: Make sure they provide this info
               }))
           });
@@ -888,16 +892,17 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                     partNumber: module?.partNumber?.trim() as string,
                     externalId: module?.id?.trim(),
                     description: module?.titleDescription?.trim() || undefined,
-                    thumbnailUrl:
-                      module?.productPictures && module.productPictures.length > 0
-                        ? module?.productPictures[0]?.fullpath?.trim()
-                        : undefined,
-                    bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,
+                    // FIX: Uncomment after also importing/uploading the image
+                    // thumbnailUrl:
+                    //   module?.productPictures && module.productPictures.length > 0
+                    //     ? module?.productPictures[0]?.fullpath?.trim()
+                    //     : undefined,
+                    // bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
                     isSubmodule: module?.isSubmodule || false,
                     hasPegs: module?.hasPegs || false,
                     isMat: module?.isMat || false,
                     // isExtension: module.isExtension || false,, TODO: Make sure they provide this info
-                    shouldHideBasedOnWidth: module?.shouldHideBasedOnWidth || false,
+                    shouldHideBasedOnWidth: module?.shouldHideBasedOnWidth || true,
                     // alwaysDisplay: module.alwaysDisplay || false,, TODO: Make sure they provide this info
                     // isEdge: module.isEdge || false,, TODO: Make sure they provide this info
                     rules,
@@ -975,92 +980,97 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
             console.log(`Updating module #${i + 1} ${module.partNumber?.trim()} of ${modulesToUpdate.length}`);
 
-            const existingModule = existingModules.find((x) => x.partNumber === module.partNumber?.trim());
-            const rules = existingModule?.rules as NexusGenObjects['ModuleRules'] | undefined;
+            // FIX: Fow now we only sync externalId
+            // const existingModule = existingModules.find((x) => x.partNumber === module.partNumber?.trim());
+            // const rules = existingModule?.rules as NexusGenObjects['ModuleRules'] | undefined;
 
             await db.$transaction(async (db) => {
               // Sync categories
 
-              // Delete existing categories to re create
-              await db.moduleCategory.deleteMany({ where: { module: { partNumber: module.partNumber?.trim() } } });
+              // FIX: Fow now we only sync externalId
+              // // Delete existing categories to re create
+              // await db.moduleCategory.deleteMany({ where: { module: { partNumber: module.partNumber?.trim() } } });
 
-              // If there are categories for this module
-              if (module.spCategories && module.spCategories.length > 0) {
-                // Create them
-                await db.moduleCategory.createMany({
-                  data: module.spCategories.map((cat) => ({
-                    moduleId: existingModule?.id || -1,
-                    categoryId: existingCategories.find((x) => x.slug === cat?.slug?.trim())?.id || -1
-                  }))
-                });
-              }
+              // // If there are categories for this module
+              // if (module.spCategories && module.spCategories.length > 0) {
+              //   // Create them
+              //   await db.moduleCategory.createMany({
+              //     data: module.spCategories.map((cat) => ({
+              //       moduleId: existingModule?.id || -1,
+              //       categoryId: existingCategories.find((x) => x.slug === cat?.slug?.trim())?.id || -1
+              //     }))
+              //   });
+              // }
 
-              // Sync type
+              // // Sync type
 
-              // Delete existing types to then create
-              await db.moduleType.deleteMany({ where: { module: { partNumber: module.partNumber?.trim() } } });
+              // // Delete existing types to then create
+              // await db.moduleType.deleteMany({ where: { module: { partNumber: module.partNumber?.trim() } } });
 
-              // If there are types for this module
-              if (module.spDrawerTypes && module.spDrawerTypes.length > 0) {
-                // Create them
-                await db.moduleType.createMany({
-                  data: module.spDrawerTypes.map((type) => ({
-                    moduleId: existingModule?.id || -1,
-                    typeId: existingTypes.find((x) => x.slug === type?.slug?.trim())?.id || -1
-                  }))
-                });
-              }
+              // // If there are types for this module
+              // if (module.spDrawerTypes && module.spDrawerTypes.length > 0) {
+              //   // Create them
+              //   await db.moduleType.createMany({
+              //     data: module.spDrawerTypes.map((type) => ({
+              //       moduleId: existingModule?.id || -1,
+              //       typeId: existingTypes.find((x) => x.slug === type?.slug?.trim())?.id || -1
+              //     }))
+              //   });
+              // }
 
-              // TODO: module attachments
+              // // TODO: module attachments
 
-              const newRules = mergeRules(module, rules);
+              // const newRules = mergeRules(module, rules);
 
               await db.module.update({
                 where: { partNumber: module.partNumber?.trim() },
                 data: {
-                  externalId: module.id?.trim(),
-                  description: module.titleDescription?.trim() || undefined,
-                  thumbnailUrl:
-                    module.productPictures && module.productPictures.length > 0
-                      ? module.productPictures[0]?.fullpath?.trim()
-                      : undefined,
-                  bundleUrl: module.bundlePath?.fullpath?.trim() || undefined,
-                  isSubmodule: module.isSubmodule || false,
-                  hasPegs: module.hasPegs || false,
-                  isMat: module.isMat || false,
+                  externalId: module.id?.trim()
+                  // description: module.titleDescription?.trim() || undefined,  // FIX: Fow now we only sync externalId
+                  // FIX: Uncomment after also importing/uploading the image
+                  // thumbnailUrl:
+                  //   module.productPictures && module.productPictures.length > 0
+                  //     ? module.productPictures[0]?.fullpath?.trim()
+                  //     : undefined,
+                  // bundleUrl: module.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
+                  // isSubmodule: module.isSubmodule || undefined,  // FIX: Fow now we only sync externalId
+                  // hasPegs: module.hasPegs || undefined,  // FIX: Fow now we only sync externalId
+                  // isMat: module.isMat || undefined,  // FIX: Fow now we only sync externalId
                   // isExtension: module.isExtension || false,
-                  shouldHideBasedOnWidth: module.shouldHideBasedOnWidth || false,
-                  // alwaysDisplay: module.alwaysDisplay || false,
-                  // isEdge: module.isEdge || false,
-                  rules: newRules,
-                  finish: module.spFinish?.slug?.trim()
-                    ? {
-                        connect: {
-                          slug: module.spFinish.slug.trim()
-                        }
-                      }
-                    : undefined,
-                  collection: module.spCollection?.slug?.trim()
-                    ? {
-                        connect: {
-                          slug: module.spCollection.slug.trim()
-                        }
-                      }
-                    : undefined,
-                  defaultLeftExtension: newRules?.extensions?.left
-                    ? {
-                        connect: {
-                          partNumber: newRules.extensions.left
-                        }
-                      }
-                    : undefined,
-                  defaultRightExtension: newRules?.extensions?.right
-                    ? {
-                        connect: {
-                          partNumber: newRules.extensions.right
-                        }
-                      }
-                    : undefined
+                  // shouldHideBasedOnWidth: module.shouldHideBasedOnWidth || undefined,  // FIX: Fow now we only sync externalId
+                  // alwaysDisplay: module.alwaysDisplay || undefined,
+                  // isEdge: module.isEdge || undefined,
+                  // rules: newRules,  // FIX: Fow now we only sync externalId
+
+                  // FIX: Fow now we only sync externalId
+                  // finish: module.spFinish?.slug?.trim()
+                  //   ? {
+                  //       connect: {
+                  //         slug: module.spFinish.slug.trim()
+                  //       }
+                  //     }
+                  //   : undefined,
+                  // collection: module.spCollection?.slug?.trim()
+                  //   ? {
+                  //       connect: {
+                  //         slug: module.spCollection.slug.trim()
+                  //       }
+                  //     }
+                  //   : undefined,
+                  // defaultLeftExtension: newRules?.extensions?.left
+                  //   ? {
+                  //       connect: {
+                  //         partNumber: newRules.extensions.left
+                  //       }
+                  //     }
+                  //   : undefined,
+                  // defaultRightExtension: newRules?.extensions?.right
+                  //   ? {
+                  //       connect: {
+                  //         partNumber: newRules.extensions.right
+                  //       }
+                  //     }
+                  //   : undefined
                   // TODO: Default left extension
                   // TODO: Default right extension
                   // TODO: attachmentToAppend: newRules?.rules.
@@ -1112,19 +1122,15 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       throw new ForbiddenError('unauthorized');
     }
 
-    const projectUnique = db.project.findUnique({
+    const project = await db.project.findUnique({
       where: { id: projectId }
     });
-
-    const project = await projectUnique;
 
     if (!project) {
       throw makeError('Project does not exist', 'not-found', 404);
     }
 
     const name = project.title;
-    const list = await projectUnique.lists();
-    const number = list.filter((x) => x.name?.startsWith(name)).length;
     const cart = await projectService({ db }).getCart(projectId);
 
     const noExternalIdModules = cart.filter((x) => !x.projectModule.module.externalId);
@@ -1135,55 +1141,102 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           noExternalIdModules
         }
       );
-      return null;
+      throw makeError("Cannot create list because some modules don't have externalId", 'createListNoExternalId');
     }
+
+    type MarathonCartItem = {
+      // the object id of the product
+      oid: string;
+      // the quantity of the product (optional)
+      quantity?: number;
+      // a description of the product (optional)
+      tag?: string;
+
+      items?: MarathonCartItem[];
+    };
+
+    // This generates the data with the same parent/children order we have, but they don't support it hence it's commented
+    // const mapToMarathonList = (
+    //   cartItem: typeof cart[number] | Omit<typeof cart[number], 'children'>
+    // ): MarathonCartItem => ({
+    //   // casting because we removed null and undefined on previous filter
+    //   oid: cartItem.projectModule.module.externalId as string,
+    //   quantity: cartItem.quantity,
+    //   items: (cartItem as typeof cart[number]).children
+    //     ? (cartItem as typeof cart[number]).children
+    //         .filter((x) => x.projectModule.module.externalId)
+    //         .map((x) => mapToMarathonList(x as typeof cart[number]))
+    //     : undefined
+    // });
+
+    // const data: {
+    //   // name of the list to be created
+    //   list_name: string;
+    //   items: MarathonCartItem[];
+    // } = {
+    //   list_name: number <= 0 ? name : `${name} ${number}`,
+    //   items: cart.filter((x) => x.projectModule.module.externalId).map(mapToMarathonList)
+    // };
+
+    const items: MarathonCartItem[] = [];
+
+    cart
+      .filter((x) => x.projectModule.module.externalId)
+      .forEach((cartItem) => {
+        items.push({
+          oid: cartItem.projectModule.module.externalId as string,
+          quantity: cartItem.quantity
+        });
+
+        if (cartItem.children && cartItem.children.length > 0) {
+          cartItem.children.forEach((cartItem) => {
+            items.push({
+              oid: cartItem.projectModule.module.externalId as string,
+              quantity: cartItem.quantity
+            });
+          });
+        }
+      });
 
     const data: {
       // name of the list to be created
       list_name: string;
-      items: {
-        // the object id of the product
-        oid: string;
-        // the quantity of the product (optional)
-        quantity?: number;
-        // a description of the product (optional)
-        tag?: string;
-      }[];
+      items: MarathonCartItem[];
     } = {
-      list_name: number <= 0 ? name : `${name} ${number}`,
-      items: cart
-        .filter((x) => x.projectModule.module.externalId)
-        .map((cartItem) => ({
-          // casting because we removed null and undefined on previous filter
-          oid: cartItem.projectModule.module.externalId as string,
-          quantity: cartItem.quantity
-          // tag: ''
-        }))
+      list_name: name,
+      items
     };
 
     const url = new URL(MARATHON_API_CREATE_LIST, MARATHON_API);
-    const { data: result } = (await axios({
-      url: url.toString(),
-      method: 'post',
-      data
-    })) as AxiosResponse<{
-      completed: boolean;
-      // the object id of the list
-      list_oid?: string;
-      // the name of the list that has been created
-      list_name?: string;
-    }>;
-
-    if (result.completed) {
-      return await db.list.create({
-        data: {
-          externalId: result.list_oid,
-          name: result.list_name,
-          projectId
+    try {
+      const { data: result } = (await axios({
+        url: url.toString(),
+        method: 'post',
+        data,
+        headers: {
+          'X-AUTH-TOKEN': token
         }
-      });
-    } else {
-      throw makeError("Couldn't save list", 'could-not-save-list');
+      })) as AxiosResponse<{
+        completed: 'yes' | 'no';
+        // the object id of the list
+        list_oid?: number;
+        // the name of the list that has been created
+        list_name?: string;
+      }>;
+
+      if (result.completed === 'yes') {
+        return await db.list.create({
+          data: {
+            externalId: `${result.list_oid}`,
+            name: result.list_name,
+            projectId
+          }
+        });
+      } else {
+        throw makeError("Couldn't save list", 'createListCannotComplete');
+      }
+    } catch (err) {
+      throw err;
     }
   };
 

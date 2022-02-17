@@ -46,6 +46,7 @@ export const Project = objectType({
           where: {
             collectionId: root.collectionId,
             finishId: root.finishId,
+            externalId: { not: null },
             OR: [
               {
                 moduleType: { some: { typeId: { equals: root.typeId } } },
@@ -157,6 +158,7 @@ export const createOneProjectCustomResolver = async (
       }
     }
     return res;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     logging.error(err, 'Error creating project');
     throw makeError('Error creating project', err.response.statusText);
