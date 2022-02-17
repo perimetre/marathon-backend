@@ -883,91 +883,99 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
           if (modulesToCreate && modulesToCreate.length > 0) {
             console.log(`Batch creating ${modulesToCreate.length} products`);
-            await db.$transaction(async (db) => {
-              await db.module.createMany({
-                data: modulesToCreate.map((productEdge) => {
-                  const module = productEdge?.node;
-                  const rules = mergeRules(module);
-                  return {
-                    partNumber: module?.partNumber?.trim() as string,
-                    externalId: module?.id?.trim(),
-                    description: module?.titleDescription?.trim() || undefined,
-                    // FIX: Uncomment after also importing/uploading the image
-                    // thumbnailUrl:
-                    //   module?.productPictures && module.productPictures.length > 0
-                    //     ? module?.productPictures[0]?.fullpath?.trim()
-                    //     : undefined,
-                    // bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
-                    isSubmodule: module?.isSubmodule || false,
-                    hasPegs: module?.hasPegs || false,
-                    isMat: module?.isMat || false,
-                    // isExtension: module.isExtension || false,, TODO: Make sure they provide this info
-                    shouldHideBasedOnWidth: module?.shouldHideBasedOnWidth || true,
-                    // alwaysDisplay: module.alwaysDisplay || false,, TODO: Make sure they provide this info
-                    // isEdge: module.isEdge || false,, TODO: Make sure they provide this info
-                    rules,
-                    finishId:
-                      existingFinishes.find((finish) => finish.slug === module?.spFinish?.slug?.trim())?.id || -1,
-                    collectionId:
-                      existingCollections.find((collection) => collection.slug === module?.spCollection?.slug?.trim())
-                        ?.id || -1
-                    // TODO: Default left extension
-                    // TODO: Default right extension
-                    // TODO: attachmentToAppend: newRules?.rules.
-                  };
-                })
-              });
-
-              console.log(`Fetching recently created ${modulesToCreate.length} products`);
-              const recentlyCreatedModules = await db.module.findMany({
-                where: {
-                  partNumber: {
-                    in: modulesToCreate.map((x) => x?.node?.partNumber?.trim() as string).filter((x) => !!x)
-                  }
-                },
-                select: {
-                  id: true,
-                  partNumber: true
-                }
-              });
-
-              console.log(`Batch creating ${recentlyCreatedModules.length} product categories`);
-              await db.moduleCategory.createMany({
-                data: modulesToCreate
-                  .flatMap((productEdge) =>
-                    productEdge?.node?.spCategories?.map((cat) => ({
-                      catSlug: cat?.slug?.trim(),
-                      modulePartNumber: productEdge?.node?.partNumber?.trim()
-                    }))
-                  )
-                  .filter((x) => !!x)
-                  .map((catModule) => {
+            try {
+              await db.$transaction(async (db) => {
+                await db.module.createMany({
+                  data: modulesToCreate.map((productEdge) => {
+                    const module = productEdge?.node;
+                    const rules = mergeRules(module);
                     return {
-                      moduleId:
-                        recentlyCreatedModules.find((x) => x.partNumber === catModule?.modulePartNumber)?.id || -1,
-                      categoryId: existingCategories.find((x) => x.slug === catModule?.catSlug)?.id || -1
+                      partNumber: module?.partNumber?.trim() as string,
+                      externalId: module?.id?.trim(),
+                      description: module?.titleDescription?.trim() || undefined,
+                      // FIX: Uncomment after also importing/uploading the image
+                      // thumbnailUrl:
+                      //   module?.productPictures && module.productPictures.length > 0
+                      //     ? module?.productPictures[0]?.fullpath?.trim()
+                      //     : undefined,
+                      // bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
+                      isSubmodule: module?.isSubmodule || false,
+                      hasPegs: module?.hasPegs || false,
+                      isMat: module?.isMat || false,
+                      // isExtension: module.isExtension || false,, TODO: Make sure they provide this info
+                      shouldHideBasedOnWidth: module?.shouldHideBasedOnWidth || true,
+                      // alwaysDisplay: module.alwaysDisplay || false,, TODO: Make sure they provide this info
+                      // isEdge: module.isEdge || false,, TODO: Make sure they provide this info
+                      rules,
+                      finishId:
+                        existingFinishes.find((finish) => finish.slug === module?.spFinish?.slug?.trim())?.id || -1,
+                      collectionId:
+                        existingCollections.find((collection) => collection.slug === module?.spCollection?.slug?.trim())
+                          ?.id || -1
+                      // TODO: Default left extension
+                      // TODO: Default right extension
+                      // TODO: attachmentToAppend: newRules?.rules.
                     };
                   })
-              });
+                });
 
-              console.log(`Batch creating ${recentlyCreatedModules.length} product types`);
-              await db.moduleType.createMany({
-                data: modulesToCreate
-                  .flatMap((productEdge) =>
-                    productEdge?.node?.spDrawerTypes?.map((type) => ({
-                      typeSlug: type?.slug?.trim(),
-                      modulePartNumber: productEdge?.node?.partNumber?.trim()
+                console.log(`Fetching recently created ${modulesToCreate.length} products`);
+                const recentlyCreatedModules = await db.module.findMany({
+                  where: {
+                    partNumber: {
+                      in: modulesToCreate.map((x) => x?.node?.partNumber?.trim() as string).filter((x) => !!x)
+                    }
+                  },
+                  select: {
+                    id: true,
+                    partNumber: true
+                  }
+                });
+
+                console.log(`Batch creating ${recentlyCreatedModules.length} product categories`);
+                await db.moduleCategory.createMany({
+                  data: modulesToCreate
+                    .flatMap((productEdge) =>
+                      productEdge?.node?.spCategories?.map((cat) => ({
+                        catSlug: cat?.slug?.trim(),
+                        modulePartNumber: productEdge?.node?.partNumber?.trim()
+                      }))
+                    )
+                    .filter((x) => !!x)
+                    .map((catModule) => {
+                      return {
+                        moduleId:
+                          recentlyCreatedModules.find((x) => x.partNumber === catModule?.modulePartNumber)?.id || -1,
+                        categoryId: existingCategories.find((x) => x.slug === catModule?.catSlug)?.id || -1
+                      };
+                    })
+                });
+
+                console.log(`Batch creating ${recentlyCreatedModules.length} product types`);
+                await db.moduleType.createMany({
+                  data: modulesToCreate
+                    .flatMap((productEdge) =>
+                      productEdge?.node?.spDrawerTypes?.map((type) => ({
+                        typeSlug: type?.slug?.trim(),
+                        modulePartNumber: productEdge?.node?.partNumber?.trim()
+                      }))
+                    )
+                    .filter((x) => !!x)
+                    .map((typeModule) => ({
+                      moduleId:
+                        recentlyCreatedModules.find((x) => x.partNumber === typeModule?.modulePartNumber)?.id || -1,
+                      typeId: existingTypes.find((x) => x.slug === typeModule?.typeSlug)?.id || -1
                     }))
-                  )
-                  .filter((x) => !!x)
-                  .map((typeModule) => ({
-                    moduleId:
-                      recentlyCreatedModules.find((x) => x.partNumber === typeModule?.modulePartNumber)?.id || -1,
-                    typeId: existingTypes.find((x) => x.slug === typeModule?.typeSlug)?.id || -1
-                  }))
+                });
+                // TODO: module attachments
               });
-              // TODO: module attachments
-            });
+            } catch (err) {
+              logging.error(err, 'Error when batch creating products', {
+                modulesToCreate,
+                existingCollections,
+                existingFinishes
+              });
+            }
           } else {
             console.log(`No module to create`);
           }
