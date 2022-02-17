@@ -109,8 +109,8 @@ export const GET_SP_FINISH_STATUS = gql`
 `;
 
 export const GET_PRODUCT_LISTING = gql`
-  query GetProductListing($first: Int, $after: Int) {
-    getProductListing(published: true, first: $first, after: $after) {
+  query GetProductListing($first: Int, $after: Int, $filter: String) {
+    getProductListing(published: true, first: $first, after: $after, filter: $filter) {
       edges {
         node {
           ...Product
