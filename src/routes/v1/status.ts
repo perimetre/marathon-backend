@@ -2,6 +2,13 @@
 import express from 'express';
 import { getDb } from '../../database';
 import { env } from '../../env';
+import {
+  GetProductStatusQuery,
+  GetSpCategoryStatusQuery,
+  GetSpCollectionStatusQuery,
+  GetSpDrawerTypesStatusQuery,
+  GetSpFinishStatusQuery
+} from '../../generated/graphql';
 import { marathonService } from '../../services/marathon';
 import {
   GET_PRODUCT_STATUS,
@@ -62,12 +69,25 @@ router.get('/', async (req, res) => {
   };
 
   try {
-    await marathService.marathonGraphql(GET_SP_CATEGORY_STATUS);
+    const { error } = await marathService.marathonApollo.query<GetSpCategoryStatusQuery>({
+      query: GET_SP_CATEGORY_STATUS
+    });
+    if (error) {
+      status.marathonApi.status = 'failed';
+      status.marathonApi.error = {
+        ...status.marathonApi.error,
+        category: {
+          ...error,
+          message: error?.message
+        }
+      };
+    }
   } catch (error: any) {
     status.marathonApi.status = 'failed';
     status.marathonApi.error = {
       ...status.marathonApi.error,
       category: {
+        ...error,
         message: error?.message,
         status: error.status
       }
@@ -75,12 +95,25 @@ router.get('/', async (req, res) => {
   }
 
   try {
-    await marathService.marathonGraphql(GET_SP_COLLECTION_STATUS);
+    const { error } = await marathService.marathonApollo.query<GetSpCollectionStatusQuery>({
+      query: GET_SP_COLLECTION_STATUS
+    });
+    if (error) {
+      status.marathonApi.status = 'failed';
+      status.marathonApi.error = {
+        ...status.marathonApi.error,
+        collection: {
+          ...error,
+          message: error?.message
+        }
+      };
+    }
   } catch (error: any) {
     status.marathonApi.status = 'failed';
     status.marathonApi.error = {
       ...status.marathonApi.error,
       collection: {
+        ...error,
         message: error?.message,
         status: error.status
       }
@@ -88,12 +121,26 @@ router.get('/', async (req, res) => {
   }
 
   try {
-    await marathService.marathonGraphql(GET_SP_DRAWER_TYPES_STATUS);
+    const { error } = await marathService.marathonApollo.query<GetSpDrawerTypesStatusQuery>({
+      query: GET_SP_DRAWER_TYPES_STATUS
+    });
+
+    if (error) {
+      status.marathonApi.status = 'failed';
+      status.marathonApi.error = {
+        ...status.marathonApi.error,
+        drawerType: {
+          ...error,
+          message: error?.message
+        }
+      };
+    }
   } catch (error: any) {
     status.marathonApi.status = 'failed';
     status.marathonApi.error = {
       ...status.marathonApi.error,
       drawerType: {
+        ...error,
         message: error?.message,
         status: error.status
       }
@@ -101,12 +148,26 @@ router.get('/', async (req, res) => {
   }
 
   try {
-    await marathService.marathonGraphql(GET_SP_FINISH_STATUS);
+    const { error } = await marathService.marathonApollo.query<GetSpFinishStatusQuery>({
+      query: GET_SP_FINISH_STATUS
+    });
+
+    if (error) {
+      status.marathonApi.status = 'failed';
+      status.marathonApi.error = {
+        ...status.marathonApi.error,
+        finish: {
+          ...error,
+          message: error?.message
+        }
+      };
+    }
   } catch (error: any) {
     status.marathonApi.status = 'failed';
     status.marathonApi.error = {
       ...status.marathonApi.error,
       finish: {
+        ...error,
         message: error?.message,
         status: error.status
       }
@@ -114,12 +175,26 @@ router.get('/', async (req, res) => {
   }
 
   try {
-    await marathService.marathonGraphql(GET_PRODUCT_STATUS);
+    const { error } = await marathService.marathonApollo.query<GetProductStatusQuery>({
+      query: GET_PRODUCT_STATUS
+    });
+
+    if (error) {
+      status.marathonApi.status = 'failed';
+      status.marathonApi.error = {
+        ...status.marathonApi.error,
+        products: {
+          ...error,
+          message: error?.message
+        }
+      };
+    }
   } catch (error: any) {
     status.marathonApi.status = 'failed';
     status.marathonApi.error = {
       ...status.marathonApi.error,
       products: {
+        ...error,
         message: error?.message,
         status: error.status
       }

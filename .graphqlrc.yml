@@ -1,0 +1,3 @@
+schema: graphql.schema.json
+documents:
+  - 'src/**/*.{graphql,tsx,ts}'

@@ -1,0 +1,4 @@
+{
+  "name": "Marathon Schema",
+  "schemaPath": "graphql.schema.json"
+}
