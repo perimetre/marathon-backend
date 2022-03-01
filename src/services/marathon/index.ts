@@ -1,4 +1,5 @@
 import { ApolloClient, from, HttpLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client/core';
+// import { print } from 'graphql';
 import { Locale, PrismaClient } from '@prisma/client';
 import { ForbiddenError } from 'apollo-server';
 import axios, { AxiosResponse } from 'axios';
@@ -99,7 +100,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     try {
       const { data } = await marathonApollo.query<GetSpCategoryListingQuery>({
-        query: GET_SP_CATEGORY_LISTING
+        query: GET_SP_CATEGORY_LISTING,
+        fetchPolicy: 'no-cache'
       });
 
       const categories = data?.getSpCategoryListing?.edges || [];
@@ -141,8 +143,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.category.update({
             where: { slug },
             data: {
-              externalId: categoryEdge?.node?.id?.trim()
-              // name: categoryEdge?.node?.name?.trim() // FIX: Fow now we only sync externalId
+              externalId: categoryEdge?.node?.id?.trim(),
+              name: categoryEdge?.node?.name?.trim()
             }
           });
         }
@@ -184,7 +186,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     try {
       const { data } = await marathonApollo.query<GetSpCollectionListingQuery>({
-        query: GET_SP_COLLECTION_LISTING
+        query: GET_SP_COLLECTION_LISTING,
+        fetchPolicy: 'no-cache'
       });
 
       const collections = data?.getSpCollectionListing?.edges || [];
@@ -232,26 +235,25 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.collection.update({
             where: { slug },
             data: {
-              externalId: collectionEdge?.node?.id?.trim()
+              externalId: collectionEdge?.node?.id?.trim(),
               // thumbnailUrl: collectionEdge?.node?.image?.fullpath?.trim(), // FIX: Uncomment after also importing/uploading the image
-              // hasPegs: collectionEdge?.node?.hasPegs || undefined,  // FIX: Fow now we only sync externalId
+              hasPegs: collectionEdge?.node?.hasPegs || undefined,
               // isComingSoon, TODO: Make sure they provide this info
 
-              // FIX: Fow now we only sync externalId
-              // translations:
-              //   translationIds && translationIds.length > 0
-              //     ? {
-              //         update: {
-              //           // Theoretically we should only have one id for locale+slug
-              //           where: { id: translationIds[0] },
-              //           data: {
-              //             name: collectionEdge?.node?.name?.trim(),
-              //             subtitle: collectionEdge?.node?.subtitle?.trim(),
-              //             description: collectionEdge?.node?.description?.trim()
-              //           }
-              //         }
-              //       }
-              //     : undefined
+              translations:
+                translationIds && translationIds.length > 0
+                  ? {
+                      update: {
+                        // Theoretically we should only have one id for locale+slug
+                        where: { id: translationIds[0] },
+                        data: {
+                          name: collectionEdge?.node?.name?.trim(),
+                          subtitle: collectionEdge?.node?.subtitle?.trim(),
+                          description: collectionEdge?.node?.description?.trim()
+                        }
+                      }
+                    }
+                  : undefined
             }
           });
         }
@@ -323,7 +325,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     try {
       const { data } = await marathonApollo.query<GetSpDrawerTypesListingQuery>({
-        query: GET_SP_DRAWER_TYPES_LISTING
+        query: GET_SP_DRAWER_TYPES_LISTING,
+        fetchPolicy: 'no-cache'
       });
 
       const drawerTypes = data?.getSpDrawerTypesListing?.edges || [];
@@ -373,24 +376,24 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.type.update({
             where: { slug },
             data: {
-              externalId: drawerTypeEdge?.node?.id?.trim()
+              externalId: drawerTypeEdge?.node?.id?.trim(),
               // thumbnailUrl: image?.fullpath?.trim(), TODO: Make sure they provide this info
               // hasPegs: hasPegs3|| undefined, TODO: Make sure they provide this info
               // isComingSoon, TODO: Make sure they provide this info
-              // FIX: Fow now we only sync externalId
-              // translations:
-              //   translationIds && translationIds.length > 0
-              //     ? {
-              //         update: {
-              //           // Theoretically we should only have one id for locale+slug
-              //           where: { id: translationIds[0] },
-              //           data: {
-              //             name: drawerTypeEdge?.node?.name?.trim()
-              //             // description?.trim, TODO: Make sure they provide this info
-              //           }
-              //         }
-              //       }
-              //     : undefined
+
+              translations:
+                translationIds && translationIds.length > 0
+                  ? {
+                      update: {
+                        // Theoretically we should only have one id for locale+slug
+                        where: { id: translationIds[0] },
+                        data: {
+                          name: drawerTypeEdge?.node?.name?.trim()
+                          // description?.trim, TODO: Make sure they provide this info
+                        }
+                      }
+                    }
+                  : undefined
             }
           });
         }
@@ -456,7 +459,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     try {
       const { data } = await marathonApollo.query<GetSpFinishListingQuery>({
-        query: GET_SP_FINISH_LISTING
+        query: GET_SP_FINISH_LISTING,
+        fetchPolicy: 'no-cache'
       });
 
       const finishes = data.getSpFinishListing?.edges || [];
@@ -504,23 +508,23 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.finish.update({
             where: { slug },
             data: {
-              externalId: finishEdge?.node?.id?.trim()
+              externalId: finishEdge?.node?.id?.trim(),
               // thumbnailUrl: finishEdge?.node?.image?.fullpath?.trim(),  // FIX: Uncomment after also importing/uploading the image
               // isComingSoon, , TODO: Make sure they provide this info
-              // FIX: Fow now we only sync externalId
-              // translations:
-              //   translationIds && translationIds.length > 0
-              //     ? {
-              //         update: {
-              //           // Theoretically we should only have one id for locale+slug
-              //           where: { id: translationIds[0] },
-              //           data: {
-              //             name: finishEdge?.node?.name?.trim(),
-              //             description: finishEdge?.node?.description?.trim()
-              //           }
-              //         }
-              //       }
-              //     : undefined
+
+              translations:
+                translationIds && translationIds.length > 0
+                  ? {
+                      update: {
+                        // Theoretically we should only have one id for locale+slug
+                        where: { id: translationIds[0] },
+                        data: {
+                          name: finishEdge?.node?.name?.trim(),
+                          description: finishEdge?.node?.description?.trim()
+                        }
+                      }
+                    }
+                  : undefined
             }
           });
         }
@@ -847,10 +851,12 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
       console.log('Fetching products');
       const ignoredModules: string[] = [];
+      // console.log(print(GET_PRODUCT_LISTING));
       while (pageIndex >= 0) {
         console.log(`Asking for ${productsPerPage} products on page ${pageIndex + 1}`);
         const { data } = await marathonApollo.query<GetProductListingQuery, GetProductListingQueryVariables>({
           query: GET_PRODUCT_LISTING,
+          fetchPolicy: 'no-cache',
           variables: {
             first: productsPerPage,
             after: pageIndex * productsPerPage,
@@ -945,7 +951,10 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                       hasPegs: module?.hasPegs || false,
                       isMat: module?.isMat || false,
                       // isExtension: module.isExtension || false,, TODO: Make sure they provide this info
-                      shouldHideBasedOnWidth: module?.shouldHideBasedOnWidth || true,
+                      shouldHideBasedOnWidth:
+                        module?.shouldHideBasedOnWidth !== undefined && module?.shouldHideBasedOnWidth !== null
+                          ? module?.shouldHideBasedOnWidth
+                          : true,
                       // alwaysDisplay: module.alwaysDisplay || false,, TODO: Make sure they provide this info
                       // isEdge: module.isEdge || false,, TODO: Make sure they provide this info
                       rules,
@@ -975,14 +984,21 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                 });
 
                 console.log(`Batch creating ${recentlyCreatedModules.length} product categories`);
+
+                const categoriesToCreate = modulesToCreate.flatMap((productEdge) =>
+                  productEdge?.node?.spCategories?.map((cat) => ({
+                    catSlug: cat?.slug?.trim(),
+                    modulePartNumber: productEdge?.node?.partNumber?.trim()
+                  }))
+                );
+
+                const categoryAllToCreate = modulesToCreate.map((productEdge) => ({
+                  catSlug: 'all',
+                  modulePartNumber: productEdge?.node?.partNumber?.trim()
+                }));
+
                 await db.moduleCategory.createMany({
-                  data: modulesToCreate
-                    .flatMap((productEdge) =>
-                      productEdge?.node?.spCategories?.map((cat) => ({
-                        catSlug: cat?.slug?.trim(),
-                        modulePartNumber: productEdge?.node?.partNumber?.trim()
-                      }))
-                    )
+                  data: [...categoriesToCreate, ...categoryAllToCreate]
                     .filter((x) => !!x)
                     .map((catModule) => {
                       return {
@@ -1030,97 +1046,99 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
             console.log(`Updating module #${i + 1} ${module.partNumber?.trim()} of ${modulesToUpdate.length}`);
 
-            // FIX: Fow now we only sync externalId
-            // const existingModule = existingModules.find((x) => x.partNumber === module.partNumber?.trim());
-            // const rules = existingModule?.rules as NexusGenObjects['ModuleRules'] | undefined;
+            const existingModule = existingModules.find((x) => x.partNumber === module.partNumber?.trim());
+            const rules = existingModule?.rules as NexusGenObjects['ModuleRules'] | undefined;
 
             await db.$transaction(async (db) => {
               // Sync categories
 
-              // FIX: Fow now we only sync externalId
-              // // Delete existing categories to re create
-              // await db.moduleCategory.deleteMany({ where: { module: { partNumber: module.partNumber?.trim() } } });
+              // Delete existing categories to re create
+              await db.moduleCategory.deleteMany({
+                where: { module: { partNumber: module.partNumber?.trim() }, category: { slug: { not: 'all' } } }
+              });
 
-              // // If there are categories for this module
-              // if (module.spCategories && module.spCategories.length > 0) {
-              //   // Create them
-              //   await db.moduleCategory.createMany({
-              //     data: module.spCategories.map((cat) => ({
-              //       moduleId: existingModule?.id || -1,
-              //       categoryId: existingCategories.find((x) => x.slug === cat?.slug?.trim())?.id || -1
-              //     }))
-              //   });
-              // }
+              // If there are categories for this module
+              if (module.spCategories && module.spCategories.length > 0) {
+                // Create them
+                await db.moduleCategory.createMany({
+                  data: module.spCategories.map((cat) => ({
+                    moduleId: existingModule?.id || -1,
+                    categoryId: existingCategories.find((x) => x.slug === cat?.slug?.trim())?.id || -1
+                  }))
+                });
+              }
 
-              // // Sync type
+              // Sync type
 
-              // // Delete existing types to then create
-              // await db.moduleType.deleteMany({ where: { module: { partNumber: module.partNumber?.trim() } } });
+              // Delete existing types to then create
+              await db.moduleType.deleteMany({ where: { module: { partNumber: module.partNumber?.trim() } } });
 
-              // // If there are types for this module
-              // if (module.spDrawerTypes && module.spDrawerTypes.length > 0) {
-              //   // Create them
-              //   await db.moduleType.createMany({
-              //     data: module.spDrawerTypes.map((type) => ({
-              //       moduleId: existingModule?.id || -1,
-              //       typeId: existingTypes.find((x) => x.slug === type?.slug?.trim())?.id || -1
-              //     }))
-              //   });
-              // }
+              // If there are types for this module
+              if (module.spDrawerTypes && module.spDrawerTypes.length > 0) {
+                // Create them
+                await db.moduleType.createMany({
+                  data: module.spDrawerTypes.map((type) => ({
+                    moduleId: existingModule?.id || -1,
+                    typeId: existingTypes.find((x) => x.slug === type?.slug?.trim())?.id || -1
+                  }))
+                });
+              }
 
-              // // TODO: module attachments
+              // TODO: module attachments
 
-              // const newRules = mergeRules(module, rules);
+              const newRules = mergeRules(module, rules);
 
               await db.module.update({
                 where: { partNumber: module.partNumber?.trim() },
                 data: {
-                  externalId: module.id?.trim()
-                  // description: module.titleDescription?.trim() || undefined,  // FIX: Fow now we only sync externalId
+                  externalId: module.id?.trim(),
+                  description: module.titleDescription?.trim() || undefined,
                   // FIX: Uncomment after also importing/uploading the image
                   // thumbnailUrl:
                   //   module.productPictures && module.productPictures.length > 0
                   //     ? module.productPictures[0]?.fullpath?.trim()
                   //     : undefined,
                   // bundleUrl: module.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
-                  // isSubmodule: module.isSubmodule || undefined,  // FIX: Fow now we only sync externalId
-                  // hasPegs: module.hasPegs || undefined,  // FIX: Fow now we only sync externalId
-                  // isMat: module.isMat || undefined,  // FIX: Fow now we only sync externalId
+                  isSubmodule: module.isSubmodule || undefined,
+                  hasPegs: module.hasPegs || undefined,
+                  isMat: module.isMat || undefined,
                   // isExtension: module.isExtension || false,
-                  // shouldHideBasedOnWidth: module.shouldHideBasedOnWidth || undefined,  // FIX: Fow now we only sync externalId
+                  shouldHideBasedOnWidth:
+                    module.shouldHideBasedOnWidth !== undefined && module.shouldHideBasedOnWidth !== null
+                      ? module.shouldHideBasedOnWidth
+                      : undefined,
                   // alwaysDisplay: module.alwaysDisplay || undefined,
                   // isEdge: module.isEdge || undefined,
-                  // rules: newRules,  // FIX: Fow now we only sync externalId
+                  rules: newRules,
 
-                  // FIX: Fow now we only sync externalId
-                  // finish: module.spFinish?.slug?.trim()
-                  //   ? {
-                  //       connect: {
-                  //         slug: module.spFinish.slug.trim()
-                  //       }
-                  //     }
-                  //   : undefined,
-                  // collection: module.spCollection?.slug?.trim()
-                  //   ? {
-                  //       connect: {
-                  //         slug: module.spCollection.slug.trim()
-                  //       }
-                  //     }
-                  //   : undefined,
-                  // defaultLeftExtension: newRules?.extensions?.left
-                  //   ? {
-                  //       connect: {
-                  //         partNumber: newRules.extensions.left
-                  //       }
-                  //     }
-                  //   : undefined,
-                  // defaultRightExtension: newRules?.extensions?.right
-                  //   ? {
-                  //       connect: {
-                  //         partNumber: newRules.extensions.right
-                  //       }
-                  //     }
-                  //   : undefined
+                  finish: module.spFinish?.slug?.trim()
+                    ? {
+                        connect: {
+                          slug: module.spFinish.slug.trim()
+                        }
+                      }
+                    : undefined,
+                  collection: module.spCollection?.slug?.trim()
+                    ? {
+                        connect: {
+                          slug: module.spCollection.slug.trim()
+                        }
+                      }
+                    : undefined,
+                  defaultLeftExtension: newRules?.extensions?.left
+                    ? {
+                        connect: {
+                          partNumber: newRules.extensions.left
+                        }
+                      }
+                    : undefined,
+                  defaultRightExtension: newRules?.extensions?.right
+                    ? {
+                        connect: {
+                          partNumber: newRules.extensions.right
+                        }
+                      }
+                    : undefined
                   // TODO: Default left extension
                   // TODO: Default right extension
                   // TODO: attachmentToAppend: newRules?.rules.
