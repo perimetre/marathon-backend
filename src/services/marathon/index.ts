@@ -595,25 +595,17 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     // If unit is wrong
     if (feature?.quantityvalue?.unit?.id && feature.quantityvalue.unit.id !== featureUnitId) {
-      if (
-        featureUnitId === FEATURE_NAMES.MM_ID &&
-        feature.quantityvalue.unit.id === FEATURE_NAMES.IN_ID &&
-        feature?.quantityvalue?.value
-      ) {
-        const inchValue = convertInToMmFormatted(`${feature.quantityvalue.value}`);
+      if (featureUnitId === FEATURE_NAMES.MM_ID && feature.quantityvalue.unit.id === FEATURE_NAMES.IN_ID) {
+        const inchValue = convertInToMmFormatted(`${feature.quantityvalue.value || 0}`);
 
         return format ? format(inchValue) : (inchValue as unknown as TResult);
-      } else if (
-        featureUnitId === FEATURE_NAMES.IN_ID &&
-        feature.quantityvalue.unit.id === FEATURE_NAMES.MM_ID &&
-        feature?.quantityvalue?.value
-      ) {
-        const mmValue = convertMmToInFormatted(`${feature.quantityvalue.value}`);
+      } else if (featureUnitId === FEATURE_NAMES.IN_ID && feature.quantityvalue.unit.id === FEATURE_NAMES.MM_ID) {
+        const mmValue = convertMmToInFormatted(`${feature.quantityvalue.value || 0}`);
 
         return format ? format(mmValue) : (mmValue as unknown as TResult);
       } else {
         throw makeError(
-          `Expected ${featureName} feature as ${featureUnitId}, but was returned as "${feature?.quantityvalue?.unit?.id} with value "${feature.quantityvalue.value}"`,
+          `Expected ${featureName} feature as ${featureUnitId}, but was returned as "${feature?.quantityvalue?.unit?.id}" with value "${feature.quantityvalue.value}"`,
           'ruleMergeFeatureQuantityUnit'
         );
       }
