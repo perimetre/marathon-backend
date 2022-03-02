@@ -7,6 +7,7 @@ type ModuleServiceDependencies = {
 
 export const moduleService = ({ db }: ModuleServiceDependencies) => {
   const filterModuleBasedOnWidth = async (modules: Module[], calculatedWidth: number) => {
+    // console.log(`------------------- Calculated: ${calculatedWidth}`);
     return modules.filter((module) => {
       if (module.rules && module.shouldHideBasedOnWidth) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -17,14 +18,25 @@ export const moduleService = ({ db }: ModuleServiceDependencies) => {
           const max = rules.dimensions.width.max.millimeters;
 
           if (min !== max) {
+            // console.log(
+            //   module.partNumber,
+            //   min,
+            //   max,
+            //   ` | ${calculatedWidth} >= ${min} && ${calculatedWidth} < ${max}: `,
+            //   calculatedWidth >= min && calculatedWidth < max
+            // );
             return calculatedWidth >= min && calculatedWidth < max;
           } else if (min === max || !max) {
+            // console.log(module.partNumber, min, max, ` | ${calculatedWidth} > ${min}: `, calculatedWidth > min);
             return calculatedWidth > min;
           }
         } else {
+          // console.log(module.partNumber, 'min === max');
           return false;
         }
       }
+
+      // console.log(module.partNumber, 'shouldHideBasedOnWidth false');
 
       return true;
     });
