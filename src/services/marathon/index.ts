@@ -238,7 +238,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               externalId: collectionEdge?.node?.id?.trim(),
               // thumbnailUrl: collectionEdge?.node?.image?.fullpath?.trim(), // FIX: Uncomment after also importing/uploading the image
               hasPegs: collectionEdge?.node?.hasPegs || undefined,
-              // isComingSoon, TODO: Make sure they provide this info
+              isComingSoon: collectionEdge?.node?.isComingSoon || undefined,
 
               translations:
                 translationIds && translationIds.length > 0
@@ -271,8 +271,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                 externalId: collectionEdge?.node?.id?.trim() as string,
                 slug: collectionEdge?.node?.slug?.trim() as string,
                 // thumbnailUrl: collectionEdge?.node?.image?.fullpath?.trim() as string,  // FIX: Uncomment after also importing/uploading the image
-                hasPegs: collectionEdge?.node?.hasPegs || false
-                // isComingSoon, TODO: Make sure they provide this info
+                hasPegs: collectionEdge?.node?.hasPegs || false,
+                isComingSoon: collectionEdge?.node?.isComingSoon || false
               }))
           });
 
@@ -378,8 +378,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             data: {
               externalId: drawerTypeEdge?.node?.id?.trim(),
               // thumbnailUrl: image?.fullpath?.trim(), TODO: Make sure they provide this info
-              // hasPegs: hasPegs3|| undefined, TODO: Make sure they provide this info
-              // isComingSoon, TODO: Make sure they provide this info
+              hasPegs: drawerTypeEdge?.node?.hasPegs || undefined,
+              // isComingSoon: drawerTypeEdge?.node?.isComingSoon || undefined,
 
               translations:
                 translationIds && translationIds.length > 0
@@ -388,8 +388,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                         // Theoretically we should only have one id for locale+slug
                         where: { id: translationIds[0] },
                         data: {
-                          name: drawerTypeEdge?.node?.name?.trim()
-                          // description?.trim, TODO: Make sure they provide this info
+                          name: drawerTypeEdge?.node?.name?.trim(),
+                          description: drawerTypeEdge?.node?.description?.trim()
                         }
                       }
                     }
@@ -406,9 +406,10 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               .map((drawerTypeEdge) => ({
                 // Casting because we're filtering right above
                 externalId: drawerTypeEdge?.node?.id?.trim() as string,
-                slug: drawerTypeEdge?.node?.slug?.trim() as string
+                slug: drawerTypeEdge?.node?.slug?.trim() as string,
                 // thumbnailUrl: image?.fullpath?.trim(), TODO: Make sure they provide this info
-                // hasPegs: hasPegs || false, TODO: Make sure they provide this info
+                hasPegs: drawerTypeEdge?.node?.hasPegs || false
+                // isComingSoon: drawerTypeEdge?.node?.isComingSoon || false
               }))
           });
 
@@ -429,7 +430,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
               return {
                 locale: defaultSyncLocale,
-                // description: drawerType?.node.description?.trim() || '',, TODO: Make sure they provide this info
+                description: drawerType?.node?.description?.trim() || '',
                 name: drawerType?.node?.name?.trim() || '',
                 typeId: dbType.id
               };
@@ -510,7 +511,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             data: {
               externalId: finishEdge?.node?.id?.trim(),
               // thumbnailUrl: finishEdge?.node?.image?.fullpath?.trim(),  // FIX: Uncomment after also importing/uploading the image
-              // isComingSoon, , TODO: Make sure they provide this info
 
               translations:
                 translationIds && translationIds.length > 0
@@ -541,7 +541,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                 externalId: finishEdge?.node?.id?.trim() as string,
                 slug: finishEdge?.node?.slug?.trim() as string
                 // thumbnailUrl: finishEdge?.node?.image?.fullpath?.trim() as string  // FIX: Uncomment after also importing/uploading the image
-                // isComingSoon, , TODO: Make sure they provide this info
               }))
           });
 
@@ -955,8 +954,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                         module?.shouldHideBasedOnWidth !== undefined && module?.shouldHideBasedOnWidth !== null
                           ? module?.shouldHideBasedOnWidth
                           : true,
-                      // alwaysDisplay: module.alwaysDisplay || false,, TODO: Make sure they provide this info
-                      // isEdge: module.isEdge || false,, TODO: Make sure they provide this info
+                      alwaysDisplay: module?.alwaysDisplay || false,
+                      isEdge: module?.isEdge || false,
                       rules,
                       finishId:
                         existingFinishes.find((finish) => finish.slug === module?.spFinish?.slug?.trim())?.id || -1,
