@@ -1652,7 +1652,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-PARTN240-H125/04-IM-BIR-PARTN240-H125/04-IM-BIR-PARTN240-H125.jpg",
-      "genericName": "04-IM-xxx-PARTN240-H125"
+      "genericName": "04-IM-xxx-PARTN240-H125",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-IM-WAL-PARTN240-H125",
@@ -1665,7 +1666,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-PARTN240-H125/04-IM-WAL-PARTN240-H125/04-IM-WAL-PARTN240-H125.jpg",
-      "genericName": "04-IM-xxx-PARTN240-H125"
+      "genericName": "04-IM-xxx-PARTN240-H125",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-IM-BIR-PARTN448-H125",
@@ -1678,7 +1680,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-PARTN448-H125/04-IM-BIR-PARTN448-H125/04-IM-BIR-PARTN448-H125.jpg",
-      "genericName": "04-IM-xxx-PARTN448-H125"
+      "genericName": "04-IM-xxx-PARTN448-H125",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-IM-WAL-PARTN448-H125",
@@ -1691,7 +1694,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/imprint/04-IM-xxx-PARTN448-H125/04-IM-WAL-PARTN448-H125/04-IM-WAL-PARTN448-H125.jpg",
-      "genericName": "04-IM-xxx-PARTN448-H125"
+      "genericName": "04-IM-xxx-PARTN448-H125",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-IM-BIR-SPICE-H",
@@ -1937,7 +1941,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xx-SPICE/04-AREA-CT-GM-SPICE/04-AREA-CT-GM-SPICE.jpg",
       "genericName": "04-AREA-CT-xx-SPICE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-GMT-SPICE",
@@ -1951,7 +1956,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xx-SPICE/04-AREA-CT-GMT-SPICE/04-AREA-CT-GMT-SPICE.jpg",
       "genericName": "04-AREA-CT-xx-SPICE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-SW-SPICE",
@@ -1965,7 +1971,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xx-SPICE/04-AREA-CT-SW-SPICE/04-AREA-CT-SW-SPICE.jpg",
       "genericName": "04-AREA-CT-xx-SPICE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-GM-D",
@@ -2114,7 +2121,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F1/04-AREA-CT-GM-F1/04-AREA-CT-GM-F1.jpg",
       "genericName": "04-AREA-CT-xxx-F1",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-GMT-F1",
@@ -2128,7 +2136,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F1/04-AREA-CT-GMT-F1/04-AREA-CT-GMT-F1.jpg",
       "genericName": "04-AREA-CT-xxx-F1",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-SW-F1",
@@ -2142,7 +2151,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-F1/04-AREA-CT-SW-F1/04-AREA-CT-SW-F1.jpg",
       "genericName": "04-AREA-CT-xxx-F1",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-GM-G",
@@ -2246,7 +2256,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-IJ/04-AREA-CT-GM-IJ/04-AREA-CT-GM-IJ.jpg",
       "genericName": "04-AREA-CT-xxx-IJ",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-GMT-IJ",
@@ -2260,7 +2271,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-IJ/04-AREA-CT-GMT-IJ/04-AREA-CT-GMT-IJ.jpg",
       "genericName": "04-AREA-CT-xxx-IJ",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-SW-IJ",
@@ -2274,7 +2286,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-IJ/04-AREA-CT-SW-IJ/04-AREA-CT-SW-IJ.jpg",
       "genericName": "04-AREA-CT-xxx-IJ",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-GM-K",
@@ -2333,7 +2346,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-KNIFE/04-AREA-CT-GM-KNIFE/04-AREA-CT-GM-KNIFE.jpg",
       "genericName": "04-AREA-CT-xxx-KNIFE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-GMT-KNIFE",
@@ -2347,7 +2361,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-KNIFE/04-AREA-CT-GMT-KNIFE/04-AREA-CT-GMT-KNIFE.jpg",
       "genericName": "04-AREA-CT-xxx-KNIFE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-SW-KNIFE",
@@ -2361,7 +2376,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-CT-xxx-KNIFE/04-AREA-CT-SW-KNIFE/04-AREA-CT-SW-KNIFE.jpg",
       "genericName": "04-AREA-CT-xxx-KNIFE",
-      "categorySlug": ["all", "utensil"]
+      "categorySlug": ["all", "utensil"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-CT-GM-L",
@@ -2454,19 +2470,6 @@
       "categorySlug": ["all", "utensil"]
     },
     {
-      "partNumber": "04-AREA-SP-CH",
-      "bundlePath": "modules/area/04-area-sp-ch/04-area-sp-ch/module",
-      "finish": "",
-      "collection": "area",
-      "rules": "{\r\n  \"partNumber\": \"04-AREA-SP-CH\",\r\n  \"finishes\": [],\r\n  \"dimensions\": {\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 2,\r\n        \"inches\": \"0\\\" 3/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 2,\r\n        \"inches\": \"0\\\" 3/32\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 440,\r\n        \"inches\": \"17\\\" 5/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 550,\r\n        \"inches\": \"21\\\" 21/32\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"trimmable\": [\r\n      \"top\",\r\n      \"bottom\"\r\n    ]\r\n  }\r\n}",
-      "isSubmodule": true,
-      "hasPegs": false,
-      "isMat": false,
-      "isExtension": false,
-      "imageUrl": "images/module/area/04-AREA-SP-CH/04-AREA-SP-CH/IMG_NoImage.png",
-      "genericName": "04-AREA-SP-CH"
-    },
-    {
       "partNumber": "04-AREA-ST-GM-G",
       "bundlePath": "modules/area/04-area-st-xxx-g/04-area-st-gm-g/module",
       "finish": "matte-grey",
@@ -2477,7 +2480,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-ST-xxx-G/04-AREA-ST-GM-G/04-AREA-ST-GM-G.jpg",
-      "genericName": "04-AREA-ST-xxx-G"
+      "genericName": "04-AREA-ST-xxx-G",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-ST-GMT-G",
@@ -2490,7 +2495,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-ST-xxx-G/04-AREA-ST-GMT-G/04-AREA-ST-GMT-G.jpg",
-      "genericName": "04-AREA-ST-xxx-G"
+      "genericName": "04-AREA-ST-xxx-G",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-ST-SW-G",
@@ -2503,7 +2510,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-ST-xxx-G/04-AREA-ST-SW-G/04-AREA-ST-SW-G.jpg",
-      "genericName": "04-AREA-ST-xxx-G"
+      "genericName": "04-AREA-ST-xxx-G",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-ST-GM-H",
@@ -2516,7 +2525,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-ST-xxx-H/04-AREA-ST-GM-H/04-AREA-ST-GM-H.jpg",
-      "genericName": "04-AREA-ST-xxx-H"
+      "genericName": "04-AREA-ST-xxx-H",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-ST-GMT-H",
@@ -2529,7 +2540,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-ST-xxx-H/04-AREA-ST-GMT-H/04-AREA-ST-GMT-H.jpg",
-      "genericName": "04-AREA-ST-xxx-H"
+      "genericName": "04-AREA-ST-xxx-H",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-ST-SW-H",
@@ -2542,7 +2555,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-ST-xxx-H/04-AREA-ST-SW-H/04-AREA-ST-SW-H.jpg",
-      "genericName": "04-AREA-ST-xxx-H"
+      "genericName": "04-AREA-ST-xxx-H",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-UT-GM-D",
@@ -2556,7 +2571,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-D/04-AREA-UT-GM-D/04-AREA-UT-GM-D.jpg",
       "genericName": "04-AREA-UT-xxx-D",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": ["all", "utility"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-UT-GMT-D",
@@ -2570,7 +2586,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-D/04-AREA-UT-GMT-D/04-AREA-UT-GMT-D.jpg",
       "genericName": "04-AREA-UT-xxx-D",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": ["all", "utility"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-UT-SW-D",
@@ -2584,7 +2601,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-D/04-AREA-UT-SW-D/04-AREA-UT-SW-D.jpg",
       "genericName": "04-AREA-UT-xxx-D",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": ["all", "utility"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-UT-GM-E",
@@ -2597,7 +2615,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-E/04-AREA-UT-GM-E/04-AREA-UT-GM-E.jpg",
-      "genericName": "04-AREA-UT-xxx-E"
+      "genericName": "04-AREA-UT-xxx-E",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-UT-GMT-E",
@@ -2610,7 +2630,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-E/04-AREA-UT-GMT-E/04-AREA-UT-GMT-E.jpg",
-      "genericName": "04-AREA-UT-xxx-E"
+      "genericName": "04-AREA-UT-xxx-E",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-UT-SW-E",
@@ -2623,7 +2645,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-E/04-AREA-UT-SW-E/04-AREA-UT-SW-E.jpg",
-      "genericName": "04-AREA-UT-xxx-E"
+      "genericName": "04-AREA-UT-xxx-E",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-UT-GM-F",
@@ -2636,7 +2660,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-F/04-AREA-UT-GM-F/04-AREA-UT-GM-F.jpg",
-      "genericName": "04-AREA-UT-xxx-F"
+      "genericName": "04-AREA-UT-xxx-F",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-UT-GMT-F",
@@ -2649,7 +2675,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-F/04-AREA-UT-GMT-F/04-AREA-UT-GMT-F.jpg",
-      "genericName": "04-AREA-UT-xxx-F"
+      "genericName": "04-AREA-UT-xxx-F",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-UT-SW-F",
@@ -2662,7 +2690,9 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-F/04-AREA-UT-SW-F/04-AREA-UT-SW-F.jpg",
-      "genericName": "04-AREA-UT-xxx-F"
+      "genericName": "04-AREA-UT-xxx-F",
+      "shouldHideBasedOnWidth": true,
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AREA-UT-GM-G",
@@ -2676,7 +2706,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-G/04-AREA-UT-GM-G/04-AREA-UT-GM-G.jpg",
       "genericName": "04-AREA-UT-xxx-G",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": ["all", "utility"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-UT-GMT-G",
@@ -2690,7 +2721,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-G/04-AREA-UT-GMT-G/04-AREA-UT-GMT-G.jpg",
       "genericName": "04-AREA-UT-xxx-G",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": ["all", "utility"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-UT-SW-G",
@@ -2704,7 +2736,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-G/04-AREA-UT-SW-G/04-AREA-UT-SW-G.jpg",
       "genericName": "04-AREA-UT-xxx-G",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": ["all", "utility"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-UT-GM-H",
@@ -2718,7 +2751,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-H/04-AREA-UT-GM-H/04-AREA-UT-GM-H.jpg",
       "genericName": "04-AREA-UT-xxx-H",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": ["all", "utility"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-UT-GMT-H",
@@ -2732,7 +2766,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-H/04-AREA-UT-GMT-H/04-AREA-UT-GMT-H.jpg",
       "genericName": "04-AREA-UT-xxx-H",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": ["all", "utility"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AREA-UT-SW-H",
@@ -2746,7 +2781,8 @@
       "isExtension": false,
       "imageUrl": "images/module/area/04-AREA-UT-xxx-H/04-AREA-UT-SW-H/04-AREA-UT-SW-H.jpg",
       "genericName": "04-AREA-UT-xxx-H",
-      "categorySlug": ["all", "utility"]
+      "categorySlug": ["all", "utility"],
+      "shouldHideBasedOnWidth": true
     },
     {
       "partNumber": "04-AU-ACCENT-AN-69",
@@ -3350,7 +3386,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CD-B.b/04-AU-BIR-CD-B.b/04-AU-BIR-CD-B.jpg",
-      "genericName": "04-AU-xxx-CD-B.b"
+      "genericName": "04-AU-xxx-CD-B.b",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AU-WAL-CD-B.b",
@@ -3363,7 +3400,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-CD-B.b/04-AU-WAL-CD-B.b/04-AU-WAL-CD-B.jpg",
-      "genericName": "04-AU-xxx-CD-B.b"
+      "genericName": "04-AU-xxx-CD-B.b",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AU-BIR-CT4-D",
@@ -3488,7 +3526,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-FLUTTED-B.b/04-AU-BIR-FLUTTED-B.b/04-AU-BIR-FLUTTED-B.jpg",
-      "genericName": "04-AU-xxx-FLUTTED-B.b"
+      "genericName": "04-AU-xxx-FLUTTED-B.b",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AU-WAL-FLUTTED-B.b",
@@ -3501,7 +3540,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-FLUTTED-B.b/04-AU-WAL-FLUTTED-B.b/04-AU-WAL-FLUTTED-B.jpg",
-      "genericName": "04-AU-xxx-FLUTTED-B.b"
+      "genericName": "04-AU-xxx-FLUTTED-B.b",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AU-BIR-KH-B",
@@ -3542,7 +3582,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-KH-B.b/04-AU-BIR-KH-B.b/04-AU-BIR-KH-B.jpg",
-      "genericName": "04-AU-xxx-KH-B.b"
+      "genericName": "04-AU-xxx-KH-B.b",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AU-WAL-KH-B.b",
@@ -3555,7 +3596,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-KH-B.b/04-AU-WAL-KH-B.b/04-AU-WAL-KH-B.jpg",
-      "genericName": "04-AU-xxx-KH-B.b"
+      "genericName": "04-AU-xxx-KH-B.b",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AU-BIR-PARTN240-H125",
@@ -3652,7 +3694,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B.b/04-AU-BIR-SLOTTED-B.b/04-AU-BIR-SLOTTED-B.jpg",
-      "genericName": "04-AU-xxx-SLOTTED-B.b"
+      "genericName": "04-AU-xxx-SLOTTED-B.b",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AU-WAL-SLOTTED-B.b",
@@ -3665,7 +3708,8 @@
       "isMat": false,
       "isExtension": false,
       "imageUrl": "images/module/autograph/04-AU-xxx-SLOTTED-B.b/04-AU-WAL-SLOTTED-B.b/04-AU-WAL-SLOTTED-B.jpg",
-      "genericName": "04-AU-xxx-SLOTTED-B.b"
+      "genericName": "04-AU-xxx-SLOTTED-B.b",
+      "categorySlug": ["all"]
     },
     {
       "partNumber": "04-AU-BIR-SPICERACK-B",
@@ -3985,7 +4029,8 @@
       "isExtension": false,
       "isEdge": true,
       "imageUrl": "images/module/area/04-AREA-SP-CH/04-AREA-SP-CH.jpg",
-      "genericName": "04-AREA-SP-CH"
+      "genericName": "04-AREA-SP-CH",
+      "shouldHideBasedOnWidth": true
     }
   ],
   "moduleTypes": [

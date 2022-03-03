@@ -34,6 +34,7 @@ export const SP_COLLECTION_FRAGMENT = gql`
     subtitle
     description
     name
+    isComingSoon
     image {
       ... on asset {
         id
@@ -48,6 +49,15 @@ export const SP_DRAWER_TYPE_FRAGMENT = gql`
     id
     name
     slug
+    hasPegs
+    # isComingSoon
+    description
+    image {
+      ... on asset {
+        id
+        fullpath
+      }
+    }
   }
 `;
 
@@ -57,6 +67,7 @@ export const SP_FINISH_FRAGMENT = gql`
     description
     name
     slug
+    isComingSoon
     image {
       ... on asset {
         id
@@ -247,6 +258,8 @@ export const SP_PRODUCT_FRAGMENT = gql`
     shortDescription
     shouldHideBasedOnWidth
     titleDescription
+    isEdge
+    alwaysDisplay
     productPictures {
       ...Asset
     }

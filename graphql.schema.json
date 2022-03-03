@@ -4992,7 +4992,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "element_metadata_item_620e8a1d4fae3",
+        "name": "element_metadata_item_621f7745f2ed6",
         "description": null,
         "fields": [
           {
@@ -5142,6 +5142,18 @@
                 "name": "object_tree",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "alwaysDisplay",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -5303,6 +5315,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isEdge",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
               "ofType": null
             },
             "isDeprecated": false,
@@ -5632,7 +5656,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "element_metadata_item_620e8a1d4fae3",
+                "name": "element_metadata_item_621f7745f2ed6",
                 "ofType": null
               }
             },
@@ -6174,6 +6198,18 @@
             "deprecationReason": null
           },
           {
+            "name": "isComingSoon",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "key",
             "description": null,
             "args": [],
@@ -6431,6 +6467,18 @@
             "deprecationReason": null
           },
           {
+            "name": "description",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "drawerTypeID",
             "description": null,
             "args": [],
@@ -6443,12 +6491,36 @@
             "deprecationReason": null
           },
           {
+            "name": "hasPegs",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "id",
             "description": null,
             "args": [],
             "type": {
               "kind": "SCALAR",
               "name": "ID",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "image",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "object_spDrawerTypes_image",
               "ofType": null
             },
             "isDeprecated": false,
@@ -6601,6 +6673,22 @@
         "possibleTypes": null
       },
       {
+        "kind": "UNION",
+        "name": "object_spDrawerTypes_image",
+        "description": "pseudo class for field image",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "asset",
+            "ofType": null
+          }
+        ]
+      },
+      {
         "kind": "OBJECT",
         "name": "object_spFinish",
         "description": null,
@@ -6750,6 +6838,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isComingSoon",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
               "ofType": null
             },
             "isDeprecated": false,
