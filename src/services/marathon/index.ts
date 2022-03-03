@@ -66,7 +66,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     MARATHON_API_GRAPHQL_KEY,
     MARATHON_API_CREATE_LIST,
     MARATHON_API_LOGIN,
-    MARATHON_API_SYNC,
     MARATHON_SYNC_PRODUCTS_PER_PAGE,
     MARATHON_SYNC_EMPTY_PAGES_TO_STOP,
     MARATHON_MEDIA_URI
@@ -1303,7 +1302,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
   };
 
   const syncData = async () => {
-    if (MARATHON_API_SYNC === 'true') {
+    try {
       console.time('apiSync');
       await syncCategory();
       await syncCollection();
@@ -1317,6 +1316,9 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       console.time('storageSync');
       await storageSync();
       console.timeEnd('storageSync');
+    } catch (err) {
+      logging.error(err);
+      throw err;
     }
   };
 
