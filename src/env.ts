@@ -35,5 +35,6 @@ export const env = {
     process.env.MARATHON_SYNC_EMPTY_PAGES_TO_STOP && !isNaN(Number(process.env.MARATHON_SYNC_EMPTY_PAGES_TO_STOP))
       ? Number(process.env.MARATHON_SYNC_EMPTY_PAGES_TO_STOP)
       : 50,
-  MARATHON_MEDIA_URI: process.env.MARATHON_MEDIA_URI
+  MARATHON_MEDIA_URI: process.env.MARATHON_MEDIA_URI,
+  SYNC_AUTH: process.env.SYNC_AUTH
 };
