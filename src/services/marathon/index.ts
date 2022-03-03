@@ -68,7 +68,10 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     MARATHON_API_LOGIN,
     MARATHON_SYNC_PRODUCTS_PER_PAGE,
     MARATHON_SYNC_EMPTY_PAGES_TO_STOP,
-    MARATHON_MEDIA_URI
+    MARATHON_MEDIA_URI,
+    MARATHON_COLLECTIONS_WHITELIST,
+    MARATHON_FINISHES_WHITELIST,
+    MARATHON_DRAWER_TYPES_WHITELIST
   } = env;
 
   const defaultSyncLocale: Locale = 'en';
@@ -308,10 +311,15 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           existingCollections.some((col) => col.slug === collectionEdge?.node?.slug?.trim())
         );
 
+        const whitelistedSlugs = MARATHON_COLLECTIONS_WHITELIST.split(',').filter((x) => !!x);
+
         // Received collections
         const collectionsToCreate = collections.filter(
           // Where it DOESN'T exist in the database
-          (collectionEdge) => !existingCollections.some((col) => col.slug === collectionEdge?.node?.slug?.trim())
+          (collectionEdge) =>
+            collectionEdge?.node?.slug?.trim() &&
+            !existingCollections.some((col) => col.slug === collectionEdge?.node?.slug?.trim()) &&
+            whitelistedSlugs.includes(collectionEdge.node.slug.trim())
         );
 
         for (let i = 0; i < collectionsToUpdate.length; i++) {
@@ -458,10 +466,15 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           existingDrawerTypes.some((type) => type.slug === drawerTypeEdge?.node?.slug?.trim())
         );
 
+        const whitelistedSlugs = MARATHON_DRAWER_TYPES_WHITELIST.split(',').filter((x) => !!x);
+
         // Received drawer types
         const drawerTypesToCreate = drawerTypes.filter(
           // Where it DOESN'T exist in the database
-          (drawerTypeEdge) => !existingDrawerTypes.some((type) => type.slug === drawerTypeEdge?.node?.slug?.trim())
+          (drawerTypeEdge) =>
+            drawerTypeEdge?.node?.slug?.trim() &&
+            !existingDrawerTypes.some((type) => type.slug === drawerTypeEdge?.node?.slug?.trim()) &&
+            whitelistedSlugs.includes(drawerTypeEdge.node.slug.trim())
         );
 
         for (let i = 0; i < drawerTypesToUpdate.length; i++) {
@@ -604,10 +617,15 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           existingFinishes.some((fin) => fin.slug === finishEdge?.node?.slug?.trim())
         );
 
+        const whitelistedSlugs = MARATHON_FINISHES_WHITELIST.split(',').filter((x) => !!x);
+
         // Received finishes
         const finishesToCreate = finishes.filter(
           // Where it DOESN'T exist in the database
-          (finishEdge) => !existingFinishes.some((fin) => fin.slug === finishEdge?.node?.slug?.trim())
+          (finishEdge) =>
+            finishEdge?.node?.slug?.trim() &&
+            !existingFinishes.some((fin) => fin.slug === finishEdge?.node?.slug?.trim()) &&
+            whitelistedSlugs.includes(finishEdge.node.slug.trim())
         );
 
         for (let i = 0; i < finishesToUpdate.length; i++) {
