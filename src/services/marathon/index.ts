@@ -6,6 +6,7 @@ import axios, { AxiosResponse } from 'axios';
 import fetch from 'cross-fetch';
 import deepmerge from 'deepmerge';
 import { isEqual } from 'lodash';
+import path from 'path';
 import { URL } from 'url';
 import { env } from '../../env';
 import {
@@ -21,7 +22,9 @@ import {
 import { NexusGenObjects } from '../../generated/nexus';
 import { convertInToMmFormatted, convertMmToInFormatted } from '../../utils/conversion';
 import { makeError } from '../../utils/exception';
+import { replaceExtension } from '../../utils/file';
 import logging from '../../utils/logging';
+import { fileUploadService } from '../fileUpload';
 import { projectService } from '../project';
 import {
   GET_PRODUCT_LISTING,
@@ -65,7 +68,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     MARATHON_API_LOGIN,
     MARATHON_API_SYNC,
     MARATHON_SYNC_PRODUCTS_PER_PAGE,
-    MARATHON_SYNC_EMPTY_PAGES_TO_STOP
+    MARATHON_SYNC_EMPTY_PAGES_TO_STOP,
+    MARATHON_MEDIA_URI
   } = env;
 
   const defaultSyncLocale: Locale = 'en';
@@ -88,6 +92,91 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       ]),
       cache: new InMemoryCache()
     });
+
+  const storageSyncQueue: {
+    sourcePath: string;
+    originalPath: string;
+    destinationPath: string;
+  }[] = [];
+
+  const makeThumbnailUrlAndQueue = (sourcePath?: string | null, currentPath?: string | null) => {
+    let thumbnailUrl: string | undefined;
+
+    if (sourcePath?.trim() && currentPath?.trim()) {
+      thumbnailUrl = replaceExtension(currentPath, sourcePath);
+      let originalPath = thumbnailUrl;
+
+      // If the extension were changed, the paths are now different. So store the previous original path so the image can be deleted
+      if (currentPath !== originalPath) originalPath = currentPath;
+
+      storageSyncQueue.push({
+        sourcePath,
+        originalPath,
+        destinationPath: thumbnailUrl
+      });
+    }
+
+    return thumbnailUrl;
+  };
+
+  const storageSync = async () => {
+    if (!MARATHON_MEDIA_URI) {
+      throw new Error('Missing marathon environment');
+    }
+
+    const fileUpload = fileUploadService();
+
+    console.log(`Syncing ${storageSyncQueue.length} images`);
+
+    const initialLength = storageSyncQueue.length;
+    let i = 0;
+
+    while (storageSyncQueue.length > 0) {
+      let simultaneousSync = 5;
+      simultaneousSync = storageSyncQueue.length >= simultaneousSync ? simultaneousSync : storageSyncQueue.length;
+      const promises: Promise<void>[] = [];
+
+      for (let index = 0; index < simultaneousSync; index++) {
+        const storageSync = storageSyncQueue[index];
+
+        promises.push(
+          new Promise<void>(async (resolve, reject) => {
+            try {
+              console.log(`Syncing image #${i + 1} of ${initialLength}`);
+              i++;
+
+              // Download image
+              const file = await fileUpload.downloadFile(
+                new URL(storageSync.sourcePath, MARATHON_MEDIA_URI).toString()
+              );
+
+              // Try to delete current image
+              await fileUpload.DELETEFilesOnStorageCAUTION([storageSync.originalPath]);
+
+              // Upload new image
+              await fileUpload.uploadFileToStorage(file.data, storageSync.destinationPath);
+              resolve();
+            } catch (err) {
+              reject(err);
+            }
+          })
+        );
+      }
+
+      storageSyncQueue.splice(0, simultaneousSync);
+
+      try {
+        const results = await Promise.allSettled(promises);
+        results
+          .filter((x) => x.status === 'rejected')
+          .forEach((x) => logging.error((x as PromiseRejectedResult).reason, 'Could not sync image'));
+      } catch (err) {
+        logging.error(err, 'Error when batching images sync');
+      }
+    }
+
+    console.log('Finished syncing images');
+  };
 
   const syncCategory = async () => {
     if (!db) {
@@ -201,6 +290,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         const existingCollections = await db.collection.findMany({
           select: {
             slug: true,
+            thumbnailUrl: true,
             translations: {
               where: { locale: defaultSyncLocale },
               select: { id: true }
@@ -228,15 +318,22 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         for (let i = 0; i < collectionsToUpdate.length; i++) {
           const collectionEdge = collectionsToUpdate[i];
           const slug = collectionEdge?.node?.slug?.trim();
+
+          const currentCollection = existingCollections.find((x) => x.slug === slug);
+          if (!currentCollection) continue;
+
           console.log(`Updating collection #${i + 1} ${slug} of ${collectionsToUpdate.length}`);
 
-          const translationIds = existingCollections.find((x) => x.slug === slug)?.translations.map((x) => x.id);
+          const translationIds = currentCollection.translations.map((x) => x.id);
 
           await db.collection.update({
             where: { slug },
             data: {
               externalId: collectionEdge?.node?.id?.trim(),
-              // thumbnailUrl: collectionEdge?.node?.image?.fullpath?.trim(), // FIX: Uncomment after also importing/uploading the image
+              thumbnailUrl: makeThumbnailUrlAndQueue(
+                collectionEdge?.node?.image?.fullpath,
+                currentCollection.thumbnailUrl
+              ),
               hasPegs: collectionEdge?.node?.hasPegs || undefined,
               isComingSoon: collectionEdge?.node?.isComingSoon || undefined,
 
@@ -262,15 +359,17 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           console.log(`Batch creating ${collectionsToCreate.length} collections`);
           await db.collection.createMany({
             data: collectionsToCreate
-              .filter(
-                (collectionEdge) =>
-                  collectionEdge?.node?.id && collectionEdge?.node?.slug && collectionEdge?.node?.image?.fullpath
-              )
+              .filter((collectionEdge) => collectionEdge?.node?.id && collectionEdge?.node?.slug)
               .map((collectionEdge) => ({
                 // Casting because we're sure, since there's a filter right above
                 externalId: collectionEdge?.node?.id?.trim() as string,
                 slug: collectionEdge?.node?.slug?.trim() as string,
-                // thumbnailUrl: collectionEdge?.node?.image?.fullpath?.trim() as string,  // FIX: Uncomment after also importing/uploading the image
+                thumbnailUrl: makeThumbnailUrlAndQueue(
+                  collectionEdge?.node?.image?.fullpath?.trim(),
+                  `image/collection/${collectionEdge?.node?.slug?.trim()}${path.extname(
+                    collectionEdge?.node?.image?.fullpath?.trim() || ''
+                  )}}`
+                ),
                 hasPegs: collectionEdge?.node?.hasPegs || false,
                 isComingSoon: collectionEdge?.node?.isComingSoon || false
               }))
@@ -341,6 +440,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         const existingDrawerTypes = await db.type.findMany({
           select: {
             slug: true,
+            thumbnailUrl: true,
             translations: {
               where: { locale: defaultSyncLocale },
               select: { id: true }
@@ -369,15 +469,21 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           const drawerTypeEdge = drawerTypesToUpdate[i];
           const slug = drawerTypeEdge?.node?.slug?.trim();
 
+          const currentDrawerType = existingDrawerTypes.find((x) => x.slug === slug);
+          if (!currentDrawerType) continue;
+
           console.log(`Updating drawer type #${i + 1} ${slug} of ${drawerTypesToUpdate.length}`);
 
-          const translationIds = existingDrawerTypes.find((x) => x.slug === slug)?.translations.map((x) => x.id);
+          const translationIds = currentDrawerType.translations.map((x) => x.id);
 
           await db.type.update({
             where: { slug },
             data: {
               externalId: drawerTypeEdge?.node?.id?.trim(),
-              // thumbnailUrl: image?.fullpath?.trim(), TODO: Make sure they provide this info
+              thumbnailUrl: makeThumbnailUrlAndQueue(
+                drawerTypeEdge?.node?.image?.fullpath,
+                currentDrawerType.thumbnailUrl
+              ),
               hasPegs: drawerTypeEdge?.node?.hasPegs || undefined,
               // isComingSoon: drawerTypeEdge?.node?.isComingSoon || undefined,
 
@@ -407,7 +513,12 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                 // Casting because we're filtering right above
                 externalId: drawerTypeEdge?.node?.id?.trim() as string,
                 slug: drawerTypeEdge?.node?.slug?.trim() as string,
-                // thumbnailUrl: image?.fullpath?.trim(), TODO: Make sure they provide this info
+                thumbnailUrl: makeThumbnailUrlAndQueue(
+                  drawerTypeEdge?.node?.image?.fullpath?.trim(),
+                  `image/type/${drawerTypeEdge?.node?.slug?.trim()}${path.extname(
+                    drawerTypeEdge?.node?.image?.fullpath?.trim() || ''
+                  )}`
+                ),
                 hasPegs: drawerTypeEdge?.node?.hasPegs || false
                 // isComingSoon: drawerTypeEdge?.node?.isComingSoon || false
               }))
@@ -475,6 +586,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         const existingFinishes = await db.finish.findMany({
           select: {
             slug: true,
+            thumbnailUrl: true,
             translations: {
               where: { locale: defaultSyncLocale },
               select: { id: true }
@@ -502,16 +614,19 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         for (let i = 0; i < finishesToUpdate.length; i++) {
           const finishEdge = finishesToUpdate[i];
           const slug = finishEdge?.node?.slug?.trim();
+
+          const currentFinish = existingFinishes.find((x) => x.slug === slug);
+          if (!currentFinish) continue;
+
           console.log(`Updating finish #${i + 1} ${slug} of ${finishesToUpdate.length}`);
 
-          const translationIds = existingFinishes.find((x) => x.slug === slug)?.translations.map((x) => x.id);
+          const translationIds = currentFinish.translations.map((x) => x.id);
 
           await db.finish.update({
             where: { slug },
             data: {
               externalId: finishEdge?.node?.id?.trim(),
-              // thumbnailUrl: finishEdge?.node?.image?.fullpath?.trim(),  // FIX: Uncomment after also importing/uploading the image
-
+              thumbnailUrl: makeThumbnailUrlAndQueue(finishEdge?.node?.image?.fullpath, currentFinish.thumbnailUrl),
               translations:
                 translationIds && translationIds.length > 0
                   ? {
@@ -539,8 +654,13 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               .map((finishEdge) => ({
                 // Casing since we're filtering right above
                 externalId: finishEdge?.node?.id?.trim() as string,
-                slug: finishEdge?.node?.slug?.trim() as string
-                // thumbnailUrl: finishEdge?.node?.image?.fullpath?.trim() as string  // FIX: Uncomment after also importing/uploading the image
+                slug: finishEdge?.node?.slug?.trim() as string,
+                thumbnailUrl: makeThumbnailUrlAndQueue(
+                  finishEdge?.node?.image?.fullpath?.trim(),
+                  `image/finish/${finishEdge?.node?.slug?.trim()}${path.extname(
+                    finishEdge?.node?.image?.fullpath?.trim() || ''
+                  )}`
+                )
               }))
           });
 
@@ -876,7 +996,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             select: {
               id: true,
               partNumber: true,
-              rules: true
+              rules: true,
+              thumbnailUrl: true
             },
             where: {
               partNumber: {
@@ -928,15 +1049,18 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                   data: modulesToCreate.map((productEdge) => {
                     const module = productEdge?.node;
                     const rules = mergeRules(module);
+                    const sourceThumbnail =
+                      module?.productPictures && module.productPictures.length > 0
+                        ? module?.productPictures[0]?.fullpath?.trim()
+                        : undefined;
                     return {
                       partNumber: module?.partNumber?.trim() as string,
                       externalId: module?.id?.trim(),
                       description: module?.titleDescription?.trim() || undefined,
-                      // FIX: Uncomment after also importing/uploading the image
-                      // thumbnailUrl:
-                      //   module?.productPictures && module.productPictures.length > 0
-                      //     ? module?.productPictures[0]?.fullpath?.trim()
-                      //     : undefined,
+                      thumbnailUrl: makeThumbnailUrlAndQueue(
+                        sourceThumbnail,
+                        `image/module/${module?.partNumber?.trim()}${path.extname(sourceThumbnail || '')}`
+                      ),
                       // bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
                       isSubmodule: module?.isSubmodule || false,
                       hasPegs: module?.hasPegs || false,
@@ -1035,9 +1159,10 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             const module = productEdge?.node;
             if (!module?.partNumber?.trim()) return;
 
-            console.log(`Updating module #${i + 1} ${module.partNumber?.trim()} of ${modulesToUpdate.length}`);
-
             const existingModule = existingModules.find((x) => x.partNumber === module.partNumber?.trim());
+            if (!existingModule) continue;
+
+            console.log(`Updating module #${i + 1} ${module.partNumber?.trim()} of ${modulesToUpdate.length}`);
             const rules = existingModule?.rules as NexusGenObjects['ModuleRules'] | undefined;
 
             await db.$transaction(async (db) => {
@@ -1078,17 +1203,17 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               // TODO: module attachments
 
               const newRules = mergeRules(module, rules);
+              const sourceThumbnail =
+                module.productPictures && module.productPictures.length > 0
+                  ? module.productPictures[0]?.fullpath?.trim()
+                  : undefined;
 
               await db.module.update({
                 where: { partNumber: module.partNumber?.trim() },
                 data: {
                   externalId: module.id?.trim(),
                   description: module.titleDescription?.trim() || undefined,
-                  // FIX: Uncomment after also importing/uploading the image
-                  // thumbnailUrl:
-                  //   module.productPictures && module.productPictures.length > 0
-                  //     ? module.productPictures[0]?.fullpath?.trim()
-                  //     : undefined,
+                  thumbnailUrl: makeThumbnailUrlAndQueue(sourceThumbnail, existingModule.thumbnailUrl),
                   // bundleUrl: module.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
                   isSubmodule: module.isSubmodule || undefined,
                   hasPegs: module.hasPegs || undefined,
@@ -1188,6 +1313,10 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       // Always leave products for last!!
       await syncProduct();
       console.timeEnd('apiSync');
+
+      console.time('storageSync');
+      await storageSync();
+      console.timeEnd('storageSync');
     }
   };
 
