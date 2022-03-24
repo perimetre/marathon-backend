@@ -47,13 +47,37 @@ export const Project = objectType({
             collectionId: root.collectionId,
             externalId: { not: null },
             OR: [
+              // Basic filter. Grabs modules based on selected options
               {
                 moduleType: { some: { typeId: { equals: root.typeId } } },
-                finishId: root.finishId,
-                hasPegs: root.hasPegs
+                hasPegs: root.hasPegs,
+                finishId: root.finishId
               },
+              // Same as basic filter BUT
               {
-                alwaysDisplay: true
+                moduleType: { some: { typeId: { equals: root.typeId } } },
+                hasPegs: root.hasPegs,
+                // Also grabs all modules that the finish does not belong to the selected collection (makes aluminum modules show)
+                finish: {
+                  collectionFinishes: {
+                    none: { collectionId: root.collectionId }
+                  }
+                }
+              },
+              // Also grabs modules where they're set as alwaysDisplay regardless of peg
+              {
+                alwaysDisplay: true,
+                finishId: root.finishId
+              },
+              // Grabs modules where they're set as alwaysDisplay regardless of peg BUT
+              {
+                alwaysDisplay: true,
+                // Also grabs all modules that the finish does not belong to the selected collection (makes aluminum modules show)
+                finish: {
+                  collectionFinishes: {
+                    none: { collectionId: root.collectionId }
+                  }
+                }
               }
             ],
             isSubmodule: false,
