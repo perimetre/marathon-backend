@@ -45,11 +45,11 @@ export const Project = objectType({
         const modules = await ctx.prisma.module.findMany({
           where: {
             collectionId: root.collectionId,
-            finishId: root.finishId,
             externalId: { not: null },
             OR: [
               {
                 moduleType: { some: { typeId: { equals: root.typeId } } },
+                finishId: root.finishId,
                 hasPegs: root.hasPegs
               },
               {
