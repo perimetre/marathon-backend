@@ -199,17 +199,16 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       if (categories && categories.length > 0) {
         console.log(`Fetched ${categories.length} categories`);
 
-        const slugs = categories
-          .map((categoryEdge) => categoryEdge?.node?.slug?.trim() as string) // Casting because we're filtering right after
+        const ids = categories
+          .map((categoryEdge) => categoryEdge?.node?.id as string) // Casting because we're filtering right after
           .filter((x) => !!x);
-        // const externalIds = categories.map(({ node: category }) => category.id);
 
         // Get all categories that we already have
         const existingCategories = await db.category.findMany({
-          select: { slug: true },
+          select: { externalId: true },
           where: {
-            slug: {
-              in: slugs
+            externalId: {
+              in: ids
             }
           }
         });
@@ -217,25 +216,28 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         // Received categories
         const categoriesToUpdate = categories.filter((categoryEdge) =>
           // Where exists in the database
-          existingCategories.some((cat) => cat.slug === categoryEdge?.node?.slug?.trim())
+          existingCategories.some((cat) => cat.externalId === categoryEdge?.node?.id)
         );
 
         // Received categories
         const categoriesToCreate = categories.filter(
           // Where it DOESN'T exist in the database
-          (categoryEdge) => !existingCategories.some((cat) => cat.slug === categoryEdge?.node?.slug?.trim())
+          (categoryEdge) => !existingCategories.some((cat) => cat.externalId === categoryEdge?.node?.id)
         );
 
         for (let i = 0; i < categoriesToUpdate.length; i++) {
           const categoryEdge = categoriesToUpdate[i];
-          const slug = categoryEdge?.node?.slug?.trim();
-          console.log(`Updating category #${i + 1} ${slug} of ${categoriesToUpdate.length}`);
+          const id = categoryEdge?.node?.id;
+
+          if (!id) continue;
+
+          console.log(`Updating category #${i + 1} id: ${id} of ${categoriesToUpdate.length}`);
 
           await db.category.update({
-            where: { slug },
+            where: { externalId: id },
             data: {
-              externalId: categoryEdge?.node?.id?.trim(),
-              name: categoryEdge?.node?.name?.trim()
+              name: categoryEdge?.node?.name?.trim(),
+              slug: categoryEdge?.node?.slug?.trim()
             }
           });
         }
@@ -247,7 +249,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               .filter((categoryEdge) => categoryEdge?.node?.id && categoryEdge?.node?.slug && categoryEdge?.node?.name)
               .map((categoryEdge) => ({
                 // Casting because we're sure, since there's a filter right above
-                externalId: categoryEdge?.node?.id?.trim() as string,
+                externalId: categoryEdge?.node?.id as string,
                 slug: categoryEdge?.node?.slug?.trim() as string,
                 name: categoryEdge?.node?.name?.trim() as string
               }))
@@ -285,13 +287,13 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       if (collections && collections.length > 0) {
         console.log(`Fetched ${collections.length} collections`);
 
-        const slugs = collections
-          .map((collectionEdge) => collectionEdge?.node?.slug?.trim() as string) // Casting because we're filtering right after
+        const ids = collections
+          .map((collectionEdge) => collectionEdge?.node?.id as string) // Casting because we're filtering right after
           .filter((x) => !!x);
 
         const existingCollections = await db.collection.findMany({
           select: {
-            slug: true,
+            externalId: true,
             thumbnailUrl: true,
             translations: {
               where: { locale: defaultSyncLocale },
@@ -299,8 +301,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             }
           },
           where: {
-            slug: {
-              in: slugs
+            externalId: {
+              in: ids
             }
           }
         });
@@ -308,7 +310,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         // Received collections
         const collectionsToUpdate = collections.filter((collectionEdge) =>
           // Where exists in the database
-          existingCollections.some((col) => col.slug === collectionEdge?.node?.slug?.trim())
+          existingCollections.some((col) => col.externalId === collectionEdge?.node?.id)
         );
 
         const whitelistedSlugs = MARATHON_COLLECTIONS_WHITELIST.split(',').filter((x) => !!x);
@@ -318,32 +320,33 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           // Where it DOESN'T exist in the database
           (collectionEdge) =>
             collectionEdge?.node?.slug?.trim() &&
-            !existingCollections.some((col) => col.slug === collectionEdge?.node?.slug?.trim()) &&
+            !existingCollections.some((col) => col.externalId === collectionEdge?.node?.id) &&
             whitelistedSlugs.includes(collectionEdge.node.slug.trim())
         );
 
         for (let i = 0; i < collectionsToUpdate.length; i++) {
           const collectionEdge = collectionsToUpdate[i];
-          const slug = collectionEdge?.node?.slug?.trim();
+          const id = collectionEdge?.node?.id;
 
-          const currentCollection = existingCollections.find((x) => x.slug === slug);
-          if (!currentCollection) continue;
+          const currentCollection = existingCollections.find((x) => x.externalId === id);
+          if (!currentCollection || !currentCollection.externalId) continue;
 
-          console.log(`Updating collection #${i + 1} ${slug} of ${collectionsToUpdate.length}`);
+          console.log(
+            `Updating collection #${i + 1} id: ${currentCollection.externalId} of ${collectionsToUpdate.length}`
+          );
 
           const translationIds = currentCollection.translations.map((x) => x.id);
 
           await db.collection.update({
-            where: { slug },
+            where: { externalId: currentCollection.externalId },
             data: {
-              externalId: collectionEdge?.node?.id?.trim(),
+              slug: collectionEdge?.node?.slug?.trim(),
               thumbnailUrl: makeThumbnailUrlAndQueue(
                 collectionEdge?.node?.image?.fullpath,
                 currentCollection.thumbnailUrl
               ),
               hasPegs: collectionEdge?.node?.hasPegs || undefined,
               isComingSoon: collectionEdge?.node?.isComingSoon || undefined,
-
               translations:
                 translationIds && translationIds.length > 0
                   ? {
@@ -369,11 +372,11 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               .filter((collectionEdge) => collectionEdge?.node?.id && collectionEdge?.node?.slug)
               .map((collectionEdge) => ({
                 // Casting because we're sure, since there's a filter right above
-                externalId: collectionEdge?.node?.id?.trim() as string,
+                externalId: collectionEdge?.node?.id as string,
                 slug: collectionEdge?.node?.slug?.trim() as string,
                 thumbnailUrl: makeThumbnailUrlAndQueue(
                   collectionEdge?.node?.image?.fullpath?.trim(),
-                  `image/collection/${collectionEdge?.node?.slug?.trim()}${path.extname(
+                  `images/collection/${collectionEdge?.node?.slug?.trim()}${path.extname(
                     collectionEdge?.node?.image?.fullpath?.trim() || ''
                   )}}`
                 ),
@@ -384,10 +387,10 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
           console.log(`Fetching recently created ${collectionsToCreate.length} collections`);
           const recentlyCreatedCollections = await db.collection.findMany({
-            where: { slug: { in: collectionsToCreate.map((x) => x?.node?.slug?.trim() as string).filter((x) => !!x) } },
+            where: { externalId: { in: collectionsToCreate.map((x) => x?.node?.id as string).filter((x) => !!x) } },
             select: {
               id: true,
-              slug: true
+              externalId: true
             }
           });
 
@@ -396,7 +399,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             data: recentlyCreatedCollections.map((dbCollection) => {
               // The type is undefined, but we're sure it returns correctly(at least it should)
               // Worst case translations will be empty, and that's their fault
-              const collection = collectionsToCreate.find((x) => x?.node?.slug?.trim() === dbCollection.slug);
+              const collection = collectionsToCreate.find((x) => x?.node?.id === dbCollection.externalId);
 
               return {
                 locale: defaultSyncLocale,
@@ -440,13 +443,13 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       if (drawerTypes && drawerTypes.length > 0) {
         console.log(`Fetched ${drawerTypes.length} drawer types`);
 
-        const slugs = drawerTypes
-          .map((drawerTypeEdge) => drawerTypeEdge?.node?.slug?.trim() as string) // Casting because we filter right after
+        const ids = drawerTypes
+          .map((drawerTypeEdge) => drawerTypeEdge?.node?.id as string) // Casting because we filter right after
           .filter((x) => !!x);
 
         const existingDrawerTypes = await db.type.findMany({
           select: {
-            slug: true,
+            externalId: true,
             thumbnailUrl: true,
             translations: {
               where: { locale: defaultSyncLocale },
@@ -454,8 +457,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             }
           },
           where: {
-            slug: {
-              in: slugs
+            externalId: {
+              in: ids
             }
           }
         });
@@ -463,7 +466,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         // Received drawer types
         const drawerTypesToUpdate = drawerTypes.filter((drawerTypeEdge) =>
           // Where exists in the database
-          existingDrawerTypes.some((type) => type.slug === drawerTypeEdge?.node?.slug?.trim())
+          existingDrawerTypes.some((type) => type.externalId === drawerTypeEdge?.node?.id)
         );
 
         const whitelistedSlugs = MARATHON_DRAWER_TYPES_WHITELIST.split(',').filter((x) => !!x);
@@ -473,25 +476,27 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           // Where it DOESN'T exist in the database
           (drawerTypeEdge) =>
             drawerTypeEdge?.node?.slug?.trim() &&
-            !existingDrawerTypes.some((type) => type.slug === drawerTypeEdge?.node?.slug?.trim()) &&
+            !existingDrawerTypes.some((type) => type.externalId === drawerTypeEdge?.node?.id) &&
             whitelistedSlugs.includes(drawerTypeEdge.node.slug.trim())
         );
 
         for (let i = 0; i < drawerTypesToUpdate.length; i++) {
           const drawerTypeEdge = drawerTypesToUpdate[i];
-          const slug = drawerTypeEdge?.node?.slug?.trim();
+          const id = drawerTypeEdge?.node?.id;
 
-          const currentDrawerType = existingDrawerTypes.find((x) => x.slug === slug);
-          if (!currentDrawerType) continue;
+          const currentDrawerType = existingDrawerTypes.find((x) => x.externalId === id);
+          if (!currentDrawerType || !currentDrawerType.externalId) continue;
 
-          console.log(`Updating drawer type #${i + 1} ${slug} of ${drawerTypesToUpdate.length}`);
+          console.log(
+            `Updating drawer type #${i + 1} id: ${currentDrawerType.externalId} of ${drawerTypesToUpdate.length}`
+          );
 
           const translationIds = currentDrawerType.translations.map((x) => x.id);
 
           await db.type.update({
-            where: { slug },
+            where: { externalId: currentDrawerType.externalId },
             data: {
-              externalId: drawerTypeEdge?.node?.id?.trim(),
+              slug: drawerTypeEdge?.node?.slug?.trim(),
               thumbnailUrl: makeThumbnailUrlAndQueue(
                 drawerTypeEdge?.node?.image?.fullpath,
                 currentDrawerType.thumbnailUrl
@@ -523,11 +528,11 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               .filter((drawerTypeEdge) => drawerTypeEdge?.node?.id && drawerTypeEdge?.node?.slug)
               .map((drawerTypeEdge) => ({
                 // Casting because we're filtering right above
-                externalId: drawerTypeEdge?.node?.id?.trim() as string,
+                externalId: drawerTypeEdge?.node?.id as string,
                 slug: drawerTypeEdge?.node?.slug?.trim() as string,
                 thumbnailUrl: makeThumbnailUrlAndQueue(
                   drawerTypeEdge?.node?.image?.fullpath?.trim(),
-                  `image/type/${drawerTypeEdge?.node?.slug?.trim()}${path.extname(
+                  `images/type/${drawerTypeEdge?.node?.slug?.trim()}${path.extname(
                     drawerTypeEdge?.node?.image?.fullpath?.trim() || ''
                   )}`
                 ),
@@ -538,10 +543,10 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
           console.log(`Fetching recently created ${drawerTypesToCreate.length} drawer types`);
           const recentlyCreatedDrawerTypes = await db.collection.findMany({
-            where: { slug: { in: drawerTypesToCreate.map((x) => x?.node?.slug?.trim() as string).filter((x) => !!x) } },
+            where: { externalId: { in: drawerTypesToCreate.map((x) => x?.node?.id as string).filter((x) => !!x) } },
             select: {
               id: true,
-              slug: true
+              externalId: true
             }
           });
 
@@ -549,7 +554,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.typeTranslations.createMany({
             data: recentlyCreatedDrawerTypes.map((dbType) => {
               // This returns undefined, but we're sure it returns correctly(at least it should)
-              const drawerType = drawerTypesToCreate.find((x) => x?.node?.slug?.trim() === dbType.slug);
+              const drawerType = drawerTypesToCreate.find((x) => x?.node?.id === dbType.externalId);
 
               return {
                 locale: defaultSyncLocale,
@@ -591,13 +596,13 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       if (finishes && finishes.length > 0) {
         console.log(`Fetched ${finishes.length} finishes`);
 
-        const slugs = finishes
-          .map((finishEdge) => finishEdge?.node?.slug?.trim() as string) // Casting since we're filtering right after
+        const ids = finishes
+          .map((finishEdge) => finishEdge?.node?.id as string) // Casting since we're filtering right after
           .filter((x) => !!x);
 
         const existingFinishes = await db.finish.findMany({
           select: {
-            slug: true,
+            externalId: true,
             thumbnailUrl: true,
             translations: {
               where: { locale: defaultSyncLocale },
@@ -605,8 +610,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             }
           },
           where: {
-            slug: {
-              in: slugs
+            externalId: {
+              in: ids
             }
           }
         });
@@ -614,7 +619,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         // Received finishes
         const finishesToUpdate = finishes.filter((finishEdge) =>
           // Where exists in the database
-          existingFinishes.some((fin) => fin.slug === finishEdge?.node?.slug?.trim())
+          existingFinishes.some((fin) => fin.externalId === finishEdge?.node?.id)
         );
 
         const whitelistedSlugs = MARATHON_FINISHES_WHITELIST.split(',').filter((x) => !!x);
@@ -624,25 +629,25 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           // Where it DOESN'T exist in the database
           (finishEdge) =>
             finishEdge?.node?.slug?.trim() &&
-            !existingFinishes.some((fin) => fin.slug === finishEdge?.node?.slug?.trim()) &&
+            !existingFinishes.some((fin) => fin.externalId === finishEdge?.node?.id) &&
             whitelistedSlugs.includes(finishEdge.node.slug.trim())
         );
 
         for (let i = 0; i < finishesToUpdate.length; i++) {
           const finishEdge = finishesToUpdate[i];
-          const slug = finishEdge?.node?.slug?.trim();
+          const id = finishEdge?.node?.id;
 
-          const currentFinish = existingFinishes.find((x) => x.slug === slug);
-          if (!currentFinish) continue;
+          const currentFinish = existingFinishes.find((x) => x.externalId === id);
+          if (!currentFinish || !currentFinish.externalId) continue;
 
-          console.log(`Updating finish #${i + 1} ${slug} of ${finishesToUpdate.length}`);
+          console.log(`Updating finish #${i + 1} id: ${id} of ${finishesToUpdate.length}`);
 
           const translationIds = currentFinish.translations.map((x) => x.id);
 
           await db.finish.update({
-            where: { slug },
+            where: { externalId: currentFinish.externalId },
             data: {
-              externalId: finishEdge?.node?.id?.trim(),
+              slug: finishEdge?.node?.slug?.trim(),
               thumbnailUrl: makeThumbnailUrlAndQueue(finishEdge?.node?.image?.fullpath, currentFinish.thumbnailUrl),
               translations:
                 translationIds && translationIds.length > 0
@@ -674,7 +679,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                 slug: finishEdge?.node?.slug?.trim() as string,
                 thumbnailUrl: makeThumbnailUrlAndQueue(
                   finishEdge?.node?.image?.fullpath?.trim(),
-                  `image/finish/${finishEdge?.node?.slug?.trim()}${path.extname(
+                  `images/finish/${finishEdge?.node?.slug?.trim()}${path.extname(
                     finishEdge?.node?.image?.fullpath?.trim() || ''
                   )}`
                 )
@@ -683,10 +688,10 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
           console.log(`Fetching recently created ${finishesToCreate.length} finishes`);
           const recentlyCreatedFinishes = await db.finish.findMany({
-            where: { slug: { in: finishesToCreate.map((x) => x?.node?.slug?.trim() as string).filter((x) => !!x) } },
+            where: { externalId: { in: finishesToCreate.map((x) => x?.node?.id as string).filter((x) => !!x) } },
             select: {
               id: true,
-              slug: true
+              externalId: true
             }
           });
 
@@ -694,7 +699,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.finishTranslations.createMany({
             data: recentlyCreatedFinishes.map((dbFinish) => {
               // This returns undefined, but we're sure it returns correctly(at least it should)
-              const finish = finishesToCreate.find((x) => x?.node?.slug?.trim() === dbFinish.slug);
+              const finish = finishesToCreate.find((x) => x?.node?.id === dbFinish.externalId);
 
               return {
                 locale: defaultSyncLocale,
@@ -760,7 +765,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     if (typeof value !== 'number') value = parseFloat(`${value}`);
 
-    // Castng because we convert the value above
+    // Casting because we convert the value above
     return value && !isNaN(value as number) ? (value as number) : 0;
   };
 
@@ -952,6 +957,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       const existingCategories = await db.category.findMany({
         select: {
           id: true,
+          externalId: true,
           slug: true
         }
       });
@@ -959,21 +965,21 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       const existingTypes = await db.type.findMany({
         select: {
           id: true,
-          slug: true
+          externalId: true
         }
       });
 
       const existingFinishes = await db.finish.findMany({
         select: {
           id: true,
-          slug: true
+          externalId: true
         }
       });
 
       const existingCollections = await db.collection.findMany({
         select: {
           id: true,
-          slug: true
+          externalId: true
         }
       });
 
@@ -997,28 +1003,21 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         if (products && products.length > 0) {
           console.log(`Product page ${pageIndex + 1}, fetched ${products.length} products`);
 
-          const partNumbers = products
+          const ids = products
             // Casting because we're explicitly filtering by only valid values
-            .map((productEdge) => productEdge?.node?.partNumber?.trim() as string)
+            .map((productEdge) => productEdge?.node?.id as string)
             .filter((x) => !!x);
-
-          const noPartNumberModules = products.filter((x) => !x?.node?.partNumber);
-          if (noPartNumberModules && noPartNumberModules.length > 0) {
-            logging.warn(`Sync: ${noPartNumberModules.length} modules without part number. Which will get ignored`, {
-              noPartNumberModules: noPartNumberModules.map((x) => x?.node?.id)
-            });
-          }
 
           const existingModules = await db.module.findMany({
             select: {
               id: true,
-              partNumber: true,
+              externalId: true,
               rules: true,
               thumbnailUrl: true
             },
             where: {
-              partNumber: {
-                in: partNumbers
+              externalId: {
+                in: ids
               }
             }
           });
@@ -1027,8 +1026,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           const modulesToUpdate = products.filter(
             (productEdge) =>
               // Where exists in the database
-              productEdge?.node?.partNumber?.trim() &&
-              existingModules.some((mod) => mod.partNumber === productEdge?.node?.partNumber?.trim())
+              productEdge?.node?.id && existingModules.some((mod) => mod.externalId === productEdge?.node?.id)
           );
 
           // Received products
@@ -1038,20 +1036,20 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               const module = productEdge?.node;
 
               const finishId =
-                existingFinishes.find((finish) => finish.slug === module?.spFinish?.slug?.trim())?.id || undefined;
+                existingFinishes.find((finish) => finish.externalId === module?.spFinish?.id)?.id || undefined;
               const collectionId =
-                existingCollections.find((collection) => collection.slug === module?.spCollection?.slug?.trim())?.id ||
+                existingCollections.find((collection) => collection.externalId === module?.spCollection?.id)?.id ||
                 undefined;
 
               const hasExpectedCondition =
                 finishId !== undefined &&
                 collectionId !== undefined &&
-                module?.partNumber?.trim() &&
-                !existingModules.some((mod) => mod.partNumber === module.partNumber?.trim());
+                module?.id &&
+                !existingModules.some((mod) => mod.externalId === module.id);
 
               if (!hasExpectedCondition) {
                 // Casting because we know it should exist, since there's a condition for that in hasExpectedCondition
-                ignoredModules.push(module?.partNumber as string);
+                ignoredModules.push(module?.id as string);
               }
 
               return hasExpectedCondition;
@@ -1076,7 +1074,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                       description: module?.titleDescription?.trim() || undefined,
                       thumbnailUrl: makeThumbnailUrlAndQueue(
                         sourceThumbnail,
-                        `image/module/${module?.partNumber?.trim()}${path.extname(sourceThumbnail || '')}`
+                        `images/module/${module?.partNumber?.trim()}${path.extname(sourceThumbnail || '')}`
                       ),
                       // bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
                       isSubmodule: module?.isSubmodule || false,
@@ -1090,14 +1088,14 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                       alwaysDisplay: module?.alwaysDisplay || false,
                       isEdge: module?.isEdge || false,
                       rules,
-                      finishId:
-                        existingFinishes.find((finish) => finish.slug === module?.spFinish?.slug?.trim())?.id || -1,
+                      finishId: existingFinishes.find((finish) => finish.externalId === module?.spFinish?.id)?.id || -1,
                       collectionId:
-                        existingCollections.find((collection) => collection.slug === module?.spCollection?.slug?.trim())
+                        existingCollections.find((collection) => collection.externalId === module?.spCollection?.id)
                           ?.id || -1
                       // TODO: Default left extension
                       // TODO: Default right extension
                       // TODO: attachmentToAppend: newRules?.rules.
+                      // TODO: module attachments
                     };
                   })
                 });
@@ -1105,13 +1103,13 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                 console.log(`Fetching recently created ${modulesToCreate.length} products`);
                 const recentlyCreatedModules = await db.module.findMany({
                   where: {
-                    partNumber: {
-                      in: modulesToCreate.map((x) => x?.node?.partNumber?.trim() as string).filter((x) => !!x)
+                    externalId: {
+                      in: modulesToCreate.map((x) => x?.node?.id as string).filter((x) => !!x)
                     }
                   },
                   select: {
                     id: true,
-                    partNumber: true
+                    externalId: true
                   }
                 });
 
@@ -1119,14 +1117,16 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
                 const categoriesToCreate = modulesToCreate.flatMap((productEdge) =>
                   productEdge?.node?.spCategories?.map((cat) => ({
-                    catSlug: cat?.slug?.trim(),
-                    modulePartNumber: productEdge?.node?.partNumber?.trim()
+                    catExternalId: cat?.id,
+                    catSlug: null,
+                    moduleExternalId: productEdge?.node?.id
                   }))
                 );
 
                 const categoryAllToCreate = modulesToCreate.map((productEdge) => ({
                   catSlug: 'all',
-                  modulePartNumber: productEdge?.node?.partNumber?.trim()
+                  catExternalId: null,
+                  moduleExternalId: productEdge?.node?.id
                 }));
 
                 await db.moduleCategory.createMany({
@@ -1135,8 +1135,13 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                     .map((catModule) => {
                       return {
                         moduleId:
-                          recentlyCreatedModules.find((x) => x.partNumber === catModule?.modulePartNumber)?.id || -1,
-                        categoryId: existingCategories.find((x) => x.slug === catModule?.catSlug)?.id || -1
+                          recentlyCreatedModules.find((x) => x.externalId === catModule?.moduleExternalId)?.id || -1,
+                        categoryId:
+                          existingCategories.find((x) =>
+                            catModule?.catExternalId
+                              ? x.externalId === catModule?.catExternalId
+                              : x.slug === catModule?.catSlug
+                          )?.id || -1
                       };
                     })
                 });
@@ -1146,18 +1151,17 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                   data: modulesToCreate
                     .flatMap((productEdge) =>
                       productEdge?.node?.spDrawerTypes?.map((type) => ({
-                        typeSlug: type?.slug?.trim(),
-                        modulePartNumber: productEdge?.node?.partNumber?.trim()
+                        typeExternalId: type?.id,
+                        moduleExternalId: productEdge?.node?.id
                       }))
                     )
                     .filter((x) => !!x)
                     .map((typeModule) => ({
                       moduleId:
-                        recentlyCreatedModules.find((x) => x.partNumber === typeModule?.modulePartNumber)?.id || -1,
-                      typeId: existingTypes.find((x) => x.slug === typeModule?.typeSlug)?.id || -1
+                        recentlyCreatedModules.find((x) => x.externalId === typeModule?.moduleExternalId)?.id || -1,
+                      typeId: existingTypes.find((x) => x.externalId === typeModule?.typeExternalId)?.id || -1
                     }))
                 });
-                // TODO: module attachments
               });
             } catch (err) {
               logging.error(err, 'Error when batch creating products', {
@@ -1173,13 +1177,13 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           for (let i = 0; i < modulesToUpdate.length; i++) {
             const productEdge = modulesToUpdate[i];
 
-            const module = productEdge?.node;
-            if (!module?.partNumber?.trim()) return;
+            const moduleEdge = productEdge?.node;
+            if (!moduleEdge?.id) continue;
 
-            const existingModule = existingModules.find((x) => x.partNumber === module.partNumber?.trim());
+            const existingModule = existingModules.find((x) => x.externalId === moduleEdge.id);
             if (!existingModule) continue;
 
-            console.log(`Updating module #${i + 1} ${module.partNumber?.trim()} of ${modulesToUpdate.length}`);
+            console.log(`Updating module #${i + 1} id: ${moduleEdge.id} of ${modulesToUpdate.length}`);
             const rules = existingModule?.rules as NexusGenObjects['ModuleRules'] | undefined;
 
             await db.$transaction(async (db) => {
@@ -1187,14 +1191,14 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
               // Delete existing categories to re create
               await db.moduleCategory.deleteMany({
-                where: { module: { partNumber: module.partNumber?.trim() }, category: { slug: { not: 'all' } } }
+                where: { module: { externalId: moduleEdge.id }, category: { slug: { not: 'all' } } }
               });
 
               // If there are categories for this module
-              if (module.spCategories && module.spCategories.length > 0) {
+              if (moduleEdge.spCategories && moduleEdge.spCategories.length > 0) {
                 // Create them
                 await db.moduleCategory.createMany({
-                  data: module.spCategories.map((cat) => ({
+                  data: moduleEdge.spCategories.map((cat) => ({
                     moduleId: existingModule?.id || -1,
                     categoryId: existingCategories.find((x) => x.slug === cat?.slug?.trim())?.id || -1
                   }))
@@ -1204,60 +1208,62 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               // Sync type
 
               // Delete existing types to then create
-              await db.moduleType.deleteMany({ where: { module: { partNumber: module.partNumber?.trim() } } });
+              await db.moduleType.deleteMany({ where: { module: { externalId: moduleEdge.id } } });
 
               // If there are types for this module
-              if (module.spDrawerTypes && module.spDrawerTypes.length > 0) {
+              if (moduleEdge.spDrawerTypes && moduleEdge.spDrawerTypes.length > 0) {
                 // Create them
                 await db.moduleType.createMany({
-                  data: module.spDrawerTypes.map((type) => ({
+                  data: moduleEdge.spDrawerTypes.map((type) => ({
                     moduleId: existingModule?.id || -1,
-                    typeId: existingTypes.find((x) => x.slug === type?.slug?.trim())?.id || -1
+                    typeId: existingTypes.find((x) => x.externalId === type?.id)?.id || -1
                   }))
                 });
               }
 
               // TODO: module attachments
 
-              const newRules = mergeRules(module, rules);
+              const newRules = mergeRules(moduleEdge, rules);
               const sourceThumbnail =
-                module.productPictures && module.productPictures.length > 0
-                  ? module.productPictures[0]?.fullpath?.trim()
+                moduleEdge.productPictures && moduleEdge.productPictures.length > 0
+                  ? moduleEdge.productPictures[0]?.fullpath?.trim()
                   : undefined;
 
               await db.module.update({
-                where: { partNumber: module.partNumber?.trim() },
+                // Casting because we're sure it exists due to previous check
+                where: { externalId: moduleEdge.id as string },
                 data: {
-                  externalId: module.id?.trim(),
-                  description: module.titleDescription?.trim() || undefined,
+                  externalId: moduleEdge.id?.trim(),
+                  description: moduleEdge.titleDescription?.trim() || undefined,
                   thumbnailUrl: makeThumbnailUrlAndQueue(sourceThumbnail, existingModule.thumbnailUrl),
                   // bundleUrl: module.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
-                  isSubmodule: module.isSubmodule || undefined,
-                  hasPegs: module.hasPegs || undefined,
-                  isMat: module.isMat || undefined,
+                  isSubmodule: moduleEdge.isSubmodule || undefined,
+                  hasPegs: moduleEdge.hasPegs || undefined,
+                  isMat: moduleEdge.isMat || undefined,
                   // isExtension: module.isExtension || false,
                   shouldHideBasedOnWidth:
-                    module.shouldHideBasedOnWidth !== undefined && module.shouldHideBasedOnWidth !== null
-                      ? module.shouldHideBasedOnWidth
+                    moduleEdge.shouldHideBasedOnWidth !== undefined && moduleEdge.shouldHideBasedOnWidth !== null
+                      ? moduleEdge.shouldHideBasedOnWidth
                       : undefined,
                   // alwaysDisplay: module.alwaysDisplay || undefined,
                   // isEdge: module.isEdge || undefined,
                   rules: newRules,
 
-                  finish: module.spFinish?.slug?.trim()
+                  finish: moduleEdge.spFinish?.slug?.trim()
                     ? {
                         connect: {
-                          slug: module.spFinish.slug.trim()
+                          slug: moduleEdge.spFinish.slug.trim()
                         }
                       }
                     : undefined,
-                  collection: module.spCollection?.slug?.trim()
+                  collection: moduleEdge.spCollection?.slug?.trim()
                     ? {
                         connect: {
-                          slug: module.spCollection.slug.trim()
+                          slug: moduleEdge.spCollection.slug.trim()
                         }
                       }
                     : undefined,
+                  // TODO: Default left extension
                   defaultLeftExtension: newRules?.extensions?.left
                     ? {
                         connect: {
@@ -1265,6 +1271,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                         }
                       }
                     : undefined,
+                  // TODO: Default right extension
                   defaultRightExtension: newRules?.extensions?.right
                     ? {
                         connect: {
@@ -1272,8 +1279,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                         }
                       }
                     : undefined
-                  // TODO: Default left extension
-                  // TODO: Default right extension
                   // TODO: attachmentToAppend: newRules?.rules.
                 }
               });
@@ -1411,6 +1416,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     const items: MarathonCartItem[] = [];
 
+    // Flatten the product list
     cart
       .filter((x) => x.projectModule.module.externalId)
       .forEach((cartItem) => {
