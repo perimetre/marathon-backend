@@ -74,6 +74,10 @@ export const ModuleRulesMetadata = objectType({
       description: 'The amount (in degrees) that the product can be rotated'
     });
 
+    t.float('angle', {
+      description: 'The amount (in degrees) that the product can be angled'
+    });
+
     t.list.nonNull.string('options', {
       description: 'Options are which other modules can be put IN modules'
     });
@@ -88,6 +92,10 @@ export const ModuleRulesMetadata = objectType({
 
     t.boolean('fullDepth', {
       description: "Whether or not this module is only valid if it's taking the drawer full depth"
+    });
+
+    t.boolean('isFiller', {
+      description: 'Whether or not this module is a filler kind of module'
     });
 
     t.field('queue', {

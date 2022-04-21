@@ -2175,9 +2175,19 @@ type ModuleRules {
 
 type ModuleRulesMetadata {
   """
+  The amount (in degrees) that the product can be angled
+  """
+  angle: Float
+
+  """
   Whether or not this module is only valid if it's taking the drawer full depth
   """
   fullDepth: Boolean
+
+  """
+  Whether or not this module is a filler kind of module
+  """
+  isFiller: Boolean
 
   """
   Options are which other modules can be put IN modules

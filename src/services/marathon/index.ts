@@ -1,17 +1,13 @@
 import { ApolloClient, from, HttpLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client/core';
-// import { print } from 'graphql';
 import { Locale, PrismaClient } from '@prisma/client';
+import { rules } from '@typescript-eslint/eslint-plugin';
 import { ForbiddenError } from 'apollo-server';
 import axios, { AxiosResponse } from 'axios';
 import fetch from 'cross-fetch';
-import deepmerge from 'deepmerge';
-import { isEqual } from 'lodash';
 import path from 'path';
 import { URL } from 'url';
 import { env } from '../../env';
 import {
-  CsFeatureMultiselect,
-  CsFeatureQuantityValue,
   GetProductListingQuery,
   GetProductListingQueryVariables,
   GetSpCategoryListingQuery,
@@ -20,12 +16,13 @@ import {
   GetSpFinishListingQuery
 } from '../../generated/graphql';
 import { NexusGenObjects } from '../../generated/nexus';
-import { convertInToMmFormatted, convertMmToInFormatted } from '../../utils/conversion';
 import { makeError } from '../../utils/exception';
-import { replaceExtension } from '../../utils/file';
+import { makeFile, replaceExtension } from '../../utils/file';
 import logging from '../../utils/logging';
 import { fileUploadService } from '../fileUpload';
 import { projectService } from '../project';
+import { MarathonModule } from './parsing/constants';
+import { makeQueueAppendRulesFromMarathonModule, mergeRules } from './parsing/parseRules';
 import {
   GET_PRODUCT_LISTING,
   GET_SP_CATEGORY_LISTING,
@@ -39,25 +36,6 @@ type MarathonServiceDependencies = {
 };
 
 let marathonApolloClient: ApolloClient<NormalizedCacheObject> | undefined;
-
-const FEATURE_NAMES = {
-  DIMENSION_HEIGHT: 'height',
-  MM_ID: 'mm',
-  IN_ID: 'in',
-  MIN_WIDTH: 'width_min',
-  MAX_WIDTH: 'width_max',
-  MIN_DEPTH: 'depth_min',
-  MAX_DEPTH: 'depth_max',
-  TRIMMABLE: 'trimmable',
-  TRIM_OFFSET_BOTTOM: 'trim_offset_bottom',
-  TRIM_OFFSET_TOP: 'trim_offset_top',
-  TRIM_OFFSET_LEFT: 'trim_offset_left',
-  TRIM_OFFSET_RIGHT: 'trim_offset_right'
-};
-
-type MarathonModule = NonNullable<
-  NonNullable<NonNullable<GetProductListingQuery['getProductListing']>['edges']>[0]
->['node'];
 
 export const marathonService = ({ db }: MarathonServiceDependencies) => {
   const {
@@ -180,7 +158,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.log('Finished syncing images');
   };
 
-  const syncCategory = async () => {
+  const syncCategory = async (skipDatabase?: boolean) => {
     if (!db) {
       throw new Error('db dependency was not provided');
     }
@@ -196,9 +174,9 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       });
 
       const categories = data?.getSpCategoryListing?.edges || [];
-      if (categories && categories.length > 0) {
-        console.log(`Fetched ${categories.length} categories`);
+      console.log(`Fetched ${categories.length} categories`);
 
+      if (!skipDatabase && categories && categories.length > 0) {
         const ids = categories
           .map((categoryEdge) => categoryEdge?.node?.id as string) // Casting because we're filtering right after
           .filter((x) => !!x);
@@ -257,8 +235,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         } else {
           console.log(`No category to create`);
         }
-      } else {
-        console.log('No category has been returned');
       }
     } catch (err) {
       logging.error(err, 'Error fetching Marathon categories');
@@ -268,7 +244,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.timeEnd('categories');
   };
 
-  const syncCollection = async () => {
+  const syncCollection = async (skipDatabase?: boolean) => {
     if (!db) {
       throw new Error('db dependency was not provided');
     }
@@ -284,9 +260,9 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       });
 
       const collections = data?.getSpCollectionListing?.edges || [];
-      if (collections && collections.length > 0) {
-        console.log(`Fetched ${collections.length} collections`);
+      console.log(`Fetched ${collections.length} collections`);
 
+      if (!skipDatabase && collections && collections.length > 0) {
         const ids = collections
           .map((collectionEdge) => collectionEdge?.node?.id as string) // Casting because we're filtering right after
           .filter((x) => !!x);
@@ -413,8 +389,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         } else {
           console.log(`No collection to create`);
         }
-      } else {
-        console.log('No collection has been returned');
       }
     } catch (err) {
       logging.error(err, 'Error fetching Marathon collections');
@@ -424,7 +398,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.timeEnd('collections');
   };
 
-  const syncDrawerType = async () => {
+  const syncDrawerType = async (skipDatabase?: boolean) => {
     if (!db) {
       throw new Error('db dependency was not provided');
     }
@@ -439,10 +413,9 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       });
 
       const drawerTypes = data?.getSpDrawerTypesListing?.edges || [];
+      console.log(`Fetched ${drawerTypes.length} drawer types`);
 
-      if (drawerTypes && drawerTypes.length > 0) {
-        console.log(`Fetched ${drawerTypes.length} drawer types`);
-
+      if (!skipDatabase && drawerTypes && drawerTypes.length > 0) {
         const ids = drawerTypes
           .map((drawerTypeEdge) => drawerTypeEdge?.node?.id as string) // Casting because we filter right after
           .filter((x) => !!x);
@@ -567,8 +540,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         } else {
           console.log(`No drawerType to create`);
         }
-      } else {
-        console.log('No drawer type has been returned');
       }
     } catch (err) {
       logging.error(err, 'Error fetching Marathon drawer types');
@@ -578,7 +549,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.timeEnd('drawerType');
   };
 
-  const syncFinish = async () => {
+  const syncFinish = async (skipDatabase?: boolean) => {
     if (!db) {
       throw new Error('db dependency was not provided');
     }
@@ -593,9 +564,9 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       });
 
       const finishes = data.getSpFinishListing?.edges || [];
-      if (finishes && finishes.length > 0) {
-        console.log(`Fetched ${finishes.length} finishes`);
+      console.log(`Fetched ${finishes.length} finishes`);
 
+      if (!skipDatabase && finishes && finishes.length > 0) {
         const ids = finishes
           .map((finishEdge) => finishEdge?.node?.id as string) // Casting since we're filtering right after
           .filter((x) => !!x);
@@ -712,8 +683,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         } else {
           console.log(`No finish to create`);
         }
-      } else {
-        console.log('No finish has been returned');
       }
     } catch (err) {
       logging.error(err, 'Error fetching Marathon finishes');
@@ -723,225 +692,45 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.timeEnd('finish');
   };
 
-  /**
-   * Tries to grab a value of @param featureName from a feature list
-   */
-  const getQuantityValueFeature = <TResult>(
-    featureList: NonNullable<NonNullable<NonNullable<MarathonModule>['configuratorAttributes']>[number]>['features'],
-    featureName: string,
-    featureUnitId: string,
-    format?: (value?: unknown) => TResult
-  ): TResult => {
-    // Get the feature with the name we want from the list
-    const feature = featureList?.find((feature) => feature?.name === featureName) as CsFeatureQuantityValue | undefined;
-
-    // If unit is wrong
-    if (feature?.quantityvalue?.unit?.id && feature.quantityvalue.unit.id !== featureUnitId) {
-      if (featureUnitId === FEATURE_NAMES.MM_ID && feature.quantityvalue.unit.id === FEATURE_NAMES.IN_ID) {
-        const inchValue = convertInToMmFormatted(`${feature.quantityvalue.value || 0}`);
-
-        return format ? format(inchValue) : (inchValue as unknown as TResult);
-      } else if (featureUnitId === FEATURE_NAMES.IN_ID && feature.quantityvalue.unit.id === FEATURE_NAMES.MM_ID) {
-        const mmValue = convertMmToInFormatted(`${feature.quantityvalue.value || 0}`);
-
-        return format ? format(mmValue) : (mmValue as unknown as TResult);
-      } else {
-        throw makeError(
-          `Expected ${featureName} feature as ${featureUnitId}, but was returned as "${feature?.quantityvalue?.unit?.id}" with value "${feature.quantityvalue.value}"`,
-          'ruleMergeFeatureQuantityUnit'
-        );
-      }
-    }
-
-    // Format or return plain
-    return format ? format(feature?.quantityvalue?.value) : (feature?.quantityvalue?.value as unknown as TResult);
-  };
-
-  /**
-   * Tries to safely convert a param to a number
-   */
-  const numberFromMaybe = (originalValue?: string | number | null | unknown): number => {
-    let value = originalValue;
-
-    if (typeof value !== 'number') value = parseFloat(`${value}`);
-
-    // Casting because we convert the value above
-    return value && !isNaN(value as number) ? (value as number) : 0;
-  };
-
-  const makeRulesFromMarathonModule = (marathonModule: MarathonModule): NexusGenObjects['ModuleRules'] => {
-    const partNumber = marathonModule?.partNumber?.trim();
-    if (!partNumber) throw makeError('Cannot create rule without partNumber', 'ruleMergeMissingPartNumber');
-
-    // ---- Dimensions
-
-    const dimensionAttribute = marathonModule?.configuratorAttributes?.find((attribute) =>
-      attribute?.features?.some((feature) => feature?.name === FEATURE_NAMES.DIMENSION_HEIGHT)
-    );
-
-    // -------- Height
-
-    const heightMM = getQuantityValueFeature(
-      dimensionAttribute?.features,
-      FEATURE_NAMES.DIMENSION_HEIGHT,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    // -------- Width
-
-    const minWidthMM = getQuantityValueFeature(
-      dimensionAttribute?.features,
-      FEATURE_NAMES.MIN_WIDTH,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    const maxWidthMM = getQuantityValueFeature(
-      dimensionAttribute?.features,
-      FEATURE_NAMES.MAX_WIDTH,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    // -------- Depth
-
-    const minDepthMM = getQuantityValueFeature(
-      dimensionAttribute?.features,
-      FEATURE_NAMES.MIN_DEPTH,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    const maxDepthMM = getQuantityValueFeature(
-      dimensionAttribute?.features,
-      FEATURE_NAMES.MAX_DEPTH,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    // ---- Rules
-
-    const rulesAttribute = marathonModule?.configuratorAttributes?.find((attribute) =>
-      attribute?.features?.some((feature) => feature?.name === FEATURE_NAMES.TRIMMABLE)
-    );
-
-    // -------- Trimmable
-
-    const trimmable = (
-      rulesAttribute?.features?.find((feature) => feature?.name === FEATURE_NAMES.TRIMMABLE) as
-        | CsFeatureMultiselect
-        | undefined
-    )?.selections
-      ?.filter((x) => !!x) // Remove nulls and undefined values IF they exist
-      .map((x) => x as string); // Cast to string because we know there are no null/undefined values since we filtered
-
-    // -------- Trim offset
-
-    const trimOffsetBottomMM = getQuantityValueFeature(
-      rulesAttribute?.features,
-      FEATURE_NAMES.TRIM_OFFSET_BOTTOM,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    const trimOffsetTopMM = getQuantityValueFeature(
-      rulesAttribute?.features,
-      FEATURE_NAMES.TRIM_OFFSET_TOP,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    const trimOffsetLeftMM = getQuantityValueFeature(
-      rulesAttribute?.features,
-      FEATURE_NAMES.TRIM_OFFSET_LEFT,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    const trimOffsetRightMM = getQuantityValueFeature(
-      rulesAttribute?.features,
-      FEATURE_NAMES.TRIM_OFFSET_RIGHT,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
+  const makeProductFromModule = (
+    module: MarathonModule,
+    targetThumbnailUrl?: string | null,
+    currentRules?: NexusGenObjects['ModuleRules'] | null
+  ) => {
+    const rules = mergeRules(module, currentRules);
+    const sourceThumbnail =
+      module?.productPictures && module.productPictures.length > 0
+        ? module?.productPictures[0]?.fullpath?.trim()
+        : undefined;
 
     return {
-      partNumber,
-      isImprintExtension: false, // TODO: Grab correct value
-      finishes: marathonModule?.finishes
-        ?.map((x) => x?.element?.partNumber)
-        .filter((x) => !!x) // Remove nulls and undefined values IF they exist
-        .map((x) => x as string), // Cast to string because we know there are no null/undefined values since we filtered
-      dimensions: {
-        height: {
-          millimeters: heightMM,
-          // Currently they don't provide in so we must convert from mm
-          inches: convertMmToInFormatted(`${heightMM}`)
-        },
-        width: {
-          min: {
-            millimeters: minWidthMM,
-            // Currently they don't provide in so we must convert from mm
-            inches: convertMmToInFormatted(`${minWidthMM}`)
-          },
-          max: {
-            millimeters: maxWidthMM,
-            // Currently they don't provide in so we must convert from mm
-            inches: convertMmToInFormatted(`${maxWidthMM}`)
-          }
-        },
-        depth: {
-          min: {
-            millimeters: minDepthMM,
-            // Currently they don't provide in so we must convert from mm
-            inches: convertMmToInFormatted(`${minDepthMM}`)
-          },
-          max: {
-            millimeters: maxDepthMM,
-            // Currently they don't provide in so we must convert from mm
-            inches: convertMmToInFormatted(`${maxDepthMM}`)
-          }
-        }
-      },
-      rules: {
-        trimmable,
-        trimOffset: {
-          // Force undefined if zero
-          bottom: trimOffsetBottomMM || undefined,
-          top: trimOffsetTopMM || undefined,
-          left: trimOffsetLeftMM || undefined,
-          right: trimOffsetRightMM || undefined
-        },
-        options: marathonModule?.options
-          ?.map((x) => x?.partNumber)
-          .filter((x) => !!x) // Remove nulls and undefined values IF they exist
-          .map((x) => x as string) // Cast to string because we know there are no null/undefined values since we filtered
-      }
+      partNumber: module?.partNumber?.trim() as string,
+      externalId: module?.id?.trim(),
+      description: module?.titleDescription?.trim() || undefined,
+      thumbnailUrl: makeThumbnailUrlAndQueue(
+        sourceThumbnail,
+        targetThumbnailUrl || `images/module/${module?.partNumber?.trim()}${path.extname(sourceThumbnail || '')}`
+      ),
+      // bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
+      isSubmodule: module?.isSubmodule || false,
+      hasPegs: module?.hasPegs || false,
+      isMat: module?.isMat || false,
+      // isExtension: module.isExtension || false,, TODO: Make sure they provide this info
+      shouldHideBasedOnWidth:
+        module?.shouldHideBasedOnWidth !== undefined && module?.shouldHideBasedOnWidth !== null
+          ? module?.shouldHideBasedOnWidth
+          : true,
+      alwaysDisplay: module?.alwaysDisplay || false,
+      isEdge: module?.isEdge || false,
+      rules
+      // TODO: Default left extension
+      // TODO: Default right extension
+      // TODO: attachmentToAppend: newRules?.rules.
+      // TODO: module attachments
     };
   };
 
-  const mergeRules = (
-    marathonModule: MarathonModule,
-    currentRules?: NexusGenObjects['ModuleRules']
-  ): NexusGenObjects['ModuleRules'] | undefined => {
-    const partNumber = marathonModule?.partNumber?.trim() || currentRules?.partNumber;
-    if (!partNumber) throw makeError('Cannot create rule without partNumber', 'ruleMergeMissingPartNumber');
-
-    const marathonRules = makeRulesFromMarathonModule(marathonModule);
-
-    return currentRules
-      ? deepmerge(currentRules, marathonRules, {
-          // combine arrays using object equality (like in sets)
-          arrayMerge: (destinationArray, sourceArray) => [
-            ...sourceArray,
-            ...destinationArray.filter((d) => sourceArray.every((s) => !isEqual(d, s)))
-          ]
-        })
-      : marathonRules;
-  };
-
-  const syncProduct = async () => {
+  const syncProduct = async (skipDatabase?: boolean) => {
     if (!db) {
       throw new Error('db dependency was not provided');
     }
@@ -1003,6 +792,30 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         if (products && products.length > 0) {
           console.log(`Product page ${pageIndex + 1}, fetched ${products.length} products`);
 
+          products.forEach((product, i) => {
+            const module = product?.node;
+            const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+
+            makeFile(dir, path.join(`marathon/${module?.partNumber || i}.json`), module || {});
+
+            const rules = mergeRules(module);
+            makeFile(dir, path.join(`jsons/${module?.partNumber || i}.json`), rules || {});
+
+            const queueAppend = makeQueueAppendRulesFromMarathonModule(module);
+
+            if (queueAppend?.append)
+              makeFile(
+                dir,
+                path.join(`jsons/${queueAppend.append.partNumber || `append-${i}`}.json`),
+                queueAppend.append
+              );
+
+            if (queueAppend?.queueModules && queueAppend.queueModules.length > 0)
+              queueAppend.queueModules.forEach((queueModule, j) =>
+                makeFile(dir, path.join(`jsons/${queueModule.partNumber || `queuemodule-${j}`}.json`), queueModule)
+              );
+          });
+
           const ids = products
             // Casting because we're explicitly filtering by only valid values
             .map((productEdge) => productEdge?.node?.id as string)
@@ -1056,233 +869,195 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             }
           );
 
-          if (modulesToCreate && modulesToCreate.length > 0) {
-            console.log(`Batch creating ${modulesToCreate.length} products`);
-            try {
-              await db.$transaction(async (db) => {
-                await db.module.createMany({
-                  data: modulesToCreate.map((productEdge) => {
-                    const module = productEdge?.node;
-                    const rules = mergeRules(module);
-                    const sourceThumbnail =
-                      module?.productPictures && module.productPictures.length > 0
-                        ? module?.productPictures[0]?.fullpath?.trim()
-                        : undefined;
-                    return {
-                      partNumber: module?.partNumber?.trim() as string,
-                      externalId: module?.id?.trim(),
-                      description: module?.titleDescription?.trim() || undefined,
-                      thumbnailUrl: makeThumbnailUrlAndQueue(
-                        sourceThumbnail,
-                        `images/module/${module?.partNumber?.trim()}${path.extname(sourceThumbnail || '')}`
-                      ),
-                      // bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
-                      isSubmodule: module?.isSubmodule || false,
-                      hasPegs: module?.hasPegs || false,
-                      isMat: module?.isMat || false,
-                      // isExtension: module.isExtension || false,, TODO: Make sure they provide this info
-                      shouldHideBasedOnWidth:
-                        module?.shouldHideBasedOnWidth !== undefined && module?.shouldHideBasedOnWidth !== null
-                          ? module?.shouldHideBasedOnWidth
-                          : true,
-                      alwaysDisplay: module?.alwaysDisplay || false,
-                      isEdge: module?.isEdge || false,
-                      rules,
-                      finishId: existingFinishes.find((finish) => finish.externalId === module?.spFinish?.id)?.id || -1,
-                      collectionId:
-                        existingCollections.find((collection) => collection.externalId === module?.spCollection?.id)
-                          ?.id || -1
-                      // TODO: Default left extension
-                      // TODO: Default right extension
-                      // TODO: attachmentToAppend: newRules?.rules.
-                      // TODO: module attachments
-                    };
-                  })
-                });
-
-                console.log(`Fetching recently created ${modulesToCreate.length} products`);
-                const recentlyCreatedModules = await db.module.findMany({
-                  where: {
-                    externalId: {
-                      in: modulesToCreate.map((x) => x?.node?.id as string).filter((x) => !!x)
-                    }
-                  },
-                  select: {
-                    id: true,
-                    externalId: true
-                  }
-                });
-
-                console.log(`Batch creating ${recentlyCreatedModules.length} product categories`);
-
-                const categoriesToCreate = modulesToCreate.flatMap((productEdge) =>
-                  productEdge?.node?.spCategories?.map((cat) => ({
-                    catExternalId: cat?.id,
-                    catSlug: null,
-                    moduleExternalId: productEdge?.node?.id
-                  }))
-                );
-
-                const categoryAllToCreate = modulesToCreate.map((productEdge) => ({
-                  catSlug: 'all',
-                  catExternalId: null,
-                  moduleExternalId: productEdge?.node?.id
-                }));
-
-                await db.moduleCategory.createMany({
-                  data: [...categoriesToCreate, ...categoryAllToCreate]
-                    .filter((x) => !!x)
-                    .map((catModule) => {
+          if (!skipDatabase) {
+            if (modulesToCreate && modulesToCreate.length > 0) {
+              console.log(`Batch creating ${modulesToCreate.length} products`);
+              try {
+                await db.$transaction(async (db) => {
+                  await db.module.createMany({
+                    data: modulesToCreate.map((productEdge) => {
+                      const module = productEdge?.node;
+                      const product = makeProductFromModule(module);
                       return {
-                        moduleId:
-                          recentlyCreatedModules.find((x) => x.externalId === catModule?.moduleExternalId)?.id || -1,
-                        categoryId:
-                          existingCategories.find((x) =>
-                            catModule?.catExternalId
-                              ? x.externalId === catModule?.catExternalId
-                              : x.slug === catModule?.catSlug
-                          )?.id || -1
+                        ...product,
+                        finishId:
+                          existingFinishes.find((finish) => finish.externalId === module?.spFinish?.id)?.id || -1,
+                        collectionId:
+                          existingCollections.find((collection) => collection.externalId === module?.spCollection?.id)
+                            ?.id || -1
                       };
                     })
+                  });
+
+                  console.log(`Fetching recently created ${modulesToCreate.length} products`);
+                  const recentlyCreatedModules = await db.module.findMany({
+                    where: {
+                      externalId: {
+                        in: modulesToCreate.map((x) => x?.node?.id as string).filter((x) => !!x)
+                      }
+                    },
+                    select: {
+                      id: true,
+                      externalId: true
+                    }
+                  });
+
+                  console.log(`Batch creating ${recentlyCreatedModules.length} product categories`);
+
+                  const categoriesToCreate = modulesToCreate.flatMap((productEdge) =>
+                    productEdge?.node?.spCategories?.map((cat) => ({
+                      catExternalId: cat?.id,
+                      catSlug: null,
+                      moduleExternalId: productEdge?.node?.id
+                    }))
+                  );
+
+                  const categoryAllToCreate = modulesToCreate.map((productEdge) => ({
+                    catSlug: 'all',
+                    catExternalId: null,
+                    moduleExternalId: productEdge?.node?.id
+                  }));
+
+                  await db.moduleCategory.createMany({
+                    data: [...categoriesToCreate, ...categoryAllToCreate]
+                      .filter((x) => !!x)
+                      .map((catModule) => {
+                        return {
+                          moduleId:
+                            recentlyCreatedModules.find((x) => x.externalId === catModule?.moduleExternalId)?.id || -1,
+                          categoryId:
+                            existingCategories.find((x) =>
+                              catModule?.catExternalId
+                                ? x.externalId === catModule?.catExternalId
+                                : x.slug === catModule?.catSlug
+                            )?.id || -1
+                        };
+                      })
+                  });
+
+                  console.log(`Batch creating ${recentlyCreatedModules.length} product types`);
+                  await db.moduleType.createMany({
+                    data: modulesToCreate
+                      .flatMap((productEdge) =>
+                        productEdge?.node?.spDrawerTypes?.map((type) => ({
+                          typeExternalId: type?.id,
+                          moduleExternalId: productEdge?.node?.id
+                        }))
+                      )
+                      .filter((x) => !!x)
+                      .map((typeModule) => ({
+                        moduleId:
+                          recentlyCreatedModules.find((x) => x.externalId === typeModule?.moduleExternalId)?.id || -1,
+                        typeId: existingTypes.find((x) => x.externalId === typeModule?.typeExternalId)?.id || -1
+                      }))
+                  });
+                });
+              } catch (err) {
+                logging.error(err, 'Error when batch creating products', {
+                  modulesToCreate: modulesToCreate?.map((x) => x?.node).filter((x) => !!x),
+                  existingCollections,
+                  existingFinishes
+                });
+              }
+            } else {
+              console.log(`No module to create`);
+            }
+
+            for (let i = 0; i < modulesToUpdate.length; i++) {
+              const productEdge = modulesToUpdate[i];
+
+              const moduleEdge = productEdge?.node;
+              if (!moduleEdge?.id) continue;
+
+              const existingModule = existingModules.find((x) => x.externalId === moduleEdge.id);
+              if (!existingModule) continue;
+
+              console.log(`Updating module #${i + 1} id: ${moduleEdge.id} of ${modulesToUpdate.length}`);
+
+              await db.$transaction(async (db) => {
+                // Sync categories
+
+                // Delete existing categories to re create
+                await db.moduleCategory.deleteMany({
+                  where: { module: { externalId: moduleEdge.id }, category: { slug: { not: 'all' } } }
                 });
 
-                console.log(`Batch creating ${recentlyCreatedModules.length} product types`);
-                await db.moduleType.createMany({
-                  data: modulesToCreate
-                    .flatMap((productEdge) =>
-                      productEdge?.node?.spDrawerTypes?.map((type) => ({
-                        typeExternalId: type?.id,
-                        moduleExternalId: productEdge?.node?.id
-                      }))
-                    )
-                    .filter((x) => !!x)
-                    .map((typeModule) => ({
-                      moduleId:
-                        recentlyCreatedModules.find((x) => x.externalId === typeModule?.moduleExternalId)?.id || -1,
-                      typeId: existingTypes.find((x) => x.externalId === typeModule?.typeExternalId)?.id || -1
+                // If there are categories for this module
+                if (moduleEdge.spCategories && moduleEdge.spCategories.length > 0) {
+                  // Create them
+                  await db.moduleCategory.createMany({
+                    data: moduleEdge.spCategories.map((cat) => ({
+                      moduleId: existingModule?.id || -1,
+                      categoryId: existingCategories.find((x) => x.slug === cat?.slug?.trim())?.id || -1
                     }))
+                  });
+                }
+
+                // Sync type
+
+                // Delete existing types to then create
+                await db.moduleType.deleteMany({ where: { module: { externalId: moduleEdge.id } } });
+
+                // If there are types for this module
+                if (moduleEdge.spDrawerTypes && moduleEdge.spDrawerTypes.length > 0) {
+                  // Create them
+                  await db.moduleType.createMany({
+                    data: moduleEdge.spDrawerTypes.map((type) => ({
+                      moduleId: existingModule?.id || -1,
+                      typeId: existingTypes.find((x) => x.externalId === type?.id)?.id || -1
+                    }))
+                  });
+                }
+
+                // TODO: module attachments
+
+                const product = makeProductFromModule(
+                  moduleEdge,
+                  existingModule?.thumbnailUrl,
+                  // Casting since it's a json type and it doesn't know, but we know
+                  existingModule?.rules as NexusGenObjects['ModuleRules'] | undefined
+                );
+
+                await db.module.update({
+                  // Casting because we're sure it exists due to previous check
+                  where: { externalId: moduleEdge.id as string },
+                  data: {
+                    ...product,
+                    finish: moduleEdge.spFinish?.slug?.trim()
+                      ? {
+                          connect: {
+                            slug: moduleEdge.spFinish.slug.trim()
+                          }
+                        }
+                      : undefined,
+                    collection: moduleEdge.spCollection?.slug?.trim()
+                      ? {
+                          connect: {
+                            slug: moduleEdge.spCollection.slug.trim()
+                          }
+                        }
+                      : undefined,
+                    // TODO: Default left extension
+                    defaultLeftExtension: product.rules?.extensions?.left
+                      ? {
+                          connect: {
+                            partNumber: product.rules.extensions.left
+                          }
+                        }
+                      : undefined,
+                    // TODO: Default right extension
+                    defaultRightExtension: product.rules?.extensions?.right
+                      ? {
+                          connect: {
+                            partNumber: product.rules.extensions.right
+                          }
+                        }
+                      : undefined
+                    // TODO: attachmentToAppend: newRules?.rules.
+                  }
                 });
-              });
-            } catch (err) {
-              logging.error(err, 'Error when batch creating products', {
-                modulesToCreate: modulesToCreate?.map((x) => x?.node).filter((x) => !!x),
-                existingCollections,
-                existingFinishes
               });
             }
-          } else {
-            console.log(`No module to create`);
-          }
-
-          for (let i = 0; i < modulesToUpdate.length; i++) {
-            const productEdge = modulesToUpdate[i];
-
-            const moduleEdge = productEdge?.node;
-            if (!moduleEdge?.id) continue;
-
-            const existingModule = existingModules.find((x) => x.externalId === moduleEdge.id);
-            if (!existingModule) continue;
-
-            console.log(`Updating module #${i + 1} id: ${moduleEdge.id} of ${modulesToUpdate.length}`);
-            const rules = existingModule?.rules as NexusGenObjects['ModuleRules'] | undefined;
-
-            await db.$transaction(async (db) => {
-              // Sync categories
-
-              // Delete existing categories to re create
-              await db.moduleCategory.deleteMany({
-                where: { module: { externalId: moduleEdge.id }, category: { slug: { not: 'all' } } }
-              });
-
-              // If there are categories for this module
-              if (moduleEdge.spCategories && moduleEdge.spCategories.length > 0) {
-                // Create them
-                await db.moduleCategory.createMany({
-                  data: moduleEdge.spCategories.map((cat) => ({
-                    moduleId: existingModule?.id || -1,
-                    categoryId: existingCategories.find((x) => x.slug === cat?.slug?.trim())?.id || -1
-                  }))
-                });
-              }
-
-              // Sync type
-
-              // Delete existing types to then create
-              await db.moduleType.deleteMany({ where: { module: { externalId: moduleEdge.id } } });
-
-              // If there are types for this module
-              if (moduleEdge.spDrawerTypes && moduleEdge.spDrawerTypes.length > 0) {
-                // Create them
-                await db.moduleType.createMany({
-                  data: moduleEdge.spDrawerTypes.map((type) => ({
-                    moduleId: existingModule?.id || -1,
-                    typeId: existingTypes.find((x) => x.externalId === type?.id)?.id || -1
-                  }))
-                });
-              }
-
-              // TODO: module attachments
-
-              const newRules = mergeRules(moduleEdge, rules);
-              const sourceThumbnail =
-                moduleEdge.productPictures && moduleEdge.productPictures.length > 0
-                  ? moduleEdge.productPictures[0]?.fullpath?.trim()
-                  : undefined;
-
-              await db.module.update({
-                // Casting because we're sure it exists due to previous check
-                where: { externalId: moduleEdge.id as string },
-                data: {
-                  externalId: moduleEdge.id?.trim(),
-                  description: moduleEdge.titleDescription?.trim() || undefined,
-                  thumbnailUrl: makeThumbnailUrlAndQueue(sourceThumbnail, existingModule.thumbnailUrl),
-                  // bundleUrl: module.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
-                  isSubmodule: moduleEdge.isSubmodule || undefined,
-                  hasPegs: moduleEdge.hasPegs || undefined,
-                  isMat: moduleEdge.isMat || undefined,
-                  // isExtension: module.isExtension || false,
-                  shouldHideBasedOnWidth:
-                    moduleEdge.shouldHideBasedOnWidth !== undefined && moduleEdge.shouldHideBasedOnWidth !== null
-                      ? moduleEdge.shouldHideBasedOnWidth
-                      : undefined,
-                  // alwaysDisplay: module.alwaysDisplay || undefined,
-                  // isEdge: module.isEdge || undefined,
-                  rules: newRules,
-
-                  finish: moduleEdge.spFinish?.slug?.trim()
-                    ? {
-                        connect: {
-                          slug: moduleEdge.spFinish.slug.trim()
-                        }
-                      }
-                    : undefined,
-                  collection: moduleEdge.spCollection?.slug?.trim()
-                    ? {
-                        connect: {
-                          slug: moduleEdge.spCollection.slug.trim()
-                        }
-                      }
-                    : undefined,
-                  // TODO: Default left extension
-                  defaultLeftExtension: newRules?.extensions?.left
-                    ? {
-                        connect: {
-                          partNumber: newRules.extensions.left
-                        }
-                      }
-                    : undefined,
-                  // TODO: Default right extension
-                  defaultRightExtension: newRules?.extensions?.right
-                    ? {
-                        connect: {
-                          partNumber: newRules.extensions.right
-                        }
-                      }
-                    : undefined
-                  // TODO: attachmentToAppend: newRules?.rules.
-                }
-              });
-            });
           }
 
           if (modulesToCreate && modulesToCreate.length === 0 && modulesToUpdate && modulesToUpdate.length === 0) {
@@ -1324,16 +1099,16 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.timeEnd('products');
   };
 
-  const syncData = async () => {
+  const syncData = async (skipDatabase?: boolean) => {
     try {
       console.time('apiSync');
-      await syncCategory();
-      await syncCollection();
-      await syncDrawerType();
-      await syncFinish();
+      await syncCategory(skipDatabase);
+      await syncCollection(skipDatabase);
+      await syncDrawerType(skipDatabase);
+      await syncFinish(skipDatabase);
 
       // Always leave products for last!!
-      await syncProduct();
+      await syncProduct(skipDatabase);
       console.timeEnd('apiSync');
 
       console.time('storageSync');

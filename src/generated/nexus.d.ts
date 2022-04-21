@@ -4910,7 +4910,9 @@ export interface NexusGenObjects {
   };
   ModuleRulesMetadata: {
     // root type
+    angle?: number | null; // Float
     fullDepth?: boolean | null; // Boolean
+    isFiller?: boolean | null; // Boolean
     options?: string[] | null; // [String!]
     queue?: NexusGenRootTypes['QueueInfoMetadata'] | null; // QueueInfoMetadata
     requiredNetInterior?: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
@@ -5200,7 +5202,9 @@ export interface NexusGenFieldTypes {
   };
   ModuleRulesMetadata: {
     // field return type
+    angle: number | null; // Float
     fullDepth: boolean | null; // Boolean
+    isFiller: boolean | null; // Boolean
     options: string[] | null; // [String!]
     queue: NexusGenRootTypes['QueueInfoMetadata'] | null; // QueueInfoMetadata
     requiredNetInterior: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
@@ -5555,7 +5559,9 @@ export interface NexusGenFieldTypeNames {
   };
   ModuleRulesMetadata: {
     // field return type name
+    angle: 'Float';
     fullDepth: 'Boolean';
+    isFiller: 'Boolean';
     options: 'String';
     queue: 'QueueInfoMetadata';
     requiredNetInterior: 'ModuleMinMax';
