@@ -78,11 +78,11 @@ export const ModuleRulesMetadata = objectType({
       description: 'The amount (in degrees) that the product can be angled'
     });
 
-    t.list.nonNull.string('options', {
+    t.list.string('options', {
       description: 'Options are which other modules can be put IN modules'
     });
 
-    t.list.nonNull.string('trimmable', {
+    t.list.string('trimmable', {
       description: "Where a module can be cut if there's excess beyond the drawer"
     });
 
@@ -105,12 +105,44 @@ export const ModuleRulesMetadata = objectType({
   }
 });
 
+export const ModuleCollectionsMetadata = objectType({
+  name: 'ModuleCollectionsMetadata',
+  definition(t) {
+    t.string('slug');
+    t.nonNull.string('externalId');
+  }
+});
+
 export const ModuleExtensionsMetadata = objectType({
   name: 'ModuleExtensionsMetadata',
   definition(t) {
     t.string('left');
     t.string('right');
-    t.list.nonNull.string('options');
+    t.list.string('options');
+  }
+});
+
+export const ModuleFinishesMetadata = objectType({
+  name: 'ModuleFinishesMetadata',
+  definition(t) {
+    t.string('slug');
+    t.nonNull.string('externalId');
+  }
+});
+
+export const ModuleDrawerTypesMetadata = objectType({
+  name: 'ModuleDrawerTypesMetadata',
+  definition(t) {
+    t.string('slug');
+    t.nonNull.string('externalId');
+  }
+});
+
+export const ModuleCategoryMetadata = objectType({
+  name: 'ModuleCategoryMetadata',
+  definition(t) {
+    t.string('slug');
+    t.nonNull.string('externalId');
   }
 });
 
@@ -121,20 +153,45 @@ export const ModuleRules = objectType({
       description: 'The module part number, probably equivalent to the module id'
     });
 
-    t.list.nonNull.string('finishes', {
-      description:
-        'Modules that are basically this module but in a different finish(color), to allow the ui to easily switch between them'
-    });
-
-    t.list.nonNull.string('trims', {
-      description: 'Different types of edges a module might have'
-    });
-
+    t.nonNull.string('externalId');
+    t.string('description');
+    t.string('thumbnailUrl');
     t.string('bundleUrl');
+    t.boolean('isSubmodule');
+    t.boolean('hasPegs');
+    t.boolean('isMat');
+    t.boolean('shouldHideBasedOnWidth');
+    t.boolean('alwaysDisplay');
+    t.boolean('isEdge');
 
     t.nonNull.boolean('isImprintExtension');
 
-    t.field('dimensions', {
+    t.list.string('trims', {
+      description: 'Different types of edges a module might have'
+    });
+
+    t.list.nonNull.string('otherFinishes', {
+      description: 'The equivalent of same module but on other finishes'
+    });
+
+    t.nonNull.field('finish', {
+      type: ModuleFinishesMetadata,
+      description: 'The current finish of this module'
+    });
+
+    t.nonNull.field('collection', {
+      type: ModuleCollectionsMetadata
+    });
+
+    t.list.field('drawerTypes', {
+      type: ModuleDrawerTypesMetadata
+    });
+
+    t.list.field('categories', {
+      type: ModuleCategoryMetadata
+    });
+
+    t.nonNull.field('dimensions', {
       type: ModuleDimension
     });
 

@@ -1394,6 +1394,11 @@ input ModuleCategoryListRelationFilter {
   some: ModuleCategoryWhereInput
 }
 
+type ModuleCategoryMetadata {
+  externalId: String!
+  slug: String
+}
+
 input ModuleCategoryOrderByInput {
   categoryId: SortOrder
   id: SortOrder
@@ -1460,6 +1465,11 @@ input ModuleCategoryWhereInput {
 
 input ModuleCategoryWhereUniqueInput {
   id: Int
+}
+
+type ModuleCollectionsMetadata {
+  externalId: String!
+  slug: String
 }
 
 input ModuleCreateManyAttachmentToAppendInput {
@@ -2105,10 +2115,20 @@ type ModuleDimension {
   width: ModuleMinMax
 }
 
+type ModuleDrawerTypesMetadata {
+  externalId: String!
+  slug: String
+}
+
 type ModuleExtensionsMetadata {
   left: String
-  options: [String!]
+  options: [String]
   right: String
+}
+
+type ModuleFinishesMetadata {
+  externalId: String!
+  slug: String
 }
 
 input ModuleListRelationFilter {
@@ -2147,30 +2167,47 @@ input ModuleOrderByInput {
 }
 
 type ModuleRules {
+  alwaysDisplay: Boolean
   bundleUrl: String
-  dimensions: ModuleDimension
+  categories: [ModuleCategoryMetadata]
+  collection: ModuleCollectionsMetadata!
+  description: String
+  dimensions: ModuleDimension!
+  drawerTypes: [ModuleDrawerTypesMetadata]
 
   """
   Extensions are sub pieces that MUST BE CONNECTED to the main product or other extension.
   """
   extensions: ModuleExtensionsMetadata
+  externalId: String!
 
   """
-  Modules that are basically this module but in a different finish(color), to allow the ui to easily switch between them
+  The current finish of this module
   """
-  finishes: [String!]
+  finish: ModuleFinishesMetadata!
+  hasPegs: Boolean
+  isEdge: Boolean
   isImprintExtension: Boolean!
+  isMat: Boolean
+  isSubmodule: Boolean
+
+  """
+  The equivalent of same module but on other finishes
+  """
+  otherFinishes: [String!]
 
   """
   The module part number, probably equivalent to the module id
   """
   partNumber: String!
   rules: ModuleRulesMetadata
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
 
   """
   Different types of edges a module might have
   """
-  trims: [String!]
+  trims: [String]
 }
 
 type ModuleRulesMetadata {
@@ -2192,7 +2229,7 @@ type ModuleRulesMetadata {
   """
   Options are which other modules can be put IN modules
   """
-  options: [String!]
+  options: [String]
 
   """
   Queue info
@@ -2213,7 +2250,7 @@ type ModuleRulesMetadata {
   """
   Where a module can be cut if there's excess beyond the drawer
   """
-  trimmable: [String!]
+  trimmable: [String]
 }
 
 input ModuleScalarWhereInput {

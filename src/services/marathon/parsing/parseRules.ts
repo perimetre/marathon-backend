@@ -1,26 +1,26 @@
 import deepmerge from 'deepmerge';
 import { isEqual } from 'lodash';
+import path from 'path';
 import { CsFeatureInput } from '../../../generated/graphql';
 import { NexusGenObjects } from '../../../generated/nexus';
 import { convertMmToInFormatted } from '../../../utils/conversion';
 import { makeError } from '../../../utils/exception';
-import { FeatureList, FEATURE_NAMES, MarathonModule } from './constants';
+import { replaceExtension } from '../../../utils/file';
+import { FeatureList, FEATURE_NAMES, MarathonModule, ModuleRules } from './constants';
 import {
-  getQuantityValueFeature,
-  numberFromMaybe,
   getBooleanSelectFeature,
   getInputFeature,
   getMultiSelectFeature,
   getNumericFeature,
+  getQuantityValueFeature,
+  numberFromMaybe,
   numberUndefinedFromMaybe
 } from './parseValues';
 
 /**
  * Makes a dimension rule object from a given "configurator attribute" from their api
  */
-export const makeDimensionRulesFromAttribute = (
-  featureList?: FeatureList
-): NexusGenObjects['ModuleRules']['dimensions'] => {
+export const makeDimensionRulesFromAttribute = (featureList?: FeatureList): ModuleRules['dimensions'] => {
   // -------- Height
 
   const heightMM = getQuantityValueFeature(
@@ -97,8 +97,8 @@ export const makeDimensionRulesFromAttribute = (
 
 export const makeRulesObjectFromAttribute = (
   featureList?: FeatureList,
-  getOptions?: () => NonNullable<NexusGenObjects['ModuleRules']['rules']>['options']
-): NexusGenObjects['ModuleRules']['rules'] => {
+  getOptions?: () => NonNullable<ModuleRules['rules']>['options']
+): ModuleRules['rules'] => {
   // -------- Trimmable
 
   const trimmable = getMultiSelectFeature(featureList, FEATURE_NAMES.TRIMMABLE);
@@ -182,9 +182,10 @@ export const makeRulesObjectFromAttribute = (
 
 const makeRuleExtensionsFromAttribute = (
   featureList?: FeatureList,
-  getOptions?: () => NonNullable<NexusGenObjects['ModuleRules']['rules']>['options']
-): NexusGenObjects['ModuleRules']['extensions'] | undefined => {
-  //  Remove left/right feature that only contain left/right text in it
+  getOptions?: () => NonNullable<ModuleRules['rules']>['options']
+): ModuleRules['extensions'] | undefined => {
+  // For some reason, there are TWO attributes with the same name, yay!
+  // So we remove the useless one, which only have 'left' or 'right' as its text value, instead of what we expect
   const extensionFeatureList = featureList?.filter(
     (x) =>
       !(
@@ -193,6 +194,7 @@ const makeRuleExtensionsFromAttribute = (
       )
   );
 
+  // With the incorrect ones removed, we can grab the correct ones
   const left = getInputFeature(extensionFeatureList, FEATURE_NAMES.EXT_SIDE_LEFT);
   const right = getInputFeature(extensionFeatureList, FEATURE_NAMES.EXT_SIDE_RIGHT);
 
@@ -205,123 +207,338 @@ const makeRuleExtensionsFromAttribute = (
   };
 };
 
-export const makeRulesWithAttributes = (
-  featureList: FeatureList,
-  getPartNumber: () => string | undefined,
-  isImprintExtension?: boolean,
-  getFinishes?: () => NexusGenObjects['ModuleRules']['finishes'],
-  getOptions?: () => NonNullable<NexusGenObjects['ModuleRules']['rules']>['options']
-): NexusGenObjects['ModuleRules'] => {
-  const dimensions = makeDimensionRulesFromAttribute(featureList);
-  // If this module has extensions, its "options" goes under the extensions
-  const rules = makeRulesObjectFromAttribute(featureList, getOptions);
-  const extensions = makeRuleExtensionsFromAttribute(featureList, getOptions);
+export const makeRulesFromMarathonModule = (
+  marathonModule: MarathonModule
+): {
+  module: ModuleRules;
+  attachments?: ReturnType<typeof makeAttachments>;
+  extensions?: ReturnType<typeof makeExtensions>;
+  alternative?: ModuleRules;
+} => {
+  const externalId = marathonModule.id;
+  if (!externalId) throw makeError('Cannot create rule without id', 'ruleMergeMissingId');
 
-  return {
-    partNumber: getPartNumber() || '',
-    isImprintExtension: !!isImprintExtension,
-    finishes: getFinishes && getFinishes(),
-    dimensions,
-    rules,
-    extensions
-  };
-};
+  const marathonFinish = marathonModule.spFinish;
+  if (!marathonFinish || !marathonFinish.id)
+    throw makeError('Cannot create rule without finish', 'ruleMergeMissingFinish');
 
-const makeRulesFromMarathonModule = (marathonModule: MarathonModule): NexusGenObjects['ModuleRules'] => {
-  const partNumber = marathonModule?.partNumber?.trim();
-  if (!partNumber) throw makeError('Cannot create rule without partNumber', 'ruleMergeMissingPartNumber');
+  const marathonCollection = marathonModule.spCollection;
+  if (!marathonCollection || !marathonCollection.id)
+    throw makeError('Cannot create rule without collection', 'ruleMergeMissingCollection');
+
+  const marathonDrawerTypes = marathonModule.spDrawerTypes;
+  if (!marathonDrawerTypes || marathonDrawerTypes.length <= 0 || marathonDrawerTypes.some((x) => !x?.id))
+    throw makeError('Cannot create rule without finish', 'ruleMergeMissingDrawerType');
 
   const specialAttributes = [
-    FEATURE_NAMES.EXT_SIDE_LEFT,
-    FEATURE_NAMES.EXT_SIDE_RIGHT,
+    FEATURE_NAMES.LEFT_EXTENSION_ATTRIBUTE,
+    FEATURE_NAMES.RIGHT_EXTENSION_ATTRIBUTE,
     FEATURE_NAMES.QUEUE_MODULES_ATTRIBUTE,
     FEATURE_NAMES.QUEUE_APPEND_ATTRIBUTE
   ];
 
-  // Merge all attributes that aren't the special attributes into a single one
-  const catchAllFeatureList = marathonModule?.configuratorAttributes
+  // Merge all attributes that aren't the special attributes into a single one for ease of use since they decided to make things complicated
+  // by "Special attributes" I mean whole attributes that contain an entire module in it, and not just rules. Like extensions and attachments
+  const catchAllFeatureList = marathonModule.configuratorAttributes
     ?.filter(
       (attribute) => !specialAttributes.some((specialAttribute) => attribute?.description?.includes(specialAttribute))
     )
-    .flatMap((x) => x?.features);
+    .flatMap((x) => x?.features) as FeatureList;
 
-  return makeRulesWithAttributes(
-    catchAllFeatureList as FeatureList,
-    () => partNumber,
-    false,
-    () =>
-      marathonModule?.finishes
-        ?.map((x) => x?.element?.partNumber)
-        .filter((x) => !!x) // Remove nulls and undefined values IF they exist
-        .map((x) => x as string), // Cast to string because we know there are no null/undefined values since we filtered
-    () =>
-      marathonModule?.options
-        ?.map((x) => x?.partNumber)
-        .filter((x) => !!x) // Remove nulls and undefined values IF they exist
-        .map((x) => x as string) // Cast to string because we know there are no null/undefined values since we filtered
-  );
+  const getOptionsFn = () =>
+    marathonModule.options
+      ?.map((x) => x?.partNumber)
+      .filter((x) => !!x) // Remove nulls and undefined values IF they exist
+      .map((x) => x as string); // Cast to string because we know there are no null/undefined values since we filtered
+
+  const dimensions = makeDimensionRulesFromAttribute(catchAllFeatureList);
+
+  // If this module has extensions, its "options" goes under the extensions
+  const rules = makeRulesObjectFromAttribute(catchAllFeatureList, getOptionsFn);
+
+  // This "extensions" is not the complete extension _object_ but rather the extension property that only references part numbers of those objects
+  const extensions = makeRuleExtensionsFromAttribute(catchAllFeatureList, getOptionsFn);
+
+  const otherFinishes = marathonModule.finishes
+    ?.map((x) => x?.element?.partNumber)
+    .filter((x) => !!x) // Remove nulls and undefined values IF they exist
+    .map((x) => x as string); // Cast to string because we know there are no null/undefined values since we filtered
+
+  const sourceThumbnail =
+    marathonModule.productPictures && marathonModule.productPictures.length > 0
+      ? marathonModule.productPictures[0]?.fullpath?.trim()
+      : undefined;
+
+  const module: ModuleRules = {
+    partNumber: marathonModule.partNumber || externalId,
+    externalId: externalId,
+    description:
+      marathonModule.shortDescription || marathonModule.titleDescription || marathonModule.itemDescription || undefined,
+    thumbnailUrl: makeThumbnailUrlAndQueue(
+      sourceThumbnail,
+      `images/module/${marathonModule.partNumber?.trim()}${path.extname(sourceThumbnail || '')}`
+    ),
+    // bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,
+    isSubmodule: marathonModule.isSubmodule || false,
+    hasPegs: marathonModule.hasPegs || false,
+    isMat: marathonModule.isMat || false,
+    shouldHideBasedOnWidth:
+      marathonModule.shouldHideBasedOnWidth !== undefined && marathonModule.shouldHideBasedOnWidth !== null
+        ? marathonModule.shouldHideBasedOnWidth
+        : true,
+    alwaysDisplay: marathonModule.alwaysDisplay || false,
+    isEdge: marathonModule.isEdge || false,
+    isImprintExtension: false, // False in this case, we'll manually set to true on the method regarding extensions
+    finish: {
+      externalId: marathonFinish.id,
+      slug: marathonFinish.slug || undefined
+    },
+    collection: {
+      externalId: marathonCollection.id,
+      slug: marathonCollection.slug || undefined
+    },
+    drawerTypes: marathonDrawerTypes.map((marathonDrawerType) => ({
+      // Casting because we check previously right at the beginning and throw if it doesn't have an id
+      externalId: marathonDrawerType?.id as string,
+      slug: marathonDrawerType?.slug
+    })),
+    categories: marathonModule.spCategories
+      ?.filter((x) => x && !!x?.id)
+      .map((marathonCategory) => ({
+        // Casting because we are filtering right above
+        externalId: marathonCategory?.id as string,
+        slug: marathonCategory?.slug
+      })),
+    otherFinishes,
+    dimensions,
+    rules,
+    extensions
+  };
+
+  return {
+    module,
+    attachments: makeAttachments(module, marathonModule),
+    extensions: makeExtensions(module, marathonModule),
+    alternative: marathonModule.alternative
+      ? {
+          ...module,
+          hasPegs: marathonModule.alternative.hasPegs || false,
+          partNumber: marathonModule.alternative.partNumber || `${module.partNumber}-B`
+        }
+      : undefined
+  };
 };
 
-// TODO: Make a similar of this for extensions
-export const makeQueueAppendRulesFromMarathonModule = (
+export const makeThumbnailUrlAndQueue = (sourcePath?: string | null, currentPath?: string | null) => {
+  let thumbnailUrl: string | undefined;
+
+  if (sourcePath?.trim() && currentPath?.trim()) {
+    thumbnailUrl = replaceExtension(currentPath, sourcePath);
+    let originalPath = thumbnailUrl;
+
+    // If the extension were changed, the paths are now different. So store the previous original path so the image can be deleted
+    if (currentPath !== originalPath) originalPath = currentPath;
+
+    // TODO: Fix storage sync
+    // storageSyncQueue.push({
+    //   sourcePath,
+    //   originalPath,
+    //   destinationPath: thumbnailUrl
+    // });
+  }
+
+  return thumbnailUrl;
+};
+
+export const makeAttachments = (
+  parent: ModuleRules,
   marathonModule: MarathonModule
 ):
   | {
-      append?: Partial<NexusGenObjects['ModuleRules']>;
-      queueModules?: Partial<NexusGenObjects['ModuleRules']>[];
+      append: ModuleRules;
+      queueModules: ModuleRules[];
     }
   | undefined => {
   // ---- Queue
-  const queueModules = marathonModule?.configuratorAttributes
-    ?.filter((attribute) => attribute?.description?.includes(FEATURE_NAMES.QUEUE_MODULES_ATTRIBUTE))
-    ?.map((queueModuleAttribute) =>
-      makeRulesWithAttributes(
-        queueModuleAttribute?.features,
-        () =>
-          getInputFeature(queueModuleAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)),
-        false,
-        () =>
-          getMultiSelectFeature(queueModuleAttribute?.features, (feature) =>
-            feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
-          )
-      )
-    );
+  const queueModules = marathonModule?.configuratorAttributes // Of all configurator attributes
+    ?.filter((attribute) => attribute?.description?.includes(FEATURE_NAMES.QUEUE_MODULES_ATTRIBUTE)) // We grab only the ones that includes the queue modules description
+    ?.map((queueModuleAttribute) => {
+      const partNumber = getInputFeature(queueModuleAttribute?.features, (feature) =>
+        feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)
+      );
+
+      const otherFinishes = getMultiSelectFeature(queueModuleAttribute?.features, (feature) =>
+        feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
+      );
+
+      const dimensions = makeDimensionRulesFromAttribute(queueModuleAttribute?.features);
+      const rules = makeRulesObjectFromAttribute(queueModuleAttribute?.features);
+
+      // const sourceThumbnail = getInputFeature(queueModuleAttribute?.features, FEATURE_NAMES.THUMBNAIL_URL);
+      const hasPegs = getBooleanSelectFeature(queueModuleAttribute?.features, FEATURE_NAMES.HAS_PEGS);
+
+      return {
+        ...parent,
+        partNumber,
+        externalId: `${parent.externalId}-queue-${partNumber}`,
+        description: undefined, // They don't provide descriptions for nested modules
+        thumbnailUrl: undefined, // Not really used for queue modules
+        isSubmodule: true, // Not really used for queue modules but they are kinda like submodules
+        hasPegs: hasPegs || false, // Not used for queue modules
+        shouldHideBasedOnWidth: false, // Not used for queue modules
+        alwaysDisplay: false, // Queue modules don't show up as pegboard(this isn't even used)
+        isEdge: false, // Queue modules are never edge
+        isImprintExtension: false,
+        isMat: false,
+        otherFinishes,
+
+        // Only those two are important for queue modules
+        dimensions,
+        rules
+      } as ModuleRules;
+    });
 
   // ---- Append
+  // There should only be one append, as opposed of multiple queueModules
+  // so we grab the one that the description correctly match
   const appendModulesAttribute = marathonModule?.configuratorAttributes?.find(
     (attribute) => attribute?.description === FEATURE_NAMES.QUEUE_APPEND_ATTRIBUTE
   );
 
-  if (!queueModules && !appendModulesAttribute) return undefined;
+  // Bail if there's none
+  if (!queueModules || queueModules.length <= 0 || !appendModulesAttribute) return undefined;
+
+  const partNumber = getInputFeature(appendModulesAttribute?.features, (feature) =>
+    feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)
+  );
+
+  const otherFinishes = getMultiSelectFeature(appendModulesAttribute?.features, (feature) =>
+    feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
+  );
+
+  const dimensions = makeDimensionRulesFromAttribute(appendModulesAttribute?.features);
+  const rules = makeRulesObjectFromAttribute(appendModulesAttribute?.features);
+
+  // const sourceThumbnail = getInputFeature(appendModulesAttribute?.features, FEATURE_NAMES.THUMBNAIL_URL);
+  const hasPegs = getBooleanSelectFeature(appendModulesAttribute?.features, FEATURE_NAMES.HAS_PEGS);
 
   return {
-    append: appendModulesAttribute
-      ? makeRulesWithAttributes(
-          appendModulesAttribute?.features,
-          () =>
-            getInputFeature(appendModulesAttribute?.features, (feature) =>
-              feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)
-            ),
-          false,
-          () =>
-            getMultiSelectFeature(appendModulesAttribute?.features, (feature) =>
-              feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
-            )
-        )
-      : undefined,
+    append: {
+      ...parent,
+      partNumber: partNumber || `${parent.externalId}-append`,
+      externalId: `${parent.externalId}-append-${partNumber}`,
+      description: undefined, // They don't provide descriptions for nested modules
+      thumbnailUrl: undefined, // Not really used for queue modules
+      isSubmodule: true, // Not really used for queue modules but they are kinda like submodules
+      hasPegs: hasPegs || false, // Not used for queue modules
+      shouldHideBasedOnWidth: false, // Not used for queue modules
+      alwaysDisplay: false, // Queue modules don't show up as pegboard(this isn't even used)
+      isEdge: false, // Queue modules are never edge
+      isImprintExtension: false,
+      isMat: false,
+      otherFinishes,
+
+      // Only those two are important for queue modules
+      dimensions,
+      rules
+    },
     queueModules
   };
 };
 
-export const mergeRules = (
-  marathonModule: MarathonModule,
-  currentRules?: NexusGenObjects['ModuleRules'] | null
-): NexusGenObjects['ModuleRules'] | undefined => {
-  const partNumber = marathonModule?.partNumber?.trim() || currentRules?.partNumber;
-  if (!partNumber) throw makeError('Cannot create rule without partNumber', 'ruleMergeMissingPartNumber');
+export const makeExtensions = (
+  parent: ModuleRules,
+  marathonModule: MarathonModule
+):
+  | {
+      left: ModuleRules;
+      right: ModuleRules;
+    }
+  | undefined => {
+  // First, we grab the left and right extensions, using the expected attributes descriptions
 
-  const marathonRules = makeRulesFromMarathonModule(marathonModule);
+  const leftExtensionAttribute = marathonModule?.configuratorAttributes?.find(
+    (attribute) => attribute?.description === FEATURE_NAMES.LEFT_EXTENSION_ATTRIBUTE
+  );
 
+  const rightExtensionAttribute = marathonModule?.configuratorAttributes?.find(
+    (attribute) => attribute?.description === FEATURE_NAMES.RIGHT_EXTENSION_ATTRIBUTE
+  );
+
+  // Bail if there's none
+  if (!leftExtensionAttribute || !rightExtensionAttribute) return undefined;
+
+  // Then, for some reason, extensions finishes are not arrays but a single input like everything else 🤷 so lets grab them too
+
+  const leftPartNumber = getInputFeature(leftExtensionAttribute?.features, (feature) =>
+    feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)
+  );
+  const leftFinish = getInputFeature(leftExtensionAttribute?.features, (feature) =>
+    feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
+  );
+  const leftOtherFinishes = leftFinish ? [leftFinish] : undefined;
+  const leftDimensions = makeDimensionRulesFromAttribute(leftExtensionAttribute?.features);
+  const leftRules = makeRulesObjectFromAttribute(leftExtensionAttribute?.features);
+  const leftThumbnail = getInputFeature(leftExtensionAttribute?.features, FEATURE_NAMES.PRODUCT_PICTURE_FULL_PATH);
+
+  const rightPartNumber = getInputFeature(rightExtensionAttribute?.features, (feature) =>
+    feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)
+  );
+  const rightFinish = getInputFeature(rightExtensionAttribute?.features, (feature) =>
+    feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
+  );
+  const rightOtherFinishes = rightFinish ? [rightFinish] : undefined;
+  const rightDimensions = makeDimensionRulesFromAttribute(rightExtensionAttribute?.features);
+  const rightRules = makeRulesObjectFromAttribute(rightExtensionAttribute?.features);
+  const rightThumbnail = getInputFeature(rightExtensionAttribute?.features, FEATURE_NAMES.PRODUCT_PICTURE_FULL_PATH);
+
+  return {
+    // And convert them to the format we expect
+    left: {
+      ...parent,
+      partNumber: leftPartNumber || `${parent.externalId}-left-extension`,
+      externalId: `${parent.externalId}-left-extension-${leftPartNumber}`,
+      description: undefined, // They don't provide descriptions for nested modules
+      thumbnailUrl: makeThumbnailUrlAndQueue(
+        leftThumbnail,
+        `images/module/${marathonModule.partNumber?.trim()}${path.extname(leftThumbnail || '')}`
+      ),
+      isSubmodule: true, // Not really used for extensions modules but they are kinda like submodules
+      hasPegs: false, // Not used for extensions
+      shouldHideBasedOnWidth: false, // Not used for extensions
+      alwaysDisplay: false, // extensions don't show up as pegboard(this isn't even used)
+      isEdge: false, // extensions are never edge,
+      isImprintExtension: true,
+      isMat: false,
+      otherFinishes: leftOtherFinishes,
+      dimensions: leftDimensions,
+      rules: leftRules
+    },
+    right: {
+      ...parent,
+      partNumber: rightPartNumber || `${parent.externalId}-right-extension-${rightPartNumber}`,
+      externalId: `${parent.externalId}-right-extension-${rightPartNumber}`,
+      description: undefined, // They don't provide descriptions for nested modules
+      thumbnailUrl: makeThumbnailUrlAndQueue(
+        rightThumbnail,
+        `images/module/${marathonModule.partNumber?.trim()}${path.extname(rightThumbnail || '')}`
+      ),
+      isSubmodule: true, // Not really used for extensions modules but they are kinda like submodules
+      hasPegs: false, // Not used for extensions
+      shouldHideBasedOnWidth: false, // Not used for extensions
+      alwaysDisplay: false, // extensions don't show up as pegboard(this isn't even used)
+      isEdge: false, // extensions are never edge,
+      isImprintExtension: true,
+      isMat: false,
+      otherFinishes: rightOtherFinishes,
+      dimensions: rightDimensions,
+      rules: rightRules
+    }
+  };
+};
+
+export const mergeRules = (marathonRules: ModuleRules, currentRules?: ModuleRules | null): ModuleRules | undefined => {
+  // If we already have rules, we merge ours with marathon but making sure marathon's will override ours. If not, we just return marathon's
   return currentRules
     ? deepmerge(currentRules, marathonRules, {
         // combine arrays using object equality (like in sets)

@@ -4880,17 +4880,37 @@ export interface NexusGenObjects {
     id: number; // Int!
     moduleId: number; // Int!
   };
+  ModuleCategoryMetadata: {
+    // root type
+    externalId: string; // String!
+    slug?: string | null; // String
+  };
+  ModuleCollectionsMetadata: {
+    // root type
+    externalId: string; // String!
+    slug?: string | null; // String
+  };
   ModuleDimension: {
     // root type
     depth?: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
     height?: NexusGenRootTypes['ModuleUnit'] | null; // ModuleUnit
     width?: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
   };
+  ModuleDrawerTypesMetadata: {
+    // root type
+    externalId: string; // String!
+    slug?: string | null; // String
+  };
   ModuleExtensionsMetadata: {
     // root type
     left?: string | null; // String
-    options?: string[] | null; // [String!]
+    options?: Array<string | null> | null; // [String]
     right?: string | null; // String
+  };
+  ModuleFinishesMetadata: {
+    // root type
+    externalId: string; // String!
+    slug?: string | null; // String
   };
   ModuleMinMax: {
     // root type
@@ -4899,26 +4919,39 @@ export interface NexusGenObjects {
   };
   ModuleRules: {
     // root type
+    alwaysDisplay?: boolean | null; // Boolean
     bundleUrl?: string | null; // String
-    dimensions?: NexusGenRootTypes['ModuleDimension'] | null; // ModuleDimension
+    categories?: Array<NexusGenRootTypes['ModuleCategoryMetadata'] | null> | null; // [ModuleCategoryMetadata]
+    collection: NexusGenRootTypes['ModuleCollectionsMetadata']; // ModuleCollectionsMetadata!
+    description?: string | null; // String
+    dimensions: NexusGenRootTypes['ModuleDimension']; // ModuleDimension!
+    drawerTypes?: Array<NexusGenRootTypes['ModuleDrawerTypesMetadata'] | null> | null; // [ModuleDrawerTypesMetadata]
     extensions?: NexusGenRootTypes['ModuleExtensionsMetadata'] | null; // ModuleExtensionsMetadata
-    finishes?: string[] | null; // [String!]
+    externalId: string; // String!
+    finish: NexusGenRootTypes['ModuleFinishesMetadata']; // ModuleFinishesMetadata!
+    hasPegs?: boolean | null; // Boolean
+    isEdge?: boolean | null; // Boolean
     isImprintExtension: boolean; // Boolean!
+    isMat?: boolean | null; // Boolean
+    isSubmodule?: boolean | null; // Boolean
+    otherFinishes?: string[] | null; // [String!]
     partNumber: string; // String!
     rules?: NexusGenRootTypes['ModuleRulesMetadata'] | null; // ModuleRulesMetadata
-    trims?: string[] | null; // [String!]
+    shouldHideBasedOnWidth?: boolean | null; // Boolean
+    thumbnailUrl?: string | null; // String
+    trims?: Array<string | null> | null; // [String]
   };
   ModuleRulesMetadata: {
     // root type
     angle?: number | null; // Float
     fullDepth?: boolean | null; // Boolean
     isFiller?: boolean | null; // Boolean
-    options?: string[] | null; // [String!]
+    options?: Array<string | null> | null; // [String]
     queue?: NexusGenRootTypes['QueueInfoMetadata'] | null; // QueueInfoMetadata
     requiredNetInterior?: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
     rotation?: number | null; // Float
     trimOffset?: NexusGenRootTypes['TrimOffsetMetadata'] | null; // TrimOffsetMetadata
-    trimmable?: string[] | null; // [String!]
+    trimmable?: Array<string | null> | null; // [String]
   };
   ModuleType: {
     // root type
@@ -5172,17 +5205,37 @@ export interface NexusGenFieldTypes {
     module: NexusGenRootTypes['Module']; // Module!
     moduleId: number; // Int!
   };
+  ModuleCategoryMetadata: {
+    // field return type
+    externalId: string; // String!
+    slug: string | null; // String
+  };
+  ModuleCollectionsMetadata: {
+    // field return type
+    externalId: string; // String!
+    slug: string | null; // String
+  };
   ModuleDimension: {
     // field return type
     depth: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
     height: NexusGenRootTypes['ModuleUnit'] | null; // ModuleUnit
     width: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
   };
+  ModuleDrawerTypesMetadata: {
+    // field return type
+    externalId: string; // String!
+    slug: string | null; // String
+  };
   ModuleExtensionsMetadata: {
     // field return type
     left: string | null; // String
-    options: string[] | null; // [String!]
+    options: Array<string | null> | null; // [String]
     right: string | null; // String
+  };
+  ModuleFinishesMetadata: {
+    // field return type
+    externalId: string; // String!
+    slug: string | null; // String
   };
   ModuleMinMax: {
     // field return type
@@ -5191,26 +5244,39 @@ export interface NexusGenFieldTypes {
   };
   ModuleRules: {
     // field return type
+    alwaysDisplay: boolean | null; // Boolean
     bundleUrl: string | null; // String
-    dimensions: NexusGenRootTypes['ModuleDimension'] | null; // ModuleDimension
+    categories: Array<NexusGenRootTypes['ModuleCategoryMetadata'] | null> | null; // [ModuleCategoryMetadata]
+    collection: NexusGenRootTypes['ModuleCollectionsMetadata']; // ModuleCollectionsMetadata!
+    description: string | null; // String
+    dimensions: NexusGenRootTypes['ModuleDimension']; // ModuleDimension!
+    drawerTypes: Array<NexusGenRootTypes['ModuleDrawerTypesMetadata'] | null> | null; // [ModuleDrawerTypesMetadata]
     extensions: NexusGenRootTypes['ModuleExtensionsMetadata'] | null; // ModuleExtensionsMetadata
-    finishes: string[] | null; // [String!]
+    externalId: string; // String!
+    finish: NexusGenRootTypes['ModuleFinishesMetadata']; // ModuleFinishesMetadata!
+    hasPegs: boolean | null; // Boolean
+    isEdge: boolean | null; // Boolean
     isImprintExtension: boolean; // Boolean!
+    isMat: boolean | null; // Boolean
+    isSubmodule: boolean | null; // Boolean
+    otherFinishes: string[] | null; // [String!]
     partNumber: string; // String!
     rules: NexusGenRootTypes['ModuleRulesMetadata'] | null; // ModuleRulesMetadata
-    trims: string[] | null; // [String!]
+    shouldHideBasedOnWidth: boolean | null; // Boolean
+    thumbnailUrl: string | null; // String
+    trims: Array<string | null> | null; // [String]
   };
   ModuleRulesMetadata: {
     // field return type
     angle: number | null; // Float
     fullDepth: boolean | null; // Boolean
     isFiller: boolean | null; // Boolean
-    options: string[] | null; // [String!]
+    options: Array<string | null> | null; // [String]
     queue: NexusGenRootTypes['QueueInfoMetadata'] | null; // QueueInfoMetadata
     requiredNetInterior: NexusGenRootTypes['ModuleMinMax'] | null; // ModuleMinMax
     rotation: number | null; // Float
     trimOffset: NexusGenRootTypes['TrimOffsetMetadata'] | null; // TrimOffsetMetadata
-    trimmable: string[] | null; // [String!]
+    trimmable: Array<string | null> | null; // [String]
   };
   ModuleType: {
     // field return type
@@ -5529,17 +5595,37 @@ export interface NexusGenFieldTypeNames {
     module: 'Module';
     moduleId: 'Int';
   };
+  ModuleCategoryMetadata: {
+    // field return type name
+    externalId: 'String';
+    slug: 'String';
+  };
+  ModuleCollectionsMetadata: {
+    // field return type name
+    externalId: 'String';
+    slug: 'String';
+  };
   ModuleDimension: {
     // field return type name
     depth: 'ModuleMinMax';
     height: 'ModuleUnit';
     width: 'ModuleMinMax';
   };
+  ModuleDrawerTypesMetadata: {
+    // field return type name
+    externalId: 'String';
+    slug: 'String';
+  };
   ModuleExtensionsMetadata: {
     // field return type name
     left: 'String';
     options: 'String';
     right: 'String';
+  };
+  ModuleFinishesMetadata: {
+    // field return type name
+    externalId: 'String';
+    slug: 'String';
   };
   ModuleMinMax: {
     // field return type name
@@ -5548,13 +5634,26 @@ export interface NexusGenFieldTypeNames {
   };
   ModuleRules: {
     // field return type name
+    alwaysDisplay: 'Boolean';
     bundleUrl: 'String';
+    categories: 'ModuleCategoryMetadata';
+    collection: 'ModuleCollectionsMetadata';
+    description: 'String';
     dimensions: 'ModuleDimension';
+    drawerTypes: 'ModuleDrawerTypesMetadata';
     extensions: 'ModuleExtensionsMetadata';
-    finishes: 'String';
+    externalId: 'String';
+    finish: 'ModuleFinishesMetadata';
+    hasPegs: 'Boolean';
+    isEdge: 'Boolean';
     isImprintExtension: 'Boolean';
+    isMat: 'Boolean';
+    isSubmodule: 'Boolean';
+    otherFinishes: 'String';
     partNumber: 'String';
     rules: 'ModuleRulesMetadata';
+    shouldHideBasedOnWidth: 'Boolean';
+    thumbnailUrl: 'String';
     trims: 'String';
   };
   ModuleRulesMetadata: {

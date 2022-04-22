@@ -1,4 +1,6 @@
 import { GetProductListingQuery } from '../../../generated/graphql';
+import { NexusGenObjects } from '../../../generated/nexus';
+import { NoNullFields } from '../../../utils/types';
 
 export const FEATURE_NAMES = {
   DIMENSION_HEIGHT: 'height',
@@ -16,6 +18,8 @@ export const FEATURE_NAMES = {
   DIMENSION_ATTRIBUTE: 'Dimensions - Drawer Organizers',
   QUEUE_MODULES_ATTRIBUTE: 'Queue Modules for SpiceRack',
   QUEUE_APPEND_ATTRIBUTE: 'Queue Append for SpiceRack',
+  RIGHT_EXTENSION_ATTRIBUTE: 'Right Extensions for Imprint CT',
+  LEFT_EXTENSION_ATTRIBUTE: 'Left Extensions for Imprint CT',
   RULES_ATTRIBUTE: 'Rules for Options',
   EXT_PART: 'ext_part',
   EXT_FINISHES: 'ext_finishes',
@@ -26,13 +30,19 @@ export const FEATURE_NAMES = {
   EXT_SIDE_LEFT: 'imprint_ext_side_left',
   EXT_SIDE_RIGHT: 'imprint_ext_side_right',
   QUEUE_MODULES: 'queue_modules',
-  QUEUE_APPEND: 'queue_append'
+  QUEUE_APPEND: 'queue_append',
+  PRODUCT_PICTURE_FULL_PATH: 'product_picture_full_path',
+  HAS_PEGS: 'has_pegs',
+  IS_MAT: 'is_mat'
+  // SHOULD_HIDE_BASED_ON_WIDTH: 'should_hide_based_on_width'
 };
 
 export type MarathonModule = NonNullable<
-  NonNullable<NonNullable<GetProductListingQuery['getProductListing']>['edges']>[0]
->['node'];
+  NonNullable<NonNullable<NonNullable<GetProductListingQuery['getProductListing']>['edges']>[0]>['node']
+>;
 
 export type ConfiguratorAttribute = NonNullable<NonNullable<MarathonModule>['configuratorAttributes']>[number];
 
 export type FeatureList = NonNullable<ConfiguratorAttribute>['features'];
+
+export type ModuleRules = NoNullFields<NexusGenObjects['ModuleRules']>;

@@ -1,6 +1,5 @@
 import { ApolloClient, from, HttpLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client/core';
-import { Locale, PrismaClient } from '@prisma/client';
-import { rules } from '@typescript-eslint/eslint-plugin';
+import { Locale, Module, PrismaClient } from '@prisma/client';
 import { ForbiddenError } from 'apollo-server';
 import axios, { AxiosResponse } from 'axios';
 import fetch from 'cross-fetch';
@@ -17,12 +16,12 @@ import {
 } from '../../generated/graphql';
 import { NexusGenObjects } from '../../generated/nexus';
 import { makeError } from '../../utils/exception';
-import { makeFile, replaceExtension } from '../../utils/file';
+import { makeFile } from '../../utils/file';
 import logging from '../../utils/logging';
 import { fileUploadService } from '../fileUpload';
 import { projectService } from '../project';
-import { MarathonModule } from './parsing/constants';
-import { makeQueueAppendRulesFromMarathonModule, mergeRules } from './parsing/parseRules';
+import { MarathonModule, ModuleRules } from './parsing/constants';
+import { makeRulesFromMarathonModule, makeThumbnailUrlAndQueue, mergeRules } from './parsing/parseRules';
 import {
   GET_PRODUCT_LISTING,
   GET_SP_CATEGORY_LISTING,
@@ -78,26 +77,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     originalPath: string;
     destinationPath: string;
   }[] = [];
-
-  const makeThumbnailUrlAndQueue = (sourcePath?: string | null, currentPath?: string | null) => {
-    let thumbnailUrl: string | undefined;
-
-    if (sourcePath?.trim() && currentPath?.trim()) {
-      thumbnailUrl = replaceExtension(currentPath, sourcePath);
-      let originalPath = thumbnailUrl;
-
-      // If the extension were changed, the paths are now different. So store the previous original path so the image can be deleted
-      if (currentPath !== originalPath) originalPath = currentPath;
-
-      storageSyncQueue.push({
-        sourcePath,
-        originalPath,
-        destinationPath: thumbnailUrl
-      });
-    }
-
-    return thumbnailUrl;
-  };
 
   const storageSync = async () => {
     if (!MARATHON_MEDIA_URI) {
@@ -692,42 +671,213 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.timeEnd('finish');
   };
 
-  const makeProductFromModule = (
-    module: MarathonModule,
-    targetThumbnailUrl?: string | null,
-    currentRules?: NexusGenObjects['ModuleRules'] | null
-  ) => {
-    const rules = mergeRules(module, currentRules);
-    const sourceThumbnail =
-      module?.productPictures && module.productPictures.length > 0
-        ? module?.productPictures[0]?.fullpath?.trim()
-        : undefined;
+  const upsertProductModule = async (
+    module: ModuleRules,
+    skipDatabase?: boolean
+  ): Promise<'created' | 'updated' | 'failed'> => {
+    if (!db) {
+      throw new Error('db dependency was not provided');
+    }
 
-    return {
-      partNumber: module?.partNumber?.trim() as string,
-      externalId: module?.id?.trim(),
-      description: module?.titleDescription?.trim() || undefined,
-      thumbnailUrl: makeThumbnailUrlAndQueue(
-        sourceThumbnail,
-        targetThumbnailUrl || `images/module/${module?.partNumber?.trim()}${path.extname(sourceThumbnail || '')}`
-      ),
-      // bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
-      isSubmodule: module?.isSubmodule || false,
-      hasPegs: module?.hasPegs || false,
-      isMat: module?.isMat || false,
-      // isExtension: module.isExtension || false,, TODO: Make sure they provide this info
-      shouldHideBasedOnWidth:
-        module?.shouldHideBasedOnWidth !== undefined && module?.shouldHideBasedOnWidth !== null
-          ? module?.shouldHideBasedOnWidth
-          : true,
-      alwaysDisplay: module?.alwaysDisplay || false,
-      isEdge: module?.isEdge || false,
-      rules
-      // TODO: Default left extension
-      // TODO: Default right extension
-      // TODO: attachmentToAppend: newRules?.rules.
-      // TODO: module attachments
-    };
+    if (!module.externalId) return 'failed';
+
+    let status: 'created' | 'updated' | 'failed' = 'created';
+
+    console.log(`Upserting module ${module.partNumber} ${module.externalId}`);
+
+    const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+    makeFile(dir, path.join(`jsons/${module.partNumber}.json`), module);
+
+    const existingProduct = await db.module.findUnique({
+      where: {
+        externalId: module.externalId
+      }
+    });
+
+    const { finish, collection, drawerTypes, categories, otherFinishes, ...moduleRest } = module;
+
+    let resultModule: Module | undefined;
+
+    //! Use interactive transactions with caution. Keeping transactions open for a long time hurts database performance and can even cause deadlocks.
+    //! Try to avoid performing network requests and executing slow queries inside, get in and out as quick as possible!
+    await db.$transaction(async (db) => {
+      if (!existingProduct) {
+        if (!skipDatabase) {
+          resultModule = await db.module.create({
+            data: {
+              ...moduleRest,
+              rules: module,
+              finish: {
+                connect: {
+                  externalId: finish.externalId
+                }
+              },
+              collection: {
+                connect: {
+                  externalId: collection.externalId
+                }
+              },
+              defaultLeftExtension: module.extensions?.left
+                ? {
+                    connect: {
+                      partNumber: module.extensions.left
+                    }
+                  }
+                : undefined,
+              defaultRightExtension: module.extensions?.right
+                ? {
+                    connect: {
+                      partNumber: module.extensions.right
+                    }
+                  }
+                : undefined,
+              attachmentToAppend: module.rules?.queue?.append
+                ? {
+                    connect: {
+                      partNumber: module.rules.queue.append
+                    }
+                  }
+                : undefined
+            }
+          });
+        }
+      } else {
+        status = 'updated';
+        if (!skipDatabase) {
+          const rules = existingProduct.rules ? mergeRules(module, existingProduct.rules as ModuleRules) : module;
+
+          await db.module.update({
+            where: { id: existingProduct.id },
+            data: {
+              ...moduleRest,
+              rules,
+              finish: {
+                connect: {
+                  externalId: finish.externalId
+                }
+              },
+              collection: {
+                connect: {
+                  externalId: collection.externalId
+                }
+              },
+              defaultLeftExtension: module.extensions?.left
+                ? {
+                    connect: {
+                      partNumber: module.extensions.left
+                    }
+                  }
+                : undefined,
+              defaultRightExtension: module.extensions?.right
+                ? {
+                    connect: {
+                      partNumber: module.extensions.right
+                    }
+                  }
+                : undefined,
+              attachmentToAppend: module.rules?.queue?.append
+                ? {
+                    connect: {
+                      partNumber: module.rules.queue.append
+                    }
+                  }
+                : undefined
+            }
+          });
+
+          // If this module already exists, it already has all the relations, so delete them for them to be created
+          // This is needed in case they completely changed the values here
+          await db.moduleType.deleteMany({ where: { module: { id: existingProduct.id } } });
+          await db.moduleCategory.deleteMany({ where: { module: { id: existingProduct.id } } });
+          await db.moduleAttachments.deleteMany({ where: { module: { id: existingProduct.id } } });
+        }
+      }
+
+      if (resultModule) {
+        if (!skipDatabase && drawerTypes && drawerTypes.length > 0) {
+          const existingTypes = await db.type.findMany({
+            where: {
+              externalId: {
+                // Casting since we're filtering right before
+                in: drawerTypes.filter((x) => !!x).map((x) => x?.externalId as string)
+              }
+            },
+            select: {
+              id: true,
+              externalId: true
+            }
+          });
+
+          await db.moduleType.createMany({
+            data: drawerTypes.map((type) => ({
+              moduleId: resultModule?.id || -1,
+              typeId: existingTypes.find((x) => x.externalId === type?.externalId)?.id || -1
+            }))
+          });
+        }
+
+        if (!skipDatabase && categories && categories.length > 0) {
+          const existingCategories = await db.category.findMany({
+            where: {
+              OR: [
+                {
+                  externalId: {
+                    // Casting since we're filtering right before
+                    in: categories.filter((x) => !!x).map((x) => x?.externalId as string)
+                  }
+                },
+                {
+                  slug: 'all'
+                }
+              ]
+            },
+            select: {
+              id: true,
+              externalId: true,
+              slug: true
+            }
+          });
+
+          await db.moduleCategory.createMany({
+            // Manually add the all category
+            data: [...categories, { slug: 'all', externalId: undefined }].map((category) => ({
+              moduleId: resultModule?.id || -1,
+              categoryId:
+                existingCategories.find(
+                  // Whether it's the correct category or all category
+                  (x) => x.externalId === category?.externalId || (category?.slug === 'all' && x.slug === 'all')
+                )?.id || -1
+            }))
+          });
+        }
+
+        const moduleAttachments = module.rules?.queue?.modules;
+
+        if (!skipDatabase && moduleAttachments && moduleAttachments.length > 0) {
+          const existingModules = await db.module.findMany({
+            where: {
+              partNumber: { in: moduleAttachments.map((x) => x) }
+            },
+            select: {
+              id: true,
+              partNumber: true
+            }
+          });
+
+          await db.moduleAttachments.createMany({
+            // Manually add the all category
+            data: moduleAttachments.map((modAttachment) => ({
+              moduleId: resultModule?.id || -1,
+              attachmentId: existingModules.find((x) => x.partNumber === modAttachment)?.id || -1
+            }))
+          });
+        }
+      }
+    });
+
+    // TODO: sync thumbnail image
+
+    return status;
   };
 
   const syncProduct = async (skipDatabase?: boolean) => {
@@ -743,21 +893,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     try {
       console.log('Fetching required data');
-      const existingCategories = await db.category.findMany({
-        select: {
-          id: true,
-          externalId: true,
-          slug: true
-        }
-      });
-
-      const existingTypes = await db.type.findMany({
-        select: {
-          id: true,
-          externalId: true
-        }
-      });
-
       const existingFinishes = await db.finish.findMany({
         select: {
           id: true,
@@ -787,78 +922,57 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           }
         });
 
-        const products = data.getProductListing?.edges || [];
+        let products = data.getProductListing?.edges || [];
 
         if (products && products.length > 0) {
           console.log(`Product page ${pageIndex + 1}, fetched ${products.length} products`);
 
-          products.forEach((product, i) => {
-            const module = product?.node;
-            const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+          // Small debug method to output every product
+          // products.forEach((product, i) => {
+          //   const module = product?.node;
+          //   const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
 
-            makeFile(dir, path.join(`marathon/${module?.partNumber || i}.json`), module || {});
+          //   makeFile(dir, path.join(`marathon/${module?.partNumber || i}.json`), module || {});
 
-            const rules = mergeRules(module);
-            makeFile(dir, path.join(`jsons/${module?.partNumber || i}.json`), rules || {});
+          //   const rules = mergeRules(module);
+          //   makeFile(dir, path.join(`jsons/${module?.partNumber || i}.json`), rules || {});
 
-            const queueAppend = makeQueueAppendRulesFromMarathonModule(module);
+          //   const queueAppend = makeQueueAppendRulesFromMarathonModule(module);
 
-            if (queueAppend?.append)
-              makeFile(
-                dir,
-                path.join(`jsons/${queueAppend.append.partNumber || `append-${i}`}.json`),
-                queueAppend.append
-              );
+          //   if (queueAppend?.append)
+          //     makeFile(
+          //       dir,
+          //       path.join(`jsons/${queueAppend.append.partNumber || `append-${i}`}.json`),
+          //       queueAppend.append
+          //     );
 
-            if (queueAppend?.queueModules && queueAppend.queueModules.length > 0)
-              queueAppend.queueModules.forEach((queueModule, j) =>
-                makeFile(dir, path.join(`jsons/${queueModule.partNumber || `queuemodule-${j}`}.json`), queueModule)
-              );
-          });
+          //   if (queueAppend?.queueModules && queueAppend.queueModules.length > 0)
+          //     queueAppend.queueModules.forEach((queueModule, j) =>
+          //       makeFile(dir, path.join(`jsons/${queueModule.partNumber || `queuemodule-${j}`}.json`), queueModule)
+          //     );
+          // });
 
-          const ids = products
-            // Casting because we're explicitly filtering by only valid values
-            .map((productEdge) => productEdge?.node?.id as string)
-            .filter((x) => !!x);
-
-          const existingModules = await db.module.findMany({
-            select: {
-              id: true,
-              externalId: true,
-              rules: true,
-              thumbnailUrl: true
-            },
-            where: {
-              externalId: {
-                in: ids
-              }
-            }
-          });
-
-          // Received products
-          const modulesToUpdate = products.filter(
-            (productEdge) =>
-              // Where exists in the database
-              productEdge?.node?.id && existingModules.some((mod) => mod.externalId === productEdge?.node?.id)
-          );
-
-          // Received products
-          const modulesToCreate = products.filter(
+          products = products.filter(
             // Where it DOESN'T exist in the database
             (productEdge) => {
+              // Make a big filter because their api decides to return unrelated stuff, so we need to hard filter everything
+
               const module = productEdge?.node;
 
+              // So we grab a finish Id if any(there should always be one)
               const finishId =
                 existingFinishes.find((finish) => finish.externalId === module?.spFinish?.id)?.id || undefined;
+
+              // So we grab a collection Id if any(there should always be one)
               const collectionId =
                 existingCollections.find((collection) => collection.externalId === module?.spCollection?.id)?.id ||
                 undefined;
 
+              // And filter
               const hasExpectedCondition =
-                finishId !== undefined &&
-                collectionId !== undefined &&
-                module?.id &&
-                !existingModules.some((mod) => mod.externalId === module.id);
+                finishId !== undefined && // Is there finish id(should have)
+                collectionId !== undefined && // Is there collection id(should have)
+                module?.id; // Does it have an id itself (all of them should have id)
 
               if (!hasExpectedCondition) {
                 // Casting because we know it should exist, since there's a condition for that in hasExpectedCondition
@@ -869,198 +983,89 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             }
           );
 
-          if (!skipDatabase) {
-            if (modulesToCreate && modulesToCreate.length > 0) {
-              console.log(`Batch creating ${modulesToCreate.length} products`);
-              try {
-                await db.$transaction(async (db) => {
-                  await db.module.createMany({
-                    data: modulesToCreate.map((productEdge) => {
-                      const module = productEdge?.node;
-                      const product = makeProductFromModule(module);
-                      return {
-                        ...product,
-                        finishId:
-                          existingFinishes.find((finish) => finish.externalId === module?.spFinish?.id)?.id || -1,
-                        collectionId:
-                          existingCollections.find((collection) => collection.externalId === module?.spCollection?.id)
-                            ?.id || -1
-                      };
-                    })
-                  });
+          const parsedProducts = products
+            .filter((x) => !!x?.node)
+            .flatMap((productEdge) => makeRulesFromMarathonModule(productEdge?.node as MarathonModule)); // Casting since we filtered it previously
 
-                  console.log(`Fetching recently created ${modulesToCreate.length} products`);
-                  const recentlyCreatedModules = await db.module.findMany({
-                    where: {
-                      externalId: {
-                        in: modulesToCreate.map((x) => x?.node?.id as string).filter((x) => !!x)
-                      }
-                    },
-                    select: {
-                      id: true,
-                      externalId: true
-                    }
-                  });
+          let created = 0;
+          let updated = 0;
 
-                  console.log(`Batch creating ${recentlyCreatedModules.length} product categories`);
+          for (let i = 0; i < parsedProducts.length; i++) {
+            const product = parsedProducts[i];
 
-                  const categoriesToCreate = modulesToCreate.flatMap((productEdge) =>
-                    productEdge?.node?.spCategories?.map((cat) => ({
-                      catExternalId: cat?.id,
-                      catSlug: null,
-                      moduleExternalId: productEdge?.node?.id
-                    }))
-                  );
-
-                  const categoryAllToCreate = modulesToCreate.map((productEdge) => ({
-                    catSlug: 'all',
-                    catExternalId: null,
-                    moduleExternalId: productEdge?.node?.id
-                  }));
-
-                  await db.moduleCategory.createMany({
-                    data: [...categoriesToCreate, ...categoryAllToCreate]
-                      .filter((x) => !!x)
-                      .map((catModule) => {
-                        return {
-                          moduleId:
-                            recentlyCreatedModules.find((x) => x.externalId === catModule?.moduleExternalId)?.id || -1,
-                          categoryId:
-                            existingCategories.find((x) =>
-                              catModule?.catExternalId
-                                ? x.externalId === catModule?.catExternalId
-                                : x.slug === catModule?.catSlug
-                            )?.id || -1
-                        };
-                      })
-                  });
-
-                  console.log(`Batch creating ${recentlyCreatedModules.length} product types`);
-                  await db.moduleType.createMany({
-                    data: modulesToCreate
-                      .flatMap((productEdge) =>
-                        productEdge?.node?.spDrawerTypes?.map((type) => ({
-                          typeExternalId: type?.id,
-                          moduleExternalId: productEdge?.node?.id
-                        }))
-                      )
-                      .filter((x) => !!x)
-                      .map((typeModule) => ({
-                        moduleId:
-                          recentlyCreatedModules.find((x) => x.externalId === typeModule?.moduleExternalId)?.id || -1,
-                        typeId: existingTypes.find((x) => x.externalId === typeModule?.typeExternalId)?.id || -1
-                      }))
-                  });
-                });
-              } catch (err) {
-                logging.error(err, 'Error when batch creating products', {
-                  modulesToCreate: modulesToCreate?.map((x) => x?.node).filter((x) => !!x),
-                  existingCollections,
-                  existingFinishes
-                });
+            if (product.attachments?.append) {
+              const appendStatus = await upsertProductModule(product.attachments.append, skipDatabase);
+              switch (appendStatus) {
+                case 'created':
+                  created++;
+                case 'updated':
+                  updated++;
+                case 'failed':
+                  throw makeError('Could not upsert attachment append', 'cannotUpsertAppend');
               }
-            } else {
-              console.log(`No module to create`);
             }
 
-            for (let i = 0; i < modulesToUpdate.length; i++) {
-              const productEdge = modulesToUpdate[i];
-
-              const moduleEdge = productEdge?.node;
-              if (!moduleEdge?.id) continue;
-
-              const existingModule = existingModules.find((x) => x.externalId === moduleEdge.id);
-              if (!existingModule) continue;
-
-              console.log(`Updating module #${i + 1} id: ${moduleEdge.id} of ${modulesToUpdate.length}`);
-
-              await db.$transaction(async (db) => {
-                // Sync categories
-
-                // Delete existing categories to re create
-                await db.moduleCategory.deleteMany({
-                  where: { module: { externalId: moduleEdge.id }, category: { slug: { not: 'all' } } }
-                });
-
-                // If there are categories for this module
-                if (moduleEdge.spCategories && moduleEdge.spCategories.length > 0) {
-                  // Create them
-                  await db.moduleCategory.createMany({
-                    data: moduleEdge.spCategories.map((cat) => ({
-                      moduleId: existingModule?.id || -1,
-                      categoryId: existingCategories.find((x) => x.slug === cat?.slug?.trim())?.id || -1
-                    }))
-                  });
+            if (product.attachments?.queueModules && product.attachments.queueModules.length > 0) {
+              for (let j = 0; j < product.attachments.queueModules.length; j++) {
+                const queueModule = product.attachments.queueModules[j];
+                const queueStatus = await upsertProductModule(queueModule, skipDatabase);
+                switch (queueStatus) {
+                  case 'created':
+                    created++;
+                  case 'updated':
+                    updated++;
+                  case 'failed':
+                    throw makeError('Could not upsert attachment queue moduke', 'cannotUpsertQueueModule');
                 }
+              }
+            }
 
-                // Sync type
+            if (product.extensions?.left) {
+              const extensionStatus = await upsertProductModule(product.extensions.left, skipDatabase);
+              switch (extensionStatus) {
+                case 'created':
+                  created++;
+                case 'updated':
+                  updated++;
+                case 'failed':
+                  throw makeError('Could not upsert left extension', 'cannotUpsertLeftExtension');
+              }
+            }
 
-                // Delete existing types to then create
-                await db.moduleType.deleteMany({ where: { module: { externalId: moduleEdge.id } } });
+            if (product.extensions?.right) {
+              const extensionStatus = await upsertProductModule(product.extensions.right, skipDatabase);
+              switch (extensionStatus) {
+                case 'created':
+                  created++;
+                case 'updated':
+                  updated++;
+                case 'failed':
+                  throw makeError('Could not upsert right extension', 'cannotUpsertRightExtension');
+              }
+            }
 
-                // If there are types for this module
-                if (moduleEdge.spDrawerTypes && moduleEdge.spDrawerTypes.length > 0) {
-                  // Create them
-                  await db.moduleType.createMany({
-                    data: moduleEdge.spDrawerTypes.map((type) => ({
-                      moduleId: existingModule?.id || -1,
-                      typeId: existingTypes.find((x) => x.externalId === type?.id)?.id || -1
-                    }))
-                  });
-                }
+            if (product.alternative) {
+              const extensionStatus = await upsertProductModule(product.alternative, skipDatabase);
+              switch (extensionStatus) {
+                case 'created':
+                  created++;
+                case 'updated':
+                  updated++;
+                case 'failed':
+                  throw makeError('Could not upsert alternative version', 'cannotUpsertAlternative');
+              }
+            }
 
-                // TODO: module attachments
-
-                const product = makeProductFromModule(
-                  moduleEdge,
-                  existingModule?.thumbnailUrl,
-                  // Casting since it's a json type and it doesn't know, but we know
-                  existingModule?.rules as NexusGenObjects['ModuleRules'] | undefined
-                );
-
-                await db.module.update({
-                  // Casting because we're sure it exists due to previous check
-                  where: { externalId: moduleEdge.id as string },
-                  data: {
-                    ...product,
-                    finish: moduleEdge.spFinish?.slug?.trim()
-                      ? {
-                          connect: {
-                            slug: moduleEdge.spFinish.slug.trim()
-                          }
-                        }
-                      : undefined,
-                    collection: moduleEdge.spCollection?.slug?.trim()
-                      ? {
-                          connect: {
-                            slug: moduleEdge.spCollection.slug.trim()
-                          }
-                        }
-                      : undefined,
-                    // TODO: Default left extension
-                    defaultLeftExtension: product.rules?.extensions?.left
-                      ? {
-                          connect: {
-                            partNumber: product.rules.extensions.left
-                          }
-                        }
-                      : undefined,
-                    // TODO: Default right extension
-                    defaultRightExtension: product.rules?.extensions?.right
-                      ? {
-                          connect: {
-                            partNumber: product.rules.extensions.right
-                          }
-                        }
-                      : undefined
-                    // TODO: attachmentToAppend: newRules?.rules.
-                  }
-                });
-              });
+            const productStatus = await upsertProductModule(product.module, skipDatabase);
+            switch (productStatus) {
+              case 'created':
+                created++;
+              case 'updated':
+                updated++;
             }
           }
 
-          if (modulesToCreate && modulesToCreate.length === 0 && modulesToUpdate && modulesToUpdate.length === 0) {
+          if (created === 0 && updated === 0) {
             emptyPages++;
             console.log(`Empty page ${emptyPages} of ${MARATHON_SYNC_EMPTY_PAGES_TO_STOP}`);
           } else {
@@ -1079,7 +1084,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             pageIndex++;
           }
         } else {
-          // If there are no more procuts, it means we should stop
+          // If there are no more products, it means we should stop
           console.log(`No products on page ${pageIndex + 1}, last page finished.`);
           pageIndex = -1;
         }
