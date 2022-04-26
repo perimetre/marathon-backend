@@ -15,7 +15,9 @@ import {
   GetSpCategoryListingQuery,
   GetSpCollectionListingQuery,
   GetSpDrawerTypesListingQuery,
-  GetSpFinishListingQuery
+  GetSpFinishListingQuery,
+  GetProductQuery,
+  GetProductQueryVariables
 } from '../../generated/graphql';
 import { makeError } from '../../utils/exception';
 import { makeFile } from '../../utils/file';
@@ -25,6 +27,7 @@ import { projectService } from '../project';
 import { MarathonModule, ModuleRules } from './parsing/constants';
 import { makeRulesFromMarathonModule, mergeRules } from './parsing/parseRules';
 import {
+  GET_PRODUCT,
   GET_PRODUCT_LISTING,
   GET_SP_CATEGORY_LISTING,
   GET_SP_COLLECTION_LISTING,
@@ -116,6 +119,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
                 // Upload new image
                 await fileUpload.uploadFileToStorage(file.data, imagePath);
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
               } catch (err: any) {
                 if (err?.response?.status && err.response.status === 404) {
                   imagesNotFound.push(new URL(imagePath, MARATHON_MEDIA_URI).toString());
@@ -1441,14 +1445,18 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       .filter((x) => x.projectModule.module.externalId)
       .forEach((cartItem) => {
         items.push({
-          oid: cartItem.projectModule.module.externalId as string,
+          oid:
+            (cartItem.projectModule.module.ownerExternalId as string) ||
+            (cartItem.projectModule.module.externalId as string),
           quantity: cartItem.quantity
         });
 
         if (cartItem.children && cartItem.children.length > 0) {
           cartItem.children.forEach((cartItem) => {
             items.push({
-              oid: cartItem.projectModule.module.externalId as string,
+              oid:
+                (cartItem.projectModule.module.ownerExternalId as string) ||
+                (cartItem.projectModule.module.externalId as string),
               quantity: cartItem.quantity
             });
           });
@@ -1513,10 +1521,39 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     })) as AxiosResponse<{ user_id: number; user_token: string }>;
   };
 
+  const fetchSingleProduct = async (id: string) => {
+    if (!db) {
+      throw new Error('db dependency was not provided');
+    }
+
+    const { data } = await marathonApollo.query<GetProductQuery, GetProductQueryVariables>({
+      query: GET_PRODUCT,
+      fetchPolicy: 'no-cache',
+      variables: {
+        id: Number(id)
+      }
+    });
+
+    if (data?.getProduct) {
+      const parsedRules = makeRulesFromMarathonModule(data.getProduct);
+
+      const currentDbEntry = await db.module.findUnique({ where: { externalId: id } });
+
+      return {
+        original: data.getProduct,
+        parsedRules,
+        currentDbEntry
+      };
+    } else {
+      throw makeError(`Module with id ${id} does not exist`, 'moduleDoesNotExist', 404);
+    }
+  };
+
   return {
     marathonApollo,
     syncData,
     createList,
-    login
+    login,
+    fetchSingleProduct
   };
 };

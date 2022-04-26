@@ -132,3 +132,12 @@ export const GET_PRODUCT_STATUS = gql`
     }
   }
 `;
+
+export const GET_PRODUCT = gql`
+  query GetProduct($id: Int) {
+    getProduct(id: $id) {
+      ...Product
+    }
+  }
+  ${SP_PRODUCT_FRAGMENT}
+`;

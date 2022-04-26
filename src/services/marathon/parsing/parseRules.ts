@@ -328,6 +328,8 @@ export const makeRulesFromMarathonModule = (
           externalId: `${module.externalId}-alternative-${
             marathonModule.alternative.partNumber || `${module.partNumber}-B`
           }`,
+          isVirtualProduct: true,
+          ownerExternalId: module.externalId,
           hasPegs: marathonModule.alternative.hasPegs || false,
           partNumber: marathonModule.alternative.partNumber || `${module.partNumber}-B`
         }
@@ -352,9 +354,16 @@ export const makeAttachments = (
         getInputFeature(queueModuleAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)) ||
         `${parent.externalId}-queue-module`;
 
-      const externalId =
-        getInputFeature(queueModuleAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)) ||
-        helpers.slugify(partNumber).toLowerCase() + '-queue-module';
+      let isVirtualProduct = false;
+
+      let externalId = getInputFeature(queueModuleAttribute?.features, (feature) =>
+        feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)
+      );
+
+      if (!externalId) {
+        externalId = helpers.slugify(partNumber).toLowerCase() + '-queue-module';
+        isVirtualProduct = true;
+      }
 
       const otherFinishes = getMultiSelectFeature(queueModuleAttribute?.features, (feature) =>
         feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
@@ -370,6 +379,7 @@ export const makeAttachments = (
         ...parent,
         partNumber,
         externalId,
+        isVirtualProduct,
         description: undefined, // They don't provide descriptions for nested modules
         thumbnailUrl: undefined, // Not really used for queue modules
         isSubmodule: true, // Not really used for queue modules but they are kinda like submodules
@@ -402,9 +412,16 @@ export const makeAttachments = (
     parent.rules?.queue?.append ||
     `${parent.externalId}-append`;
 
-  const externalId =
-    getInputFeature(appendModulesAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)) ||
-    helpers.slugify(partNumber).toLowerCase() + '-append';
+  let isVirtualProduct = false;
+
+  let externalId = getInputFeature(appendModulesAttribute?.features, (feature) =>
+    feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)
+  );
+
+  if (!externalId) {
+    externalId = helpers.slugify(partNumber).toLowerCase() + '-append';
+    isVirtualProduct = true;
+  }
 
   const otherFinishes = getMultiSelectFeature(appendModulesAttribute?.features, (feature) =>
     feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
@@ -421,6 +438,7 @@ export const makeAttachments = (
       ...parent,
       partNumber,
       externalId,
+      isVirtualProduct,
       description: undefined, // They don't provide descriptions for nested modules
       thumbnailUrl: undefined, // Not really used for queue modules
       isSubmodule: true, // Not really used for queue modules but they are kinda like submodules
@@ -467,10 +485,16 @@ export const makeExtensions = (
     getInputFeature(leftExtensionAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)) ||
     parent.extensions?.left ||
     `${parent.externalId}-left-extension`;
+  let leftVirtualProduct = false;
 
-  const leftExternalId =
-    getInputFeature(leftExtensionAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)) ||
-    helpers.slugify(leftPartNumber).toLowerCase();
+  let leftExternalId = getInputFeature(leftExtensionAttribute?.features, (feature) =>
+    feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)
+  );
+
+  if (!leftExternalId) {
+    leftExternalId = helpers.slugify(leftPartNumber).toLowerCase();
+    leftVirtualProduct = true;
+  }
 
   const leftFinish = getInputFeature(leftExtensionAttribute?.features, (feature) =>
     feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
@@ -484,10 +508,15 @@ export const makeExtensions = (
     getInputFeature(rightExtensionAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)) ||
     parent.extensions?.right ||
     `${parent.externalId}-right-extension`;
+  let rightVirtualProduct = false;
 
-  const rightExternalId =
-    getInputFeature(rightExtensionAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)) ||
-    helpers.slugify(rightPartNumber).toLowerCase();
+  let rightExternalId = getInputFeature(rightExtensionAttribute?.features, (feature) =>
+    feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)
+  );
+  if (!rightExternalId) {
+    rightExternalId = helpers.slugify(rightPartNumber).toLowerCase();
+    rightVirtualProduct = true;
+  }
   const rightFinish = getInputFeature(rightExtensionAttribute?.features, (feature) =>
     feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
   );
@@ -503,6 +532,7 @@ export const makeExtensions = (
       extensions: undefined,
       partNumber: leftPartNumber,
       externalId: leftExternalId,
+      isVirtualProduct: leftVirtualProduct,
       description: undefined, // They don't provide descriptions for nested modules
       thumbnailUrl: leftThumbnail,
       isSubmodule: true, // Not really used for extensions modules but they are kinda like submodules
@@ -523,6 +553,7 @@ export const makeExtensions = (
             extensions: undefined,
             partNumber: rightPartNumber,
             externalId: rightExternalId,
+            isVirtualProduct: rightVirtualProduct,
             description: undefined, // They don't provide descriptions for nested modules
             thumbnailUrl: rightThumbnail,
             isSubmodule: true, // Not really used for extensions modules but they are kinda like submodules

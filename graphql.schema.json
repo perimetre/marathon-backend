@@ -5326,7 +5326,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "element_metadata_item_6262fc65db489",
+        "name": "element_metadata_item_626823308bb9e",
         "description": null,
         "fields": [
           {
@@ -6328,7 +6328,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "element_metadata_item_6262fc65db489",
+                "name": "element_metadata_item_626823308bb9e",
                 "ofType": null
               }
             },

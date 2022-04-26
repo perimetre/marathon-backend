@@ -163,6 +163,8 @@ export const ModuleRules = objectType({
     t.boolean('shouldHideBasedOnWidth');
     t.boolean('alwaysDisplay');
     t.boolean('isEdge');
+    t.boolean('isVirtualProduct');
+    t.string('ownerExternalId');
 
     t.nonNull.boolean('isExtension');
 
