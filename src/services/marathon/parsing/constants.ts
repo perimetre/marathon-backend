@@ -22,6 +22,7 @@ export const FEATURE_NAMES = {
   LEFT_EXTENSION_ATTRIBUTE: 'Left Extensions for Imprint CT',
   RULES_ATTRIBUTE: 'Rules for Options',
   EXT_PART: 'ext_part',
+  EXT_ID: 'ext_id',
   EXT_FINISHES: 'ext_finishes',
   ROTATION: 'rotation',
   ANGLE: 'angle',

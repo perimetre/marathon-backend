@@ -11,7 +11,7 @@ const scheduleJobs = async (prisma: PrismaClient): Promise<void> => {
 
   const marathon = marathonService({ db: prisma });
   if (MARATHON_API_SYNC === 'true') {
-    marathon.syncData(true);
+    marathon.syncData();
   }
 
   cron.schedule(
@@ -21,7 +21,7 @@ const scheduleJobs = async (prisma: PrismaClient): Promise<void> => {
 
       if (MARATHON_API_SYNC === 'true') {
         try {
-          await marathon.syncData(true);
+          await marathon.syncData();
         } catch (error) {
           logging.error(error, 'Daily cronjob has failed.');
         }

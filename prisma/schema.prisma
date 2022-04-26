@@ -128,6 +128,7 @@ model Module {
   collectionId                 Int
   collection                   Collection          @relation(fields: [collectionId], references: [id])
   rules                        Json?
+  originalMarathonProductJson  Json?
   projectModules               ProjectModule[]
   moduleCategories             ModuleCategory[]
   defaultLeftExtensionParents  Module[]            @relation("defaultLeftExtensionRelation")

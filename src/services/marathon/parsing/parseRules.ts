@@ -1,4 +1,5 @@
 import deepmerge from 'deepmerge';
+import { helpers } from 'faker';
 import { isEqual } from 'lodash';
 import path from 'path';
 import { CsFeatureInput } from '../../../generated/graphql';
@@ -6,6 +7,7 @@ import { NexusGenObjects } from '../../../generated/nexus';
 import { convertMmToInFormatted } from '../../../utils/conversion';
 import { makeError } from '../../../utils/exception';
 import { replaceExtension } from '../../../utils/file';
+import logging from '../../../utils/logging';
 import { FeatureList, FEATURE_NAMES, MarathonModule, ModuleRules } from './constants';
 import {
   getBooleanSelectFeature,
@@ -216,19 +218,23 @@ export const makeRulesFromMarathonModule = (
   alternative?: ModuleRules;
 } => {
   const externalId = marathonModule.id;
-  if (!externalId) throw makeError('Cannot create rule without id', 'ruleMergeMissingId');
+  if (!externalId) throw makeError(`Module ${marathonModule.partNumber} does not have an id`, 'ruleMergeMissingId');
 
   const marathonFinish = marathonModule.spFinish;
   if (!marathonFinish || !marathonFinish.id)
-    throw makeError('Cannot create rule without finish', 'ruleMergeMissingFinish');
+    throw makeError(
+      `Module ${marathonModule.partNumber} ${externalId} does not have a finish`,
+      'ruleMergeMissingFinish'
+    );
 
   const marathonCollection = marathonModule.spCollection;
   if (!marathonCollection || !marathonCollection.id)
-    throw makeError('Cannot create rule without collection', 'ruleMergeMissingCollection');
+    throw makeError(
+      `Module ${marathonModule.partNumber} ${externalId} does not have a collection`,
+      'ruleMergeMissingCollection'
+    );
 
   const marathonDrawerTypes = marathonModule.spDrawerTypes;
-  if (!marathonDrawerTypes || marathonDrawerTypes.length <= 0 || marathonDrawerTypes.some((x) => !x?.id))
-    throw makeError('Cannot create rule without finish', 'ruleMergeMissingDrawerType');
 
   const specialAttributes = [
     FEATURE_NAMES.LEFT_EXTENSION_ATTRIBUTE,
@@ -274,10 +280,7 @@ export const makeRulesFromMarathonModule = (
     externalId: externalId,
     description:
       marathonModule.shortDescription || marathonModule.titleDescription || marathonModule.itemDescription || undefined,
-    thumbnailUrl: makeThumbnailUrlAndQueue(
-      sourceThumbnail,
-      `images/module/${marathonModule.partNumber?.trim()}${path.extname(sourceThumbnail || '')}`
-    ),
+    thumbnailUrl: sourceThumbnail,
     // bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,
     isSubmodule: marathonModule.isSubmodule || false,
     hasPegs: marathonModule.hasPegs || false,
@@ -288,7 +291,7 @@ export const makeRulesFromMarathonModule = (
         : true,
     alwaysDisplay: marathonModule.alwaysDisplay || false,
     isEdge: marathonModule.isEdge || false,
-    isImprintExtension: false, // False in this case, we'll manually set to true on the method regarding extensions
+    isExtension: false, // False in this case, we'll manually set to true on the method regarding extensions
     finish: {
       externalId: marathonFinish.id,
       slug: marathonFinish.slug || undefined
@@ -297,7 +300,7 @@ export const makeRulesFromMarathonModule = (
       externalId: marathonCollection.id,
       slug: marathonCollection.slug || undefined
     },
-    drawerTypes: marathonDrawerTypes.map((marathonDrawerType) => ({
+    drawerTypes: marathonDrawerTypes?.map((marathonDrawerType) => ({
       // Casting because we check previously right at the beginning and throw if it doesn't have an id
       externalId: marathonDrawerType?.id as string,
       slug: marathonDrawerType?.slug
@@ -322,32 +325,14 @@ export const makeRulesFromMarathonModule = (
     alternative: marathonModule.alternative
       ? {
           ...module,
+          externalId: `${module.externalId}-alternative-${
+            marathonModule.alternative.partNumber || `${module.partNumber}-B`
+          }`,
           hasPegs: marathonModule.alternative.hasPegs || false,
           partNumber: marathonModule.alternative.partNumber || `${module.partNumber}-B`
         }
       : undefined
   };
-};
-
-export const makeThumbnailUrlAndQueue = (sourcePath?: string | null, currentPath?: string | null) => {
-  let thumbnailUrl: string | undefined;
-
-  if (sourcePath?.trim() && currentPath?.trim()) {
-    thumbnailUrl = replaceExtension(currentPath, sourcePath);
-    let originalPath = thumbnailUrl;
-
-    // If the extension were changed, the paths are now different. So store the previous original path so the image can be deleted
-    if (currentPath !== originalPath) originalPath = currentPath;
-
-    // TODO: Fix storage sync
-    // storageSyncQueue.push({
-    //   sourcePath,
-    //   originalPath,
-    //   destinationPath: thumbnailUrl
-    // });
-  }
-
-  return thumbnailUrl;
 };
 
 export const makeAttachments = (
@@ -363,9 +348,13 @@ export const makeAttachments = (
   const queueModules = marathonModule?.configuratorAttributes // Of all configurator attributes
     ?.filter((attribute) => attribute?.description?.includes(FEATURE_NAMES.QUEUE_MODULES_ATTRIBUTE)) // We grab only the ones that includes the queue modules description
     ?.map((queueModuleAttribute) => {
-      const partNumber = getInputFeature(queueModuleAttribute?.features, (feature) =>
-        feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)
-      );
+      const partNumber =
+        getInputFeature(queueModuleAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)) ||
+        `${parent.externalId}-queue-module`;
+
+      const externalId =
+        getInputFeature(queueModuleAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)) ||
+        helpers.slugify(partNumber).toLowerCase() + '-queue-module';
 
       const otherFinishes = getMultiSelectFeature(queueModuleAttribute?.features, (feature) =>
         feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
@@ -380,7 +369,7 @@ export const makeAttachments = (
       return {
         ...parent,
         partNumber,
-        externalId: `${parent.externalId}-queue-${partNumber}`,
+        externalId,
         description: undefined, // They don't provide descriptions for nested modules
         thumbnailUrl: undefined, // Not really used for queue modules
         isSubmodule: true, // Not really used for queue modules but they are kinda like submodules
@@ -388,7 +377,7 @@ export const makeAttachments = (
         shouldHideBasedOnWidth: false, // Not used for queue modules
         alwaysDisplay: false, // Queue modules don't show up as pegboard(this isn't even used)
         isEdge: false, // Queue modules are never edge
-        isImprintExtension: false,
+        isExtension: false,
         isMat: false,
         otherFinishes,
 
@@ -408,9 +397,14 @@ export const makeAttachments = (
   // Bail if there's none
   if (!queueModules || queueModules.length <= 0 || !appendModulesAttribute) return undefined;
 
-  const partNumber = getInputFeature(appendModulesAttribute?.features, (feature) =>
-    feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)
-  );
+  const partNumber =
+    getInputFeature(appendModulesAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)) ||
+    parent.rules?.queue?.append ||
+    `${parent.externalId}-append`;
+
+  const externalId =
+    getInputFeature(appendModulesAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)) ||
+    helpers.slugify(partNumber).toLowerCase() + '-append';
 
   const otherFinishes = getMultiSelectFeature(appendModulesAttribute?.features, (feature) =>
     feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
@@ -425,8 +419,8 @@ export const makeAttachments = (
   return {
     append: {
       ...parent,
-      partNumber: partNumber || `${parent.externalId}-append`,
-      externalId: `${parent.externalId}-append-${partNumber}`,
+      partNumber,
+      externalId,
       description: undefined, // They don't provide descriptions for nested modules
       thumbnailUrl: undefined, // Not really used for queue modules
       isSubmodule: true, // Not really used for queue modules but they are kinda like submodules
@@ -434,7 +428,7 @@ export const makeAttachments = (
       shouldHideBasedOnWidth: false, // Not used for queue modules
       alwaysDisplay: false, // Queue modules don't show up as pegboard(this isn't even used)
       isEdge: false, // Queue modules are never edge
-      isImprintExtension: false,
+      isExtension: false,
       isMat: false,
       otherFinishes,
 
@@ -452,7 +446,7 @@ export const makeExtensions = (
 ):
   | {
       left: ModuleRules;
-      right: ModuleRules;
+      right?: ModuleRules;
     }
   | undefined => {
   // First, we grab the left and right extensions, using the expected attributes descriptions
@@ -469,10 +463,15 @@ export const makeExtensions = (
   if (!leftExtensionAttribute || !rightExtensionAttribute) return undefined;
 
   // Then, for some reason, extensions finishes are not arrays but a single input like everything else 🤷 so lets grab them too
+  const leftPartNumber =
+    getInputFeature(leftExtensionAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)) ||
+    parent.extensions?.left ||
+    `${parent.externalId}-left-extension`;
 
-  const leftPartNumber = getInputFeature(leftExtensionAttribute?.features, (feature) =>
-    feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)
-  );
+  const leftExternalId =
+    getInputFeature(leftExtensionAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)) ||
+    helpers.slugify(leftPartNumber).toLowerCase();
+
   const leftFinish = getInputFeature(leftExtensionAttribute?.features, (feature) =>
     feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
   );
@@ -481,9 +480,14 @@ export const makeExtensions = (
   const leftRules = makeRulesObjectFromAttribute(leftExtensionAttribute?.features);
   const leftThumbnail = getInputFeature(leftExtensionAttribute?.features, FEATURE_NAMES.PRODUCT_PICTURE_FULL_PATH);
 
-  const rightPartNumber = getInputFeature(rightExtensionAttribute?.features, (feature) =>
-    feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)
-  );
+  const rightPartNumber =
+    getInputFeature(rightExtensionAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_PART)) ||
+    parent.extensions?.right ||
+    `${parent.externalId}-right-extension`;
+
+  const rightExternalId =
+    getInputFeature(rightExtensionAttribute?.features, (feature) => feature?.name?.endsWith(FEATURE_NAMES.EXT_ID)) ||
+    helpers.slugify(rightPartNumber).toLowerCase();
   const rightFinish = getInputFeature(rightExtensionAttribute?.features, (feature) =>
     feature?.name?.endsWith(FEATURE_NAMES.EXT_FINISHES)
   );
@@ -496,44 +500,43 @@ export const makeExtensions = (
     // And convert them to the format we expect
     left: {
       ...parent,
-      partNumber: leftPartNumber || `${parent.externalId}-left-extension`,
-      externalId: `${parent.externalId}-left-extension-${leftPartNumber}`,
+      extensions: undefined,
+      partNumber: leftPartNumber,
+      externalId: leftExternalId,
       description: undefined, // They don't provide descriptions for nested modules
-      thumbnailUrl: makeThumbnailUrlAndQueue(
-        leftThumbnail,
-        `images/module/${marathonModule.partNumber?.trim()}${path.extname(leftThumbnail || '')}`
-      ),
+      thumbnailUrl: leftThumbnail,
       isSubmodule: true, // Not really used for extensions modules but they are kinda like submodules
       hasPegs: false, // Not used for extensions
       shouldHideBasedOnWidth: false, // Not used for extensions
       alwaysDisplay: false, // extensions don't show up as pegboard(this isn't even used)
       isEdge: false, // extensions are never edge,
-      isImprintExtension: true,
+      isExtension: true,
       isMat: false,
       otherFinishes: leftOtherFinishes,
       dimensions: leftDimensions,
       rules: leftRules
     },
-    right: {
-      ...parent,
-      partNumber: rightPartNumber || `${parent.externalId}-right-extension-${rightPartNumber}`,
-      externalId: `${parent.externalId}-right-extension-${rightPartNumber}`,
-      description: undefined, // They don't provide descriptions for nested modules
-      thumbnailUrl: makeThumbnailUrlAndQueue(
-        rightThumbnail,
-        `images/module/${marathonModule.partNumber?.trim()}${path.extname(rightThumbnail || '')}`
-      ),
-      isSubmodule: true, // Not really used for extensions modules but they are kinda like submodules
-      hasPegs: false, // Not used for extensions
-      shouldHideBasedOnWidth: false, // Not used for extensions
-      alwaysDisplay: false, // extensions don't show up as pegboard(this isn't even used)
-      isEdge: false, // extensions are never edge,
-      isImprintExtension: true,
-      isMat: false,
-      otherFinishes: rightOtherFinishes,
-      dimensions: rightDimensions,
-      rules: rightRules
-    }
+    right:
+      rightPartNumber !== leftPartNumber
+        ? {
+            ...parent,
+            extensions: undefined,
+            partNumber: rightPartNumber,
+            externalId: rightExternalId,
+            description: undefined, // They don't provide descriptions for nested modules
+            thumbnailUrl: rightThumbnail,
+            isSubmodule: true, // Not really used for extensions modules but they are kinda like submodules
+            hasPegs: false, // Not used for extensions
+            shouldHideBasedOnWidth: false, // Not used for extensions
+            alwaysDisplay: false, // extensions don't show up as pegboard(this isn't even used)
+            isEdge: false, // extensions are never edge,
+            isExtension: true,
+            isMat: false,
+            otherFinishes: rightOtherFinishes,
+            dimensions: rightDimensions,
+            rules: rightRules
+          }
+        : undefined
   };
 };
 

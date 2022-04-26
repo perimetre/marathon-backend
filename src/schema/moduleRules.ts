@@ -164,7 +164,7 @@ export const ModuleRules = objectType({
     t.boolean('alwaysDisplay');
     t.boolean('isEdge');
 
-    t.nonNull.boolean('isImprintExtension');
+    t.nonNull.boolean('isExtension');
 
     t.list.string('trims', {
       description: 'Different types of edges a module might have'

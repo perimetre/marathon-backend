@@ -1177,6 +1177,7 @@ type Module {
   moduleAttachedTo(cursor: ModuleAttachmentsWhereUniqueInput, skip: Int, take: Int): [ModuleAttachments!]!
   moduleAttachments(cursor: ModuleAttachmentsWhereUniqueInput, skip: Int, take: Int): [ModuleAttachments!]!
   moduleType(cursor: ModuleTypeWhereUniqueInput, skip: Int, take: Int): [ModuleType!]!
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules(
     cursor: ProjectModuleWhereUniqueInput
@@ -1488,6 +1489,7 @@ input ModuleCreateManyAttachmentToAppendInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  originalMarathonProductJson: Json
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -1516,6 +1518,7 @@ input ModuleCreateManyCollectionInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  originalMarathonProductJson: Json
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -1544,6 +1547,7 @@ input ModuleCreateManyDefaultLeftExtensionInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  originalMarathonProductJson: Json
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -1572,6 +1576,7 @@ input ModuleCreateManyDefaultRightExtensionInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  originalMarathonProductJson: Json
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -1600,6 +1605,7 @@ input ModuleCreateManyFinishInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  originalMarathonProductJson: Json
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -1771,6 +1777,7 @@ input ModuleCreateWithoutAttachmentToAppendInput {
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1801,6 +1808,7 @@ input ModuleCreateWithoutAttachmentToAppendParentsInput {
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1831,6 +1839,7 @@ input ModuleCreateWithoutCollectionInput {
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1861,6 +1870,7 @@ input ModuleCreateWithoutDefaultLeftExtensionInput {
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1891,6 +1901,7 @@ input ModuleCreateWithoutDefaultLeftExtensionParentsInput {
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1921,6 +1932,7 @@ input ModuleCreateWithoutDefaultRightExtensionInput {
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1951,6 +1963,7 @@ input ModuleCreateWithoutDefaultRightExtensionParentsInput {
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1981,6 +1994,7 @@ input ModuleCreateWithoutFinishInput {
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -2011,6 +2025,7 @@ input ModuleCreateWithoutModuleAttachedToInput {
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -2041,6 +2056,7 @@ input ModuleCreateWithoutModuleAttachmentsInput {
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -2071,6 +2087,7 @@ input ModuleCreateWithoutModuleTypeInput {
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -2102,6 +2119,7 @@ input ModuleCreateWithoutProjectModulesInput {
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -2159,6 +2177,7 @@ input ModuleOrderByInput {
   isExtension: SortOrder
   isMat: SortOrder
   isSubmodule: SortOrder
+  originalMarathonProductJson: SortOrder
   partNumber: SortOrder
   rules: SortOrder
   shouldHideBasedOnWidth: SortOrder
@@ -2187,7 +2206,7 @@ type ModuleRules {
   finish: ModuleFinishesMetadata!
   hasPegs: Boolean
   isEdge: Boolean
-  isImprintExtension: Boolean!
+  isExtension: Boolean!
   isMat: Boolean
   isSubmodule: Boolean
 
@@ -2273,6 +2292,7 @@ input ModuleScalarWhereInput {
   isExtension: BoolFilter
   isMat: BoolFilter
   isSubmodule: BoolFilter
+  originalMarathonProductJson: JsonNullableFilter
   partNumber: StringFilter
   rules: JsonNullableFilter
   shouldHideBasedOnWidth: BoolFilter
@@ -2458,6 +2478,7 @@ input ModuleUpdateManyMutationInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   rules: Json
   shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
@@ -2669,6 +2690,7 @@ input ModuleUpdateWithoutAttachmentToAppendInput {
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2699,6 +2721,7 @@ input ModuleUpdateWithoutAttachmentToAppendParentsInput {
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2729,6 +2752,7 @@ input ModuleUpdateWithoutCollectionInput {
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2759,6 +2783,7 @@ input ModuleUpdateWithoutDefaultLeftExtensionInput {
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2789,6 +2814,7 @@ input ModuleUpdateWithoutDefaultLeftExtensionParentsInput {
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2819,6 +2845,7 @@ input ModuleUpdateWithoutDefaultRightExtensionInput {
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2849,6 +2876,7 @@ input ModuleUpdateWithoutDefaultRightExtensionParentsInput {
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2879,6 +2907,7 @@ input ModuleUpdateWithoutFinishInput {
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2909,6 +2938,7 @@ input ModuleUpdateWithoutModuleAttachedToInput {
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2939,6 +2969,7 @@ input ModuleUpdateWithoutModuleAttachmentsInput {
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2969,6 +3000,7 @@ input ModuleUpdateWithoutModuleTypeInput {
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -3000,6 +3032,7 @@ input ModuleUpdateWithoutProjectModulesInput {
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   rules: Json
   shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
@@ -3104,6 +3137,7 @@ input ModuleWhereInput {
   moduleAttachments: ModuleAttachmentsListRelationFilter
   moduleCategories: ModuleCategoryListRelationFilter
   moduleType: ModuleTypeListRelationFilter
+  originalMarathonProductJson: JsonNullableFilter
   partNumber: StringFilter
   projectModules: ProjectModuleListRelationFilter
   rules: JsonNullableFilter
