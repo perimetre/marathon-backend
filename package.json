@@ -81,6 +81,7 @@
     "graphql-middleware": "^6.0.10",
     "graphql-shield": "^7.5.0",
     "lodash": "^4.17.21",
+    "mime-types": "^2.1.35",
     "multer": "^1.4.3",
     "multer-s3": "^2.10.0",
     "nanoid": "^3.2.0",

@@ -28,7 +28,7 @@ export const fileUploadService = () => {
     });
   };
 
-  const uploadFileToStorage = (file: Buffer, destination: string) =>
+  const uploadFileToStorage = (file: Buffer, destination: string, mimetype?: string) =>
     new Promise<void>(async (resolve, reject) => {
       if (!AWS_STORAGE_BUCKET_NAME || !AWS_DEFAULT_ACL) {
         reject(makeError('Environment not set to upload files', 'invalidEnvironment'));
@@ -45,7 +45,8 @@ export const fileUploadService = () => {
             Bucket: bucket,
             Key: destination,
             Body: file,
-            ACL: AWS_DEFAULT_ACL
+            ACL: AWS_DEFAULT_ACL,
+            ContentType: mimetype
           },
           (err) => {
             if (err) return reject(err);

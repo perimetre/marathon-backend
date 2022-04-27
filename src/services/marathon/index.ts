@@ -3,8 +3,9 @@ import { Locale, Module, PrismaClient } from '@prisma/client';
 import { ForbiddenError } from 'apollo-server';
 import axios, { AxiosResponse } from 'axios';
 import fetch from 'cross-fetch';
-import { helpers } from 'faker';
+import { helpers, image } from 'faker';
 import { toNumber } from 'lodash';
+import mime from 'mime';
 import path from 'path';
 import { URL } from 'url';
 import seed from '../../../prisma/seedValues/seed.json';
@@ -98,12 +99,16 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       const promises: Promise<void>[] = [];
 
       for (let index = 0; index < simultaneousSync; index++) {
-        const imagePath = storageSyncQueue[index];
+        let imagePath = storageSyncQueue[index];
+
+        if (imagePath.startsWith('/')) {
+          imagePath = imagePath.substring(1);
+        }
 
         promises.push(
           new Promise<void>(async (resolve, reject) => {
             try {
-              console.log(`Syncing image #${i + 1} of ${initialLength}`);
+              console.log(`Syncing image #${i + 1} of ${initialLength}. ${decodeURIComponent(imagePath)}`);
               i++;
 
               try {
@@ -117,8 +122,10 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                   // Do nothing, file probably doesn't exist
                 }
 
+                const mimetype = mime.lookup(imagePath) || 'application/octet-stream';
+
                 // Upload new image
-                await fileUpload.uploadFileToStorage(file.data, imagePath);
+                await fileUpload.uploadFileToStorage(file.data, decodeURIComponent(imagePath), mimetype);
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
               } catch (err: any) {
                 if (err?.response?.status && err.response.status === 404) {
@@ -536,7 +543,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           });
 
           console.log(`Fetching recently created ${drawerTypesToCreate.length} drawer types`);
-          const recentlyCreatedDrawerTypes = await db.collection.findMany({
+          const recentlyCreatedDrawerTypes = await db.type.findMany({
             where: { externalId: { in: drawerTypesToCreate.map((x) => x?.node?.id as string).filter((x) => !!x) } },
             select: {
               id: true,
@@ -590,6 +597,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       if (!skipDatabase && finishes && finishes.length > 0) {
         const existingFinishes = await db.finish.findMany({
           select: {
+            id: true,
             externalId: true,
             slug: true,
             thumbnailUrl: true,
@@ -656,15 +664,17 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                   : undefined
             }
           });
+
+          await db.collectionFinishes.deleteMany({ where: { finish: { externalId: currentFinish.externalId } } });
         }
+
+        let recentlyCreatedFinishes: { id: number; externalId: string | null; slug: string }[] = [];
 
         if (finishesToCreate && finishesToCreate.length > 0) {
           console.log(`Batch creating ${finishesToCreate.length} finishes`);
           await db.finish.createMany({
             data: finishesToCreate
-              .filter(
-                (finishEdge) => finishEdge?.node?.id && finishEdge?.node?.slug && finishEdge?.node?.image?.fullpath
-              )
+              .filter((finishEdge) => finishEdge?.node?.id && finishEdge?.node?.slug)
               .map((finishEdge) => {
                 let slug = finishEdge?.node?.slug?.trim() as string;
 
@@ -687,22 +697,12 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           });
 
           console.log(`Fetching recently created ${finishesToCreate.length} finishes`);
-          const recentlyCreatedFinishes = await db.finish.findMany({
+          recentlyCreatedFinishes = await db.finish.findMany({
             where: { externalId: { in: finishesToCreate.map((x) => x?.node?.id as string).filter((x) => !!x) } },
             select: {
               id: true,
               slug: true,
               externalId: true
-            }
-          });
-
-          const collectionsForFinishes = await db.collection.findMany({
-            where: {
-              slug: {
-                in: seed.collectionFinishes
-                  .filter((colFin) => recentlyCreatedFinishes.some((dbFin) => dbFin.slug === colFin.finish))
-                  .map((x) => x.collection)
-              }
             }
           });
 
@@ -720,22 +720,49 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               };
             })
           });
+        } else {
+          console.log(`No finish to create`);
+        }
 
-          console.log(`Batch creating ${recentlyCreatedFinishes.length} collection finishes`);
-          await db.collectionFinishes.createMany({
-            data: recentlyCreatedFinishes.map((dbFinish) => {
+        const allFinishes = [...recentlyCreatedFinishes, ...existingFinishes];
+
+        const collectionsForFinishes = await db.collection.findMany({
+          where: {
+            slug: {
+              in: seed.collectionFinishes
+                .filter((colFin) => allFinishes.some((dbFin) => dbFin.slug === colFin.finish))
+                .map((x) => x.collection)
+            }
+          }
+        });
+
+        console.log(`Batch creating ${allFinishes.length} collection finishes`);
+        await db.collectionFinishes.createMany({
+          skipDuplicates: true,
+          data: allFinishes
+            .map((dbFinish) => {
               const collectionFinish = seed.collectionFinishes.find((x) => x.finish === dbFinish.slug);
               const collection = collectionsForFinishes.find((x) => x.slug === collectionFinish?.collection);
+
+              if (!collection) {
+                return undefined;
+              }
 
               return {
                 finishId: dbFinish.id,
                 collectionId: collection?.id || -1
               };
             })
-          });
-        } else {
-          console.log(`No finish to create`);
-        }
+            .filter((x) => !!x)
+            .map(
+              (x) =>
+                // Casting because we filtered right before
+                x as {
+                  finishId: number;
+                  collectionId: number;
+                }
+            )
+        });
       }
     } catch (err) {
       logging.error(err, 'Error fetching Marathon finishes');
@@ -775,11 +802,13 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             .slugify(`${slideEdge.supplier}-${slideEdge.product}-${slideEdge.collection}`)
             .toLowerCase();
 
-          let existingSlide = await db.slide.findUnique({ where: { slug: slideSlug } });
+          const existingSlide = await db.slide.findUnique({ where: { slug: slideSlug } });
+          const depths = slideEdge.depth;
 
           if (!existingSlide) {
             if (!skipDatabase) {
-              existingSlide = await db.slide.create({
+              // Commented since we're never updating it anyway
+              /* existingSlide = */ await db.slide.create({
                 data: {
                   slug: slideSlug,
                   formula: slideEdge.formula,
@@ -799,6 +828,14 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                   collection: {
                     connect: {
                       slug: slideEdge.collection
+                    }
+                  },
+                  depths: {
+                    createMany: {
+                      data: depths.map(({ roundedValue, value }) => ({
+                        display: `${roundedValue}mm`,
+                        depth: toNumber(value)
+                      }))
                     }
                   }
                 }
@@ -832,18 +869,16 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               //   }
               // });
               // await db.slideDepth.deleteMany({ where: { slideId: existingSlide.id } });
+              // if (depths?.length > 0) {
+              // await db.slideDepth.createMany({
+              //   data: depths.map(({ roundedValue, value }) => ({
+              //     display: `${roundedValue}mm`,
+              //     depth: toNumber(value),
+              //     slideId: existingSlide?.id || -1
+              //   }))
+              // });
+              // }
             }
-          }
-
-          const depths = slideEdge.depth;
-          if (!skipDatabase && existingSlide && depths?.length > 0) {
-            await db.slideDepth.createMany({
-              data: depths.map(({ roundedValue, value }) => ({
-                display: `${roundedValue}mm`,
-                depth: toNumber(value),
-                slideId: existingSlide?.id || -1
-              }))
-            });
           }
         }
       }
@@ -871,8 +906,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     console.log(`Upserting module ${module.partNumber} ${module.externalId}`);
 
-    //const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
-    //makeFile(dir, path.join(`jsons/${module.partNumber}.json`), module);
+    const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+    makeFile(dir, path.join(`jsons/${module.partNumber}.json`), module);
 
     const existingProduct = await db.module.findUnique({
       where: {
@@ -892,6 +927,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     let { partNumber } = module;
 
+    const bundleUrl = seed.modules.find((x) => x.partNumber.toLowerCase() === partNumber.toLowerCase())?.bundlePath;
+
     if (!existingProduct && partNumberProduct?.length > 0) {
       partNumber = `${partNumber}-${partNumberProduct.length}`;
     }
@@ -907,6 +944,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           data: {
             ...moduleRest,
             partNumber,
+            bundleUrl,
             rules: module,
             originalMarathonProductJson,
             finish: {
@@ -942,6 +980,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               : undefined
           }
         });
+
+        if (moduleRest.thumbnailUrl) storageSyncQueue.push(moduleRest.thumbnailUrl);
       }
     } else {
       status = 'updated';
@@ -953,6 +993,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           data: {
             ...moduleRest,
             partNumber,
+            bundleUrl,
             rules,
             originalMarathonProductJson,
             finish: {
@@ -988,6 +1029,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
               : undefined
           }
         });
+
+        if (moduleRest.thumbnailUrl) storageSyncQueue.push(moduleRest.thumbnailUrl);
 
         // If this module already exists, it already has all the relations, so delete them for them to be created
         // This is needed in case they completely changed the values here
@@ -1076,8 +1119,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           }))
         });
       }
-
-      if (resultModule.thumbnailUrl) storageSyncQueue.push(resultModule.thumbnailUrl);
     }
     // });
 
@@ -1139,6 +1180,9 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
               const module = productEdge?.node;
 
+              const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+              makeFile(dir, path.join(`pre-rules/${productEdge?.node?.partNumber}.json`), module);
+
               // So we grab a finish Id if any(there should always be one)
               const finishId =
                 existingFinishes.find((finish) => finish.externalId === module?.spFinish?.id)?.id || undefined;
@@ -1166,9 +1210,13 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             .filter((x) => !!x?.node)
             .flatMap((productEdge) => {
               try {
+                const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+                makeFile(dir, path.join(`marathon/${productEdge?.node?.partNumber}.json`), productEdge);
                 // Casting since we filtered it previously
+                const rules = makeRulesFromMarathonModule(productEdge?.node as MarathonModule);
+                makeFile(dir, path.join(`rules/${productEdge?.node?.partNumber}.json`), rules);
                 return {
-                  ...makeRulesFromMarathonModule(productEdge?.node as MarathonModule),
+                  ...rules,
                   originalMarathonProductJson: productEdge
                 };
               } catch (err) {
