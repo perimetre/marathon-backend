@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client';
 import { groupBy, values } from 'lodash';
-import { NexusGenObjects } from '../generated/nexus';
 
 type ProjectServiceDependencies = {
   db?: PrismaClient;

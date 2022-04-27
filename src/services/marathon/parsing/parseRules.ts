@@ -535,7 +535,7 @@ export const makeExtensions = (
       isVirtualProduct: leftVirtualProduct,
       description: undefined, // They don't provide descriptions for nested modules
       thumbnailUrl: leftThumbnail,
-      isSubmodule: true, // Not really used for extensions modules but they are kinda like submodules
+      isSubmodule: false, // Extensions CANNOT be submodules, they are already extensions
       hasPegs: false, // Not used for extensions
       shouldHideBasedOnWidth: false, // Not used for extensions
       alwaysDisplay: false, // extensions don't show up as pegboard(this isn't even used)
@@ -556,7 +556,7 @@ export const makeExtensions = (
             isVirtualProduct: rightVirtualProduct,
             description: undefined, // They don't provide descriptions for nested modules
             thumbnailUrl: rightThumbnail,
-            isSubmodule: true, // Not really used for extensions modules but they are kinda like submodules
+            isSubmodule: false, // Extensions CANNOT be submodules, they are already extensions
             hasPegs: false, // Not used for extensions
             shouldHideBasedOnWidth: false, // Not used for extensions
             alwaysDisplay: false, // extensions don't show up as pegboard(this isn't even used)

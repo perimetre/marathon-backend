@@ -67,15 +67,15 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'locale' | 'name' | 'description' | 'finishId'
     }
     lists: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'externalId' | 'name' | 'projectId' | 'project'
-      ordering: 'id' | 'externalId' | 'name' | 'projectId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'externalId' | 'name' | 'createdAt' | 'updatedAt' | 'projectId' | 'project'
+      ordering: 'id' | 'externalId' | 'name' | 'createdAt' | 'updatedAt' | 'projectId'
     }
     moduleAttachments: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'moduleId' | 'module' | 'attachmentId' | 'attachment'
       ordering: 'id' | 'moduleId' | 'attachmentId'
     }
     modules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'owner' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType' | 'modulesIOwn'
       ordering: 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules' | 'originalMarathonProductJson'
     }
     projects: {
@@ -138,7 +138,7 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId' | 'userId'
     }
     modules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'owner' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType' | 'modulesIOwn'
       ordering: 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules' | 'originalMarathonProductJson'
     }
     collectionFinishes: {
@@ -166,7 +166,7 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'slug' | 'title' | 'cabinetWidth' | 'calculatedWidth' | 'gable' | 'typeId' | 'hasPegs' | 'collectionId' | 'finishId' | 'slideId' | 'slideDepthId' | 'userId'
     }
     modules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'owner' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType' | 'modulesIOwn'
       ordering: 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules' | 'originalMarathonProductJson'
     }
     collectionFinishes: {
@@ -193,15 +193,15 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'moduleId' | 'categoryId'
     }
     defaultLeftExtensionParents: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'owner' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType' | 'modulesIOwn'
       ordering: 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules' | 'originalMarathonProductJson'
     }
     defaultRightExtensionParents: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'owner' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType' | 'modulesIOwn'
       ordering: 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules' | 'originalMarathonProductJson'
     }
     attachmentToAppendParents: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'owner' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType' | 'modulesIOwn'
       ordering: 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules' | 'originalMarathonProductJson'
     }
     moduleAttachments: {
@@ -216,6 +216,10 @@ interface NexusPrismaInputs {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'typeId' | 'moduleId' | 'type' | 'module'
       ordering: 'id' | 'typeId' | 'moduleId'
     }
+    modulesIOwn: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'owner' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultLeftExtension' | 'defaultRightExtensionId' | 'defaultRightExtension' | 'attachmentToAppendId' | 'attachmentToAppend' | 'finishId' | 'finish' | 'collectionId' | 'collection' | 'rules' | 'originalMarathonProductJson' | 'projectModules' | 'moduleCategories' | 'defaultLeftExtensionParents' | 'defaultRightExtensionParents' | 'attachmentToAppendParents' | 'moduleAttachments' | 'moduleAttachedTo' | 'moduleType' | 'modulesIOwn'
+      ordering: 'id' | 'partNumber' | 'externalId' | 'ownerExternalId' | 'description' | 'thumbnailUrl' | 'bundleUrl' | 'isSubmodule' | 'hasPegs' | 'isMat' | 'isExtension' | 'shouldHideBasedOnWidth' | 'isVirtualProduct' | 'createdAt' | 'updatedAt' | 'alwaysDisplay' | 'isEdge' | 'defaultLeftExtensionId' | 'defaultRightExtensionId' | 'attachmentToAppendId' | 'finishId' | 'collectionId' | 'rules' | 'originalMarathonProductJson'
+    }
   }
   Project: {
     projectModules: {
@@ -223,8 +227,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'nanoId' | 'posX' | 'posY' | 'posZ' | 'rotY' | 'moduleId' | 'parentId' | 'parentNanoId' | 'projectId'
     }
     lists: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'externalId' | 'name' | 'projectId' | 'project'
-      ordering: 'id' | 'externalId' | 'name' | 'projectId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'externalId' | 'name' | 'createdAt' | 'updatedAt' | 'projectId' | 'project'
+      ordering: 'id' | 'externalId' | 'name' | 'createdAt' | 'updatedAt' | 'projectId'
     }
   }
   ProjectModule: {
@@ -522,6 +526,8 @@ interface NexusPrismaOutputs {
     id: 'Int'
     externalId: 'String'
     name: 'String'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
     projectId: 'Int'
     project: 'Project'
   }
@@ -537,6 +543,7 @@ interface NexusPrismaOutputs {
     partNumber: 'String'
     externalId: 'String'
     ownerExternalId: 'String'
+    owner: 'Module'
     description: 'String'
     thumbnailUrl: 'String'
     bundleUrl: 'String'
@@ -570,6 +577,7 @@ interface NexusPrismaOutputs {
     moduleAttachments: 'ModuleAttachments'
     moduleAttachedTo: 'ModuleAttachments'
     moduleType: 'ModuleType'
+    modulesIOwn: 'Module'
   }
   Project: {
     id: 'Int'

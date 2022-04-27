@@ -3,7 +3,7 @@ import { Locale, Module, PrismaClient } from '@prisma/client';
 import { ForbiddenError } from 'apollo-server';
 import axios, { AxiosResponse } from 'axios';
 import fetch from 'cross-fetch';
-import { helpers, image } from 'faker';
+import { helpers } from 'faker';
 import { toNumber } from 'lodash';
 import mime from 'mime';
 import path from 'path';
@@ -13,12 +13,12 @@ import { env } from '../../env';
 import {
   GetProductListingQuery,
   GetProductListingQueryVariables,
+  GetProductQuery,
+  GetProductQueryVariables,
   GetSpCategoryListingQuery,
   GetSpCollectionListingQuery,
   GetSpDrawerTypesListingQuery,
-  GetSpFinishListingQuery,
-  GetProductQuery,
-  GetProductQueryVariables
+  GetSpFinishListingQuery
 } from '../../generated/graphql';
 import { makeError } from '../../utils/exception';
 import { makeFile } from '../../utils/file';
@@ -740,18 +740,16 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         await db.collectionFinishes.createMany({
           skipDuplicates: true,
           data: allFinishes
-            .map((dbFinish) => {
-              const collectionFinish = seed.collectionFinishes.find((x) => x.finish === dbFinish.slug);
-              const collection = collectionsForFinishes.find((x) => x.slug === collectionFinish?.collection);
+            .flatMap((dbFinish) => {
+              const collectionFinish = seed.collectionFinishes.filter((x) => x.finish === dbFinish.slug);
+              return collectionFinish.flatMap((collectionFinish) => {
+                const collection = collectionsForFinishes.filter((x) => x.slug === collectionFinish?.collection);
 
-              if (!collection) {
-                return undefined;
-              }
-
-              return {
-                finishId: dbFinish.id,
-                collectionId: collection?.id || -1
-              };
+                return collection.flatMap((collection) => ({
+                  finishId: dbFinish.id,
+                  collectionId: collection?.id || -1
+                }));
+              });
             })
             .filter((x) => !!x)
             .map(
@@ -922,8 +920,17 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     });
 
     // Removes unwanted data out of "module"
-    const { finish, collection, drawerTypes, categories, otherFinishes, extensions, dimensions, ...moduleRest } =
-      module;
+    const {
+      finish,
+      collection,
+      drawerTypes,
+      categories,
+      otherFinishes,
+      extensions,
+      dimensions,
+      ownerExternalId,
+      ...moduleRest
+    } = module;
 
     let { partNumber } = module;
 
@@ -988,7 +995,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       if (!skipDatabase) {
         const rules = existingProduct.rules ? mergeRules(module, existingProduct.rules as ModuleRules) : module;
 
-        await db.module.update({
+        resultModule = await db.module.update({
           where: { id: existingProduct.id },
           data: {
             ...moduleRest,
@@ -1125,6 +1132,34 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     return status;
   };
 
+  const updateOwner = async (
+    module: ModuleRules,
+    skipDatabase?: boolean
+    // eslint-disable-next-line @typescript-eslint/ban-types
+  ) => {
+    if (!db) {
+      throw new Error('db dependency was not provided');
+    }
+
+    const { externalId, ownerExternalId } = module;
+    if (!externalId || !ownerExternalId) return;
+
+    if (!skipDatabase) {
+      await db.module.update({
+        where: { externalId },
+        data: {
+          owner: ownerExternalId
+            ? {
+                connect: {
+                  externalId: ownerExternalId
+                }
+              }
+            : undefined
+        }
+      });
+    }
+  };
+
   const syncProduct = async (skipDatabase?: boolean) => {
     if (!db) {
       throw new Error('db dependency was not provided');
@@ -1155,6 +1190,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       console.log('Fetching products');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const ignoredModules: any[] = [];
+      let extensions: string[] = [];
       // console.log(print(GET_PRODUCT_LISTING));
       while (pageIndex >= 0) {
         console.log(`Asking for ${productsPerPage} products on page ${pageIndex + 1}`);
@@ -1311,6 +1347,13 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                 }
               }
 
+              if (product.module.extensions?.options) {
+                extensions = [
+                  ...extensions,
+                  ...product.module.extensions.options.filter((x) => !!x).map((x) => x as string)
+                ];
+              }
+
               if (product.alternative) {
                 const alternativeStatus = await upsertProductModule(
                   product.alternative,
@@ -1340,6 +1383,11 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                 updated++;
               } else {
                 throw makeError(`Could not upsert main product: ${productStatus}`, 'cannotUpsertMainProduct');
+              }
+
+              // Update owners after the product has been created, because it must exist for it to be an owner, so we cannot do this before
+              if (product.alternative) {
+                await updateOwner(product.alternative, skipDatabase);
               }
             } catch (err) {
               logging.error(
@@ -1374,6 +1422,15 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           console.log(`No products on page ${pageIndex + 1}, last page finished.`);
           pageIndex = -1;
         }
+      }
+
+      if (extensions && extensions.length > 0) {
+        await db.module.updateMany({
+          where: { partNumber: { in: extensions } },
+          data: {
+            isExtension: true
+          }
+        });
       }
 
       if (ignoredModules && ignoredModules.length > 0) {
@@ -1492,21 +1549,36 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     cart
       .filter((x) => x.projectModule.module.externalId)
       .forEach((cartItem) => {
-        items.push({
-          oid:
-            (cartItem.projectModule.module.ownerExternalId as string) ||
-            (cartItem.projectModule.module.externalId as string),
-          quantity: cartItem.quantity
-        });
+        const oid =
+          (cartItem.projectModule.module.ownerExternalId as string) ||
+          (cartItem.projectModule.module.externalId as string);
+
+        const index = items.findIndex((x) => x.oid === oid);
+        if (index >= 0) {
+          items[index] = { ...items[index], quantity: (items[index].quantity || 0) + cartItem.quantity };
+        } else {
+          items.push({
+            oid,
+            quantity: cartItem.quantity,
+            tag: cartItem.projectModule.module.description as string
+          });
+        }
 
         if (cartItem.children && cartItem.children.length > 0) {
           cartItem.children.forEach((cartItem) => {
-            items.push({
-              oid:
-                (cartItem.projectModule.module.ownerExternalId as string) ||
-                (cartItem.projectModule.module.externalId as string),
-              quantity: cartItem.quantity
-            });
+            const oid =
+              (cartItem.projectModule.module.ownerExternalId as string) ||
+              (cartItem.projectModule.module.externalId as string);
+            const index = items.findIndex((x) => x.oid === oid);
+            if (index >= 0) {
+              items[index] = { ...items[index], quantity: (items[index].quantity || 0) + cartItem.quantity };
+            } else {
+              items.push({
+                oid,
+                quantity: cartItem.quantity,
+                tag: cartItem.projectModule.module.description as string
+              });
+            }
           });
         }
       });
@@ -1549,6 +1621,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         throw makeError("Couldn't save list", 'createListCannotComplete');
       }
     } catch (err) {
+      console.warn(err, `Error on Marathon server when creating cart`);
       throw err;
     }
   };
