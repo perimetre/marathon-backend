@@ -1,4 +1,5 @@
 import path from 'path';
+import fs from 'fs';
 
 export const isSameExtesion = (...paths: string[]) => {
   if (!paths || paths.length <= 0) return false;
@@ -16,4 +17,14 @@ export const replaceExtension = (original: string, replaceWith: string) => {
   const originalExt = path.extname(original);
 
   return originalExt ? original.replace(originalExt, newExt) : original + newExt;
+};
+
+export const makeFile = (dir: string, fileName: string, content: any) => {
+  fs.mkdir(dir, { recursive: true }, (err) => {
+    if (err) throw err;
+
+    fs.writeFile(path.join(dir, fileName), JSON.stringify(content, null, 2), { flag: 'w' }, (err) => {
+      if (err) throw err;
+    });
+  });
 };

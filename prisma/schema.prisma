@@ -86,11 +86,13 @@ model FinishTranslations {
 }
 
 model List {
-  id         Int      @id @default(autoincrement())
-  externalId String?  @unique
+  id         Int       @id @default(autoincrement())
+  externalId String?   @unique
   name       String?
+  createdAt  DateTime? @default(now()) @db.DateTime(0)
+  updatedAt  DateTime? @default(now()) @updatedAt @db.DateTime(0)
   projectId  Int?
-  project    Project? @relation(fields: [projectId], references: [id])
+  project    Project?  @relation(fields: [projectId], references: [id])
 }
 
 model ModuleAttachments {
@@ -105,6 +107,8 @@ model Module {
   id                           Int                 @id @default(autoincrement())
   partNumber                   String              @unique
   externalId                   String?             @unique
+  ownerExternalId              String?
+  owner                        Module?             @relation("ownerRelation", fields: [ownerExternalId], references: [externalId])
   description                  String?
   thumbnailUrl                 String?             @db.VarChar(255)
   bundleUrl                    String?             @db.VarChar(255)
@@ -113,6 +117,7 @@ model Module {
   isMat                        Boolean             @default(false)
   isExtension                  Boolean             @default(false)
   shouldHideBasedOnWidth       Boolean             @default(false)
+  isVirtualProduct             Boolean             @default(false)
   createdAt                    DateTime            @default(now()) @db.DateTime(0)
   updatedAt                    DateTime            @default(now()) @db.DateTime(0)
   alwaysDisplay                Boolean             @default(false)
@@ -128,6 +133,7 @@ model Module {
   collectionId                 Int
   collection                   Collection          @relation(fields: [collectionId], references: [id])
   rules                        Json?
+  originalMarathonProductJson  Json?
   projectModules               ProjectModule[]
   moduleCategories             ModuleCategory[]
   defaultLeftExtensionParents  Module[]            @relation("defaultLeftExtensionRelation")
@@ -136,6 +142,7 @@ model Module {
   moduleAttachments            ModuleAttachments[] @relation("module_moduleAttachments")
   moduleAttachedTo             ModuleAttachments[] @relation("attachment_moduleAttachments")
   moduleType                   ModuleType[]
+  modulesIOwn                  Module[]            @relation("ownerRelation")
 }
 
 model Project {

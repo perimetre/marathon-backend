@@ -84,7 +84,11 @@ export const convertMmToIn = (mm_o: string) => {
 };
 
 export const convertMmToInFormatted = (value: string) => {
-  const conversion = convertMmToIn(value);
+  let conversion = convertMmToIn(value);
+
+  // Dirty fix to remove null entries
+  conversion = conversion.map((x) => (`${x}` === 'null' ? 0 : x));
+
   if (conversion[1] || conversion[2]) {
     return `${conversion[0]}" ${conversion[1]}/${conversion[2]}`;
   } else {

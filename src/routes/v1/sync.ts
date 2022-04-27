@@ -16,4 +16,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/parse/:id', async (req, res) => {
+  const { SYNC_AUTH } = env;
+  if (SYNC_AUTH && req.query.auth === SYNC_AUTH && req.params.id) {
+    // Do not await, fire and forget
+    const data = await marathonService({ db: getDb() }).fetchSingleProduct(req.params.id);
+    res.json(data);
+  } else {
+    res.status(401).json({ error: 'unauthorized' });
+  }
+});
+
 export default router;

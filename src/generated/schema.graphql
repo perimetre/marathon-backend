@@ -660,6 +660,17 @@ input DateTimeFilter {
   notIn: [DateTime!]
 }
 
+input DateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeNullableFilter
+  notIn: [DateTime!]
+}
+
 input EnumLocaleFieldUpdateOperationsInput {
   set: Locale
 }
@@ -1036,17 +1047,21 @@ input JsonNullableFilter {
 }
 
 type List {
+  createdAt: DateTime
   externalId: String
   id: Int!
   name: String
   project: Project
   projectId: Int
+  updatedAt: DateTime
 }
 
 input ListCreateManyProjectInput {
+  createdAt: DateTime
   externalId: String
   id: Int
   name: String
+  updatedAt: DateTime
 }
 
 input ListCreateManyProjectInputEnvelope {
@@ -1067,8 +1082,10 @@ input ListCreateOrConnectWithoutProjectInput {
 }
 
 input ListCreateWithoutProjectInput {
+  createdAt: DateTime
   externalId: String
   name: String
+  updatedAt: DateTime
 }
 
 input ListListRelationFilter {
@@ -1081,15 +1098,19 @@ input ListScalarWhereInput {
   AND: [ListScalarWhereInput!]
   NOT: [ListScalarWhereInput!]
   OR: [ListScalarWhereInput!]
+  createdAt: DateTimeNullableFilter
   externalId: StringNullableFilter
   id: IntFilter
   name: StringNullableFilter
   projectId: IntNullableFilter
+  updatedAt: DateTimeNullableFilter
 }
 
 input ListUpdateManyMutationInput {
+  createdAt: NullableDateTimeFieldUpdateOperationsInput
   externalId: NullableStringFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
 }
 
 input ListUpdateManyWithWhereWithoutProjectInput {
@@ -1117,8 +1138,10 @@ input ListUpdateWithWhereUniqueWithoutProjectInput {
 }
 
 input ListUpdateWithoutProjectInput {
+  createdAt: NullableDateTimeFieldUpdateOperationsInput
   externalId: NullableStringFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
 }
 
 input ListUpsertWithWhereUniqueWithoutProjectInput {
@@ -1131,11 +1154,13 @@ input ListWhereInput {
   AND: [ListWhereInput!]
   NOT: [ListWhereInput!]
   OR: [ListWhereInput!]
+  createdAt: DateTimeNullableFilter
   externalId: StringNullableFilter
   id: IntFilter
   name: StringNullableFilter
   project: ProjectWhereInput
   projectId: IntNullableFilter
+  updatedAt: DateTimeNullableFilter
 }
 
 input ListWhereUniqueInput {
@@ -1174,9 +1199,14 @@ type Module {
   isExtension: Boolean!
   isMat: Boolean!
   isSubmodule: Boolean!
+  isVirtualProduct: Boolean!
   moduleAttachedTo(cursor: ModuleAttachmentsWhereUniqueInput, skip: Int, take: Int): [ModuleAttachments!]!
   moduleAttachments(cursor: ModuleAttachmentsWhereUniqueInput, skip: Int, take: Int): [ModuleAttachments!]!
   moduleType(cursor: ModuleTypeWhereUniqueInput, skip: Int, take: Int): [ModuleType!]!
+  modulesIOwn(cursor: ModuleWhereUniqueInput, skip: Int, take: Int): [Module!]!
+  originalMarathonProductJson: Json
+  owner: Module
+  ownerExternalId: String
   partNumber: String!
   projectModules(
     cursor: ProjectModuleWhereUniqueInput
@@ -1394,6 +1424,11 @@ input ModuleCategoryListRelationFilter {
   some: ModuleCategoryWhereInput
 }
 
+type ModuleCategoryMetadata {
+  externalId: String!
+  slug: String
+}
+
 input ModuleCategoryOrderByInput {
   categoryId: SortOrder
   id: SortOrder
@@ -1462,6 +1497,11 @@ input ModuleCategoryWhereUniqueInput {
   id: Int
 }
 
+type ModuleCollectionsMetadata {
+  externalId: String!
+  slug: String
+}
+
 input ModuleCreateManyAttachmentToAppendInput {
   alwaysDisplay: Boolean
   bundleUrl: String
@@ -1478,6 +1518,9 @@ input ModuleCreateManyAttachmentToAppendInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
+  originalMarathonProductJson: Json
+  ownerExternalId: String
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -1506,6 +1549,9 @@ input ModuleCreateManyCollectionInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
+  originalMarathonProductJson: Json
+  ownerExternalId: String
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -1534,6 +1580,9 @@ input ModuleCreateManyDefaultLeftExtensionInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
+  originalMarathonProductJson: Json
+  ownerExternalId: String
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -1562,6 +1611,9 @@ input ModuleCreateManyDefaultRightExtensionInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
+  originalMarathonProductJson: Json
+  ownerExternalId: String
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -1590,6 +1642,9 @@ input ModuleCreateManyFinishInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
+  originalMarathonProductJson: Json
+  ownerExternalId: String
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -1599,6 +1654,37 @@ input ModuleCreateManyFinishInput {
 
 input ModuleCreateManyFinishInputEnvelope {
   data: [ModuleCreateManyFinishInput!]
+  skipDuplicates: Boolean
+}
+
+input ModuleCreateManyOwnerInput {
+  alwaysDisplay: Boolean
+  attachmentToAppendId: Int
+  bundleUrl: String
+  collectionId: Int!
+  createdAt: DateTime
+  defaultLeftExtensionId: Int
+  defaultRightExtensionId: Int
+  description: String
+  externalId: String
+  finishId: Int!
+  hasPegs: Boolean
+  id: Int
+  isEdge: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  isVirtualProduct: Boolean
+  originalMarathonProductJson: Json
+  partNumber: String!
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+  updatedAt: DateTime
+}
+
+input ModuleCreateManyOwnerInputEnvelope {
+  data: [ModuleCreateManyOwnerInput!]
   skipDuplicates: Boolean
 }
 
@@ -1637,6 +1723,13 @@ input ModuleCreateNestedManyWithoutFinishInput {
   createMany: ModuleCreateManyFinishInputEnvelope
 }
 
+input ModuleCreateNestedManyWithoutOwnerInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutOwnerInput!]
+  create: [ModuleCreateWithoutOwnerInput!]
+  createMany: ModuleCreateManyOwnerInputEnvelope
+}
+
 input ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput {
   connect: ModuleWhereUniqueInput
   connectOrCreate: ModuleCreateOrConnectWithoutAttachmentToAppendParentsInput
@@ -1671,6 +1764,12 @@ input ModuleCreateNestedOneWithoutModuleTypeInput {
   connect: ModuleWhereUniqueInput
   connectOrCreate: ModuleCreateOrConnectWithoutModuleTypeInput
   create: ModuleCreateWithoutModuleTypeInput
+}
+
+input ModuleCreateNestedOneWithoutModulesIOwnInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutModulesIOwnInput
+  create: ModuleCreateWithoutModulesIOwnInput
 }
 
 input ModuleCreateNestedOneWithoutProjectModulesInput {
@@ -1734,6 +1833,16 @@ input ModuleCreateOrConnectWithoutModuleTypeInput {
   where: ModuleWhereUniqueInput!
 }
 
+input ModuleCreateOrConnectWithoutModulesIOwnInput {
+  create: ModuleCreateWithoutModulesIOwnInput!
+  where: ModuleWhereUniqueInput!
+}
+
+input ModuleCreateOrConnectWithoutOwnerInput {
+  create: ModuleCreateWithoutOwnerInput!
+  where: ModuleWhereUniqueInput!
+}
+
 input ModuleCreateOrConnectWithoutProjectModulesInput {
   create: ModuleCreateWithoutProjectModulesInput!
   where: ModuleWhereUniqueInput!
@@ -1757,10 +1866,14 @@ input ModuleCreateWithoutAttachmentToAppendInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1787,10 +1900,14 @@ input ModuleCreateWithoutAttachmentToAppendParentsInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1817,10 +1934,14 @@ input ModuleCreateWithoutCollectionInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1847,10 +1968,14 @@ input ModuleCreateWithoutDefaultLeftExtensionInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1877,10 +2002,14 @@ input ModuleCreateWithoutDefaultLeftExtensionParentsInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1907,10 +2036,14 @@ input ModuleCreateWithoutDefaultRightExtensionInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1937,10 +2070,14 @@ input ModuleCreateWithoutDefaultRightExtensionParentsInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1967,10 +2104,14 @@ input ModuleCreateWithoutFinishInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -1998,9 +2139,13 @@ input ModuleCreateWithoutModuleAttachedToInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -2028,9 +2173,13 @@ input ModuleCreateWithoutModuleAttachmentsInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -2058,9 +2207,81 @@ input ModuleCreateWithoutModuleTypeInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+  updatedAt: DateTime
+}
+
+input ModuleCreateWithoutModulesIOwnInput {
+  alwaysDisplay: Boolean
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  createdAt: DateTime
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  externalId: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isEdge: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  isVirtualProduct: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
+  partNumber: String!
+  projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
+  updatedAt: DateTime
+}
+
+input ModuleCreateWithoutOwnerInput {
+  alwaysDisplay: Boolean
+  attachmentToAppend: ModuleCreateNestedOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleCreateNestedManyWithoutAttachmentToAppendInput
+  bundleUrl: String
+  collection: CollectionCreateNestedOneWithoutModulesInput!
+  createdAt: DateTime
+  defaultLeftExtension: ModuleCreateNestedOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleCreateNestedManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleCreateNestedOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleCreateNestedManyWithoutDefaultRightExtensionInput
+  description: String
+  externalId: String
+  finish: FinishCreateNestedOneWithoutModulesInput!
+  hasPegs: Boolean
+  isEdge: Boolean
+  isExtension: Boolean
+  isMat: Boolean
+  isSubmodule: Boolean
+  isVirtualProduct: Boolean
+  moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
+  moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
+  moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
   partNumber: String!
   projectModules: ProjectModuleCreateNestedManyWithoutModuleInput
   rules: Json
@@ -2088,10 +2309,14 @@ input ModuleCreateWithoutProjectModulesInput {
   isExtension: Boolean
   isMat: Boolean
   isSubmodule: Boolean
+  isVirtualProduct: Boolean
   moduleAttachedTo: ModuleAttachmentsCreateNestedManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsCreateNestedManyWithoutModuleInput
   moduleCategories: ModuleCategoryCreateNestedManyWithoutModuleInput
   moduleType: ModuleTypeCreateNestedManyWithoutModuleInput
+  modulesIOwn: ModuleCreateNestedManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleCreateNestedOneWithoutModulesIOwnInput
   partNumber: String!
   rules: Json
   shouldHideBasedOnWidth: Boolean
@@ -2105,10 +2330,20 @@ type ModuleDimension {
   width: ModuleMinMax
 }
 
+type ModuleDrawerTypesMetadata {
+  externalId: String!
+  slug: String
+}
+
 type ModuleExtensionsMetadata {
   left: String
-  options: [String!]
+  options: [String]
   right: String
+}
+
+type ModuleFinishesMetadata {
+  externalId: String!
+  slug: String
 }
 
 input ModuleListRelationFilter {
@@ -2139,6 +2374,9 @@ input ModuleOrderByInput {
   isExtension: SortOrder
   isMat: SortOrder
   isSubmodule: SortOrder
+  isVirtualProduct: SortOrder
+  originalMarathonProductJson: SortOrder
+  ownerExternalId: SortOrder
   partNumber: SortOrder
   rules: SortOrder
   shouldHideBasedOnWidth: SortOrder
@@ -2147,42 +2385,71 @@ input ModuleOrderByInput {
 }
 
 type ModuleRules {
+  alwaysDisplay: Boolean
   bundleUrl: String
-  dimensions: ModuleDimension
+  categories: [ModuleCategoryMetadata]
+  collection: ModuleCollectionsMetadata!
+  description: String
+  dimensions: ModuleDimension!
+  drawerTypes: [ModuleDrawerTypesMetadata]
 
   """
   Extensions are sub pieces that MUST BE CONNECTED to the main product or other extension.
   """
   extensions: ModuleExtensionsMetadata
+  externalId: String!
 
   """
-  Modules that are basically this module but in a different finish(color), to allow the ui to easily switch between them
+  The current finish of this module
   """
-  finishes: [String!]
-  isImprintExtension: Boolean!
+  finish: ModuleFinishesMetadata!
+  hasPegs: Boolean
+  isEdge: Boolean
+  isExtension: Boolean!
+  isMat: Boolean
+  isSubmodule: Boolean
+  isVirtualProduct: Boolean
+
+  """
+  The equivalent of same module but on other finishes
+  """
+  otherFinishes: [String!]
+  ownerExternalId: String
 
   """
   The module part number, probably equivalent to the module id
   """
   partNumber: String!
   rules: ModuleRulesMetadata
+  shouldHideBasedOnWidth: Boolean
+  thumbnailUrl: String
 
   """
   Different types of edges a module might have
   """
-  trims: [String!]
+  trims: [String]
 }
 
 type ModuleRulesMetadata {
+  """
+  The amount (in degrees) that the product can be angled
+  """
+  angle: Float
+
   """
   Whether or not this module is only valid if it's taking the drawer full depth
   """
   fullDepth: Boolean
 
   """
+  Whether or not this module is a filler kind of module
+  """
+  isFiller: Boolean
+
+  """
   Options are which other modules can be put IN modules
   """
-  options: [String!]
+  options: [String]
 
   """
   Queue info
@@ -2203,7 +2470,7 @@ type ModuleRulesMetadata {
   """
   Where a module can be cut if there's excess beyond the drawer
   """
-  trimmable: [String!]
+  trimmable: [String]
 }
 
 input ModuleScalarWhereInput {
@@ -2226,6 +2493,9 @@ input ModuleScalarWhereInput {
   isExtension: BoolFilter
   isMat: BoolFilter
   isSubmodule: BoolFilter
+  isVirtualProduct: BoolFilter
+  originalMarathonProductJson: JsonNullableFilter
+  ownerExternalId: StringNullableFilter
   partNumber: StringFilter
   rules: JsonNullableFilter
   shouldHideBasedOnWidth: BoolFilter
@@ -2411,6 +2681,8 @@ input ModuleUpdateManyMutationInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   rules: Json
   shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
@@ -2439,6 +2711,11 @@ input ModuleUpdateManyWithWhereWithoutDefaultRightExtensionInput {
 }
 
 input ModuleUpdateManyWithWhereWithoutFinishInput {
+  data: ModuleUpdateManyMutationInput!
+  where: ModuleScalarWhereInput!
+}
+
+input ModuleUpdateManyWithWhereWithoutOwnerInput {
   data: ModuleUpdateManyMutationInput!
   where: ModuleScalarWhereInput!
 }
@@ -2513,6 +2790,20 @@ input ModuleUpdateManyWithoutFinishInput {
   upsert: [ModuleUpsertWithWhereUniqueWithoutFinishInput!]
 }
 
+input ModuleUpdateManyWithoutOwnerInput {
+  connect: [ModuleWhereUniqueInput!]
+  connectOrCreate: [ModuleCreateOrConnectWithoutOwnerInput!]
+  create: [ModuleCreateWithoutOwnerInput!]
+  createMany: ModuleCreateManyOwnerInputEnvelope
+  delete: [ModuleWhereUniqueInput!]
+  deleteMany: [ModuleScalarWhereInput!]
+  disconnect: [ModuleWhereUniqueInput!]
+  set: [ModuleWhereUniqueInput!]
+  update: [ModuleUpdateWithWhereUniqueWithoutOwnerInput!]
+  updateMany: [ModuleUpdateManyWithWhereWithoutOwnerInput!]
+  upsert: [ModuleUpsertWithWhereUniqueWithoutOwnerInput!]
+}
+
 input ModuleUpdateOneRequiredWithoutModuleAttachedToInput {
   connect: ModuleWhereUniqueInput
   connectOrCreate: ModuleCreateOrConnectWithoutModuleAttachedToInput
@@ -2575,6 +2866,16 @@ input ModuleUpdateOneWithoutDefaultRightExtensionParentsInput {
   upsert: ModuleUpsertWithoutDefaultRightExtensionParentsInput
 }
 
+input ModuleUpdateOneWithoutModulesIOwnInput {
+  connect: ModuleWhereUniqueInput
+  connectOrCreate: ModuleCreateOrConnectWithoutModulesIOwnInput
+  create: ModuleCreateWithoutModulesIOwnInput
+  delete: Boolean
+  disconnect: Boolean
+  update: ModuleUpdateWithoutModulesIOwnInput
+  upsert: ModuleUpsertWithoutModulesIOwnInput
+}
+
 input ModuleUpdateWithWhereUniqueWithoutAttachmentToAppendInput {
   data: ModuleUpdateWithoutAttachmentToAppendInput!
   where: ModuleWhereUniqueInput!
@@ -2600,6 +2901,11 @@ input ModuleUpdateWithWhereUniqueWithoutFinishInput {
   where: ModuleWhereUniqueInput!
 }
 
+input ModuleUpdateWithWhereUniqueWithoutOwnerInput {
+  data: ModuleUpdateWithoutOwnerInput!
+  where: ModuleWhereUniqueInput!
+}
+
 input ModuleUpdateWithoutAttachmentToAppendInput {
   alwaysDisplay: BoolFieldUpdateOperationsInput
   attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
@@ -2618,10 +2924,14 @@ input ModuleUpdateWithoutAttachmentToAppendInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2648,10 +2958,14 @@ input ModuleUpdateWithoutAttachmentToAppendParentsInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2678,10 +2992,14 @@ input ModuleUpdateWithoutCollectionInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2708,10 +3026,14 @@ input ModuleUpdateWithoutDefaultLeftExtensionInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2738,10 +3060,14 @@ input ModuleUpdateWithoutDefaultLeftExtensionParentsInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2768,10 +3094,14 @@ input ModuleUpdateWithoutDefaultRightExtensionInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2798,10 +3128,14 @@ input ModuleUpdateWithoutDefaultRightExtensionParentsInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2828,10 +3162,14 @@ input ModuleUpdateWithoutFinishInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2859,9 +3197,13 @@ input ModuleUpdateWithoutModuleAttachedToInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2889,9 +3231,13 @@ input ModuleUpdateWithoutModuleAttachmentsInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2919,9 +3265,81 @@ input ModuleUpdateWithoutModuleTypeInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutModulesIOwnInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
+  partNumber: StringFieldUpdateOperationsInput
+  projectModules: ProjectModuleUpdateManyWithoutModuleInput
+  rules: Json
+  shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
+  thumbnailUrl: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ModuleUpdateWithoutOwnerInput {
+  alwaysDisplay: BoolFieldUpdateOperationsInput
+  attachmentToAppend: ModuleUpdateOneWithoutAttachmentToAppendParentsInput
+  attachmentToAppendParents: ModuleUpdateManyWithoutAttachmentToAppendInput
+  bundleUrl: NullableStringFieldUpdateOperationsInput
+  collection: CollectionUpdateOneRequiredWithoutModulesInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  defaultLeftExtension: ModuleUpdateOneWithoutDefaultLeftExtensionParentsInput
+  defaultLeftExtensionParents: ModuleUpdateManyWithoutDefaultLeftExtensionInput
+  defaultRightExtension: ModuleUpdateOneWithoutDefaultRightExtensionParentsInput
+  defaultRightExtensionParents: ModuleUpdateManyWithoutDefaultRightExtensionInput
+  description: NullableStringFieldUpdateOperationsInput
+  externalId: NullableStringFieldUpdateOperationsInput
+  finish: FinishUpdateOneRequiredWithoutModulesInput
+  hasPegs: BoolFieldUpdateOperationsInput
+  isEdge: BoolFieldUpdateOperationsInput
+  isExtension: BoolFieldUpdateOperationsInput
+  isMat: BoolFieldUpdateOperationsInput
+  isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
+  moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
+  moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
+  moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
+  moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
   partNumber: StringFieldUpdateOperationsInput
   projectModules: ProjectModuleUpdateManyWithoutModuleInput
   rules: Json
@@ -2949,10 +3367,14 @@ input ModuleUpdateWithoutProjectModulesInput {
   isExtension: BoolFieldUpdateOperationsInput
   isMat: BoolFieldUpdateOperationsInput
   isSubmodule: BoolFieldUpdateOperationsInput
+  isVirtualProduct: BoolFieldUpdateOperationsInput
   moduleAttachedTo: ModuleAttachmentsUpdateManyWithoutAttachmentInput
   moduleAttachments: ModuleAttachmentsUpdateManyWithoutModuleInput
   moduleCategories: ModuleCategoryUpdateManyWithoutModuleInput
   moduleType: ModuleTypeUpdateManyWithoutModuleInput
+  modulesIOwn: ModuleUpdateManyWithoutOwnerInput
+  originalMarathonProductJson: Json
+  owner: ModuleUpdateOneWithoutModulesIOwnInput
   partNumber: StringFieldUpdateOperationsInput
   rules: Json
   shouldHideBasedOnWidth: BoolFieldUpdateOperationsInput
@@ -2990,6 +3412,12 @@ input ModuleUpsertWithWhereUniqueWithoutFinishInput {
   where: ModuleWhereUniqueInput!
 }
 
+input ModuleUpsertWithWhereUniqueWithoutOwnerInput {
+  create: ModuleCreateWithoutOwnerInput!
+  update: ModuleUpdateWithoutOwnerInput!
+  where: ModuleWhereUniqueInput!
+}
+
 input ModuleUpsertWithoutAttachmentToAppendParentsInput {
   create: ModuleCreateWithoutAttachmentToAppendParentsInput!
   update: ModuleUpdateWithoutAttachmentToAppendParentsInput!
@@ -3018,6 +3446,11 @@ input ModuleUpsertWithoutModuleAttachmentsInput {
 input ModuleUpsertWithoutModuleTypeInput {
   create: ModuleCreateWithoutModuleTypeInput!
   update: ModuleUpdateWithoutModuleTypeInput!
+}
+
+input ModuleUpsertWithoutModulesIOwnInput {
+  create: ModuleCreateWithoutModulesIOwnInput!
+  update: ModuleUpdateWithoutModulesIOwnInput!
 }
 
 input ModuleUpsertWithoutProjectModulesInput {
@@ -3053,10 +3486,15 @@ input ModuleWhereInput {
   isExtension: BoolFilter
   isMat: BoolFilter
   isSubmodule: BoolFilter
+  isVirtualProduct: BoolFilter
   moduleAttachedTo: ModuleAttachmentsListRelationFilter
   moduleAttachments: ModuleAttachmentsListRelationFilter
   moduleCategories: ModuleCategoryListRelationFilter
   moduleType: ModuleTypeListRelationFilter
+  modulesIOwn: ModuleListRelationFilter
+  originalMarathonProductJson: JsonNullableFilter
+  owner: ModuleWhereInput
+  ownerExternalId: StringNullableFilter
   partNumber: StringFilter
   projectModules: ProjectModuleListRelationFilter
   rules: JsonNullableFilter
@@ -3101,6 +3539,17 @@ input NestedDateTimeFilter {
   lt: DateTime
   lte: DateTime
   not: NestedDateTimeFilter
+  notIn: [DateTime!]
+}
+
+input NestedDateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeNullableFilter
   notIn: [DateTime!]
 }
 
@@ -3181,6 +3630,10 @@ input NestedStringNullableFilter {
   not: NestedStringNullableFilter
   notIn: [String!]
   startsWith: String
+}
+
+input NullableDateTimeFieldUpdateOperationsInput {
+  set: DateTime
 }
 
 input NullableFloatFieldUpdateOperationsInput {
