@@ -904,8 +904,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     console.log(`Upserting module ${module.partNumber} ${module.externalId}`);
 
-    const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
-    makeFile(dir, path.join(`jsons/${module.partNumber}.json`), module);
+    //const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+    //makeFile(dir, path.join(`jsons/${module.partNumber}.json`), module);
 
     const existingProduct = await db.module.findUnique({
       where: {
@@ -1216,8 +1216,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
               const module = productEdge?.node;
 
-              const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
-              makeFile(dir, path.join(`pre-rules/${productEdge?.node?.partNumber}.json`), module);
+              //const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+              //makeFile(dir, path.join(`pre-rules/${productEdge?.node?.partNumber}.json`), module);
 
               // So we grab a finish Id if any(there should always be one)
               const finishId =
@@ -1246,11 +1246,11 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             .filter((x) => !!x?.node)
             .flatMap((productEdge) => {
               try {
-                const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
-                makeFile(dir, path.join(`marathon/${productEdge?.node?.partNumber}.json`), productEdge);
+                //const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+                //makeFile(dir, path.join(`marathon/${productEdge?.node?.partNumber}.json`), productEdge);
                 // Casting since we filtered it previously
                 const rules = makeRulesFromMarathonModule(productEdge?.node as MarathonModule);
-                makeFile(dir, path.join(`rules/${productEdge?.node?.partNumber}.json`), rules);
+                //makeFile(dir, path.join(`rules/${productEdge?.node?.partNumber}.json`), rules);
                 return {
                   ...rules,
                   originalMarathonProductJson: productEdge
@@ -1435,8 +1435,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
       if (ignoredModules && ignoredModules.length > 0) {
         try {
-          const dir = path.join(__dirname, `./output`, '../../../../../marathon-logs');
-          makeFile(dir, path.join(`ignored-modules.json`), { ignoredModules });
+          //const dir = path.join(__dirname, `./output`, '../../../../../marathon-logs');
+          //makeFile(dir, path.join(`ignored-modules.json`), { ignoredModules });
         } catch {
           // Do nothing
         }
