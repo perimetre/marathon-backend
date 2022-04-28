@@ -285,10 +285,7 @@ export const makeRulesFromMarathonModule = (
     isSubmodule: marathonModule.isSubmodule || false,
     hasPegs: marathonModule.hasPegs || false,
     isMat: marathonModule.isMat || false,
-    shouldHideBasedOnWidth:
-      marathonModule.shouldHideBasedOnWidth !== undefined && marathonModule.shouldHideBasedOnWidth !== null
-        ? marathonModule.shouldHideBasedOnWidth
-        : true,
+    shouldHideBasedOnWidth: marathonModule.shouldHideBasedOnWidth || false,
     alwaysDisplay: marathonModule.alwaysDisplay || false,
     isEdge: marathonModule.isEdge || false,
     isExtension: false, // False in this case, we'll manually set to true on the method regarding extensions
