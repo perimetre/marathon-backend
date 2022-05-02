@@ -3489,7 +3489,7 @@
     },
     {
       "partNumber": "04-AU-BIR-DIVIDER-H55",
-      "bundlePath": "modules/autograph/04-au-xxx-divider-h55/module",
+      "bundlePath": "modules/autograph/04-au-xxx-divider-h55/04-au-bir-divider-h55/module",
       "finish": "birch",
       "collection": "autograph",
       "rules": "{\r\n  \"partNumber\": \"04-AU-BIR-DIVIDER-H55\",\r\n  \"finishes\": [\r\n    \"04-AU-WAL-DIVIDER-H55\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 55,\r\n      \"inches\": \"2\\\" 5/32\"\r\n    },\r\n    \"depth\": {\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
@@ -3503,7 +3503,7 @@
     },
     {
       "partNumber": "04-AU-WAL-DIVIDER-H55",
-      "bundlePath": "modules/autograph/04-au-xxx-divider-h55/module",
+      "bundlePath": "modules/autograph/04-au-xxx-divider-h55/04-au-wal-divider-h55/module",
       "finish": "walnut",
       "collection": "autograph",
       "rules": "{\r\n  \"partNumber\": \"04-AU-WAL-DIVIDER-H55\",\r\n  \"finishes\": [\r\n    \"04-AU-BIR-DIVIDER-H55\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 55,\r\n      \"inches\": \"2\\\" 5/32\"\r\n    },\r\n    \"depth\": {\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
