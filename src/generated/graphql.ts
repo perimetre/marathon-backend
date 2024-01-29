@@ -12,7 +12,20 @@ export type Scalars = {
   Float: number;
 };
 
-export type ElementProperty = Property_Checkbox | Property_Object | Property_Text;
+export type AlternativeConnection = {
+  __typename?: 'AlternativeConnection';
+  edges?: Maybe<Array<Maybe<AlternativeEdge>>>;
+  /** The total count of all queryable objects for this schema listing */
+  totalCount?: Maybe<Scalars['Int']>;
+};
+
+export type AlternativeEdge = {
+  __typename?: 'AlternativeEdge';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<Object_Alternative>;
+};
+
+export type ElementProperty = Property_Checkbox | Property_Object | Property_Select | Property_Text;
 
 export type InputQuantityValue = {
   __typename?: 'InputQuantityValue';
@@ -60,6 +73,8 @@ export type QuantityValueUnit = {
 
 export type Query = {
   __typename?: 'Query';
+  getAlternative?: Maybe<Object_Alternative>;
+  getAlternativeListing?: Maybe<AlternativeConnection>;
   getProduct?: Maybe<Object_Product>;
   getProductListing?: Maybe<ProductConnection>;
   getSpCategory?: Maybe<Object_SpCategory>;
@@ -70,6 +85,26 @@ export type Query = {
   getSpDrawerTypesListing?: Maybe<SpDrawerTypesConnection>;
   getSpFinish?: Maybe<Object_SpFinish>;
   getSpFinishListing?: Maybe<SpFinishConnection>;
+};
+
+
+export type QueryGetAlternativeArgs = {
+  defaultLanguage?: InputMaybe<Scalars['String']>;
+  fullpath?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryGetAlternativeListingArgs = {
+  after?: InputMaybe<Scalars['Int']>;
+  defaultLanguage?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  fullpaths?: InputMaybe<Scalars['String']>;
+  ids?: InputMaybe<Scalars['String']>;
+  published?: InputMaybe<Scalars['Boolean']>;
+  sortBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sortOrder?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
@@ -230,6 +265,7 @@ export type Asset = {
   children?: Maybe<Array<Maybe<Asset_Tree>>>;
   creationDate?: Maybe<Scalars['Int']>;
   data?: Maybe<Scalars['String']>;
+  dimensions?: Maybe<Dimensions>;
   filename?: Maybe<Scalars['String']>;
   filesize?: Maybe<Scalars['Int']>;
   fullpath?: Maybe<Scalars['String']>;
@@ -251,7 +287,13 @@ export type AssetDataArgs = {
 };
 
 
+export type AssetDimensionsArgs = {
+  thumbnail?: InputMaybe<Scalars['String']>;
+};
+
+
 export type AssetFullpathArgs = {
+  format?: InputMaybe<Scalars['String']>;
   thumbnail?: InputMaybe<Scalars['String']>;
 };
 
@@ -517,12 +559,18 @@ export type CsGroup = {
   name?: Maybe<Scalars['String']>;
 };
 
+export type Dimensions = {
+  __typename?: 'dimensions';
+  height?: Maybe<Scalars['Int']>;
+  width?: Maybe<Scalars['Int']>;
+};
+
 export type Element = {
   id?: Maybe<Scalars['ID']>;
 };
 
-export type Element_Metadata_Item_621f7745f2ed6 = {
-  __typename?: 'element_metadata_item_621f7745f2ed6';
+export type Element_Metadata_Item_626823308bb9e = {
+  __typename?: 'element_metadata_item_626823308bb9e';
   name?: Maybe<Scalars['String']>;
   value?: Maybe<Scalars['String']>;
 };
@@ -534,11 +582,53 @@ export type Element_Tag = {
   path?: Maybe<Scalars['String']>;
 };
 
-export type Hotspot_Metadata_Object = Object_Product | Object_SpCategory | Object_SpCollection | Object_SpDrawerTypes | Object_SpFinish;
+export type Hotspot_Metadata_Object = Object_Alternative | Object_Product | Object_SpCategory | Object_SpCollection | Object_SpDrawerTypes | Object_SpFinish;
+
+export type Object_Alternative = Element & {
+  __typename?: 'object_alternative';
+  _siblings?: Maybe<Array<Maybe<Object_Tree>>>;
+  bundlePath?: Maybe<Object_Alternative_BundlePath>;
+  children?: Maybe<Array<Maybe<Object_Tree>>>;
+  childrenSortBy?: Maybe<Scalars['String']>;
+  classname?: Maybe<Scalars['String']>;
+  hasPegs?: Maybe<Scalars['Boolean']>;
+  id?: Maybe<Scalars['ID']>;
+  index?: Maybe<Scalars['Int']>;
+  key?: Maybe<Scalars['String']>;
+  modificationDate?: Maybe<Scalars['Int']>;
+  objectType?: Maybe<Scalars['String']>;
+  parent?: Maybe<Object_Tree>;
+  properties?: Maybe<Array<Maybe<ElementProperty>>>;
+  tags?: Maybe<Array<Maybe<Element_Tag>>>;
+};
+
+
+export type Object_Alternative_SiblingsArgs = {
+  objectTypes?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type Object_AlternativeChildrenArgs = {
+  objectTypes?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type Object_AlternativePropertiesArgs = {
+  keys?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type Object_AlternativeTagsArgs = {
+  name?: InputMaybe<Scalars['String']>;
+};
+
+/** pseudo class for field bundlePath */
+export type Object_Alternative_BundlePath = Asset;
 
 export type Object_Product = Element & {
   __typename?: 'object_product';
   _siblings?: Maybe<Array<Maybe<Object_Tree>>>;
+  alternative?: Maybe<Object_Product_Alternative>;
   alwaysDisplay?: Maybe<Scalars['Boolean']>;
   bundlePath?: Maybe<Object_Product_BundlePath>;
   children?: Maybe<Array<Maybe<Object_Tree>>>;
@@ -557,11 +647,13 @@ export type Object_Product = Element & {
   itemDescription?: Maybe<Scalars['String']>;
   itemId?: Maybe<Scalars['String']>;
   modificationDate?: Maybe<Scalars['Int']>;
+  objectType?: Maybe<Scalars['String']>;
   options?: Maybe<Array<Maybe<Object_Product_Options>>>;
   p21Uid?: Maybe<Scalars['String']>;
   parent?: Maybe<Object_Tree>;
   productPictures?: Maybe<Array<Maybe<Object_Product_ProductPictures>>>;
   properties?: Maybe<Array<Maybe<ElementProperty>>>;
+  secondaryBundlePath?: Maybe<Object_Product_SecondaryBundlePath>;
   shortDescription?: Maybe<Scalars['String']>;
   shouldHideBasedOnWidth?: Maybe<Scalars['Boolean']>;
   spCategories?: Maybe<Array<Maybe<Object_Product_SpCategories>>>;
@@ -597,18 +689,24 @@ export type Object_ProductTagsArgs = {
   name?: InputMaybe<Scalars['String']>;
 };
 
+/** pseudo class for field alternative */
+export type Object_Product_Alternative = Object_Alternative;
+
 /** pseudo class for field bundlePath */
 export type Object_Product_BundlePath = Asset;
 
 export type Object_Product_Finishes = {
   __typename?: 'object_product_finishes';
   element?: Maybe<Object_Product>;
-  metadata?: Maybe<Array<Maybe<Element_Metadata_Item_621f7745f2ed6>>>;
+  metadata?: Maybe<Array<Maybe<Element_Metadata_Item_626823308bb9e>>>;
 };
 
 export type Object_Product_Options = Object_Product;
 
 export type Object_Product_ProductPictures = Asset;
+
+/** pseudo class for field secondaryBundlePath */
+export type Object_Product_SecondaryBundlePath = Asset;
 
 export type Object_Product_SpCategories = Object_SpCategory;
 
@@ -632,6 +730,7 @@ export type Object_SpCategory = Element & {
   key?: Maybe<Scalars['String']>;
   modificationDate?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+  objectType?: Maybe<Scalars['String']>;
   parent?: Maybe<Object_Tree>;
   properties?: Maybe<Array<Maybe<ElementProperty>>>;
   slug?: Maybe<Scalars['String']>;
@@ -674,6 +773,7 @@ export type Object_SpCollection = Element & {
   key?: Maybe<Scalars['String']>;
   modificationDate?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+  objectType?: Maybe<Scalars['String']>;
   parent?: Maybe<Object_Tree>;
   properties?: Maybe<Array<Maybe<ElementProperty>>>;
   slug?: Maybe<Scalars['String']>;
@@ -719,6 +819,7 @@ export type Object_SpDrawerTypes = Element & {
   key?: Maybe<Scalars['String']>;
   modificationDate?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+  objectType?: Maybe<Scalars['String']>;
   parent?: Maybe<Object_Tree>;
   properties?: Maybe<Array<Maybe<ElementProperty>>>;
   slug?: Maybe<Scalars['String']>;
@@ -763,6 +864,7 @@ export type Object_SpFinish = Element & {
   key?: Maybe<Scalars['String']>;
   modificationDate?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+  objectType?: Maybe<Scalars['String']>;
   parent?: Maybe<Object_Tree>;
   properties?: Maybe<Array<Maybe<ElementProperty>>>;
   slug?: Maybe<Scalars['String']>;
@@ -792,7 +894,7 @@ export type Object_SpFinishTagsArgs = {
 /** pseudo class for field image */
 export type Object_SpFinish_Image = Asset;
 
-export type Object_Tree = Object_Product | Object_SpCategory | Object_SpCollection | Object_SpDrawerTypes | Object_SpFinish;
+export type Object_Tree = Object_Alternative | Object_Product | Object_SpCategory | Object_SpCollection | Object_SpDrawerTypes | Object_SpFinish;
 
 export type Property_Checkbox = {
   __typename?: 'property_checkbox';
@@ -805,6 +907,13 @@ export type Property_Object = {
   __typename?: 'property_object';
   name?: Maybe<Scalars['String']>;
   object?: Maybe<Hotspot_Metadata_Object>;
+  type?: Maybe<Scalars['String']>;
+};
+
+export type Property_Select = {
+  __typename?: 'property_select';
+  name?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
 };
 
@@ -845,7 +954,7 @@ export type SpFinishFragment = { __typename?: 'object_spFinish', id?: string | n
 
 export type ConfiguratorAttributesFragment = { __typename?: 'csGroup', id?: number | null, description?: string | null, features?: Array<{ __typename?: 'csFeatureBooleanSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCalculatedValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, calculatedvalue?: string | null } | { __typename?: 'csFeatureCheckbox', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCountry', id?: number | null, name?: string | null, description?: string | null, type?: string | null, country?: string | null } | { __typename?: 'csFeatureCountryMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, countries?: Array<string | null> | null } | { __typename?: 'csFeatureDate', id?: number | null, name?: string | null, description?: string | null, type?: string | null, date?: string | null } | { __typename?: 'csFeatureDatetime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, datetime?: string | null } | { __typename?: 'csFeatureInput', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureInputQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, inputquantityvalue?: { __typename?: 'InputQuantityValue', value?: string | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureLanguage', id?: number | null, name?: string | null, description?: string | null, type?: string | null, language?: string | null } | { __typename?: 'csFeatureLangugeMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, languages?: Array<string | null> | null } | { __typename?: 'csFeatureMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selections?: Array<string | null> | null } | { __typename?: 'csFeatureNumeric', id?: number | null, name?: string | null, description?: string | null, type?: string | null, number?: string | null } | { __typename?: 'csFeatureQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, quantityvalue?: { __typename?: 'QuantityValue', value?: number | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureRgbaColor', id?: number | null, name?: string | null, description?: string | null, type?: string | null, color?: string | null } | { __typename?: 'csFeatureSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selection?: string | null } | { __typename?: 'csFeatureSlider', id?: number | null, name?: string | null, description?: string | null, type?: string | null, slidervalue?: string | null } | { __typename?: 'csFeatureTextarea', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureTime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, time?: string | null } | { __typename?: 'csFeatureWysiwyg', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | null> | null };
 
-export type ProductFragment = { __typename?: 'object_product', id?: string | null, childrenSortBy?: string | null, classname?: string | null, creationDate?: number | null, hasPegs?: boolean | null, index?: number | null, isMat?: boolean | null, isSubmodule?: boolean | null, itemDescription?: string | null, modificationDate?: number | null, p21Uid?: string | null, shortDescription?: string | null, shouldHideBasedOnWidth?: boolean | null, titleDescription?: string | null, isEdge?: boolean | null, alwaysDisplay?: boolean | null, partNumber?: string | null, productPictures?: Array<{ __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null> | null, properties?: Array<{ __typename?: 'property_checkbox', name?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'property_object', name?: string | null, type?: string | null, object?: { __typename?: 'object_product', id?: string | null, itemId?: string | null } | { __typename?: 'object_spCategory' } | { __typename?: 'object_spCollection' } | { __typename?: 'object_spDrawerTypes' } | { __typename?: 'object_spFinish' } | null } | { __typename?: 'property_text', name?: string | null, type?: string | null, text?: string | null } | null> | null, tags?: Array<{ __typename?: 'element_tag', id?: string | null, name?: string | null, path?: string | null } | null> | null, spCategories?: Array<{ __typename?: 'object_spCategory', id?: string | null, name?: string | null, slug?: string | null } | null> | null, spCollection?: { __typename?: 'object_spCollection', id?: string | null, hasPegs?: boolean | null, slug?: string | null, subtitle?: string | null, description?: string | null, name?: string | null, isComingSoon?: boolean | null, image?: { __typename?: 'asset', id?: string | null, fullpath?: string | null } | null } | null, spDrawerTypes?: Array<{ __typename?: 'object_spDrawerTypes', id?: string | null, name?: string | null, slug?: string | null, hasPegs?: boolean | null, description?: string | null, image?: { __typename?: 'asset', id?: string | null, fullpath?: string | null } | null } | null> | null, spFinish?: { __typename?: 'object_spFinish', id?: string | null, description?: string | null, name?: string | null, slug?: string | null, isComingSoon?: boolean | null, image?: { __typename?: 'asset', id?: string | null, filename?: string | null, fullpath?: string | null } | null } | null, bundlePath?: { __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null, finishes?: Array<{ __typename?: 'object_product_finishes', element?: { __typename?: 'object_product', id?: string | null, partNumber?: string | null } | null, metadata?: Array<{ __typename?: 'element_metadata_item_621f7745f2ed6', name?: string | null } | null> | null } | null> | null, configuratorAttributes?: Array<{ __typename?: 'csGroup', id?: number | null, description?: string | null, features?: Array<{ __typename?: 'csFeatureBooleanSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCalculatedValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, calculatedvalue?: string | null } | { __typename?: 'csFeatureCheckbox', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCountry', id?: number | null, name?: string | null, description?: string | null, type?: string | null, country?: string | null } | { __typename?: 'csFeatureCountryMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, countries?: Array<string | null> | null } | { __typename?: 'csFeatureDate', id?: number | null, name?: string | null, description?: string | null, type?: string | null, date?: string | null } | { __typename?: 'csFeatureDatetime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, datetime?: string | null } | { __typename?: 'csFeatureInput', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureInputQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, inputquantityvalue?: { __typename?: 'InputQuantityValue', value?: string | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureLanguage', id?: number | null, name?: string | null, description?: string | null, type?: string | null, language?: string | null } | { __typename?: 'csFeatureLangugeMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, languages?: Array<string | null> | null } | { __typename?: 'csFeatureMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selections?: Array<string | null> | null } | { __typename?: 'csFeatureNumeric', id?: number | null, name?: string | null, description?: string | null, type?: string | null, number?: string | null } | { __typename?: 'csFeatureQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, quantityvalue?: { __typename?: 'QuantityValue', value?: number | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureRgbaColor', id?: number | null, name?: string | null, description?: string | null, type?: string | null, color?: string | null } | { __typename?: 'csFeatureSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selection?: string | null } | { __typename?: 'csFeatureSlider', id?: number | null, name?: string | null, description?: string | null, type?: string | null, slidervalue?: string | null } | { __typename?: 'csFeatureTextarea', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureTime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, time?: string | null } | { __typename?: 'csFeatureWysiwyg', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | null> | null } | null> | null, options?: Array<{ __typename?: 'object_product', id?: string | null, partNumber?: string | null } | null> | null, children?: Array<{ __typename?: 'object_product', id?: string | null, partNumber?: string | null } | { __typename?: 'object_spCategory' } | { __typename?: 'object_spCollection' } | { __typename?: 'object_spDrawerTypes' } | { __typename?: 'object_spFinish' } | null> | null };
+export type ProductFragment = { __typename?: 'object_product', id?: string | null, childrenSortBy?: string | null, classname?: string | null, creationDate?: number | null, hasPegs?: boolean | null, index?: number | null, isMat?: boolean | null, isSubmodule?: boolean | null, itemDescription?: string | null, modificationDate?: number | null, p21Uid?: string | null, shortDescription?: string | null, shouldHideBasedOnWidth?: boolean | null, titleDescription?: string | null, isEdge?: boolean | null, alwaysDisplay?: boolean | null, partNumber?: string | null, alternative?: { __typename?: 'object_alternative', id?: string | null, hasPegs?: boolean | null, partNumber?: string | null, bundlePath?: { __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null } | null, productPictures?: Array<{ __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null> | null, properties?: Array<{ __typename?: 'property_checkbox', name?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'property_object', name?: string | null, type?: string | null, object?: { __typename?: 'object_alternative' } | { __typename?: 'object_product', id?: string | null, itemId?: string | null } | { __typename?: 'object_spCategory' } | { __typename?: 'object_spCollection' } | { __typename?: 'object_spDrawerTypes' } | { __typename?: 'object_spFinish' } | null } | { __typename?: 'property_select' } | { __typename?: 'property_text', name?: string | null, type?: string | null, text?: string | null } | null> | null, tags?: Array<{ __typename?: 'element_tag', id?: string | null, name?: string | null, path?: string | null } | null> | null, spCategories?: Array<{ __typename?: 'object_spCategory', id?: string | null, name?: string | null, slug?: string | null } | null> | null, spCollection?: { __typename?: 'object_spCollection', id?: string | null, hasPegs?: boolean | null, slug?: string | null, subtitle?: string | null, description?: string | null, name?: string | null, isComingSoon?: boolean | null, image?: { __typename?: 'asset', id?: string | null, fullpath?: string | null } | null } | null, spDrawerTypes?: Array<{ __typename?: 'object_spDrawerTypes', id?: string | null, name?: string | null, slug?: string | null, hasPegs?: boolean | null, description?: string | null, image?: { __typename?: 'asset', id?: string | null, fullpath?: string | null } | null } | null> | null, spFinish?: { __typename?: 'object_spFinish', id?: string | null, description?: string | null, name?: string | null, slug?: string | null, isComingSoon?: boolean | null, image?: { __typename?: 'asset', id?: string | null, filename?: string | null, fullpath?: string | null } | null } | null, bundlePath?: { __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null, finishes?: Array<{ __typename?: 'object_product_finishes', element?: { __typename?: 'object_product', id?: string | null, partNumber?: string | null } | null, metadata?: Array<{ __typename?: 'element_metadata_item_626823308bb9e', name?: string | null } | null> | null } | null> | null, configuratorAttributes?: Array<{ __typename?: 'csGroup', id?: number | null, description?: string | null, features?: Array<{ __typename?: 'csFeatureBooleanSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCalculatedValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, calculatedvalue?: string | null } | { __typename?: 'csFeatureCheckbox', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCountry', id?: number | null, name?: string | null, description?: string | null, type?: string | null, country?: string | null } | { __typename?: 'csFeatureCountryMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, countries?: Array<string | null> | null } | { __typename?: 'csFeatureDate', id?: number | null, name?: string | null, description?: string | null, type?: string | null, date?: string | null } | { __typename?: 'csFeatureDatetime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, datetime?: string | null } | { __typename?: 'csFeatureInput', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureInputQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, inputquantityvalue?: { __typename?: 'InputQuantityValue', value?: string | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureLanguage', id?: number | null, name?: string | null, description?: string | null, type?: string | null, language?: string | null } | { __typename?: 'csFeatureLangugeMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, languages?: Array<string | null> | null } | { __typename?: 'csFeatureMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selections?: Array<string | null> | null } | { __typename?: 'csFeatureNumeric', id?: number | null, name?: string | null, description?: string | null, type?: string | null, number?: string | null } | { __typename?: 'csFeatureQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, quantityvalue?: { __typename?: 'QuantityValue', value?: number | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureRgbaColor', id?: number | null, name?: string | null, description?: string | null, type?: string | null, color?: string | null } | { __typename?: 'csFeatureSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selection?: string | null } | { __typename?: 'csFeatureSlider', id?: number | null, name?: string | null, description?: string | null, type?: string | null, slidervalue?: string | null } | { __typename?: 'csFeatureTextarea', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureTime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, time?: string | null } | { __typename?: 'csFeatureWysiwyg', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | null> | null } | null> | null, options?: Array<{ __typename?: 'object_product', id?: string | null, partNumber?: string | null } | null> | null, children?: Array<{ __typename?: 'object_alternative' } | { __typename?: 'object_product', id?: string | null, partNumber?: string | null } | { __typename?: 'object_spCategory' } | { __typename?: 'object_spCollection' } | { __typename?: 'object_spDrawerTypes' } | { __typename?: 'object_spFinish' } | null> | null };
 
 export type GetSpCategoryListingQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -894,9 +1003,16 @@ export type GetProductListingQueryVariables = Exact<{
 }>;
 
 
-export type GetProductListingQuery = { __typename?: 'Query', getProductListing?: { __typename?: 'ProductConnection', edges?: Array<{ __typename?: 'ProductEdge', node?: { __typename?: 'object_product', id?: string | null, childrenSortBy?: string | null, classname?: string | null, creationDate?: number | null, hasPegs?: boolean | null, index?: number | null, isMat?: boolean | null, isSubmodule?: boolean | null, itemDescription?: string | null, modificationDate?: number | null, p21Uid?: string | null, shortDescription?: string | null, shouldHideBasedOnWidth?: boolean | null, titleDescription?: string | null, isEdge?: boolean | null, alwaysDisplay?: boolean | null, partNumber?: string | null, productPictures?: Array<{ __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null> | null, properties?: Array<{ __typename?: 'property_checkbox', name?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'property_object', name?: string | null, type?: string | null, object?: { __typename?: 'object_product', id?: string | null, itemId?: string | null } | { __typename?: 'object_spCategory' } | { __typename?: 'object_spCollection' } | { __typename?: 'object_spDrawerTypes' } | { __typename?: 'object_spFinish' } | null } | { __typename?: 'property_text', name?: string | null, type?: string | null, text?: string | null } | null> | null, tags?: Array<{ __typename?: 'element_tag', id?: string | null, name?: string | null, path?: string | null } | null> | null, spCategories?: Array<{ __typename?: 'object_spCategory', id?: string | null, name?: string | null, slug?: string | null } | null> | null, spCollection?: { __typename?: 'object_spCollection', id?: string | null, hasPegs?: boolean | null, slug?: string | null, subtitle?: string | null, description?: string | null, name?: string | null, isComingSoon?: boolean | null, image?: { __typename?: 'asset', id?: string | null, fullpath?: string | null } | null } | null, spDrawerTypes?: Array<{ __typename?: 'object_spDrawerTypes', id?: string | null, name?: string | null, slug?: string | null, hasPegs?: boolean | null, description?: string | null, image?: { __typename?: 'asset', id?: string | null, fullpath?: string | null } | null } | null> | null, spFinish?: { __typename?: 'object_spFinish', id?: string | null, description?: string | null, name?: string | null, slug?: string | null, isComingSoon?: boolean | null, image?: { __typename?: 'asset', id?: string | null, filename?: string | null, fullpath?: string | null } | null } | null, bundlePath?: { __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null, finishes?: Array<{ __typename?: 'object_product_finishes', element?: { __typename?: 'object_product', id?: string | null, partNumber?: string | null } | null, metadata?: Array<{ __typename?: 'element_metadata_item_621f7745f2ed6', name?: string | null } | null> | null } | null> | null, configuratorAttributes?: Array<{ __typename?: 'csGroup', id?: number | null, description?: string | null, features?: Array<{ __typename?: 'csFeatureBooleanSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCalculatedValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, calculatedvalue?: string | null } | { __typename?: 'csFeatureCheckbox', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCountry', id?: number | null, name?: string | null, description?: string | null, type?: string | null, country?: string | null } | { __typename?: 'csFeatureCountryMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, countries?: Array<string | null> | null } | { __typename?: 'csFeatureDate', id?: number | null, name?: string | null, description?: string | null, type?: string | null, date?: string | null } | { __typename?: 'csFeatureDatetime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, datetime?: string | null } | { __typename?: 'csFeatureInput', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureInputQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, inputquantityvalue?: { __typename?: 'InputQuantityValue', value?: string | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureLanguage', id?: number | null, name?: string | null, description?: string | null, type?: string | null, language?: string | null } | { __typename?: 'csFeatureLangugeMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, languages?: Array<string | null> | null } | { __typename?: 'csFeatureMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selections?: Array<string | null> | null } | { __typename?: 'csFeatureNumeric', id?: number | null, name?: string | null, description?: string | null, type?: string | null, number?: string | null } | { __typename?: 'csFeatureQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, quantityvalue?: { __typename?: 'QuantityValue', value?: number | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureRgbaColor', id?: number | null, name?: string | null, description?: string | null, type?: string | null, color?: string | null } | { __typename?: 'csFeatureSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selection?: string | null } | { __typename?: 'csFeatureSlider', id?: number | null, name?: string | null, description?: string | null, type?: string | null, slidervalue?: string | null } | { __typename?: 'csFeatureTextarea', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureTime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, time?: string | null } | { __typename?: 'csFeatureWysiwyg', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | null> | null } | null> | null, options?: Array<{ __typename?: 'object_product', id?: string | null, partNumber?: string | null } | null> | null, children?: Array<{ __typename?: 'object_product', id?: string | null, partNumber?: string | null } | { __typename?: 'object_spCategory' } | { __typename?: 'object_spCollection' } | { __typename?: 'object_spDrawerTypes' } | { __typename?: 'object_spFinish' } | null> | null } | null } | null> | null } | null };
+export type GetProductListingQuery = { __typename?: 'Query', getProductListing?: { __typename?: 'ProductConnection', edges?: Array<{ __typename?: 'ProductEdge', node?: { __typename?: 'object_product', id?: string | null, childrenSortBy?: string | null, classname?: string | null, creationDate?: number | null, hasPegs?: boolean | null, index?: number | null, isMat?: boolean | null, isSubmodule?: boolean | null, itemDescription?: string | null, modificationDate?: number | null, p21Uid?: string | null, shortDescription?: string | null, shouldHideBasedOnWidth?: boolean | null, titleDescription?: string | null, isEdge?: boolean | null, alwaysDisplay?: boolean | null, partNumber?: string | null, alternative?: { __typename?: 'object_alternative', id?: string | null, hasPegs?: boolean | null, partNumber?: string | null, bundlePath?: { __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null } | null, productPictures?: Array<{ __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null> | null, properties?: Array<{ __typename?: 'property_checkbox', name?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'property_object', name?: string | null, type?: string | null, object?: { __typename?: 'object_alternative' } | { __typename?: 'object_product', id?: string | null, itemId?: string | null } | { __typename?: 'object_spCategory' } | { __typename?: 'object_spCollection' } | { __typename?: 'object_spDrawerTypes' } | { __typename?: 'object_spFinish' } | null } | { __typename?: 'property_select' } | { __typename?: 'property_text', name?: string | null, type?: string | null, text?: string | null } | null> | null, tags?: Array<{ __typename?: 'element_tag', id?: string | null, name?: string | null, path?: string | null } | null> | null, spCategories?: Array<{ __typename?: 'object_spCategory', id?: string | null, name?: string | null, slug?: string | null } | null> | null, spCollection?: { __typename?: 'object_spCollection', id?: string | null, hasPegs?: boolean | null, slug?: string | null, subtitle?: string | null, description?: string | null, name?: string | null, isComingSoon?: boolean | null, image?: { __typename?: 'asset', id?: string | null, fullpath?: string | null } | null } | null, spDrawerTypes?: Array<{ __typename?: 'object_spDrawerTypes', id?: string | null, name?: string | null, slug?: string | null, hasPegs?: boolean | null, description?: string | null, image?: { __typename?: 'asset', id?: string | null, fullpath?: string | null } | null } | null> | null, spFinish?: { __typename?: 'object_spFinish', id?: string | null, description?: string | null, name?: string | null, slug?: string | null, isComingSoon?: boolean | null, image?: { __typename?: 'asset', id?: string | null, filename?: string | null, fullpath?: string | null } | null } | null, bundlePath?: { __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null, finishes?: Array<{ __typename?: 'object_product_finishes', element?: { __typename?: 'object_product', id?: string | null, partNumber?: string | null } | null, metadata?: Array<{ __typename?: 'element_metadata_item_626823308bb9e', name?: string | null } | null> | null } | null> | null, configuratorAttributes?: Array<{ __typename?: 'csGroup', id?: number | null, description?: string | null, features?: Array<{ __typename?: 'csFeatureBooleanSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCalculatedValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, calculatedvalue?: string | null } | { __typename?: 'csFeatureCheckbox', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCountry', id?: number | null, name?: string | null, description?: string | null, type?: string | null, country?: string | null } | { __typename?: 'csFeatureCountryMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, countries?: Array<string | null> | null } | { __typename?: 'csFeatureDate', id?: number | null, name?: string | null, description?: string | null, type?: string | null, date?: string | null } | { __typename?: 'csFeatureDatetime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, datetime?: string | null } | { __typename?: 'csFeatureInput', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureInputQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, inputquantityvalue?: { __typename?: 'InputQuantityValue', value?: string | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureLanguage', id?: number | null, name?: string | null, description?: string | null, type?: string | null, language?: string | null } | { __typename?: 'csFeatureLangugeMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, languages?: Array<string | null> | null } | { __typename?: 'csFeatureMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selections?: Array<string | null> | null } | { __typename?: 'csFeatureNumeric', id?: number | null, name?: string | null, description?: string | null, type?: string | null, number?: string | null } | { __typename?: 'csFeatureQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, quantityvalue?: { __typename?: 'QuantityValue', value?: number | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureRgbaColor', id?: number | null, name?: string | null, description?: string | null, type?: string | null, color?: string | null } | { __typename?: 'csFeatureSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selection?: string | null } | { __typename?: 'csFeatureSlider', id?: number | null, name?: string | null, description?: string | null, type?: string | null, slidervalue?: string | null } | { __typename?: 'csFeatureTextarea', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureTime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, time?: string | null } | { __typename?: 'csFeatureWysiwyg', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | null> | null } | null> | null, options?: Array<{ __typename?: 'object_product', id?: string | null, partNumber?: string | null } | null> | null, children?: Array<{ __typename?: 'object_alternative' } | { __typename?: 'object_product', id?: string | null, partNumber?: string | null } | { __typename?: 'object_spCategory' } | { __typename?: 'object_spCollection' } | { __typename?: 'object_spDrawerTypes' } | { __typename?: 'object_spFinish' } | null> | null } | null } | null> | null } | null };
 
 export type GetProductStatusQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetProductStatusQuery = { __typename?: 'Query', getProductListing?: { __typename?: 'ProductConnection', edges?: Array<{ __typename?: 'ProductEdge', node?: { __typename?: 'object_product', id?: string | null } | null } | null> | null } | null };
+
+export type GetProductQueryVariables = Exact<{
+  id?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type GetProductQuery = { __typename?: 'Query', getProduct?: { __typename?: 'object_product', id?: string | null, childrenSortBy?: string | null, classname?: string | null, creationDate?: number | null, hasPegs?: boolean | null, index?: number | null, isMat?: boolean | null, isSubmodule?: boolean | null, itemDescription?: string | null, modificationDate?: number | null, p21Uid?: string | null, shortDescription?: string | null, shouldHideBasedOnWidth?: boolean | null, titleDescription?: string | null, isEdge?: boolean | null, alwaysDisplay?: boolean | null, partNumber?: string | null, alternative?: { __typename?: 'object_alternative', id?: string | null, hasPegs?: boolean | null, partNumber?: string | null, bundlePath?: { __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null } | null, productPictures?: Array<{ __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null> | null, properties?: Array<{ __typename?: 'property_checkbox', name?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'property_object', name?: string | null, type?: string | null, object?: { __typename?: 'object_alternative' } | { __typename?: 'object_product', id?: string | null, itemId?: string | null } | { __typename?: 'object_spCategory' } | { __typename?: 'object_spCollection' } | { __typename?: 'object_spDrawerTypes' } | { __typename?: 'object_spFinish' } | null } | { __typename?: 'property_select' } | { __typename?: 'property_text', name?: string | null, type?: string | null, text?: string | null } | null> | null, tags?: Array<{ __typename?: 'element_tag', id?: string | null, name?: string | null, path?: string | null } | null> | null, spCategories?: Array<{ __typename?: 'object_spCategory', id?: string | null, name?: string | null, slug?: string | null } | null> | null, spCollection?: { __typename?: 'object_spCollection', id?: string | null, hasPegs?: boolean | null, slug?: string | null, subtitle?: string | null, description?: string | null, name?: string | null, isComingSoon?: boolean | null, image?: { __typename?: 'asset', id?: string | null, fullpath?: string | null } | null } | null, spDrawerTypes?: Array<{ __typename?: 'object_spDrawerTypes', id?: string | null, name?: string | null, slug?: string | null, hasPegs?: boolean | null, description?: string | null, image?: { __typename?: 'asset', id?: string | null, fullpath?: string | null } | null } | null> | null, spFinish?: { __typename?: 'object_spFinish', id?: string | null, description?: string | null, name?: string | null, slug?: string | null, isComingSoon?: boolean | null, image?: { __typename?: 'asset', id?: string | null, filename?: string | null, fullpath?: string | null } | null } | null, bundlePath?: { __typename?: 'asset', id?: string | null, creationDate?: number | null, fullpath?: string | null, mimetype?: string | null, modificationDate?: number | null, type?: string | null, filesize?: number | null, metadata?: Array<{ __typename?: 'asset_metadata_item', name?: string | null, type?: string | null, data?: string | null, language?: string | null } | null> | null } | null, finishes?: Array<{ __typename?: 'object_product_finishes', element?: { __typename?: 'object_product', id?: string | null, partNumber?: string | null } | null, metadata?: Array<{ __typename?: 'element_metadata_item_626823308bb9e', name?: string | null } | null> | null } | null> | null, configuratorAttributes?: Array<{ __typename?: 'csGroup', id?: number | null, description?: string | null, features?: Array<{ __typename?: 'csFeatureBooleanSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCalculatedValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, calculatedvalue?: string | null } | { __typename?: 'csFeatureCheckbox', id?: number | null, name?: string | null, description?: string | null, type?: string | null, checked?: boolean | null } | { __typename?: 'csFeatureCountry', id?: number | null, name?: string | null, description?: string | null, type?: string | null, country?: string | null } | { __typename?: 'csFeatureCountryMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, countries?: Array<string | null> | null } | { __typename?: 'csFeatureDate', id?: number | null, name?: string | null, description?: string | null, type?: string | null, date?: string | null } | { __typename?: 'csFeatureDatetime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, datetime?: string | null } | { __typename?: 'csFeatureInput', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureInputQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, inputquantityvalue?: { __typename?: 'InputQuantityValue', value?: string | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureLanguage', id?: number | null, name?: string | null, description?: string | null, type?: string | null, language?: string | null } | { __typename?: 'csFeatureLangugeMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, languages?: Array<string | null> | null } | { __typename?: 'csFeatureMultiselect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selections?: Array<string | null> | null } | { __typename?: 'csFeatureNumeric', id?: number | null, name?: string | null, description?: string | null, type?: string | null, number?: string | null } | { __typename?: 'csFeatureQuantityValue', id?: number | null, name?: string | null, description?: string | null, type?: string | null, quantityvalue?: { __typename?: 'QuantityValue', value?: number | null, unit?: { __typename?: 'QuantityValueUnit', id?: string | null, abbreviation?: string | null, longname?: string | null } | null } | null } | { __typename?: 'csFeatureRgbaColor', id?: number | null, name?: string | null, description?: string | null, type?: string | null, color?: string | null } | { __typename?: 'csFeatureSelect', id?: number | null, name?: string | null, description?: string | null, type?: string | null, selection?: string | null } | { __typename?: 'csFeatureSlider', id?: number | null, name?: string | null, description?: string | null, type?: string | null, slidervalue?: string | null } | { __typename?: 'csFeatureTextarea', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | { __typename?: 'csFeatureTime', id?: number | null, name?: string | null, description?: string | null, type?: string | null, time?: string | null } | { __typename?: 'csFeatureWysiwyg', id?: number | null, name?: string | null, description?: string | null, type?: string | null, text?: string | null } | null> | null } | null> | null, options?: Array<{ __typename?: 'object_product', id?: string | null, partNumber?: string | null } | null> | null, children?: Array<{ __typename?: 'object_alternative' } | { __typename?: 'object_product', id?: string | null, partNumber?: string | null } | { __typename?: 'object_spCategory' } | { __typename?: 'object_spCollection' } | { __typename?: 'object_spDrawerTypes' } | { __typename?: 'object_spFinish' } | null> | null } | null };

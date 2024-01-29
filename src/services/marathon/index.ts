@@ -1,63 +1,47 @@
 import { ApolloClient, from, HttpLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client/core';
-// import { print } from 'graphql';
-import { Locale, PrismaClient } from '@prisma/client';
+import { Locale, Module, PrismaClient } from '@prisma/client';
 import { ForbiddenError } from 'apollo-server';
 import axios, { AxiosResponse } from 'axios';
 import fetch from 'cross-fetch';
-import deepmerge from 'deepmerge';
-import { isEqual } from 'lodash';
+import { helpers } from 'faker';
+import { toNumber } from 'lodash';
+import mime from 'mime';
 import path from 'path';
 import { URL } from 'url';
+import seed from '../../../prisma/seedValues/seed.json';
 import { env } from '../../env';
 import {
-  CsFeatureMultiselect,
-  CsFeatureQuantityValue,
   GetProductListingQuery,
   GetProductListingQueryVariables,
+  GetProductQuery,
+  GetProductQueryVariables,
   GetSpCategoryListingQuery,
   GetSpCollectionListingQuery,
   GetSpDrawerTypesListingQuery,
   GetSpFinishListingQuery
 } from '../../generated/graphql';
-import { NexusGenObjects } from '../../generated/nexus';
-import { convertInToMmFormatted, convertMmToInFormatted } from '../../utils/conversion';
 import { makeError } from '../../utils/exception';
-import { replaceExtension } from '../../utils/file';
+import { makeFile } from '../../utils/file';
 import logging from '../../utils/logging';
 import { fileUploadService } from '../fileUpload';
 import { projectService } from '../project';
+import { MarathonModule, ModuleRules } from './parsing/constants';
+import { makeRulesFromMarathonModule, mergeRules } from './parsing/parseRules';
 import {
+  GET_PRODUCT,
   GET_PRODUCT_LISTING,
   GET_SP_CATEGORY_LISTING,
   GET_SP_COLLECTION_LISTING,
   GET_SP_DRAWER_TYPES_LISTING,
   GET_SP_FINISH_LISTING
 } from './queries';
+import fs from 'fs';
 
 type MarathonServiceDependencies = {
   db?: PrismaClient;
 };
 
 let marathonApolloClient: ApolloClient<NormalizedCacheObject> | undefined;
-
-const FEATURE_NAMES = {
-  DIMENSION_HEIGHT: 'height',
-  MM_ID: 'mm',
-  IN_ID: 'in',
-  MIN_WIDTH: 'width_min',
-  MAX_WIDTH: 'width_max',
-  MIN_DEPTH: 'depth_min',
-  MAX_DEPTH: 'depth_max',
-  TRIMMABLE: 'trimmable',
-  TRIM_OFFSET_BOTTOM: 'trim_offset_bottom',
-  TRIM_OFFSET_TOP: 'trim_offset_top',
-  TRIM_OFFSET_LEFT: 'trim_offset_left',
-  TRIM_OFFSET_RIGHT: 'trim_offset_right'
-};
-
-type MarathonModule = NonNullable<
-  NonNullable<NonNullable<GetProductListingQuery['getProductListing']>['edges']>[0]
->['node'];
 
 export const marathonService = ({ db }: MarathonServiceDependencies) => {
   const {
@@ -95,31 +79,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       cache: new InMemoryCache()
     });
 
-  const storageSyncQueue: {
-    sourcePath: string;
-    originalPath: string;
-    destinationPath: string;
-  }[] = [];
-
-  const makeThumbnailUrlAndQueue = (sourcePath?: string | null, currentPath?: string | null) => {
-    let thumbnailUrl: string | undefined;
-
-    if (sourcePath?.trim() && currentPath?.trim()) {
-      thumbnailUrl = replaceExtension(currentPath, sourcePath);
-      let originalPath = thumbnailUrl;
-
-      // If the extension were changed, the paths are now different. So store the previous original path so the image can be deleted
-      if (currentPath !== originalPath) originalPath = currentPath;
-
-      storageSyncQueue.push({
-        sourcePath,
-        originalPath,
-        destinationPath: thumbnailUrl
-      });
-    }
-
-    return thumbnailUrl;
-  };
+  const storageSyncQueue: string[] = [];
+  const imagesNotFound: string[] = [];
 
   const storageSync = async () => {
     if (!MARATHON_MEDIA_URI) {
@@ -139,24 +100,41 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       const promises: Promise<void>[] = [];
 
       for (let index = 0; index < simultaneousSync; index++) {
-        const storageSync = storageSyncQueue[index];
+        let imagePath = storageSyncQueue[index];
+
+        if (imagePath.startsWith('/')) {
+          imagePath = imagePath.substring(1);
+        }
 
         promises.push(
           new Promise<void>(async (resolve, reject) => {
             try {
-              console.log(`Syncing image #${i + 1} of ${initialLength}`);
+              console.log(`Syncing image #${i + 1} of ${initialLength}. ${decodeURIComponent(imagePath)}`);
               i++;
 
-              // Download image
-              const file = await fileUpload.downloadFile(
-                new URL(storageSync.sourcePath, MARATHON_MEDIA_URI).toString()
-              );
+              try {
+                // Download image
+                const file = await fileUpload.downloadFile(new URL(imagePath, MARATHON_MEDIA_URI).toString());
 
-              // Try to delete current image
-              await fileUpload.DELETEFilesOnStorageCAUTION([storageSync.originalPath]);
+                try {
+                  // Try to delete current image, but only if managed to download previously
+                  await fileUpload.DELETEFilesOnStorageCAUTION([imagePath]);
+                } catch {
+                  // Do nothing, file probably doesn't exist
+                }
 
-              // Upload new image
-              await fileUpload.uploadFileToStorage(file.data, storageSync.destinationPath);
+                const mimetype = mime.lookup(imagePath) || 'application/octet-stream';
+
+                // Upload new image
+                await fileUpload.uploadFileToStorage(file.data, decodeURIComponent(imagePath), mimetype);
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              } catch (err: any) {
+                if (err?.response?.status && err.response.status === 404) {
+                  imagesNotFound.push(new URL(imagePath, MARATHON_MEDIA_URI).toString());
+                } else {
+                  logging.error(err, 'Could not sync image');
+                }
+              }
               resolve();
             } catch (err) {
               reject(err);
@@ -178,9 +156,13 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     }
 
     console.log('Finished syncing images');
+
+    if (imagesNotFound.length > 0) {
+      logging.warn('These images returned 404', { missingFiles: imagesNotFound });
+    }
   };
 
-  const syncCategory = async () => {
+  const syncCategory = async (skipDatabase?: boolean) => {
     if (!db) {
       throw new Error('db dependency was not provided');
     }
@@ -196,46 +178,43 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       });
 
       const categories = data?.getSpCategoryListing?.edges || [];
-      if (categories && categories.length > 0) {
-        console.log(`Fetched ${categories.length} categories`);
+      console.log(`Fetched ${categories.length} categories`);
 
-        const slugs = categories
-          .map((categoryEdge) => categoryEdge?.node?.slug?.trim() as string) // Casting because we're filtering right after
-          .filter((x) => !!x);
-        // const externalIds = categories.map(({ node: category }) => category.id);
-
+      if (!skipDatabase && categories && categories.length > 0) {
         // Get all categories that we already have
         const existingCategories = await db.category.findMany({
-          select: { slug: true },
-          where: {
-            slug: {
-              in: slugs
-            }
-          }
+          select: { externalId: true, slug: true }
         });
 
         // Received categories
         const categoriesToUpdate = categories.filter((categoryEdge) =>
           // Where exists in the database
-          existingCategories.some((cat) => cat.slug === categoryEdge?.node?.slug?.trim())
+          existingCategories.some((cat) => cat.externalId === categoryEdge?.node?.id)
         );
 
         // Received categories
         const categoriesToCreate = categories.filter(
           // Where it DOESN'T exist in the database
-          (categoryEdge) => !existingCategories.some((cat) => cat.slug === categoryEdge?.node?.slug?.trim())
+          (categoryEdge) => !existingCategories.some((cat) => cat.externalId === categoryEdge?.node?.id)
+        );
+
+        const categoriesWithSlug = existingCategories.filter((cat) =>
+          categoriesToCreate.some((categoryEdge) => categoryEdge?.node?.slug === cat.slug)
         );
 
         for (let i = 0; i < categoriesToUpdate.length; i++) {
           const categoryEdge = categoriesToUpdate[i];
-          const slug = categoryEdge?.node?.slug?.trim();
-          console.log(`Updating category #${i + 1} ${slug} of ${categoriesToUpdate.length}`);
+          const id = categoryEdge?.node?.id;
+
+          if (!id) continue;
+
+          console.log(`Updating category id: ${id} #${i + 1} of ${categoriesToUpdate.length}`);
 
           await db.category.update({
-            where: { slug },
+            where: { externalId: id },
             data: {
-              externalId: categoryEdge?.node?.id?.trim(),
-              name: categoryEdge?.node?.name?.trim()
+              name: categoryEdge?.node?.name?.trim(),
+              slug: categoryEdge?.node?.slug?.trim()
             }
           });
         }
@@ -245,18 +224,37 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.category.createMany({
             data: categoriesToCreate
               .filter((categoryEdge) => categoryEdge?.node?.id && categoryEdge?.node?.slug && categoryEdge?.node?.name)
-              .map((categoryEdge) => ({
-                // Casting because we're sure, since there's a filter right above
-                externalId: categoryEdge?.node?.id?.trim() as string,
-                slug: categoryEdge?.node?.slug?.trim() as string,
-                name: categoryEdge?.node?.name?.trim() as string
-              }))
+              .map((categoryEdge) => {
+                let slug = categoryEdge?.node?.slug?.trim() as string;
+
+                const sameSlugCategories = categoriesWithSlug.filter((cat) => cat.slug === slug);
+                if (sameSlugCategories?.length > 0) {
+                  slug = `${slug}-${sameSlugCategories.length}`;
+                }
+
+                return {
+                  // Casting because we're sure, since there's a filter right above
+                  externalId: categoryEdge?.node?.id as string,
+                  slug,
+                  name: categoryEdge?.node?.name?.trim() as string
+                };
+              })
           });
         } else {
           console.log(`No category to create`);
         }
-      } else {
-        console.log('No category has been returned');
+      }
+
+      if (!skipDatabase) {
+        const allCategory = await db.category.findUnique({ where: { slug: 'all' } });
+        if (!allCategory) {
+          await db.category.create({
+            data: {
+              name: 'All',
+              slug: 'all'
+            }
+          });
+        }
       }
     } catch (err) {
       logging.error(err, 'Error fetching Marathon categories');
@@ -266,7 +264,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.timeEnd('categories');
   };
 
-  const syncCollection = async () => {
+  const syncCollection = async (skipDatabase?: boolean) => {
     if (!db) {
       throw new Error('db dependency was not provided');
     }
@@ -282,25 +280,17 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       });
 
       const collections = data?.getSpCollectionListing?.edges || [];
-      if (collections && collections.length > 0) {
-        console.log(`Fetched ${collections.length} collections`);
+      console.log(`Fetched ${collections.length} collections`);
 
-        const slugs = collections
-          .map((collectionEdge) => collectionEdge?.node?.slug?.trim() as string) // Casting because we're filtering right after
-          .filter((x) => !!x);
-
+      if (!skipDatabase && collections && collections.length > 0) {
         const existingCollections = await db.collection.findMany({
           select: {
+            externalId: true,
             slug: true,
             thumbnailUrl: true,
             translations: {
               where: { locale: defaultSyncLocale },
               select: { id: true }
-            }
-          },
-          where: {
-            slug: {
-              in: slugs
             }
           }
         });
@@ -308,7 +298,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         // Received collections
         const collectionsToUpdate = collections.filter((collectionEdge) =>
           // Where exists in the database
-          existingCollections.some((col) => col.slug === collectionEdge?.node?.slug?.trim())
+          existingCollections.some((col) => col.externalId === collectionEdge?.node?.id)
         );
 
         const whitelistedSlugs = MARATHON_COLLECTIONS_WHITELIST.split(',').filter((x) => !!x);
@@ -318,32 +308,37 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           // Where it DOESN'T exist in the database
           (collectionEdge) =>
             collectionEdge?.node?.slug?.trim() &&
-            !existingCollections.some((col) => col.slug === collectionEdge?.node?.slug?.trim()) &&
+            !existingCollections.some((col) => col.externalId === collectionEdge?.node?.id) &&
             whitelistedSlugs.includes(collectionEdge.node.slug.trim())
+        );
+
+        const collectionsWithSlug = existingCollections.filter((col) =>
+          collectionsToCreate.some((collectionEdge) => collectionEdge?.node?.slug === col.slug)
         );
 
         for (let i = 0; i < collectionsToUpdate.length; i++) {
           const collectionEdge = collectionsToUpdate[i];
-          const slug = collectionEdge?.node?.slug?.trim();
+          const id = collectionEdge?.node?.id;
 
-          const currentCollection = existingCollections.find((x) => x.slug === slug);
-          if (!currentCollection) continue;
+          const currentCollection = existingCollections.find((x) => x.externalId === id);
+          if (!currentCollection || !currentCollection.externalId) continue;
 
-          console.log(`Updating collection #${i + 1} ${slug} of ${collectionsToUpdate.length}`);
+          console.log(
+            `Updating collection id: ${currentCollection.externalId} #${i + 1} of ${collectionsToUpdate.length}`
+          );
 
           const translationIds = currentCollection.translations.map((x) => x.id);
+          const thumbnailUrl = collectionEdge?.node?.image?.fullpath;
+
+          if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
 
           await db.collection.update({
-            where: { slug },
+            where: { externalId: currentCollection.externalId },
             data: {
-              externalId: collectionEdge?.node?.id?.trim(),
-              thumbnailUrl: makeThumbnailUrlAndQueue(
-                collectionEdge?.node?.image?.fullpath,
-                currentCollection.thumbnailUrl
-              ),
+              slug: collectionEdge?.node?.slug?.trim(),
+              thumbnailUrl,
               hasPegs: collectionEdge?.node?.hasPegs || undefined,
               isComingSoon: collectionEdge?.node?.isComingSoon || undefined,
-
               translations:
                 translationIds && translationIds.length > 0
                   ? {
@@ -367,27 +362,35 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.collection.createMany({
             data: collectionsToCreate
               .filter((collectionEdge) => collectionEdge?.node?.id && collectionEdge?.node?.slug)
-              .map((collectionEdge) => ({
-                // Casting because we're sure, since there's a filter right above
-                externalId: collectionEdge?.node?.id?.trim() as string,
-                slug: collectionEdge?.node?.slug?.trim() as string,
-                thumbnailUrl: makeThumbnailUrlAndQueue(
-                  collectionEdge?.node?.image?.fullpath?.trim(),
-                  `image/collection/${collectionEdge?.node?.slug?.trim()}${path.extname(
-                    collectionEdge?.node?.image?.fullpath?.trim() || ''
-                  )}}`
-                ),
-                hasPegs: collectionEdge?.node?.hasPegs || false,
-                isComingSoon: collectionEdge?.node?.isComingSoon || false
-              }))
+              .map((collectionEdge) => {
+                let slug = collectionEdge?.node?.slug?.trim() as string;
+
+                const sameSlugCollections = collectionsWithSlug.filter((col) => col.slug === slug);
+                if (sameSlugCollections?.length > 0) {
+                  slug = `${slug}-${sameSlugCollections.length}`;
+                }
+
+                const thumbnailUrl = collectionEdge?.node?.image?.fullpath?.trim();
+
+                if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
+
+                return {
+                  // Casting because we're sure, since there's a filter right above
+                  externalId: collectionEdge?.node?.id as string,
+                  slug,
+                  thumbnailUrl,
+                  hasPegs: collectionEdge?.node?.hasPegs || false,
+                  isComingSoon: collectionEdge?.node?.isComingSoon || false
+                };
+              })
           });
 
           console.log(`Fetching recently created ${collectionsToCreate.length} collections`);
           const recentlyCreatedCollections = await db.collection.findMany({
-            where: { slug: { in: collectionsToCreate.map((x) => x?.node?.slug?.trim() as string).filter((x) => !!x) } },
+            where: { externalId: { in: collectionsToCreate.map((x) => x?.node?.id as string).filter((x) => !!x) } },
             select: {
               id: true,
-              slug: true
+              externalId: true
             }
           });
 
@@ -396,7 +399,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             data: recentlyCreatedCollections.map((dbCollection) => {
               // The type is undefined, but we're sure it returns correctly(at least it should)
               // Worst case translations will be empty, and that's their fault
-              const collection = collectionsToCreate.find((x) => x?.node?.slug?.trim() === dbCollection.slug);
+              const collection = collectionsToCreate.find((x) => x?.node?.id === dbCollection.externalId);
 
               return {
                 locale: defaultSyncLocale,
@@ -410,8 +413,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         } else {
           console.log(`No collection to create`);
         }
-      } else {
-        console.log('No collection has been returned');
       }
     } catch (err) {
       logging.error(err, 'Error fetching Marathon collections');
@@ -421,7 +422,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.timeEnd('collections');
   };
 
-  const syncDrawerType = async () => {
+  const syncDrawerType = async (skipDatabase?: boolean) => {
     if (!db) {
       throw new Error('db dependency was not provided');
     }
@@ -436,26 +437,17 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       });
 
       const drawerTypes = data?.getSpDrawerTypesListing?.edges || [];
+      console.log(`Fetched ${drawerTypes.length} drawer types`);
 
-      if (drawerTypes && drawerTypes.length > 0) {
-        console.log(`Fetched ${drawerTypes.length} drawer types`);
-
-        const slugs = drawerTypes
-          .map((drawerTypeEdge) => drawerTypeEdge?.node?.slug?.trim() as string) // Casting because we filter right after
-          .filter((x) => !!x);
-
+      if (!skipDatabase && drawerTypes && drawerTypes.length > 0) {
         const existingDrawerTypes = await db.type.findMany({
           select: {
+            externalId: true,
             slug: true,
             thumbnailUrl: true,
             translations: {
               where: { locale: defaultSyncLocale },
               select: { id: true }
-            }
-          },
-          where: {
-            slug: {
-              in: slugs
             }
           }
         });
@@ -463,7 +455,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         // Received drawer types
         const drawerTypesToUpdate = drawerTypes.filter((drawerTypeEdge) =>
           // Where exists in the database
-          existingDrawerTypes.some((type) => type.slug === drawerTypeEdge?.node?.slug?.trim())
+          existingDrawerTypes.some((type) => type.externalId === drawerTypeEdge?.node?.id)
         );
 
         const whitelistedSlugs = MARATHON_DRAWER_TYPES_WHITELIST.split(',').filter((x) => !!x);
@@ -473,29 +465,36 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           // Where it DOESN'T exist in the database
           (drawerTypeEdge) =>
             drawerTypeEdge?.node?.slug?.trim() &&
-            !existingDrawerTypes.some((type) => type.slug === drawerTypeEdge?.node?.slug?.trim()) &&
+            !existingDrawerTypes.some((type) => type.externalId === drawerTypeEdge?.node?.id) &&
             whitelistedSlugs.includes(drawerTypeEdge.node.slug.trim())
+        );
+
+        const typesWithSlug = existingDrawerTypes.filter((type) =>
+          drawerTypesToCreate.some((typeEdge) => typeEdge?.node?.slug === type.slug)
         );
 
         for (let i = 0; i < drawerTypesToUpdate.length; i++) {
           const drawerTypeEdge = drawerTypesToUpdate[i];
-          const slug = drawerTypeEdge?.node?.slug?.trim();
+          const id = drawerTypeEdge?.node?.id;
 
-          const currentDrawerType = existingDrawerTypes.find((x) => x.slug === slug);
-          if (!currentDrawerType) continue;
+          const currentDrawerType = existingDrawerTypes.find((x) => x.externalId === id);
+          if (!currentDrawerType || !currentDrawerType.externalId) continue;
 
-          console.log(`Updating drawer type #${i + 1} ${slug} of ${drawerTypesToUpdate.length}`);
+          console.log(
+            `Updating drawer type id: ${currentDrawerType.externalId}  #${i + 1} of ${drawerTypesToUpdate.length}`
+          );
 
           const translationIds = currentDrawerType.translations.map((x) => x.id);
 
+          const thumbnailUrl = drawerTypeEdge?.node?.image?.fullpath;
+
+          if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
+
           await db.type.update({
-            where: { slug },
+            where: { externalId: currentDrawerType.externalId },
             data: {
-              externalId: drawerTypeEdge?.node?.id?.trim(),
-              thumbnailUrl: makeThumbnailUrlAndQueue(
-                drawerTypeEdge?.node?.image?.fullpath,
-                currentDrawerType.thumbnailUrl
-              ),
+              slug: drawerTypeEdge?.node?.slug?.trim(),
+              thumbnailUrl,
               hasPegs: drawerTypeEdge?.node?.hasPegs || undefined,
               // isComingSoon: drawerTypeEdge?.node?.isComingSoon || undefined,
 
@@ -521,27 +520,35 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.type.createMany({
             data: drawerTypesToCreate
               .filter((drawerTypeEdge) => drawerTypeEdge?.node?.id && drawerTypeEdge?.node?.slug)
-              .map((drawerTypeEdge) => ({
-                // Casting because we're filtering right above
-                externalId: drawerTypeEdge?.node?.id?.trim() as string,
-                slug: drawerTypeEdge?.node?.slug?.trim() as string,
-                thumbnailUrl: makeThumbnailUrlAndQueue(
-                  drawerTypeEdge?.node?.image?.fullpath?.trim(),
-                  `image/type/${drawerTypeEdge?.node?.slug?.trim()}${path.extname(
-                    drawerTypeEdge?.node?.image?.fullpath?.trim() || ''
-                  )}`
-                ),
-                hasPegs: drawerTypeEdge?.node?.hasPegs || false
-                // isComingSoon: drawerTypeEdge?.node?.isComingSoon || false
-              }))
+              .map((drawerTypeEdge) => {
+                let slug = drawerTypeEdge?.node?.slug?.trim() as string;
+
+                const sameSlugTypes = typesWithSlug.filter((type) => type.slug === slug);
+                if (sameSlugTypes?.length > 0) {
+                  slug = `${slug}-${sameSlugTypes.length}`;
+                }
+
+                const thumbnailUrl = drawerTypeEdge?.node?.image?.fullpath?.trim();
+
+                if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
+
+                return {
+                  // Casting because we're filtering right above
+                  externalId: drawerTypeEdge?.node?.id as string,
+                  slug,
+                  thumbnailUrl,
+                  hasPegs: drawerTypeEdge?.node?.hasPegs || false
+                  // isComingSoon: drawerTypeEdge?.node?.isComingSoon || false
+                };
+              })
           });
 
           console.log(`Fetching recently created ${drawerTypesToCreate.length} drawer types`);
-          const recentlyCreatedDrawerTypes = await db.collection.findMany({
-            where: { slug: { in: drawerTypesToCreate.map((x) => x?.node?.slug?.trim() as string).filter((x) => !!x) } },
+          const recentlyCreatedDrawerTypes = await db.type.findMany({
+            where: { externalId: { in: drawerTypesToCreate.map((x) => x?.node?.id as string).filter((x) => !!x) } },
             select: {
               id: true,
-              slug: true
+              externalId: true
             }
           });
 
@@ -549,7 +556,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.typeTranslations.createMany({
             data: recentlyCreatedDrawerTypes.map((dbType) => {
               // This returns undefined, but we're sure it returns correctly(at least it should)
-              const drawerType = drawerTypesToCreate.find((x) => x?.node?.slug?.trim() === dbType.slug);
+              const drawerType = drawerTypesToCreate.find((x) => x?.node?.id === dbType.externalId);
 
               return {
                 locale: defaultSyncLocale,
@@ -562,8 +569,6 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         } else {
           console.log(`No drawerType to create`);
         }
-      } else {
-        console.log('No drawer type has been returned');
       }
     } catch (err) {
       logging.error(err, 'Error fetching Marathon drawer types');
@@ -573,7 +578,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.timeEnd('drawerType');
   };
 
-  const syncFinish = async () => {
+  const syncFinish = async (skipDatabase?: boolean) => {
     if (!db) {
       throw new Error('db dependency was not provided');
     }
@@ -588,25 +593,18 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       });
 
       const finishes = data.getSpFinishListing?.edges || [];
-      if (finishes && finishes.length > 0) {
-        console.log(`Fetched ${finishes.length} finishes`);
+      console.log(`Fetched ${finishes.length} finishes`);
 
-        const slugs = finishes
-          .map((finishEdge) => finishEdge?.node?.slug?.trim() as string) // Casting since we're filtering right after
-          .filter((x) => !!x);
-
+      if (!skipDatabase && finishes && finishes.length > 0) {
         const existingFinishes = await db.finish.findMany({
           select: {
+            id: true,
+            externalId: true,
             slug: true,
             thumbnailUrl: true,
             translations: {
               where: { locale: defaultSyncLocale },
               select: { id: true }
-            }
-          },
-          where: {
-            slug: {
-              in: slugs
             }
           }
         });
@@ -614,7 +612,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         // Received finishes
         const finishesToUpdate = finishes.filter((finishEdge) =>
           // Where exists in the database
-          existingFinishes.some((fin) => fin.slug === finishEdge?.node?.slug?.trim())
+          existingFinishes.some((fin) => fin.externalId === finishEdge?.node?.id)
         );
 
         const whitelistedSlugs = MARATHON_FINISHES_WHITELIST.split(',').filter((x) => !!x);
@@ -624,26 +622,33 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           // Where it DOESN'T exist in the database
           (finishEdge) =>
             finishEdge?.node?.slug?.trim() &&
-            !existingFinishes.some((fin) => fin.slug === finishEdge?.node?.slug?.trim()) &&
+            !existingFinishes.some((fin) => fin.externalId === finishEdge?.node?.id) &&
             whitelistedSlugs.includes(finishEdge.node.slug.trim())
+        );
+
+        const finishesWithSlug = existingFinishes.filter((fin) =>
+          finishesToCreate.some((finishEdge) => finishEdge?.node?.slug === fin.slug)
         );
 
         for (let i = 0; i < finishesToUpdate.length; i++) {
           const finishEdge = finishesToUpdate[i];
-          const slug = finishEdge?.node?.slug?.trim();
+          const id = finishEdge?.node?.id;
 
-          const currentFinish = existingFinishes.find((x) => x.slug === slug);
-          if (!currentFinish) continue;
+          const currentFinish = existingFinishes.find((x) => x.externalId === id);
+          if (!currentFinish || !currentFinish.externalId) continue;
 
-          console.log(`Updating finish #${i + 1} ${slug} of ${finishesToUpdate.length}`);
+          console.log(`Updating finish id: ${id} #${i + 1} of ${finishesToUpdate.length}`);
 
           const translationIds = currentFinish.translations.map((x) => x.id);
 
-          await db.finish.update({
-            where: { slug },
-            data: {
-              externalId: finishEdge?.node?.id?.trim(),
-              thumbnailUrl: makeThumbnailUrlAndQueue(finishEdge?.node?.image?.fullpath, currentFinish.thumbnailUrl),
+          const thumbnailUrl = finishEdge?.node?.image?.fullpath;
+
+          if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
+
+          try {
+            console.dir({
+              slug: finishEdge?.node?.slug?.trim(),
+              thumbnailUrl,
               translations:
                 translationIds && translationIds.length > 0
                   ? {
@@ -657,36 +662,70 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                       }
                     }
                   : undefined
-            }
-          });
+            });
+
+            await db.finish.update({
+              where: { externalId: currentFinish.externalId },
+              data: {
+                slug: finishEdge?.node?.slug?.trim(),
+                thumbnailUrl,
+                translations:
+                  translationIds && translationIds.length > 0
+                    ? {
+                        update: {
+                          // Theoretically we should only have one id for locale+slug
+                          where: { id: translationIds[0] },
+                          data: {
+                            name: finishEdge?.node?.name?.trim(),
+                            description: finishEdge?.node?.description?.trim()
+                          }
+                        }
+                      }
+                    : undefined
+              }
+            });
+          } catch (ex) {
+            throw ex;
+          }
+
+          await db.collectionFinishes.deleteMany({ where: { finish: { externalId: currentFinish.externalId } } });
         }
+
+        let recentlyCreatedFinishes: { id: number; externalId: string | null; slug: string }[] = [];
 
         if (finishesToCreate && finishesToCreate.length > 0) {
           console.log(`Batch creating ${finishesToCreate.length} finishes`);
           await db.finish.createMany({
             data: finishesToCreate
-              .filter(
-                (finishEdge) => finishEdge?.node?.id && finishEdge?.node?.slug && finishEdge?.node?.image?.fullpath
-              )
-              .map((finishEdge) => ({
-                // Casing since we're filtering right above
-                externalId: finishEdge?.node?.id?.trim() as string,
-                slug: finishEdge?.node?.slug?.trim() as string,
-                thumbnailUrl: makeThumbnailUrlAndQueue(
-                  finishEdge?.node?.image?.fullpath?.trim(),
-                  `image/finish/${finishEdge?.node?.slug?.trim()}${path.extname(
-                    finishEdge?.node?.image?.fullpath?.trim() || ''
-                  )}`
-                )
-              }))
+              .filter((finishEdge) => finishEdge?.node?.id && finishEdge?.node?.slug)
+              .map((finishEdge) => {
+                let slug = finishEdge?.node?.slug?.trim() as string;
+
+                const sameSlugFinishes = finishesWithSlug.filter((fin) => fin.slug === slug);
+                if (sameSlugFinishes?.length > 0) {
+                  slug = `${slug}-${sameSlugFinishes.length}`;
+                }
+
+                const thumbnailUrl = finishEdge?.node?.image?.fullpath?.trim();
+
+                if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
+
+                return {
+                  // Casing since we're filtering right above
+                  externalId: finishEdge?.node?.id?.trim() as string,
+                  slug,
+                  thumbnailUrl
+                };
+              })
           });
 
           console.log(`Fetching recently created ${finishesToCreate.length} finishes`);
-          const recentlyCreatedFinishes = await db.finish.findMany({
-            where: { slug: { in: finishesToCreate.map((x) => x?.node?.slug?.trim() as string).filter((x) => !!x) } },
+          recentlyCreatedFinishes = await db.finish.findMany({
+            where: { externalId: { in: finishesToCreate.map((x) => x?.node?.id as string).filter((x) => !!x) } },
             select: {
               id: true,
-              slug: true
+              slug: true,
+              externalId: true
             }
           });
 
@@ -694,7 +733,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           await db.finishTranslations.createMany({
             data: recentlyCreatedFinishes.map((dbFinish) => {
               // This returns undefined, but we're sure it returns correctly(at least it should)
-              const finish = finishesToCreate.find((x) => x?.node?.slug?.trim() === dbFinish.slug);
+              const finish = finishesToCreate.find((x) => x?.node?.id === dbFinish.externalId);
 
               return {
                 locale: defaultSyncLocale,
@@ -707,8 +746,44 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         } else {
           console.log(`No finish to create`);
         }
-      } else {
-        console.log('No finish has been returned');
+
+        const allFinishes = [...recentlyCreatedFinishes, ...existingFinishes];
+
+        const collectionsForFinishes = await db.collection.findMany({
+          where: {
+            slug: {
+              in: seed.collectionFinishes
+                .filter((colFin) => allFinishes.some((dbFin) => dbFin.slug === colFin.finish))
+                .map((x) => x.collection)
+            }
+          }
+        });
+
+        console.log(`Batch creating ${allFinishes.length} collection finishes`);
+        await db.collectionFinishes.createMany({
+          skipDuplicates: true,
+          data: allFinishes
+            .flatMap((dbFinish) => {
+              const collectionFinish = seed.collectionFinishes.filter((x) => x.finish === dbFinish.slug);
+              return collectionFinish.flatMap((collectionFinish) => {
+                const collection = collectionsForFinishes.filter((x) => x.slug === collectionFinish?.collection);
+
+                return collection.flatMap((collection) => ({
+                  finishId: dbFinish.id,
+                  collectionId: collection?.id || -1
+                }));
+              });
+            })
+            .filter((x) => !!x)
+            .map(
+              (x) =>
+                // Casting because we filtered right before
+                x as {
+                  finishId: number;
+                  collectionId: number;
+                }
+            )
+        });
       }
     } catch (err) {
       logging.error(err, 'Error fetching Marathon finishes');
@@ -718,225 +793,409 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.timeEnd('finish');
   };
 
-  /**
-   * Tries to grab a value of @param featureName from a feature list
-   */
-  const getQuantityValueFeature = <TResult>(
-    featureList: NonNullable<NonNullable<NonNullable<MarathonModule>['configuratorAttributes']>[number]>['features'],
-    featureName: string,
-    featureUnitId: string,
-    format?: (value?: unknown) => TResult
-  ): TResult => {
-    // Get the feature with the name we want from the list
-    const feature = featureList?.find((feature) => feature?.name === featureName) as CsFeatureQuantityValue | undefined;
+  const syncSlides = async (skipDatabase?: boolean) => {
+    if (!db) {
+      throw new Error('db dependency was not provided');
+    }
 
-    // If unit is wrong
-    if (feature?.quantityvalue?.unit?.id && feature.quantityvalue.unit.id !== featureUnitId) {
-      if (featureUnitId === FEATURE_NAMES.MM_ID && feature.quantityvalue.unit.id === FEATURE_NAMES.IN_ID) {
-        const inchValue = convertInToMmFormatted(`${feature.quantityvalue.value || 0}`);
+    console.log('Syncing slides');
+    console.time('slides');
+    console.log('Fetching slides');
 
-        return format ? format(inchValue) : (inchValue as unknown as TResult);
-      } else if (featureUnitId === FEATURE_NAMES.IN_ID && feature.quantityvalue.unit.id === FEATURE_NAMES.MM_ID) {
-        const mmValue = convertMmToInFormatted(`${feature.quantityvalue.value || 0}`);
+    try {
+      // const { data } = await marathonApollo.query<GetSpFinishListingQuery>({
+      //   query: GET_SP_FINISH_LISTING,
+      //   fetchPolicy: 'no-cache'
+      // });
+      const data = seed.slides;
 
-        return format ? format(mmValue) : (mmValue as unknown as TResult);
-      } else {
-        throw makeError(
-          `Expected ${featureName} feature as ${featureUnitId}, but was returned as "${feature?.quantityvalue?.unit?.id}" with value "${feature.quantityvalue.value}"`,
-          'ruleMergeFeatureQuantityUnit'
+      const slides = data;
+      console.log(`Fetched ${slides.length} slides`);
+
+      if (!skipDatabase && slides && slides.length > 0) {
+        for (let i = 0; i < slides.length; i++) {
+          const slideEdge = slides[i];
+
+          console.log(`Upserting slide #${i + 1} of ${slides.length}`);
+
+          const supplierSlug = helpers.slugify(slideEdge.supplier).toLowerCase();
+          const slideSlug = helpers
+            .slugify(`${slideEdge.supplier}-${slideEdge.product}-${slideEdge.collection}`)
+            .toLowerCase();
+
+          const existingSlide = await db.slide.findUnique({ where: { slug: slideSlug } });
+          const depths = slideEdge.depth;
+
+          if (!existingSlide) {
+            if (!skipDatabase) {
+              // Commented since we're never updating it anyway
+              /* existingSlide = */ await db.slide.create({
+                data: {
+                  slug: slideSlug,
+                  formula: slideEdge.formula,
+                  product: slideEdge.product,
+                  supplier: {
+                    connectOrCreate: {
+                      where: {
+                        slug: supplierSlug
+                      },
+                      create: {
+                        name: slideEdge.supplier,
+                        slug: supplierSlug,
+                        thumbnailUrl: seed.supplierLogos.find((y) => y.supplier === supplierSlug)?.supplierImgURL
+                      }
+                    }
+                  },
+                  collection: {
+                    connect: {
+                      slug: slideEdge.collection
+                    }
+                  },
+                  depths: {
+                    createMany: {
+                      data: depths.map(({ roundedValue, value }) => ({
+                        display: `${roundedValue}mm`,
+                        depth: toNumber(value)
+                      }))
+                    }
+                  }
+                }
+              });
+            }
+          } else if (false) {
+            if (!skipDatabase) {
+              // Commented for now since we're using seed so data would never be updated
+              // existingSlide =  await db.slide.update({
+              //   where: { slug: slideSlug },
+              //   data: {
+              //     formula: slideEdge.formula,
+              //     product: slideEdge.product,
+              //     supplier: {
+              //       connectOrCreate: {
+              //         where: {
+              //           slug: supplierSlug
+              //         },
+              //         create: {
+              //           name: slideEdge.supplier,
+              //           slug: supplierSlug,
+              //           thumbnailUrl: seed.supplierLogos.find((y) => y.supplier === supplierSlug)?.supplierImgURL
+              //         }
+              //       }
+              //     },
+              //     collection: {
+              //       connect: {
+              //         slug: slideEdge.collection
+              //       }
+              //     }
+              //   }
+              // });
+              // await db.slideDepth.deleteMany({ where: { slideId: existingSlide.id } });
+              // if (depths?.length > 0) {
+              // await db.slideDepth.createMany({
+              //   data: depths.map(({ roundedValue, value }) => ({
+              //     display: `${roundedValue}mm`,
+              //     depth: toNumber(value),
+              //     slideId: existingSlide?.id || -1
+              //   }))
+              // });
+              // }
+            }
+          }
+        }
+      }
+    } catch (err) {
+      logging.error(err, 'Error fetching Marathon slides');
+    }
+
+    console.log('Finished syncing slides');
+    console.timeEnd('slides');
+  };
+
+  const upsertProductModule = async (
+    module: ModuleRules,
+    skipDatabase?: boolean,
+    originalMarathonProductJson?: MarathonModule
+    // eslint-disable-next-line @typescript-eslint/ban-types
+  ): Promise<'created' | 'updated' | (string & {})> => {
+    if (!db) {
+      throw new Error('db dependency was not provided');
+    }
+
+    if (!module.externalId) return `Module ${module.partNumber} has no externalId`;
+
+    let status = 'created';
+
+    console.log(`Upserting module ${module.partNumber} ${module.externalId}`);
+
+    //const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+    //makeFile(dir, path.join(`jsons/${module.partNumber}.json`), module);
+
+    const existingProduct = await db.module.findUnique({
+      where: {
+        externalId: module.externalId
+      }
+    });
+
+    const partNumberProduct = await db.module.findMany({
+      where: {
+        partNumber: { startsWith: module.partNumber }
+      }
+    });
+
+    // Removes unwanted data out of "module"
+    const {
+      finish,
+      collection,
+      drawerTypes,
+      categories,
+      otherFinishes,
+      extensions,
+      dimensions,
+      ownerExternalId,
+      ...moduleRest
+    } = module;
+
+    let { partNumber } = module;
+
+    const bundleUrl = seed.modules.find((x) => x.partNumber.toLowerCase() === partNumber.toLowerCase())?.bundlePath;
+
+    if (!bundleUrl) {
+      try {
+        fs.writeFileSync(
+          path.normalize(__dirname + `./../../../debug/${module.partNumber}.json`),
+          JSON.stringify(module, null, 2),
+          { flag: 'w', encoding: 'utf-8' }
         );
+      } catch {
+        // Do nothing
       }
     }
 
-    // Format or return plain
-    return format ? format(feature?.quantityvalue?.value) : (feature?.quantityvalue?.value as unknown as TResult);
-  };
+    if (!existingProduct && partNumberProduct?.length > 0) {
+      partNumber = `${partNumber}-${partNumberProduct.length}`;
+    }
 
-  /**
-   * Tries to safely convert a param to a number
-   */
-  const numberFromMaybe = (originalValue?: string | number | null | unknown): number => {
-    let value = originalValue;
+    let resultModule: Module | undefined;
 
-    if (typeof value !== 'number') value = parseFloat(`${value}`);
-
-    // Castng because we convert the value above
-    return value && !isNaN(value as number) ? (value as number) : 0;
-  };
-
-  const makeRulesFromMarathonModule = (marathonModule: MarathonModule): NexusGenObjects['ModuleRules'] => {
-    const partNumber = marathonModule?.partNumber?.trim();
-    if (!partNumber) throw makeError('Cannot create rule without partNumber', 'ruleMergeMissingPartNumber');
-
-    // ---- Dimensions
-
-    const dimensionAttribute = marathonModule?.configuratorAttributes?.find((attribute) =>
-      attribute?.features?.some((feature) => feature?.name === FEATURE_NAMES.DIMENSION_HEIGHT)
-    );
-
-    // -------- Height
-
-    const heightMM = getQuantityValueFeature(
-      dimensionAttribute?.features,
-      FEATURE_NAMES.DIMENSION_HEIGHT,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    // -------- Width
-
-    const minWidthMM = getQuantityValueFeature(
-      dimensionAttribute?.features,
-      FEATURE_NAMES.MIN_WIDTH,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    const maxWidthMM = getQuantityValueFeature(
-      dimensionAttribute?.features,
-      FEATURE_NAMES.MAX_WIDTH,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    // -------- Depth
-
-    const minDepthMM = getQuantityValueFeature(
-      dimensionAttribute?.features,
-      FEATURE_NAMES.MIN_DEPTH,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    const maxDepthMM = getQuantityValueFeature(
-      dimensionAttribute?.features,
-      FEATURE_NAMES.MAX_DEPTH,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    // ---- Rules
-
-    const rulesAttribute = marathonModule?.configuratorAttributes?.find((attribute) =>
-      attribute?.features?.some((feature) => feature?.name === FEATURE_NAMES.TRIMMABLE)
-    );
-
-    // -------- Trimmable
-
-    const trimmable = (
-      rulesAttribute?.features?.find((feature) => feature?.name === FEATURE_NAMES.TRIMMABLE) as
-        | CsFeatureMultiselect
-        | undefined
-    )?.selections
-      ?.filter((x) => !!x) // Remove nulls and undefined values IF they exist
-      .map((x) => x as string); // Cast to string because we know there are no null/undefined values since we filtered
-
-    // -------- Trim offset
-
-    const trimOffsetBottomMM = getQuantityValueFeature(
-      rulesAttribute?.features,
-      FEATURE_NAMES.TRIM_OFFSET_BOTTOM,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    const trimOffsetTopMM = getQuantityValueFeature(
-      rulesAttribute?.features,
-      FEATURE_NAMES.TRIM_OFFSET_TOP,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    const trimOffsetLeftMM = getQuantityValueFeature(
-      rulesAttribute?.features,
-      FEATURE_NAMES.TRIM_OFFSET_LEFT,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    const trimOffsetRightMM = getQuantityValueFeature(
-      rulesAttribute?.features,
-      FEATURE_NAMES.TRIM_OFFSET_RIGHT,
-      FEATURE_NAMES.MM_ID,
-      numberFromMaybe
-    );
-
-    return {
-      partNumber,
-      isImprintExtension: false, // TODO: Grab correct value
-      finishes: marathonModule?.finishes
-        ?.map((x) => x?.element?.partNumber)
-        .filter((x) => !!x) // Remove nulls and undefined values IF they exist
-        .map((x) => x as string), // Cast to string because we know there are no null/undefined values since we filtered
-      dimensions: {
-        height: {
-          millimeters: heightMM,
-          // Currently they don't provide in so we must convert from mm
-          inches: convertMmToInFormatted(`${heightMM}`)
-        },
-        width: {
-          min: {
-            millimeters: minWidthMM,
-            // Currently they don't provide in so we must convert from mm
-            inches: convertMmToInFormatted(`${minWidthMM}`)
-          },
-          max: {
-            millimeters: maxWidthMM,
-            // Currently they don't provide in so we must convert from mm
-            inches: convertMmToInFormatted(`${maxWidthMM}`)
+    //! Use interactive transactions with caution. Keeping transactions open for a long time hurts database performance and can even cause deadlocks.
+    //! Try to avoid performing network requests and executing slow queries inside, get in and out as quick as possible!
+    // await db.$transaction(async (db) => {
+    if (!existingProduct) {
+      if (!skipDatabase) {
+        resultModule = await db.module.create({
+          data: {
+            ...moduleRest,
+            partNumber,
+            bundleUrl,
+            rules: module,
+            originalMarathonProductJson,
+            finish: {
+              connect: {
+                externalId: finish.externalId
+              }
+            },
+            collection: {
+              connect: {
+                externalId: collection.externalId
+              }
+            },
+            defaultLeftExtension: extensions?.left
+              ? {
+                  connect: {
+                    partNumber: extensions.left
+                  }
+                }
+              : undefined,
+            defaultRightExtension: extensions?.right
+              ? {
+                  connect: {
+                    partNumber: extensions.right
+                  }
+                }
+              : undefined,
+            attachmentToAppend: module.rules?.queue?.append
+              ? {
+                  connect: {
+                    partNumber: module.rules.queue.append
+                  }
+                }
+              : undefined
           }
-        },
-        depth: {
-          min: {
-            millimeters: minDepthMM,
-            // Currently they don't provide in so we must convert from mm
-            inches: convertMmToInFormatted(`${minDepthMM}`)
-          },
-          max: {
-            millimeters: maxDepthMM,
-            // Currently they don't provide in so we must convert from mm
-            inches: convertMmToInFormatted(`${maxDepthMM}`)
-          }
-        }
-      },
-      rules: {
-        trimmable,
-        trimOffset: {
-          // Force undefined if zero
-          bottom: trimOffsetBottomMM || undefined,
-          top: trimOffsetTopMM || undefined,
-          left: trimOffsetLeftMM || undefined,
-          right: trimOffsetRightMM || undefined
-        },
-        options: marathonModule?.options
-          ?.map((x) => x?.partNumber)
-          .filter((x) => !!x) // Remove nulls and undefined values IF they exist
-          .map((x) => x as string) // Cast to string because we know there are no null/undefined values since we filtered
+        });
+
+        if (moduleRest.thumbnailUrl) storageSyncQueue.push(moduleRest.thumbnailUrl);
       }
-    };
+    } else {
+      status = 'updated';
+      if (!skipDatabase) {
+        const rules = existingProduct.rules ? mergeRules(module, existingProduct.rules as ModuleRules) : module;
+
+        resultModule = await db.module.update({
+          where: { id: existingProduct.id },
+          data: {
+            ...moduleRest,
+            partNumber,
+            bundleUrl,
+            rules,
+            originalMarathonProductJson,
+            finish: {
+              connect: {
+                externalId: finish.externalId
+              }
+            },
+            collection: {
+              connect: {
+                externalId: collection.externalId
+              }
+            },
+            defaultLeftExtension: extensions?.left
+              ? {
+                  connect: {
+                    partNumber: extensions.left
+                  }
+                }
+              : undefined,
+            defaultRightExtension: extensions?.right
+              ? {
+                  connect: {
+                    partNumber: extensions.right
+                  }
+                }
+              : undefined,
+            attachmentToAppend: module.rules?.queue?.append
+              ? {
+                  connect: {
+                    partNumber: module.rules.queue.append
+                  }
+                }
+              : undefined
+          }
+        });
+
+        if (moduleRest.thumbnailUrl) storageSyncQueue.push(moduleRest.thumbnailUrl);
+
+        // If this module already exists, it already has all the relations, so delete them for them to be created
+        // This is needed in case they completely changed the values here
+        await db.moduleType.deleteMany({ where: { module: { id: existingProduct.id } } });
+        await db.moduleCategory.deleteMany({ where: { module: { id: existingProduct.id } } });
+        await db.moduleAttachments.deleteMany({ where: { module: { id: existingProduct.id } } });
+      }
+    }
+
+    if (resultModule) {
+      if (!skipDatabase && drawerTypes && drawerTypes.length > 0) {
+        const existingTypes = await db.type.findMany({
+          where: {
+            externalId: {
+              // Casting since we're filtering right before
+              in: drawerTypes.filter((x) => !!x).map((x) => x?.externalId as string)
+            }
+          },
+          select: {
+            id: true,
+            externalId: true
+          }
+        });
+
+        await db.moduleType.createMany({
+          data: drawerTypes.map((type) => ({
+            moduleId: resultModule?.id || -1,
+            typeId: existingTypes.find((x) => x.externalId === type?.externalId)?.id || -1
+          }))
+        });
+      }
+
+      if (!skipDatabase && categories && categories.length > 0) {
+        const existingCategories = await db.category.findMany({
+          where: {
+            OR: [
+              {
+                externalId: {
+                  // Casting since we're filtering right before
+                  in: categories.filter((x) => !!x).map((x) => x?.externalId as string)
+                }
+              },
+              {
+                slug: 'all'
+              }
+            ]
+          },
+          select: {
+            id: true,
+            externalId: true,
+            slug: true
+          }
+        });
+
+        await db.moduleCategory.createMany({
+          // Manually add the all category
+          data: [...categories, { slug: 'all', externalId: undefined }].map((category) => ({
+            moduleId: resultModule?.id || -1,
+            categoryId:
+              existingCategories.find(
+                // Whether it's the correct category or all category
+                (x) => x.externalId === category?.externalId || (category?.slug === 'all' && x.slug === 'all')
+              )?.id || -1
+          }))
+        });
+      }
+
+      const moduleAttachments = module.rules?.queue?.modules;
+
+      if (!skipDatabase && moduleAttachments && moduleAttachments.length > 0) {
+        const existingModules = await db.module.findMany({
+          where: {
+            partNumber: { in: moduleAttachments.map((x) => x) }
+          },
+          select: {
+            id: true,
+            partNumber: true
+          }
+        });
+
+        await db.moduleAttachments.createMany({
+          // Manually add the all category
+          data: moduleAttachments.map((modAttachment) => ({
+            moduleId: resultModule?.id || -1,
+            attachmentId: existingModules.find((x) => x.partNumber === modAttachment)?.id || -1
+          }))
+        });
+      }
+    }
+    // });
+
+    return status;
   };
 
-  const mergeRules = (
-    marathonModule: MarathonModule,
-    currentRules?: NexusGenObjects['ModuleRules']
-  ): NexusGenObjects['ModuleRules'] | undefined => {
-    const partNumber = marathonModule?.partNumber?.trim() || currentRules?.partNumber;
-    if (!partNumber) throw makeError('Cannot create rule without partNumber', 'ruleMergeMissingPartNumber');
+  const updateOwner = async (
+    module: ModuleRules,
+    skipDatabase?: boolean
+    // eslint-disable-next-line @typescript-eslint/ban-types
+  ) => {
+    if (!db) {
+      throw new Error('db dependency was not provided');
+    }
 
-    const marathonRules = makeRulesFromMarathonModule(marathonModule);
+    const { externalId, ownerExternalId } = module;
+    if (!externalId || !ownerExternalId) return;
 
-    return currentRules
-      ? deepmerge(currentRules, marathonRules, {
-          // combine arrays using object equality (like in sets)
-          arrayMerge: (destinationArray, sourceArray) => [
-            ...sourceArray,
-            ...destinationArray.filter((d) => sourceArray.every((s) => !isEqual(d, s)))
-          ]
-        })
-      : marathonRules;
+    if (!skipDatabase) {
+      await db.module.update({
+        where: { externalId },
+        data: {
+          owner: ownerExternalId
+            ? {
+                connect: {
+                  externalId: ownerExternalId
+                }
+              }
+            : undefined
+        }
+      });
+    }
   };
 
-  const syncProduct = async () => {
+  const syncProduct = async (skipDatabase?: boolean) => {
     if (!db) {
       throw new Error('db dependency was not provided');
     }
@@ -949,36 +1208,24 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     try {
       console.log('Fetching required data');
-      const existingCategories = await db.category.findMany({
-        select: {
-          id: true,
-          slug: true
-        }
-      });
-
-      const existingTypes = await db.type.findMany({
-        select: {
-          id: true,
-          slug: true
-        }
-      });
-
       const existingFinishes = await db.finish.findMany({
         select: {
           id: true,
-          slug: true
+          externalId: true
         }
       });
 
       const existingCollections = await db.collection.findMany({
         select: {
           id: true,
-          slug: true
+          externalId: true
         }
       });
 
       console.log('Fetching products');
-      const ignoredModules: string[] = [];
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const ignoredModules: any[] = [];
+      let extensions: string[] = [];
       // console.log(print(GET_PRODUCT_LISTING));
       while (pageIndex >= 0) {
         console.log(`Asking for ${productsPerPage} products on page ${pageIndex + 1}`);
@@ -992,295 +1239,202 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           }
         });
 
-        const products = data.getProductListing?.edges || [];
+        let products = data.getProductListing?.edges || [];
 
         if (products && products.length > 0) {
           console.log(`Product page ${pageIndex + 1}, fetched ${products.length} products`);
 
-          const partNumbers = products
-            // Casting because we're explicitly filtering by only valid values
-            .map((productEdge) => productEdge?.node?.partNumber?.trim() as string)
-            .filter((x) => !!x);
-
-          const noPartNumberModules = products.filter((x) => !x?.node?.partNumber);
-          if (noPartNumberModules && noPartNumberModules.length > 0) {
-            logging.warn(`Sync: ${noPartNumberModules.length} modules without part number. Which will get ignored`, {
-              noPartNumberModules: noPartNumberModules.map((x) => x?.node?.id)
-            });
-          }
-
-          const existingModules = await db.module.findMany({
-            select: {
-              id: true,
-              partNumber: true,
-              rules: true,
-              thumbnailUrl: true
-            },
-            where: {
-              partNumber: {
-                in: partNumbers
-              }
-            }
-          });
-
-          // Received products
-          const modulesToUpdate = products.filter(
-            (productEdge) =>
-              // Where exists in the database
-              productEdge?.node?.partNumber?.trim() &&
-              existingModules.some((mod) => mod.partNumber === productEdge?.node?.partNumber?.trim())
-          );
-
-          // Received products
-          const modulesToCreate = products.filter(
+          products = products.filter(
             // Where it DOESN'T exist in the database
             (productEdge) => {
+              // Make a big filter because their api decides to return unrelated stuff, so we need to hard filter everything
+
               const module = productEdge?.node;
 
+              //const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+              //makeFile(dir, path.join(`pre-rules/${productEdge?.node?.partNumber}.json`), module);
+
+              // So we grab a finish Id if any(there should always be one)
               const finishId =
-                existingFinishes.find((finish) => finish.slug === module?.spFinish?.slug?.trim())?.id || undefined;
+                existingFinishes.find((finish) => finish.externalId === module?.spFinish?.id)?.id || undefined;
+
+              // So we grab a collection Id if any(there should always be one)
               const collectionId =
-                existingCollections.find((collection) => collection.slug === module?.spCollection?.slug?.trim())?.id ||
+                existingCollections.find((collection) => collection.externalId === module?.spCollection?.id)?.id ||
                 undefined;
 
+              // And filter
               const hasExpectedCondition =
-                finishId !== undefined &&
-                collectionId !== undefined &&
-                module?.partNumber?.trim() &&
-                !existingModules.some((mod) => mod.partNumber === module.partNumber?.trim());
+                finishId && // Is there finish id(should have)
+                collectionId && // Is there collection id(should have)
+                module?.id; // Does it have an id itself (all of them should have id)
 
               if (!hasExpectedCondition) {
-                // Casting because we know it should exist, since there's a condition for that in hasExpectedCondition
-                ignoredModules.push(module?.partNumber as string);
+                ignoredModules.push({ finishId, collectionId, module });
               }
 
               return hasExpectedCondition;
             }
           );
 
-          if (modulesToCreate && modulesToCreate.length > 0) {
-            console.log(`Batch creating ${modulesToCreate.length} products`);
-            try {
-              await db.$transaction(async (db) => {
-                await db.module.createMany({
-                  data: modulesToCreate.map((productEdge) => {
-                    const module = productEdge?.node;
-                    const rules = mergeRules(module);
-                    const sourceThumbnail =
-                      module?.productPictures && module.productPictures.length > 0
-                        ? module?.productPictures[0]?.fullpath?.trim()
-                        : undefined;
-                    return {
-                      partNumber: module?.partNumber?.trim() as string,
-                      externalId: module?.id?.trim(),
-                      description: module?.titleDescription?.trim() || undefined,
-                      thumbnailUrl: makeThumbnailUrlAndQueue(
-                        sourceThumbnail,
-                        `image/module/${module?.partNumber?.trim()}${path.extname(sourceThumbnail || '')}`
-                      ),
-                      // bundleUrl: module?.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
-                      isSubmodule: module?.isSubmodule || false,
-                      hasPegs: module?.hasPegs || false,
-                      isMat: module?.isMat || false,
-                      // isExtension: module.isExtension || false,, TODO: Make sure they provide this info
-                      shouldHideBasedOnWidth:
-                        module?.shouldHideBasedOnWidth !== undefined && module?.shouldHideBasedOnWidth !== null
-                          ? module?.shouldHideBasedOnWidth
-                          : true,
-                      alwaysDisplay: module?.alwaysDisplay || false,
-                      isEdge: module?.isEdge || false,
-                      rules,
-                      finishId:
-                        existingFinishes.find((finish) => finish.slug === module?.spFinish?.slug?.trim())?.id || -1,
-                      collectionId:
-                        existingCollections.find((collection) => collection.slug === module?.spCollection?.slug?.trim())
-                          ?.id || -1
-                      // TODO: Default left extension
-                      // TODO: Default right extension
-                      // TODO: attachmentToAppend: newRules?.rules.
-                    };
-                  })
-                });
-
-                console.log(`Fetching recently created ${modulesToCreate.length} products`);
-                const recentlyCreatedModules = await db.module.findMany({
-                  where: {
-                    partNumber: {
-                      in: modulesToCreate.map((x) => x?.node?.partNumber?.trim() as string).filter((x) => !!x)
-                    }
-                  },
-                  select: {
-                    id: true,
-                    partNumber: true
-                  }
-                });
-
-                console.log(`Batch creating ${recentlyCreatedModules.length} product categories`);
-
-                const categoriesToCreate = modulesToCreate.flatMap((productEdge) =>
-                  productEdge?.node?.spCategories?.map((cat) => ({
-                    catSlug: cat?.slug?.trim(),
-                    modulePartNumber: productEdge?.node?.partNumber?.trim()
-                  }))
+          const parsedProducts = products
+            .filter((x) => !!x?.node)
+            .flatMap((productEdge) => {
+              try {
+                //const dir = path.join(__dirname, `./output`, '../../../../../marathon-module-jsons');
+                //makeFile(dir, path.join(`marathon/${productEdge?.node?.partNumber}.json`), productEdge);
+                // Casting since we filtered it previously
+                const rules = makeRulesFromMarathonModule(productEdge?.node as MarathonModule);
+                //makeFile(dir, path.join(`rules/${productEdge?.node?.partNumber}.json`), rules);
+                return {
+                  ...rules,
+                  originalMarathonProductJson: productEdge
+                };
+              } catch (err) {
+                logging.error(
+                  err,
+                  `Could not parse and convert module ${productEdge?.node?.partNumber} ${productEdge?.node?.id}`
                 );
-
-                const categoryAllToCreate = modulesToCreate.map((productEdge) => ({
-                  catSlug: 'all',
-                  modulePartNumber: productEdge?.node?.partNumber?.trim()
-                }));
-
-                await db.moduleCategory.createMany({
-                  data: [...categoriesToCreate, ...categoryAllToCreate]
-                    .filter((x) => !!x)
-                    .map((catModule) => {
-                      return {
-                        moduleId:
-                          recentlyCreatedModules.find((x) => x.partNumber === catModule?.modulePartNumber)?.id || -1,
-                        categoryId: existingCategories.find((x) => x.slug === catModule?.catSlug)?.id || -1
-                      };
-                    })
-                });
-
-                console.log(`Batch creating ${recentlyCreatedModules.length} product types`);
-                await db.moduleType.createMany({
-                  data: modulesToCreate
-                    .flatMap((productEdge) =>
-                      productEdge?.node?.spDrawerTypes?.map((type) => ({
-                        typeSlug: type?.slug?.trim(),
-                        modulePartNumber: productEdge?.node?.partNumber?.trim()
-                      }))
-                    )
-                    .filter((x) => !!x)
-                    .map((typeModule) => ({
-                      moduleId:
-                        recentlyCreatedModules.find((x) => x.partNumber === typeModule?.modulePartNumber)?.id || -1,
-                      typeId: existingTypes.find((x) => x.slug === typeModule?.typeSlug)?.id || -1
-                    }))
-                });
-                // TODO: module attachments
-              });
-            } catch (err) {
-              logging.error(err, 'Error when batch creating products', {
-                modulesToCreate: modulesToCreate?.map((x) => x?.node).filter((x) => !!x),
-                existingCollections,
-                existingFinishes
-              });
-            }
-          } else {
-            console.log(`No module to create`);
-          }
-
-          for (let i = 0; i < modulesToUpdate.length; i++) {
-            const productEdge = modulesToUpdate[i];
-
-            const module = productEdge?.node;
-            if (!module?.partNumber?.trim()) return;
-
-            const existingModule = existingModules.find((x) => x.partNumber === module.partNumber?.trim());
-            if (!existingModule) continue;
-
-            console.log(`Updating module #${i + 1} ${module.partNumber?.trim()} of ${modulesToUpdate.length}`);
-            const rules = existingModule?.rules as NexusGenObjects['ModuleRules'] | undefined;
-
-            await db.$transaction(async (db) => {
-              // Sync categories
-
-              // Delete existing categories to re create
-              await db.moduleCategory.deleteMany({
-                where: { module: { partNumber: module.partNumber?.trim() }, category: { slug: { not: 'all' } } }
-              });
-
-              // If there are categories for this module
-              if (module.spCategories && module.spCategories.length > 0) {
-                // Create them
-                await db.moduleCategory.createMany({
-                  data: module.spCategories.map((cat) => ({
-                    moduleId: existingModule?.id || -1,
-                    categoryId: existingCategories.find((x) => x.slug === cat?.slug?.trim())?.id || -1
-                  }))
-                });
+                return undefined;
               }
+            })
+            .filter((x) => !!x)
+            // We do this just for casting, since we know it won't be undefined due to the filter above
+            .map(
+              (x) =>
+                x as ReturnType<typeof makeRulesFromMarathonModule> & { originalMarathonProductJson: MarathonModule }
+            );
 
-              // Sync type
+          console.log(`Going to upsert ${parsedProducts.length} products`);
 
-              // Delete existing types to then create
-              await db.moduleType.deleteMany({ where: { module: { partNumber: module.partNumber?.trim() } } });
+          let created = 0;
+          let updated = 0;
 
-              // If there are types for this module
-              if (module.spDrawerTypes && module.spDrawerTypes.length > 0) {
-                // Create them
-                await db.moduleType.createMany({
-                  data: module.spDrawerTypes.map((type) => ({
-                    moduleId: existingModule?.id || -1,
-                    typeId: existingTypes.find((x) => x.slug === type?.slug?.trim())?.id || -1
-                  }))
-                });
-              }
+          for (let i = 0; i < parsedProducts.length; i++) {
+            const product = parsedProducts[i];
 
-              // TODO: module attachments
+            console.log(`Product ${i + 1} out of ${parsedProducts.length}`);
 
-              const newRules = mergeRules(module, rules);
-              const sourceThumbnail =
-                module.productPictures && module.productPictures.length > 0
-                  ? module.productPictures[0]?.fullpath?.trim()
-                  : undefined;
-
-              await db.module.update({
-                where: { partNumber: module.partNumber?.trim() },
-                data: {
-                  externalId: module.id?.trim(),
-                  description: module.titleDescription?.trim() || undefined,
-                  thumbnailUrl: makeThumbnailUrlAndQueue(sourceThumbnail, existingModule.thumbnailUrl),
-                  // bundleUrl: module.bundlePath?.fullpath?.trim() || undefined,  // FIX: Uncomment after also importing/uploading the image
-                  isSubmodule: module.isSubmodule || undefined,
-                  hasPegs: module.hasPegs || undefined,
-                  isMat: module.isMat || undefined,
-                  // isExtension: module.isExtension || false,
-                  shouldHideBasedOnWidth:
-                    module.shouldHideBasedOnWidth !== undefined && module.shouldHideBasedOnWidth !== null
-                      ? module.shouldHideBasedOnWidth
-                      : undefined,
-                  // alwaysDisplay: module.alwaysDisplay || undefined,
-                  // isEdge: module.isEdge || undefined,
-                  rules: newRules,
-
-                  finish: module.spFinish?.slug?.trim()
-                    ? {
-                        connect: {
-                          slug: module.spFinish.slug.trim()
-                        }
-                      }
-                    : undefined,
-                  collection: module.spCollection?.slug?.trim()
-                    ? {
-                        connect: {
-                          slug: module.spCollection.slug.trim()
-                        }
-                      }
-                    : undefined,
-                  defaultLeftExtension: newRules?.extensions?.left
-                    ? {
-                        connect: {
-                          partNumber: newRules.extensions.left
-                        }
-                      }
-                    : undefined,
-                  defaultRightExtension: newRules?.extensions?.right
-                    ? {
-                        connect: {
-                          partNumber: newRules.extensions.right
-                        }
-                      }
-                    : undefined
-                  // TODO: Default left extension
-                  // TODO: Default right extension
-                  // TODO: attachmentToAppend: newRules?.rules.
+            try {
+              if (product.attachments?.append) {
+                const appendStatus = await upsertProductModule(
+                  product.attachments.append,
+                  skipDatabase,
+                  product.originalMarathonProductJson
+                );
+                if (appendStatus === 'created') {
+                  created++;
+                } else if (appendStatus === 'updated') {
+                  updated++;
+                } else {
+                  throw makeError(`Could not upsert attachment append: ${appendStatus}`, 'cannotUpsertAppend');
                 }
-              });
-            });
+              }
+
+              if (product.attachments?.queueModules && product.attachments.queueModules.length > 0) {
+                for (let j = 0; j < product.attachments.queueModules.length; j++) {
+                  const queueModule = product.attachments.queueModules[j];
+                  const queueStatus = await upsertProductModule(
+                    queueModule,
+                    skipDatabase,
+                    product.originalMarathonProductJson
+                  );
+                  if (queueStatus === 'created') {
+                    created++;
+                  } else if (queueStatus === 'updated') {
+                    updated++;
+                  } else {
+                    throw makeError(
+                      `Could not upsert attachment queue module: ${queueStatus}`,
+                      'cannotUpsertQueueModule'
+                    );
+                  }
+                }
+              }
+
+              if (product.extensions?.left) {
+                const extensionStatus = await upsertProductModule(
+                  product.extensions.left,
+                  skipDatabase,
+                  product.originalMarathonProductJson
+                );
+                if (extensionStatus === 'created') {
+                  created++;
+                } else if (extensionStatus === 'updated') {
+                  updated++;
+                } else {
+                  throw makeError(`Could not upsert left extension: ${extensionStatus}`, 'cannotUpsertLeftExtension');
+                }
+              }
+
+              if (product.extensions?.right) {
+                const extensionStatus = await upsertProductModule(
+                  product.extensions.right,
+                  skipDatabase,
+                  product.originalMarathonProductJson
+                );
+                if (extensionStatus === 'created') {
+                  created++;
+                } else if (extensionStatus === 'updated') {
+                  updated++;
+                } else {
+                  throw makeError(`Could not upsert right extension: ${extensionStatus}`, 'cannotUpsertRightExtension');
+                }
+              }
+
+              if (product.module.extensions?.options) {
+                extensions = [
+                  ...extensions,
+                  ...product.module.extensions.options.filter((x) => !!x).map((x) => x as string)
+                ];
+              }
+
+              if (product.alternative) {
+                const alternativeStatus = await upsertProductModule(
+                  product.alternative,
+                  skipDatabase,
+                  product.originalMarathonProductJson
+                );
+                if (alternativeStatus === 'created') {
+                  created++;
+                } else if (alternativeStatus === 'updated') {
+                  updated++;
+                } else {
+                  throw makeError(
+                    `Could not upsert alternative version: ${alternativeStatus}`,
+                    'cannotUpsertAlternative'
+                  );
+                }
+              }
+
+              const productStatus = await upsertProductModule(
+                product.module,
+                skipDatabase,
+                product.originalMarathonProductJson
+              );
+              if (productStatus === 'created') {
+                created++;
+              } else if (productStatus === 'updated') {
+                updated++;
+              } else {
+                throw makeError(`Could not upsert main product: ${productStatus}`, 'cannotUpsertMainProduct');
+              }
+
+              // Update owners after the product has been created, because it must exist for it to be an owner, so we cannot do this before
+              if (product.alternative) {
+                await updateOwner(product.alternative, skipDatabase);
+              }
+            } catch (err) {
+              logging.error(
+                err,
+                `Error upserting product ${i + 1} out of ${parsedProducts.length}. ${product.module.partNumber} ${
+                  product.module.externalId
+                }`
+              );
+            }
           }
 
-          if (modulesToCreate && modulesToCreate.length === 0 && modulesToUpdate && modulesToUpdate.length === 0) {
+          if (created === 0 && updated === 0) {
             emptyPages++;
             console.log(`Empty page ${emptyPages} of ${MARATHON_SYNC_EMPTY_PAGES_TO_STOP}`);
           } else {
@@ -1299,16 +1453,30 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
             pageIndex++;
           }
         } else {
-          // If there are no more procuts, it means we should stop
+          // If there are no more products, it means we should stop
           console.log(`No products on page ${pageIndex + 1}, last page finished.`);
           pageIndex = -1;
         }
       }
 
+      if (extensions && extensions.length > 0) {
+        await db.module.updateMany({
+          where: { partNumber: { in: extensions } },
+          data: {
+            isExtension: true
+          }
+        });
+      }
+
       if (ignoredModules && ignoredModules.length > 0) {
+        try {
+          //const dir = path.join(__dirname, `./output`, '../../../../../marathon-logs');
+          //makeFile(dir, path.join(`ignored-modules.json`), { ignoredModules });
+        } catch {
+          // Do nothing
+        }
         logging.warn(
-          `Sync: ${ignoredModules.length} modules that were not created due to not following required criteria`,
-          { ignoredModules }
+          `Sync: ${ignoredModules.length} modules that were not created due to not following required criteria`
         );
       }
     } catch (err) {
@@ -1319,16 +1487,17 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     console.timeEnd('products');
   };
 
-  const syncData = async () => {
+  const syncData = async (skipDatabase?: boolean) => {
     try {
       console.time('apiSync');
-      await syncCategory();
-      await syncCollection();
-      await syncDrawerType();
-      await syncFinish();
+      await syncCategory(skipDatabase);
+      await syncCollection(skipDatabase);
+      await syncDrawerType(skipDatabase);
+      await syncFinish(skipDatabase);
+      await syncSlides(skipDatabase);
 
       // Always leave products for last!!
-      await syncProduct();
+      await syncProduct(skipDatabase);
       console.timeEnd('apiSync');
 
       console.time('storageSync');
@@ -1411,20 +1580,40 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
     const items: MarathonCartItem[] = [];
 
+    // Flatten the product list
     cart
       .filter((x) => x.projectModule.module.externalId)
       .forEach((cartItem) => {
-        items.push({
-          oid: cartItem.projectModule.module.externalId as string,
-          quantity: cartItem.quantity
-        });
+        const oid =
+          (cartItem.projectModule.module.ownerExternalId as string) ||
+          (cartItem.projectModule.module.externalId as string);
+
+        const index = items.findIndex((x) => x.oid === oid);
+        if (index >= 0) {
+          items[index] = { ...items[index], quantity: (items[index].quantity || 0) + cartItem.quantity };
+        } else {
+          items.push({
+            oid,
+            quantity: cartItem.quantity,
+            tag: cartItem.projectModule.module.description as string
+          });
+        }
 
         if (cartItem.children && cartItem.children.length > 0) {
           cartItem.children.forEach((cartItem) => {
-            items.push({
-              oid: cartItem.projectModule.module.externalId as string,
-              quantity: cartItem.quantity
-            });
+            const oid =
+              (cartItem.projectModule.module.ownerExternalId as string) ||
+              (cartItem.projectModule.module.externalId as string);
+            const index = items.findIndex((x) => x.oid === oid);
+            if (index >= 0) {
+              items[index] = { ...items[index], quantity: (items[index].quantity || 0) + cartItem.quantity };
+            } else {
+              items.push({
+                oid,
+                quantity: cartItem.quantity,
+                tag: cartItem.projectModule.module.description as string
+              });
+            }
           });
         }
       });
@@ -1467,6 +1656,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
         throw makeError("Couldn't save list", 'createListCannotComplete');
       }
     } catch (err) {
+      console.warn(err, `Error on Marathon server when creating cart`);
       throw err;
     }
   };
@@ -1487,10 +1677,39 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     })) as AxiosResponse<{ user_id: number; user_token: string }>;
   };
 
+  const fetchSingleProduct = async (id: string) => {
+    if (!db) {
+      throw new Error('db dependency was not provided');
+    }
+
+    const { data } = await marathonApollo.query<GetProductQuery, GetProductQueryVariables>({
+      query: GET_PRODUCT,
+      fetchPolicy: 'no-cache',
+      variables: {
+        id: Number(id)
+      }
+    });
+
+    if (data?.getProduct) {
+      const parsedRules = makeRulesFromMarathonModule(data.getProduct);
+
+      const currentDbEntry = await db.module.findUnique({ where: { externalId: id } });
+
+      return {
+        original: data.getProduct,
+        parsedRules,
+        currentDbEntry
+      };
+    } else {
+      throw makeError(`Module with id ${id} does not exist`, 'moduleDoesNotExist', 404);
+    }
+  };
+
   return {
     marathonApollo,
     syncData,
     createList,
-    login
+    login,
+    fetchSingleProduct
   };
 };

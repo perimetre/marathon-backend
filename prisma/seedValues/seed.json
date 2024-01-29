@@ -3321,7 +3321,7 @@
     },
     {
       "partNumber": "04-AU-USHAPE-BIR-B",
-      "bundlePath": "modules/autograph/04-au-ushape-xxx-b/04-au-ushape-bir-b/module",
+      "bundlePath": "modules/autograph/04-au-xxx-ushape-b/04-au-bir-ushape-b/module",
       "finish": "birch",
       "collection": "autograph",
       "rules": "{\r\n  \"partNumber\": \"04-AU-USHAPE-BIR-B\",\r\n  \"finishes\": [\r\n    \"04-AU-USHAPE-WAL-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 55,\r\n      \"inches\": \"2\\\" 5/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true,\r\n    \"options\": [\r\n      \"04-AU-ACCENT-SW-141\",\r\n      \"04-AU-ACCENT-MB-141\",\r\n      \"04-AU-ACCENT-SD-141\",\r\n      \"04-AU-ACCENT-AN-141\",\r\n      \"04-AU-ACCENT-AU79-141\"\r\n    ]\r\n  }\r\n}",
@@ -3329,13 +3329,27 @@
       "hasPegs": false,
       "isMat": false,
       "isExtension": false,
-      "imageUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-BIR-B/04-AU-USHAPE-BIR-B.jpg",
-      "genericName": "04-AU-USHAPE-xxx-B",
+      "imageUrl": "images/module/autograph/04-AU-xxx-USHAPE-B/04-AU-BIR-USHAPE-B/04-AU-BIR-USHAPE-B.jpg",
+      "genericName": "04-AU-xxx-USHAPE-B",
+      "categorySlug": ["all", "accessories"]
+    },
+    {
+      "partNumber": "04-AU-BIR-USHAPE-B",
+      "bundlePath": "modules/autograph/04-au-xxx-ushape-b/04-au-bir-ushape-b/module",
+      "finish": "birch",
+      "collection": "autograph",
+      "rules": "{\r\n  \"partNumber\": \"04-AU-USHAPE-BIR-B\",\r\n  \"finishes\": [\r\n    \"04-AU-USHAPE-WAL-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 55,\r\n      \"inches\": \"2\\\" 5/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true,\r\n    \"options\": [\r\n      \"04-AU-ACCENT-SW-141\",\r\n      \"04-AU-ACCENT-MB-141\",\r\n      \"04-AU-ACCENT-SD-141\",\r\n      \"04-AU-ACCENT-AN-141\",\r\n      \"04-AU-ACCENT-AU79-141\"\r\n    ]\r\n  }\r\n}",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "isMat": false,
+      "isExtension": false,
+      "imageUrl": "images/module/autograph/04-AU-xxx-USHAPE-B/04-AU-BIR-USHAPE-B/04-AU-BIR-USHAPE-B.jpg",
+      "genericName": "04-AU-xxx-USHAPE-B",
       "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-USHAPE-WAL-B",
-      "bundlePath": "modules/autograph/04-au-ushape-xxx-b/04-au-ushape-wal-b/module",
+      "bundlePath": "modules/autograph/04-au-xxx-ushape-b/04-au-wal-ushape-b/module",
       "finish": "walnut",
       "collection": "autograph",
       "rules": "{\r\n  \"partNumber\": \"04-AU-USHAPE-WAL-B\",\r\n  \"finishes\": [\r\n    \"04-AU-USHAPE-BIR-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 55,\r\n      \"inches\": \"2\\\" 5/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true,\r\n    \"options\": [\r\n      \"04-AU-ACCENT-SW-141\",\r\n      \"04-AU-ACCENT-MB-141\",\r\n      \"04-AU-ACCENT-SD-141\",\r\n      \"04-AU-ACCENT-AN-141\",\r\n      \"04-AU-ACCENT-AU79-141\"\r\n    ]\r\n  }\r\n}",
@@ -3343,8 +3357,22 @@
       "hasPegs": false,
       "isMat": false,
       "isExtension": false,
-      "imageUrl": "images/module/autograph/04-AU-USHAPE-xxx-B/04-AU-USHAPE-WAL-B/04-AU-USHAPE-WAL-B.jpg",
-      "genericName": "04-AU-USHAPE-xxx-B",
+      "imageUrl": "images/module/autograph/04-AU-xxx-USHAPE-B/04-AU-WAL-USHAPE-B/04-AU-WAL-USHAPE-B.jpg",
+      "genericName": "04-AU-xxx-USHAPE-B",
+      "categorySlug": ["all", "accessories"]
+    },
+    {
+      "partNumber": "04-AU-WAL-USHAPE-B",
+      "bundlePath": "modules/autograph/04-au-xxx-ushape-b/04-au-wal-ushape-b/module",
+      "finish": "walnut",
+      "collection": "autograph",
+      "rules": "{\r\n  \"partNumber\": \"04-AU-USHAPE-WAL-B\",\r\n  \"finishes\": [\r\n    \"04-AU-USHAPE-BIR-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 55,\r\n      \"inches\": \"2\\\" 5/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true,\r\n    \"options\": [\r\n      \"04-AU-ACCENT-SW-141\",\r\n      \"04-AU-ACCENT-MB-141\",\r\n      \"04-AU-ACCENT-SD-141\",\r\n      \"04-AU-ACCENT-AN-141\",\r\n      \"04-AU-ACCENT-AU79-141\"\r\n    ]\r\n  }\r\n}",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "isMat": false,
+      "isExtension": false,
+      "imageUrl": "images/module/autograph/04-AU-xxx-USHAPE-B/04-AU-WAL-USHAPE-B/04-AU-WAL-USHAPE-B.jpg",
+      "genericName": "04-AU-xxx-USHAPE-B",
       "categorySlug": ["all", "accessories"]
     },
     {
@@ -3376,7 +3404,7 @@
       "categorySlug": ["all", "accessories"]
     },
     {
-      "partNumber": "04-AU-BIR-CD-B.b",
+      "partNumber": "alt-04-au-bir-cd-b-b",
       "bundlePath": "modules/autograph/04-au-xxx-cd-b-b/04-au-bir-cd-b-b/module",
       "finish": "birch",
       "collection": "autograph",
@@ -3390,7 +3418,7 @@
       "categorySlug": ["all"]
     },
     {
-      "partNumber": "04-AU-WAL-CD-B.b",
+      "partNumber": "alt-04-au-wal-cd-b-b",
       "bundlePath": "modules/autograph/04-au-xxx-cd-b-b/04-au-wal-cd-b-b/module",
       "finish": "walnut",
       "collection": "autograph",
@@ -3461,7 +3489,7 @@
     },
     {
       "partNumber": "04-AU-BIR-DIVIDER-H55",
-      "bundlePath": "modules/autograph/04-au-xxx-divider-h55/module",
+      "bundlePath": "modules/autograph/04-au-xxx-divider-h55/04-au-bir-divider-h55/module",
       "finish": "birch",
       "collection": "autograph",
       "rules": "{\r\n  \"partNumber\": \"04-AU-BIR-DIVIDER-H55\",\r\n  \"finishes\": [\r\n    \"04-AU-WAL-DIVIDER-H55\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 55,\r\n      \"inches\": \"2\\\" 5/32\"\r\n    },\r\n    \"depth\": {\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
@@ -3475,7 +3503,7 @@
     },
     {
       "partNumber": "04-AU-WAL-DIVIDER-H55",
-      "bundlePath": "modules/autograph/04-au-xxx-divider-h55/module",
+      "bundlePath": "modules/autograph/04-au-xxx-divider-h55/04-au-wal-divider-h55/module",
       "finish": "walnut",
       "collection": "autograph",
       "rules": "{\r\n  \"partNumber\": \"04-AU-WAL-DIVIDER-H55\",\r\n  \"finishes\": [\r\n    \"04-AU-BIR-DIVIDER-H55\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 55,\r\n      \"inches\": \"2\\\" 5/32\"\r\n    },\r\n    \"depth\": {\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
@@ -3489,7 +3517,7 @@
     },
     {
       "partNumber": "04-AU-BIR-FLUTTED-B",
-      "bundlePath": "modules/autograph/04-au-xxx-flutted-b/04-au-bir-flutted-b/module",
+      "bundlePath": "modules/autograph/04-au-xxx-fluted-b/04-au-bir-fluted-b/module",
       "finish": "birch",
       "collection": "autograph",
       "rules": "{\r\n  \"partNumber\": \"04-AU-BIR-FLUTTED-B\",\r\n  \"finishes\": [\r\n    \"04-AU-WAL-FLUTTED-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 12,\r\n      \"inches\": \"0\\\" 15/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 138.5,\r\n        \"inches\": \"5\\\" 7/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
@@ -3497,13 +3525,27 @@
       "hasPegs": false,
       "isMat": false,
       "isExtension": false,
-      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTTED-B/04-AU-BIR-FLUTTED-B/04-AU-BIR-FLUTTED-B.jpg",
-      "genericName": "04-AU-xxx-FLUTTED-B",
+      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTED-B/04-AU-BIR-FLUTED-B/04-AU-BIR-FLUTED-B.jpg",
+      "genericName": "04-AU-xxx-FLUTED-B",
+      "categorySlug": ["all", "accessories"]
+    },
+    {
+      "partNumber": "04-AU-BIR-FLUTED-B",
+      "bundlePath": "modules/autograph/04-au-xxx-fluted-b/04-au-bir-fluted-b/module",
+      "finish": "birch",
+      "collection": "autograph",
+      "rules": "{\r\n  \"partNumber\": \"04-AU-BIR-FLUTTED-B\",\r\n  \"finishes\": [\r\n    \"04-AU-WAL-FLUTTED-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 12,\r\n      \"inches\": \"0\\\" 15/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 138.5,\r\n        \"inches\": \"5\\\" 7/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "isMat": false,
+      "isExtension": false,
+      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTED-B/04-AU-BIR-FLUTED-B/04-AU-BIR-FLUTED-B.jpg",
+      "genericName": "04-AU-xxx-FLUTED-B",
       "categorySlug": ["all", "accessories"]
     },
     {
       "partNumber": "04-AU-WAL-FLUTTED-B",
-      "bundlePath": "modules/autograph/04-au-xxx-flutted-b/04-au-wal-flutted-b/module",
+      "bundlePath": "modules/autograph/04-au-xxx-fluted-b/04-au-wal-fluted-b/module",
       "finish": "walnut",
       "collection": "autograph",
       "rules": "{\r\n  \"partNumber\": \"04-AU-WAL-FLUTTED-B\",\r\n  \"finishes\": [\r\n    \"04-AU-BIR-FLUTTED-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 12,\r\n      \"inches\": \"0\\\" 15/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 138.5,\r\n        \"inches\": \"5\\\" 7/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
@@ -3511,13 +3553,27 @@
       "hasPegs": false,
       "isMat": false,
       "isExtension": false,
-      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTTED-B/04-AU-WAL-FLUTTED-B/04-AU-WAL-FLUTTED-B.jpg",
-      "genericName": "04-AU-xxx-FLUTTED-B",
+      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTED-B/04-AU-WAL-FLUTED-B/04-AU-WAL-FLUTED-B.jpg",
+      "genericName": "04-AU-xxx-FLUTED-B",
       "categorySlug": ["all", "accessories"]
     },
     {
-      "partNumber": "04-AU-BIR-FLUTTED-B.b",
-      "bundlePath": "modules/autograph/04-au-xxx-flutted-b-b/04-au-bir-flutted-b-b/module",
+      "partNumber": "04-AU-WAL-FLUTED-B",
+      "bundlePath": "modules/autograph/04-au-xxx-fluted-b/04-au-wal-fluted-b/module",
+      "finish": "walnut",
+      "collection": "autograph",
+      "rules": "{\r\n  \"partNumber\": \"04-AU-WAL-FLUTTED-B\",\r\n  \"finishes\": [\r\n    \"04-AU-BIR-FLUTTED-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 12,\r\n      \"inches\": \"0\\\" 15/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 138.5,\r\n        \"inches\": \"5\\\" 7/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
+      "isSubmodule": false,
+      "hasPegs": false,
+      "isMat": false,
+      "isExtension": false,
+      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTED-B/04-AU-WAL-FLUTED-B/04-AU-WAL-FLUTED-B.jpg",
+      "genericName": "04-AU-xxx-FLUTED-B",
+      "categorySlug": ["all", "accessories"]
+    },
+    {
+      "partNumber": "alt-04-au-bir-flutted-b-b",
+      "bundlePath": "modules/autograph/04-au-xxx-fluted-b-b/04-au-bir-fluted-b-b/module",
       "finish": "birch",
       "collection": "autograph",
       "rules": "{\r\n  \"partNumber\": \"04-AU-BIR-FLUTTED-B\",\r\n  \"finishes\": [\r\n    \"04-AU-WAL-FLUTTED-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 12,\r\n      \"inches\": \"0\\\" 15/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 138.5,\r\n        \"inches\": \"5\\\" 7/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
@@ -3525,13 +3581,27 @@
       "hasPegs": true,
       "isMat": false,
       "isExtension": false,
-      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTTED-B.b/04-AU-BIR-FLUTTED-B.b/04-AU-BIR-FLUTTED-B.jpg",
-      "genericName": "04-AU-xxx-FLUTTED-B.b",
+      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTED-B.b/04-AU-BIR-FLUTED-B.b/04-AU-BIR-FLUTED-B.jpg",
+      "genericName": "04-AU-xxx-FLUTED-B.b",
       "categorySlug": ["all"]
     },
     {
-      "partNumber": "04-AU-WAL-FLUTTED-B.b",
-      "bundlePath": "modules/autograph/04-au-xxx-flutted-b-b/04-au-wal-flutted-b-b/module",
+      "partNumber": "alt-04-au-bir-fluted-b-b",
+      "bundlePath": "modules/autograph/04-au-xxx-fluted-b-b/04-au-bir-fluted-b-b/module",
+      "finish": "birch",
+      "collection": "autograph",
+      "rules": "{\r\n  \"partNumber\": \"04-AU-BIR-FLUTTED-B\",\r\n  \"finishes\": [\r\n    \"04-AU-WAL-FLUTTED-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 12,\r\n      \"inches\": \"0\\\" 15/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 138.5,\r\n        \"inches\": \"5\\\" 7/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
+      "isSubmodule": false,
+      "hasPegs": true,
+      "isMat": false,
+      "isExtension": false,
+      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTED-B.b/04-AU-BIR-FLUTED-B.b/04-AU-BIR-FLUTTED-B.jpg",
+      "genericName": "04-AU-xxx-FLUTED-B.b",
+      "categorySlug": ["all"]
+    },
+    {
+      "partNumber": "alt-04-au-wal-flutted-b-b",
+      "bundlePath": "modules/autograph/04-au-xxx-fluted-b-b/04-au-wal-fluted-b-b/module",
       "finish": "walnut",
       "collection": "autograph",
       "rules": "{\r\n  \"partNumber\": \"04-AU-WAL-FLUTTED-B\",\r\n  \"finishes\": [\r\n    \"04-AU-BIR-FLUTTED-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 12,\r\n      \"inches\": \"0\\\" 15/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 138.5,\r\n        \"inches\": \"5\\\" 7/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
@@ -3539,8 +3609,22 @@
       "hasPegs": true,
       "isMat": false,
       "isExtension": false,
-      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTTED-B.b/04-AU-WAL-FLUTTED-B.b/04-AU-WAL-FLUTTED-B.jpg",
-      "genericName": "04-AU-xxx-FLUTTED-B.b",
+      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTED-B.b/04-AU-WAL-FLUTED-B.b/04-AU-WAL-FLUTED-B.jpg",
+      "genericName": "04-AU-xxx-FLUTED-B.b",
+      "categorySlug": ["all"]
+    },
+    {
+      "partNumber": "alt-04-au-wal-fluted-b-b",
+      "bundlePath": "modules/autograph/04-au-xxx-fluted-b-b/04-au-wal-fluted-b-b/module",
+      "finish": "walnut",
+      "collection": "autograph",
+      "rules": "{\r\n  \"partNumber\": \"04-AU-WAL-FLUTTED-B\",\r\n  \"finishes\": [\r\n    \"04-AU-BIR-FLUTTED-B\"\r\n  ],\r\n  \"dimensions\": {\r\n    \"height\": {\r\n      \"millimeters\": 12,\r\n      \"inches\": \"0\\\" 15/32\"\r\n    },\r\n    \"width\": {\r\n      \"min\": {\r\n        \"millimeters\": 138.5,\r\n        \"inches\": \"5\\\" 7/16\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 152.4,\r\n        \"inches\": \"6\\\"\"\r\n      }\r\n    },\r\n    \"depth\": {\r\n      \"min\": {\r\n        \"millimeters\": 366,\r\n        \"inches\": \"14\\\" 13/32\"\r\n      },\r\n      \"max\": {\r\n        \"millimeters\": 589,\r\n        \"inches\": \"23\\\" 3/16\"\r\n      }\r\n    }\r\n  },\r\n  \"rules\": {\r\n    \"rotation\": 0,\r\n    \"fullDepth\": true\r\n  }\r\n}",
+      "isSubmodule": false,
+      "hasPegs": true,
+      "isMat": false,
+      "isExtension": false,
+      "imageUrl": "images/module/autograph/04-AU-xxx-FLUTED-B.b/04-AU-WAL-FLUTED-B.b/04-AU-WAL-FLUTED-B.jpg",
+      "genericName": "04-AU-xxx-FLUTED-B.b",
       "categorySlug": ["all"]
     },
     {
@@ -3572,7 +3656,7 @@
       "categorySlug": ["all", "accessories"]
     },
     {
-      "partNumber": "04-AU-BIR-KH-B.b",
+      "partNumber": "alt-04-au-bir-kh-b-b",
       "bundlePath": "modules/autograph/04-au-xxx-kh-b-b/04-au-bir-kh-b-b/module",
       "finish": "birch",
       "collection": "autograph",
@@ -3586,7 +3670,7 @@
       "categorySlug": ["all"]
     },
     {
-      "partNumber": "04-AU-WAL-KH-B.b",
+      "partNumber": "alt-04-au-wal-kh-b-b",
       "bundlePath": "modules/autograph/04-au-xxx-kh-b-b/04-au-wal-kh-b-b/module",
       "finish": "walnut",
       "collection": "autograph",
@@ -3684,7 +3768,7 @@
       "categorySlug": ["all", "accessories"]
     },
     {
-      "partNumber": "04-AU-BIR-SLOTTED-B.b",
+      "partNumber": "alt-04-au-bir-slotted-b-b",
       "bundlePath": "modules/autograph/04-au-xxx-slotted-b-b/04-au-bir-slotted-b-b/module",
       "finish": "birch",
       "collection": "autograph",
@@ -3698,7 +3782,7 @@
       "categorySlug": ["all"]
     },
     {
-      "partNumber": "04-AU-WAL-SLOTTED-B.b",
+      "partNumber": "alt-04-au-wal-slotted-b-b",
       "bundlePath": "modules/autograph/04-au-xxx-slotted-b-b/04-au-wal-slotted-b-b/module",
       "finish": "walnut",
       "collection": "autograph",
@@ -4031,6 +4115,16 @@
       "imageUrl": "images/module/area/04-AREA-SP-CH/04-AREA-SP-CH.jpg",
       "genericName": "04-AREA-SP-CH",
       "shouldHideBasedOnWidth": true
+    },
+    {
+      "partNumber": "04-AU-BIR-FILLER-1501200",
+      "bundlePath": "modules/autograph/04-au-xxx-filler-1501200/04-au-bir-filler-1501200/module",
+      "genericName": "04-AU-xxx-FILLER-1501200"
+    },
+    {
+      "partNumber": "04-AU-WAL-FILLER-1501200",
+      "bundlePath": "modules/autograph/04-au-xxx-filler-1501200/04-au-wal-filler-1501200/module",
+      "genericName": "04-AU-xxx-FILLER-1501200"
     }
   ],
   "moduleTypes": [
@@ -4088,6 +4182,14 @@
     },
     {
       "partNumber": "04-AU-WAL-FLUTTED-B",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-BIR-FLUTED-B",
+      "type": "deep"
+    },
+    {
+      "partNumber": "04-AU-WAL-FLUTED-B",
       "type": "deep"
     },
     {
@@ -4388,6 +4490,14 @@
     },
     {
       "partNumber": "04-AU-USHAPE-WAL-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-BIR-USHAPE-B",
+      "type": "shallow"
+    },
+    {
+      "partNumber": "04-AU-WAL-USHAPE-B",
       "type": "shallow"
     },
     {

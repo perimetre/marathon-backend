@@ -247,6 +247,16 @@ export const SP_PRODUCT_FRAGMENT = gql`
     partNumber: itemId
     childrenSortBy
     classname
+    alternative {
+      ... on object_alternative {
+        id
+        partNumber: key
+        hasPegs
+        bundlePath {
+          ...Asset
+        }
+      }
+    }
     creationDate
     hasPegs
     index
