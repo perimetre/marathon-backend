@@ -35,6 +35,7 @@ import {
   GET_SP_DRAWER_TYPES_LISTING,
   GET_SP_FINISH_LISTING
 } from './queries';
+import fs from 'fs';
 
 type MarathonServiceDependencies = {
   db?: PrismaClient;
@@ -644,9 +645,8 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
           if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
 
-          await db.finish.update({
-            where: { externalId: currentFinish.externalId },
-            data: {
+          try {
+            console.dir({
               slug: finishEdge?.node?.slug?.trim(),
               thumbnailUrl,
               translations:
@@ -662,8 +662,31 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
                       }
                     }
                   : undefined
-            }
-          });
+            });
+
+            await db.finish.update({
+              where: { externalId: currentFinish.externalId },
+              data: {
+                slug: finishEdge?.node?.slug?.trim(),
+                thumbnailUrl,
+                translations:
+                  translationIds && translationIds.length > 0
+                    ? {
+                        update: {
+                          // Theoretically we should only have one id for locale+slug
+                          where: { id: translationIds[0] },
+                          data: {
+                            name: finishEdge?.node?.name?.trim(),
+                            description: finishEdge?.node?.description?.trim()
+                          }
+                        }
+                      }
+                    : undefined
+              }
+            });
+          } catch (ex) {
+            throw ex;
+          }
 
           await db.collectionFinishes.deleteMany({ where: { finish: { externalId: currentFinish.externalId } } });
         }
@@ -935,6 +958,18 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
     let { partNumber } = module;
 
     const bundleUrl = seed.modules.find((x) => x.partNumber.toLowerCase() === partNumber.toLowerCase())?.bundlePath;
+
+    if (!bundleUrl) {
+      try {
+        fs.writeFileSync(
+          path.normalize(__dirname + `./../../../debug/${module.partNumber}.json`),
+          JSON.stringify(module, null, 2),
+          { flag: 'w', encoding: 'utf-8' }
+        );
+      } catch {
+        // Do nothing
+      }
+    }
 
     if (!existingProduct && partNumberProduct?.length > 0) {
       partNumber = `${partNumber}-${partNumberProduct.length}`;
