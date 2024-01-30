@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  db:
+    container_name: marathon-db
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: marathon
+      MYSQL_USER: marathon
+      MYSQL_PASSWORD: whg-vha5UHE-tfu5cwt
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+  back:
+    container_name: marathon-back
+    build: .
+    links:
+      - db:db
+    env_file:
+      - .env
+    ports:
+      - '${PORT}:${PORT}'
+
