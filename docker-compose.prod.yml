@@ -9,6 +9,11 @@ services:
       MYSQL_DATABASE: marathon
       MYSQL_USER: marathon
       MYSQL_PASSWORD: whg-vha5UHE-tfu5cwt
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-uroot", "-ppass"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
     volumes:
       - ./data/mysql:/var/lib/mysql
     ports:
@@ -16,10 +21,13 @@ services:
   back:
     container_name: marathon-back
     build: .
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
     links:
       - db:db
     env_file:
       - .env
     ports:
       - '${PORT}:${PORT}'
-
