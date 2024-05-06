@@ -330,7 +330,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           const translationIds = currentCollection.translations.map((x) => x.id);
           const thumbnailUrl = collectionEdge?.node?.image?.fullpath;
 
-          if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
+          // if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
 
           await db.collection.update({
             where: { externalId: currentCollection.externalId },
@@ -372,7 +372,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
                 const thumbnailUrl = collectionEdge?.node?.image?.fullpath?.trim();
 
-                if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
+                // if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
 
                 return {
                   // Casting because we're sure, since there's a filter right above
@@ -488,7 +488,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
           const thumbnailUrl = drawerTypeEdge?.node?.image?.fullpath;
 
-          if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
+          // if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
 
           await db.type.update({
             where: { externalId: currentDrawerType.externalId },
@@ -530,7 +530,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
                 const thumbnailUrl = drawerTypeEdge?.node?.image?.fullpath?.trim();
 
-                if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
+                // if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
 
                 return {
                   // Casting because we're filtering right above
@@ -643,7 +643,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
           const thumbnailUrl = finishEdge?.node?.image?.fullpath;
 
-          if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
+          // if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
 
           try {
             console.dir({
@@ -708,7 +708,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
 
                 const thumbnailUrl = finishEdge?.node?.image?.fullpath?.trim();
 
-                if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
+                // if (thumbnailUrl) storageSyncQueue.push(thumbnailUrl);
 
                 return {
                   // Casing since we're filtering right above
@@ -1023,7 +1023,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           }
         });
 
-        if (moduleRest.thumbnailUrl) storageSyncQueue.push(moduleRest.thumbnailUrl);
+        // if (moduleRest.thumbnailUrl) storageSyncQueue.push(moduleRest.thumbnailUrl);
       }
     } else {
       status = 'updated';
@@ -1072,7 +1072,7 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
           }
         });
 
-        if (moduleRest.thumbnailUrl) storageSyncQueue.push(moduleRest.thumbnailUrl);
+        // if (moduleRest.thumbnailUrl) storageSyncQueue.push(moduleRest.thumbnailUrl);
 
         // If this module already exists, it already has all the relations, so delete them for them to be created
         // This is needed in case they completely changed the values here
@@ -1500,9 +1500,9 @@ export const marathonService = ({ db }: MarathonServiceDependencies) => {
       await syncProduct(skipDatabase);
       console.timeEnd('apiSync');
 
-      console.time('storageSync');
-      await storageSync();
-      console.timeEnd('storageSync');
+      // console.time('storageSync');
+      // await storageSync();
+      // console.timeEnd('storageSync');
     } catch (err) {
       logging.error(err);
       throw err;
